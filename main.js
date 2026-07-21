@@ -12,20 +12,22 @@
      instead of overriding it. Static under reduced motion or on
      touch-only devices. */
   var aura = document.querySelector(".aura");
-  if (aura && !reducedMotion && window.matchMedia("(pointer: fine)").matches &&
-      window.CSS && CSS.supports("translate", "0px")) {
+  var finePointer = window.matchMedia("(pointer: fine)").matches;
+  if (aura && !reducedMotion && window.CSS && CSS.supports("translate", "0px")) {
     var blobs = Array.prototype.slice.call(aura.querySelectorAll(".aura-blob"));
-    /* How strongly each cloud follows the cursor (max px offset at
-       the viewport edge). Different depths make the layer feel 3D. */
+    /* Cursor depths (max px offset at viewport edge) and scroll
+       depths (fraction of scroll distance). Different rates per
+       cloud make the layer read as 3D space. */
     var DEPTHS = [90, 150, 220];
+    var SCROLL_DEPTHS = [0.04, 0.07, 0.11];
     var cur = blobs.map(function () { return { x: 0, y: 0 }; });
-    var targetX = 0, targetY = 0, rafId = null;
+    var targetX = 0, targetY = 0, targetScroll = 0, rafId = null;
 
     var frame = function () {
       var settled = true;
       blobs.forEach(function (blob, i) {
-        var depth = DEPTHS[i % DEPTHS.length];
-        var tx = targetX * depth, ty = targetY * depth;
+        var tx = targetX * DEPTHS[i % 3];
+        var ty = targetY * DEPTHS[i % 3] - targetScroll * SCROLL_DEPTHS[i % 3];
         cur[i].x += (tx - cur[i].x) * 0.055;
         cur[i].y += (ty - cur[i].y) * 0.055;
         blob.style.translate = cur[i].x.toFixed(2) + "px " + cur[i].y.toFixed(2) + "px";
@@ -33,13 +35,60 @@
       });
       rafId = settled ? null : requestAnimationFrame(frame);
     };
+    var wake = function () { if (rafId === null) rafId = requestAnimationFrame(frame); };
 
-    window.addEventListener("mousemove", function (e) {
-      /* -0.5..0.5 from viewport center */
-      targetX = e.clientX / window.innerWidth - 0.5;
-      targetY = e.clientY / window.innerHeight - 0.5;
-      if (rafId === null) rafId = requestAnimationFrame(frame);
+    if (finePointer) {
+      window.addEventListener("mousemove", function (e) {
+        /* -0.5..0.5 from viewport center */
+        targetX = e.clientX / window.innerWidth - 0.5;
+        targetY = e.clientY / window.innerHeight - 0.5;
+        wake();
+      }, { passive: true });
+    }
+    window.addEventListener("scroll", function () {
+      targetScroll = window.scrollY;
+      wake();
     }, { passive: true });
+    targetScroll = window.scrollY;
+    wake();
+  }
+
+  /* ---------- 3D tilt on cards ----------
+     Cards pivot toward the cursor in perspective, easing with a
+     small lag; on leave they ease flat and hand control back to
+     the stylesheet. Desktop fine-pointer only, skipped under
+     reduced motion. */
+  if (!reducedMotion && finePointer) {
+    var TILT_MAX = 7; /* degrees */
+    document.querySelectorAll(".card, .case, .cap-card").forEach(function (card) {
+      var tx = 0, ty = 0, cx = 0, cy = 0, hovering = false, tRaf = null;
+
+      var tFrame = function () {
+        cx += (tx - cx) * 0.18;
+        cy += (ty - cy) * 0.18;
+        card.style.transform =
+          "perspective(900px) rotateX(" + cy.toFixed(2) + "deg) rotateY(" + cx.toFixed(2) + "deg) translateY(-5px)";
+        if (hovering || Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05) {
+          tRaf = requestAnimationFrame(tFrame);
+        } else {
+          card.style.transform = ""; /* back to stylesheet control */
+          tRaf = null;
+        }
+      };
+
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        tx = ((e.clientX - r.left) / r.width - 0.5) * TILT_MAX * 2;
+        ty = -((e.clientY - r.top) / r.height - 0.5) * TILT_MAX * 2;
+        hovering = true;
+        if (tRaf === null) tRaf = requestAnimationFrame(tFrame);
+      });
+      card.addEventListener("pointerleave", function () {
+        hovering = false;
+        tx = 0; ty = 0;
+        if (tRaf === null) tRaf = requestAnimationFrame(tFrame);
+      });
+    });
   }
 
   /* ---------- Nav: scrolled state + mobile toggle ---------- */
@@ -66,14 +115,27 @@
     });
   }
 
-  /* ---------- Scroll reveal ---------- */
+  /* ---------- Scroll reveal (auto-staggered inside grids) ---------- */
   var revealEls = document.querySelectorAll(".reveal");
+  document.querySelectorAll(".card-grid, .cap-grid").forEach(function (grid) {
+    Array.prototype.forEach.call(grid.children, function (child, i) {
+      if (child.classList.contains("reveal") && !child.hasAttribute("data-delay")) {
+        child.style.transitionDelay = Math.min(i * 0.08, 0.4) + "s";
+      }
+    });
+  });
   if ("IntersectionObserver" in window && !reducedMotion) {
     var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
           revealObserver.unobserve(entry.target);
+          /* Clear stagger delay once revealed so hover transitions
+             aren't delayed afterwards */
+          setTimeout(function () {
+            entry.target.classList.add("settled");
+            entry.target.style.transitionDelay = "";
+          }, 1200);
         }
       });
     }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });

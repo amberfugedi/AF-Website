@@ -68,8 +68,16 @@ the only text color allowed on top of them or as accent text on cream.
 2. **Cursor parallax:** each cloud eases toward cursor at depths
    90/150/220px max, via CSS `translate` property (composes with the
    orbit `transform`). Desktop `pointer: fine` only.
-3. **Scroll reveal:** `.reveal` fade/rise 28px, 0.7s, IntersectionObserver.
-4. **Hover:** cards lift −5px + soft shadow; links draw a 2px underline in.
+3. **Scroll depth:** clouds also recede at 0.04/0.07/0.11× scroll
+   distance, extending the parallax into the scroll axis.
+4. **Scroll reveal:** `.reveal` fade/rise 28px, 0.7s,
+   IntersectionObserver; grid children auto-stagger 80ms (capped
+   0.4s), delay cleared after settling so hover stays instant.
+5. **Hero entrance (home):** h1 → subhead → CTAs → trusted row rise
+   in at 0/0.15/0.28/0.42s.
+6. **Hover:** cards lift −5px + soft shadow and tilt up to 7° toward
+   the cursor in 900px perspective (fine pointer only), easing back
+   flat on leave; links draw a 2px underline in.
 
 `prefers-reduced-motion`: aura static, reveals instant, no hover
 transforms. Hard requirement — never ship motion outside this contract.
