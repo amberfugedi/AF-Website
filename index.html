@@ -47,10 +47,10 @@
   <!-- Fonts: preconnect + async load so nothing render-blocks -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
   </noscript>
 
   <link rel="stylesheet" href="styles.css">
@@ -71,6 +71,7 @@
         "address": { "@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US" },
         "knowsAbout": [
           "Marketing Automation",
+          "AI Strategy",
           "Content Marketing",
           "Demand Generation",
           "Business Strategy",
@@ -95,7 +96,7 @@
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Courses", "description": "Self-paced courses teaching marketing and automation workflows so teams can run them in-house." } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Automations", "description": "Custom done-for-you marketing automations: content pipelines, intake-to-asset workflows, and lead generation systems." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing & Business Strategy Consulting", "description": "Marketing and business strategy plus hands-on execution for companies that want a partner, not a playbook. By application." } }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing & Business Strategy Consulting", "description": "Marketing and business strategy plus hands-on execution for companies that want a partner, not a playbook. Includes an AI-gap audit: finding where AI fits the business. By application." } }
           ]
         }
       }
@@ -136,8 +137,8 @@
       <div class="wrap hero-content">
         <span class="pill">Marketing Courses &amp; Automation</span>
         <h1>Marketing that runs <em>without you.</em></h1>
-        <!-- {{ADJUST}}: subhead updated to include strategy/consulting — tune wording below -->
-        <p class="subhead">I build the courses, automations, and strategies that let businesses market smarter — systems that compound instead of tasks that pile up. Based in Connecticut, working with teams everywhere.</p>
+        <!-- {{ADJUST}}: subhead carries the AI-diagnosis positioning — tune wording below -->
+        <p class="subhead">I find where AI fits in your business — the gaps, the time sinks — then build the courses, automations, and strategy that get your attention back. Systems that compound instead of tasks that pile up. Based in Connecticut, working with teams everywhere.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="work.html">See the Work</a>
           <a class="btn btn-outline" href="about.html#contact">Let's Talk</a>
@@ -153,23 +154,24 @@
         <p class="section-lede reveal">Every engagement is built on the same playbook — the difference is who runs it. Learn it, hand it off, or build it side by side.</p>
 
         <div class="card-grid">
-          <article class="card reveal">
+          <article class="card reveal offer-courses">
             <p class="card-kicker">Learn the system.</p>
             <h3>Courses</h3>
             <p>Self-paced courses teaching the marketing and automation workflows I use with clients, so your team runs them in-house.</p>
             <a class="arrow-link" href="services.html#courses">Explore courses</a>
           </article>
-          <article class="card reveal" data-delay="1">
+          <article class="card reveal offer-automations" data-delay="1">
             <p class="card-kicker">Done for you.</p>
             <h3>Automations</h3>
-            <p>Custom marketing automations: content pipelines, intake-to-asset workflows, lead gen that runs on its own.</p>
+            <!-- {{ADJUST}}: automations one-liner leads with the AI diagnosis -->
+            <p>I find where AI fits — the gaps, the time sinks — then build the automation to match: content pipelines, intake-to-asset workflows, lead gen that runs on its own.</p>
             <a class="arrow-link" href="services.html#automations">Explore automations</a>
           </article>
-          <article class="card reveal" data-delay="2">
+          <article class="card reveal offer-consulting" data-delay="2">
             <p class="card-kicker">Built with you.</p>
             <h3>Consulting</h3>
-            <!-- {{ADJUST}}: consulting one-liner now covers marketing AND business strategy -->
-            <p>Marketing and business strategy, plus hands-on execution — a partner, not a playbook. By application.</p>
+            <!-- {{ADJUST}}: consulting one-liner covers marketing AND business strategy + the AI-gap audit -->
+            <p>Marketing and business strategy, plus hands-on execution — a partner, not a playbook. Starts with an AI-gap audit. By application.</p>
             <a class="arrow-link" href="services.html#consulting">Explore consulting</a>
           </article>
         </div>

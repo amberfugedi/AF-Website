@@ -1,27 +1,36 @@
 /* ============================================================
    Amber Fugedi — shared styles (all four pages)
-   Dark "aura" theme: near-black base, warm ambient glow,
-   editorial type, single coral accent.
+   Soft pastel aura theme: warm cream base, drifting pastel
+   color clouds, coral accent, rounded and friendly.
+
+   Offer color system (used consistently on every page):
+     Courses     = warm peach   (#FCE4C4 fill / #8A5A14 text)
+     Automations = soft lavender(#DAD4F5 fill / #574AA6 text)
+     Consulting  = blush pink   (#FBD5E4 fill / #A63563 text)
+   Pastel fills never carry text lighter than the deep tones —
+   every deep tone is ≥4.5:1 on cream AND on its pastel.
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #111318;
-  --bg-raised: #181B21;
-  --bg-input: #1A1D24;
-  --ink: #F4F2EE;          /* headings — 15.9:1 on --bg */
-  --body: #CDD0D6;         /* body text — ~11:1 on --bg */
-  --muted: #A9ADB6;        /* meta labels — ~8:1 on --bg */
-  --coral: #F0563A;        /* fills / buttons */
-  --coral-text: #FF7A5C;   /* accent used AS text — 7.2:1 on --bg */
-  --btn-ink: #16100D;      /* text on coral fills — 5.7:1 on --coral */
-  --peach: #FFB89E;
-  --amber: #F2A93B;
-  --line: rgba(255, 255, 255, 0.10);
-  --line-strong: #8A8F99;
-  --radius: 18px;
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --bg: #FDF9F5;
+  --bg-raised: #FFFFFF;
+  --ink: #2E2A27;          /* headings + body — 13.3:1 on cream */
+  --body: #3E3833;         /* ~11:1 */
+  --muted: #5C544B;        /* secondary text — ~7:1, no pale grays */
+  --coral: #E8846B;        /* fills/buttons only — NOT for text on cream */
+  --coral-deep: #B0492E;   /* coral used AS text — 5.1:1 on cream */
+  --blush: #FBD5E4;
+  --peach: #FCE4C4;
+  --lavender: #DAD4F5;
+  --courses-deep: #8A5A14;
+  --automations-deep: #574AA6;
+  --consulting-deep: #A63563;
+  --line: rgba(46, 42, 39, 0.12);
+  --shadow-soft: 0 14px 40px -18px rgba(46, 42, 39, 0.18);
+  --radius: 24px;
+  --font-display: "Bricolage Grotesque", "Segoe UI", Verdana, sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --nav-h: 68px;
@@ -41,9 +50,9 @@ body {
 
 h1, h2, h3 {
   font-family: var(--font-display);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
   color: var(--ink);
 }
 
@@ -52,31 +61,32 @@ img { max-width: 100%; display: block; }
 
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-::selection { background: var(--coral); color: var(--btn-ink); }
+::selection { background: var(--blush); color: var(--ink); }
 
 :focus-visible {
-  outline: 2px solid var(--coral-text);
+  outline: 2px solid var(--coral-deep);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
-/* Body links: underlined by default — never color alone */
+/* Body links: coral + underline — never color alone */
 main p a, .form-note a, .footer-inner a {
-  color: var(--coral-text);
+  color: var(--coral-deep);
+  font-weight: 500;
   text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(255, 122, 92, 0.45);
+  text-decoration-color: rgba(176, 73, 46, 0.4);
   transition: text-decoration-color 0.2s;
 }
 main p a:hover, .form-note a:hover, .footer-inner a:hover {
-  text-decoration-color: var(--coral-text);
+  text-decoration-color: var(--coral-deep);
 }
 
 /* ============ Aura (the signature) ============
-   .aura is shifted by JS toward the cursor with a lag; inside it,
-   three warm blobs drift independently on ~20–26s loops so the
-   light visibly moves and recomposes — an aurora on the dark base. */
+   Pastel color clouds drifting on very slow loops; JS adds a
+   gentle cursor-following ease on the whole layer. Static under
+   reduced motion. */
 .aura {
   position: fixed;
   inset: 0;
@@ -88,51 +98,50 @@ main p a:hover, .form-note a:hover, .footer-inner a:hover {
 .aura-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(64px);
-  mix-blend-mode: screen; /* lights add luminously on the dark base instead of muddying */
+  filter: blur(70px);
   will-change: transform;
 }
 .aura-blob-1 {
-  width: 58vw; height: 58vw;
-  min-width: 520px; min-height: 520px;
-  top: -22%; left: -10%;
+  width: 60vw; height: 60vw;
+  min-width: 540px; min-height: 540px;
+  top: -24%; left: -12%;
   background: radial-gradient(circle at 35% 35%,
-    rgba(255, 154, 120, 0.55), rgba(255, 154, 120, 0.0) 62%);
-  animation: aura-drift-a 22s ease-in-out infinite alternate;
+    rgba(251, 213, 228, 0.95), rgba(251, 213, 228, 0.0) 66%);
+  animation: aura-drift-a 34s ease-in-out infinite alternate;
 }
 .aura-blob-2 {
-  width: 50vw; height: 50vw;
-  min-width: 460px; min-height: 460px;
-  top: -14%; right: -14%;
+  width: 52vw; height: 52vw;
+  min-width: 480px; min-height: 480px;
+  top: -16%; right: -14%;
   background: radial-gradient(circle at 60% 40%,
-    rgba(242, 169, 59, 0.45), rgba(242, 169, 59, 0.0) 62%);
-  animation: aura-drift-b 26s ease-in-out infinite alternate;
+    rgba(252, 228, 196, 0.95), rgba(252, 228, 196, 0.0) 66%);
+  animation: aura-drift-b 40s ease-in-out infinite alternate;
 }
 .aura-blob-3 {
-  width: 44vw; height: 44vw;
-  min-width: 400px; min-height: 400px;
-  top: 26%; left: 28%;
+  width: 46vw; height: 46vw;
+  min-width: 420px; min-height: 420px;
+  top: 24%; left: 26%;
   background: radial-gradient(circle at 50% 50%,
-    rgba(240, 86, 58, 0.42), rgba(240, 86, 58, 0.0) 64%);
-  animation: aura-drift-c 20s ease-in-out infinite alternate;
+    rgba(218, 212, 245, 0.9), rgba(218, 212, 245, 0.0) 66%);
+  animation: aura-drift-c 30s ease-in-out infinite alternate;
 }
 @keyframes aura-drift-a {
   from { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(7vw, 6vh) scale(1.12); }
-  to   { transform: translate(-4vw, 10vh) scale(0.94); }
+  50%  { transform: translate(6vw, 5vh) scale(1.1); }
+  to   { transform: translate(-3vw, 9vh) scale(0.95); }
 }
 @keyframes aura-drift-b {
   from { transform: translate(0, 0) scale(1) rotate(0deg); }
-  50%  { transform: translate(-8vw, 8vh) scale(1.14) rotate(8deg); }
-  to   { transform: translate(-3vw, -5vh) scale(1.02) rotate(-4deg); }
+  50%  { transform: translate(-7vw, 7vh) scale(1.12) rotate(6deg); }
+  to   { transform: translate(-2vw, -4vh) scale(1.02) rotate(-3deg); }
 }
 @keyframes aura-drift-c {
   from { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(6vw, -8vh) scale(1.16); }
-  to   { transform: translate(-8vw, -3vh) scale(0.92); }
+  50%  { transform: translate(5vw, -7vh) scale(1.14); }
+  to   { transform: translate(-7vw, -2vh) scale(0.93); }
 }
-/* Interior pages: same atmosphere, turned down */
-body.page-sub .aura { opacity: 0.5; }
+/* Interior pages: fainter echo behind the header so text stays readable */
+body.page-sub .aura { opacity: 0.45; }
 
 /* All page content sits above the aura */
 .site-nav, main, footer { position: relative; z-index: 1; }
@@ -144,7 +153,7 @@ body.page-sub .aura { opacity: 0.5; }
   z-index: 50;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  background: rgba(17, 19, 24, 0.78);
+  background: rgba(253, 249, 245, 0.8);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s;
 }
@@ -160,21 +169,21 @@ body.page-sub .aura { opacity: 0.5; }
 .brand {
   font-family: var(--font-display);
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: -0.01em;
 }
-.brand em { font-style: normal; color: var(--coral-text); }
+.brand em { font-style: normal; color: var(--coral-deep); }
 
 .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
 .nav-links a {
   text-decoration: none;
   font-size: 0.925rem;
   font-weight: 500;
-  color: var(--body);
+  color: var(--muted);
   padding-bottom: 3px;
-  background-image: linear-gradient(var(--coral-text), var(--coral-text));
+  background-image: linear-gradient(var(--coral-deep), var(--coral-deep));
   background-repeat: no-repeat;
   background-size: 0% 2px;
   background-position: left bottom;
@@ -187,14 +196,14 @@ body.page-sub .aura { opacity: 0.5; }
   background-size: 100% 2px;
 }
 .nav-links a.nav-cta {
-  color: var(--coral-text);
+  color: var(--coral-deep);
   border: 1.5px solid var(--coral);
   padding: 8px 18px;
-  border-radius: 999px;
+  border-radius: 24px;
   background-image: none;
   transition: background 0.2s, color 0.2s;
 }
-.nav-links a.nav-cta:hover { background: var(--coral); color: var(--btn-ink); }
+.nav-links a.nav-cta:hover { background: var(--coral); color: var(--ink); }
 
 .nav-toggle {
   display: none;
@@ -240,7 +249,7 @@ body.page-sub .aura { opacity: 0.5; }
   font-size: 1rem;
   text-decoration: none;
   padding: 15px 32px;
-  border-radius: 999px;
+  border-radius: 24px;
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   border: 0;
@@ -248,21 +257,20 @@ body.page-sub .aura { opacity: 0.5; }
 }
 .btn-primary {
   background: var(--coral);
-  color: var(--btn-ink);
-  box-shadow: 0 12px 32px -12px rgba(240, 86, 58, 0.5);
+  color: var(--ink); /* dark on coral = 5.4:1; white would fail */
+  box-shadow: 0 12px 30px -12px rgba(232, 132, 107, 0.65);
 }
 .btn-primary:hover {
-  background: var(--coral-text);
+  background: #E0724F;
   transform: translateY(-2px);
-  box-shadow: 0 18px 38px -12px rgba(240, 86, 58, 0.55);
+  box-shadow: 0 18px 36px -12px rgba(232, 132, 107, 0.7);
 }
 .btn-outline {
-  border: 1.5px solid var(--line-strong);
+  border: 1.5px solid var(--ink);
   color: var(--ink);
   background: transparent;
 }
 .btn-outline:hover {
-  border-color: var(--ink);
   background: var(--ink);
   color: var(--bg);
   transform: translateY(-2px);
@@ -276,7 +284,7 @@ section { padding: 104px 0; }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--coral-text);
+  color: var(--coral-deep);
   margin-bottom: 14px;
   display: block;
 }
@@ -321,10 +329,10 @@ section { padding: 104px 0; }
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--coral-text);
-  background: rgba(240, 86, 58, 0.08);
-  border: 1px solid rgba(240, 86, 58, 0.35);
-  border-radius: 999px;
+  color: var(--coral-deep);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(232, 132, 107, 0.45);
+  border-radius: 24px;
   padding: 8px 16px;
   margin-bottom: 28px;
 }
@@ -337,15 +345,15 @@ section { padding: 104px 0; }
 
 .hero h1 {
   font-size: clamp(2.85rem, 7.5vw, 5rem);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   margin-bottom: 26px;
 }
-.hero h1 em { font-style: italic; color: var(--coral-text); }
+.hero h1 em { font-style: normal; color: var(--coral-deep); }
 
 .hero .subhead {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
   color: var(--body);
-  max-width: 580px;
+  max-width: 600px;
   margin-bottom: 42px;
 }
 
@@ -355,7 +363,7 @@ section { padding: 104px 0; }
 .page-head { padding: 170px 0 30px; }
 .page-head h1 {
   font-size: clamp(2.4rem, 5.5vw, 3.6rem);
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   margin-bottom: 20px;
   max-width: 800px;
 }
@@ -380,16 +388,20 @@ section { padding: 104px 0; }
 }
 .card:hover {
   transform: translateY(-5px);
-  border-color: rgba(240, 86, 58, 0.45);
-  box-shadow: 0 24px 48px -24px rgba(240, 86, 58, 0.28);
+  box-shadow: var(--shadow-soft);
 }
 
+/* Kickers render as soft chips; per-offer colors below */
 .card .card-kicker {
+  align-self: flex-start;
   font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.05rem;
-  color: var(--coral-text);
-  margin-bottom: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 24px;
+  background: var(--peach);
+  color: var(--courses-deep);
+  margin-bottom: 16px;
 }
 .card h3 { font-size: 1.45rem; margin-bottom: 12px; }
 .card p { font-size: 0.97rem; color: var(--body); margin-bottom: 24px; }
@@ -403,16 +415,27 @@ section { padding: 104px 0; }
   margin-bottom: 12px;
 }
 
-/* Arrow links: underline draws in on hover */
+/* Per-offer color coding — tags, borders, links */
+.card.offer-courses:hover     { border-color: var(--peach); }
+.card.offer-automations:hover { border-color: var(--lavender); }
+.card.offer-consulting:hover  { border-color: var(--blush); }
+.card.offer-courses .card-kicker     { background: var(--peach);    color: var(--courses-deep); }
+.card.offer-automations .card-kicker { background: var(--lavender); color: var(--automations-deep); }
+.card.offer-consulting .card-kicker  { background: var(--blush);    color: var(--consulting-deep); }
+.card.offer-courses .arrow-link     { color: var(--courses-deep);     background-image: linear-gradient(var(--courses-deep), var(--courses-deep)); }
+.card.offer-automations .arrow-link { color: var(--automations-deep); background-image: linear-gradient(var(--automations-deep), var(--automations-deep)); }
+.card.offer-consulting .arrow-link  { color: var(--consulting-deep);  background-image: linear-gradient(var(--consulting-deep), var(--consulting-deep)); }
+
+/* Arrow links: coral underline draws in on hover */
 .arrow-link {
   margin-top: auto;
   align-self: flex-start;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--coral-text);
+  color: var(--coral-deep);
   text-decoration: none;
   padding-bottom: 3px;
-  background-image: linear-gradient(var(--coral-text), var(--coral-text));
+  background-image: linear-gradient(var(--coral-deep), var(--coral-deep));
   background-repeat: no-repeat;
   background-size: 0% 2px;
   background-position: left bottom;
@@ -426,7 +449,7 @@ section { padding: 104px 0; }
   position: sticky;
   top: var(--nav-h);
   z-index: 40;
-  background: rgba(17, 19, 24, 0.85);
+  background: rgba(253, 249, 245, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -442,19 +465,17 @@ section { padding: 104px 0; }
   display: inline-block;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--body);
+  color: var(--muted);
   text-decoration: none;
   padding: 8px 18px;
-  border-radius: 999px;
+  border-radius: 24px;
   border: 1px solid transparent;
   transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
-.anchor-nav a:hover { color: var(--ink); border-color: var(--line-strong); }
-.anchor-nav a.active {
-  color: var(--coral-text);
-  border-color: rgba(240, 86, 58, 0.45);
-  background: rgba(240, 86, 58, 0.08);
-}
+.anchor-nav a:hover { color: var(--ink); border-color: var(--line); }
+.anchor-nav a.nav-courses.active     { color: var(--courses-deep);     background: var(--peach); }
+.anchor-nav a.nav-automations.active { color: var(--automations-deep); background: var(--lavender); }
+.anchor-nav a.nav-consulting.active  { color: var(--consulting-deep);  background: var(--blush); }
 
 .offer-section { scroll-margin-top: 140px; }
 .offer-section + .offer-section { border-top: 1px solid var(--line); }
@@ -468,11 +489,13 @@ section { padding: 104px 0; }
 @media (max-width: 800px) { .offer-grid { grid-template-columns: 1fr; } }
 
 .offer-kicker {
+  display: inline-block;
   font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--coral-text);
-  margin-bottom: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 24px;
+  margin-bottom: 14px;
 }
 .offer-section h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 16px; }
 .offer-desc { color: var(--body); margin-bottom: 28px; max-width: 560px; }
@@ -490,14 +513,14 @@ section { padding: 104px 0; }
   left: 0; top: 7px;
   width: 16px; height: 16px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, var(--amber), var(--coral));
+  background: var(--coral);
 }
 
 .offer-aside {
-  background: var(--bg-raised);
   border-radius: var(--radius);
   padding: 28px;
   border: 1px solid var(--line);
+  background: var(--bg-raised);
 }
 .offer-aside .tier {
   font-size: 0.75rem;
@@ -509,12 +532,27 @@ section { padding: 104px 0; }
 }
 .offer-aside .who {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.15rem;
   color: var(--ink);
   margin-bottom: 16px;
   line-height: 1.35;
 }
 .offer-aside p { font-size: 0.92rem; color: var(--body); margin-bottom: 22px; }
+
+/* Per-offer section accents */
+.offer-section.offer-courses .offer-kicker     { background: var(--peach);    color: var(--courses-deep); }
+.offer-section.offer-automations .offer-kicker { background: var(--lavender); color: var(--automations-deep); }
+.offer-section.offer-consulting .offer-kicker  { background: var(--blush);    color: var(--consulting-deep); }
+.offer-section.offer-courses .offer-points li::before     { background: var(--peach);    border: 2px solid var(--courses-deep); }
+.offer-section.offer-automations .offer-points li::before { background: var(--lavender); border: 2px solid var(--automations-deep); }
+.offer-section.offer-consulting .offer-points li::before  { background: var(--blush);    border: 2px solid var(--consulting-deep); }
+.offer-section.offer-courses .offer-aside     { background: var(--peach); }
+.offer-section.offer-automations .offer-aside { background: var(--lavender); }
+.offer-section.offer-consulting .offer-aside  { background: var(--blush); }
+.offer-section.offer-courses .offer-aside .tier     { color: var(--courses-deep); }
+.offer-section.offer-automations .offer-aside .tier { color: var(--automations-deep); }
+.offer-section.offer-consulting .offer-aside .tier  { color: var(--consulting-deep); }
 
 /* ============ Work page ============ */
 .case {
@@ -523,19 +561,18 @@ section { padding: 104px 0; }
   border-radius: var(--radius);
   padding: clamp(28px, 4.5vw, 44px);
   margin-bottom: 22px;
-  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s var(--ease);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 .case:hover {
   transform: translateY(-5px);
-  border-color: rgba(240, 86, 58, 0.45);
-  box-shadow: 0 24px 48px -24px rgba(240, 86, 58, 0.28);
+  box-shadow: var(--shadow-soft);
 }
 .case .case-tag {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--coral-text);
+  color: var(--coral-deep);
   display: block;
   margin-bottom: 8px;
 }
@@ -557,13 +594,15 @@ section { padding: 104px 0; }
   color: var(--muted);
   margin-bottom: 10px;
   padding-top: 14px;
-  border-top: 2px solid rgba(255, 184, 158, 0.4);
+  border-top: 2px solid var(--peach);
 }
 .case-col p { font-size: 0.95rem; color: var(--body); }
+.case-col.result h3 { border-top-color: var(--coral); }
 .case-col.result p {
   font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--peach);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--coral-deep);
 }
 
 /* ============ About page ============ */
@@ -577,14 +616,15 @@ section { padding: 104px 0; }
 
 .about-portrait {
   aspect-ratio: 4 / 5;
-  border-radius: 24px;
+  border-radius: var(--radius);
   overflow: hidden;
   position: relative;
   background:
-    radial-gradient(circle at 25% 20%, rgba(255, 184, 158, 0.35), transparent 60%),
-    radial-gradient(circle at 80% 75%, rgba(242, 169, 59, 0.3), transparent 55%),
+    radial-gradient(circle at 25% 20%, var(--blush), transparent 60%),
+    radial-gradient(circle at 80% 75%, var(--peach), transparent 55%),
     var(--bg-raised);
   border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
 }
 .about-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .about-portrait .portrait-note {
@@ -593,8 +633,8 @@ section { padding: 104px 0; }
   display: grid;
   place-items: center;
   font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.05rem;
+  font-weight: 600;
+  font-size: 1rem;
   color: var(--muted);
   padding: 24px;
   text-align: center;
@@ -612,7 +652,7 @@ section { padding: 104px 0; }
   position: absolute;
   left: 7px; top: 6px; bottom: 6px;
   width: 2px;
-  background: linear-gradient(rgba(255, 184, 158, 0.7), rgba(242, 169, 59, 0.5), rgba(242, 169, 59, 0.08));
+  background: linear-gradient(var(--blush), var(--peach), var(--lavender));
 }
 .tl-entry { position: relative; padding: 0 0 44px 44px; }
 .tl-entry:last-child { padding-bottom: 0; }
@@ -630,7 +670,7 @@ section { padding: 104px 0; }
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--coral-text);
+  color: var(--coral-deep);
   display: block;
   margin-bottom: 4px;
 }
@@ -664,9 +704,9 @@ input, textarea {
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--ink);
-  background: var(--bg-input);
-  border: 1.5px solid rgba(255, 255, 255, 0.16);
-  border-radius: 12px;
+  background: var(--bg-raised);
+  border: 1.5px solid rgba(46, 42, 39, 0.2);
+  border-radius: 14px;
   padding: 14px 18px;
   width: 100%;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -674,8 +714,8 @@ input, textarea {
 input::placeholder, textarea::placeholder { color: var(--muted); }
 input:focus, textarea:focus {
   outline: none;
-  border-color: var(--coral-text);
-  box-shadow: 0 0 0 3px rgba(240, 86, 58, 0.22);
+  border-color: var(--coral-deep);
+  box-shadow: 0 0 0 3px rgba(232, 132, 107, 0.3);
 }
 textarea { resize: vertical; min-height: 140px; }
 
@@ -690,7 +730,7 @@ textarea { resize: vertical; min-height: 140px; }
 .form-note { font-size: 0.85rem; color: var(--muted); }
 .form-status {
   font-weight: 600;
-  color: var(--peach);
+  color: var(--coral-deep);
   min-height: 1.4em;
   font-size: 0.95rem;
 }
@@ -716,6 +756,7 @@ footer {
   html { scroll-behavior: auto; }
   .aura-blob { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal[data-delay="1"], .reveal[data-delay="2"] { transition-delay: 0s; }
   .btn:hover, .card:hover, .case:hover { transform: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

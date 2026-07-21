@@ -25,10 +25,10 @@
   <!-- Fonts: preconnect + async load so nothing render-blocks -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
   </noscript>
 
   <link rel="stylesheet" href="styles.css">
@@ -61,7 +61,7 @@
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Courses", "description": "Self-paced courses teaching marketing and automation workflows so teams can run them in-house." } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Automations", "description": "Custom done-for-you marketing automations: content pipelines, intake-to-asset workflows, and lead generation systems." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing & Business Strategy Consulting", "description": "Marketing and business strategy plus hands-on execution for companies that want a partner, not a playbook. By application." } }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing & Business Strategy Consulting", "description": "Marketing and business strategy plus hands-on execution for companies that want a partner, not a playbook. Includes an AI-gap audit: finding where AI fits the business. By application." } }
           ]
         }
       }
@@ -109,15 +109,15 @@
     <nav class="anchor-nav" aria-label="Services on this page">
       <div class="wrap">
         <ul>
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#automations">Automations</a></li>
-          <li><a href="#consulting">Consulting</a></li>
+          <li><a class="nav-courses" href="#courses">Courses</a></li>
+          <li><a class="nav-automations" href="#automations">Automations</a></li>
+          <li><a class="nav-consulting" href="#consulting">Consulting</a></li>
         </ul>
       </div>
     </nav>
 
     <!-- ============ Courses ============ -->
-    <section class="offer-section" id="courses" aria-labelledby="courses-title">
+    <section class="offer-section offer-courses" id="courses" aria-labelledby="courses-title">
       <div class="wrap offer-grid">
         <div class="reveal">
           <p class="offer-kicker">Learn the system.</p>
@@ -139,12 +139,13 @@
     </section>
 
     <!-- ============ Automations ============ -->
-    <section class="offer-section" id="automations" aria-labelledby="automations-title">
+    <section class="offer-section offer-automations" id="automations" aria-labelledby="automations-title">
       <div class="wrap offer-grid">
         <div class="reveal">
           <p class="offer-kicker">Done for you.</p>
           <h2 id="automations-title">Automations</h2>
-          <p class="offer-desc">Custom marketing automations: content pipelines, intake-to-asset workflows, lead gen that runs on its own. I build it, document it, and hand you the keys.</p>
+          <!-- {{ADJUST}}: automations now leads with the AI diagnosis — tune wording below -->
+          <p class="offer-desc">It starts with a diagnosis: I find where AI fits in your business — the gaps, the time sinks — so you get your attention back for strategy. Then I build the automation to match: content pipelines, intake-to-asset workflows, lead gen that runs on its own. I build it, document it, and hand you the keys.</p>
           <ul class="offer-points">
             <li>Content pipelines that turn one input into a month of publishing</li>
             <li>Intake-to-asset workflows — forms in, finished campaigns out</li>
@@ -161,16 +162,17 @@
     </section>
 
     <!-- ============ Consulting ============ -->
-    <section class="offer-section" id="consulting" aria-labelledby="consulting-title">
+    <section class="offer-section offer-consulting" id="consulting" aria-labelledby="consulting-title">
       <div class="wrap offer-grid">
         <div class="reveal">
           <p class="offer-kicker">Built with you.</p>
           <h2 id="consulting-title">Consulting</h2>
-          <!-- {{ADJUST}}: consulting rewritten to cover marketing AND business strategy — tune wording below -->
+          <!-- {{ADJUST}}: consulting covers marketing AND business strategy — tune wording below -->
           <p class="offer-desc">Marketing and business strategy for companies that want a partner, not a playbook. We work out where the business is headed and what marketing has to do to get it there — then build the system to match. By application.</p>
           <ul class="offer-points">
-            <!-- {{ADJUST}}: new strategy bullet -->
+            <!-- {{ADJUST}}: strategy + AI-gap audit bullets -->
             <li>Business and marketing strategy in one conversation — where you're going, and how marketing gets you there</li>
+            <li>An AI-gap audit: where AI fits your business — the gaps, the time sinks — so you get your attention back for strategy</li>
             <li>Embedded partnership: strategy, execution, and the systems to sustain both</li>
             <li>A decade of in-house marketing leadership, not agency account management</li>
             <li>Limited engagements so every client gets real attention</li>
