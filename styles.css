@@ -74,8 +74,9 @@ main p a:hover, .form-note a:hover, .footer-inner a:hover {
 }
 
 /* ============ Aura (the signature) ============
-   .aura is shifted by JS toward the cursor with a lag;
-   .aura-drift runs the slow ~25s CSS loop inside it. */
+   .aura is shifted by JS toward the cursor with a lag; inside it,
+   three warm blobs drift independently on ~20–26s loops so the
+   light visibly moves and recomposes — an aurora on the dark base. */
 .aura {
   position: fixed;
   inset: 0;
@@ -84,39 +85,54 @@ main p a:hover, .form-note a:hover, .footer-inner a:hover {
   overflow: hidden;
   will-change: transform;
 }
-.aura-drift {
-  position: absolute;
-  inset: -20%;
-  animation: aura-drift 25s ease-in-out infinite alternate;
-  will-change: transform;
-}
-.aura-glow {
+.aura-blob {
   position: absolute;
   border-radius: 50%;
+  filter: blur(64px);
+  mix-blend-mode: screen; /* lights add luminously on the dark base instead of muddying */
+  will-change: transform;
 }
-.aura-glow-1 {
-  width: 110vmax; height: 110vmax;
-  left: 50%; top: -42%;
-  transform: translateX(-50%);
-  background: radial-gradient(circle at center,
-    rgba(255, 184, 158, 0.30),
-    rgba(242, 169, 59, 0.16) 38%,
-    rgba(242, 169, 59, 0.0) 68%);
+.aura-blob-1 {
+  width: 58vw; height: 58vw;
+  min-width: 520px; min-height: 520px;
+  top: -22%; left: -10%;
+  background: radial-gradient(circle at 35% 35%,
+    rgba(255, 154, 120, 0.55), rgba(255, 154, 120, 0.0) 62%);
+  animation: aura-drift-a 22s ease-in-out infinite alternate;
 }
-.aura-glow-2 {
-  width: 74vmax; height: 74vmax;
-  left: -16%; top: -18%;
-  background: radial-gradient(circle at center,
-    rgba(240, 86, 58, 0.24),
-    rgba(240, 86, 58, 0.0) 62%);
+.aura-blob-2 {
+  width: 50vw; height: 50vw;
+  min-width: 460px; min-height: 460px;
+  top: -14%; right: -14%;
+  background: radial-gradient(circle at 60% 40%,
+    rgba(242, 169, 59, 0.45), rgba(242, 169, 59, 0.0) 62%);
+  animation: aura-drift-b 26s ease-in-out infinite alternate;
 }
-@keyframes aura-drift {
-  0%   { transform: translate(-1.5%, -1%) scale(1); }
-  50%  { transform: translate(2.5%, 1.5%) scale(1.07); }
-  100% { transform: translate(-1%, 2.5%) scale(0.96); }
+.aura-blob-3 {
+  width: 44vw; height: 44vw;
+  min-width: 400px; min-height: 400px;
+  top: 26%; left: 28%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(240, 86, 58, 0.42), rgba(240, 86, 58, 0.0) 64%);
+  animation: aura-drift-c 20s ease-in-out infinite alternate;
+}
+@keyframes aura-drift-a {
+  from { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(7vw, 6vh) scale(1.12); }
+  to   { transform: translate(-4vw, 10vh) scale(0.94); }
+}
+@keyframes aura-drift-b {
+  from { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50%  { transform: translate(-8vw, 8vh) scale(1.14) rotate(8deg); }
+  to   { transform: translate(-3vw, -5vh) scale(1.02) rotate(-4deg); }
+}
+@keyframes aura-drift-c {
+  from { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(6vw, -8vh) scale(1.16); }
+  to   { transform: translate(-8vw, -3vh) scale(0.92); }
 }
 /* Interior pages: same atmosphere, turned down */
-body.page-sub .aura { opacity: 0.55; }
+body.page-sub .aura { opacity: 0.5; }
 
 /* All page content sits above the aura */
 .site-nav, main, footer { position: relative; z-index: 1; }
@@ -698,7 +714,7 @@ footer {
 /* ============ Reduced motion ============ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .aura-drift { animation: none; }
+  .aura-blob { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .btn:hover, .card:hover, .case:hover { transform: none; }
   *, *::before, *::after {
