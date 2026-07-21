@@ -104,8 +104,9 @@ transforms. Hard requirement — never ship motion outside this contract.
   `capabilities.html` (capability areas + platform stack),
   `about.html` (bio, timeline, team testimonials, education, contact
   + email capture). Home also carries a three-quote testimonial
-  section; quotes are real, transcribed from the previous site —
-  never invent or edit beyond trimming whole sentences.
+  section; quotes are real, transcribed from the previous site and
+  Amber's LinkedIn recommendations — never invent or edit beyond
+  trimming whole sentences.
 - Shared `styles.css` + `main.js`. Nav/footer duplicated per page inside
   `<!-- SHARED NAV/FOOTER — keep in sync -->` comment blocks; only
   `aria-current="page"` differs.
