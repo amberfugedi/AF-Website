@@ -337,16 +337,13 @@ body.page-sub .aura { opacity: 0.45; }
 section { padding: 104px 0; }
 
 .eyebrow {
-  display: inline-block;
-  font-size: 0.78rem;
+  display: block;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--coral-deep);
-  background: rgba(232, 132, 107, 0.14);
-  border-radius: 24px;
-  padding: 7px 16px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .section-title {
@@ -382,27 +379,6 @@ section { padding: 104px 0; }
 }
 .hero-content { max-width: 760px; }
 
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--coral-deep);
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(232, 132, 107, 0.45);
-  border-radius: 24px;
-  padding: 8px 16px;
-  margin-bottom: 28px;
-}
-.pill::before {
-  content: "";
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--coral);
-}
 
 .hero h1 {
   font-size: clamp(2.85rem, 7.5vw, 5rem);
@@ -490,17 +466,13 @@ section { padding: 104px 0; }
   box-shadow: var(--shadow-soft);
 }
 
-/* Kickers render as soft chips; per-offer colors below */
+/* Kickers are plain typographic labels; per-offer colors below */
 .card .card-kicker {
-  align-self: flex-start;
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  padding: 5px 14px;
-  border-radius: 24px;
-  background: var(--peach);
   color: var(--courses-deep);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 .card h3 { font-size: 1.45rem; margin-bottom: 12px; }
 .card p { font-size: 0.97rem; color: var(--body); margin-bottom: 24px; }
@@ -521,9 +493,9 @@ section { padding: 104px 0; }
 .card.offer-courses:hover     { border-color: var(--peach); }
 .card.offer-automations:hover { border-color: var(--lavender); }
 .card.offer-consulting:hover  { border-color: var(--blush); }
-.card.offer-courses .card-kicker     { background: var(--peach);    color: var(--courses-deep); }
-.card.offer-automations .card-kicker { background: var(--lavender); color: var(--automations-deep); }
-.card.offer-consulting .card-kicker  { background: var(--blush);    color: var(--consulting-deep); }
+.card.offer-courses .card-kicker     { color: var(--courses-deep); }
+.card.offer-automations .card-kicker { color: var(--automations-deep); }
+.card.offer-consulting .card-kicker  { color: var(--consulting-deep); }
 .card.offer-courses .arrow-link     { color: var(--courses-deep);     background-image: linear-gradient(var(--courses-deep), var(--courses-deep)); }
 .card.offer-automations .arrow-link { color: var(--automations-deep); background-image: linear-gradient(var(--automations-deep), var(--automations-deep)); }
 .card.offer-consulting .arrow-link  { color: var(--consulting-deep);  background-image: linear-gradient(var(--consulting-deep), var(--consulting-deep)); }
@@ -598,13 +570,11 @@ section { padding: 104px 0; }
 @media (max-width: 800px) { .offer-grid { grid-template-columns: 1fr; } }
 
 .offer-kicker {
-  display: inline-block;
+  display: block;
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  padding: 6px 16px;
-  border-radius: 24px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .offer-section h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 16px; }
 .offer-desc { color: var(--body); margin-bottom: 28px; max-width: 560px; }
@@ -650,9 +620,9 @@ section { padding: 104px 0; }
 .offer-aside p { font-size: 0.92rem; color: var(--body); margin-bottom: 22px; }
 
 /* Per-offer section accents */
-.offer-section.offer-courses .offer-kicker     { background: var(--peach);    color: var(--courses-deep); }
-.offer-section.offer-automations .offer-kicker { background: var(--lavender); color: var(--automations-deep); }
-.offer-section.offer-consulting .offer-kicker  { background: var(--blush);    color: var(--consulting-deep); }
+.offer-section.offer-courses .offer-kicker     { color: var(--courses-deep); }
+.offer-section.offer-automations .offer-kicker { color: var(--automations-deep); }
+.offer-section.offer-consulting .offer-kicker  { color: var(--consulting-deep); }
 .offer-section.offer-courses .offer-points li::before     { background: var(--peach);    border: 2px solid var(--courses-deep); }
 .offer-section.offer-automations .offer-points li::before { background: var(--lavender); border: 2px solid var(--automations-deep); }
 .offer-section.offer-consulting .offer-points li::before  { background: var(--blush);    border: 2px solid var(--consulting-deep); }
