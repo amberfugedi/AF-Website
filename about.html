@@ -77,6 +77,7 @@
     ]
   }
   </script>
+  <noscript><style>.reveal{opacity:1;transform:none}.glyph path,.glyph circle,.squiggle path{stroke-dashoffset:0}</style></noscript>
 </head>
 <body class="page-sub">
 
@@ -118,11 +119,14 @@
 
     <section aria-label="About Amber" style="padding-top: 40px;">
       <div class="wrap about-grid">
-        <div class="about-portrait reveal" role="img" aria-label="Portrait of Amber Fugedi, marketing consultant based in Connecticut">
+        <div class="reveal" style="position: relative;">
+        <span class="about-blob-outline" aria-hidden="true"></span>
+        <div class="about-portrait" role="img" aria-label="Portrait of Amber Fugedi, marketing consultant based in Connecticut">
           <!-- Swap in a real photo:
                <img src="amber-fugedi.jpg" alt="Amber Fugedi, marketing consultant based in Connecticut" loading="lazy" width="800" height="1000">
                and remove the .portrait-note div below. -->
           <div class="portrait-note">{{PLACEHOLDER: photo of Amber}}</div>
+        </div>
         </div>
         <div class="about-copy">
           <p class="reveal">So I build systems instead: courses that teach the workflow, and automations that run it. I spent ten years in martech, content, and demand gen, from credit unions to SaaS, and turned that work into repeatable systems any team can use.</p>

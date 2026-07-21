@@ -58,6 +58,18 @@ the only text color allowed on top of them or as accent text on cream.
   hover lift only. No permanent heavy shadows.
 - Borders: 1px `--line` rgba(46,42,39,0.12).
 
+## Custom graphics language
+
+Hand-authored inline SVG line art only — never stock images, icon
+fonts, emoji, or AI-generated raster clip art. Loose, imperfect
+strokes (2.6 width, round caps), colored by the offer's `-deep`
+token via `currentColor`. Every path carries `pathLength="100"` so
+the shared dasharray rule can stroke-draw it on reveal. Current
+set: hero squiggle underline (coral), three offer glyphs (book /
+infinity-plus / rising path), organic blob portrait with offset
+coral outline. Extend in this voice; keep each mark under ~10
+path commands.
+
 ## Motion (full budget — add nothing beyond this)
 
 1. **Aura (signature):** three pastel clouds on CONTINUOUS closed-loop
@@ -78,11 +90,14 @@ the only text color allowed on top of them or as accent text on cream.
 6. **Hover:** cards lift −5px + soft shadow and tilt up to 7° toward
    the cursor in 900px perspective (fine pointer only), easing back
    flat on leave; links draw a 2px underline in.
-7. **Quote marquee:** testimonial cards glide in a continuous
+7. **Stroke draw-in:** SVG line art draws itself over ~1.1s when its
+   section reveals (hero squiggle after the entrance, 0.75s delay);
+   fully drawn statically under reduced motion and no-JS.
+8. **Quote marquee:** testimonial cards glide in a continuous
    linear loop (38s home / 75s about), pause on hover and
    focus-within, edge-fade mask; static wrapped cards under
    reduced motion.
-8. **Hero depth plane:** hero content scrolls at 0.2× page speed and
+9. **Hero depth plane:** hero content scrolls at 0.2× page speed and
    fades out by ~0.85 viewport heights; on fine pointers the whole
    plane tilts ~±1–2° against the cursor (opposite the clouds) for
    foreground/background separation.
