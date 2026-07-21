@@ -99,7 +99,7 @@
      reduced motion. */
   if (!reducedMotion && finePointer) {
     var TILT_MAX = 7; /* degrees */
-    document.querySelectorAll(".card, .case, .cap-card").forEach(function (card) {
+    document.querySelectorAll(".card, .case, .cap-card, .quote-card").forEach(function (card) {
       var tx = 0, ty = 0, cx = 0, cy = 0, hovering = false, tRaf = null;
 
       var tFrame = function () {

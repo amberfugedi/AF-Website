@@ -102,7 +102,10 @@ transforms. Hard requirement — never ship motion outside this contract.
   `services.html` (offer ladder + sticky anchor nav),
   `work.html` (case studies: problem → build → result),
   `capabilities.html` (capability areas + platform stack),
-  `about.html` (bio, timeline, education, contact + email capture).
+  `about.html` (bio, timeline, team testimonials, education, contact
+  + email capture). Home also carries a three-quote testimonial
+  section; quotes are real, transcribed from the previous site —
+  never invent or edit beyond trimming whole sentences.
 - Shared `styles.css` + `main.js`. Nav/footer duplicated per page inside
   `<!-- SHARED NAV/FOOTER — keep in sync -->` comment blocks; only
   `aria-current="page"` differs.
