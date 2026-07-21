@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Amber Fugedi — Marketing Courses &amp; Automation Systems | Connecticut</title>
+  <meta name="description" content="Amber Fugedi builds marketing courses and custom automations — content pipelines, lead gen systems, and workflows that compound. Marketing consultant based in Connecticut, working with teams everywhere.">
+  <link rel="canonical" href="https://amberfugedi.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amberfugedi.com/">
+  <meta property="og:title" content="Amber Fugedi — Marketing that runs without you.">
+  <meta property="og:description" content="Marketing courses and custom automations that let businesses market smarter — systems that compound instead of tasks that pile up.">
+  <meta property="og:image" content="https://amberfugedi.com/og-image.jpg"> <!-- {{PLACEHOLDER: 1200x630 OG image}} -->
+  <meta property="og:site_name" content="Amber Fugedi">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amber Fugedi — Marketing that runs without you.">
+  <meta name="twitter:description" content="Marketing courses and custom automations that let businesses market smarter — systems that compound instead of tasks that pile up.">
+  <meta name="twitter:image" content="https://amberfugedi.com/og-image.jpg"> <!-- {{PLACEHOLDER: same OG image}} -->
+
+  <!--
+    ============================================================
+    301 REDIRECTS — map old WordPress URLs to the new one-pager.
+    Add these at the host level (.htaccess shown; adapt for
+    Nginx / Netlify / Cloudflare as needed):
+
+      Redirect 301 /services/            https://amberfugedi.com/#services
+      Redirect 301 /content-marketing/   https://amberfugedi.com/#services
+      Redirect 301 /social-media/        https://amberfugedi.com/#services
+      Redirect 301 /demand-generation/   https://amberfugedi.com/#services
+      Redirect 301 /email-marketing/     https://amberfugedi.com/#services
+      Redirect 301 /marketing-automation/ https://amberfugedi.com/#services
+      Redirect 301 /seo/                 https://amberfugedi.com/#services
+      Redirect 301 /portfolio/           https://amberfugedi.com/#work
+      Redirect 301 /about/               https://amberfugedi.com/#about
+      Redirect 301 /contact/             https://amberfugedi.com/#contact
+      Redirect 301 /blog/                https://amberfugedi.com/
+
+    Any other legacy /services/* child pages should 301 to /#services.
+    ============================================================
+  -->
+
+  <!-- Fonts: preconnect + async load so nothing render-blocks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap">
+  </noscript>
+
+  <!-- Structured data: Person + ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://amberfugedi.com/#amber",
+        "name": "Amber Fugedi",
+        "jobTitle": "Marketing Consultant",
+        "description": "Marketing consultant building marketing courses and custom automations for businesses. A decade across martech, content marketing, and demand generation.",
+        "url": "https://amberfugedi.com/",
+        "email": "mailto:amberfugedi@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "CT",
+          "addressCountry": "US"
+        },
+        "knowsAbout": [
+          "Marketing Automation",
+          "Content Marketing",
+          "Demand Generation",
+          "Social Media Marketing",
+          "Email Marketing",
+          "Marketing Courses"
+        ],
+        "worksFor": { "@id": "https://amberfugedi.com/#service" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://amberfugedi.com/#service",
+        "name": "Amber Fugedi Marketing",
+        "founder": { "@id": "https://amberfugedi.com/#amber" },
+        "description": "Marketing courses, done-for-you automations, and hands-on consulting. Systems that compound instead of tasks that pile up.",
+        "url": "https://amberfugedi.com/",
+        "areaServed": "United States",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "CT",
+          "addressCountry": "US"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Courses", "description": "Self-paced courses teaching marketing and automation workflows so teams can run them in-house." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Automations", "description": "Custom done-for-you marketing automations: content pipelines, intake-to-asset workflows, and lead generation systems." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Consulting", "description": "Strategy and hands-on execution for businesses that want a partner, not a playbook. By application." } }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============ Reset & tokens ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FBF8F3;
+      --bg-soft: #F5EFE6;
+      --ink: #211D17;
+      --ink-soft: #5B544A;
+      --coral: #F0563A;
+      --coral-deep: #D9411F;
+      --amber: #F2A93B;
+      --peach: #FFB89E;
+      --line: rgba(33, 29, 23, 0.12);
+      --card: #FFFFFF;
+      --radius: 18px;
+      --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+      --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 1.0625rem;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    ::selection { background: var(--peach); color: var(--ink); }
+
+    :focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; border-radius: 4px; }
+
+    /* ============ Nav ============ */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(251, 248, 243, 0.82);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .site-nav.scrolled { border-bottom-color: var(--line); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .brand em { font-style: normal; color: var(--coral); }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.925rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.nav-cta {
+      color: var(--coral-deep);
+      border: 1.5px solid var(--coral);
+      padding: 8px 18px;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a.nav-cta:hover { background: var(--coral); color: #fff; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      padding: 10px;
+      margin-right: -10px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--ink);
+      margin: 5px 0;
+      transition: transform 0.3s var(--ease), opacity 0.2s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 760px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        padding: 8px 0 16px;
+        display: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; text-align: center; }
+      .nav-links a { display: block; padding: 12px; font-size: 1.05rem; }
+      .nav-links a.nav-cta { display: inline-block; margin-top: 8px; }
+    }
+
+    /* ============ Hero + aurora ============ */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 0 90px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .aurora { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
+    .aurora span {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.55;
+      will-change: transform;
+    }
+    .aurora span:nth-child(1) {
+      width: 55vw; height: 55vw;
+      min-width: 480px; min-height: 480px;
+      background: radial-gradient(circle at 30% 30%, var(--peach), transparent 65%);
+      top: -12%; left: -8%;
+      animation: drift-a 22s ease-in-out infinite alternate;
+    }
+    .aurora span:nth-child(2) {
+      width: 48vw; height: 48vw;
+      min-width: 420px; min-height: 420px;
+      background: radial-gradient(circle at 60% 40%, rgba(242, 169, 59, 0.75), transparent 65%);
+      top: 8%; right: -14%;
+      animation: drift-b 26s ease-in-out infinite alternate;
+    }
+    .aurora span:nth-child(3) {
+      width: 42vw; height: 42vw;
+      min-width: 380px; min-height: 380px;
+      background: radial-gradient(circle at 50% 50%, rgba(240, 86, 58, 0.4), transparent 68%);
+      bottom: -18%; left: 24%;
+      animation: drift-c 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift-a {
+      from { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(6vw, 5vh) scale(1.08); }
+      to   { transform: translate(-3vw, 8vh) scale(0.96); }
+    }
+    @keyframes drift-b {
+      from { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(-7vw, 6vh) scale(1.1) rotate(8deg); }
+      to   { transform: translate(-2vw, -4vh) scale(1.02); }
+    }
+    @keyframes drift-c {
+      from { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(5vw, -6vh) scale(1.12); }
+      to   { transform: translate(-6vw, -2vh) scale(0.94); }
+    }
+
+    /* faint grain so the gradients don't band */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.11 0 0 0 0 0.09 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .hero-content { max-width: 720px; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--coral-deep);
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(240, 86, 58, 0.25);
+      border-radius: 999px;
+      padding: 8px 16px;
+      margin-bottom: 28px;
+    }
+    .pill::before {
+      content: "";
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--coral);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.75rem, 7vw, 4.75rem);
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--coral-deep);
+    }
+
+    .hero .subhead {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+
+    .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 15px 32px;
+      border-radius: 999px;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.2s, color 0.2s;
+      cursor: pointer;
+      border: 0;
+      font-family: var(--font-body);
+    }
+    .btn-primary {
+      background: var(--coral);
+      color: #fff;
+      box-shadow: 0 10px 28px -10px rgba(240, 86, 58, 0.55);
+    }
+    .btn-primary:hover {
+      background: var(--coral-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px -10px rgba(240, 86, 58, 0.6);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+      background: transparent;
+    }
+    .btn-outline:hover { background: var(--ink); color: var(--bg); transform: translateY(-2px); }
+
+    /* ============ Sections shared ============ */
+    section { padding: 104px 0; }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral-deep);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      margin-bottom: 18px;
+      max-width: 640px;
+    }
+    .section-lede {
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin-bottom: 56px;
+    }
+
+    /* ============ Scroll reveal ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.in-view { opacity: 1; transform: none; }
+    .reveal[data-delay="1"] { transition-delay: 0.1s; }
+    .reveal[data-delay="2"] { transition-delay: 0.2s; }
+    .reveal[data-delay="3"] { transition-delay: 0.3s; }
+
+    /* ============ Stats ============ */
+    .stats { padding: 0 0 104px; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .stat-grid { gap: 14px; } }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      text-align: left;
+    }
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+      font-variant-numeric: tabular-nums;
+      overflow-wrap: anywhere; /* keeps long {{PLACEHOLDER}} text from overflowing */
+    }
+    .stat-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      letter-spacing: 0.02em;
+    }
+
+    /* ============ Offer ladder ============ */
+    .offers { background: var(--bg-soft); }
+
+    .offer-tabs {
+      display: inline-flex;
+      background: rgba(33, 29, 23, 0.06);
+      border-radius: 999px;
+      padding: 5px;
+      margin-bottom: 40px;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .offer-tab {
+      border: 0;
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      padding: 11px 24px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+    }
+    .offer-tab[aria-selected="true"] {
+      background: var(--card);
+      color: var(--ink);
+      box-shadow: 0 4px 14px -6px rgba(33, 29, 23, 0.25);
+    }
+
+    .offer-panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: clamp(32px, 5vw, 56px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(28px, 5vw, 64px);
+      align-items: start;
+    }
+    @media (max-width: 800px) { .offer-panel { grid-template-columns: 1fr; } }
+    .offer-panel[hidden] { display: none; }
+
+    .offer-kicker {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--coral-deep);
+      margin-bottom: 12px;
+    }
+    .offer-panel h3 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin-bottom: 16px; }
+    .offer-panel p.offer-desc { color: var(--ink-soft); margin-bottom: 28px; }
+
+    .offer-points { list-style: none; display: grid; gap: 14px; }
+    .offer-points li {
+      position: relative;
+      padding-left: 30px;
+      font-size: 0.98rem;
+      color: var(--ink);
+    }
+    .offer-points li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 7px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, var(--amber), var(--coral));
+      opacity: 0.9;
+    }
+
+    .offer-aside {
+      background: var(--bg);
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid var(--line);
+    }
+    .offer-aside .tier {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 8px;
+    }
+    .offer-aside .who {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      line-height: 1.35;
+    }
+    .offer-aside p { font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 22px; }
+
+    /* ============ Case studies ============ */
+    .case-list { display: grid; gap: 18px; }
+
+    .case {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow 0.3s var(--ease), border-color 0.3s;
+    }
+    .case:hover { border-color: rgba(240, 86, 58, 0.35); }
+    .case.open { box-shadow: 0 18px 44px -18px rgba(33, 29, 23, 0.22); }
+
+    .case-head {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px clamp(22px, 4vw, 36px);
+      background: none;
+      border: 0;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+    }
+    .case-head .case-meta { flex: 1; }
+    .case-head .case-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral-deep);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .case-head h3 {
+      font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+      color: var(--ink);
+    }
+    .case-head .case-toggle-icon {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--line);
+      display: grid;
+      place-items: center;
+      transition: transform 0.35s var(--ease), background 0.25s, border-color 0.25s;
+    }
+    .case-head .case-toggle-icon svg { width: 16px; height: 16px; stroke: var(--ink); }
+    .case.open .case-toggle-icon {
+      transform: rotate(45deg);
+      background: var(--coral);
+      border-color: var(--coral);
+    }
+    .case.open .case-toggle-icon svg { stroke: #fff; }
+
+    .case-body-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.5s var(--ease);
+    }
+    .case.open .case-body-wrap { grid-template-rows: 1fr; }
+    .case-body { overflow: hidden; }
+
+    .case-cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      padding: 0 clamp(22px, 4vw, 36px) 36px;
+    }
+    @media (max-width: 800px) { .case-cols { grid-template-columns: 1fr; gap: 20px; } }
+
+    .case-col h4 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+      padding-top: 14px;
+      border-top: 2px solid var(--peach);
+    }
+    .case-col p { font-size: 0.95rem; color: var(--ink); }
+    .case-col.result p {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--coral-deep);
+    }
+
+    /* ============ Timeline ============ */
+    .timeline { position: relative; margin-top: 8px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px; top: 6px; bottom: 6px;
+      width: 2px;
+      background: linear-gradient(var(--peach), var(--amber), rgba(242,169,59,0.15));
+    }
+    .tl-entry {
+      position: relative;
+      padding: 0 0 44px 44px;
+    }
+    .tl-entry:last-child { padding-bottom: 0; }
+    .tl-entry::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 6px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--coral);
+    }
+    .tl-years {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--coral-deep);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .tl-entry h3 { font-size: 1.3rem; margin-bottom: 4px; }
+    .tl-entry .tl-org { color: var(--ink-soft); font-size: 0.95rem; }
+
+    /* ============ About ============ */
+    .about { background: var(--bg-soft); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(36px, 6vw, 80px);
+      align-items: center;
+    }
+    @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+
+    .about-portrait {
+      aspect-ratio: 4 / 5;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 25% 20%, var(--peach), transparent 60%),
+        radial-gradient(circle at 80% 75%, var(--amber), transparent 55%),
+        var(--bg);
+      border: 1px solid var(--line);
+    }
+    .about-portrait img { width: 100%; height: 100%; object-fit: cover; }
+    .about-portrait .portrait-note {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .about-copy p {
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+      margin-bottom: 20px;
+    }
+    .about-copy p:first-of-type {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+      line-height: 1.45;
+    }
+
+    /* ============ Contact ============ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(36px, 6vw, 80px);
+      align-items: start;
+    }
+    @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-intro p { color: var(--ink-soft); margin-bottom: 32px; max-width: 420px; }
+
+    .email-capture { margin-bottom: 12px; }
+    .email-capture .capture-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .capture-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .capture-row input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    input, textarea {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--ink);
+      background: var(--card);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 18px;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--coral);
+      box-shadow: 0 0 0 3px rgba(240, 86, 58, 0.15);
+    }
+    textarea { resize: vertical; min-height: 140px; }
+
+    .contact-form { display: grid; gap: 16px; }
+    .contact-form label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-note { font-size: 0.85rem; color: var(--ink-soft); }
+
+    .form-status {
+      font-weight: 600;
+      color: var(--coral-deep);
+      min-height: 1.4em;
+      font-size: 0.95rem;
+    }
+
+    /* ============ Footer ============ */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+    .footer-inner a { color: var(--ink); text-decoration: none; font-weight: 500; }
+    .footer-inner a:hover { color: var(--coral-deep); }
+
+    /* ============ Reduced motion ============ */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .aurora span { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .case-body-wrap { transition: none; }
+      .btn, .case-toggle-icon { transition: none; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Main">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Amber<em>&nbsp;Fugedi</em></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="nav-cta" href="#contact">Let's Talk</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- ============ Hero ============ -->
+    <header class="hero">
+      <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="wrap hero-content">
+        <span class="pill">Marketing Courses &amp; Automation</span>
+        <h1>Marketing that runs <em>without you.</em></h1>
+        <p class="subhead">I build the courses and automations that let businesses market smarter — systems that compound instead of tasks that pile up. Based in Connecticut, working with teams everywhere.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#work">See the Work</a>
+          <a class="btn btn-outline" href="#contact">Let's Talk</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ Stats ============ -->
+    <section class="stats" aria-label="By the numbers">
+      <div class="wrap">
+        <div class="stat-grid">
+          <!-- data-count: set to a number (e.g. 120) to enable the count-up animation.
+               data-suffix: optional, e.g. "+", "%", "x". -->
+          <div class="stat-card reveal">
+            <span class="stat-value" data-count="{{STAT_1}}" data-suffix="">{{STAT_1}}</span>
+            <span class="stat-label">Content Marketing</span>
+          </div>
+          <div class="stat-card reveal" data-delay="1">
+            <span class="stat-value" data-count="{{STAT_2}}" data-suffix="">{{STAT_2}}</span>
+            <span class="stat-label">Social Media</span>
+          </div>
+          <div class="stat-card reveal" data-delay="2">
+            <span class="stat-value" data-count="{{STAT_3}}" data-suffix="">{{STAT_3}}</span>
+            <span class="stat-label">Demand Generation</span>
+          </div>
+          <div class="stat-card reveal" data-delay="3">
+            <span class="stat-value" data-count="{{STAT_4}}" data-suffix="">{{STAT_4}}</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Offer ladder ============ -->
+    <section class="offers" id="services">
+      <div class="wrap">
+        <span class="eyebrow reveal">How we can work together</span>
+        <h2 class="section-title reveal">One system. Three ways in.</h2>
+        <p class="section-lede reveal">Every engagement is built on the same playbook — the difference is who runs it. Learn it, hand it off, or build it side by side.</p>
+
+        <div class="offer-tabs reveal" role="tablist" aria-label="Service tiers">
+          <button class="offer-tab" role="tab" id="tab-courses" aria-controls="panel-courses" aria-selected="true">Courses</button>
+          <button class="offer-tab" role="tab" id="tab-automations" aria-controls="panel-automations" aria-selected="false" tabindex="-1">Automations</button>
+          <button class="offer-tab" role="tab" id="tab-consulting" aria-controls="panel-consulting" aria-selected="false" tabindex="-1">Consulting</button>
+        </div>
+
+        <div class="offer-panel reveal" role="tabpanel" id="panel-courses" aria-labelledby="tab-courses" tabindex="0">
+          <div>
+            <p class="offer-kicker">Learn the system.</p>
+            <h3>Courses</h3>
+            <p class="offer-desc">Self-paced courses teaching the marketing and automation workflows I use with clients, so your team runs them in-house. No theory-for-theory's-sake — every module ends with something running.</p>
+            <ul class="offer-points">
+              <li>The exact workflows I deploy with consulting clients — not a watered-down version</li>
+              <li>Templates, prompts, and checklists your team can use the same day</li>
+              <li>Built for lean teams: one marketer and a few hours a week is enough</li>
+            </ul>
+          </div>
+          <aside class="offer-aside">
+            <p class="tier">Tier one · Self-serve</p>
+            <p class="who">For teams that want the playbook and will do the reps themselves.</p>
+            <p>Start here if you have the hands but not the system. {{PLACEHOLDER: course pricing / launch date}}</p>
+            <a class="btn btn-primary" href="#contact">Get course updates</a>
+          </aside>
+        </div>
+
+        <div class="offer-panel reveal" role="tabpanel" id="panel-automations" aria-labelledby="tab-automations" tabindex="0" hidden>
+          <div>
+            <p class="offer-kicker">Done for you.</p>
+            <h3>Automations</h3>
+            <p class="offer-desc">Custom marketing automations: content pipelines, intake-to-asset workflows, lead gen that runs on its own. I build it, document it, and hand you the keys.</p>
+            <ul class="offer-points">
+              <li>Content pipelines that turn one input into a month of publishing</li>
+              <li>Intake-to-asset workflows — forms in, finished campaigns out</li>
+              <li>Lead generation that qualifies and follows up while you're doing other things</li>
+            </ul>
+          </div>
+          <aside class="offer-aside">
+            <p class="tier">Tier two · Done for you</p>
+            <p class="who">For businesses that want the system running without hiring for it.</p>
+            <p>Scoped builds with fixed deliverables — you own everything at handoff. {{PLACEHOLDER: typical project range}}</p>
+            <a class="btn btn-primary" href="#contact">Scope a build</a>
+          </aside>
+        </div>
+
+        <div class="offer-panel reveal" role="tabpanel" id="panel-consulting" aria-labelledby="tab-consulting" tabindex="0" hidden>
+          <div>
+            <p class="offer-kicker">Built with you.</p>
+            <h3>Consulting</h3>
+            <p class="offer-desc">Strategy and hands-on execution for businesses that want a partner, not a playbook. This is the work the courses and automations are distilled from — by application.</p>
+            <ul class="offer-points">
+              <li>Embedded partnership: strategy, execution, and the systems to sustain both</li>
+              <li>A decade of in-house marketing leadership, not agency account management</li>
+              <li>Limited engagements so every client gets real attention</li>
+            </ul>
+          </div>
+          <aside class="offer-aside">
+            <p class="tier">Tier three · By application</p>
+            <p class="who">For teams that want a partner in the room, not a PDF in the inbox.</p>
+            <p>A small number of engagements at a time. Tell me where marketing is stuck and we'll see if it's a fit.</p>
+            <a class="btn btn-primary" href="#contact">Apply to work together</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Selected work ============ -->
+    <section id="work">
+      <div class="wrap">
+        <span class="eyebrow reveal">Selected work</span>
+        <h2 class="section-title reveal">Systems in the wild.</h2>
+        <p class="section-lede reveal">A few builds I can talk about. Each one follows the same arc: find the bottleneck, build the system, let it compound.</p>
+
+        <div class="case-list">
+          <article class="case reveal">
+            <h3 class="visually-hidden-wrap">
+              <button class="case-head" aria-expanded="false" aria-controls="case-body-1">
+                <span class="case-meta">
+                  <span class="case-tag">Credit Union · Ongoing Marketing Engine</span>
+                  MembersFirst CT Federal Credit Union
+                </span>
+                <span class="case-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="case-body-wrap" id="case-body-1">
+              <div class="case-body">
+                <div class="case-cols">
+                  <div class="case-col">
+                    <h4>Problem</h4>
+                    <p>A community credit union competing against big-bank marketing budgets, with no in-house marketing team and member growth flatlining.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>Build</h4>
+                    <p>A repeatable marketing engine: brand refresh, always-on content and social calendar, email campaigns tied to member lifecycle, and automations so the whole thing runs on a few hours a week.</p>
+                  </div>
+                  <div class="case-col result">
+                    <h4>Result</h4>
+                    <p>{{RESULT_1}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case reveal" data-delay="1">
+            <h3 class="visually-hidden-wrap">
+              <button class="case-head" aria-expanded="false" aria-controls="case-body-2">
+                <span class="case-meta">
+                  <span class="case-tag">Industrial · Website &amp; Lead Capture</span>
+                  Morris Controls
+                </span>
+                <span class="case-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="case-body-wrap" id="case-body-2">
+              <div class="case-body">
+                <div class="case-cols">
+                  <div class="case-col">
+                    <h4>Problem</h4>
+                    <p>An industrial controls company whose website read like a spec sheet — technically accurate, invisible to buyers, and generating zero inbound.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>Build</h4>
+                    <p>A ground-up website rebuild: buyer-first messaging, clear service architecture, SEO foundations, and lead capture wired straight into their follow-up process.</p>
+                  </div>
+                  <div class="case-col result">
+                    <h4>Result</h4>
+                    <p>{{RESULT_2}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case reveal" data-delay="2">
+            <h3 class="visually-hidden-wrap">
+              <button class="case-head" aria-expanded="false" aria-controls="case-body-3">
+                <span class="case-meta">
+                  <span class="case-tag">Document Technology · Demand Generation</span>
+                  Scanoptics
+                </span>
+                <span class="case-toggle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="case-body-wrap" id="case-body-3">
+              <div class="case-body">
+                <div class="case-cols">
+                  <div class="case-col">
+                    <h4>Problem</h4>
+                    <p>A decades-old document technology company pivoting toward intelligent automation — with a brand and pipeline still stuck in the scanner era.</p>
+                  </div>
+                  <div class="case-col">
+                    <h4>Build</h4>
+                    <p>Repositioned the brand around automation outcomes, then built the demand gen engine to match: content strategy, campaign automation, and a pipeline process sales actually uses.</p>
+                  </div>
+                  <div class="case-col result">
+                    <h4>Result</h4>
+                    <p>{{RESULT_3}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Experience ============ -->
+    <section id="experience">
+      <div class="wrap">
+        <span class="eyebrow reveal">Experience</span>
+        <h2 class="section-title reveal">A decade building marketing engines in-house before productizing them.</h2>
+
+        <div class="timeline">
+          <div class="tl-entry reveal">
+            <span class="tl-years">2021 — Present</span>
+            <h3>Director of Marketing</h3>
+            <p class="tl-org">Scanoptics</p>
+          </div>
+          <div class="tl-entry reveal">
+            <span class="tl-years">2018 — Present</span>
+            <h3>Marketing Consultant</h3>
+            <p class="tl-org">MembersFirst CT Federal Credit Union</p>
+          </div>
+          <div class="tl-entry reveal">
+            <span class="tl-years">2019 — 2021</span>
+            <h3>Marketing Director</h3>
+            <p class="tl-org">StormwaterONE</p>
+          </div>
+          <div class="tl-entry reveal">
+            <span class="tl-years">2017 — 2018</span>
+            <h3>Marketing Director</h3>
+            <p class="tl-org">eTraveler</p>
+          </div>
+          <div class="tl-entry reveal">
+            <span class="tl-years">2015 — 2017</span>
+            <h3>Marketing Coordinator</h3>
+            <p class="tl-org">Nutmeg Technologies</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div class="about-portrait reveal" role="img" aria-label="Portrait of Amber Fugedi, marketing consultant based in Connecticut">
+          <!-- Swap in a real photo:
+               <img src="amber-fugedi.jpg" alt="Amber Fugedi, marketing consultant based in Connecticut" loading="lazy" width="800" height="1000">
+               and remove the .portrait-note div below. -->
+          <div class="portrait-note">{{PLACEHOLDER: photo of Amber}}</div>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow reveal">About</span>
+          <p class="reveal">I'm Amber — a marketing consultant in Connecticut who got tired of watching good marketing die from manual work.</p>
+          <p class="reveal">So I build systems instead: courses that teach the workflow, and automations that run it. Ten years across martech, content, and demand gen — from credit unions to SaaS — turned into repeatable systems any team can use.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-intro">
+          <span class="eyebrow reveal">Contact</span>
+          <h2 class="section-title reveal">Tell me where marketing is stuck.</h2>
+          <p class="reveal">Whether you want the course, the build, or the partnership — it starts the same way. Send a note and I'll reply within a couple of days.</p>
+
+          <div class="email-capture reveal">
+            <span class="capture-label">Get course &amp; automation updates</span>
+            <!-- Wire this to your email platform (Mailchimp, ConvertKit, etc.):
+                 replace the JS handler with a real form action. -->
+            <form class="capture-row" id="capture-form" novalidate>
+              <input type="email" name="email" placeholder="you@company.com" aria-label="Email address for updates" required>
+              <button class="btn btn-primary" type="submit">Subscribe</button>
+            </form>
+            <p class="form-status" id="capture-status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <!-- Wire this to a form backend (Formspree, Netlify Forms, Basin, etc.)
+             by setting a real action + method="POST" and removing the JS handler. -->
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div>
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="cf-message">What are you working on?</label>
+            <textarea id="cf-message" name="message" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send it</button>
+          <p class="form-status" id="contact-status" role="status" aria-live="polite"></p>
+          <p class="form-note">Prefer email? <a href="mailto:amberfugedi@gmail.com">amberfugedi@gmail.com</a></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p>© <span id="year">2026</span> Amber Fugedi · Connecticut, USA</p>
+      <p><a href="mailto:amberfugedi@gmail.com">amberfugedi@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* ---------- Nav: scrolled state + mobile toggle ---------- */
+    var nav = document.querySelector(".site-nav");
+    var onScroll = function () {
+      nav.classList.toggle("scrolled", window.scrollY > 8);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    var toggle = document.querySelector(".nav-toggle");
+    var links = document.getElementById("nav-links");
+    toggle.addEventListener("click", function () {
+      var open = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!open));
+      links.classList.toggle("open", !open);
+    });
+    links.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        toggle.setAttribute("aria-expanded", "false");
+        links.classList.remove("open");
+      }
+    });
+
+    /* ---------- Scroll reveal ---------- */
+    var revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window && !reducedMotion) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+      revealEls.forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add("in-view"); });
+    }
+
+    /* ---------- Count-up stats ----------
+       Values are {{STAT_N}} placeholders until real numbers are dropped in.
+       When data-count is numeric (e.g. data-count="120" data-suffix="+"),
+       the value counts up on scroll into view. Non-numeric values are
+       simply displayed as-is. */
+    function animateCount(el) {
+      var target = parseFloat(el.getAttribute("data-count"));
+      var suffix = el.getAttribute("data-suffix") || "";
+      if (isNaN(target)) return;
+      if (reducedMotion) {
+        el.textContent = target + suffix;
+        return;
+      }
+      var duration = 1600;
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = target * eased;
+        el.textContent = (target % 1 === 0 ? Math.round(current) : current.toFixed(1)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var statEls = document.querySelectorAll(".stat-value");
+    if ("IntersectionObserver" in window) {
+      var statObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            statObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      statEls.forEach(function (el) { statObserver.observe(el); });
+    } else {
+      statEls.forEach(animateCount);
+    }
+
+    /* ---------- Offer tabs ---------- */
+    var tabs = Array.prototype.slice.call(document.querySelectorAll(".offer-tab"));
+    function selectTab(tab) {
+      tabs.forEach(function (t) {
+        var selected = t === tab;
+        t.setAttribute("aria-selected", String(selected));
+        t.tabIndex = selected ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !selected;
+      });
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { selectTab(tab); });
+      tab.addEventListener("keydown", function (e) {
+        var next = null;
+        if (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+        if (e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (e.key === "Home") next = tabs[0];
+        if (e.key === "End") next = tabs[tabs.length - 1];
+        if (next) {
+          e.preventDefault();
+          next.focus();
+          selectTab(next);
+        }
+      });
+    });
+
+    /* ---------- Expandable case studies ---------- */
+    document.querySelectorAll(".case-head").forEach(function (head) {
+      head.addEventListener("click", function () {
+        var article = head.closest(".case");
+        var open = head.getAttribute("aria-expanded") === "true";
+        head.setAttribute("aria-expanded", String(!open));
+        article.classList.toggle("open", !open);
+      });
+    });
+
+    /* ---------- Forms (front-end only — wire to a real backend) ---------- */
+    function handleForm(formId, statusId, successMsg) {
+      var form = document.getElementById(formId);
+      var status = document.getElementById(statusId);
+      if (!form) return;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var valid = true;
+        form.querySelectorAll("[required]").forEach(function (field) {
+          if (!field.value.trim() || (field.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value))) {
+            valid = false;
+            field.setAttribute("aria-invalid", "true");
+          } else {
+            field.removeAttribute("aria-invalid");
+          }
+        });
+        if (!valid) {
+          status.textContent = "Please check the highlighted fields.";
+          return;
+        }
+        /* {{PLACEHOLDER: replace with a real POST to Formspree / Netlify /
+           your email platform. Until then, submissions only show a message. }} */
+        status.textContent = successMsg;
+        form.reset();
+      });
+    }
+    handleForm("contact-form", "contact-status", "Got it — I'll be in touch soon.");
+    handleForm("capture-form", "capture-status", "You're on the list.");
+
+    /* ---------- Footer year ---------- */
+    document.getElementById("year").textContent = new Date().getFullYear();
+  })();
+  </script>
+</body>
+</html>
