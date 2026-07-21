@@ -14,6 +14,10 @@ build step. Only external dependency: Google Fonts.
    `python3 .claude/skills/ui-ux-pro-max/scripts/search.py "<query>" --domain <style|color|typography|ux|chart|landing>`
    Treat results as reference, not gospel — the established pastel-aura
    brand wins over generated recommendations.
+3. The stop-slop skill (`.claude/skills/stop-slop/`) applies to all
+   site copy: no filler, no "not X, just Y" crutches, active voice,
+   human subjects. Run its Quick Checks on any prose before shipping.
+   Amber's own approved lines are exempt from mechanical rewrites.
 
 ## Rules
 
