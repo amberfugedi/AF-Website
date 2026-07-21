@@ -104,7 +104,7 @@
     ]
   }
   </script>
-  <noscript><style>.reveal{opacity:1;transform:none}.glyph path,.glyph circle,.squiggle path{stroke-dashoffset:0}</style></noscript>
+  <noscript><style>.reveal{opacity:1;transform:none}.glyph .stroke{stroke-dashoffset:0}.glyph .fill{opacity:1}.squiggle{transform:none}</style></noscript>
 </head>
 <body class="page-home">
 
@@ -139,7 +139,7 @@
     <!-- ============ Hero ============ -->
     <header class="hero">
       <div class="wrap hero-content">
-        <h1>Turning marketing ideas into <em>momentum.<svg class="squiggle" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M5 15 C 42 5, 74 19, 116 11 C 158 3, 196 17, 255 9" fill="none" stroke="#E8846B" stroke-width="7" stroke-linecap="round"/></svg></em></h1>
+        <h1>Turning marketing ideas into <em>momentum.<svg class="squiggle" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g-swash" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E8846B"/><stop offset="1" stop-color="#B0492E"/></linearGradient></defs><path d="M6 14 C 60 6, 150 5, 254 9 C 200 10.5, 100 14.5, 6 17.5 Z" fill="url(#g-swash)"/></svg></em></h1>
         <!-- {{ADJUST}}: second sentence (location line) kept from previous version — cut if unwanted -->
         <p class="subhead">I build strategies, campaigns, systems, and learning experiences that help teams execute better and grow. Based in Connecticut, working with teams everywhere.</p>
         <div class="cta-row">
@@ -167,14 +167,14 @@
 
         <div class="card-grid">
           <article class="card reveal offer-courses">
-            <svg class="glyph" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="100" d="M24 13 C 19 8.5, 10.5 8.5, 7.5 11.5 L7.5 35.5 C 10.5 32.5, 19 32.5, 24 36.5 C 29 32.5, 37.5 32.5, 40.5 35.5 L40.5 11.5 C 37.5 8.5, 29 8.5, 24 13 L24 36.5"/><path pathLength="100" d="M13 18.5 C 16 17.5, 18.5 17.5, 20.5 18.5"/></svg>
+            <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round"><defs><linearGradient id="gc-h" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FCE4C4"/><stop offset="1" stop-color="#F2A93B"/></linearGradient></defs><path class="fill" d="M14 58 L34 58 A20 20 0 0 0 14 38 Z" fill="url(#gc-h)" stroke="none"/><path class="stroke" pathLength="100" d="M58 58 A44 44 0 0 0 14 14" stroke="#8A5A14" stroke-width="2"/><path class="stroke" pathLength="100" d="M46 58 A32 32 0 0 0 14 26" stroke="#8A5A14" stroke-width="2" opacity="0.55"/><circle class="fill" cx="14" cy="14" r="3.4" fill="#8A5A14" stroke="none"/></svg>
             <p class="card-kicker">Learn the system.</p>
             <h3>Courses</h3>
             <p>Self-paced courses teaching the marketing and automation workflows I use with clients, so your team runs them in-house.</p>
             <a class="arrow-link" href="services.html#courses">Explore courses</a>
           </article>
           <article class="card reveal offer-automations" data-delay="1">
-            <svg class="glyph" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="100" d="M13 26 C 13 19, 22 19, 24 26 C 26 33, 35 33, 35 26 C 35 19, 26 19, 24 26 C 22 33, 13 33, 13 26 Z"/><path pathLength="100" d="M38 10 v7 M34.5 13.5 h7"/></svg>
+            <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round"><defs><linearGradient id="ga-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DAD4F5"/><stop offset="1" stop-color="#574AA6"/></linearGradient></defs><circle class="fill" cx="36" cy="36" r="11" fill="url(#ga-h)" stroke="none"/><circle class="stroke" pathLength="100" cx="36" cy="36" r="26" stroke="#574AA6" stroke-width="2"/><circle class="stroke" pathLength="100" cx="36" cy="36" r="18.5" stroke="#574AA6" stroke-width="1.6" opacity="0.45"/><circle class="fill" cx="58.5" cy="23" r="3.2" fill="#574AA6" stroke="none"/><circle class="fill" cx="13.5" cy="49" r="3.2" fill="#574AA6" stroke="none" opacity="0.7"/><circle class="fill" cx="36" cy="62" r="2.4" fill="#574AA6" stroke="none" opacity="0.45"/></svg>
             <p class="card-kicker">Done for you.</p>
             <h3>Automations</h3>
             <!-- {{ADJUST}}: automations one-liner leads with the AI diagnosis -->
@@ -182,7 +182,7 @@
             <a class="arrow-link" href="services.html#automations">Explore automations</a>
           </article>
           <article class="card reveal offer-consulting" data-delay="2">
-            <svg class="glyph" viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="100" d="M9 38 C 15 21, 27 35, 36 17"/><path pathLength="100" d="M31.5 15.5 L 37 16.5 L 36 22"/><circle pathLength="100" cx="9" cy="38" r="2.4"/></svg>
+            <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="gs-h" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FBD5E4" stop-opacity="0.25"/><stop offset="1" stop-color="#FBD5E4"/></linearGradient></defs><path class="fill" d="M10 60 C 30 58, 46 48, 61 21 L61 60 Z" fill="url(#gs-h)" stroke="none"/><path class="stroke" pathLength="100" d="M10 60 C 30 58, 46 48, 61 21" stroke="#A63563" stroke-width="2.2"/><path class="stroke" pathLength="100" d="M54.5 21.5 L61.5 18.5 L60.5 26" stroke="#A63563" stroke-width="2.2" fill="none"/><circle class="fill" cx="10" cy="60" r="3" fill="#A63563" stroke="none"/></svg>
             <p class="card-kicker">Built with you.</p>
             <h3>Consulting</h3>
             <!-- {{ADJUST}}: consulting one-liner covers marketing AND business strategy + the AI-gap audit -->

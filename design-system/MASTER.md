@@ -60,15 +60,17 @@ the only text color allowed on top of them or as accent text on cream.
 
 ## Custom graphics language
 
-Hand-authored inline SVG line art only — never stock images, icon
-fonts, emoji, or AI-generated raster clip art. Loose, imperfect
-strokes (2.6 width, round caps), colored by the offer's `-deep`
-token via `currentColor`. Every path carries `pathLength="100"` so
-the shared dasharray rule can stroke-draw it on reveal. Current
-set: hero squiggle underline (coral), three offer glyphs (book /
-infinity-plus / rising path), organic blob portrait with offset
-coral outline. Extend in this voice; keep each mark under ~10
-path commands.
+Hand-authored inline SVG only — never stock images, icon fonts,
+emoji, or AI-generated raster clip art. The voice is PRECISE
+GEOMETRIC ABSTRACTION, not doodles: concentric arcs, orbital
+circles, smooth trajectories; fine 2px strokes in the offer's
+`-deep` hex paired with one gradient-filled form (pastel → deep)
+per mark. Stroked elements carry `pathLength="100"` and draw in on
+reveal; filled forms use class `fill` and fade in after. Current
+set: tapered coral gradient swash under the hero accent word,
+three offer marks (growth arcs / orbital system / trajectory
+curve), organic blob portrait with offset coral outline. Gradient
+ids must be unique per page instance.
 
 ## Motion (full budget — add nothing beyond this)
 
