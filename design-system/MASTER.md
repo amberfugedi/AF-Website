@@ -98,10 +98,11 @@ transforms. Hard requirement — never ship motion outside this contract.
 
 ## Site structure
 
-- Four plain HTML pages, no framework/build: `index.html`,
-  `services.html` (offer ladder + capabilities grid + sticky anchor nav),
-  `work.html` (case studies: problem → build → result), `about.html`
-  (bio, timeline, contact + email capture).
+- Five plain HTML pages, no framework/build: `index.html`,
+  `services.html` (offer ladder + sticky anchor nav),
+  `work.html` (case studies: problem → build → result),
+  `capabilities.html` (capability areas + platform stack),
+  `about.html` (bio, timeline, education, contact + email capture).
 - Shared `styles.css` + `main.js`. Nav/footer duplicated per page inside
   `<!-- SHARED NAV/FOOTER — keep in sync -->` comment blocks; only
   `aria-current="page"` differs.
