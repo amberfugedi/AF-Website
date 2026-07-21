@@ -98,47 +98,49 @@ main p a:hover, .form-note a:hover, .footer-inner a:hover {
 .aura-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
+  filter: blur(58px);
   will-change: transform;
 }
+/* Slightly deeper pastel cores fading to nothing — the clouds need
+   enough definition that their drift is actually perceptible. */
 .aura-blob-1 {
   width: 60vw; height: 60vw;
   min-width: 540px; min-height: 540px;
   top: -24%; left: -12%;
   background: radial-gradient(circle at 35% 35%,
-    rgba(251, 213, 228, 0.95), rgba(251, 213, 228, 0.0) 66%);
-  animation: aura-drift-a 34s ease-in-out infinite alternate;
+    rgba(247, 185, 213, 0.95), rgba(251, 213, 228, 0.0) 64%);
+  animation: aura-drift-a 18s ease-in-out infinite alternate;
 }
 .aura-blob-2 {
   width: 52vw; height: 52vw;
   min-width: 480px; min-height: 480px;
   top: -16%; right: -14%;
   background: radial-gradient(circle at 60% 40%,
-    rgba(252, 228, 196, 0.95), rgba(252, 228, 196, 0.0) 66%);
-  animation: aura-drift-b 40s ease-in-out infinite alternate;
+    rgba(249, 208, 148, 0.95), rgba(252, 228, 196, 0.0) 64%);
+  animation: aura-drift-b 22s ease-in-out infinite alternate;
 }
 .aura-blob-3 {
   width: 46vw; height: 46vw;
   min-width: 420px; min-height: 420px;
   top: 24%; left: 26%;
   background: radial-gradient(circle at 50% 50%,
-    rgba(218, 212, 245, 0.9), rgba(218, 212, 245, 0.0) 66%);
-  animation: aura-drift-c 30s ease-in-out infinite alternate;
+    rgba(196, 186, 238, 0.92), rgba(218, 212, 245, 0.0) 64%);
+  animation: aura-drift-c 15s ease-in-out infinite alternate;
 }
 @keyframes aura-drift-a {
   from { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(6vw, 5vh) scale(1.1); }
-  to   { transform: translate(-3vw, 9vh) scale(0.95); }
+  50%  { transform: translate(13vw, 9vh) scale(1.18); }
+  to   { transform: translate(-7vw, 16vh) scale(0.9); }
 }
 @keyframes aura-drift-b {
   from { transform: translate(0, 0) scale(1) rotate(0deg); }
-  50%  { transform: translate(-7vw, 7vh) scale(1.12) rotate(6deg); }
-  to   { transform: translate(-2vw, -4vh) scale(1.02) rotate(-3deg); }
+  50%  { transform: translate(-14vw, 12vh) scale(1.2) rotate(7deg); }
+  to   { transform: translate(-5vw, -8vh) scale(1.04) rotate(-4deg); }
 }
 @keyframes aura-drift-c {
   from { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(5vw, -7vh) scale(1.14); }
-  to   { transform: translate(-7vw, -2vh) scale(0.93); }
+  50%  { transform: translate(11vw, -13vh) scale(1.22); }
+  to   { transform: translate(-14vw, -5vh) scale(0.88); }
 }
 /* Interior pages: fainter echo behind the header so text stays readable */
 body.page-sub .aura { opacity: 0.45; }
