@@ -5,29 +5,39 @@
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- Living aura ----------
-     The CSS keyframes handle the slow ~25s drift; here the whole
-     aura layer eases toward the cursor with a lag, so the light
-     shifts as visitors move. Static under reduced motion or on
+     The CSS keyframes handle the slow drift; here each cloud also
+     eases toward the cursor at its own rate (parallax), so the
+     light visibly follows the mouse. Uses the CSS `translate`
+     property, which composes with the keyframes' `transform`
+     instead of overriding it. Static under reduced motion or on
      touch-only devices. */
   var aura = document.querySelector(".aura");
-  if (aura && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
-    var curX = 0, curY = 0, targetX = 0, targetY = 0, rafId = null;
+  if (aura && !reducedMotion && window.matchMedia("(pointer: fine)").matches &&
+      window.CSS && CSS.supports("translate", "0px")) {
+    var blobs = Array.prototype.slice.call(aura.querySelectorAll(".aura-blob"));
+    /* How strongly each cloud follows the cursor (max px offset at
+       the viewport edge). Different depths make the layer feel 3D. */
+    var DEPTHS = [90, 150, 220];
+    var cur = blobs.map(function () { return { x: 0, y: 0 }; });
+    var targetX = 0, targetY = 0, rafId = null;
 
     var frame = function () {
-      curX += (targetX - curX) * 0.04;
-      curY += (targetY - curY) * 0.04;
-      aura.style.transform = "translate(" + curX.toFixed(2) + "px," + curY.toFixed(2) + "px)";
-      if (Math.abs(targetX - curX) > 0.15 || Math.abs(targetY - curY) > 0.15) {
-        rafId = requestAnimationFrame(frame);
-      } else {
-        rafId = null;
-      }
+      var settled = true;
+      blobs.forEach(function (blob, i) {
+        var depth = DEPTHS[i % DEPTHS.length];
+        var tx = targetX * depth, ty = targetY * depth;
+        cur[i].x += (tx - cur[i].x) * 0.055;
+        cur[i].y += (ty - cur[i].y) * 0.055;
+        blob.style.translate = cur[i].x.toFixed(2) + "px " + cur[i].y.toFixed(2) + "px";
+        if (Math.abs(tx - cur[i].x) > 0.2 || Math.abs(ty - cur[i].y) > 0.2) settled = false;
+      });
+      rafId = settled ? null : requestAnimationFrame(frame);
     };
 
     window.addEventListener("mousemove", function (e) {
-      /* Map cursor position to a gentle ±45px shift of the glow */
-      targetX = (e.clientX / window.innerWidth - 0.5) * 90;
-      targetY = (e.clientY / window.innerHeight - 0.5) * 70;
+      /* -0.5..0.5 from viewport center */
+      targetX = e.clientX / window.innerWidth - 0.5;
+      targetY = e.clientY / window.innerHeight - 0.5;
       if (rafId === null) rafId = requestAnimationFrame(frame);
     }, { passive: true });
   }
