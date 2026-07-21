@@ -78,7 +78,11 @@ the only text color allowed on top of them or as accent text on cream.
 6. **Hover:** cards lift −5px + soft shadow and tilt up to 7° toward
    the cursor in 900px perspective (fine pointer only), easing back
    flat on leave; links draw a 2px underline in.
-7. **Hero depth plane:** hero content scrolls at 0.2× page speed and
+7. **Quote marquee:** testimonial cards glide in a continuous
+   linear loop (38s home / 75s about), pause on hover and
+   focus-within, edge-fade mask; static wrapped cards under
+   reduced motion.
+8. **Hero depth plane:** hero content scrolls at 0.2× page speed and
    fades out by ~0.85 viewport heights; on fine pointers the whole
    plane tilts ~±1–2° against the cursor (opposite the clouds) for
    foreground/background separation.

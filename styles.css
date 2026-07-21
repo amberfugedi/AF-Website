@@ -537,6 +537,37 @@ section { padding: 104px 0; }
 .arrow-link:hover { background-size: 100% 2px; }
 
 /* ============ Testimonials ============ */
+/* Continuous marquee: two identical sets scroll -50%, seamless loop.
+   Pauses on hover/focus so quotes can be read; static wrapped grid
+   under reduced motion. */
+.quote-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.quote-track {
+  display: flex;
+  width: max-content;
+  animation: quotes-scroll var(--marquee-duration, 45s) linear infinite;
+}
+.quote-marquee:hover .quote-track,
+.quote-marquee:focus-within .quote-track {
+  animation-play-state: paused;
+}
+.quote-set {
+  display: flex;
+  gap: 20px;
+  padding-right: 20px;
+}
+.quote-set .quote-card {
+  width: min(380px, 82vw);
+  flex-shrink: 0;
+}
+@keyframes quotes-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 .quote-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1003,6 +1034,10 @@ footer {
   html { scroll-behavior: auto; }
   .aura-blob { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .quote-track { animation: none; width: auto; flex-wrap: wrap; }
+  .quote-set { flex-wrap: wrap; }
+  .quote-set[aria-hidden="true"] { display: none; }
+  .quote-marquee { -webkit-mask-image: none; mask-image: none; }
   .page-home .hero h1,
   .page-home .hero .subhead,
   .page-home .hero .cta-row,
