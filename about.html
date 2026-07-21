@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FDF9F5">
 
   <title>About &amp; Contact — Amber Fugedi, Marketing Consultant in Connecticut</title>
   <meta name="description" content="Amber Fugedi is a marketing consultant in Connecticut with a decade across martech, content, and demand gen — building courses and automations any team can run. Get in touch.">
@@ -74,6 +75,7 @@
 </head>
 <body class="page-sub">
 
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="aura" aria-hidden="true">
     <span class="aura-blob aura-blob-1"></span>
     <span class="aura-blob aura-blob-2"></span>
@@ -98,7 +100,7 @@
   </nav>
   <!-- ============ /SHARED NAV ============ -->
 
-  <main>
+  <main id="main">
 
     <!-- ============ About ============ -->
     <header class="page-head">
@@ -167,11 +169,11 @@
           <p class="reveal">Whether you want the course, the build, or the partnership — it starts the same way. Send a note and I'll reply within a couple of days.</p>
 
           <div class="email-capture reveal">
-            <span class="capture-label">Get course &amp; automation updates</span>
+            <label class="capture-label" for="capture-email">Get course &amp; automation updates</label>
             <!-- Wire this to your email platform (Mailchimp, ConvertKit, etc.):
                  replace the JS handler with a real form action. -->
             <form class="capture-row" id="capture-form" novalidate>
-              <input type="email" name="email" placeholder="you@company.com" aria-label="Email address for updates" required>
+              <input type="email" id="capture-email" name="email" placeholder="you@company.com" required>
               <button class="btn btn-primary" type="submit">Subscribe</button>
             </form>
             <p class="form-status" id="capture-status" role="status" aria-live="polite"></p>
