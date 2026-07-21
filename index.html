@@ -414,41 +414,6 @@
     .reveal[data-delay="2"] { transition-delay: 0.2s; }
     .reveal[data-delay="3"] { transition-delay: 0.3s; }
 
-    /* ============ Stats ============ */
-    .stats { padding: 0 0 104px; }
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
-    }
-    @media (max-width: 900px) { .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 480px) { .stat-grid { gap: 14px; } }
-
-    .stat-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 32px 26px;
-      text-align: left;
-    }
-    .stat-value {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 2.9rem);
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1;
-      display: block;
-      margin-bottom: 10px;
-      font-variant-numeric: tabular-nums;
-      overflow-wrap: anywhere; /* keeps long {{PLACEHOLDER}} text from overflowing */
-    }
-    .stat-label {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--ink-soft);
-      letter-spacing: 0.02em;
-    }
-
     /* ============ Offer ladder ============ */
     .offers { background: var(--bg-soft); }
 
@@ -834,32 +799,6 @@
       </div>
     </header>
 
-    <!-- ============ Stats ============ -->
-    <section class="stats" aria-label="By the numbers">
-      <div class="wrap">
-        <div class="stat-grid">
-          <!-- data-count: set to a number (e.g. 120) to enable the count-up animation.
-               data-suffix: optional, e.g. "+", "%", "x". -->
-          <div class="stat-card reveal">
-            <span class="stat-value" data-count="{{STAT_1}}" data-suffix="">{{STAT_1}}</span>
-            <span class="stat-label">Content Marketing</span>
-          </div>
-          <div class="stat-card reveal" data-delay="1">
-            <span class="stat-value" data-count="{{STAT_2}}" data-suffix="">{{STAT_2}}</span>
-            <span class="stat-label">Social Media</span>
-          </div>
-          <div class="stat-card reveal" data-delay="2">
-            <span class="stat-value" data-count="{{STAT_3}}" data-suffix="">{{STAT_3}}</span>
-            <span class="stat-label">Demand Generation</span>
-          </div>
-          <div class="stat-card reveal" data-delay="3">
-            <span class="stat-value" data-count="{{STAT_4}}" data-suffix="">{{STAT_4}}</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ Offer ladder ============ -->
     <section class="offers" id="services">
       <div class="wrap">
@@ -1185,47 +1124,6 @@
       revealEls.forEach(function (el) { revealObserver.observe(el); });
     } else {
       revealEls.forEach(function (el) { el.classList.add("in-view"); });
-    }
-
-    /* ---------- Count-up stats ----------
-       Values are {{STAT_N}} placeholders until real numbers are dropped in.
-       When data-count is numeric (e.g. data-count="120" data-suffix="+"),
-       the value counts up on scroll into view. Non-numeric values are
-       simply displayed as-is. */
-    function animateCount(el) {
-      var target = parseFloat(el.getAttribute("data-count"));
-      var suffix = el.getAttribute("data-suffix") || "";
-      if (isNaN(target)) return;
-      if (reducedMotion) {
-        el.textContent = target + suffix;
-        return;
-      }
-      var duration = 1600;
-      var start = null;
-      function step(ts) {
-        if (!start) start = ts;
-        var progress = Math.min((ts - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        var current = target * eased;
-        el.textContent = (target % 1 === 0 ? Math.round(current) : current.toFixed(1)) + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    var statEls = document.querySelectorAll(".stat-value");
-    if ("IntersectionObserver" in window) {
-      var statObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            animateCount(entry.target);
-            statObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.4 });
-      statEls.forEach(function (el) { statObserver.observe(el); });
-    } else {
-      statEls.forEach(animateCount);
     }
 
     /* ---------- Offer tabs ---------- */
