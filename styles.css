@@ -330,6 +330,7 @@ body.page-sub .aura { opacity: 0.45; }
   color: var(--bg);
   transform: translateY(-2px);
 }
+.btn:active { transform: translateY(0) scale(0.98); }
 
 /* ============ Sections shared ============ */
 section { padding: 104px 0; }
@@ -370,6 +371,7 @@ section { padding: 104px 0; }
 /* ============ Hero (home) ============ */
 .hero {
   min-height: 88vh;
+  min-height: 88dvh;
   display: flex;
   align-items: center;
   padding: 160px 0 100px;
@@ -788,6 +790,9 @@ section { padding: 104px 0; }
 .capture-row { display: flex; gap: 10px; flex-wrap: wrap; }
 .capture-row input { flex: 1; min-width: 200px; }
 
+/* Reduce 300ms tap delay on touch devices */
+a, button, input, textarea, .btn { touch-action: manipulation; }
+
 input, textarea {
   font-family: var(--font-body);
   font-size: 1rem;
@@ -816,6 +821,16 @@ textarea { resize: vertical; min-height: 140px; }
   display: block;
 }
 .form-note { font-size: 0.85rem; color: var(--muted); }
+.req { color: var(--coral-deep); }
+input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--coral-deep); }
+.field-error {
+  display: none;
+  color: var(--coral-deep);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 6px;
+}
+.field-error.show { display: block; }
 .form-status {
   font-weight: 600;
   color: var(--coral-deep);
@@ -839,13 +854,22 @@ footer {
   color: var(--muted);
 }
 
+.footer-nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.footer-nav a:hover { color: var(--coral-deep); text-decoration: underline; }
+
 /* ============ Reduced motion ============ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .aura-blob { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .reveal[data-delay="1"], .reveal[data-delay="2"] { transition-delay: 0s; }
-  .btn:hover, .card:hover, .case:hover { transform: none; }
+  .btn:hover, .card:hover, .case:hover, .btn:active { transform: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

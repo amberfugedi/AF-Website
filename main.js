@@ -101,24 +101,62 @@
     });
   }
 
-  /* ---------- Forms (front-end only — wire to a real backend) ---------- */
+  /* ---------- Forms (front-only — wire to a real backend) ----------
+     Per ux-guidelines: validate on blur, show the error below its own
+     field (aria-invalid + linked .field-error), and focus the first
+     invalid field on a failed submit. */
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function fieldError(field) {
+    var ids = (field.getAttribute("aria-describedby") || "").split(/\s+/);
+    for (var i = 0; i < ids.length; i++) {
+      var el = document.getElementById(ids[i]);
+      if (el && el.classList.contains("field-error")) return el;
+    }
+    return null;
+  }
+
+  function validateField(field) {
+    var msg = "";
+    if (!field.value.trim()) {
+      msg = "This field is required.";
+    } else if (field.type === "email" && !EMAIL_RE.test(field.value)) {
+      msg = "Enter a valid email address, like you@company.com.";
+    }
+    var err = fieldError(field);
+    if (err) {
+      err.textContent = msg;
+      err.classList.toggle("show", !!msg);
+    }
+    if (msg) field.setAttribute("aria-invalid", "true");
+    else field.removeAttribute("aria-invalid");
+    return !msg;
+  }
+
   function handleForm(formId, statusId, successMsg) {
     var form = document.getElementById(formId);
     var status = document.getElementById(statusId);
     if (!form) return;
+    var fields = form.querySelectorAll("[required]");
+
+    fields.forEach(function (field) {
+      field.addEventListener("blur", function () {
+        if (field.value.trim()) validateField(field);
+      });
+      field.addEventListener("input", function () {
+        if (field.getAttribute("aria-invalid")) validateField(field);
+      });
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var valid = true;
-      form.querySelectorAll("[required]").forEach(function (field) {
-        if (!field.value.trim() || (field.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value))) {
-          valid = false;
-          field.setAttribute("aria-invalid", "true");
-        } else {
-          field.removeAttribute("aria-invalid");
-        }
+      var firstInvalid = null;
+      fields.forEach(function (field) {
+        if (!validateField(field) && !firstInvalid) firstInvalid = field;
       });
-      if (!valid) {
-        status.textContent = "Please check the highlighted fields.";
+      if (firstInvalid) {
+        status.textContent = "";
+        firstInvalid.focus();
         return;
       }
       /* {{PLACEHOLDER: replace with a real POST to Formspree / Netlify /
