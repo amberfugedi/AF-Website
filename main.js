@@ -53,6 +53,45 @@
     wake();
   }
 
+  /* ---------- Hero depth plane: scroll parallax + mouse tilt ----------
+     The hero foreground scrolls slower than the page (and fades as it
+     leaves), and on fine pointers the whole content plane tilts a
+     couple of degrees against the cursor — opposite the aura clouds,
+     which follow it — so foreground and background separate in depth. */
+  var heroContent = document.querySelector(".hero-content");
+  if (heroContent && !reducedMotion) {
+    var hCurX = 0, hCurY = 0, hTgtX = 0, hTgtY = 0, hRaf = null, hLastY = -1;
+
+    var hFrame = function () {
+      hCurX += (hTgtX - hCurX) * 0.06;
+      hCurY += (hTgtY - hCurY) * 0.06;
+      var sy = window.scrollY;
+      var vh = window.innerHeight;
+      var shift = Math.min(sy, vh) * 0.2;
+      var op = Math.max(0, 1 - sy / (vh * 0.85));
+      heroContent.style.transform =
+        "perspective(1000px) translate3d(" + (-hCurX * 12).toFixed(1) + "px," +
+        (shift - hCurY * 9).toFixed(1) + "px,0) rotateX(" + (hCurY * 2).toFixed(2) +
+        "deg) rotateY(" + (-hCurX * 2.5).toFixed(2) + "deg)";
+      heroContent.style.opacity = op.toFixed(3);
+      var settled = Math.abs(hTgtX - hCurX) < 0.002 &&
+                    Math.abs(hTgtY - hCurY) < 0.002 && sy === hLastY;
+      hLastY = sy;
+      hRaf = settled ? null : requestAnimationFrame(hFrame);
+    };
+    var hWake = function () { if (hRaf === null) hRaf = requestAnimationFrame(hFrame); };
+
+    if (finePointer) {
+      window.addEventListener("mousemove", function (e) {
+        hTgtX = e.clientX / window.innerWidth - 0.5;
+        hTgtY = e.clientY / window.innerHeight - 0.5;
+        hWake();
+      }, { passive: true });
+    }
+    window.addEventListener("scroll", hWake, { passive: true });
+    hWake();
+  }
+
   /* ---------- 3D tilt on cards ----------
      Cards pivot toward the cursor in perspective, easing with a
      small lag; on leave they ease flat and hand control back to
