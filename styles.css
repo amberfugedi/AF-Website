@@ -154,6 +154,31 @@ main p a:hover, .form-note a:hover, .footer-inner a:hover {
   75%  { transform: translate(-11vw, -6vh) scale(1.08); }
   100% { transform: translate(0, 0) scale(1); }
 }
+/* Mobile: desktop min-widths make every blob larger than the whole
+   screen — they merge into one static-looking wash. Size the clouds
+   to the phone, lighten the blur (GPU cost), and run a touch faster. */
+@media (max-width: 760px) {
+  .aura-blob { filter: blur(28px); }
+  .aura-blob-1 {
+    width: 80vw; height: 80vw;
+    min-width: 0; min-height: 0;
+    top: -10%; left: -24%;
+    animation-duration: 13s;
+  }
+  .aura-blob-2 {
+    width: 70vw; height: 70vw;
+    min-width: 0; min-height: 0;
+    top: -4%; right: -22%;
+    animation-duration: 16s;
+  }
+  .aura-blob-3 {
+    width: 62vw; height: 62vw;
+    min-width: 0; min-height: 0;
+    top: 32%; left: 14%;
+    animation-duration: 11s;
+  }
+}
+
 /* Interior pages: fainter echo behind the header so text stays readable */
 body.page-sub .aura { opacity: 0.45; }
 
