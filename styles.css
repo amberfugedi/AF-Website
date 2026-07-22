@@ -562,6 +562,75 @@ body.page-sub .aura { --aura-base: 0.45; }
 }
 @keyframes swash-wipe { to { transform: scaleX(1); } }
 
+/* Layered paper tabs — the section-headline emphasis device.
+   Two soft rounded pastel tabs sit behind one short phrase: a deeper
+   back tab offset down-right, a lighter front tab directly behind the
+   text. One phrase per major section headline, 2-4 words, ink text on
+   top. Color follows meaning (see MASTER.md): blush = clarity/what to
+   build, peach = working together, lavender = different needs/paths,
+   butter = the next step. */
+.tab-em {
+  --trb: 1.6deg;   /* back tab rotation */
+  --trf: -0.8deg;  /* front tab rotation */
+  position: relative;
+  display: inline-block;
+  padding: 0.04em 0.2em 0.06em;
+  margin: -0.04em -0.04em;
+  z-index: 0;
+}
+.tab-em::before,
+.tab-em::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.tab-em::before { /* back tab: deeper tone, offset down-right */
+  inset: 0.14em -0.18em -0.18em 0.2em;
+  background: var(--tab-back);
+  border-radius: 0.3em 0.46em 0.26em 0.42em / 0.38em 0.5em 0.3em 0.46em;
+  transform: rotate(var(--trb));
+}
+.tab-em::after { /* front tab: sits directly behind the phrase */
+  inset: 0;
+  background: var(--tab-front);
+  border-radius: 0.4em 0.28em 0.44em 0.3em / 0.5em 0.32em 0.46em 0.34em;
+  transform: rotate(var(--trf));
+}
+.tab-blush    { --tab-front: var(--blush);    --tab-back: #F6BBD3; }
+.tab-peach    { --tab-front: var(--peach);    --tab-back: #F8CE9A; }
+.tab-lavender { --tab-front: var(--lavender); --tab-back: #C4BBEE; }
+.tab-butter   { --tab-front: #FBEDBF;         --tab-back: #F2DC9C; }
+
+/* Entrance: inside a reveal, the back tab slides up into place first,
+   the front tab follows; the text itself never moves. */
+.reveal .tab-em::before,
+.reveal .tab-em::after {
+  opacity: 0;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.reveal .tab-em::before { transform: rotate(var(--trb)) translateY(0.34em); }
+.reveal .tab-em::after  { transform: rotate(var(--trf)) translateY(0.26em); }
+.reveal.in-view .tab-em::before {
+  opacity: 1;
+  transform: rotate(var(--trb));
+  transition-delay: 0.18s;
+}
+.reveal.in-view .tab-em::after {
+  opacity: 1;
+  transform: rotate(var(--trf));
+  transition-delay: 0.34s;
+}
+
+/* Mobile: tighter offset, gentler rotation, compact padding */
+@media (max-width: 760px) {
+  .tab-em {
+    --trb: 1.1deg;
+    --trf: -0.55deg;
+    padding: 0.03em 0.16em 0.05em;
+  }
+  .tab-em::before { inset: 0.1em -0.12em -0.13em 0.14em; }
+}
+
 
 @keyframes draw-stroke {
   to { stroke-dashoffset: 0; }
@@ -1492,6 +1561,8 @@ footer {
   .cb-step, .cb-arrow { opacity: 1; transform: none; animation: none !important; }
   .glyph .fill { opacity: 1; animation: none !important; }
   .squiggle { transform: none; animation: none !important; }
+  .reveal .tab-em::before { opacity: 1; transform: rotate(var(--trb)); transition: none; }
+  .reveal .tab-em::after  { opacity: 1; transform: rotate(var(--trf)); transition: none; }
   .quote-track { animation: none; width: auto; flex-wrap: wrap; }
   .quote-set { flex-wrap: wrap; }
   .quote-set[aria-hidden="true"] { display: none; }

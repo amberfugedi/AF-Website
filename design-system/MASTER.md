@@ -54,6 +54,7 @@ Year ranges may use dashes (en dashes, not em dashes).
 | `--courses-deep` | `#8A5A14` | Courses text tone | 5.5:1 on bg |
 | `--automations-deep` | `#574AA6` | AI & Workflow text tone (token name unchanged) | 6.7:1 on bg |
 | `--consulting-deep` | `#A63563` | Consulting text tone | 5.9:1 on bg |
+| (tab butter) | `#FBEDBF` / `#F2DC9C` | Butter tab pair (fill only, headline tabs) | ink text on top |
 
 **Offer color coding (used on every page the offers appear):**
 Courses = peach · AI & Workflow Guidance = lavender · Consulting = blush.
@@ -102,6 +103,19 @@ level off the right edge past momentum ticks; draw-in is
 choreographed: scatter, evaluate, pause, clarity. The story is
 "many inputs → evaluation → one appropriate path", not just blocked
 ideas. No arrowheads, no upward-chart shapes),
+the layered paper tabs (headline emphasis device, 2026-07: two soft
+rounded pastel tabs behind ONE short phrase per major section
+headline — a deeper back tab offset down-right at ~1.6deg, a lighter
+front tab at ~-0.8deg directly behind the text; ink text on top.
+`.tab-em` + `.tab-blush/.tab-peach/.tab-lavender/.tab-butter`.
+Color follows meaning, loosely: blush = clarity/what to build,
+peach = working together, lavender = different needs/paths,
+butter = the next step; a phrase keeps its color wherever it
+repeats. Never in body copy, nav, buttons, card titles, or on
+phrases longer than ~4 words; at most one per section. Current
+placements: home problem/selected work/offers/CTA band, services
+h1, work h1, capabilities "business impact", about contact, and
+the shared CTA band "needs next" in butter),
 organic blob portrait with offset coral outline, and the offer
 card-art compositions (home): a pastel gradient blob backdrop, the
 offer's mark enlarged over it, and small geometric accents (dot
@@ -180,7 +194,13 @@ gestures read as AI tells; don't reintroduce either.)
    pop in left to right over ~2.3s with arrows sliding in between,
    triggered once by the reveal observer. Static and fully visible
    under reduced motion and no-JS. Runs once — never loops.
-11. **Experience timeline (about):** a coral progress line fills down
+11. **Paper-tab entrance:** when a tabbed headline's reveal fires,
+   the back tab slides up into place (0.3s, var(--ease), +0.18s
+   delay) and the front tab follows (+0.34s); the text never moves.
+   No bounce, no scribble, no glow. Page-head tabs (services/work
+   h1) are static — page heads don't reveal. Reduced motion and
+   no-JS: tabs fully visible, static.
+12. **Experience timeline (about):** a coral progress line fills down
    the career track as the reader scrolls (scroll-linked, aimed at
    55% viewport height); nodes fill coral with a soft halo once
    their entry reveals; entries with case studies carry a
