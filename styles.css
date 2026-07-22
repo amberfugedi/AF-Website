@@ -471,6 +471,11 @@ body.page-sub .aura { --aura-base: 0.45; }
   align-items: center;
 }
 .problem-art .glyph { width: 100%; max-width: 420px; margin: 0 auto; height: auto; }
+/* The ascent assembles block by block after the pile settles */
+.reveal.in-view .problem-art .ord-1 { animation-delay: 0.75s; }
+.reveal.in-view .problem-art .ord-2 { animation-delay: 0.95s; }
+.reveal.in-view .problem-art .ord-3 { animation-delay: 1.15s; }
+.reveal.in-view .problem-art .ord-4 { animation-delay: 1.35s; }
 @media (max-width: 1020px) {
   .problem-grid { grid-template-columns: 1fr; }
   .problem-art { display: none; }

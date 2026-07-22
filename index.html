@@ -179,40 +179,48 @@
           <h2 class="section-title reveal" id="problem-title">Good ideas get stuck between strategy and shipping.</h2>
           <p class="section-lede reveal">Most teams don't lack marketing ideas. They lack the time, the process, or a senior pair of hands to get those ideas out the door. That's the gap I work in. And once I'm in it, I usually find a few places where AI or a simpler process can hand hours back to the people doing the thinking.</p>
         </div>
-        <!-- The problem, drawn: several ideas set out, most stall in
-             the tangle, one breaks through and gains momentum. -->
+        <!-- The problem, drawn: a pile of idea blocks stuck in a heap,
+             resolving into an aligned ascent. The coral block ships. -->
         <div class="reveal problem-art" aria-hidden="true">
           <svg class="glyph" viewBox="0 0 400 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <defs>
-              <linearGradient id="g-pblob" x1="0" y1="1" x2="1" y2="0">
-                <stop offset="0" stop-color="#FBD5E4"/>
-                <stop offset="1" stop-color="#DAD4F5"/>
-              </linearGradient>
-              <radialGradient id="g-pknot" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0" stop-color="#FBD5E4"/>
+              <radialGradient id="g-pile" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-color="#FBD5E4" stop-opacity="0.55"/>
                 <stop offset="1" stop-color="#FBD5E4" stop-opacity="0"/>
               </radialGradient>
+              <radialGradient id="g-ascent" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-color="#DAD4F5" stop-opacity="0.5"/>
+                <stop offset="1" stop-color="#DAD4F5" stop-opacity="0"/>
+              </radialGradient>
             </defs>
-            <!-- backdrop blob -->
-            <path class="fill" d="M208 30 C 282 18, 352 52, 358 118 C 364 178, 322 224, 252 228 C 184 232, 136 200, 132 140 C 128 88, 148 40, 208 30 Z" fill="url(#g-pblob)" opacity="0.55" stroke="none"/>
-            <circle class="fill" cx="196" cy="172" r="58" fill="url(#g-pknot)" stroke="none"/>
-            <!-- stalled idea paths: they enter, waver, and stop short -->
-            <path class="stroke" pathLength="100" d="M20 120 C 70 118, 110 132, 148 152" stroke="#B8354A" stroke-width="1.8" opacity="0.3"/>
-            <circle class="fill" cx="152" cy="154" r="2.6" fill="#B8354A" opacity="0.35" stroke="none"/>
-            <path class="stroke" pathLength="100" d="M28 250 C 76 250, 118 232, 152 204" stroke="#B8354A" stroke-width="1.8" opacity="0.3"/>
-            <circle class="fill" cx="156" cy="201" r="2.6" fill="#B8354A" opacity="0.35" stroke="none"/>
-            <!-- the idea that makes it: through the tangle and out -->
-            <path class="stroke" pathLength="100" d="M18 208 C 74 202, 122 188, 158 172 C 196 154, 226 146, 236 166 C 246 188, 212 202, 194 186 C 172 166, 188 132, 222 116 C 272 94, 320 72, 372 40" stroke="#B8354A" stroke-width="2.4"/>
-            <path class="stroke" pathLength="100" d="M358 54 L374 38 L352 32" stroke="#B8354A" stroke-width="2.4"/>
-            <circle class="fill" cx="18" cy="208" r="4.4" fill="#B8354A" stroke="none"/>
-            <!-- momentum ticks behind the arrowhead -->
-            <path class="stroke" pathLength="100" d="M322 52 L336 44 M330 66 L346 57" stroke="#B8354A" stroke-width="1.8" opacity="0.55"/>
+            <circle class="fill" cx="112" cy="212" r="96" fill="url(#g-pile)" stroke="none"/>
+            <circle class="fill" cx="304" cy="124" r="112" fill="url(#g-ascent)" stroke="none"/>
+
+            <!-- the pile: ideas stacked every which way -->
+            <rect class="fill" x="51" y="169" width="54" height="54" rx="12" fill="#FBD5E4" transform="rotate(-16 78 196)"/>
+            <rect class="fill" x="105" y="191" width="46" height="46" rx="11" fill="#FCE4C4" transform="rotate(22 128 214)"/>
+            <rect class="fill" x="76" y="218" width="40" height="40" rx="10" fill="#DAD4F5" opacity="0.9" transform="rotate(-28 96 238)"/>
+            <rect class="fill" x="131" y="161" width="38" height="38" rx="10" fill="#DAD4F5" transform="rotate(10 150 180)"/>
+            <rect class="fill" x="51" y="227" width="30" height="30" rx="8" fill="#FCE4C4" opacity="0.85" transform="rotate(35 66 242)"/>
+            <rect class="fill" x="127" y="231" width="26" height="26" rx="7" fill="#FBD5E4" opacity="0.8" transform="rotate(-12 140 244)"/>
+            <rect class="stroke" pathLength="100" x="91" y="159" width="34" height="34" rx="9" stroke="#A63563" stroke-width="1.6" opacity="0.5" transform="rotate(-6 108 176)"/>
+
+            <!-- one block mid-escape, half straightened -->
+            <rect class="fill" x="181" y="180" width="34" height="34" rx="9" fill="#FCE4C4" transform="rotate(8 198 197)"/>
+
+            <!-- the ascent: the same blocks, aligned and climbing -->
+            <rect class="fill ord-1" x="222" y="170" width="40" height="40" rx="10" fill="#FCE4C4"/>
+            <rect class="fill ord-2" x="266" y="130" width="42" height="42" rx="10" fill="#DAD4F5"/>
+            <rect class="fill ord-3" x="311" y="89" width="44" height="44" rx="11" fill="#FBD5E4"/>
+            <rect class="fill ord-4" x="342" y="46" width="46" height="46" rx="11" fill="#FF6F61"/>
+
+            <!-- momentum ticks past the shipped block -->
+            <path class="stroke" pathLength="100" d="M340 32 L350 22 M356 38 L368 29" stroke="#B8354A" stroke-width="1.8" opacity="0.6"/>
             <!-- accents -->
             <g class="fill" fill="#574AA6" opacity="0.4">
-              <circle cx="342" cy="196" r="2"/><circle cx="354" cy="196" r="2"/><circle cx="366" cy="196" r="2"/>
-              <circle cx="348" cy="208" r="2"/><circle cx="360" cy="208" r="2"/>
+              <circle cx="236" cy="248" r="2"/><circle cx="248" cy="248" r="2"/><circle cx="260" cy="248" r="2"/>
+              <circle cx="242" cy="260" r="2"/><circle cx="254" cy="260" r="2"/>
             </g>
-            <path class="stroke" pathLength="100" d="M64 52 L76 52 L76 64 L64 64 Z" stroke="#A63563" stroke-width="1.6" opacity="0.45" transform="rotate(-10 70 58)"/>
           </svg>
         </div>
       </div>
