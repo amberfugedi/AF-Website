@@ -85,10 +85,12 @@ per mark. Stroked elements carry `pathLength="100"` and draw in on
 reveal; filled forms use class `fill` and fade in after. Current
 set: tapered coral gradient swash under the hero accent word,
 three offer marks (growth arcs / orbital system / trajectory
-curve), the pile-and-ascent mark (home problem section: a heap of tilted
-pastel idea-blocks resolves into an aligned climbing sequence,
-topped by a coral block with momentum ticks; the ascent assembles
-block by block on reveal),
+curve), the bottleneck mark (home problem section: four colored threads
+enter scattered from the left, tangle inside a blush highlighter
+band — the stuck zone — then resolve into one coral-deep line that
+flows level off the right edge past momentum ticks; draw-in is
+choreographed: scatter, knot, pause, clarity. No arrowheads, no
+upward-chart shapes),
 organic blob portrait with offset coral outline, and the offer
 card-art compositions (home): a pastel gradient blob backdrop, the
 offer's mark enlarged over it, and small geometric accents (dot

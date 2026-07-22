@@ -179,48 +179,26 @@
           <h2 class="section-title reveal" id="problem-title">Good ideas get stuck between strategy and shipping.</h2>
           <p class="section-lede reveal">Most teams don't lack marketing ideas. They lack the time, the process, or a senior pair of hands to get those ideas out the door. That's the gap I work in. And once I'm in it, I usually find a few places where AI or a simpler process can hand hours back to the people doing the thinking.</p>
         </div>
-        <!-- The problem, drawn: a pile of idea blocks stuck in a heap,
-             resolving into an aligned ascent. The coral block ships. -->
+        <!-- The problem, drawn: four ideas enter, compress into the
+             bottleneck, and resolve into one clear path that keeps going. -->
         <div class="reveal problem-art" aria-hidden="true">
           <svg class="glyph" viewBox="0 0 400 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <defs>
-              <radialGradient id="g-pile" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0" stop-color="#FBD5E4" stop-opacity="0.55"/>
-                <stop offset="1" stop-color="#FBD5E4" stop-opacity="0"/>
-              </radialGradient>
-              <radialGradient id="g-ascent" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0" stop-color="#DAD4F5" stop-opacity="0.5"/>
-                <stop offset="1" stop-color="#DAD4F5" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <circle class="fill" cx="112" cy="212" r="96" fill="url(#g-pile)" stroke="none"/>
-            <circle class="fill" cx="304" cy="124" r="112" fill="url(#g-ascent)" stroke="none"/>
+            <!-- the stuck zone: a highlighter band over the bottleneck -->
+            <rect class="fill" x="176" y="66" width="88" height="176" rx="16" fill="#FBD5E4" opacity="0.5" transform="rotate(-2 220 154)"/>
 
-            <!-- the pile: ideas stacked every which way -->
-            <rect class="fill" x="51" y="169" width="54" height="54" rx="12" fill="#FBD5E4" transform="rotate(-16 78 196)"/>
-            <rect class="fill" x="105" y="191" width="46" height="46" rx="11" fill="#FCE4C4" transform="rotate(22 128 214)"/>
-            <rect class="fill" x="76" y="218" width="40" height="40" rx="10" fill="#DAD4F5" opacity="0.9" transform="rotate(-28 96 238)"/>
-            <rect class="fill" x="131" y="161" width="38" height="38" rx="10" fill="#DAD4F5" transform="rotate(10 150 180)"/>
-            <rect class="fill" x="51" y="227" width="30" height="30" rx="8" fill="#FCE4C4" opacity="0.85" transform="rotate(35 66 242)"/>
-            <rect class="fill" x="127" y="231" width="26" height="26" rx="7" fill="#FBD5E4" opacity="0.8" transform="rotate(-12 140 244)"/>
-            <rect class="stroke" pathLength="100" x="91" y="159" width="34" height="34" rx="9" stroke="#A63563" stroke-width="1.6" opacity="0.5" transform="rotate(-6 108 176)"/>
+            <!-- four ideas enter scattered from the left -->
+            <circle class="fill" cx="10" cy="64" r="3.4" fill="#D77FA5"/>
+            <path class="stroke ln-1" pathLength="100" d="M10 64 C 62 70, 122 88, 168 118 C 200 138, 232 128, 224 150 C 216 170, 196 158, 206 144 C 214 132, 246 140, 268 150" stroke="#D77FA5" stroke-width="2"/>
+            <circle class="fill" cx="10" cy="120" r="3.4" fill="#7A6DC4"/>
+            <path class="stroke ln-2" pathLength="100" d="M10 120 C 66 118, 122 124, 172 140 C 204 150, 220 134, 232 142 C 246 151, 238 168, 222 163 C 240 171, 256 158, 268 150" stroke="#7A6DC4" stroke-width="2"/>
+            <circle class="fill" cx="10" cy="182" r="3.4" fill="#E0A33F"/>
+            <path class="stroke ln-3" pathLength="100" d="M10 182 C 66 184, 126 172, 176 158 C 198 152, 212 170, 228 159 C 240 151, 252 152, 268 150" stroke="#E0A33F" stroke-width="2"/>
+            <circle class="fill" cx="10" cy="238" r="3.4" fill="#FF6F61"/>
+            <path class="stroke ln-4" pathLength="100" d="M10 238 C 72 236, 132 214, 178 182 C 202 166, 188 148, 212 151 C 230 153, 250 148, 268 150" stroke="#FF6F61" stroke-width="2"/>
 
-            <!-- one block mid-escape, half straightened -->
-            <rect class="fill" x="181" y="180" width="34" height="34" rx="9" fill="#FCE4C4" transform="rotate(8 198 197)"/>
-
-            <!-- the ascent: the same blocks, aligned and climbing -->
-            <rect class="fill ord-1" x="222" y="170" width="40" height="40" rx="10" fill="#FCE4C4"/>
-            <rect class="fill ord-2" x="266" y="130" width="42" height="42" rx="10" fill="#DAD4F5"/>
-            <rect class="fill ord-3" x="311" y="89" width="44" height="44" rx="11" fill="#FBD5E4"/>
-            <rect class="fill ord-4" x="342" y="46" width="46" height="46" rx="11" fill="#FF6F61"/>
-
-            <!-- momentum ticks past the shipped block -->
-            <path class="stroke" pathLength="100" d="M340 32 L350 22 M356 38 L368 29" stroke="#B8354A" stroke-width="1.8" opacity="0.6"/>
-            <!-- accents -->
-            <g class="fill" fill="#574AA6" opacity="0.4">
-              <circle cx="236" cy="248" r="2"/><circle cx="248" cy="248" r="2"/><circle cx="260" cy="248" r="2"/>
-              <circle cx="242" cy="260" r="2"/><circle cx="254" cy="260" r="2"/>
-            </g>
+            <!-- after the pause: one organized path, off the edge -->
+            <path class="stroke ln-out" pathLength="100" d="M268 150 C 310 145, 348 154, 402 148" stroke="#B8354A" stroke-width="3.2"/>
+            <path class="stroke ln-tick" pathLength="100" d="M356 126 L370 119 M374 131 L390 124" stroke="#B8354A" stroke-width="1.8" opacity="0.6"/>
           </svg>
         </div>
       </div>

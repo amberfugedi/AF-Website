@@ -471,11 +471,14 @@ body.page-sub .aura { --aura-base: 0.45; }
   align-items: center;
 }
 .problem-art .glyph { width: 100%; max-width: 420px; margin: 0 auto; height: auto; }
-/* The ascent assembles block by block after the pile settles */
-.reveal.in-view .problem-art .ord-1 { animation-delay: 0.75s; }
-.reveal.in-view .problem-art .ord-2 { animation-delay: 0.95s; }
-.reveal.in-view .problem-art .ord-3 { animation-delay: 1.15s; }
-.reveal.in-view .problem-art .ord-4 { animation-delay: 1.35s; }
+/* Choreography: ideas enter scattered, tangle in the band, pause,
+   then the one clear path draws out. Clarity, not speed. */
+.reveal.in-view .problem-art .ln-1 { animation-duration: 1.8s; }
+.reveal.in-view .problem-art .ln-2 { animation-duration: 1.8s; animation-delay: 0.15s; }
+.reveal.in-view .problem-art .ln-3 { animation-duration: 1.8s; animation-delay: 0.3s; }
+.reveal.in-view .problem-art .ln-4 { animation-duration: 1.8s; animation-delay: 0.45s; }
+.reveal.in-view .problem-art .ln-out { animation-duration: 1.1s; animation-delay: 2.9s; }
+.reveal.in-view .problem-art .ln-tick { animation-delay: 3.8s; }
 @media (max-width: 1020px) {
   .problem-grid { grid-template-columns: 1fr; }
   .problem-art { display: none; }
