@@ -96,11 +96,16 @@ don't reintroduce.)
    ends and reads static). Desktop: 17s/21s/14s, blur 46px. Mobile
    (≤760px): clouds sized to viewport (62–80vw, no min-width), blur 28px,
    11–16s. Verified velocity target: ~25–45px/s desktop, ~20–26px/s mobile.
-2. **Cursor parallax:** each cloud eases toward cursor at depths
-   90/150/220px max, via CSS `translate` property (composes with the
-   orbit `transform`). Desktop `pointer: fine` only.
+2. **Cursor/tilt parallax:** each cloud eases toward the cursor at
+   depths 90/150/220px max, via CSS `translate` (composes with the
+   orbit `transform`), `pointer: fine` only. On touch devices the
+   same targets are driven by device tilt (gamma/beta over ±30°,
+   neutral calibrated from the first reading). Android only — iOS
+   requires a gesture-gated permission prompt, which an ambient
+   background doesn't justify; it silently gets orbits + scroll.
 3. **Scroll depth:** clouds also recede at 0.04/0.07/0.11× scroll
-   distance, extending the parallax into the scroll axis.
+   distance, capped at 90/150/210px so the aura never scrolls fully
+   off long pages (mobile especially — clouds are viewport-sized).
 4. **Scroll reveal:** `.reveal` fade/rise 28px, 0.7s,
    IntersectionObserver; grid children auto-stagger 80ms (capped
    0.4s), delay cleared after settling so hover stays instant.

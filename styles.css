@@ -191,11 +191,14 @@ main p a:hover, .form-note a:hover, .footer-inner a:hover {
     animation-duration: 16s;
   }
   .aura-blob-3 {
-    width: 62vw; height: 62vw;
+    width: 74vw; height: 74vw;
     min-width: 0; min-height: 0;
-    top: 32%; left: 14%;
+    top: 46%; left: 4%;
     animation-duration: 11s;
   }
+  /* Interior pages: the fainter echo washes out entirely on small
+     screens — hold a little more color there. */
+  body.page-sub .aura { opacity: 0.55; }
 }
 
 /* Interior pages: fainter echo behind the header so text stays readable */

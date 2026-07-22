@@ -20,6 +20,9 @@
        cloud make the layer read as 3D space. */
     var DEPTHS = [90, 150, 220];
     var SCROLL_DEPTHS = [0.04, 0.07, 0.11];
+    /* Cap the scroll recession: early-scroll parallax stays, but the
+       clouds never drift fully off the top of long pages. */
+    var SCROLL_MAX = [90, 150, 210];
     var cur = blobs.map(function () { return { x: 0, y: 0 }; });
     var targetX = 0, targetY = 0, targetScroll = 0, rafId = null;
 
@@ -27,7 +30,8 @@
       var settled = true;
       blobs.forEach(function (blob, i) {
         var tx = targetX * DEPTHS[i % 3];
-        var ty = targetY * DEPTHS[i % 3] - targetScroll * SCROLL_DEPTHS[i % 3];
+        var ty = targetY * DEPTHS[i % 3] -
+                 Math.min(targetScroll * SCROLL_DEPTHS[i % 3], SCROLL_MAX[i % 3]);
         cur[i].x += (tx - cur[i].x) * 0.055;
         cur[i].y += (ty - cur[i].y) * 0.055;
         blob.style.translate = cur[i].x.toFixed(2) + "px " + cur[i].y.toFixed(2) + "px";
@@ -42,6 +46,21 @@
         /* -0.5..0.5 from viewport center */
         targetX = e.clientX / window.innerWidth - 0.5;
         targetY = e.clientY / window.innerHeight - 0.5;
+        wake();
+      }, { passive: true });
+    } else if ("DeviceOrientationEvent" in window &&
+               typeof DeviceOrientationEvent.requestPermission !== "function") {
+      /* Touch devices: the clouds lean with the phone instead of the
+         cursor. First reading calibrates neutral so any comfortable
+         holding angle is "center". iOS is skipped on purpose — its
+         permission prompt needs a user gesture, and an aura isn't
+         worth a dialog. */
+      var baseBeta = null;
+      window.addEventListener("deviceorientation", function (e) {
+        if (e.beta === null || e.gamma === null) return;
+        if (baseBeta === null) baseBeta = e.beta;
+        targetX = Math.max(-0.5, Math.min(0.5, e.gamma / 60));
+        targetY = Math.max(-0.5, Math.min(0.5, (e.beta - baseBeta) / 60));
         wake();
       }, { passive: true });
     }
