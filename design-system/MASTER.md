@@ -100,8 +100,17 @@ gestures read as AI tells; don't reintroduce either.)
 ## Motion (full budget — add nothing beyond this)
 
 1. **Aura (signature — narrative, not ambient):** three pastel clouds
-   on CONTINUOUS closed-loop orbits, `linear` timing, breathing
-   0.84-1.30 scale per loop. The layer tells the site's story via
+   on CONTINUOUS closed-loop paths, `linear` timing, breathing
+   0.84-1.30 scale per loop. The two warm clouds are a phase-aligned
+   21s pair (aura-drift-l/r): they wander asymmetrically, gather at
+   30%, and briefly part in mirror at 30-38% — an ABSTRACT wing beat,
+   aura first, wings only for a moment (the literal-butterfly ban
+   stands; this is the sanctioned echo). Mobile has its own PORTRAIT
+   COMPOSITION, not a scaled-down desktop: 88-96vw clouds with denser
+   cores (alpha ~1, 56% falloff, blur 30px) framing the headline from
+   left and upper-right with lavender anchoring the CTAs, all three
+   bleeding off the edges (deliberate crop); the wing pair runs
+   phone-amplitude keyframes (aura-m-l/r, 16s, up to 22vw travel). The layer tells the site's story via
    FOCUS STAGES driven by scroll position (data-aura-stage on body):
    stage 0 diffuse (hero, blur 46px), stage 1 gathering (problem/work,
    38px, first shape), stage 2 focused (why/offers, 31px, -3deg lean,
@@ -112,8 +121,8 @@ gestures read as AI tells; don't reintroduce either.)
    keyframes own `transform`, parallax owns `translate`, stages own
    `scale`/`rotate`/`filter`/opacity var. Home aura settles in over
    2.4s on load. Sub-pages: two-step (diffuse -> focused after 360px).
-   Mobile: stages are opacity/scale only (blur 28px constant, no shape
-   morphs); orbits 8-12s. Reduced motion: fully static gradient form,
+   Mobile: stages are opacity/scale only (blur 30px constant, no shape
+   morphs). Reduced motion: fully static gradient form,
    no stages, no settle. Desktop center velocity ~25-50px/s, mobile
    ~30-50px/s.
    The aura thread also surfaces as: a layered pastel texture behind

@@ -166,7 +166,7 @@ body[data-aura-stage="3"] .aura-blob {
   top: -18%; left: -8%;
   background: radial-gradient(circle at 40% 40%,
     rgba(246, 158, 199, 0.95), rgba(251, 213, 228, 0.0) 60%);
-  animation: aura-orbit-a 17s linear infinite;
+  animation: aura-drift-l 21s linear infinite;
 }
 .aura-blob-2 {
   width: 44vw; height: 44vw;
@@ -174,7 +174,7 @@ body[data-aura-stage="3"] .aura-blob {
   top: -12%; right: -10%;
   background: radial-gradient(circle at 55% 45%,
     rgba(248, 190, 116, 0.95), rgba(252, 228, 196, 0.0) 60%);
-  animation: aura-orbit-b 21s linear infinite;
+  animation: aura-drift-r 21s linear infinite;
 }
 .aura-blob-3 {
   width: 40vw; height: 40vw;
@@ -184,20 +184,27 @@ body[data-aura-stage="3"] .aura-blob {
     rgba(172, 158, 232, 0.92), rgba(218, 212, 245, 0.0) 60%);
   animation: aura-orbit-c 14s linear infinite;
 }
-/* Clockwise orbit, swelling through the far side */
-@keyframes aura-orbit-a {
+/* Left cloud of the wing pair: wanders, gathers toward center at 30%,
+   then briefly unfolds out-left-up (30-38%) mirroring its partner —
+   an abstract wing beat, aura first, wings only for a moment. */
+@keyframes aura-drift-l {
   0%   { transform: translate(0, 0) scale(1); }
-  25%  { transform: translate(13vw, 9vh) scale(1.18); }
-  50%  { transform: translate(2vw, 19vh) scale(1.3); }
-  75%  { transform: translate(-11vw, 9vh) scale(1.1); }
+  14%  { transform: translate(6vw, 7vh) scale(1.12); }
+  30%  { transform: translate(10vw, 10vh) scale(1.04); }
+  38%  { transform: translate(-2vw, 2vh) scale(1.22); }
+  52%  { transform: translate(-4vw, 11vh) scale(1.1); }
+  74%  { transform: translate(4vw, 17vh) scale(1.24); }
   100% { transform: translate(0, 0) scale(1); }
 }
-/* Counter-clockwise, wider, contracting mid-loop */
-@keyframes aura-orbit-b {
+/* Right cloud: the mirror of aura-drift-l, phase-aligned at 21s so
+   the 30-38% parting reads as two forms opening together. */
+@keyframes aura-drift-r {
   0%   { transform: translate(0, 0) scale(1); }
-  25%  { transform: translate(-14vw, 10vh) scale(1.22); }
-  50%  { transform: translate(-3vw, 21vh) scale(0.94); }
-  75%  { transform: translate(11vw, 9vh) scale(1.18); }
+  14%  { transform: translate(-6vw, 8vh) scale(1.14); }
+  30%  { transform: translate(-10vw, 11vh) scale(1.05); }
+  38%  { transform: translate(2vw, 3vh) scale(1.24); }
+  52%  { transform: translate(4vw, 12vh) scale(1.08); }
+  74%  { transform: translate(-5vw, 18vh) scale(1.18); }
   100% { transform: translate(0, 0) scale(1); }
 }
 /* Diagonal loop through the middle, deepest breath of the three */
@@ -212,24 +219,36 @@ body[data-aura-stage="3"] .aura-blob {
    screen — they merge into one static-looking wash. Size the clouds
    to the phone, lighten the blur (GPU cost), and run a touch faster. */
 @media (max-width: 760px) {
-  .aura-blob { filter: blur(28px); }
+  /* Portrait art direction: the two warm clouds meet above and beside
+     the headline like a loose open pair; the lavender cloud anchors
+     depth behind the CTAs. Deliberate crop: all three bleed off the
+     edges. Denser cores + tighter falloff = present, not faint. */
+  .aura-blob { filter: blur(30px); }
   .aura-blob-1 {
-    width: 80vw; height: 80vw;
+    width: 96vw; height: 96vw;
     min-width: 0; min-height: 0;
-    top: -10%; left: -24%;
-    animation-duration: 9s;
+    top: 1%; left: -32%;
+    background: radial-gradient(circle at 44% 42%,
+      rgba(246, 158, 199, 1), rgba(251, 213, 228, 0) 56%);
+    animation-duration: 18s;
   }
   .aura-blob-2 {
-    width: 70vw; height: 70vw;
+    width: 88vw; height: 88vw;
     min-width: 0; min-height: 0;
-    top: -4%; right: -22%;
-    animation-duration: 12s;
+    top: -8%; right: -34%;
+    background: radial-gradient(circle at 55% 45%,
+      rgba(248, 190, 116, 1), rgba(252, 228, 196, 0) 56%);
+    animation-duration: 18s;
   }
+  .aura-blob-1 { animation-name: aura-m-l; animation-duration: 16s; }
+  .aura-blob-2 { animation-name: aura-m-r; animation-duration: 16s; }
   .aura-blob-3 {
-    width: 74vw; height: 74vw;
+    width: 92vw; height: 92vw;
     min-width: 0; min-height: 0;
-    top: 46%; left: 4%;
-    animation-duration: 8s;
+    top: 30%; left: 6%;
+    background: radial-gradient(circle at 50% 46%,
+      rgba(172, 158, 232, 0.98), rgba(218, 212, 245, 0) 58%);
+    animation-duration: 13s;
   }
   /* Interior pages: the fainter echo washes out entirely on small
      screens — hold a little more color there. */
@@ -237,10 +256,31 @@ body[data-aura-stage="3"] .aura-blob {
   /* Stages simplify on phones: opacity and scale only — no blur or
      shape morphs on mobile GPUs. */
   body[data-aura-stage] .aura-blob {
-    filter: blur(28px);
+    filter: blur(30px);
     rotate: 0deg;
     border-radius: 50%;
   }
+}
+
+/* Mobile wing pair: the desktop choreography at phone-scale
+   amplitudes (vw shrinks on small screens, so distances grow). */
+@keyframes aura-m-l {
+  0%   { transform: translate(0, 0) scale(1); }
+  14%  { transform: translate(14vw, 5vh) scale(1.12); }
+  30%  { transform: translate(22vw, 8vh) scale(1.04); }
+  38%  { transform: translate(-6vw, 1vh) scale(1.2); }
+  52%  { transform: translate(-10vw, 7vh) scale(1.08); }
+  74%  { transform: translate(8vw, 12vh) scale(1.22); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes aura-m-r {
+  0%   { transform: translate(0, 0) scale(1); }
+  14%  { transform: translate(-14vw, 6vh) scale(1.14); }
+  30%  { transform: translate(-22vw, 9vh) scale(1.05); }
+  38%  { transform: translate(6vw, 2vh) scale(1.22); }
+  52%  { transform: translate(10vw, 8vh) scale(1.06); }
+  74%  { transform: translate(-9vw, 13vh) scale(1.18); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
 /* Interior pages: fainter echo behind the header so text stays readable */
