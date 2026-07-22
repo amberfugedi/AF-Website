@@ -279,7 +279,7 @@ body.page-sub .aura { opacity: 0.45; }
   width: 22px; height: 2px;
   background: var(--ink);
   margin: 5px 0;
-  transition: transform 0.3s var(--ease), opacity 0.2s;
+  transition: transform 0.25s var(--ease), opacity 0.2s;
 }
 .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
@@ -295,9 +295,20 @@ body.page-sub .aura { opacity: 0.45; }
     background: var(--bg);
     border-bottom: 1px solid var(--line);
     padding: 8px 0 16px;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease),
+                visibility 0s linear 0.2s;
   }
-  .nav-links.open { display: flex; }
+  .nav-links.open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+  }
   .nav-links li { width: 100%; text-align: center; }
   .nav-links a { display: block; padding: 12px; font-size: 1.05rem; background-image: none; }
   .nav-links a.nav-cta { display: inline-block; margin-top: 8px; }
@@ -1122,10 +1133,11 @@ section { padding: 104px 0; }
   position: absolute;
   left: 7px; top: 6px;
   width: 2px;
-  height: var(--tl-progress, 0%);
-  max-height: calc(100% - 12px);
+  height: calc(100% - 12px);
   background: linear-gradient(var(--coral), var(--coral-deep));
-  transition: height 0.25s linear;
+  transform: scaleY(var(--tl-progress, 0));
+  transform-origin: top;
+  transition: transform 0.25s linear;
 }
 .tl-entry { position: relative; padding: 14px 18px 44px 44px; margin: -14px 0 0 0; border-radius: 18px; transition: background 0.2s; }
 .tl-entry:last-child { padding-bottom: 14px; }
@@ -1243,7 +1255,11 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--
   font-weight: 500;
   margin-top: 6px;
 }
-.field-error.show { display: block; }
+.field-error.show { display: block; animation: feedback-in 0.18s var(--ease); }
+.form-status.show { animation: feedback-in 0.18s var(--ease); }
+@keyframes feedback-in {
+  from { opacity: 0; transform: translateY(-2px); }
+}
 .form-status {
   font-weight: 600;
   color: var(--coral-deep);
@@ -1304,6 +1320,17 @@ footer {
 }
 .footer-nav a:hover { color: var(--coral-deep); text-decoration: underline; }
 
+/* Touch: taps fire sticky :hover — keep lifts for real pointers only */
+@media (hover: none), (pointer: coarse) {
+  .btn-primary:hover, .btn-outline:hover, .card:hover, .case:hover,
+  .cap-card:hover, .feat-card:hover, .quote-card:hover,
+  .proof-chip:hover, .cta-band .btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .tl-entry:hover::before { transform: none; }
+}
+
 /* ============ Reduced motion ============ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -1323,9 +1350,14 @@ footer {
   .page-home .hero .trusted,
   .page-home .hero .hero-proof { opacity: 1; transform: none; animation: none; }
   .reveal[data-delay="1"], .reveal[data-delay="2"] { transition-delay: 0s; }
-  .btn:hover, .card:hover, .case:hover, .btn:active { transform: none; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+  .btn:hover, .card:hover, .case:hover, .cap-card:hover,
+  .feat-card:hover, .quote-card:hover, .proof-chip:hover,
+  .cta-band .btn:hover, .btn:active { transform: none; }
+  .tl-entry:hover::before { transform: none; }
+  .timeline::after { transition: none; }
+  .nav-links { transition: none; transform: none; }
+  .field-error.show, .form-status.show { animation: none; }
+  /* Color, underline, and opacity feedback stays: reduced motion
+     means fewer and gentler animations, not zero. All movement is
+     neutralized explicitly above. */
 }

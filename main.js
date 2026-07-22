@@ -158,7 +158,7 @@
       var r = timeline.getBoundingClientRect();
       var p = (window.innerHeight * 0.55 - r.top) / r.height;
       p = Math.max(0, Math.min(1, p));
-      timeline.style.setProperty("--tl-progress", (p * 100).toFixed(2) + "%");
+      timeline.style.setProperty("--tl-progress", p.toFixed(4));
     };
     window.addEventListener("scroll", tlTick, { passive: true });
     window.addEventListener("resize", tlTick, { passive: true });
@@ -298,6 +298,9 @@
       /* {{PLACEHOLDER: replace with a real POST to Formspree / Netlify /
          your email platform. Until then, submissions only show a message.}} */
       status.textContent = successMsg;
+      status.classList.remove("show");
+      void status.offsetWidth; /* restart the entrance if re-submitted */
+      status.classList.add("show");
       form.reset();
     });
   }
