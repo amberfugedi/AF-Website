@@ -113,12 +113,47 @@ main p a:hover, .form-note a:hover, .footer-inner a:hover {
   pointer-events: none;
   overflow: hidden;
   will-change: transform;
+  opacity: calc(var(--aura-base, 1) * var(--aura-stage, 1));
+  transition: opacity 1.2s var(--ease);
+}
+/* Home: the aura settles in with the hero — a slow expand into place */
+.page-home .aura { animation: aura-settle 2.4s var(--ease); }
+@keyframes aura-settle {
+  from { opacity: 0; scale: 1.06; }
 }
 .aura-blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(46px);
   will-change: transform;
+  transition: filter 1.4s var(--ease), border-radius 1.4s var(--ease),
+              rotate 1.4s var(--ease), scale 1.4s var(--ease);
+}
+
+/* ---- Focus stages: the idea gathering clarity as the page unfolds.
+   Stage 0 (hero): diffuse. Stage 1 (problem/work): gathering — less
+   blur, first hint of shape. Stage 2 (why/offers): focused — tighter,
+   directional, and the layer steps back so dense copy leads. Stage 3
+   (quotes to CTA): momentum — sharpest, leaning forward. Orbit
+   keyframes (transform), cursor/tilt parallax (translate), and these
+   stage channels (scale/rotate/filter) all compose independently. */
+body[data-aura-stage="1"] .aura-blob {
+  filter: blur(38px);
+  border-radius: 46% 54% 52% 48% / 52% 46% 54% 48%;
+}
+body[data-aura-stage="2"] .aura { --aura-stage: 0.6; }
+body[data-aura-stage="2"] .aura-blob {
+  filter: blur(31px);
+  scale: 0.96 1.03;
+  rotate: -3deg;
+  border-radius: 41% 59% 56% 44% / 54% 43% 57% 46%;
+}
+body[data-aura-stage="3"] .aura { --aura-stage: 0.92; }
+body[data-aura-stage="3"] .aura-blob {
+  filter: blur(26px);
+  scale: 1.05 0.93;
+  rotate: -5deg;
+  border-radius: 37% 63% 60% 40% / 57% 41% 59% 43%;
 }
 /* Saturated pastel cores with defined edges, moving on CONTINUOUS
    orbits (loop keyframes, linear timing) — constant velocity, so
@@ -198,11 +233,18 @@ main p a:hover, .form-note a:hover, .footer-inner a:hover {
   }
   /* Interior pages: the fainter echo washes out entirely on small
      screens — hold a little more color there. */
-  body.page-sub .aura { opacity: 0.55; }
+  body.page-sub .aura { --aura-base: 0.55; }
+  /* Stages simplify on phones: opacity and scale only — no blur or
+     shape morphs on mobile GPUs. */
+  body[data-aura-stage] .aura-blob {
+    filter: blur(28px);
+    rotate: 0deg;
+    border-radius: 50%;
+  }
 }
 
 /* Interior pages: fainter echo behind the header so text stays readable */
-body.page-sub .aura { opacity: 0.45; }
+body.page-sub .aura { --aura-base: 0.45; }
 
 /* All page content sits above the aura */
 .site-nav, main, footer { position: relative; z-index: 1; }
@@ -715,6 +757,11 @@ section { padding: 104px 0; }
    Pauses on hover/focus so quotes can be read; static wrapped grid
    under reduced motion. */
 .quote-marquee {
+  position: relative;
+  background:
+    radial-gradient(60% 120% at 20% 50%, rgba(218, 212, 245, 0.28), transparent 65%),
+    radial-gradient(55% 110% at 82% 50%, rgba(251, 213, 228, 0.24), transparent 60%);
+  border-radius: 28px;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
@@ -1005,12 +1052,30 @@ section { padding: 104px 0; }
 
 /* ============ Work page ============ */
 .case {
+  position: relative;
   background: var(--bg-raised);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: clamp(28px, 4.5vw, 44px);
   margin-bottom: 22px;
   transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease);
+}
+/* Featured-work hover: a quiet layered gradient surfaces behind the
+   case content — the aura thread carried into the cards. */
+.case > * { position: relative; z-index: 1; }
+.case::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(120% 90% at 88% 8%, rgba(252, 228, 196, 0.5), transparent 55%),
+    radial-gradient(110% 85% at 6% 96%, rgba(251, 213, 228, 0.42), transparent 52%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .case:hover::before { opacity: 1; }
 }
 .case:hover {
   transform: translateY(-5px);
@@ -1334,7 +1399,9 @@ footer {
 /* ============ Reduced motion ============ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .aura-blob { animation: none; }
+  .aura { animation: none; transition: none; }
+  .aura-blob { animation: none; transition: none; }
+  .case::before { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .glyph .stroke { stroke-dashoffset: 0; animation: none !important; }
   .cb-step, .cb-arrow { opacity: 1; transform: none; animation: none !important; }

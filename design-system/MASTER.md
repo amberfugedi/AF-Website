@@ -99,14 +99,27 @@ gestures read as AI tells; don't reintroduce either.)
 
 ## Motion (full budget — add nothing beyond this)
 
-1. **Aura (signature):** three pastel clouds on CONTINUOUS closed-loop
-   orbits, `linear` timing (never `alternate` + ease — it stalls at path
-   ends and reads static), each breathing through a scale range of
-   0.84–1.30 across its loop so the layer visibly zooms as it drifts.
-   Desktop: 17s/21s/14s, blur 46px. Mobile (≤760px): clouds sized to
-   viewport (70–80vw, no min-width), blur 28px, 8–12s. Verified
-   CENTER velocity (corners mislead — scale breathing shifts them):
-   ~25–50px/s desktop, ~30–50px/s mobile.
+1. **Aura (signature — narrative, not ambient):** three pastel clouds
+   on CONTINUOUS closed-loop orbits, `linear` timing, breathing
+   0.84-1.30 scale per loop. The layer tells the site's story via
+   FOCUS STAGES driven by scroll position (data-aura-stage on body):
+   stage 0 diffuse (hero, blur 46px), stage 1 gathering (problem/work,
+   38px, first shape), stage 2 focused (why/offers, 31px, -3deg lean,
+   layer steps back to 0.6 so copy leads), stage 3 momentum (quotes to
+   CTA, 26px, -5deg, elongated forward, 0.92). Stages also drift the
+   clouds forward-right up to 88px via the JS bias. Stage transitions
+   ride 1.2-1.4s var(--ease); channels compose independently:
+   keyframes own `transform`, parallax owns `translate`, stages own
+   `scale`/`rotate`/`filter`/opacity var. Home aura settles in over
+   2.4s on load. Sub-pages: two-step (diffuse -> focused after 360px).
+   Mobile: stages are opacity/scale only (blur 28px constant, no shape
+   morphs); orbits 8-12s. Reduced motion: fully static gradient form,
+   no stages, no settle. Desktop center velocity ~25-50px/s, mobile
+   ~30-50px/s.
+   The aura thread also surfaces as: a layered pastel texture behind
+   case cards on hover (0.3s opacity, fine pointers only) and a faint
+   standing gradient behind the quote marquees. Do not add it behind
+   every section — the fade-back IS the design.
 2. **Cursor/tilt parallax:** each cloud eases toward the cursor at
    depths 90/150/220px max, via CSS `translate` (composes with the
    orbit `transform`), `pointer: fine` only. On touch devices the

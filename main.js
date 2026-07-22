@@ -23,14 +23,20 @@
     /* Cap the scroll recession: early-scroll parallax stays, but the
        clouds never drift fully off the top of long pages. */
     var SCROLL_MAX = [90, 150, 210];
+    /* Focus stages: as the page's ideas sharpen, the clouds drift
+       gently forward (right and up) — momentum, not decoration.
+       Indexed by stage; scaled per cloud depth in frame(). */
+    var STAGE_BIAS = [[0, 0], [30, -12], [58, -24], [88, -36]];
+    var auraStage = 0;
     var cur = blobs.map(function () { return { x: 0, y: 0 }; });
     var targetX = 0, targetY = 0, targetScroll = 0, rafId = null;
 
     var frame = function () {
       var settled = true;
       blobs.forEach(function (blob, i) {
-        var tx = targetX * DEPTHS[i % 3];
-        var ty = targetY * DEPTHS[i % 3] -
+        var depthScale = (i % 3 + 1) / 3;
+        var tx = targetX * DEPTHS[i % 3] + STAGE_BIAS[auraStage][0] * depthScale;
+        var ty = targetY * DEPTHS[i % 3] + STAGE_BIAS[auraStage][1] * depthScale -
                  Math.min(targetScroll * SCROLL_DEPTHS[i % 3], SCROLL_MAX[i % 3]);
         cur[i].x += (tx - cur[i].x) * 0.055;
         cur[i].y += (ty - cur[i].y) * 0.055;
@@ -64,8 +70,42 @@
         wake();
       }, { passive: true });
     }
+    var setAuraStage = function (n) {
+      if (n === auraStage) return;
+      auraStage = n;
+      document.body.setAttribute("data-aura-stage", String(n));
+      wake();
+    };
+    /* Home: sections mark the idea's progress from diffuse to focused.
+       Sub-pages: a simple two-step (diffuse at the top, focused after
+       the first screen). */
+    if (document.body.classList.contains("page-home") && "IntersectionObserver" in window) {
+      var stageMap = [
+        [".hero", 0],
+        ["section[aria-labelledby='problem-title']", 1],
+        ["section[aria-labelledby='work-title']", 1],
+        ["section[aria-labelledby='why-title']", 2],
+        ["section[aria-labelledby='offers-title']", 2],
+        ["section[aria-labelledby='quotes-title']", 3],
+        ["section[aria-labelledby='about-title']", 3],
+        [".cta-band-wrap", 3]
+      ];
+      var stageFor = new Map();
+      var stageObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setAuraStage(stageFor.get(entry.target));
+        });
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      stageMap.forEach(function (pair) {
+        var el = document.querySelector(pair[0]);
+        if (el) { stageFor.set(el, pair[1]); stageObserver.observe(el); }
+      });
+    }
     window.addEventListener("scroll", function () {
       targetScroll = window.scrollY;
+      if (!document.body.classList.contains("page-home")) {
+        setAuraStage(window.scrollY > 360 ? 2 : 0);
+      }
       wake();
     }, { passive: true });
     targetScroll = window.scrollY;
