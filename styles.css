@@ -399,6 +399,58 @@ body.page-sub .aura { opacity: 0.45; }
   to { stroke-dashoffset: 0; }
 }
 
+/* Course-assembly strip (services, Courses band): the five parts of
+   a course pop into place left to right, arrows joining them, once
+   the strip scrolls into view. */
+.course-build {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 18px;
+  row-gap: 26px;
+  margin: 64px 0 0;
+}
+.cb-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 92px;
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
+}
+.cb-step svg { width: 46px; height: 46px; }
+.cb-step span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--courses-deep);
+  text-align: center;
+}
+.cb-arrow {
+  width: 26px;
+  flex: none;
+  margin-top: 17px;
+  opacity: 0;
+  transform: translateX(-6px);
+}
+.course-build.in-view .cb-step { animation: cb-pop 0.5s var(--ease) both; }
+.course-build.in-view .cb-arrow { animation: cb-slide 0.35s var(--ease) both; }
+.course-build.in-view > :nth-child(2) { animation-delay: 0.3s; }
+.course-build.in-view > :nth-child(3) { animation-delay: 0.44s; }
+.course-build.in-view > :nth-child(4) { animation-delay: 0.74s; }
+.course-build.in-view > :nth-child(5) { animation-delay: 0.88s; }
+.course-build.in-view > :nth-child(6) { animation-delay: 1.18s; }
+.course-build.in-view > :nth-child(7) { animation-delay: 1.32s; }
+.course-build.in-view > :nth-child(8) { animation-delay: 1.62s; }
+.course-build.in-view > :nth-child(9) { animation-delay: 1.76s; }
+@keyframes cb-pop { to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes cb-slide { to { opacity: 1; transform: translateX(0); } }
+@media (max-width: 640px) {
+  .course-build { column-gap: 10px; }
+  .cb-arrow { display: none; }
+}
+
 /* ============ Sections shared ============ */
 section { padding: 104px 0; }
 
@@ -1186,6 +1238,7 @@ footer {
   .reveal { opacity: 1; transform: none; transition: none; }
   .glyph .stroke { stroke-dashoffset: 0; animation: none !important; }
   .sparkle { display: none; }
+  .cb-step, .cb-arrow { opacity: 1; transform: none; animation: none !important; }
   .glyph .fill { opacity: 1; animation: none !important; }
   .squiggle { transform: none; animation: none !important; }
   .quote-track { animation: none; width: auto; flex-wrap: wrap; }

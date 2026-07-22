@@ -111,6 +111,11 @@ don't reintroduce.)
    lavender `#7A6DC4` and mid pink `#D77FA5`. Vanilla port of Magic
    UI's sparkles-text (no React/framer-motion). Absent under
    reduced motion and no-JS.
+11. **Course-assembly strip (services, Courses band):** five geometric
+   marks (framework → curriculum → script → slides → learner tool)
+   pop in left to right over ~2.3s with arrows sliding in between,
+   triggered once by the reveal observer. Static and fully visible
+   under reduced motion and no-JS. Runs once — never loops.
 
 Interaction timing (per review-animations STANDARDS.md, installed
 in `.claude/skills/`): press feedback 160ms, hover transforms and
