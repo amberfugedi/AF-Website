@@ -93,9 +93,11 @@ don't reintroduce.)
 
 1. **Aura (signature):** three pastel clouds on CONTINUOUS closed-loop
    orbits, `linear` timing (never `alternate` + ease — it stalls at path
-   ends and reads static). Desktop: 17s/21s/14s, blur 46px. Mobile
-   (≤760px): clouds sized to viewport (62–80vw, no min-width), blur 28px,
-   11–16s. Verified velocity target: ~25–45px/s desktop, ~20–26px/s mobile.
+   ends and reads static), each breathing through a scale range of
+   0.84–1.30 across its loop so the layer visibly zooms as it drifts.
+   Desktop: 17s/21s/14s, blur 46px. Mobile (≤760px): clouds sized to
+   viewport (70–80vw, no min-width), blur 28px, 11–16s. Verified
+   velocity target: ~25–50px/s desktop, ~20–30px/s mobile.
 2. **Cursor/tilt parallax:** each cloud eases toward the cursor at
    depths 90/150/220px max, via CSS `translate` (composes with the
    orbit `transform`), `pointer: fine` only. On touch devices the
@@ -126,11 +128,12 @@ don't reintroduce.)
    plane tilts ~±1–2° against the cursor (opposite the clouds) for
    foreground/background separation.
 10. **Hero sparkles (home only):** seven four-point stars blink
-   around the hero accent word on 0.8–1.3s staggered loops, each
-   repositioning to a fresh spot every cycle; fills alternate mid
-   lavender `#7A6DC4` and mid pink `#D77FA5`. Vanilla port of Magic
-   UI's sparkles-text (no React/framer-motion). Absent under
-   reduced motion and no-JS.
+   across the whole hero headline on 0.8–1.3s staggered loops, each
+   repositioning to a fresh spot every cycle (anchored to the h1,
+   not the accent word — word-anchored stars bunched at line ends
+   on mobile); fills alternate mid lavender `#7A6DC4` and mid pink
+   `#D77FA5`. Vanilla port of Magic UI's sparkles-text (no React/
+   framer-motion). Absent under reduced motion and no-JS.
 11. **Course-assembly strip (services, Courses band):** five geometric
    marks (framework → curriculum → script → slides → learner tool)
    pop in left to right over ~2.3s with arrows sliding in between,
