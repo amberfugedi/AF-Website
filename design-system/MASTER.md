@@ -115,21 +115,24 @@ lighter front tab at ~-0.45deg directly behind the text; both tabs
 are trimmed toward cap-height and baseline (front inset 0.1em top /
 0.04em bottom) with small ~0.12-0.2em radii so the highlight sits
 in the type, not around it — never pill-shaped, never a badge: the
-phrase must still read as part of the sentence. `.tab-em` +
-`.tab-blush/.tab-peach/.tab-lavender/.tab-butter`. Color follows
-meaning, loosely: blush = clarity/what to build, peach = working
-together, lavender = different needs/tailored work, butter =
-progress/next steps; a phrase keeps its color wherever it repeats,
-and butter stays scarce — the closing-CTA phrase only. Never in
-body copy, nav, buttons, card titles, or on phrases longer than ~4
-words; at most one per section, and NOT on every major heading.
-Tabs live on cream surfaces plus the one dark CTA band (ink text
-on butter holds 12:1 there); a pastel tab on the old coral band
-fought the gradient and was removed 2026-07. Current placements —
-exactly four phrases: home problem "what to build." (blush), work
-h1 "different needs." (lavender), services h1 "work together."
-(peach), and "comes next." (butter) on the dark CTA bands and the
-about contact heading),
+phrase must still read as part of the sentence, and it must never
+look like a clickable button. `.tab-em` + `.tab-blush/.tab-butter`
+— a TWO-COLOR logic (2026-07, peach/lavender tab variants
+retired): blush marks the tension side (problems, uncertainty,
+open questions), butter marks the possibility side (collaboration,
+solutions, next steps); a phrase keeps its color wherever it
+repeats. Never in body copy, nav, buttons, card titles, or on
+phrases longer than ~4 words; at most one per section, and NOT on
+every major heading — the moment every heading has one it becomes
+a template gimmick. Emphasis never depends on the color: the
+phrase reads as plain words in the sentence without it. Tabs live
+on cream surfaces plus the one dark CTA band (ink text on butter
+holds 12:1 there); a pastel tab on the old coral band fought the
+gradient and was removed 2026-07. Current placements — exactly
+four phrases: "what to build." (blush, home problem), "different
+needs." (blush, work h1 — needs are the question side), "work
+together." (butter, services h1), and "comes next." (butter, dark
+CTA bands + about contact),
 organic blob portrait with offset coral outline, and the offer
 card-art compositions (home): a pastel gradient blob backdrop, the
 offer's mark enlarged over it, and small geometric accents (dot

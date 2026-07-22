@@ -587,21 +587,22 @@ body.page-sub .aura { --aura-base: 0.45; }
 /* Both tabs are trimmed toward cap-height and baseline so the
    highlight reads as part of the type, not a pill pasted over it. */
 .tab-em::before { /* back tab: deeper tone at ~68% alpha, small offset */
-  inset: 0.18em -0.1em -0.08em 0.14em;
+  inset: 0.18em -0.08em -0.06em 0.12em;
   background: var(--tab-back);
-  border-radius: 0.12em 0.18em 0.11em 0.16em / 0.15em 0.2em 0.13em 0.18em;
+  border-radius: 0.08em 0.13em 0.07em 0.11em / 0.1em 0.15em 0.09em 0.13em;
   transform: rotate(var(--trb));
 }
 .tab-em::after { /* front tab: sits directly behind the phrase */
   inset: 0.1em 0 0.04em 0;
   background: var(--tab-front);
-  border-radius: 0.16em 0.12em 0.18em 0.13em / 0.2em 0.14em 0.18em 0.15em;
+  border-radius: 0.11em 0.08em 0.13em 0.09em / 0.14em 0.1em 0.13em 0.11em;
   transform: rotate(var(--trf));
 }
-.tab-blush    { --tab-front: var(--blush);    --tab-back: rgba(246, 187, 211, 0.68); }
-.tab-peach    { --tab-front: var(--peach);    --tab-back: rgba(248, 206, 154, 0.68); }
-.tab-lavender { --tab-front: var(--lavender); --tab-back: rgba(196, 187, 238, 0.68); }
-.tab-butter   { --tab-front: #FBEDBF;         --tab-back: rgba(242, 220, 156, 0.68); }
+/* Two-color logic: blush marks the tension side (problems, open
+   questions), butter marks the possibility side (collaboration,
+   solutions, next steps). Peach/lavender tab variants retired. */
+.tab-blush  { --tab-front: var(--blush); --tab-back: rgba(246, 187, 211, 0.68); }
+.tab-butter { --tab-front: #FBEDBF;      --tab-back: rgba(242, 220, 156, 0.68); }
 
 /* Entrance: inside a reveal, the back tab slides up into place first,
    the front tab follows; the text itself never moves. */
@@ -704,7 +705,7 @@ section { padding: 104px 0; }
 }
 
 .section-title {
-  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-size: clamp(1.62rem, 4vw, 2.75rem);
   margin-bottom: 18px;
   max-width: 680px;
 }
