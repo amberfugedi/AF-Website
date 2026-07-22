@@ -369,8 +369,8 @@ body.page-sub .aura { opacity: 0.45; }
 /* Hero proof column: real results as tilted chips, desktop only */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 400px;
-  gap: 56px;
+  grid-template-columns: minmax(0, 1fr) 356px;
+  gap: 44px;
   align-items: center;
 }
 .proof-chip {
@@ -508,7 +508,7 @@ section { padding: 104px 0; }
 }
 .section-lede {
   color: var(--muted);
-  max-width: 560px;
+  max-width: 600px;
   margin-bottom: 56px;
 }
 
@@ -537,7 +537,7 @@ section { padding: 104px 0; }
 /* With the proof column, the hero spans the full wrap; copy keeps
    its comfortable measure inside the grid. */
 .hero-content.hero-grid { max-width: 1120px; }
-.hero-grid .hero-copy { max-width: 640px; }
+.hero-grid .hero-copy { max-width: 690px; }
 
 
 .hero h1 {
@@ -559,7 +559,7 @@ section { padding: 104px 0; }
 .hero .subhead {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
   color: var(--body);
-  max-width: 600px;
+  max-width: 640px;
   margin-bottom: 42px;
 }
 
@@ -830,7 +830,7 @@ section { padding: 104px 0; }
   margin-bottom: 10px;
 }
 .offer-section h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 16px; }
-.offer-desc { color: var(--body); margin-bottom: 28px; max-width: 560px; }
+.offer-desc { color: var(--body); margin-bottom: 28px; max-width: 600px; }
 
 .offer-points { list-style: none; display: grid; gap: 14px; }
 .offer-points li {
