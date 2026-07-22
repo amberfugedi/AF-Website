@@ -115,10 +115,12 @@ together, lavender = different needs/tailored work, butter =
 progress/next steps; a phrase keeps its color wherever it repeats.
 Never in body copy, nav, buttons, card titles, or on phrases longer
 than ~4 words; at most one per section, and NOT on every major
-heading. Current placements — exactly four phrases: home problem
+heading, and only on light/cream surfaces — never on the coral CTA
+band, where a pastel tab fights the gradient (tried and removed
+2026-07). Current placements — exactly four phrases: home problem
 "what to build." (blush), work h1 "different needs." (lavender),
 services h1 "work together." (peach), and "what comes next."
-(butter) on the shared CTA bands + about contact),
+(butter) on the about contact heading),
 organic blob portrait with offset coral outline, and the offer
 card-art compositions (home): a pastel gradient blob backdrop, the
 offer's mark enlarged over it, and small geometric accents (dot
