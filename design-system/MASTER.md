@@ -13,9 +13,19 @@ Soft pastel aura: warm cream base, slowly orbiting pastel color clouds
 but warm — playful-creative, never corporate, never dark. Copy is sharp
 and human; no generic marketing filler.
 
-Positioning: marketing courses + automations, consulting (marketing AND
-business strategy) as the top tier. AI-diagnosis thread: "I find where AI
-fits in your business — the gaps, the time sinks."
+Positioning (updated 2026-07 per Amber's brief): senior marketing
+leader and consultant. She builds strategies, campaigns, brand, demand
+gen, courses, and better ways of working; AI is ONE advisory area
+("AI & Workflow Strategy"), never the centerpiece of the brand. Never
+present her as an automation engineer. Offers are three distinct
+engagements, not a ladder or "one system."
+
+Voice: conversational, direct, warm, concise, contractions. Banned in
+copy: em dashes in prose, exclamation points, "AI-powered", "runs
+without you", "one system", "three ways in", "productized", "the exact
+playbook", "hand you the keys", "marketing engine", "lead engine",
+"build the system", "let it compound", buzzwords and founder-story
+cliches. Year ranges may use dashes.
 
 ## Color tokens (from styles.css)
 
@@ -30,13 +40,14 @@ fits in your business — the gaps, the time sinks."
 | `--coral-deep` | `#B0492E` | Coral as TEXT (links, eyebrows) | 5.1:1 on bg |
 | `--blush` | `#FBD5E4` | Consulting pastel + aura cloud | fill only |
 | `--peach` | `#FCE4C4` | Courses pastel + aura cloud | fill only |
-| `--lavender` | `#DAD4F5` | Automations pastel + aura cloud | fill only |
+| `--lavender` | `#DAD4F5` | AI & Workflow pastel + aura cloud | fill only |
 | `--courses-deep` | `#8A5A14` | Courses text tone | 5.5:1 on bg |
-| `--automations-deep` | `#574AA6` | Automations text tone | 6.7:1 on bg |
+| `--automations-deep` | `#574AA6` | AI & Workflow text tone (token name unchanged) | 6.7:1 on bg |
 | `--consulting-deep` | `#A63563` | Consulting text tone | 5.9:1 on bg |
 
 **Offer color coding (used on every page the offers appear):**
-Courses = peach · Automations = lavender · Consulting = blush.
+Courses = peach · AI & Workflow Strategy = lavender · Consulting = blush.
+(CSS class names still say "automations"; only visible copy renamed.)
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is
 the only text color allowed on top of them or as accent text on cream.
