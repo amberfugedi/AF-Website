@@ -543,6 +543,27 @@ body.page-sub .aura { --aura-base: 0.45; }
   .proof-chip .proof-stat { font-size: 1.05rem; }
   .proof-chip .proof-label { font-size: 0.72rem; margin-top: 1px; }
 }
+/* Phones: the chips become a full-width results strip — one pastel
+   row per result so the hero fills its column instead of leaving
+   fit-content boxes hugging the left edge. */
+@media (max-width: 760px) {
+  .hero { min-height: 0; padding: 118px 0 56px; }
+  .hero .subhead { margin-bottom: 30px; }
+  .hero-proof { flex-direction: column; gap: 10px; margin-top: 10px; }
+  .proof-chip {
+    display: flex;
+    width: 100%;
+    align-items: baseline;
+    gap: 12px;
+    padding: 13px 16px;
+    box-shadow: none;
+  }
+  .proof-chip .proof-stat { font-size: 1.1rem; white-space: nowrap; }
+  .proof-chip .proof-label { font-size: 0.8rem; margin-top: 0; }
+  .pc-lavender { background: rgba(218, 212, 245, 0.38); border-color: rgba(87, 74, 166, 0.18); }
+  .pc-peach    { background: rgba(252, 228, 196, 0.44); border-color: rgba(138, 90, 20, 0.16); }
+  .pc-blush    { background: rgba(251, 213, 228, 0.42); border-color: rgba(166, 53, 99, 0.16); }
+}
 
 /* Hand-drawn underline beneath the hero accent word */
 .hero h1 em {
@@ -744,7 +765,7 @@ section { padding: 104px 0; }
 
 
 .hero h1 {
-  font-size: clamp(2.4rem, 5.6vw, 4rem);
+  font-size: clamp(2rem, 5.6vw, 4rem);
   letter-spacing: -0.02em;
   margin-bottom: 26px;
 }

@@ -191,7 +191,10 @@ gestures read as AI tells; don't reintroduce either.)
 5. **Hero entrance (home):** h1 → subhead → CTAs → trusted row →
    proof chips rise in at 0/0.15/0.28/0.42/0.55s. The proof column
    (three tilted result chips linking to case studies) shows only
-   above 1020px; mobile keeps the single-column hero.
+   above 1020px; below that the chips become a compact stat strip,
+   and on phones (≤760px) a full-width results strip — one
+   pastel-tinted row per result (lavender/peach/blush washes,
+   stat + label on one line) so the hero fills its column.
 6. **Hover:** cards lift −5px + soft shadow and tilt up to 7° toward
    the cursor in 900px perspective (fine pointer only), easing back
    flat on leave; links draw a 2px underline in.
