@@ -30,8 +30,8 @@
   --line: rgba(46, 42, 39, 0.12);
   --shadow-soft: 0 14px 40px -18px rgba(46, 42, 39, 0.18);
   --radius: 24px;
-  --font-display: "Bricolage Grotesque", "Segoe UI", Verdana, sans-serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --nav-h: 68px;
 }
@@ -51,11 +51,13 @@ body {
 h1, h2, h3 {
   text-wrap: balance;
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
+/* Project/card titles: a step heavier than the display headlines */
+h3 { font-weight: 600; }
 
 a { color: inherit; }
 img { max-width: 100%; display: block; }
@@ -504,7 +506,7 @@ section { padding: 104px 0; }
   letter-spacing: -0.02em;
   margin-bottom: 26px;
 }
-.hero h1 em { font-style: normal; color: var(--coral-deep); }
+.hero h1 em { font-style: italic; color: var(--coral-deep); }
 @supports (-webkit-background-clip: text) {
   .hero h1 em {
     background: linear-gradient(100deg, var(--coral-deep), var(--courses-deep));
@@ -589,9 +591,9 @@ section { padding: 104px 0; }
 
 /* Kickers are plain typographic labels; per-offer colors below */
 .card .card-kicker {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--courses-deep);
   margin-bottom: 10px;
 }
@@ -779,9 +781,9 @@ section { padding: 104px 0; }
 
 .offer-kicker {
   display: block;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 .offer-section h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 16px; }
@@ -859,16 +861,16 @@ section { padding: 104px 0; }
 .feat-card.f-peach    { background: radial-gradient(circle at top right, rgba(252,228,196,0.5), transparent 55%), var(--bg-raised); }
 .feat-card.f-lavender { background: radial-gradient(circle at top right, rgba(218,212,245,0.5), transparent 55%), var(--bg-raised); }
 .feat-card.f-blush    { background: radial-gradient(circle at top right, rgba(251,213,228,0.5), transparent 55%), var(--bg-raised); }
-.feat-stat {
-  font-family: var(--font-display);
-  font-weight: 700;
+.feat-card p.feat-stat {
+  font-family: var(--font-body);
+  font-weight: 800;
   font-size: clamp(2.4rem, 4vw, 3.1rem);
   line-height: 1;
 }
 .f-peach .feat-stat    { color: var(--courses-deep); }
 .f-lavender .feat-stat { color: var(--automations-deep); }
 .f-blush .feat-stat    { color: var(--consulting-deep); }
-.feat-stat-label { font-size: 0.85rem; color: var(--muted); margin: 8px 0 18px; }
+.feat-card p.feat-stat-label { font-size: 0.85rem; color: var(--muted); margin: 8px 0 18px; }
 .feat-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
 .feat-card p { font-size: 0.95rem; color: var(--body); }
 

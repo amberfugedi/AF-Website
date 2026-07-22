@@ -54,11 +54,15 @@ the only text color allowed on top of them or as accent text on cream.
 
 ## Typography
 
-- Display: **Bricolage Grotesque** (500/600/700) — headings, chips, stat
-  numbers. No italic (font has none; don't synthesize).
-- Body: **Inter** (400/500/600).
-- Hero h1: `clamp(2.85rem, 7.5vw, 5rem)`, tracking −0.02em. One accent
-  word per headline in `--coral-deep` via `<em>` (styled non-italic).
+- Display: **Newsreader** (400/500/600 + true italics) — hero and
+  section headlines at 500 (medium), project/card titles (h3) at 600.
+  Italic is reserved for the occasional emphasized word (hero `<em>`);
+  never italicize whole headings.
+- Body: **Manrope** (400–800) — body copy, nav, buttons, labels,
+  kickers. Metrics/stat numbers: Manrope 800 (`.feat-stat`).
+- Hero h1: `clamp(2.85rem, 7.5vw, 5rem)`, tracking −0.01em. One accent
+  word per headline in `--coral-deep` via `<em>`, set in Newsreader
+  italic.
 - Loaded via preconnect + `media="print" onload` swap — never
   render-blocking. Google Fonts is the only external dependency.
 
