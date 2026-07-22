@@ -85,9 +85,9 @@ reveal; filled forms use class `fill` and fade in after. Current
 set: tapered coral gradient swash under the hero accent word,
 three offer marks (growth arcs / orbital system / trajectory
 curve), organic blob portrait with offset coral outline. Gradient
-ids must be unique per page instance. (A hero butterfly was tried
-and removed 2026-07 — figurative creatures don't fit the voice;
-don't reintroduce.)
+ids must be unique per page instance. (A hero butterfly and Magic UI-style headline
+sparkles were both tried and removed 2026-07 — borrowed decorative
+gestures read as AI tells; don't reintroduce either.)
 
 ## Motion (full budget — add nothing beyond this)
 
@@ -127,14 +127,7 @@ don't reintroduce.)
    fades out by ~0.85 viewport heights; on fine pointers the whole
    plane tilts ~±1–2° against the cursor (opposite the clouds) for
    foreground/background separation.
-10. **Hero sparkles (home only):** seven four-point stars blink
-   across the whole hero headline on 0.8–1.3s staggered loops, each
-   repositioning to a fresh spot every cycle (anchored to the h1,
-   not the accent word — word-anchored stars bunched at line ends
-   on mobile); fills alternate mid lavender `#7A6DC4` and mid pink
-   `#D77FA5`. Vanilla port of Magic UI's sparkles-text (no React/
-   framer-motion). Absent under reduced motion and no-JS.
-11. **Course-assembly strip (services, Courses band):** five geometric
+10. **Course-assembly strip (services, Courses band):** five geometric
    marks (framework → curriculum → script → slides → learner tool)
    pop in left to right over ~2.3s with arrows sliding in between,
    triggered once by the reveal observer. Static and fully visible

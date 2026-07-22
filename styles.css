@@ -366,9 +366,6 @@ body.page-sub .aura { opacity: 0.45; }
 .offer-section.offer-automations .glyph { color: var(--automations-deep); }
 .offer-section.offer-consulting .glyph  { color: var(--consulting-deep); }
 
-/* Sparkle host: stars position against the whole headline */
-.hero h1 { position: relative; }
-
 /* Hand-drawn underline beneath the hero accent word */
 .hero h1 em {
   position: relative;
@@ -386,21 +383,6 @@ body.page-sub .aura { opacity: 0.45; }
   animation: swash-wipe 0.8s var(--ease) 0.8s forwards;
 }
 @keyframes swash-wipe { to { transform: scaleX(1); } }
-
-/* Sparkles around the hero accent word (built by main.js, home only) */
-.sparkle {
-  position: absolute;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0;
-  animation: sparkle-pop 0.9s ease-in-out infinite;
-}
-.sparkle svg { display: block; }
-@keyframes sparkle-pop {
-  0%   { opacity: 0; transform: scale(0) rotate(75deg); }
-  50%  { opacity: 1; transform: scale(var(--sparkle-scale, 1)) rotate(115deg); }
-  100% { opacity: 0; transform: scale(0) rotate(150deg); }
-}
 
 
 @keyframes draw-stroke {
@@ -1236,7 +1218,6 @@ footer {
   .aura-blob { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .glyph .stroke { stroke-dashoffset: 0; animation: none !important; }
-  .sparkle { display: none; }
   .cb-step, .cb-arrow { opacity: 1; transform: none; animation: none !important; }
   .glyph .fill { opacity: 1; animation: none !important; }
   .squiggle { transform: none; animation: none !important; }
