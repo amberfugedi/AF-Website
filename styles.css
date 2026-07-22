@@ -752,6 +752,8 @@ section { padding: 104px 0; }
 .anchor-nav a.nav-automations.active { color: var(--automations-deep); background: var(--lavender); }
 .anchor-nav a.nav-consulting.active  { color: var(--consulting-deep);  background: var(--blush); }
 .anchor-nav a.nav-capabilities.active { color: var(--coral-deep); background: rgba(255, 111, 97, 0.18); }
+.anchor-nav a.nav-work.active { color: var(--coral-deep); background: rgba(255, 111, 97, 0.18); }
+#in-house, #client-work, #builds { scroll-margin-top: 140px; }
 
 .offer-section { scroll-margin-top: 140px; }
 .offer-section.offer-courses     { background: linear-gradient(180deg, rgba(252,228,196,0.28), transparent 75%); }
