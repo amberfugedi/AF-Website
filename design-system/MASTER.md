@@ -23,7 +23,7 @@ are one way she shares expertise, and consulting is shaped around
 the business goal, not a fixed audit or packaged process. Never
 present her as primarily an automation developer. Sitewide anchors:
 hero "Building the marketing your business actually needs." and CTA
-"Tell me what your business needs next."
+"Let's figure out what comes next."
 
 Voice: conversational, direct, warm, concise, contractions. Banned in
 copy: em dashes in prose, exclamation points, generic agency language,
@@ -103,19 +103,22 @@ level off the right edge past momentum ticks; draw-in is
 choreographed: scatter, evaluate, pause, clarity. The story is
 "many inputs → evaluation → one appropriate path", not just blocked
 ideas. No arrowheads, no upward-chart shapes),
-the layered paper tabs (headline emphasis device, 2026-07: two soft
-rounded pastel tabs behind ONE short phrase per major section
-headline — a deeper back tab offset down-right at ~1.6deg, a lighter
-front tab at ~-0.8deg directly behind the text; ink text on top.
-`.tab-em` + `.tab-blush/.tab-peach/.tab-lavender/.tab-butter`.
-Color follows meaning, loosely: blush = clarity/what to build,
-peach = working together, lavender = different needs/paths,
-butter = the next step; a phrase keeps its color wherever it
-repeats. Never in body copy, nav, buttons, card titles, or on
-phrases longer than ~4 words; at most one per section. Current
-placements: home problem/selected work/offers/CTA band, services
-h1, work h1, capabilities "business impact", about contact, and
-the shared CTA band "needs next" in butter),
+the layered paper tabs (headline emphasis device, refined 2026-07:
+two soft rounded pastel tabs behind ONE short phrase — a deeper
+back tab at ~68% alpha offset slightly down-right at ~0.9deg, a
+lighter front tab at ~-0.45deg directly behind the text; tight
+padding, ink text on top. A subtle editorial layer, never a badge:
+the phrase must still read as part of the sentence. `.tab-em` +
+`.tab-blush/.tab-peach/.tab-lavender/.tab-butter`. Color follows
+meaning, loosely: blush = clarity/what to build, peach = working
+together, lavender = different needs/tailored work, butter =
+progress/next steps; a phrase keeps its color wherever it repeats.
+Never in body copy, nav, buttons, card titles, or on phrases longer
+than ~4 words; at most one per section, and NOT on every major
+heading. Current placements — exactly four phrases: home problem
+"what to build." (blush), work h1 "different needs." (lavender),
+services h1 "work together." (peach), and "what comes next."
+(butter) on the shared CTA bands + about contact),
 organic blob portrait with offset coral outline, and the offer
 card-art compositions (home): a pastel gradient blob backdrop, the
 offer's mark enlarged over it, and small geometric accents (dot
@@ -195,8 +198,9 @@ gestures read as AI tells; don't reintroduce either.)
    triggered once by the reveal observer. Static and fully visible
    under reduced motion and no-JS. Runs once — never loops.
 11. **Paper-tab entrance:** when a tabbed headline's reveal fires,
-   the back tab slides up into place (0.3s, var(--ease), +0.18s
-   delay) and the front tab follows (+0.34s); the text never moves.
+   the back tab slides up into place (0.26s, var(--ease), +0.18s
+   delay, 0.2em travel) and the front tab follows (+0.34s, 0.15em);
+   the text never moves.
    No bounce, no scribble, no glow. Page-head tabs (services/work
    h1) are static — page heads don't reveal. Reduced motion and
    no-JS: tabs fully visible, static.

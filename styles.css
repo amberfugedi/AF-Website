@@ -570,12 +570,12 @@ body.page-sub .aura { --aura-base: 0.45; }
    build, peach = working together, lavender = different needs/paths,
    butter = the next step. */
 .tab-em {
-  --trb: 1.6deg;   /* back tab rotation */
-  --trf: -0.8deg;  /* front tab rotation */
+  --trb: 0.9deg;   /* back tab rotation — very slight tilt */
+  --trf: -0.45deg; /* front tab rotation */
   position: relative;
   display: inline-block;
-  padding: 0.04em 0.2em 0.06em;
-  margin: -0.04em -0.04em;
+  padding: 0.02em 0.14em 0.04em;
+  margin: -0.02em -0.02em;
   z-index: 0;
 }
 .tab-em::before,
@@ -584,32 +584,32 @@ body.page-sub .aura { --aura-base: 0.45; }
   position: absolute;
   z-index: -1;
 }
-.tab-em::before { /* back tab: deeper tone, offset down-right */
-  inset: 0.14em -0.18em -0.18em 0.2em;
+.tab-em::before { /* back tab: deeper tone at ~68% alpha, small offset */
+  inset: 0.1em -0.12em -0.12em 0.14em;
   background: var(--tab-back);
-  border-radius: 0.3em 0.46em 0.26em 0.42em / 0.38em 0.5em 0.3em 0.46em;
+  border-radius: 0.22em 0.3em 0.2em 0.28em / 0.26em 0.34em 0.22em 0.3em;
   transform: rotate(var(--trb));
 }
 .tab-em::after { /* front tab: sits directly behind the phrase */
   inset: 0;
   background: var(--tab-front);
-  border-radius: 0.4em 0.28em 0.44em 0.3em / 0.5em 0.32em 0.46em 0.34em;
+  border-radius: 0.28em 0.2em 0.3em 0.22em / 0.34em 0.24em 0.32em 0.26em;
   transform: rotate(var(--trf));
 }
-.tab-blush    { --tab-front: var(--blush);    --tab-back: #F6BBD3; }
-.tab-peach    { --tab-front: var(--peach);    --tab-back: #F8CE9A; }
-.tab-lavender { --tab-front: var(--lavender); --tab-back: #C4BBEE; }
-.tab-butter   { --tab-front: #FBEDBF;         --tab-back: #F2DC9C; }
+.tab-blush    { --tab-front: var(--blush);    --tab-back: rgba(246, 187, 211, 0.68); }
+.tab-peach    { --tab-front: var(--peach);    --tab-back: rgba(248, 206, 154, 0.68); }
+.tab-lavender { --tab-front: var(--lavender); --tab-back: rgba(196, 187, 238, 0.68); }
+.tab-butter   { --tab-front: #FBEDBF;         --tab-back: rgba(242, 220, 156, 0.68); }
 
 /* Entrance: inside a reveal, the back tab slides up into place first,
    the front tab follows; the text itself never moves. */
 .reveal .tab-em::before,
 .reveal .tab-em::after {
   opacity: 0;
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  transition: opacity 0.26s var(--ease), transform 0.26s var(--ease);
 }
-.reveal .tab-em::before { transform: rotate(var(--trb)) translateY(0.34em); }
-.reveal .tab-em::after  { transform: rotate(var(--trf)) translateY(0.26em); }
+.reveal .tab-em::before { transform: rotate(var(--trb)) translateY(0.2em); }
+.reveal .tab-em::after  { transform: rotate(var(--trf)) translateY(0.15em); }
 .reveal.in-view .tab-em::before {
   opacity: 1;
   transform: rotate(var(--trb));
@@ -624,11 +624,11 @@ body.page-sub .aura { --aura-base: 0.45; }
 /* Mobile: tighter offset, gentler rotation, compact padding */
 @media (max-width: 760px) {
   .tab-em {
-    --trb: 1.1deg;
-    --trf: -0.55deg;
-    padding: 0.03em 0.16em 0.05em;
+    --trb: 0.6deg;
+    --trf: -0.3deg;
+    padding: 0.02em 0.12em 0.03em;
   }
-  .tab-em::before { inset: 0.1em -0.12em -0.13em 0.14em; }
+  .tab-em::before { inset: 0.07em -0.08em -0.09em 0.1em; }
 }
 
 
