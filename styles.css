@@ -1048,6 +1048,12 @@ section { padding: 104px 0; }
   padding: 24px;
   text-align: center;
 }
+.about-portrait .portrait-monogram {
+  font-size: clamp(4rem, 9vw, 6.5rem);
+  letter-spacing: 0.04em;
+  color: var(--coral-deep);
+  opacity: 0.85;
+}
 
 .about-copy p {
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);
