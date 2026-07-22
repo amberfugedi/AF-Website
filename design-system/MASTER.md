@@ -104,6 +104,12 @@ ids must be unique per page instance.
    plane tilts ~±1–2° against the cursor (opposite the clouds) for
    foreground/background separation.
 
+Interaction timing (per review-animations STANDARDS.md, installed
+in `.claude/skills/`): press feedback 160ms, hover transforms and
+underline draw-ins 200ms, shadows may trail at 300ms. Long
+durations (0.7–1.2s) are reserved for scroll reveals, entrances,
+and stroke draw-ins — marketing moments, not UI response.
+
 `prefers-reduced-motion`: aura static, reveals instant, no hover
 transforms. Hard requirement — never ship motion outside this contract.
 

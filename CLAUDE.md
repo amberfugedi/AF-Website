@@ -18,6 +18,11 @@ build step. Only external dependency: Google Fonts.
    site copy: no filler, no "not X, just Y" crutches, active voice,
    human subjects. Run its Quick Checks on any prose before shipping.
    Amber's own approved lines are exempt from mechanical rewrites.
+4. Emil Kowalski's animation skills are installed (review-animations,
+   improve-animations, animation-vocabulary, and others). Before
+   changing any motion, check the change against
+   `.claude/skills/review-animations/STANDARDS.md` — easing choice,
+   duration tables, physicality, and interruptibility rules.
 
 ## Rules
 

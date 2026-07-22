@@ -242,7 +242,7 @@ body.page-sub .aura { opacity: 0.45; }
   background-repeat: no-repeat;
   background-size: 0% 2px;
   background-position: left bottom;
-  transition: color 0.2s, background-size 0.3s var(--ease);
+  transition: color 0.2s, background-size 0.2s var(--ease);
 }
 .nav-links a:hover { color: var(--ink); background-size: 100% 2px; }
 .nav-links a[aria-current="page"] {
@@ -305,7 +305,7 @@ body.page-sub .aura { opacity: 0.45; }
   text-decoration: none;
   padding: 15px 32px;
   border-radius: 24px;
-  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background 0.2s, color 0.2s, border-color 0.2s;
+  transition: transform 0.16s var(--ease), box-shadow 0.25s var(--ease), background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   border: 0;
   font-family: var(--font-body);
@@ -526,7 +526,7 @@ section { padding: 104px 0; }
   padding: 34px 30px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s var(--ease);
+  transition: transform 0.2s var(--ease), border-color 0.2s, box-shadow 0.3s var(--ease);
 }
 .card:hover {
   transform: translateY(-5px);
@@ -580,7 +580,7 @@ section { padding: 104px 0; }
   background-repeat: no-repeat;
   background-size: 0% 2px;
   background-position: left bottom;
-  transition: background-size 0.3s var(--ease);
+  transition: background-size 0.2s var(--ease);
 }
 .arrow-link::after { content: " →"; }
 .arrow-link:hover { background-size: 100% 2px; }
@@ -632,7 +632,7 @@ section { padding: 104px 0; }
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease);
 }
 .quote-card:hover {
   transform: translateY(-5px);
@@ -799,7 +799,7 @@ section { padding: 104px 0; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 34px 30px;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease);
 }
 .feat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); }
 .feat-card.f-peach    { background: radial-gradient(circle at top right, rgba(252,228,196,0.5), transparent 55%), var(--bg-raised); }
@@ -861,7 +861,7 @@ section { padding: 104px 0; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 26px 24px;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease);
 }
 .cap-card:hover {
   transform: translateY(-4px);
@@ -883,7 +883,7 @@ section { padding: 104px 0; }
   border-radius: var(--radius);
   padding: clamp(28px, 4.5vw, 44px);
   margin-bottom: 22px;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease);
 }
 .case:hover {
   transform: translateY(-5px);
