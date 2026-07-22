@@ -543,26 +543,28 @@ body.page-sub .aura { --aura-base: 0.45; }
   .proof-chip .proof-stat { font-size: 1.05rem; }
   .proof-chip .proof-label { font-size: 0.72rem; margin-top: 1px; }
 }
-/* Phones: the chips become a full-width results strip — one pastel
-   row per result so the hero fills its column instead of leaving
-   fit-content boxes hugging the left edge. */
+/* Phones: the chips become a wide results strip — one pastel row per
+   result, hand-placed rather than stacked: alternating micro-tilts,
+   staggered widths, and the soft lift kept, echoing the desktop
+   cascade and the paper-tab language. */
 @media (max-width: 760px) {
   .hero { min-height: 0; padding: 118px 0 56px; }
   .hero .subhead { margin-bottom: 30px; }
-  .hero-proof { flex-direction: column; gap: 10px; margin-top: 10px; }
+  .hero-proof { flex-direction: column; gap: 13px; margin-top: 12px; }
   .proof-chip {
     display: flex;
-    width: 100%;
     align-items: baseline;
     gap: 12px;
     padding: 13px 16px;
-    box-shadow: none;
+    box-shadow: var(--shadow-soft);
   }
+  .proof-chip,
+  .proof-chip:hover { transform: rotate(var(--tilt, 0deg)); }
   .proof-chip .proof-stat { font-size: 1.1rem; white-space: nowrap; }
   .proof-chip .proof-label { font-size: 0.8rem; margin-top: 0; }
-  .pc-lavender { background: rgba(218, 212, 245, 0.38); border-color: rgba(87, 74, 166, 0.18); }
-  .pc-peach    { background: rgba(252, 228, 196, 0.44); border-color: rgba(138, 90, 20, 0.16); }
-  .pc-blush    { background: rgba(251, 213, 228, 0.42); border-color: rgba(166, 53, 99, 0.16); }
+  .pc-lavender { --tilt: -1deg;  width: 95%; margin: 0; background: rgba(218, 212, 245, 0.38); border-color: rgba(87, 74, 166, 0.18); }
+  .pc-peach    { --tilt: 0.9deg; width: 94%; margin: 0 0 0 6%; background: rgba(252, 228, 196, 0.44); border-color: rgba(138, 90, 20, 0.16); }
+  .pc-blush    { --tilt: -0.7deg; width: 96%; margin: 0 0 0 1%; background: rgba(251, 213, 228, 0.42); border-color: rgba(166, 53, 99, 0.16); }
 }
 
 /* Hand-drawn underline beneath the hero accent word */
