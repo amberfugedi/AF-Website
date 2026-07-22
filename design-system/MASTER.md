@@ -87,8 +87,13 @@ set: tapered coral gradient swash under the hero accent word,
 three offer marks (growth arcs / orbital system / trajectory
 curve), the problem-path mark (an idea's line tangles into a knot,
 then breaks free into a rising arrow; home problem section),
-organic blob portrait with offset coral outline. Gradient
-ids must be unique per page instance. (A hero butterfly and Magic UI-style headline
+organic blob portrait with offset coral outline, and the offer
+card-art compositions (home): a pastel gradient blob backdrop, the
+offer's mark enlarged over it, and small geometric accents (dot
+grids, ticks, a plus, an outlined square). Layered-collage
+composition borrowed from editorial card design; ingredients stay
+strictly ours: no photos, no halftones, pastel palette only.
+Gradient ids must be unique per page instance. (A hero butterfly and Magic UI-style headline
 sparkles were both tried and removed 2026-07 — borrowed decorative
 gestures read as AI tells; don't reintroduce either.)
 

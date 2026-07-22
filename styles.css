@@ -366,6 +366,10 @@ body.page-sub .aura { opacity: 0.45; }
 .offer-section.offer-automations .glyph { color: var(--automations-deep); }
 .offer-section.offer-consulting .glyph  { color: var(--consulting-deep); }
 
+/* Offer card art: layered composition (blob + enlarged mark + accents) */
+.card-art { margin-bottom: 18px; }
+.card-art .glyph { width: 100%; height: auto; margin-bottom: 0; }
+
 /* Problem section: text left, stuck-then-free path mark right */
 .problem-grid {
   display: grid;
