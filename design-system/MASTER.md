@@ -143,6 +143,12 @@ gestures read as AI tells; don't reintroduce either.)
    pop in left to right over ~2.3s with arrows sliding in between,
    triggered once by the reveal observer. Static and fully visible
    under reduced motion and no-JS. Runs once — never loops.
+11. **Experience timeline (about):** a coral progress line fills down
+   the career track as the reader scrolls (scroll-linked, aimed at
+   55% viewport height); nodes fill coral with a soft halo once
+   their entry reveals; entries with case studies carry a
+   "View the case study" link. Pastel track static under reduced
+   motion and no-JS; nodes stay outlined there.
 
 Interaction timing (per review-animations STANDARDS.md, installed
 in `.claude/skills/`): press feedback 160ms, hover transforms and

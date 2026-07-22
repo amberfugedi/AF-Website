@@ -1116,17 +1116,37 @@ section { padding: 104px 0; }
   width: 2px;
   background: linear-gradient(var(--blush), var(--peach), var(--lavender));
 }
-.tl-entry { position: relative; padding: 0 0 44px 44px; }
-.tl-entry:last-child { padding-bottom: 0; }
+/* Coral fill that tracks reading progress down the career line */
+.timeline::after {
+  content: "";
+  position: absolute;
+  left: 7px; top: 6px;
+  width: 2px;
+  height: var(--tl-progress, 0%);
+  max-height: calc(100% - 12px);
+  background: linear-gradient(var(--coral), var(--coral-deep));
+  transition: height 0.25s linear;
+}
+.tl-entry { position: relative; padding: 14px 18px 44px 44px; margin: -14px 0 0 0; border-radius: 18px; transition: background 0.2s; }
+.tl-entry:last-child { padding-bottom: 14px; }
+.tl-entry:hover { background: rgba(255, 255, 255, 0.55); }
 .tl-entry::before {
   content: "";
   position: absolute;
-  left: 0; top: 6px;
+  left: 0; top: 20px;
   width: 16px; height: 16px;
   border-radius: 50%;
   background: var(--bg);
   border: 3px solid var(--coral);
+  transition: background 0.25s, box-shadow 0.25s, transform 0.2s var(--ease);
+  z-index: 1;
 }
+.tl-entry.in-view::before {
+  background: var(--coral);
+  box-shadow: 0 0 0 4px rgba(255, 111, 97, 0.22);
+}
+.tl-entry:hover::before { transform: scale(1.2); }
+.tl-link { display: inline-block; margin-top: 10px; font-size: 0.85rem; }
 .tl-years {
   font-size: 0.8rem;
   font-weight: 600;
