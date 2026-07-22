@@ -18,7 +18,8 @@ leader and consultant. She builds strategies, campaigns, brand, demand
 gen, courses, and better ways of working; AI is ONE advisory area
 ("AI & Workflow Strategy"), never the centerpiece of the brand. Never
 present her as an automation engineer. Offers are three distinct
-engagements, not a ladder or "one system."
+engagements, not a ladder or "one system." The approved AI benefit
+framing, used across pages: AI hands time back for strategy.
 
 Voice: conversational, direct, warm, concise, contractions. Banned in
 copy: em dashes in prose, exclamation points, "AI-powered", "runs
