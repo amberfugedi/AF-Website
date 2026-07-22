@@ -70,7 +70,7 @@ the only text color allowed on top of them or as accent text on cream.
   never italicize whole headings.
 - Body: **Manrope** (400–800) — body copy, nav, buttons, labels,
   kickers. Metrics/stat numbers: Manrope 800 (`.feat-stat`).
-- Hero h1: `clamp(2.85rem, 7.5vw, 5rem)`, tracking −0.01em. One accent
+- Hero h1: `clamp(2.4rem, 5.6vw, 4rem)`, tracking −0.02em. One accent
   word per headline in `--coral-deep` via `<em>`, set in Newsreader
   italic.
 - Loaded via preconnect + `media="print" onload` swap — never
