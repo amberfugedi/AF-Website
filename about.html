@@ -103,7 +103,7 @@
         <li><a href="work.html">Work</a></li>
         <li><a href="capabilities.html">Capabilities</a></li>
         <li><a href="about.html" aria-current="page">About</a></li>
-        <li><a class="nav-cta" href="about.html#contact">Let's Talk</a></li>
+        <li><a class="nav-cta" href="about.html#contact">Let's talk</a></li>
       </ul>
     </div>
   </nav>
@@ -339,11 +339,12 @@
           <h2 class="section-title reveal" id="contact-title">Tell me where marketing is stuck.</h2>
           <p class="reveal">Tell me what you're working on, what feels stuck, or what you're trying to improve. Send a note and I'll reply within a couple of days.</p>
 
-          <div class="email-capture reveal">
+          <div class="email-capture reveal" id="updates">
             <label class="capture-label" for="capture-email">Get course and marketing updates</label>
             <!-- Wire this to your email platform (Mailchimp, ConvertKit, etc.):
                  replace the JS handler with a real form action. -->
-            <form class="capture-row" id="capture-form" novalidate>
+            <form class="capture-row" id="capture-form" name="course-updates" method="POST" data-netlify="true" novalidate>
+              <input type="hidden" name="form-name" value="course-updates">
               <input type="email" id="capture-email" name="email" placeholder="you@company.com" aria-describedby="capture-email-error" required>
               <button class="btn btn-primary" type="submit">Subscribe</button>
             </form>
@@ -354,7 +355,19 @@
 
         <!-- Wire this to a form backend (Formspree, Netlify Forms, Basin, etc.)
              by setting a real action + method="POST" and removing the JS handler. -->
-        <form class="contact-form reveal" id="contact-form" novalidate>
+        <form class="contact-form reveal" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hp-field" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div>
+            <label for="cf-topic">What brings you here?</label>
+            <select id="cf-topic" name="topic">
+              <option value="">Choose one (optional)</option>
+              <option value="consulting">Consulting application</option>
+              <option value="courses">Courses</option>
+              <option value="ai-advisory">AI &amp; workflow advisory</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
           <div>
             <label for="cf-name">Name <span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="cf-name" name="name" autocomplete="name" aria-describedby="cf-name-error" required>

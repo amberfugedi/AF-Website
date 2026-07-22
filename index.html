@@ -130,7 +130,7 @@
         <li><a href="work.html">Work</a></li>
         <li><a href="capabilities.html">Capabilities</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a class="nav-cta" href="about.html#contact">Let's Talk</a></li>
+        <li><a class="nav-cta" href="about.html#contact">Let's talk</a></li>
       </ul>
     </div>
   </nav>
@@ -146,8 +146,8 @@
           <!-- {{ADJUST}}: second sentence (location line) kept from previous version — cut if unwanted -->
           <p class="subhead">I build strategies, campaigns, systems, and learning experiences that help teams execute better and grow. Based in Connecticut, working with teams everywhere.</p>
           <div class="cta-row">
-            <a class="btn btn-primary btn-arrow" href="work.html">See the Work</a>
-            <a class="btn btn-outline" href="about.html#contact">Let's Talk</a>
+            <a class="btn btn-primary btn-arrow" href="work.html">See the work</a>
+            <a class="btn btn-outline" href="about.html#contact">Let's talk</a>
           </div>
 
           <div class="trusted">
@@ -179,20 +179,40 @@
           <h2 class="section-title reveal" id="problem-title">Good ideas get stuck between strategy and shipping.</h2>
           <p class="section-lede reveal">Most teams don't lack marketing ideas. They lack the time, the process, or a senior pair of hands to get those ideas out the door. That's the gap I work in. And once I'm in it, I usually find a few places where AI or a simpler process can hand hours back to the people doing the thinking.</p>
         </div>
-        <!-- The problem, drawn: an idea's path tangles mid-journey, then
-             breaks free into a rising line. -->
+        <!-- The problem, drawn: several ideas set out, most stall in
+             the tangle, one breaks through and gains momentum. -->
         <div class="reveal problem-art" aria-hidden="true">
-          <svg class="glyph" viewBox="0 0 340 240" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="glyph" viewBox="0 0 400 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <defs>
-              <radialGradient id="g-knot" cx="0.5" cy="0.5" r="0.5">
+              <linearGradient id="g-pblob" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#FBD5E4"/>
+                <stop offset="1" stop-color="#DAD4F5"/>
+              </linearGradient>
+              <radialGradient id="g-pknot" cx="0.5" cy="0.5" r="0.5">
                 <stop offset="0" stop-color="#FBD5E4"/>
                 <stop offset="1" stop-color="#FBD5E4" stop-opacity="0"/>
               </radialGradient>
             </defs>
-            <circle class="fill" cx="158" cy="146" r="62" fill="url(#g-knot)" stroke="none"/>
-            <path class="stroke" pathLength="100" d="M16 198 C 62 192, 96 178, 122 158 C 154 134, 184 126, 194 146 C 204 168, 172 182, 154 166 C 132 146, 146 114, 178 100 C 226 80, 270 62, 318 34" stroke="#B8354A" stroke-width="2.2"/>
-            <path class="stroke" pathLength="100" d="M306 48 L320 32 L300 27" stroke="#B8354A" stroke-width="2.2"/>
-            <circle class="fill" cx="16" cy="198" r="4.2" fill="#B8354A" stroke="none"/>
+            <!-- backdrop blob -->
+            <path class="fill" d="M208 30 C 282 18, 352 52, 358 118 C 364 178, 322 224, 252 228 C 184 232, 136 200, 132 140 C 128 88, 148 40, 208 30 Z" fill="url(#g-pblob)" opacity="0.55" stroke="none"/>
+            <circle class="fill" cx="196" cy="172" r="58" fill="url(#g-pknot)" stroke="none"/>
+            <!-- stalled idea paths: they enter, waver, and stop short -->
+            <path class="stroke" pathLength="100" d="M20 120 C 70 118, 110 132, 148 152" stroke="#B8354A" stroke-width="1.8" opacity="0.3"/>
+            <circle class="fill" cx="152" cy="154" r="2.6" fill="#B8354A" opacity="0.35" stroke="none"/>
+            <path class="stroke" pathLength="100" d="M28 250 C 76 250, 118 232, 152 204" stroke="#B8354A" stroke-width="1.8" opacity="0.3"/>
+            <circle class="fill" cx="156" cy="201" r="2.6" fill="#B8354A" opacity="0.35" stroke="none"/>
+            <!-- the idea that makes it: through the tangle and out -->
+            <path class="stroke" pathLength="100" d="M18 208 C 74 202, 122 188, 158 172 C 196 154, 226 146, 236 166 C 246 188, 212 202, 194 186 C 172 166, 188 132, 222 116 C 272 94, 320 72, 372 40" stroke="#B8354A" stroke-width="2.4"/>
+            <path class="stroke" pathLength="100" d="M358 54 L374 38 L352 32" stroke="#B8354A" stroke-width="2.4"/>
+            <circle class="fill" cx="18" cy="208" r="4.4" fill="#B8354A" stroke="none"/>
+            <!-- momentum ticks behind the arrowhead -->
+            <path class="stroke" pathLength="100" d="M322 52 L336 44 M330 66 L346 57" stroke="#B8354A" stroke-width="1.8" opacity="0.55"/>
+            <!-- accents -->
+            <g class="fill" fill="#574AA6" opacity="0.4">
+              <circle cx="342" cy="196" r="2"/><circle cx="354" cy="196" r="2"/><circle cx="366" cy="196" r="2"/>
+              <circle cx="348" cy="208" r="2"/><circle cx="360" cy="208" r="2"/>
+            </g>
+            <path class="stroke" pathLength="100" d="M64 52 L76 52 L76 64 L64 64 Z" stroke="#A63563" stroke-width="1.6" opacity="0.45" transform="rotate(-10 70 58)"/>
           </svg>
         </div>
       </div>

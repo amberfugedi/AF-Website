@@ -300,7 +300,7 @@ body.page-sub .aura { --aura-base: 0.45; }
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s;
 }
-.site-nav.scrolled { border-bottom-color: var(--line); }
+.site-nav.scrolled { border-bottom-color: var(--line); background: rgba(253, 249, 245, 0.96); }
 
 .nav-inner {
   display: flex;
@@ -466,11 +466,11 @@ body.page-sub .aura { --aura-base: 0.45; }
 /* Problem section: text left, stuck-then-free path mark right */
 .problem-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
-  gap: 56px;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 52px;
   align-items: center;
 }
-.problem-art .glyph { width: 100%; max-width: 360px; margin: 0 auto; height: auto; }
+.problem-art .glyph { width: 100%; max-width: 420px; margin: 0 auto; height: auto; }
 @media (max-width: 1020px) {
   .problem-grid { grid-template-columns: 1fr; }
   .problem-art { display: none; }
@@ -520,7 +520,20 @@ body.page-sub .aura { --aura-base: 0.45; }
 .pc-blush .proof-stat    { color: var(--consulting-deep); }
 @media (max-width: 1020px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-proof { display: none; }
+  /* The numbers are the hook: on smaller screens the chips become a
+     compact stat strip under the hero copy instead of disappearing. */
+  .hero-proof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .proof-chip,
+  .proof-chip:hover { transform: none; }
+  .pc-lavender, .pc-peach, .pc-blush { --tilt: 0deg; margin: 0; }
+  .proof-chip { padding: 10px 14px; border-radius: 14px; }
+  .proof-chip .proof-stat { font-size: 1.05rem; }
+  .proof-chip .proof-label { font-size: 0.72rem; margin-top: 1px; }
 }
 
 /* Hand-drawn underline beneath the hero accent word */
@@ -803,8 +816,33 @@ section { padding: 104px 0; }
   animation: quotes-scroll var(--marquee-duration, 45s) linear infinite;
 }
 .quote-marquee:hover .quote-track,
-.quote-marquee:focus-within .quote-track {
+.quote-marquee:focus-within .quote-track,
+.quote-marquee.paused .quote-track {
   animation-play-state: paused;
+}
+/* Visible pause control (WCAG 2.2.2): hover isn't a mechanism on touch */
+.marquee-toggle {
+  display: block;
+  margin: 0 0 14px auto;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.marquee-toggle:hover { color: var(--ink); border-color: rgba(46, 42, 39, 0.3); }
+@media (max-width: 760px) {
+  /* Phones read the quotes as a static stack — nothing to pause */
+  .marquee-toggle { display: none; }
+  .quote-track { animation: none; width: auto; flex-wrap: wrap; }
+  .quote-set { flex-wrap: wrap; }
+  .quote-set[aria-hidden="true"] { display: none; }
+  .quote-marquee { -webkit-mask-image: none; mask-image: none; }
 }
 .quote-set {
   display: flex;
@@ -1314,7 +1352,7 @@ section { padding: 104px 0; }
 /* Reduce 300ms tap delay on touch devices */
 a, button, input, textarea, .btn { touch-action: manipulation; }
 
-input, textarea {
+input, textarea, select {
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--ink);
@@ -1326,12 +1364,15 @@ input, textarea {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 input::placeholder, textarea::placeholder { color: var(--muted); }
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--coral-deep);
   box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.3);
 }
 textarea { resize: vertical; min-height: 140px; }
+select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
+/* Honeypot: visually gone, present for bots */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 .contact-form { display: grid; gap: 16px; }
 .contact-form label {
@@ -1425,6 +1466,11 @@ footer {
     box-shadow: none;
   }
   .tl-entry:hover::before { transform: none; }
+}
+
+/* Capabilities tool stack: 8 cards sit 4+4 on wide screens */
+@media (min-width: 1100px) {
+  section[aria-labelledby="stack-title"] .cap-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 /* ============ Reduced motion ============ */

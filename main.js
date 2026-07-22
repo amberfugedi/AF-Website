@@ -127,7 +127,7 @@
       var sy = window.scrollY;
       var vh = window.innerHeight;
       var shift = Math.min(sy, vh) * 0.2;
-      var op = Math.max(0, 1 - sy / (vh * 0.85));
+      var op = Math.max(0, Math.min(1, 1 - (sy - vh * 0.5) / (vh * 0.7)));
       heroContent.style.transform =
         "perspective(1000px) translate3d(" + (-hCurX * 12).toFixed(1) + "px," +
         (shift - hCurY * 9).toFixed(1) + "px,0) rotateX(" + (hCurY * 2).toFixed(2) +
@@ -335,17 +335,59 @@
         firstInvalid.focus();
         return;
       }
-      /* {{PLACEHOLDER: replace with a real POST to Formspree / Netlify /
-         your email platform. Until then, submissions only show a message.}} */
-      status.textContent = successMsg;
-      status.classList.remove("show");
-      void status.offsetWidth; /* restart the entrance if re-submitted */
-      status.classList.add("show");
-      form.reset();
+      /* Netlify Forms: URL-encoded POST to the page path. On hosts
+         without Netlify, the catch shows an honest email fallback. */
+      var submitBtn = form.querySelector("[type='submit']");
+      if (submitBtn) submitBtn.disabled = true;
+      var showStatus = function (msg) {
+        status.textContent = msg;
+        status.classList.remove("show");
+        void status.offsetWidth; /* restart the entrance on re-submit */
+        status.classList.add("show");
+      };
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        showStatus(successMsg);
+        form.reset();
+      }).catch(function () {
+        showStatus("That didn't go through. Email me instead: amberfugedi@gmail.com");
+      }).finally(function () {
+        if (submitBtn) submitBtn.disabled = false;
+      });
     });
   }
   handleForm("contact-form", "contact-status", "Got it — I'll be in touch soon.");
   handleForm("capture-form", "capture-status", "You're on the list.");
+
+  /* CTA intent carries into the form: ?topic=consulting preselects */
+  var topicField = document.getElementById("cf-topic");
+  if (topicField) {
+    var topicParam = new URLSearchParams(window.location.search).get("topic");
+    if (topicParam && topicField.querySelector("option[value='" + topicParam + "']")) {
+      topicField.value = topicParam;
+    }
+  }
+
+  /* ---------- Quote marquee: visible pause control ----------
+     Hover-pause isn't a mechanism on touch; WCAG 2.2.2 wants a
+     control. Hidden on phones, where the quotes render static. */
+  document.querySelectorAll(".quote-marquee").forEach(function (marquee) {
+    var btn = document.createElement("button");
+    btn.className = "marquee-toggle";
+    btn.type = "button";
+    btn.textContent = "Pause";
+    btn.setAttribute("aria-pressed", "false");
+    btn.addEventListener("click", function () {
+      var paused = marquee.classList.toggle("paused");
+      btn.textContent = paused ? "Play" : "Pause";
+      btn.setAttribute("aria-pressed", String(paused));
+    });
+    marquee.parentNode.insertBefore(btn, marquee);
+  });
 
   /* ---------- Footer year ---------- */
   var year = document.getElementById("year");
