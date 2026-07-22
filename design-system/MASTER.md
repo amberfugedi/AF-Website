@@ -11,7 +11,12 @@ and this file should be updated.
 Soft pastel aura: warm cream base, slowly orbiting pastel color clouds
 (blush / peach / lavender), coral accent, rounded and friendly. Confident
 but warm — playful-creative, never corporate, never dark. Copy is sharp
-and human; no generic marketing filler.
+and human; no generic marketing filler. ONE sanctioned dark moment
+(2026-07): the closing CTA band is warm-dark ink (--ink as the
+background, faint aura glows in the corners, cream type, coral button
+with #17140F text at 6.7:1, butter tab on "comes next."). A scene
+change to end the page, not a theme change — do not add other dark
+surfaces.
 
 Positioning (updated 2026-07 per Amber's second brief): Amber helps
 businesses figure out what marketing they actually need, then helps
@@ -106,21 +111,25 @@ ideas. No arrowheads, no upward-chart shapes),
 the layered paper tabs (headline emphasis device, refined 2026-07:
 two soft rounded pastel tabs behind ONE short phrase — a deeper
 back tab at ~68% alpha offset slightly down-right at ~0.9deg, a
-lighter front tab at ~-0.45deg directly behind the text; tight
-padding, ink text on top. A subtle editorial layer, never a badge:
-the phrase must still read as part of the sentence. `.tab-em` +
+lighter front tab at ~-0.45deg directly behind the text; both tabs
+are trimmed toward cap-height and baseline (front inset 0.1em top /
+0.04em bottom) with small ~0.12-0.2em radii so the highlight sits
+in the type, not around it — never pill-shaped, never a badge: the
+phrase must still read as part of the sentence. `.tab-em` +
 `.tab-blush/.tab-peach/.tab-lavender/.tab-butter`. Color follows
 meaning, loosely: blush = clarity/what to build, peach = working
 together, lavender = different needs/tailored work, butter =
-progress/next steps; a phrase keeps its color wherever it repeats.
-Never in body copy, nav, buttons, card titles, or on phrases longer
-than ~4 words; at most one per section, and NOT on every major
-heading, and only on light/cream surfaces — never on the coral CTA
-band, where a pastel tab fights the gradient (tried and removed
-2026-07). Current placements — exactly four phrases: home problem
-"what to build." (blush), work h1 "different needs." (lavender),
-services h1 "work together." (peach), and "what comes next."
-(butter) on the about contact heading),
+progress/next steps; a phrase keeps its color wherever it repeats,
+and butter stays scarce — the closing-CTA phrase only. Never in
+body copy, nav, buttons, card titles, or on phrases longer than ~4
+words; at most one per section, and NOT on every major heading.
+Tabs live on cream surfaces plus the one dark CTA band (ink text
+on butter holds 12:1 there); a pastel tab on the old coral band
+fought the gradient and was removed 2026-07. Current placements —
+exactly four phrases: home problem "what to build." (blush), work
+h1 "different needs." (lavender), services h1 "work together."
+(peach), and "comes next." (butter) on the dark CTA bands and the
+about contact heading),
 organic blob portrait with offset coral outline, and the offer
 card-art compositions (home): a pastel gradient blob backdrop, the
 offer's mark enlarged over it, and small geometric accents (dot
