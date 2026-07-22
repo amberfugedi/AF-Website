@@ -105,6 +105,12 @@ don't reintroduce.)
    fades out by ~0.85 viewport heights; on fine pointers the whole
    plane tilts ~±1–2° against the cursor (opposite the clouds) for
    foreground/background separation.
+10. **Hero sparkles (home only):** seven four-point stars blink
+   around the hero accent word on 0.8–1.3s staggered loops, each
+   repositioning to a fresh spot every cycle; fills alternate mid
+   lavender `#7A6DC4` and mid pink `#D77FA5`. Vanilla port of Magic
+   UI's sparkles-text (no React/framer-motion). Absent under
+   reduced motion and no-JS.
 
 Interaction timing (per review-animations STANDARDS.md, installed
 in `.claude/skills/`): press feedback 160ms, hover transforms and

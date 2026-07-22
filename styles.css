@@ -379,6 +379,21 @@ body.page-sub .aura { opacity: 0.45; }
 }
 @keyframes swash-wipe { to { transform: scaleX(1); } }
 
+/* Sparkles around the hero accent word (built by main.js, home only) */
+.sparkle {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  animation: sparkle-pop 0.9s ease-in-out infinite;
+}
+.sparkle svg { display: block; }
+@keyframes sparkle-pop {
+  0%   { opacity: 0; transform: scale(0) rotate(75deg); }
+  50%  { opacity: 1; transform: scale(var(--sparkle-scale, 1)) rotate(115deg); }
+  100% { opacity: 0; transform: scale(0) rotate(150deg); }
+}
+
 
 @keyframes draw-stroke {
   to { stroke-dashoffset: 0; }
@@ -1170,6 +1185,7 @@ footer {
   .aura-blob { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .glyph .stroke { stroke-dashoffset: 0; animation: none !important; }
+  .sparkle { display: none; }
   .glyph .fill { opacity: 1; animation: none !important; }
   .squiggle { transform: none; animation: none !important; }
   .quote-track { animation: none; width: auto; flex-wrap: wrap; }
