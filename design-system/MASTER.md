@@ -13,20 +13,29 @@ Soft pastel aura: warm cream base, slowly orbiting pastel color clouds
 but warm — playful-creative, never corporate, never dark. Copy is sharp
 and human; no generic marketing filler.
 
-Positioning (updated 2026-07 per Amber's brief): senior marketing
-leader and consultant. She builds strategies, campaigns, brand, demand
-gen, courses, and better ways of working; AI is ONE advisory area
-("AI & Workflow Strategy"), never the centerpiece of the brand. Never
-present her as an automation engineer. Offers are three distinct
-engagements, not a ladder or "one system." The approved AI benefit
-framing, used across pages: AI hands time back for strategy.
+Positioning (updated 2026-07 per Amber's second brief): Amber helps
+businesses figure out what marketing they actually need, then helps
+build it. Serve every starting point: blank-page businesses, teams
+with active-but-unclear marketing, people who want training, and
+teams deciding where AI fits. AI is ONE capability ("AI & Workflow
+Guidance" — "Strategy"/"advisory" naming retired 2026-07), courses
+are one way she shares expertise, and consulting is shaped around
+the business goal, not a fixed audit or packaged process. Never
+present her as primarily an automation developer. Sitewide anchors:
+hero "Building the marketing your business actually needs." and CTA
+"Tell me what your business needs next."
 
 Voice: conversational, direct, warm, concise, contractions. Banned in
-copy: em dashes in prose, exclamation points, "AI-powered", "runs
-without you", "one system", "three ways in", "productized", "the exact
-playbook", "hand you the keys", "marketing engine", "lead engine",
-"build the system", "let it compound", buzzwords and founder-story
-cliches. Year ranges may use dashes.
+copy: em dashes in prose, exclamation points, generic agency language,
+startup cliches, productized-service language, "AI-powered", "runs
+without you", "one system", "three ways in", "the exact playbook",
+"hand you the keys", "hand your time back" (and the retired "AI hands
+time back for strategy" framing), "the work only you can do",
+"marketing engine", "lead engine", "build the system", "let it
+compound", "strategy that ships", "shipping" as a virtue, "force
+multipliers", "partner, not a playbook", absolute claims such as
+"nothing gets lost", and overuse of "systems", "AI", or "stuck".
+Year ranges may use dashes (en dashes, not em dashes).
 
 ## Color tokens (from styles.css)
 
@@ -47,7 +56,7 @@ cliches. Year ranges may use dashes.
 | `--consulting-deep` | `#A63563` | Consulting text tone | 5.9:1 on bg |
 
 **Offer color coding (used on every page the offers appear):**
-Courses = peach · AI & Workflow Strategy = lavender · Consulting = blush.
+Courses = peach · AI & Workflow Guidance = lavender · Consulting = blush.
 (CSS class names still say "automations"; only visible copy renamed.)
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is
@@ -86,11 +95,13 @@ reveal; filled forms use class `fill` and fade in after. Current
 set: tapered coral gradient swash under the hero accent word,
 three offer marks (growth arcs / orbital system / trajectory
 curve), the bottleneck mark (home problem section: four colored threads
-enter scattered from the left, tangle inside a blush highlighter
-band — the stuck zone — then resolve into one coral-deep line that
-flows level off the right edge past momentum ticks; draw-in is
-choreographed: scatter, knot, pause, clarity. No arrowheads, no
-upward-chart shapes),
+— many possible directions — enter scattered from the left, weigh
+against each other inside a blush highlighter band — the evaluation
+zone — then resolve into the one coral-deep line that fits, flowing
+level off the right edge past momentum ticks; draw-in is
+choreographed: scatter, evaluate, pause, clarity. The story is
+"many inputs → evaluation → one appropriate path", not just blocked
+ideas. No arrowheads, no upward-chart shapes),
 organic blob portrait with offset coral outline, and the offer
 card-art compositions (home): a pastel gradient blob backdrop, the
 offer's mark enlarged over it, and small geometric accents (dot
@@ -210,7 +221,7 @@ gives them context. Never add a "trusted by" logo strip.
 
 - Five plain HTML pages, no framework/build: `index.html`,
   `services.html` (offer ladder + sticky anchor nav),
-  `work.html` (case studies: problem → build → result),
+  `work.html` (case studies: challenge → approach → impact),
   `capabilities.html` (capability areas + platform stack),
   `about.html` (bio, timeline, team testimonials, education, contact
   + email capture). Home also carries a three-quote testimonial
