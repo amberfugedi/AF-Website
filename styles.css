@@ -383,12 +383,12 @@ body.page-sub .aura { opacity: 0.45; }
    the swash's right end — a single moment, not ambient decoration. */
 .bfly {
   position: absolute;
-  right: -40px;
-  bottom: -34px;
-  width: 44px;
-  filter: drop-shadow(0 4px 10px rgba(46, 42, 39, 0.14));
+  right: -56px;
+  bottom: -42px;
+  width: 62px;
+  filter: drop-shadow(0 5px 12px rgba(46, 42, 39, 0.22));
 }
-.bfly svg { overflow: visible; display: block; }
+.bfly svg { overflow: visible; display: block; width: 100%; height: auto; }
 .bfly-fly {
   animation: bfly-flight 11s cubic-bezier(0.45, 0.05, 0.35, 1) 1.7s both;
 }
@@ -405,10 +405,10 @@ body.page-sub .aura { opacity: 0.45; }
 }
 @keyframes bfly-flap {
   from { transform: scaleX(1); }
-  to   { transform: scaleX(0.42); }
+  to   { transform: scaleX(0.62); }
 }
 @media (max-width: 760px) {
-  .bfly { width: 34px; right: -22px; bottom: -26px; }
+  .bfly { width: 44px; right: -26px; bottom: -30px; }
 }
 
 @keyframes draw-stroke {
