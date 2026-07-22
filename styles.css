@@ -19,8 +19,8 @@
   --ink: #2E2A27;          /* headings + body — 13.3:1 on cream */
   --body: #3E3833;         /* ~11:1 */
   --muted: #5C544B;        /* secondary text — ~7:1, no pale grays */
-  --coral: #E8846B;        /* fills/buttons only — NOT for text on cream */
-  --coral-deep: #B0492E;   /* coral used AS text — 5.1:1 on cream */
+  --coral: #FF6F61;        /* fills/buttons only — NOT for text on cream */
+  --coral-deep: #B8354A;   /* coral used AS text — 5.5:1 on cream */
   --blush: #FBD5E4;
   --peach: #FCE4C4;
   --lavender: #DAD4F5;
@@ -93,7 +93,7 @@ main p a, .form-note a, .footer-inner a {
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
-  text-decoration-color: rgba(176, 73, 46, 0.4);
+  text-decoration-color: rgba(184, 53, 74, 0.4);
   transition: text-decoration-color 0.2s;
 }
 main p a:hover, .form-note a:hover, .footer-inner a:hover {
@@ -313,14 +313,14 @@ body.page-sub .aura { opacity: 0.45; }
 }
 .btn-arrow::after { content: " →"; }
 .btn-primary {
-  background: linear-gradient(135deg, var(--coral), #E0724F);
+  background: linear-gradient(135deg, var(--coral), #F85B55);
   color: var(--ink); /* dark on coral = 5.4:1; white would fail */
-  box-shadow: 0 12px 30px -12px rgba(232, 132, 107, 0.65);
+  box-shadow: 0 12px 30px -12px rgba(255, 111, 97, 0.65);
 }
 .btn-primary:hover {
-  background: #E0724F;
+  background: #F85B55;
   transform: translateY(-2px);
-  box-shadow: 0 18px 36px -12px rgba(232, 132, 107, 0.7);
+  box-shadow: 0 18px 36px -12px rgba(255, 111, 97, 0.7);
 }
 .btn-outline {
   border: 1.5px solid var(--ink);
@@ -761,7 +761,7 @@ section { padding: 104px 0; }
 .anchor-nav a.nav-courses.active     { color: var(--courses-deep);     background: var(--peach); }
 .anchor-nav a.nav-automations.active { color: var(--automations-deep); background: var(--lavender); }
 .anchor-nav a.nav-consulting.active  { color: var(--consulting-deep);  background: var(--blush); }
-.anchor-nav a.nav-capabilities.active { color: var(--coral-deep); background: rgba(232, 132, 107, 0.18); }
+.anchor-nav a.nav-capabilities.active { color: var(--coral-deep); background: rgba(255, 111, 97, 0.18); }
 
 .offer-section { scroll-margin-top: 140px; }
 .offer-section.offer-courses     { background: linear-gradient(180deg, rgba(252,228,196,0.28), transparent 75%); }
@@ -1139,7 +1139,7 @@ input::placeholder, textarea::placeholder { color: var(--muted); }
 input:focus, textarea:focus {
   outline: none;
   border-color: var(--coral-deep);
-  box-shadow: 0 0 0 3px rgba(232, 132, 107, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.3);
 }
 textarea { resize: vertical; min-height: 140px; }
 
@@ -1175,7 +1175,7 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--
   background:
     radial-gradient(circle at 12% 0%, rgba(251, 213, 228, 0.5), transparent 55%),
     radial-gradient(circle at 88% 100%, rgba(218, 212, 245, 0.5), transparent 55%),
-    linear-gradient(135deg, var(--coral), #E0724F);
+    linear-gradient(135deg, var(--coral), #F85B55);
   border-radius: 28px;
   padding: clamp(40px, 6vw, 72px);
   text-align: center;

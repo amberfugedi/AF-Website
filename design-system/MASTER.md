@@ -36,8 +36,8 @@ cliches. Year ranges may use dashes.
 | `--ink` | `#2E2A27` | Headings, button text on coral | 13.3:1 on bg |
 | `--body` | `#3E3833` | Body text | ~11:1 on bg |
 | `--muted` | `#5C544B` | Secondary text (darkest allowed gray) | ~7:1 on bg |
-| `--coral` | `#E8846B` | Fills/buttons ONLY — never text on cream (2.5:1) | pair with `--ink` text (5.4:1) |
-| `--coral-deep` | `#B0492E` | Coral as TEXT (links, eyebrows) | 5.1:1 on bg |
+| `--coral` | `#FF6F61` | Fills/buttons ONLY — never text on cream | pair with `--ink` text (5.2:1) |
+| `--coral-deep` | `#B8354A` | Coral as TEXT (links, eyebrows) | 5.5:1 on bg |
 | `--blush` | `#FBD5E4` | Consulting pastel + aura cloud | fill only |
 | `--peach` | `#FCE4C4` | Courses pastel + aura cloud | fill only |
 | `--lavender` | `#DAD4F5` | AI & Workflow pastel + aura cloud | fill only |
