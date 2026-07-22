@@ -697,6 +697,12 @@ section { padding: 104px 0; }
 .anchor-nav a:hover { color: var(--ink); border-color: var(--line); }
 @media (max-width: 760px) {
   .anchor-nav a { padding: 11px 18px; } /* ≥44px touch target */
+  /* Touch targets ≥44px for links that render small on phones */
+  .arrow-link { padding-top: 13px; padding-bottom: 14px; }
+  .footer-nav a { display: inline-block; padding: 10px 6px; }
+  .footer-inner > p a { display: inline-block; padding: 14px 0; }
+  .form-note a { display: inline-block; padding: 14px 0; }
+  .brand { padding: 8px 0; }
 }
 .anchor-nav a.nav-courses.active     { color: var(--courses-deep);     background: var(--peach); }
 .anchor-nav a.nav-automations.active { color: var(--automations-deep); background: var(--lavender); }
