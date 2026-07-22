@@ -656,15 +656,6 @@ section { padding: 104px 0; }
   margin-bottom: 26px;
 }
 .hero h1 em { font-style: italic; color: var(--coral-deep); }
-@supports (-webkit-background-clip: text) {
-  .hero h1 em {
-    background: linear-gradient(100deg, var(--coral-deep), var(--courses-deep));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: var(--coral-deep);
-  }
-}
 
 .hero .subhead {
   font-size: clamp(1.05rem, 2vw, 1.25rem);

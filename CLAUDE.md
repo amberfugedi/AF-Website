@@ -40,3 +40,8 @@ build step. Only external dependency: Google Fonts.
 - Verify visual changes by rendering with headless Chromium
   (`/opt/pw-browsers/chromium`) or Playwright; for animation changes,
   measure live (transforms over time), not just single frames.
+- Before shipping design/copy changes, run Impeccable's deterministic
+  AI-tell detector over the pages:
+  `npx impeccable detect *.html styles.css main.js`
+  (58 rules, no API key needed). The site currently passes clean;
+  keep it that way. Year ranges use en dashes, not em dashes.
