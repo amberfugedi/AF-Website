@@ -69,7 +69,8 @@ per mark. Stroked elements carry `pathLength="100"` and draw in on
 reveal; filled forms use class `fill` and fade in after. Current
 set: tapered coral gradient swash under the hero accent word,
 three offer marks (growth arcs / orbital system / trajectory
-curve), organic blob portrait with offset coral outline. Gradient
+curve), organic blob portrait with offset coral outline, geometric
+butterfly (gradient wing forms, fine ink body). Gradient
 ids must be unique per page instance.
 
 ## Motion (full budget — add nothing beyond this)
@@ -99,7 +100,12 @@ ids must be unique per page instance.
    linear loop (38s home / 75s about), pause on hover and
    focus-within, edge-fade mask; static wrapped cards under
    reduced motion.
-9. **Hero depth plane:** hero content scrolls at 0.2× page speed and
+9. **Hero butterfly (home only):** ONE geometric butterfly flies a
+   single 11s path after the entrance and perches on the swash's
+   right end; wings flap at 0.75s ease-in-out alternate. Never more
+   than one, never ambient or looping flights, never on other
+   pages. Reduced motion / no-JS: perched statically, wings open.
+10. **Hero depth plane:** hero content scrolls at 0.2× page speed and
    fades out by ~0.85 viewport heights; on fine pointers the whole
    plane tilts ~±1–2° against the cursor (opposite the clouds) for
    foreground/background separation.

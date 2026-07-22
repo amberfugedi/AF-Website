@@ -378,6 +378,38 @@ body.page-sub .aura { opacity: 0.45; }
 }
 @keyframes swash-wipe { to { transform: scaleX(1); } }
 
+/* One butterfly. It flies in after the hero entrance and perches on
+   the swash's right end — a single moment, not ambient decoration. */
+.bfly {
+  position: absolute;
+  right: -40px;
+  bottom: -34px;
+  width: 44px;
+  filter: drop-shadow(0 4px 10px rgba(46, 42, 39, 0.14));
+}
+.bfly svg { overflow: visible; display: block; }
+.bfly-fly {
+  animation: bfly-flight 11s cubic-bezier(0.45, 0.05, 0.35, 1) 1.7s both;
+}
+.wing { animation: bfly-flap 0.75s ease-in-out infinite alternate; }
+.wing-l { transform-origin: 31px 27px; }
+.wing-r { transform-origin: 33px 27px; }
+@keyframes bfly-flight {
+  0%   { transform: translate(-56vw, -160px) rotate(-10deg); opacity: 0; }
+  7%   { opacity: 1; }
+  28%  { transform: translate(-38vw, -30px) rotate(7deg); }
+  52%  { transform: translate(-21vw, -130px) rotate(-7deg); }
+  78%  { transform: translate(-7vw, -14px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+}
+@keyframes bfly-flap {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0.42); }
+}
+@media (max-width: 760px) {
+  .bfly { width: 34px; right: -22px; bottom: -26px; }
+}
+
 @keyframes draw-stroke {
   to { stroke-dashoffset: 0; }
 }
@@ -1168,6 +1200,8 @@ footer {
   .aura-blob { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .glyph .stroke { stroke-dashoffset: 0; animation: none !important; }
+  .bfly-fly, .wing { animation: none !important; }
+  .bfly-fly { transform: none; opacity: 1; }
   .glyph .fill { opacity: 1; animation: none !important; }
   .squiggle { transform: none; animation: none !important; }
   .quote-track { animation: none; width: auto; flex-wrap: wrap; }
