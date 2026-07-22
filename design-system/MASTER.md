@@ -117,6 +117,16 @@ transforms. Hard requirement — never ship motion outside this contract.
   semantic `<nav>/<main>/<section>/<article>`; descriptive alt text.
 - Touch targets ≥44px on mobile.
 
+## Provenance honesty rule
+
+The site is both a consulting pitch AND a portfolio of in-house
+work. Never imply an employer was a client: case studies and
+teasers carry an explicit relationship tag ("Consulting client
+since 2018" / "Freelance client" / "In-house · <title, years>"),
+and the hero credits row uses "I've built marketing systems for",
+which is true for both. "Trusted by" style labels are reserved for
+actual clients only.
+
 ## Site structure
 
 - Five plain HTML pages, no framework/build: `index.html`,
