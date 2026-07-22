@@ -152,10 +152,11 @@ transforms. Hard requirement — never ship motion outside this contract.
 The site is both a consulting pitch AND a portfolio of in-house
 work. Never imply an employer was a client: case studies and
 teasers carry an explicit relationship tag ("Consulting client
-since 2018" / "Freelance client" / "In-house · <title, years>"),
-and the hero credits row uses "I've built marketing systems for",
-which is true for both. "Trusted by" style labels are reserved for
-actual clients only.
+since 2018" / "Freelance client" / "In-house · <title, years>").
+The hero company-name strip was removed 2026-07 at Amber's request;
+the hero carries a breadth-of-experience line instead, and company
+names appear only inside case studies where the relationship tag
+gives them context. Never add a "trusted by" logo strip.
 
 ## Site structure
 

@@ -525,26 +525,11 @@ section { padding: 104px 0; }
 .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
 
 .trusted { margin-top: 56px; }
-.trusted .trusted-label {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.trusted .trusted-line {
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--muted);
-  margin-bottom: 10px;
-}
-.trusted ul {
-  list-style: none;
-  display: flex;
-  gap: 12px 28px;
-  flex-wrap: wrap;
-}
-.trusted li {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--ink);
+  max-width: 46ch;
 }
 
 /* Hero entrance: staggered rise on load (home only) */
