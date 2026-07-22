@@ -366,6 +366,19 @@ body.page-sub .aura { opacity: 0.45; }
 .offer-section.offer-automations .glyph { color: var(--automations-deep); }
 .offer-section.offer-consulting .glyph  { color: var(--consulting-deep); }
 
+/* Problem section: text left, stuck-then-free path mark right */
+.problem-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 56px;
+  align-items: center;
+}
+.problem-art .glyph { width: 100%; max-width: 360px; margin: 0 auto; height: auto; }
+@media (max-width: 1020px) {
+  .problem-grid { grid-template-columns: 1fr; }
+  .problem-art { display: none; }
+}
+
 /* Hero proof column: real results as tilted chips, desktop only */
 .hero-grid {
   display: grid;

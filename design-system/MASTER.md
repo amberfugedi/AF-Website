@@ -85,7 +85,9 @@ per mark. Stroked elements carry `pathLength="100"` and draw in on
 reveal; filled forms use class `fill` and fade in after. Current
 set: tapered coral gradient swash under the hero accent word,
 three offer marks (growth arcs / orbital system / trajectory
-curve), organic blob portrait with offset coral outline. Gradient
+curve), the problem-path mark (an idea's line tangles into a knot,
+then breaks free into a rising arrow; home problem section),
+organic blob portrait with offset coral outline. Gradient
 ids must be unique per page instance. (A hero butterfly and Magic UI-style headline
 sparkles were both tried and removed 2026-07 — borrowed decorative
 gestures read as AI tells; don't reintroduce either.)
