@@ -182,19 +182,19 @@ main p a:hover, .form-note a:hover, .footer-inner a:hover {
     width: 80vw; height: 80vw;
     min-width: 0; min-height: 0;
     top: -10%; left: -24%;
-    animation-duration: 13s;
+    animation-duration: 9s;
   }
   .aura-blob-2 {
     width: 70vw; height: 70vw;
     min-width: 0; min-height: 0;
     top: -4%; right: -22%;
-    animation-duration: 16s;
+    animation-duration: 12s;
   }
   .aura-blob-3 {
     width: 74vw; height: 74vw;
     min-width: 0; min-height: 0;
     top: 46%; left: 4%;
-    animation-duration: 11s;
+    animation-duration: 8s;
   }
   /* Interior pages: the fainter echo washes out entirely on small
      screens — hold a little more color there. */

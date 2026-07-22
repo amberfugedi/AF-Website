@@ -96,8 +96,9 @@ gestures read as AI tells; don't reintroduce either.)
    ends and reads static), each breathing through a scale range of
    0.84–1.30 across its loop so the layer visibly zooms as it drifts.
    Desktop: 17s/21s/14s, blur 46px. Mobile (≤760px): clouds sized to
-   viewport (70–80vw, no min-width), blur 28px, 11–16s. Verified
-   velocity target: ~25–50px/s desktop, ~20–30px/s mobile.
+   viewport (70–80vw, no min-width), blur 28px, 8–12s. Verified
+   CENTER velocity (corners mislead — scale breathing shifts them):
+   ~25–50px/s desktop, ~30–50px/s mobile.
 2. **Cursor/tilt parallax:** each cloud eases toward the cursor at
    depths 90/150/220px max, via CSS `translate` (composes with the
    orbit `transform`), `pointer: fine` only. On touch devices the
