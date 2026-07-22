@@ -113,8 +113,10 @@ gestures read as AI tells; don't reintroduce either.)
 4. **Scroll reveal:** `.reveal` fade/rise 28px, 0.7s,
    IntersectionObserver; grid children auto-stagger 80ms (capped
    0.4s), delay cleared after settling so hover stays instant.
-5. **Hero entrance (home):** h1 → subhead → CTAs → trusted row rise
-   in at 0/0.15/0.28/0.42s.
+5. **Hero entrance (home):** h1 → subhead → CTAs → trusted row →
+   proof chips rise in at 0/0.15/0.28/0.42/0.55s. The proof column
+   (three tilted result chips linking to case studies) shows only
+   above 1020px; mobile keeps the single-column hero.
 6. **Hover:** cards lift −5px + soft shadow and tilt up to 7° toward
    the cursor in 900px perspective (fine pointer only), easing back
    flat on leave; links draw a 2px underline in.

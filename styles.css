@@ -366,6 +366,53 @@ body.page-sub .aura { opacity: 0.45; }
 .offer-section.offer-automations .glyph { color: var(--automations-deep); }
 .offer-section.offer-consulting .glyph  { color: var(--consulting-deep); }
 
+/* Hero proof column: real results as tilted chips, desktop only */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 56px;
+  align-items: center;
+}
+.proof-chip {
+  display: block;
+  width: fit-content;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px 22px;
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.2s var(--ease), box-shadow 0.2s;
+}
+.proof-chip:hover {
+  transform: rotate(var(--tilt, 0deg)) translateY(-3px);
+  box-shadow: 0 18px 44px -18px rgba(46, 42, 39, 0.26);
+}
+.proof-chip .proof-stat {
+  display: block;
+  font-weight: 800;
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+.proof-chip .proof-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.pc-lavender { --tilt: -2deg;   margin-left: 14%; }
+.pc-peach    { --tilt: 1.6deg;  margin: 20px 0 0 36%; }
+.pc-blush    { --tilt: -1.2deg; margin: 20px 0 0 2%; }
+.pc-lavender .proof-stat { color: var(--automations-deep); }
+.pc-peach .proof-stat    { color: var(--courses-deep); }
+.pc-blush .proof-stat    { color: var(--consulting-deep); }
+@media (max-width: 1020px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-proof { display: none; }
+}
+
 /* Hand-drawn underline beneath the hero accent word */
 .hero h1 em {
   position: relative;
@@ -487,6 +534,10 @@ section { padding: 104px 0; }
   padding: 160px 0 100px;
 }
 .hero-content { max-width: 760px; }
+/* With the proof column, the hero spans the full wrap; copy keeps
+   its comfortable measure inside the grid. */
+.hero-content.hero-grid { max-width: 1120px; }
+.hero-grid .hero-copy { max-width: 640px; }
 
 
 .hero h1 {
@@ -526,7 +577,8 @@ section { padding: 104px 0; }
 .page-home .hero h1,
 .page-home .hero .subhead,
 .page-home .hero .cta-row,
-.page-home .hero .trusted {
+.page-home .hero .trusted,
+.page-home .hero .hero-proof {
   opacity: 0;
   transform: translateY(26px);
   animation: hero-in 0.8s var(--ease) forwards;
@@ -534,6 +586,7 @@ section { padding: 104px 0; }
 .page-home .hero .subhead { animation-delay: 0.15s; }
 .page-home .hero .cta-row { animation-delay: 0.28s; }
 .page-home .hero .trusted { animation-delay: 0.42s; }
+.page-home .hero .hero-proof { animation-delay: 0.55s; }
 @keyframes hero-in {
   to { opacity: 1; transform: none; }
 }
@@ -1230,7 +1283,8 @@ footer {
   .page-home .hero h1,
   .page-home .hero .subhead,
   .page-home .hero .cta-row,
-  .page-home .hero .trusted { opacity: 1; transform: none; animation: none; }
+  .page-home .hero .trusted,
+  .page-home .hero .hero-proof { opacity: 1; transform: none; animation: none; }
   .reveal[data-delay="1"], .reveal[data-delay="2"] { transition-delay: 0s; }
   .btn:hover, .card:hover, .case:hover, .btn:active { transform: none; }
   *, *::before, *::after {
