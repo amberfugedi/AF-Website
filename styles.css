@@ -781,6 +781,66 @@ section { padding: 104px 0; }
 .offer-section.offer-automations .offer-aside .tier { color: var(--automations-deep); }
 .offer-section.offer-consulting .offer-aside .tier  { color: var(--consulting-deep); }
 
+/* Capabilities page: impact tiers */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+@media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr; } }
+.feat-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px 30px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.feat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); }
+.feat-card.f-peach    { background: radial-gradient(circle at top right, rgba(252,228,196,0.5), transparent 55%), var(--bg-raised); }
+.feat-card.f-lavender { background: radial-gradient(circle at top right, rgba(218,212,245,0.5), transparent 55%), var(--bg-raised); }
+.feat-card.f-blush    { background: radial-gradient(circle at top right, rgba(251,213,228,0.5), transparent 55%), var(--bg-raised); }
+.feat-stat {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 4vw, 3.1rem);
+  line-height: 1;
+}
+.f-peach .feat-stat    { color: var(--courses-deep); }
+.f-lavender .feat-stat { color: var(--automations-deep); }
+.f-blush .feat-stat    { color: var(--consulting-deep); }
+.feat-stat-label { font-size: 0.85rem; color: var(--muted); margin: 8px 0 18px; }
+.feat-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.feat-card p { font-size: 0.95rem; color: var(--body); }
+
+.tier-head { margin: 72px 0 28px; }
+.tier-head:first-of-type { margin-top: 0; }
+.tier-head h2 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); margin-bottom: 6px; }
+.tier-head p { color: var(--muted); font-size: 0.95rem; }
+
+.kit-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 48px;
+  max-width: 860px;
+}
+@media (max-width: 640px) { .kit-list { grid-template-columns: 1fr; } }
+.kit-list li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 1rem;
+  color: var(--body);
+  font-weight: 500;
+}
+.kit-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.42em;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  border: 2.5px solid var(--coral);
+}
+
 /* Capabilities grid (imported from the previous site's services) */
 .cap-grid {
   display: grid;
