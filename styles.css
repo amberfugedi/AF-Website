@@ -485,11 +485,11 @@ body.page-sub .aura { --aura-base: 0.45; }
 /* Problem section: text left, stuck-then-free path mark right */
 .problem-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 420px;
-  gap: 52px;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 44px;
   align-items: center;
 }
-.problem-art .glyph { width: 100%; max-width: 420px; margin: 0 auto; height: auto; }
+.problem-art .glyph { width: 100%; max-width: 340px; margin: 0 auto; height: auto; }
 /* Choreography: ideas enter scattered, tangle in the band, pause,
    then the one clear path draws out. Clarity, not speed. */
 .reveal.in-view .problem-art .ln-1 { animation-duration: 1.8s; }
@@ -825,11 +825,9 @@ section { padding: 104px 0; }
 .section-title {
   font-size: clamp(1.62rem, 4vw, 2.75rem);
   margin-bottom: 18px;
-  max-width: 680px;
 }
 .section-lede {
   color: var(--muted);
-  max-width: 600px;
   margin-bottom: 56px;
 }
 
@@ -930,7 +928,6 @@ section { padding: 104px 0; }
   font-size: clamp(2.4rem, 5.5vw, 3.6rem);
   letter-spacing: -0.02em;
   margin-bottom: 20px;
-  max-width: 800px;
 }
 .page-head .section-lede { margin-bottom: 0; }
 
@@ -1755,10 +1752,6 @@ body { font-size: var(--fs-body); line-height: 1.55; }
   line-height: 1.12;
   letter-spacing: -0.02em;
 }
-/* Page intros match the hero deck's weight class: body scale, so no
-   page opens bigger than home */
-.page-head .section-lede { font-size: var(--fs-body); }
-
 .section-title,
 .case h2,
 .tier-head h2,
@@ -1786,9 +1779,10 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 }
 
 /* ALL running text reads at body — one paragraph size site-wide.
-   The intro grade survives only as the card-title size and the
-   bridge's serif statement (a device, not a paragraph). */
-.section-lede,
+   Two roles sit above it on the intro rung: card titles and the
+   standfirst (section/page ledes), which runs at the heading's
+   width per Amber. Everything else stays body. */
+.section-lede { font-size: var(--fs-intro); line-height: 1.5; text-wrap: pretty; }
 .offer-desc { font-size: var(--fs-body); line-height: 1.55; }
 .bridge-line { font-size: var(--fs-body); line-height: 1.55; }
 /* Hero subhead: deliberately below body scale (15px -> 17.5px) —

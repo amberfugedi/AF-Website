@@ -96,11 +96,16 @@ cards.
   1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em; structural subheads only — CARD
   TITLES read at the intro grade 19/21, the h3 slot overwhelmed
   card bodies) · intro 19/21
-  (lh 1.5; the CARD-TITLE grade only — the bridge statement joined
-  body sans 2026-07 after reading as a wrong-font paragraph — every
-  running-text paragraph including section ledes, offer
-  descriptions, asides, and timeline text reads at BODY, and small
-  is strictly metadata: names, roles, labels, notes, footer) · body 16/17 (lh 1.55; stepped from
+  (lh 1.5/1.3; TWO roles share this rung — card titles, and the
+  STANDFIRST: every `.section-lede` on every page, promoted from
+  body 2026-07 when Amber flagged that body-size ledes read as
+  leftover under uncapped headlines. Standfirsts run at the
+  heading's width — no measure cap, `text-wrap: pretty` guarding
+  widows. The bridge statement stays body sans — it read as a
+  wrong-font paragraph at the serif intro. Every OTHER
+  running-text paragraph — offer descriptions, asides, timeline
+  text — reads at BODY, and small is strictly metadata: names,
+  roles, labels, notes, footer) · body 16/17 (lh 1.55; stepped from
   the spec's 17/18 so no supporting text outranks the hero deck at
   16/17.5) · small 14/15 (lh 1.4) ·
   eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px desktop /
@@ -109,8 +114,14 @@ cards.
   proof pages carry ONE quiet inline "Let's talk" prompt at the
   decision moment, `.inline-cta`, never more) · nav 16px ·
   arrow-links 16px.
-  Deliberate exceptions, don't "fix" them: page-head ledes read at
-  BODY scale (not intro) so no page opens heavier than home; LONG HEADLINES (10+
+  HEADLINE WIDTH: h1s, page-head h1s, and section titles carry NO
+  max-width — headlines run toward the wrap edge so heads match
+  the width of the content below them (Amber, 2026-07: title caps
+  made desktop sections read squished-left; `text-wrap: balance`
+  keeps any multi-line result even). Paragraph measure caps stay
+  ONLY where a column bounds them (problem grid) or on non-lede
+  body text.
+  Deliberate exceptions, don't "fix" them: LONG HEADLINES (10+
   words) step down one grade via `.h1-long` (about/capabilities
   page h1s at the h2 size) and `.h2-long` (h2s that would wrap
   3+ phone lines, ~40+ chars: home problem, home selected work,
