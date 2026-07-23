@@ -923,7 +923,7 @@ section { padding: 104px 0; }
 }
 
 /* Interior page headers */
-.page-head { padding: 170px 0 30px; }
+.page-head { padding: 124px 0 30px; } /* sub-page headlines align with the hero's start (~90px under the nav) */
 .page-head h1 {
   font-size: clamp(2.4rem, 5.5vw, 3.6rem);
   letter-spacing: -0.02em;
