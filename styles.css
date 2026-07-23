@@ -599,7 +599,6 @@ body.page-sub .aura { --aura-base: 0.45; }
   .hero { min-height: 0; padding: 104px 0 40px; }
   .hero h1 { line-height: 1.14; }
   .hero .subhead { margin-bottom: 34px; }
-  .hero .btn { padding: 13px 24px; }
   /* A concise credibility strip: three identical-width one-line rows,
      tight to the experience statement, whisper of tilt for texture. */
   .hero-proof { flex-direction: column; gap: 8px; margin-top: 18px; }
@@ -1811,4 +1810,9 @@ footer p,
   .tier-head h2,
   .offer-section h2,
   .cta-band h2 { line-height: 1.1; }
+  /* CTA practice on phones: buttons keep dominance through coral,
+     not bulk — 16px labels in calmer pills (still 44px+ targets),
+     level with the 16px hero subhead. */
+  .btn { font-size: 1rem; padding: 12px 22px; }
+  .hero .subhead { font-size: 1rem; }
 }

@@ -82,7 +82,10 @@ the only text color allowed on top of them or as accent text on cream.
   h1 48/72 (lh 1.05/1.03, ls -0.025/-0.03em) · h2 36/50 (lh
   1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em) · intro 19/21
   (lh 1.5) · body 17/18 (lh 1.55) · small 14/15 (lh 1.4) ·
-  eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px · nav 16px.
+  eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px desktop /
+  16px mobile (CTA rule: coral carries the primary button's
+  dominance, never bulk — pills stay calm, 44px+ targets) · nav
+  16px.
   Deliberate exceptions, don't "fix" them: the home hero h1 keeps
   clamp(2rem, 5.6vw, 4rem) (the 3-line rule), the home problem h2
   keeps clamp(1.62rem, 4vw, 2.75rem) (mobile visibility rule),
