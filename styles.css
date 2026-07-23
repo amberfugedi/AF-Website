@@ -787,6 +787,10 @@ body.page-sub .aura { --aura-base: 0.45; }
 
 /* ============ Sections shared ============ */
 section { padding: 104px 0; }
+/* Equal rhythm: last-child margins must not leak through section
+   wraps into the seam (2026-07 spacing audit) */
+.wrap > :last-child { margin-bottom: 0; }
+.page-head h1:last-child { margin-bottom: 0; }
 /* Phones: the desktop rhythm doubles into 200px+ of dead scroll
    between sections — tighten it. Sections with their own padding
    (hero, bridge, CTA band) keep it via class specificity. */
@@ -800,9 +804,6 @@ section { padding: 104px 0; }
     margin-top: 20px;
   }
   .foot-links .arrow-link { padding-top: 10px; padding-bottom: 10px; background-position: 0 calc(100% - 8px); }
-  /* Selected work -> Why me seam: ~72px total, per Amber's spec */
-  section[aria-labelledby="work-title"] { padding-bottom: 38px; }
-  section[aria-labelledby="why-title"] { padding-top: 34px; }
   .wrap .eyebrow { margin-bottom: 18px; }
   section[aria-labelledby="why-title"] .section-title { margin-bottom: 30px; }
   .cap-card { padding: 20px 20px 22px; }
@@ -895,7 +896,7 @@ section { padding: 104px 0; }
 /* Transition band: many industries, one goal — a quiet bridge
    between the problem statement and the work. Static by design. */
 .bridge {
-  padding: 52px 0 56px;
+  padding: 52px 0;
   background: rgba(255, 255, 255, 0.45);
   border-top: 1px solid rgba(46, 42, 39, 0.08);
   border-bottom: 1px solid rgba(46, 42, 39, 0.08);
@@ -1646,7 +1647,7 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--
 }
 
 /* ============ Pre-footer CTA band ============ */
-.cta-band-wrap { padding: 0 0 104px; }
+.cta-band-wrap { padding: 104px 0; }
 /* Warm-dark closing band: the ink text color becomes the room, the
    aura bleeds faintly into the corners, and coral flips from wall to
    action — the button is the brightest object on the page. */
@@ -1874,7 +1875,7 @@ footer p,
 @media (max-width: 760px) {
   .page-head h1, .hero h1 { line-height: 1.05; letter-spacing: -0.025em; }
   /* phone hero: same 88px nav-to-headline gap as every page head */
-  .hero { min-height: 0; padding: 149px 0 40px; }
+  .hero { min-height: 0; padding: 149px 0 64px; }
   .section-title,
   .case h2,
   .tier-head h2,
@@ -1889,7 +1890,7 @@ footer p,
 /* Phone rhythm: class-padded sections join the 64px mobile scale,
    and page heads start at the same height as the home hero */
 @media (max-width: 760px) {
-  .cta-band-wrap { padding-bottom: 64px; }
+  .cta-band-wrap { padding: 64px 0; }
   .page-head { padding: 112px 0 24px; }
 }
 

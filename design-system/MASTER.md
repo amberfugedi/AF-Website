@@ -488,3 +488,26 @@ the capability feat-stats (3.1/2.4rem), and the brand name
 (25/22). Everything else must resolve to
 h1/h1-long/h2/h2-long/h3/intro/body/small/eyebrow. Re-run the
 census (scratchpad fontaudit) before shipping type changes.
+
+## Section rhythm (2026-07 spacing audit — two values, site-wide)
+
+Content-to-content gaps between consecutive blocks, uniform on
+every page (measured, not assumed — rerun scratchpad spacingaudit
+before shipping spacing changes):
+- Section <-> section: 208px desktop / 128px phone (uniform
+  104/64 section padding; the old Selected-Work->Why-Me 72px
+  phone seam is retired).
+- Band seams: 157/117 on BOTH sides of every transition band
+  (bridge padding symmetric 52px; bands are interludes and sit
+  deliberately tighter than full section rhythm).
+- The dark CTA card joins the section rhythm (104/64 padding both
+  sides of its wrap).
+- Page-head -> first section: 134/88 (capabilities, about); on
+  services and work the sticky anchor bar sits in that seam so
+  the measured gap is 204/167 — structural, not drift.
+- GUARD: `.wrap > :last-child` and `.page-head h1:last-child`
+  carry margin-bottom 0 so trailing margins never leak into
+  seams (this was skewing two seams by 20-22px).
+- SANCTIONED variance: hero -> problem on home is
+  viewport-proportional (the hero keeps min-height 72dvh air) —
+  ~217px at 900px viewport height; do not pin it.
