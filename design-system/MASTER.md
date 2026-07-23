@@ -103,8 +103,10 @@ cards.
   body 2026-07 when Amber flagged that body-size ledes read as
   leftover under uncapped headlines. Standfirsts run at the
   heading's width — no measure cap, `text-wrap: pretty` guarding
-  widows. The bridge statement stays body sans — it read as a
-  wrong-font paragraph at the serif intro. Every OTHER
+  widows. The bridge credo lines joined this rung 2026-07
+  (sans, fs-intro — the earlier SERIF intro experiment failed as a
+  wrong-font paragraph; the sans intro closes the size gap Amber
+  flagged between adjacent ledes and band lines). Every OTHER
   running-text paragraph — offer descriptions, asides, timeline
   text — reads at BODY, and small is strictly metadata: names,
   roles, labels, notes, footer) · body 16/17 (lh 1.55; stepped from
@@ -391,16 +393,21 @@ page's BIGGEST MID-PAGE SEAM, never stacked against the dark CTA —
 home: problem -> Selected Work; services: between the guidance and
 consulting offers; work: in-house -> client work; capabilities:
 capability areas -> platform stack; about: career story -> kind
-words. THE REFRAIN EYEBROW ("The work changes. The goal doesn't.")
-LIVES ON HOME ONLY (2026-07 review: site-wide repetition read as
-templated). Sub-page bands carry a single page-specific statement,
-no eyebrow: services "Choose the kind of support that fits the
-goal." · work "Different needs led to different kinds of work." ·
-capabilities "Broad experience, applied where it matters." · about
-"The roles changed. The way I approach the work didn't." Home's
-line: "Different industries. The same need for clearer marketing
-and stronger execution." When the band leads into a band-white
-section the doubled hairline collapses (.bridge + .band-white).
+words. THE BANDS ARE AMBER'S CREDO LINES (her words, 2026-07 —
+verbatim, exempt from mechanical rewrites), one statement per
+page, NO EYEBROW anywhere (the "work changes / goal doesn't"
+refrain is retired from the bands):
+home "Good marketing starts with what will have the most impact."
+· services "The right support depends on what the business is
+trying to achieve." · work "The strongest work connects the
+strategy to the details that bring it to life." · capabilities
+"AI should give teams more time to think strategically, not just
+more ways to produce." · about "My title has changed. What I love
+most is still figuring out what will move the business forward."
+The statement reads at the STANDFIRST rung (fs-intro, lh 1.5,
+60ch centered) so full-width statement paragraphs share one size
+with section ledes. When the band leads into a band-white section
+the doubled hairline collapses (.bridge + .band-white).
 Center-aligned like the dark CTA band; bands center, content
 sections stay left-aligned. The
 eyebrow is the FIXED refrain (never varies); the supporting line

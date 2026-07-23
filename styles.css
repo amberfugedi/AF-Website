@@ -1831,12 +1831,14 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    than home. */
 .page-head .section-lede { font-size: var(--fs-body); line-height: 1.55; max-width: 600px; }
 .offer-desc { font-size: var(--fs-body); line-height: 1.55; }
-.bridge-line { font-size: var(--fs-body); line-height: 1.55; }
+/* Band statements read at the standfirst rung — same size as the
+   section ledes they sit between (Amber: one size for full-width
+   statement paragraphs) */
+.bridge-line { font-size: var(--fs-intro); line-height: 1.5; }
 /* Hero subhead: deliberately below body scale (15px -> 17.5px) —
    Amber wants the deck quieter than the original 16.8/20px setting
    so the headline and proof carry the hero. */
 .hero .subhead { font-size: clamp(0.9375rem, 0.88rem + 0.238vw, 1.09375rem); line-height: 1.55; }
-.bridge-line { line-height: 1.35; } /* serif statement keeps its tighter set */
 
 .card p,
 .cap-card p,
