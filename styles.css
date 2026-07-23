@@ -1843,6 +1843,13 @@ footer p,
   .hero .subhead { font-size: 1rem; }
 }
 
+/* Phone rhythm: class-padded sections join the 64px mobile scale,
+   and page heads start at the same height as the home hero */
+@media (max-width: 760px) {
+  .cta-band-wrap { padding-bottom: 64px; }
+  .page-head { padding: 112px 0 24px; }
+}
+
 /* Small phones: anchor tabs step to the 15px small slot so the
    sticky nav holds one row (cascade: must follow the type system) */
 @media (max-width: 380px) {
