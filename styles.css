@@ -1779,8 +1779,11 @@ body { font-size: var(--fs-body); line-height: 1.55; }
   letter-spacing: -0.015em;
 }
 
+/* ALL running text reads at body — one paragraph size site-wide.
+   The intro grade survives only as the card-title size and the
+   bridge's serif statement (a device, not a paragraph). */
 .section-lede,
-.offer-desc,
+.offer-desc { font-size: var(--fs-body); line-height: 1.55; }
 .bridge-line { font-size: var(--fs-intro); line-height: 1.5; }
 /* Hero subhead: deliberately below body scale (15px -> 17.5px) —
    Amber wants the deck quieter than the original 16.8/20px setting
@@ -1805,15 +1808,16 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .form-note,
 .email-capture .capture-label,
 .tl-entry .tl-org,
-.tl-entry .tl-desc,
 .tl-link,
-.offer-aside .offer-note,
-.offer-aside p,
+.edu-card p,
 .contact-form label,
 .cb-step span,
 footer p,
 .footer-nav a { font-size: var(--fs-small); line-height: 1.4; }
-.tl-entry .tl-desc { line-height: 1.55; }
+/* sentence paragraphs are body, never small */
+.offer-aside p,
+.offer-aside .offer-note,
+.tl-entry .tl-desc { font-size: var(--fs-body); line-height: 1.55; }
 .offer-aside .who { font-size: var(--fs-body); line-height: 1.5; }
 .anchor-nav a { font-size: 1rem; } /* sticky tabs are navigation: 16px slot */
 /* Uppercase tags and tier chips read as eyebrow-grade metadata */
@@ -1821,7 +1825,7 @@ footer p,
 .case .case-tag,
 .offer-aside .tier { font-size: var(--fs-eyebrow); }
 .case-col.result p { font-size: var(--fs-body); } /* Impact lines join body scale */
-.tier-head p { font-size: var(--fs-small); }
+.tier-head p { font-size: var(--fs-body); }
 
 .eyebrow {
   font-size: var(--fs-eyebrow);

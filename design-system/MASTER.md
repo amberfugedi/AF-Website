@@ -90,7 +90,10 @@ the only text color allowed on top of them or as accent text on cream.
   1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em; structural subheads only — CARD
   TITLES read at the intro grade 19/21, the h3 slot overwhelmed
   card bodies) · intro 19/21
-  (lh 1.5) · body 16/17 (lh 1.55; stepped from
+  (lh 1.5; the CARD-TITLE and bridge-statement grade only — every
+  running-text paragraph including section ledes, offer
+  descriptions, asides, and timeline text reads at BODY, and small
+  is strictly metadata: names, roles, labels, notes, footer) · body 16/17 (lh 1.55; stepped from
   the spec's 17/18 so no supporting text outranks the hero deck at
   16/17.5) · small 14/15 (lh 1.4) ·
   eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px desktop /
