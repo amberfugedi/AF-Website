@@ -89,11 +89,13 @@ the only text color allowed on top of them or as accent text on cream.
   decision moment, `.inline-cta`, never more) · nav 16px ·
   arrow-links 16px.
   Deliberate exceptions, don't "fix" them: the home hero h1 keeps
-  clamp(2rem, 5.6vw, 4rem) (the 3-line rule), the home problem h2
-  keeps clamp(1.62rem, 4vw, 2.75rem) (mobile visibility rule),
-  106/56-char page h1s (about, capabilities) use `.h1-long` at the
-  h2 size, the hero subhead runs below body at 15 -> 17.5px so the
-  headline and proof lead, and metric/metadata micro-type (proof
+  clamp(2rem, 5.6vw, 4rem) (the 3-line rule); LONG HEADLINES (10+
+  words) step down one grade via `.h1-long` (about/capabilities
+  page h1s at the h2 size) and `.h2-long` (home problem + about
+  teaser h2s at clamp(1.62rem, 4vw, 2.75rem)) so sentences read as
+  sentences, not walls — apply the pattern to any future long
+  heading; the hero subhead runs below body at 15 -> 17.5px so the
+  headline and proof lead; and metric/metadata micro-type (proof
   chips, feat stats, tags-as-labels, case-column labels) stays
   individually tuned.
 - Hero sans tracking: subhead -0.01em, chip stats -0.015em, chip

@@ -1754,7 +1754,9 @@ body { font-size: var(--fs-body); line-height: 1.55; }
   line-height: 1.09;
   letter-spacing: -0.02em;
 }
-#problem-title { font-size: clamp(1.62rem, 4vw, 2.75rem); } /* 13-word headline: keeps its tuned wrap */
+/* Long conversational headlines (10+ words) step down one grade so
+   they read as sentences, not walls — same pattern as .h1-long. */
+.h2-long { font-size: clamp(1.62rem, 4vw, 2.75rem); line-height: 1.18; }
 
 .card h3,
 .cap-card h3,
