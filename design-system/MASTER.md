@@ -56,7 +56,7 @@ Year ranges may use dashes (en dashes, not em dashes).
 | `--blush` | `#FBD5E4` | Consulting pastel + aura cloud | fill only |
 | `--peach` | `#FCE4C4` | Courses pastel + aura cloud | fill only |
 | `--lavender` | `#DAD4F5` | AI & Workflow pastel + aura cloud | fill only |
-| `--courses-deep` | `#8A5A14` | Courses text tone | 5.5:1 on bg |
+| `--courses-deep` | `#8A5A14` | Courses text tone — ONLY within peach contexts, where it reads amber; isolated on cream it reads brown (never on stats) | 5.5:1 on bg |
 | `--automations-deep` | `#574AA6` | AI & Workflow text tone (token name unchanged) | 6.7:1 on bg |
 | `--consulting-deep` | `#A63563` | Consulting text tone | 5.9:1 on bg |
 | (tab butter) | `#FBEDBF` / `#F2DC9C` | Butter tab pair (fill only, headline tabs) | ink text on top |
@@ -67,6 +67,11 @@ Courses = peach · AI & Workflow Guidance = lavender · Consulting = blush.
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is
 the only text color allowed on top of them or as accent text on cream.
+STAT NUMBERS are the exception (2026-07): all stats read in INK —
+Amber vetoed both the old per-company deep-tone mapping (arbitrary,
+and the peach partner reads brown outside peach contexts) and a
+coral version (too much coral). The pastel washes alone
+differentiate result cards; the numbers stay neutral.
 
 ## Typography
 
