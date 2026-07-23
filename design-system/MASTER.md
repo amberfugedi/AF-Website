@@ -98,17 +98,12 @@ cards.
   1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em; structural subheads only — CARD
   TITLES read at the intro grade 19/21, the h3 slot overwhelmed
   card bodies) · intro 19/21
-  (lh 1.5/1.3; TWO roles share this rung — card titles, and the
-  STANDFIRST: every `.section-lede` on every page, promoted from
-  body 2026-07 when Amber flagged that body-size ledes read as
-  leftover under uncapped headlines. Standfirsts run at the
-  heading's width — no measure cap, `text-wrap: pretty` guarding
-  widows. The bridge credo lines joined this rung 2026-07
-  (sans, fs-intro — the earlier SERIF intro experiment failed as a
-  wrong-font paragraph; the sans intro closes the size gap Amber
-  flagged between adjacent ledes and band lines). Every OTHER
-  running-text paragraph — offer descriptions, asides, timeline
-  text — reads at BODY, and small is strictly metadata: names,
+  (lh 1.3; the CARD-TITLE grade only. The standfirst experiment is
+  RETIRED — ledes were promoted to intro 2026-07, then Amber ruled
+  "it should all be body text": every lede, the career-story
+  intro, and the band credo lines read at BODY (16/17), keeping
+  the heading's width and `text-wrap: pretty`. EVERY running-text
+  paragraph reads at BODY, and small is strictly metadata: names,
   roles, labels, notes, footer) · body 16/17 (lh 1.55; stepped from
   the spec's 17/18 so no supporting text outranks the hero deck at
   16/17.5) · small 14/15 (lh 1.4) ·
@@ -126,9 +121,9 @@ cards.
   (Amber: "not for the hero sections"): the home hero keeps its
   copy column, and `.page-head` h1s keep the 800px cap with their
   ledes at BODY scale and 600px measure — page tops stay
-  restrained so no page opens heavier than home. Standfirst
-  treatment applies to section ledes below the fold, not page
-  heads.
+  restrained so no page opens heavier than home. (With ledes back
+  at body scale everywhere, the page-head rule now differs only in
+  its 600px measure cap.)
   Deliberate exceptions, don't "fix" them: LONG HEADLINES (10+
   words) step down one grade via `.h1-long` (about/capabilities
   page h1s at the h2 size) and `.h2-long` (h2s that would wrap
@@ -404,9 +399,8 @@ strategy to the details that bring it to life." · capabilities
 "AI should give teams more time to think strategically, not just
 more ways to produce." · about "My title has changed. What I love
 most is still figuring out what will move the business forward."
-The statement reads at the STANDFIRST rung (fs-intro, lh 1.5,
-60ch centered) so full-width statement paragraphs share one size
-with section ledes. When the band leads into a band-white section
+The statement reads at BODY scale (like all ledes, per Amber),
+60ch centered. When the band leads into a band-white section
 the doubled hairline collapses (.bridge + .band-white).
 Center-aligned like the dark CTA band; bands center, content
 sections stay left-aligned. The
