@@ -210,6 +210,19 @@ serves only as the structured-data headshot (amber-fugedi.jpg). All share the or
 family. Never in the hero (the aura is the signature), never on
 proof pages (results are the picture), no photo used twice.
 
+## Favicon (the aura tile)
+
+Amber's pick: lowercase "af" in Newsreader 600 (letter-spacing
+-0.065em, ink #2E2A27) on a rounded aura tile — blush glow top-left,
+lavender bottom-left, peach/butter right, over cream. Source of
+truth is favicon-512.png; derived sizes favicon-48/32/16.png carry a
+22% corner radius with transparent corners, apple-touch-icon.png
+(180px) stays full-bleed because iOS applies its own mask. All six
+pages link the same four assets (404.html uses absolute paths).
+favicon-512.png doubles as the social avatar. This is the only place
+the aura appears outside the hero — don't reuse the tile as an
+in-page graphic.
+
 ## Motion (full budget — add nothing beyond this)
 
 1. **Aura (signature — narrative, not ambient):** three pastel clouds
