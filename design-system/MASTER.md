@@ -79,9 +79,11 @@ the only text color allowed on top of them or as accent text on cream.
 - TYPE SCALE (2026-07, tokens in :root, fluid 390px -> 1440px;
   applied site-wide by the "Type system" layer at the end of
   styles.css — change sizes THERE, not per section):
-  h1 48/64 (lh 1.05/1.03, ls -0.025/-0.03em; capped at 64 rather
-  than the spec's 72 so every page tops out at ONE size — 72 broke
-  the home hero's 3-line rule) · h2 36/50 (lh
+  h1 40/64 (lh 1.05/1.03, ls -0.025/-0.03em; ONE display size on
+  every page including the home hero — amended twice from the
+  spec's 48/72 at Amber's consistency calls: 72 broke the hero's
+  3-line rule, 48 made sub-pages outweigh home on phones) · h2
+  36/50 (lh
   1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em) · intro 19/21
   (lh 1.5) · body 17/18 (lh 1.55) · small 14/15 (lh 1.4) ·
   eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px desktop /
@@ -90,9 +92,8 @@ the only text color allowed on top of them or as accent text on cream.
   proof pages carry ONE quiet inline "Let's talk" prompt at the
   decision moment, `.inline-cta`, never more) · nav 16px ·
   arrow-links 16px.
-  Deliberate exceptions, don't "fix" them: the home hero h1 keeps
-  clamp(2.5rem, 5.6vw, 4rem) — 40px on phones so it tops the 36px
-  h2 grade, 64px on desktop where 72px would break the 3-line rule; LONG HEADLINES (10+
+  Deliberate exceptions, don't "fix" them: page-head ledes read at
+  BODY scale (not intro) so no page opens heavier than home; LONG HEADLINES (10+
   words) step down one grade via `.h1-long` (about/capabilities
   page h1s at the h2 size) and `.h2-long` (home problem + about
   teaser h2s at clamp(1.62rem, 4vw, 2.75rem)) so sentences read as

@@ -36,7 +36,7 @@
   /* Type scale (2026-07): one fluid system, 390px -> 1440px.
      mobile / desktop: h1 48/72, h2 36/50, h3 24/30, intro 19/21,
      body 17/18, small 14/15, eyebrow 12/13. */
-  --fs-h1: clamp(3rem, 2.629rem + 1.5238vw, 4rem); /* caps at 64px = hero, one top size site-wide */
+  --fs-h1: clamp(2.5rem, 1.943rem + 2.2857vw, 4rem); /* 40 -> 64: ONE display size on every page, hero included */
   --fs-h2: clamp(2.25rem, 1.925rem + 1.3333vw, 3.125rem);
   --fs-h3: clamp(1.5rem, 1.361rem + 0.5714vw, 1.875rem);
   --fs-intro: clamp(1.1875rem, 1.141rem + 0.1905vw, 1.3125rem);
@@ -870,9 +870,7 @@ section { padding: 104px 0; }
 
 
 .hero h1 {
-  /* Long-headline display: tops the mobile hierarchy (40px > 36px
-     h2 grade) while holding three lines on desktop at 64px. */
-  font-size: clamp(2.5rem, 5.6vw, 4rem);
+  font-size: var(--fs-h1); /* the shared display size — no hero exception */
   letter-spacing: -0.02em;
   margin-bottom: 26px;
 }
@@ -1746,6 +1744,9 @@ body { font-size: var(--fs-body); line-height: 1.55; }
   letter-spacing: -0.03em;
 }
 .page-head h1.h1-long { font-size: var(--fs-h2); line-height: 1.12; letter-spacing: -0.02em; }
+/* Page intros match the hero deck's weight class: body scale, so no
+   page opens bigger than home */
+.page-head .section-lede { font-size: var(--fs-body); }
 
 .section-title,
 .case h2,
