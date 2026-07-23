@@ -773,6 +773,13 @@ body.page-sub .aura { --aura-base: 0.45; }
 
 /* ============ Sections shared ============ */
 section { padding: 104px 0; }
+/* Phones: the desktop rhythm doubles into 200px+ of dead scroll
+   between sections — tighten it. Sections with their own padding
+   (hero, bridge, CTA band) keep it via class specificity. */
+@media (max-width: 760px) {
+  section { padding: 64px 0; }
+  .section-foot-link { margin-top: 30px; }
+}
 
 .eyebrow {
   display: block;
