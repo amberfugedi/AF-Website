@@ -779,6 +779,22 @@ section { padding: 104px 0; }
 @media (max-width: 760px) {
   section { padding: 64px 0; }
   .section-foot-link { margin-top: 30px; }
+  .foot-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-top: 20px;
+  }
+  .foot-links .arrow-link { padding-top: 10px; padding-bottom: 10px; background-position: 0 calc(100% - 8px); }
+  /* Selected work -> Why me seam: ~72px total, per Amber's spec */
+  section[aria-labelledby="work-title"] { padding-bottom: 38px; }
+  section[aria-labelledby="why-title"] { padding-top: 34px; }
+  .wrap .eyebrow { margin-bottom: 18px; }
+  section[aria-labelledby="why-title"] .section-title { margin-bottom: 30px; }
+  .cap-card { padding: 20px 20px 22px; }
+  .cap-card h3 { margin-bottom: 8px; }
+  /* proof rows: a touch more air on the right for the longest label */
+  .proof-chip { padding-left: 14px; padding-right: 16px; }
 }
 
 .eyebrow {
@@ -803,6 +819,20 @@ section { padding: 104px 0; }
 }
 
 .section-foot-link { margin-top: 40px; }
+/* Closing link pair (Selected Work): primary link leads, the
+   secondary reads quieter in muted ink. Editorial, not buttons. */
+.foot-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 32px;
+  margin-top: 28px;
+}
+.foot-links .foot-secondary {
+  color: var(--muted);
+  background-image: linear-gradient(var(--muted), var(--muted));
+}
+.foot-links .foot-secondary:hover { color: var(--coral-deep); background-image: linear-gradient(var(--coral-deep), var(--coral-deep)); }
 
 /* ============ Scroll reveal ============ */
 .reveal {
