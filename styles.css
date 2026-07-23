@@ -901,6 +901,8 @@ section { padding: 104px 0; }
 }
 .bridge .eyebrow { font-family: var(--font-body); margin-bottom: 12px; }
 .bridge .wrap { text-align: center; }
+/* When the band leads into a white section, one hairline is enough */
+.bridge + .band-white { border-top: 0; }
 .bridge-line {
   font-family: var(--font-body);
   color: var(--body);
