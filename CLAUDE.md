@@ -40,6 +40,12 @@ build step. Only external dependency: Google Fonts.
 - Verify visual changes by rendering with headless Chromium
   (`/opt/pw-browsers/chromium`) or Playwright; for animation changes,
   measure live (transforms over time), not just single frames.
+- Before shipping design/copy changes, run a PATTERN audit alongside
+  the size audit: render all six pages and verify each brand device
+  is applied uniformly (page-top emphasis on every page, two tabs
+  per page, hierarchy ladder h1 > h2 > card title > body, section
+  rhythm, eyebrow presence, CTA placement per MASTER). Size-token
+  conformance alone has repeatedly missed mapping and pattern gaps.
 - Before shipping design/copy changes, run Impeccable's deterministic
   AI-tell detector over the pages:
   `npx impeccable detect *.html styles.css main.js`
