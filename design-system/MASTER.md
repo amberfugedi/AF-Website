@@ -196,8 +196,8 @@ gestures read as AI tells; don't reintroduce either.)
 4. **Scroll reveal:** `.reveal` fade/rise 28px, 0.7s,
    IntersectionObserver; grid children auto-stagger 80ms (capped
    0.4s), delay cleared after settling so hover stays instant.
-5. **Hero entrance (home):** h1 → subhead → CTAs → trusted row →
-   proof chips rise in at 0/0.15/0.28/0.42/0.55s. The proof column
+5. **Hero entrance (home):** h1 → subhead → CTAs → proof chips
+   rise in at 0/0.15/0.28/0.42s. The proof column
    (three tilted result chips linking to case studies, on a soft
    lavender/blush aura glow via ::before) shows only above 1020px
    as ONE art-directed composition: a stepped descending diagonal
@@ -221,15 +221,10 @@ gestures read as AI tells; don't reintroduce either.)
 8. **Quote marquee:** testimonial cards glide in a continuous
    linear loop (38s home / 75s about), pause on hover and
    focus-within, edge-fade mask; static wrapped cards under
-   reduced motion. The same pattern at whisper scale is the hero
-   CREDIBILITY MARQUEE: the industry list ("B2B SaaS · Financial
-   services · …") drifts one line at ~14px/s (38s loop, seamless
-   two-set track, separator as ::after pseudo, edge fades) under a
-   hairline divider between the CTAs and proof chips. Real text
-   lives in the container aria-label; the moving copy is
-   aria-hidden. Reduced motion: single static wrapped list, no
-   trailing separator. Mobile grids that contain it must use
-   minmax(0,1fr) so the nowrap track can't blow out the column.
+   reduced motion. (A hero credibility marquee of the industry
+   list was tried and removed 2026-07 — the industry breadth now
+   lives in the static transition band instead; don't reintroduce
+   a hero ticker.)
 9. **Hero depth plane:** hero content scrolls at 0.2× page speed and
    fades out by ~0.85 viewport heights; on fine pointers the whole
    plane tilts ~±1–2° against the cursor (opposite the clouds) for
@@ -279,7 +274,11 @@ work. Never imply an employer was a client: case studies and
 teasers carry an explicit relationship tag ("Consulting client
 since 2018" / "Freelance client" / "In-house · <title, years>").
 The hero company-name strip was removed 2026-07 at Amber's request;
-the hero carries a one-line industry marquee instead, and company
+the industry breadth lives in the TRANSITION BAND (`.bridge`,
+between the problem section and Selected Work: eyebrow "The work
+changes. The goal doesn't." + a serif line naming the industries,
+on a soft white veil with hairline borders — static, quieter than
+the hero), and company
 names appear only inside case studies where the relationship tag
 gives them context. Never add a "trusted by" logo strip.
 

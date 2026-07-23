@@ -590,12 +590,9 @@ body.page-sub .aura { --aura-base: 0.45; }
   .hero h1 { line-height: 1.14; }
   .hero .subhead { margin-bottom: 34px; }
   .hero .btn { padding: 13px 24px; }
-  .trusted { margin-top: 36px; }
   /* A concise credibility strip: three identical-width one-line rows,
      tight to the experience statement, whisper of tilt for texture. */
   .hero-proof { flex-direction: column; gap: 8px; margin-top: 18px; }
-  .trusted { margin-top: 30px; max-width: 100%; }
-  .trusted-set { font-size: 0.75rem; }
   .proof-chip {
     display: flex;
     align-items: baseline;
@@ -844,48 +841,29 @@ section { padding: 104px 0; }
 
 .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
 
-/* Credibility marquee: the industry list glides slowly on one line —
-   the quote-marquee pattern at whisper scale. Hairline divider above,
-   soft fades at both edges, seamless two-set loop (~15px/s). The real
-   text lives in the container's aria-label; the moving copy is
-   decoration. Static single list under reduced motion. */
-.trusted {
-  margin-top: 52px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(46, 42, 39, 0.1);
-  max-width: 480px;
+/* Transition band: many industries, one goal — a quiet bridge
+   between the problem statement and the work. Static by design. */
+.bridge {
+  padding: 52px 0 56px;
+  background: rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(46, 42, 39, 0.08);
+  border-bottom: 1px solid rgba(46, 42, 39, 0.08);
 }
-.trusted-marquee {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
-}
-.trusted-track {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: trusted-scroll 38s linear infinite;
-  will-change: transform;
-}
-.trusted-set {
-  font-size: 0.8rem;
+.bridge .eyebrow { font-family: var(--font-body); margin-bottom: 12px; }
+.bridge-line {
+  font-family: var(--font-display);
   font-weight: 500;
-  color: rgba(92, 84, 75, 0.92); /* muted at 92% — ~6:1 on cream */
-  letter-spacing: -0.005em;
-  line-height: 1.5;
-}
-/* The joining separator is a pseudo so the loop reads seamlessly and
-   the static reduced-motion list ends clean. */
-.trusted-set::after { content: "\00a0\00a0\00b7\00a0\00a0"; }
-@keyframes trusted-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  max-width: 30em;
 }
 
 /* Hero entrance: staggered rise on load (home only) */
 .page-home .hero h1,
 .page-home .hero .subhead,
 .page-home .hero .cta-row,
-.page-home .hero .trusted,
 .page-home .hero .hero-proof {
   opacity: 0;
   transform: translateY(26px);
@@ -893,8 +871,7 @@ section { padding: 104px 0; }
 }
 .page-home .hero .subhead { animation-delay: 0.15s; }
 .page-home .hero .cta-row { animation-delay: 0.28s; }
-.page-home .hero .trusted { animation-delay: 0.42s; }
-.page-home .hero .hero-proof { animation-delay: 0.55s; }
+.page-home .hero .hero-proof { animation-delay: 0.42s; }
 @keyframes hero-in {
   to { opacity: 1; transform: none; }
 }
@@ -1685,10 +1662,6 @@ footer {
   .squiggle { transform: none; animation: none !important; }
   .reveal .tab-em::before { opacity: 1; transform: rotate(var(--trb)); transition: none; }
   .reveal .tab-em::after  { opacity: 1; transform: rotate(var(--trf)); transition: none; }
-  .trusted-track { animation: none; white-space: normal; }
-  .trusted-set + .trusted-set { display: none; }
-  .trusted-set::after { content: none; }
-  .trusted-marquee { -webkit-mask-image: none; mask-image: none; }
   .quote-track { animation: none; width: auto; flex-wrap: wrap; }
   .quote-set { flex-wrap: wrap; }
   .quote-set[aria-hidden="true"] { display: none; }
@@ -1696,7 +1669,6 @@ footer {
   .page-home .hero h1,
   .page-home .hero .subhead,
   .page-home .hero .cta-row,
-  .page-home .hero .trusted,
   .page-home .hero .hero-proof { opacity: 1; transform: none; animation: none; }
   .reveal[data-delay="1"], .reveal[data-delay="2"] { transition-delay: 0s; }
   .btn:hover, .card:hover, .case:hover, .cap-card:hover,
