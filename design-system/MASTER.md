@@ -84,7 +84,9 @@ the only text color allowed on top of them or as accent text on cream.
   spec's 48/72 at Amber's consistency calls: 72 broke the hero's
   3-line rule, 48 made sub-pages outweigh home on phones) · h2
   36/50 (lh
-  1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em) · intro 19/21
+  1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em; structural subheads only — CARD
+  TITLES read at the intro grade 19/21, the h3 slot overwhelmed
+  card bodies) · intro 19/21
   (lh 1.5) · body 17/18 (lh 1.55) · small 14/15 (lh 1.4) ·
   eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px desktop /
   16px mobile (CTA rule: coral carries the primary button's
