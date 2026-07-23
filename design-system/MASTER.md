@@ -67,11 +67,12 @@ Courses = peach · AI & Workflow Guidance = lavender · Consulting = blush.
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is
 the only text color allowed on top of them or as accent text on cream.
-STAT NUMBERS are the exception (2026-07): all stats read in INK —
-Amber vetoed both the old per-company deep-tone mapping (arbitrary,
-and the peach partner reads brown outside peach contexts) and a
-coral version (too much coral). The pastel washes alone
-differentiate result cards; the numbers stay neutral.
+STAT NUMBERS are the exception (2026-07): all stats read in
+`--coral-deep`, the single brand accent — settled after trying the
+per-company deep tones (arbitrary, and the peach partner reads
+brown outside peach contexts) and ink (too flat; Amber chose coral
+seeing both live). The pastel washes alone differentiate result
+cards.
 
 ## Typography
 

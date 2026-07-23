@@ -565,9 +565,9 @@ body.page-sub .aura { --aura-base: 0.45; }
 .pc-blush    { --tilt: -1deg;   margin: 4px 0 0 15%; padding: 14px 19px; }
 .pc-blush .proof-stat { font-size: 1.24rem; }
 .pc-blush .proof-label { font-size: 0.84rem; }
-/* Stat numbers read in ink — neutral and minimal; the pastel washes
+/* Stat numbers carry the single brand accent; the pastel washes
    alone differentiate the cards (fills, per their documented role) */
-.proof-chip .proof-stat { color: var(--ink); }
+.proof-chip .proof-stat { color: var(--coral-deep); }
 @media (max-width: 1020px) {
   /* minmax(0,1fr): the credibility marquee's nowrap track must not
      set the column's min-content width */
@@ -1271,7 +1271,7 @@ section { padding: 104px 0; }
   font-size: clamp(2.4rem, 4vw, 3.1rem);
   line-height: 1;
 }
-.feat-card .feat-stat { color: var(--ink); }
+.feat-card .feat-stat { color: var(--coral-deep); }
 .feat-card p.feat-stat-label { font-size: 0.85rem; color: var(--muted); margin: 8px 0 18px; }
 .feat-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
 .feat-card p { font-size: 0.95rem; color: var(--body); }
