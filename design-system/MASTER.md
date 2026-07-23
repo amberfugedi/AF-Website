@@ -201,12 +201,12 @@ gestures read as AI tells; don't reintroduce either.)
 
 ## Photography
 
-Three appearances, three DISTINCT photos: the sunlit blazer
-portrait (moodboard: "strategy creativity connection results") in
-the About blob, the neon studio shot ("good ideas start here") at
-150px in the home about teaser, and the mug photo at the contact
-moment, 108px. The cream portrait serves only as the structured-
-data headshot (amber-fugedi.jpg). All share the organic radius
+Three appearances, three DISTINCT photos: the neon studio shot
+("good ideas start here", amber-fugedi-studio.jpg) in the About
+blob per Amber's pick, the sunlit blazer portrait
+(amber-fugedi-sunlit.jpg) at 150px in the home about teaser, and
+the mug photo at the contact moment, 108px. The cream portrait
+serves only as the structured-data headshot (amber-fugedi.jpg). All share the organic radius
 family. Never in the hero (the aura is the signature), never on
 proof pages (results are the picture), no photo used twice.
 
