@@ -331,7 +331,7 @@ body.page-sub .aura { --aura-base: 0.45; }
   text-decoration: none;
   letter-spacing: -0.01em;
 }
-.brand-mark { width: 30px; height: 30px; display: block; }
+.brand-mark { width: 22px; height: 22px; display: block; }
 /* responsive exception only: below 350px the mark stands alone */
 @media (max-width: 350px) { .brand-name { display: none; } }
 
@@ -385,8 +385,8 @@ body.page-sub .aura { --aura-base: 0.45; }
 
 @media (max-width: 760px) {
   :root { --nav-h: 60px; }
-  .brand { font-size: 1.375rem; gap: 11px; }
-  .brand-mark { width: 26px; height: 26px; }
+  .brand { font-size: 1.375rem; gap: 10px; }
+  .brand-mark { width: 19px; height: 19px; }
   .nav-toggle { display: block; }
   .nav-links {
     position: absolute;
@@ -901,6 +901,8 @@ section { padding: 104px 0; }
 }
 .bridge .eyebrow { font-family: var(--font-body); margin-bottom: 12px; }
 .bridge .wrap { text-align: center; }
+.builds-more { display: block; margin: 44px 0 18px; color: var(--muted); }
+.stack-note { margin-top: 18px; color: var(--muted); font-size: var(--fs-small); }
 /* When the band leads into a white section, one hairline is enough */
 .bridge + .band-white { border-top: 0; }
 .bridge-line {

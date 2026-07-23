@@ -22,8 +22,10 @@ Positioning (updated 2026-07 per Amber's second brief): Amber helps
 businesses figure out what marketing they actually need, then helps
 build it. Serve every starting point: blank-page businesses, teams
 with active-but-unclear marketing, people who want training, and
-teams deciding where AI fits. AI is ONE capability ("AI & Workflow
-Guidance" — "Strategy"/"advisory" naming retired 2026-07), courses
+teams deciding where AI fits. AI is ONE capability ("Workflow & AI
+Guidance" — renamed from "AI & Workflow Guidance" 2026-07 so
+workflow leads and AI reads as one option within the work;
+"Strategy"/"advisory" naming retired earlier), courses
 are one way she shares expertise, and consulting is shaped around
 the business goal, not a fixed audit or packaged process. Never
 present her as primarily an automation developer. Sitewide anchors:
@@ -55,14 +57,14 @@ Year ranges may use dashes (en dashes, not em dashes).
 | `--coral-deep` | `#B8354A` | Coral as TEXT (links, eyebrows) | 5.5:1 on bg |
 | `--blush` | `#FBD5E4` | Consulting pastel + aura cloud | fill only |
 | `--peach` | `#FCE4C4` | Courses pastel + aura cloud | fill only |
-| `--lavender` | `#DAD4F5` | AI & Workflow pastel + aura cloud | fill only |
+| `--lavender` | `#DAD4F5` | Workflow & AI pastel + aura cloud | fill only |
 | `--courses-deep` | `#8A5A14` | Courses text tone — ONLY within peach contexts, where it reads amber; isolated on cream it reads brown (never on stats) | 5.5:1 on bg |
-| `--automations-deep` | `#574AA6` | AI & Workflow text tone (token name unchanged) | 6.7:1 on bg |
+| `--automations-deep` | `#574AA6` | Workflow & AI text tone (token name unchanged) | 6.7:1 on bg |
 | `--consulting-deep` | `#A63563` | Consulting text tone | 5.9:1 on bg |
 | (tab butter) | `#FBEDBF` / `#F2DC9C` | Butter tab pair (fill only, headline tabs) | ink text on top |
 
 **Offer color coding (used on every page the offers appear):**
-Courses = peach · AI & Workflow Guidance = lavender · Consulting = blush.
+Courses = peach · Workflow & AI Guidance = lavender · Consulting = blush.
 (CSS class names still say "automations"; only visible copy renamed.)
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is
@@ -384,16 +386,23 @@ The hero company-name strip was removed 2026-07 at Amber's request;
 the industry breadth lives in the TRANSITION BAND (`.bridge`):
 eyebrow "The work changes. The goal doesn't." + a sans line naming
 the industries, on a soft white veil with hairline borders —
-static, quieter than the hero. SITE-WIDE and CENTERED (Amber,
-2026-07): every page carries the band at its BIGGEST MID-PAGE
-SEAM, never stacked against the dark CTA (Amber moved it off the
-bottom 2026-07) — home: problem -> Selected Work; services:
-between the AI guidance and consulting offers; work: in-house ->
-client work; capabilities: capability areas -> platform stack;
-about: career story -> kind words. When the band leads into a
-band-white section the doubled hairline collapses
-(.bridge + .band-white). Center-aligned like the dark CTA band;
-bands center, content sections stay left-aligned. The
+static, quieter than the hero. SITE-WIDE and CENTERED, at each
+page's BIGGEST MID-PAGE SEAM, never stacked against the dark CTA —
+home: problem -> Selected Work; services: between the guidance and
+consulting offers; work: in-house -> client work; capabilities:
+capability areas -> platform stack; about: career story -> kind
+words. THE REFRAIN EYEBROW ("The work changes. The goal doesn't.")
+LIVES ON HOME ONLY (2026-07 review: site-wide repetition read as
+templated). Sub-page bands carry a single page-specific statement,
+no eyebrow: services "Choose the kind of support that fits the
+goal." · work "Different needs led to different kinds of work." ·
+capabilities "Broad experience, applied where it matters." · about
+"The roles changed. The way I approach the work didn't." Home's
+line: "Different industries. The same need for clearer marketing
+and stronger execution." When the band leads into a band-white
+section the doubled hairline collapses (.bridge + .band-white).
+Center-aligned like the dark CTA band; bands center, content
+sections stay left-aligned. The
 eyebrow is the FIXED refrain (never varies); the supporting line
 is page-aware (Amber, 2026-07): home = industries breadth,
 services = formats shaped around the need, work = same question
@@ -425,3 +434,37 @@ gives them context. Never add a "trusted by" logo strip.
 
 None yet. Create `design-system/pages/<page>.md` only when a page must
 deviate from this Master.
+
+## 2026-07 review edit pass (reviewer brief, executed)
+
+- Home: eyebrow "The problem" -> "Where I help"; PERQ leads the
+  Selected Work cards (current role first), then Scanoptics,
+  MembersFirst.
+- Work builds: SIX featured (Build Your Marketing Foundation, PERQ
+  Brand Book, Conference Tarot Draw, Conference Scavenger Hunt,
+  MembersFirst Content Engine, The Log) then an "More things I've
+  built" eyebrow divider with the remaining four — non-AI work
+  leads the sequence deliberately; AI tags softened ("Product",
+  "Content system"). Implementation trivia stays out of card copy
+  (the atomic-counter clause is gone).
+- Capabilities: "Also in the kit" -> "Additional experience. /
+  Capabilities I draw on when the work requires them."; tools cut
+  to four core cards + "Additional platform experience available
+  on request." (.stack-note); the LLM proof line now says
+  search-focused improvements "contributed to" the 27-position
+  gain (no causal overclaim).
+- Services: Workflow & AI bullets are parallel verbs (Review /
+  Identify / Find / Improve / Create / Recommend); the course
+  email capture (#updates) moved here from About's contact area
+  into the Courses aside, replacing the "Get course updates"
+  button.
+- About: quotes curated to FIVE per set (Andy Lee and Andrei
+  Severin removed, never edited); "Scan-Optics" role lines
+  normalized to "Scanoptics" — flip site-wide if Amber confirms
+  the hyphenated official styling instead. Contact area now holds
+  only the form.
+- Header mark: 22px desktop / 19px mobile (was 30/26) so the tile
+  reads clearly smaller than the name block, per review.
+- Marquee accessibility (verified, not changed): clone sets carry
+  aria-hidden="true", quotes contain no focusable elements, and
+  the marquee has a pause toggle.

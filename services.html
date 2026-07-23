@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <title>Services — Courses, AI &amp; Workflow Guidance, Consulting | Amber Fugedi</title>
+  <title>Services — Courses, Workflow &amp; AI Guidance, Consulting | Amber Fugedi</title>
   <meta name="description" content="Ways to work with Amber Fugedi: practical marketing courses, AI and workflow guidance, and strategic marketing consulting shaped around what your business is trying to achieve.">
   <link rel="canonical" href="https://amberfugedi.com/services.html">
 
@@ -65,7 +65,7 @@
           "name": "Services",
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Courses", "description": "Practical marketing courses with clear frameworks, real examples, templates, and tools people can apply to their own business." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Workflow Guidance", "description": "Guidance that identifies where AI, better tools, or clearer workflows genuinely support business goals, with realistic plans for testing and implementation." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workflow & AI Guidance", "description": "Guidance that identifies where AI, better tools, or clearer workflows genuinely support business goals, with realistic plans for testing and implementation." } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing & Business Strategy Consulting", "description": "Strategic marketing support shaped around business goals: positioning, campaigns, demand generation, marketing operations, and hands-on execution. By application." } }
           ]
         }
@@ -118,7 +118,7 @@
       <div class="wrap">
         <ul>
           <li><a class="nav-courses" href="#courses">Courses</a></li>
-          <li><a class="nav-automations" href="#automations">AI &amp; Workflow</a></li>
+          <li><a class="nav-automations" href="#automations">Workflow &amp; AI</a></li>
           <li><a class="nav-consulting" href="#consulting">Consulting</a></li>
         </ul>
       </div>
@@ -143,7 +143,18 @@
           <p class="who">For people and teams that want to build the capability internally.</p>
           <!-- {{ADJUST}}: add pricing and launch date when set -->
           <p>The first courses are in production now; join the list and you'll hear first.</p>
-          <a class="btn btn-primary" href="about.html#updates">Get course updates</a>
+          <div class="email-capture reveal" id="updates">
+            <label class="capture-label" for="capture-email">Get course and marketing updates</label>
+            <!-- Wire this to your email platform (Mailchimp, ConvertKit, etc.):
+                 replace the JS handler with a real form action. -->
+            <form class="capture-row" id="capture-form" name="course-updates" method="POST" data-netlify="true" novalidate>
+              <input type="hidden" name="form-name" value="course-updates">
+              <input type="email" id="capture-email" name="email" placeholder="you@company.com" aria-describedby="capture-email-error" required>
+              <button class="btn btn-primary" type="submit">Subscribe</button>
+            </form>
+            <p class="field-error" id="capture-email-error"></p>
+            <p class="form-status" id="capture-status" role="status" aria-live="polite"></p>
+          </div>
         </aside>
       </div>
       <div class="wrap">
@@ -181,15 +192,15 @@
       <div class="wrap offer-grid">
         <div class="reveal">
           <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round"><defs><linearGradient id="ga-s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DAD4F5"/><stop offset="1" stop-color="#574AA6"/></linearGradient></defs><circle class="fill" cx="36" cy="36" r="11" fill="url(#ga-s)" stroke="none"/><circle class="stroke" pathLength="100" cx="36" cy="36" r="26" stroke="#574AA6" stroke-width="2"/><circle class="stroke" pathLength="100" cx="36" cy="36" r="18.5" stroke="#574AA6" stroke-width="1.6" opacity="0.45"/><circle class="fill" cx="58.5" cy="23" r="3.2" fill="#574AA6" stroke="none"/><circle class="fill" cx="13.5" cy="49" r="3.2" fill="#574AA6" stroke="none" opacity="0.7"/><circle class="fill" cx="36" cy="62" r="2.4" fill="#574AA6" stroke="none" opacity="0.45"/></svg>
-          <h2 id="automations-title">AI &amp; Workflow Guidance</h2>
+          <h2 id="automations-title">Workflow &amp; AI Guidance</h2>
           <p class="offer-desc">AI can be useful, but only when it supports a real business need. I review your goals, processes, and day-to-day work to identify where AI, a better tool, or a clearer workflow could improve the way the work gets done. The goal is to make a thoughtful decision about what is worth changing.</p>
           <ul class="offer-points">
-            <li>Starts with a review of your goals, workflows, and current challenges</li>
+            <li>Review goals, workflows, and current challenges</li>
             <li>Identify practical AI opportunities tied to business goals</li>
             <li>Find unnecessary friction and repetitive work</li>
             <li>Improve the process before adding more tools</li>
             <li>Create a realistic testing or implementation plan</li>
-            <li>Recommend a simple automation only when it is the right solution</li>
+            <li>Recommend automation only when it is the right solution</li>
           </ul>
           <p class="section-foot-link"><a class="arrow-link" href="work.html#builds">See how the approach works</a></p>
         </div>
@@ -204,10 +215,9 @@
     </section>
 
     <!-- ============ Transition band ============ -->
-    <section class="bridge" aria-labelledby="bridge-title">
+    <section class="bridge" aria-label="Transition">
       <div class="wrap">
-        <h2 class="eyebrow reveal" id="bridge-title">The work changes. The goal doesn't.</h2>
-        <p class="bridge-line reveal">Courses, consulting, or guidance on where AI fits, shaped around what your business needs next.</p>
+        <p class="bridge-line reveal">Choose the kind of support that fits the goal.</p>
       </div>
     </section>
 
