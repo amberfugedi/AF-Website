@@ -89,7 +89,8 @@ the only text color allowed on top of them or as accent text on cream.
   decision moment, `.inline-cta`, never more) · nav 16px ·
   arrow-links 16px.
   Deliberate exceptions, don't "fix" them: the home hero h1 keeps
-  clamp(2rem, 5.6vw, 4rem) (the 3-line rule); LONG HEADLINES (10+
+  clamp(2.5rem, 5.6vw, 4rem) — 40px on phones so it tops the 36px
+  h2 grade, 64px on desktop where 72px would break the 3-line rule; LONG HEADLINES (10+
   words) step down one grade via `.h1-long` (about/capabilities
   page h1s at the h2 size) and `.h2-long` (home problem + about
   teaser h2s at clamp(1.62rem, 4vw, 2.75rem)) so sentences read as

@@ -597,7 +597,7 @@ body.page-sub .aura { --aura-base: 0.45; }
    cascade and the paper-tab language. */
 @media (max-width: 760px) {
   .hero { min-height: 0; padding: 104px 0 40px; }
-  .hero h1 { line-height: 1.14; }
+  .hero h1 { line-height: 1.1; }
   .hero .subhead { margin-bottom: 34px; }
   /* A concise credibility strip: three identical-width one-line rows,
      tight to the experience statement, whisper of tilt for texture. */
@@ -870,7 +870,9 @@ section { padding: 104px 0; }
 
 
 .hero h1 {
-  font-size: clamp(2rem, 5.6vw, 4rem);
+  /* Long-headline display: tops the mobile hierarchy (40px > 36px
+     h2 grade) while holding three lines on desktop at 64px. */
+  font-size: clamp(2.5rem, 5.6vw, 4rem);
   letter-spacing: -0.02em;
   margin-bottom: 26px;
 }
