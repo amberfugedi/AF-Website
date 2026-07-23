@@ -114,8 +114,9 @@ the only text color allowed on top of them or as accent text on cream.
   individually tuned.
 - Hero sans tracking: subhead -0.01em, chip stats -0.015em, chip
   labels -0.005em. Never positive tracking on sentence-case text —
-  wider tracking belongs to uppercase eyebrows/labels only (0.08em
-  since the scale landed; case-column labels keep 0.12em).
+  wider tracking belongs to uppercase eyebrows/labels only, and
+  ALL of them share 0.08em (tags, tier chips, capture label, and
+  case-column labels included — consolidated 2026-07).
 - Header: nav bar 62px (60px on phones + safe-area inset), brand
   wordmark 1.25rem desktop / 1.5rem mobile, hamburger three 27px
   1.5px lines in a ≥44px tap target.
@@ -126,7 +127,10 @@ the only text color allowed on top of them or as accent text on cream.
 
 ## Shape & depth
 
-- Radius: cards 24px (`--radius`), buttons/pills/chips 24px, inputs 14px.
+- Radius scale (minimal, 2026-07): 24px for cards, pills, and
+  bands; 14px for compact elements (inputs, proof chips, timeline
+  entries); 8px for the phone results strip; 50% circles and the
+  two organic blobs. Nothing else.
 - Shadows: `--shadow-soft` (0 14px 40px -18px rgba(46,42,39,0.18)) on
   hover lift only. No permanent heavy shadows.
 - Borders: 1px `--line` rgba(46,42,39,0.12).

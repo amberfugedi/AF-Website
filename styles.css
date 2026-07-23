@@ -1862,6 +1862,22 @@ footer p,
   .page-head { padding: 112px 0 24px; }
 }
 
+/* Minimal consolidation (2026-07): one uppercase-label tracking,
+   one radius scale — 24px cards/pills/bands, 14px compact elements
+   and inputs, 8px phone strip rows, 50% circles, organic blobs. */
+.card .card-tag,
+.case .case-tag,
+.offer-aside .tier,
+.email-capture .capture-label,
+.case-col h3 { letter-spacing: 0.08em; }
+.cta-band,
+.quote-marquee { border-radius: 24px; }
+.marquee-toggle { border-radius: 24px; }
+.tl-entry { border-radius: 14px; }
+@media (min-width: 761px) {
+  .proof-chip { border-radius: 14px; }
+}
+
 /* Small phones: anchor tabs step to the 15px small slot so the
    sticky nav holds one row (cascade: must follow the type system) */
 @media (max-width: 380px) {
