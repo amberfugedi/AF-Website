@@ -76,17 +76,30 @@ the only text color allowed on top of them or as accent text on cream.
   never italicize whole headings.
 - Body: **Manrope** (400–800) — body copy, nav, buttons, labels,
   kickers. Metrics/stat numbers: Manrope 800 (`.feat-stat`).
-- Hero sans tracking (2026-07): subhead and experience text
-  -0.01em, chip stats -0.015em, chip labels -0.005em; hero body
-  line-height 1.5, chip labels 1.3. Never positive tracking on
-  sentence-case text — wide tracking is for uppercase
-  eyebrows/kickers only.
+- TYPE SCALE (2026-07, tokens in :root, fluid 390px -> 1440px;
+  applied site-wide by the "Type system" layer at the end of
+  styles.css — change sizes THERE, not per section):
+  h1 48/72 (lh 1.05/1.03, ls -0.025/-0.03em) · h2 36/50 (lh
+  1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em) · intro 19/21
+  (lh 1.5) · body 17/18 (lh 1.55) · small 14/15 (lh 1.4) ·
+  eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px · nav 16px.
+  Deliberate exceptions, don't "fix" them: the home hero h1 keeps
+  clamp(2rem, 5.6vw, 4rem) (the 3-line rule), the home problem h2
+  keeps clamp(1.62rem, 4vw, 2.75rem) (mobile visibility rule),
+  106/56-char page h1s (about, capabilities) use `.h1-long` at the
+  h2 size, the hero subhead runs below body at 15 -> 17.5px so the
+  headline and proof lead, and metric/metadata micro-type (proof
+  chips, feat stats, tags-as-labels, case-column labels) stays
+  individually tuned.
+- Hero sans tracking: subhead -0.01em, chip stats -0.015em, chip
+  labels -0.005em. Never positive tracking on sentence-case text —
+  wider tracking belongs to uppercase eyebrows/labels only (0.08em
+  since the scale landed; case-column labels keep 0.12em).
 - Header: nav bar 62px (60px on phones + safe-area inset), brand
   wordmark 1.25rem desktop / 1.5rem mobile, hamburger three 27px
   1.5px lines in a ≥44px tap target.
-- Hero h1: `clamp(2.4rem, 5.6vw, 4rem)`, tracking −0.02em. One accent
-  word per headline in `--coral-deep` via `<em>`, set in Newsreader
-  italic.
+- Hero h1: one accent word per headline in `--coral-deep` via
+  `<em>`, set in Newsreader italic.
 - Loaded via preconnect + `media="print" onload` swap — never
   render-blocking. Google Fonts is the only external dependency.
 

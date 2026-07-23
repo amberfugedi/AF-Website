@@ -33,6 +33,16 @@
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
   --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Type scale (2026-07): one fluid system, 390px -> 1440px.
+     mobile / desktop: h1 48/72, h2 36/50, h3 24/30, intro 19/21,
+     body 17/18, small 14/15, eyebrow 12/13. */
+  --fs-h1: clamp(3rem, 2.443rem + 2.2857vw, 4.5rem);
+  --fs-h2: clamp(2.25rem, 1.925rem + 1.3333vw, 3.125rem);
+  --fs-h3: clamp(1.5rem, 1.361rem + 0.5714vw, 1.875rem);
+  --fs-intro: clamp(1.1875rem, 1.141rem + 0.1905vw, 1.3125rem);
+  --fs-body: clamp(1.0625rem, 1.039rem + 0.0952vw, 1.125rem);
+  --fs-small: clamp(0.875rem, 0.852rem + 0.0952vw, 0.9375rem);
+  --fs-eyebrow: clamp(0.75rem, 0.727rem + 0.0952vw, 0.8125rem);
   --nav-h: 62px;
 }
 
@@ -1718,4 +1728,87 @@ footer {
   /* Color, underline, and opacity feedback stays: reduced motion
      means fewer and gentler animations, not zero. All movement is
      neutralized explicitly above. */
+}
+
+
+/* ============ Type system (see MASTER.md) ============
+   One responsive scale across every page. Deliberate exceptions:
+   the home hero h1 (3-line rule), the home problem h2 (mobile
+   visibility rule), the long about h1 (.h1-long -> h2 size), and
+   metric/metadata micro-type (proof chips, feat stats, tags-as-
+   labels, case-column labels). */
+body { font-size: var(--fs-body); line-height: 1.55; }
+
+.page-head h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+}
+.page-head h1.h1-long { font-size: var(--fs-h2); line-height: 1.12; letter-spacing: -0.02em; }
+
+.section-title,
+.case h2,
+.tier-head h2,
+.offer-section h2,
+.cta-band h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.09;
+  letter-spacing: -0.02em;
+}
+#problem-title { font-size: clamp(1.62rem, 4vw, 2.75rem); } /* 13-word headline: keeps its tuned wrap */
+
+.card h3,
+.cap-card h3,
+.feat-card h3,
+.edu-card h3,
+.tl-entry h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.section-lede,
+.offer-desc,
+.bridge-line { font-size: var(--fs-intro); line-height: 1.5; }
+/* Hero subhead: deliberately below body scale (15px -> 17.5px) —
+   Amber wants the deck quieter than the original 16.8/20px setting
+   so the headline and proof carry the hero. */
+.hero .subhead { font-size: clamp(0.9375rem, 0.88rem + 0.238vw, 1.09375rem); line-height: 1.55; }
+.bridge-line { line-height: 1.35; } /* serif statement keeps its tighter set */
+
+.card p,
+.cap-card p,
+.feat-card p,
+.quote-card blockquote,
+.case-col p,
+.tl-desc,
+.offer-points li,
+.offer-aside p,
+.contact-intro p,
+.about-copy p { font-size: var(--fs-body); line-height: 1.55; }
+
+.card-tag,
+.case-tag,
+.who-role,
+.form-note,
+.capture-label,
+footer p,
+.footer-nav a { font-size: var(--fs-small); line-height: 1.4; }
+
+.eyebrow {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.btn { font-size: 1.0625rem; }
+.nav-links a { font-size: 1rem; }
+
+@media (max-width: 760px) {
+  .page-head h1 { line-height: 1.05; letter-spacing: -0.025em; }
+  .section-title,
+  .case h2,
+  .tier-head h2,
+  .offer-section h2,
+  .cta-band h2 { line-height: 1.1; }
 }
