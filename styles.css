@@ -601,36 +601,36 @@ body.page-sub .aura { --aura-base: 0.45; }
   .hero .subhead { margin-bottom: 34px; }
   /* A concise credibility strip: three identical-width one-line rows,
      tight to the experience statement, whisper of tilt for texture. */
-  .hero-proof { flex-direction: column; gap: 8px; margin-top: 18px; }
+  .hero-proof { flex-direction: column; gap: 10px; margin-top: 18px; }
   .proof-chip {
     display: flex;
     align-items: baseline;
     gap: 10px;
-    width: 97%;
-    padding: 10px 13px;
-    border-radius: 8px;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
     box-shadow: 0 8px 22px -16px rgba(46, 42, 39, 0.14);
   }
   .proof-chip,
   .proof-chip:hover { transform: rotate(var(--tilt, 0deg)); }
   /* Fixed stat column: the widest stat (Scanoptics) sets it, so all
      three labels start at the same point. */
-  .proof-chip .proof-stat { font-size: 0.92rem; white-space: nowrap; min-width: 7.8em; }
-  .proof-chip .proof-label { font-size: 0.78rem; margin-top: 0; white-space: nowrap; }
-  .pc-lavender { --tilt: -0.6deg; margin: 0; padding: 10px 14px; background: rgba(218, 212, 245, 0.32); border-color: rgba(87, 74, 166, 0.12); }
-  .pc-lavender .proof-stat { font-size: 0.92rem; min-width: 7.8em; }
-  .pc-lavender .proof-label { font-size: 0.78rem; }
+  .proof-chip .proof-stat { font-size: 0.95rem; white-space: nowrap; min-width: 7.6em; }
+  .proof-chip .proof-label { font-size: 0.8rem; margin-top: 0; white-space: nowrap; }
+  .pc-lavender { --tilt: -0.6deg; margin: 0; background: rgba(218, 212, 245, 0.32); border-color: rgba(87, 74, 166, 0.12); }
+  .pc-lavender .proof-stat { font-size: 0.95rem; min-width: 7.6em; }
+  .pc-lavender .proof-label { font-size: 0.8rem; }
   .pc-peach    { --tilt: 0.5deg;  margin: 0; background: rgba(252, 228, 196, 0.36); border-color: rgba(138, 90, 20, 0.11); }
   .pc-blush    { --tilt: -0.4deg; margin: 0; background: rgba(251, 213, 228, 0.34); border-color: rgba(166, 53, 99, 0.11); }
 }
 /* Small phones: keep every strip row on one line (the Scanoptics
    stat is the widest — give it a touch less width, per the brief) */
 @media (max-width: 380px) {
-  .proof-chip { gap: 8px; padding: 9px 11px; }
+  .proof-chip { gap: 8px; padding: 12px 13px; }
   .proof-chip .proof-stat,
-  .pc-lavender .proof-stat { font-size: 0.84rem; min-width: 7.8em; }
+  .pc-lavender .proof-stat { font-size: 0.88rem; min-width: 7.6em; }
   .proof-chip .proof-label,
-  .pc-lavender .proof-label { font-size: 0.72rem; }
+  .pc-lavender .proof-label { font-size: 0.73rem; }
 }
 
 /* Hand-drawn underline beneath the hero accent word */
@@ -897,13 +897,9 @@ section { padding: 104px 0; }
 }
 .bridge .eyebrow { font-family: var(--font-body); margin-bottom: 12px; }
 .bridge-line {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-  line-height: 1.35;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  max-width: 30em;
+  font-family: var(--font-body);
+  color: var(--body);
+  max-width: 60ch;
 }
 
 /* Hero entrance: staggered rise on load (home only) */
@@ -1154,7 +1150,7 @@ section { padding: 104px 0; }
 }
 .anchor-nav a:hover { color: var(--ink); border-color: var(--line); }
 @media (max-width: 760px) {
-  .anchor-nav a { padding: 11px 9px; } /* ≥44px touch target, one row of three tabs at 390px */
+  .anchor-nav a { padding: 13px 10px; } /* ≥44px touch target, one row of three tabs at 390px */
   /* Touch targets ≥44px for links that render small on phones */
   .arrow-link { padding-top: 13px; padding-bottom: 14px; }
   .footer-nav a { display: inline-block; padding: 10px 6px; }
@@ -1788,7 +1784,7 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    bridge's serif statement (a device, not a paragraph). */
 .section-lede,
 .offer-desc { font-size: var(--fs-body); line-height: 1.55; }
-.bridge-line { font-size: var(--fs-intro); line-height: 1.5; }
+.bridge-line { font-size: var(--fs-body); line-height: 1.55; }
 /* Hero subhead: deliberately below body scale (15px -> 17.5px) —
    Amber wants the deck quieter than the original 16.8/20px setting
    so the headline and proof carry the hero. */
@@ -1823,7 +1819,7 @@ footer p,
 .offer-aside .offer-note,
 .tl-entry .tl-desc { font-size: var(--fs-body); line-height: 1.55; }
 .offer-aside .who { font-size: var(--fs-body); line-height: 1.5; }
-.anchor-nav a { font-size: 1rem; } /* sticky tabs are navigation: 16px slot */
+.anchor-nav a { font-size: var(--fs-small); } /* compact utility tabs: small slot */
 /* Uppercase tags and tier chips read as eyebrow-grade metadata */
 .card .card-tag,
 .case .case-tag,
@@ -1914,5 +1910,5 @@ footer p,
 /* Small phones: anchor tabs step to the 15px small slot so the
    sticky nav holds one row (cascade: must follow the type system) */
 @media (max-width: 380px) {
-  .anchor-nav a { font-size: 0.9375rem; padding: 11px 7px; }
+  .anchor-nav a { padding: 13px 8px; }
 }

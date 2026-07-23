@@ -96,7 +96,8 @@ cards.
   1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em; structural subheads only — CARD
   TITLES read at the intro grade 19/21, the h3 slot overwhelmed
   card bodies) · intro 19/21
-  (lh 1.5; the CARD-TITLE and bridge-statement grade only — every
+  (lh 1.5; the CARD-TITLE grade only — the bridge statement joined
+  body sans 2026-07 after reading as a wrong-font paragraph — every
   running-text paragraph including section ledes, offer
   descriptions, asides, and timeline text reads at BODY, and small
   is strictly metadata: names, roles, labels, notes, footer) · body 16/17 (lh 1.55; stepped from
@@ -200,10 +201,12 @@ gestures read as AI tells; don't reintroduce either.)
 
 ## Photography
 
-Three appearances, three DISTINCT photos: the studio/moodboard
-shot in the About blob (the story photo — neon, strategy prints),
-the cream portrait at 150px in the home about teaser, and the mug
-photo at the contact moment, 108px. All share the organic radius
+Three appearances, three DISTINCT photos: the sunlit blazer
+portrait (moodboard: "strategy creativity connection results") in
+the About blob, the neon studio shot ("good ideas start here") at
+150px in the home about teaser, and the mug photo at the contact
+moment, 108px. The cream portrait serves only as the structured-
+data headshot (amber-fugedi.jpg). All share the organic radius
 family. Never in the hero (the aura is the signature), never on
 proof pages (results are the picture), no photo used twice.
 
