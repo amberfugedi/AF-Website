@@ -511,3 +511,26 @@ before shipping spacing changes):
 - SANCTIONED variance: hero -> problem on home is
   viewport-proportional (the hero keeps min-height 72dvh air) —
   ~217px at 900px viewport height; do not pin it.
+
+## Work page framing (2026-07 graft from the portfolio redesign)
+
+Sections are organized by HOW AMBER CREATES VALUE, not employment
+type: 01 In-house = "Leading Marketing", 02 Consulting = "Helping
+Businesses Grow", 03 Independent = "Building New Ideas" — each h2
+followed by Amber's one-line philosophy as a standard section-lede
+(her words, verbatim): "I enjoy building teams, brands, and
+marketing functions that can grow with the business." / "Sometimes
+businesses need another team member. Sometimes they need another
+perspective." / "Curiosity has always shaped how I learn. These
+projects are where I explore ideas, test what works, and build
+something useful." The page-head lede opens "Every project looks
+different. The goal doesn't." Anchor tabs read In-house /
+Consulting / Independent (short, one row at 390) and each takes
+its own active color: coral wash / blush / lavender. The
+MembersFirst case leads with the trust story: employee first, kept
+as the consultant, working relationship in its eighth year (exact
+employee-period dates pending from Amber). Case studies stay
+visible on one page (challenge/approach/impact); separate
+case-study pages wait until deliverable imagery and long-form
+narratives exist. The full portfolio-redesign mock is parked in
+the session scratchpad.
