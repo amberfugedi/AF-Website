@@ -321,14 +321,19 @@ body.page-sub .aura { --aura-base: 0.45; }
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.5625rem;
+  font-weight: 500;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: -0.01em;
 }
-.brand em { font-style: normal; color: var(--coral-deep); }
+.brand-mark { width: 30px; height: 30px; display: block; }
+/* responsive exception only: below 350px the mark stands alone */
+@media (max-width: 350px) { .brand-name { display: none; } }
 
 .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
 .nav-links a {
@@ -380,7 +385,8 @@ body.page-sub .aura { --aura-base: 0.45; }
 
 @media (max-width: 760px) {
   :root { --nav-h: 60px; }
-  .brand { font-size: 1.5rem; }
+  .brand { font-size: 1.375rem; gap: 11px; }
+  .brand-mark { width: 26px; height: 26px; }
   .nav-toggle { display: block; }
   .nav-links {
     position: absolute;

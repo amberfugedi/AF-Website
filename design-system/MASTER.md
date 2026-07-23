@@ -210,18 +210,34 @@ serves only as the structured-data headshot (amber-fugedi.jpg). All share the or
 family. Never in the hero (the aura is the signature), never on
 proof pages (results are the picture), no photo used twice.
 
-## Favicon (the aura tile)
+## Identity marks (the af system)
 
-Amber's pick: lowercase "af" in Newsreader 600 (letter-spacing
--0.065em, ink #2E2A27) on a rounded aura tile — blush glow top-left,
-lavender bottom-left, peach/butter right, over cream. Source of
-truth is favicon-512.png; derived sizes favicon-48/32/16.png carry a
-22% corner radius with transparent corners, apple-touch-icon.png
-(180px) stays full-bleed because iOS applies its own mask. All six
-pages link the same four assets (404.html uses absolute paths).
-favicon-512.png doubles as the social avatar. This is the only place
-the aura appears outside the hero — don't reuse the tile as an
-in-page graphic.
+The mark is lowercase "af" in Newsreader 600, letter-spacing
+-0.065em, on a rounded tile (22% radius). The name is the plain
+unified serif wordmark: "Amber Fugedi" in Newsreader 500, ink,
+letter-spacing -0.01em, title case, both names identical size and
+weight — no coral surname, no split styling, no flourish. The mark
+carries the personality; the name stays quiet. Never customize both.
+
+Roles:
+- Primary identity (site header, all six pages): aura af tile +
+  name as ONE home link. Desktop: 30px mark, 25px name, 14px gap.
+  Mobile ≤760: 26px mark, 22px name, 11px gap. Below 350px only,
+  the name hides and the mark stands alone (responsive exception,
+  never the default mobile identity).
+- Formal wordmark: "Amber Fugedi" alone, same spec.
+- Micro mark: af tile alone.
+- Browser favicon is HIGH CONTRAST, not aura: ink af on flat cream
+  (favicon-48/32/16.png, transparent rounded corners). The aura
+  tile is for social/app surfaces: favicon-512.png (social
+  avatar), apple-touch-icon.png (180 full-bleed, iOS masks it),
+  brand-mark.png (96px source for the 30px header mark). A white-
+  on-ink reversal exists as an off-site asset only.
+- Color and expression stay in the aura, buttons, highlight tabs,
+  and motion — not in the name.
+
+404.html links these assets with absolute paths. Don't reuse the
+tile as an in-page graphic.
 
 ## Motion (full budget — add nothing beyond this)
 
