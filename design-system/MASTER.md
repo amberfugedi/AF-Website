@@ -114,13 +114,17 @@ cards.
   proof pages carry ONE quiet inline "Let's talk" prompt at the
   decision moment, `.inline-cta`, never more) · nav 16px ·
   arrow-links 16px.
-  HEADLINE WIDTH: h1s, page-head h1s, and section titles carry NO
+  HEADLINE WIDTH: MID-PAGE h1s and section titles carry NO
   max-width — headlines run toward the wrap edge so heads match
   the width of the content below them (Amber, 2026-07: title caps
   made desktop sections read squished-left; `text-wrap: balance`
-  keeps any multi-line result even). Paragraph measure caps stay
-  ONLY where a column bounds them (problem grid) or on non-lede
-  body text.
+  keeps any multi-line result even). HERO GROUND IS EXEMPT
+  (Amber: "not for the hero sections"): the home hero keeps its
+  copy column, and `.page-head` h1s keep the 800px cap with their
+  ledes at BODY scale and 600px measure — page tops stay
+  restrained so no page opens heavier than home. Standfirst
+  treatment applies to section ledes below the fold, not page
+  heads.
   Deliberate exceptions, don't "fix" them: LONG HEADLINES (10+
   words) step down one grade via `.h1-long` (about/capabilities
   page h1s at the h2 size) and `.h2-long` (h2s that would wrap

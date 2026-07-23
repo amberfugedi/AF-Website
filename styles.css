@@ -928,6 +928,7 @@ section { padding: 104px 0; }
   font-size: clamp(2.4rem, 5.5vw, 3.6rem);
   letter-spacing: -0.02em;
   margin-bottom: 20px;
+  max-width: 800px;
 }
 .page-head .section-lede { margin-bottom: 0; }
 
@@ -1783,6 +1784,10 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    standfirst (section/page ledes), which runs at the heading's
    width per Amber. Everything else stays body. */
 .section-lede { font-size: var(--fs-intro); line-height: 1.5; text-wrap: pretty; }
+/* Page heads are hero ground and stay restrained (Amber): capped
+   h1, body-scale lede at reading measure — no page opens heavier
+   than home. */
+.page-head .section-lede { font-size: var(--fs-body); line-height: 1.55; max-width: 600px; }
 .offer-desc { font-size: var(--fs-body); line-height: 1.55; }
 .bridge-line { font-size: var(--fs-body); line-height: 1.55; }
 /* Hero subhead: deliberately below body scale (15px -> 17.5px) —
