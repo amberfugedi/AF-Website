@@ -381,10 +381,16 @@ the industry breadth lives in the TRANSITION BAND (`.bridge`):
 eyebrow "The work changes. The goal doesn't." + a sans line naming
 the industries, on a soft white veil with hairline borders —
 static, quieter than the hero. SITE-WIDE and CENTERED (Amber,
-2026-07): every page carries the same band — home between the
-problem section and Selected Work, sub-pages directly before their
-closing CTA (about: before contact). Center-aligned like the dark
-CTA band; bands center, content sections stay left-aligned. Company
+2026-07): every page carries the band — home between the problem
+section and Selected Work, sub-pages directly before their closing
+CTA (about: before contact). Center-aligned like the dark CTA
+band; bands center, content sections stay left-aligned. The
+eyebrow is the FIXED refrain (never varies); the supporting line
+is page-aware (Amber, 2026-07): home = industries breadth,
+services = formats shaped around the need, work = same question
+five ways, capabilities = functions pointed at one outcome,
+about = career arc with one constant. Keep each line one thought,
+under ~140 chars, no em dashes. Company
 names appear only inside case studies where the relationship tag
 gives them context. Never add a "trusted by" logo strip.
 
