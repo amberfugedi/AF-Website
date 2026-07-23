@@ -1786,13 +1786,29 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .contact-intro p,
 .about-copy p { font-size: var(--fs-body); line-height: 1.55; }
 
-.card-tag,
-.case-tag,
 .who-role,
+.quote-foot .who-role,
+.quote-foot .who-name,
 .form-note,
-.capture-label,
+.email-capture .capture-label,
+.tl-entry .tl-org,
+.tl-entry .tl-desc,
+.tl-link,
+.offer-aside .offer-note,
+.offer-aside p,
+.contact-form label,
+.cb-step span,
 footer p,
 .footer-nav a { font-size: var(--fs-small); line-height: 1.4; }
+.tl-entry .tl-desc { line-height: 1.55; }
+.offer-aside .who { font-size: var(--fs-body); line-height: 1.5; }
+.anchor-nav a { font-size: 1rem; } /* sticky tabs are navigation: 16px slot */
+/* Uppercase tags and tier chips read as eyebrow-grade metadata */
+.card .card-tag,
+.case .case-tag,
+.offer-aside .tier { font-size: var(--fs-eyebrow); }
+.case-col.result p { font-size: var(--fs-body); } /* Impact lines join body scale */
+.tier-head p { font-size: var(--fs-small); }
 
 .eyebrow {
   font-size: var(--fs-eyebrow);
