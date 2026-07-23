@@ -469,3 +469,22 @@ deviate from this Master.
 - Marquee accessibility (verified, not changed): clone sets carry
   aria-hidden="true", quotes contain no focusable elements, and
   the marquee has a pause toggle.
+
+## Font census (2026-07 audit — keep it this clean)
+
+Mechanical audit of every visible text node, all six pages, 390
+and 1440: every element sits on a token. Fixed in the audit: the
+offer-aside "who" lines and the Work impact lines were the last
+SERIF paragraphs (both now Manrope 600 — serif belongs to
+headings, card titles, and the brand only); inline CTAs, form
+controls, and the kit list joined body; the skip link and
+capability stat labels joined small; the marquee toggle and
+Challenge/Approach/Impact labels joined eyebrow; dead kicker CSS
+removed. SANCTIONED OFF-TOKEN SIZES (do not "fix"): the hero
+subhead (15 -> 17.5), the desktop hero proof hierarchy (stats
+2.45/1.52/1.24rem, labels 0.95/0.9/0.84rem — PERQ dominant by
+design), the phone proof chips (0.95rem stats, 0.8rem labels),
+the capability feat-stats (3.1/2.4rem), and the brand name
+(25/22). Everything else must resolve to
+h1/h1-long/h2/h2-long/h3/intro/body/small/eyebrow. Re-run the
+census (scratchpad fontaudit) before shipping type changes.
