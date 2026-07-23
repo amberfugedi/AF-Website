@@ -36,7 +36,7 @@
   /* Type scale (2026-07): one fluid system, 390px -> 1440px.
      mobile / desktop: h1 48/72, h2 36/50, h3 24/30, intro 19/21,
      body 17/18, small 14/15, eyebrow 12/13. */
-  --fs-h1: clamp(3rem, 2.443rem + 2.2857vw, 4.5rem);
+  --fs-h1: clamp(3rem, 2.629rem + 1.5238vw, 4rem); /* caps at 64px = hero, one top size site-wide */
   --fs-h2: clamp(2.25rem, 1.925rem + 1.3333vw, 3.125rem);
   --fs-h3: clamp(1.5rem, 1.361rem + 0.5714vw, 1.875rem);
   --fs-intro: clamp(1.1875rem, 1.141rem + 0.1905vw, 1.3125rem);

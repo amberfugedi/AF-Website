@@ -79,7 +79,9 @@ the only text color allowed on top of them or as accent text on cream.
 - TYPE SCALE (2026-07, tokens in :root, fluid 390px -> 1440px;
   applied site-wide by the "Type system" layer at the end of
   styles.css — change sizes THERE, not per section):
-  h1 48/72 (lh 1.05/1.03, ls -0.025/-0.03em) · h2 36/50 (lh
+  h1 48/64 (lh 1.05/1.03, ls -0.025/-0.03em; capped at 64 rather
+  than the spec's 72 so every page tops out at ONE size — 72 broke
+  the home hero's 3-line rule) · h2 36/50 (lh
   1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em) · intro 19/21
   (lh 1.5) · body 17/18 (lh 1.55) · small 14/15 (lh 1.4) ·
   eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px desktop /
