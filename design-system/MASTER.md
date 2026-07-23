@@ -82,8 +82,11 @@ the only text color allowed on top of them or as accent text on cream.
   h1 40/64 (lh 1.05/1.03, ls -0.025/-0.03em; ONE display size on
   every page including the home hero — amended twice from the
   spec's 48/72 at Amber's consistency calls: 72 broke the hero's
-  3-line rule, 48 made sub-pages outweigh home on phones) · h2
-  36/50 (lh
+  3-line rule, 48 made sub-pages outweigh home on phones) ·
+  long-display (`.h1-long`) 36/50 · h2 30/44, stepped down from
+  the spec's 36/50 so H2s sit clearly below EVERY h1 including the
+  long-display pages (Amber's ladder rule: each level visibly
+  smaller than the one above) · h2-long 26/38 (lh
   1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em; structural subheads only — CARD
   TITLES read at the intro grade 19/21, the h3 slot overwhelmed
   card bodies) · intro 19/21
@@ -99,8 +102,7 @@ the only text color allowed on top of them or as accent text on cream.
   words) step down one grade via `.h1-long` (about/capabilities
   page h1s at the h2 size) and `.h2-long` (h2s that would wrap
   3+ phone lines, ~40+ chars: home problem, home selected work,
-  home about teaser, about experience — clamp(1.62rem, 4vw,
-  2.75rem)) so sentences read as sentences, not walls — apply the
+  home about teaser, about experience — 26/38) so sentences read as sentences, not walls — apply the
   pattern to any future long heading; the hero subhead runs below body at 15 -> 17.5px so the
   headline and proof lead; and metric/metadata micro-type (proof
   chips, feat stats, tags-as-labels, case-column labels) stays
