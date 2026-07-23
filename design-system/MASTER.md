@@ -161,10 +161,11 @@ phrase reads as plain words in the sentence without it. Tabs live
 on cream surfaces plus the one dark CTA band (ink text on butter
 holds 12:1 there); a pastel tab on the old coral band fought the
 gradient and was removed 2026-07. Current placements — exactly
-four phrases: "what to build." (blush, home problem), "different
+five phrases: "what to build." (blush, home problem), "different
 needs." (blush, work h1 — needs are the question side), "work
-together." (butter, services h1), and "comes next." (butter, dark
-CTA bands + about contact),
+together." (butter, services h1), "marketing experience." (butter,
+capabilities h1 — every sub-page headline carries one), and
+"comes next." (butter, dark CTA bands + about contact),
 organic blob portrait with offset coral outline, and the offer
 card-art compositions (home): a pastel gradient blob backdrop, the
 offer's mark enlarged over it, and small geometric accents (dot
