@@ -1802,6 +1802,11 @@ footer p,
 
 .btn { font-size: 1.0625rem; }
 .nav-links a { font-size: 1rem; }
+.arrow-link { font-size: 1rem; } /* interactive text sits in the 16-17px slot */
+
+/* Inline conversion prompt: one quiet line at the decision moment
+   on long proof pages (work, capabilities). Editorial, not a pill. */
+.inline-cta { font-size: 1rem; color: var(--muted); }
 
 @media (max-width: 760px) {
   .page-head h1 { line-height: 1.05; letter-spacing: -0.025em; }

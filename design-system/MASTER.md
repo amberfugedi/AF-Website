@@ -84,8 +84,10 @@ the only text color allowed on top of them or as accent text on cream.
   (lh 1.5) · body 17/18 (lh 1.55) · small 14/15 (lh 1.4) ·
   eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px desktop /
   16px mobile (CTA rule: coral carries the primary button's
-  dominance, never bulk — pills stay calm, 44px+ targets) · nav
-  16px.
+  dominance, never bulk — pills stay calm, 44px+ targets; long
+  proof pages carry ONE quiet inline "Let's talk" prompt at the
+  decision moment, `.inline-cta`, never more) · nav 16px ·
+  arrow-links 16px.
   Deliberate exceptions, don't "fix" them: the home hero h1 keeps
   clamp(2rem, 5.6vw, 4rem) (the 3-line rule), the home problem h2
   keeps clamp(1.62rem, 4vw, 2.75rem) (mobile visibility rule),
