@@ -1156,7 +1156,7 @@ section { padding: 104px 0; }
 }
 .anchor-nav a:hover { color: var(--ink); border-color: var(--line); }
 @media (max-width: 760px) {
-  .anchor-nav a { padding: 11px 18px; } /* ≥44px touch target */
+  .anchor-nav a { padding: 11px 9px; } /* ≥44px touch target, one row of three tabs at 390px */
   /* Touch targets ≥44px for links that render small on phones */
   .arrow-link { padding-top: 13px; padding-bottom: 14px; }
   .footer-nav a { display: inline-block; padding: 10px 6px; }
@@ -1840,4 +1840,10 @@ footer p,
      level with the 16px hero subhead. */
   .btn { font-size: 1rem; padding: 12px 22px; }
   .hero .subhead { font-size: 1rem; }
+}
+
+/* Small phones: anchor tabs step to the 15px small slot so the
+   sticky nav holds one row (cascade: must follow the type system) */
+@media (max-width: 380px) {
+  .anchor-nav a { font-size: 0.9375rem; padding: 11px 7px; }
 }
