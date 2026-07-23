@@ -595,7 +595,7 @@ body.page-sub .aura { --aura-base: 0.45; }
      tight to the experience statement, whisper of tilt for texture. */
   .hero-proof { flex-direction: column; gap: 8px; margin-top: 18px; }
   .trusted { margin-top: 30px; max-width: 100%; }
-  .trusted-set { font-size: 0.85rem; }
+  .trusted-set { font-size: 0.75rem; }
   .proof-chip {
     display: flex;
     align-items: baseline;
@@ -867,9 +867,9 @@ section { padding: 104px 0; }
   will-change: transform;
 }
 .trusted-set {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(92, 84, 75, 0.92); /* muted at 92% — ~6:1 on cream */
   letter-spacing: -0.005em;
   line-height: 1.5;
 }
