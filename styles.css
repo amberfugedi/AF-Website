@@ -900,10 +900,13 @@ section { padding: 104px 0; }
   border-bottom: 1px solid rgba(46, 42, 39, 0.08);
 }
 .bridge .eyebrow { font-family: var(--font-body); margin-bottom: 12px; }
+.bridge .wrap { text-align: center; }
 .bridge-line {
   font-family: var(--font-body);
   color: var(--body);
   max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Hero entrance: staggered rise on load (home only) */

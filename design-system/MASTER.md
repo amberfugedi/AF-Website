@@ -377,11 +377,14 @@ work. Never imply an employer was a client: case studies and
 teasers carry an explicit relationship tag ("Consulting client
 since 2018" / "Freelance client" / "In-house · <title, years>").
 The hero company-name strip was removed 2026-07 at Amber's request;
-the industry breadth lives in the TRANSITION BAND (`.bridge`,
-between the problem section and Selected Work: eyebrow "The work
-changes. The goal doesn't." + a serif line naming the industries,
-on a soft white veil with hairline borders — static, quieter than
-the hero), and company
+the industry breadth lives in the TRANSITION BAND (`.bridge`):
+eyebrow "The work changes. The goal doesn't." + a sans line naming
+the industries, on a soft white veil with hairline borders —
+static, quieter than the hero. SITE-WIDE and CENTERED (Amber,
+2026-07): every page carries the same band — home between the
+problem section and Selected Work, sub-pages directly before their
+closing CTA (about: before contact). Center-aligned like the dark
+CTA band; bands center, content sections stay left-aligned. Company
 names appear only inside case studies where the relationship tag
 gives them context. Never add a "trusted by" logo strip.
 
