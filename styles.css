@@ -40,7 +40,7 @@
   --fs-h2: clamp(1.875rem, 1.55rem + 1.3333vw, 2.75rem); /* 30 -> 44: a clear step below the 40/64 display */
   --fs-h3: clamp(1.5rem, 1.361rem + 0.5714vw, 1.875rem);
   --fs-intro: clamp(1.1875rem, 1.141rem + 0.1905vw, 1.3125rem);
-  --fs-body: clamp(1.0625rem, 1.039rem + 0.0952vw, 1.125rem);
+  --fs-body: clamp(1rem, 0.977rem + 0.0952vw, 1.0625rem); /* 16 -> 17: body never outranks the hero deck */
   --fs-small: clamp(0.875rem, 0.852rem + 0.0952vw, 0.9375rem);
   --fs-eyebrow: clamp(0.75rem, 0.727rem + 0.0952vw, 0.8125rem);
   --nav-h: 62px;
