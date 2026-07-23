@@ -198,6 +198,15 @@ Gradient ids must be unique per page instance. (A hero butterfly and Magic UI-st
 sparkles were both tried and removed 2026-07 — borrowed decorative
 gestures read as AI tells; don't reintroduce either.)
 
+## Photography
+
+Three appearances, no more: the full portrait in the About blob,
+a 150px blob crop at the home about teaser (visual continuity with
+the page it links to), and the second photo (mug) at the contact
+moment, 108px. All share the organic radius family. Never in the
+hero (the aura is the signature), never on proof pages (results
+are the picture), never the same photo twice in one view.
+
 ## Motion (full budget — add nothing beyond this)
 
 1. **Aura (signature — narrative, not ambient):** three pastel clouds

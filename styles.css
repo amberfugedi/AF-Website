@@ -1866,6 +1866,35 @@ footer p,
   .page-head { padding: 112px 0 24px; }
 }
 
+/* Portrait accents: one small blob photo at the home about teaser
+   and one at the contact moment — the only two photo repeats; the
+   full portrait lives on About. Same organic radius family. */
+.about-teaser { display: flex; gap: 44px; align-items: flex-start; }
+.teaser-photo {
+  flex: 0 0 150px;
+  width: 150px;
+  height: 150px;
+  border-radius: 54% 46% 50% 50% / 48% 50% 46% 56%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+.about-teaser-copy { min-width: 0; }
+.contact-photo {
+  width: 108px;
+  height: 108px;
+  border-radius: 58% 42% 46% 54% / 45% 52% 48% 55%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 20px;
+}
+@media (max-width: 760px) {
+  .about-teaser { flex-direction: column; gap: 22px; }
+  .teaser-photo { flex-basis: auto; width: 118px; height: 118px; }
+  .contact-photo { width: 96px; height: 96px; margin-bottom: 16px; }
+}
+
 /* Minimal consolidation (2026-07): one uppercase-label tracking,
    one radius scale — 24px cards/pills/bands, 14px compact elements
    and inputs, 8px phone strip rows, 50% circles, organic blobs. */
