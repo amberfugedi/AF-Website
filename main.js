@@ -189,20 +189,12 @@
     });
   }
 
-  /* ---------- Experience timeline: progress line (about) ----------
-     The coral fill tracks how far down the career line the reader
-     has scrolled, aimed at the viewport's middle. */
-  var timeline = document.querySelector(".timeline");
-  if (timeline && !reducedMotion) {
-    var tlTick = function () {
-      var r = timeline.getBoundingClientRect();
-      var p = (window.innerHeight * 0.55 - r.top) / r.height;
-      p = Math.max(0, Math.min(1, p));
-      timeline.style.setProperty("--tl-progress", p.toFixed(4));
-    };
-    window.addEventListener("scroll", tlTick, { passive: true });
-    window.addEventListener("resize", tlTick, { passive: true });
-    tlTick();
+  /* ---------- Experience appendix (about) ----------
+     Earlier-experience rows sit open on desktop; the disclosure
+     toggle is a phone affordance that keeps the scroll short. */
+  var xpRows = document.querySelectorAll(".xp-earlier details");
+  if (xpRows.length && window.matchMedia("(min-width: 761px)").matches) {
+    xpRows.forEach(function (d) { d.setAttribute("open", ""); });
   }
 
   /* ---------- Nav: scrolled state + mobile toggle ---------- */

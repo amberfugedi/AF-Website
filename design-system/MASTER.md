@@ -150,8 +150,7 @@ cards.
 ## Shape & depth
 
 - Radius scale (minimal, 2026-07): 24px for cards, pills, and
-  bands; 14px for compact elements (inputs, proof chips, timeline
-  entries); 8px for the phone results strip; 50% circles and the
+  bands; 14px for compact elements (inputs, proof chips); 8px for the phone results strip; 50% circles and the
   two organic blobs. Nothing else.
 - Shadows: `--shadow-soft` (0 14px 40px -18px rgba(46,42,39,0.18)) on
   hover lift only. No permanent heavy shadows.
@@ -344,12 +343,17 @@ tile as an in-page graphic.
    No bounce, no scribble, no glow. Page-head tabs (services/work
    h1) are static — page heads don't reveal. Reduced motion and
    no-JS: tabs fully visible, static.
-12. **Experience timeline (about):** a coral progress line fills down
-   the career track as the reader scrolls (scroll-linked, aimed at
-   55% viewport height); nodes fill coral with a soft halo once
-   their entry reveals; entries with case studies carry a
-   "View the case study" link. Pastel track static under reduced
-   motion and no-JS; nodes stay outlined there.
+12. **Experience career story (about, replaced the timeline
+   2026-07):** two columns — sticky thesis left (position: sticky,
+   pure CSS, desktop only), three featured chapters right (PERQ,
+   Scanoptics, Fractional Marketing) opened by a static coral tick,
+   plus an "Earlier experience" appendix of native <details> rows.
+   Appendix rows sit OPEN on desktop (main.js sets it; chevron
+   hidden, toggle disabled) and collapse on phones, where the
+   chevron rotates 0.2s var(--ease) — the only motion; none under
+   reduced motion. ONE link in the whole section (the PERQ case
+   study, Amber's one-link rule). Proof points use only numbers
+   already published elsewhere on the site.
 
 Interaction timing (per review-animations STANDARDS.md, installed
 in `.claude/skills/`): press feedback 160ms, hover transforms and
@@ -400,7 +404,7 @@ gives them context. Never add a "trusted by" logo strip.
   `services.html` (offer ladder + sticky anchor nav),
   `work.html` (case studies: challenge → approach → impact),
   `capabilities.html` (capability areas + platform stack),
-  `about.html` (bio, timeline, team testimonials, education, contact
+  `about.html` (bio, career story, team testimonials, education, contact
   + email capture). Home also carries a three-quote testimonial
   section; quotes are real, transcribed from the previous site and
   Amber's LinkedIn recommendations — never invent or edit beyond
