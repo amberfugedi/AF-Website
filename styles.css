@@ -33,7 +33,7 @@
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
   --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --nav-h: 68px;
+  --nav-h: 62px;
 }
 
 html { scroll-behavior: smooth; }
@@ -223,7 +223,7 @@ body[data-aura-stage="3"] .aura-blob {
      the headline like a loose open pair; the lavender cloud anchors
      depth behind the CTAs. Deliberate crop: all three bleed off the
      edges. Denser cores + tighter falloff = present, not faint. */
-  .aura-blob { filter: blur(30px); }
+  .aura-blob { filter: blur(24px) saturate(1.26); }
   .aura-blob-1 {
     width: 96vw; height: 96vw;
     min-width: 0; min-height: 0;
@@ -256,7 +256,7 @@ body[data-aura-stage="3"] .aura-blob {
   /* Stages simplify on phones: opacity and scale only — no blur or
      shape morphs on mobile GPUs. */
   body[data-aura-stage] .aura-blob {
-    filter: blur(30px);
+    filter: blur(24px) saturate(1.26);
     rotate: 0deg;
     border-radius: 50%;
   }
@@ -293,6 +293,7 @@ body.page-sub .aura { --aura-base: 0.45; }
 .site-nav {
   position: fixed;
   top: 0; left: 0; right: 0;
+  padding-top: env(safe-area-inset-top, 0px);
   z-index: 50;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -341,7 +342,7 @@ body.page-sub .aura { --aura-base: 0.45; }
 .nav-links a.nav-cta {
   color: var(--coral-deep);
   border: 1.5px solid var(--coral);
-  padding: 8px 18px;
+  padding: 6px 16px;
   border-radius: 24px;
   background-image: none;
   transition: background 0.2s, color 0.2s;
@@ -353,25 +354,27 @@ body.page-sub .aura { --aura-base: 0.45; }
   background: none;
   border: 0;
   cursor: pointer;
-  padding: 10px;
-  margin-right: -10px;
+  padding: 15px 9px; /* 45x44+ tap target around the 27px lines */
+  margin-right: -9px;
 }
 .nav-toggle span {
   display: block;
-  width: 22px; height: 2px;
+  width: 27px; height: 1.5px;
   background: var(--ink);
   margin: 5px 0;
   transition: transform 0.25s var(--ease), opacity 0.2s;
 }
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 @media (max-width: 760px) {
+  :root { --nav-h: 60px; }
+  .brand { font-size: 1.5rem; }
   .nav-toggle { display: block; }
   .nav-links {
     position: absolute;
-    top: var(--nav-h); left: 0; right: 0;
+    top: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); left: 0; right: 0;
     flex-direction: column;
     gap: 0;
     background: var(--bg);
@@ -487,9 +490,29 @@ body.page-sub .aura { --aura-base: 0.45; }
 /* Hero proof column: real results as tilted chips, desktop only */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 356px;
-  gap: 44px;
+  grid-template-columns: minmax(0, 1fr) clamp(398px, 29.5vw, 424px);
+  gap: 32px;
   align-items: center;
+}
+/* The proof column is one art-directed composition: a descending
+   diagonal of three cards (PERQ largest, StormwaterONE smallest)
+   floating on a soft aura glow that ties them to the hero. */
+.hero-proof {
+  position: relative;
+  margin-top: -64px;
+  /* Clear gutter between the copy column and the nearest card —
+     roughly one CTA button wide at common widths. */
+  padding-left: clamp(40px, 7.6vw, 110px);
+}
+.hero-proof::before {
+  content: "";
+  position: absolute;
+  inset: -12% -16%;
+  z-index: -1;
+  background:
+    radial-gradient(closest-side at 38% 28%, rgba(218, 212, 245, 0.5), transparent 72%),
+    radial-gradient(closest-side at 72% 78%, rgba(251, 213, 228, 0.42), transparent 70%);
+  filter: blur(18px);
 }
 .proof-chip {
   display: block;
@@ -511,6 +534,7 @@ body.page-sub .aura { --aura-base: 0.45; }
   display: block;
   font-weight: 800;
   font-size: 1.55rem;
+  letter-spacing: -0.015em;
   line-height: 1.15;
 }
 .proof-chip .proof-label {
@@ -518,16 +542,26 @@ body.page-sub .aura { --aura-base: 0.45; }
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--muted);
+  letter-spacing: -0.005em;
+  line-height: 1.3;
   margin-top: 2px;
 }
-.pc-lavender { --tilt: -2deg;   margin-left: 14%; }
-.pc-peach    { --tilt: 1.6deg;  margin: 20px 0 0 36%; }
-.pc-blush    { --tilt: -1.2deg; margin: 20px 0 0 2%; }
+.pc-lavender { --tilt: -1.6deg; margin: 0; padding: 27px 33px; }
+.pc-lavender .proof-stat { font-size: 2.45rem; }
+.pc-lavender .proof-label { font-size: 0.95rem; }
+.pc-peach    { --tilt: 1.1deg;  margin: 7px 0 0 14%; }
+.pc-peach .proof-stat { font-size: 1.52rem; }
+.pc-peach .proof-label { font-size: 0.9rem; }
+.pc-blush    { --tilt: -1deg;   margin: 4px 0 0 15%; padding: 14px 19px; }
+.pc-blush .proof-stat { font-size: 1.24rem; }
+.pc-blush .proof-label { font-size: 0.84rem; }
 .pc-lavender .proof-stat { color: var(--automations-deep); }
 .pc-peach .proof-stat    { color: var(--courses-deep); }
 .pc-blush .proof-stat    { color: var(--consulting-deep); }
 @media (max-width: 1020px) {
-  .hero-grid { grid-template-columns: 1fr; }
+  /* minmax(0,1fr): the credibility marquee's nowrap track must not
+     set the column's min-content width */
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
   /* The numbers are the hook: on smaller screens the chips become a
      compact stat strip under the hero copy instead of disappearing. */
   .hero-proof {
@@ -538,8 +572,12 @@ body.page-sub .aura { --aura-base: 0.45; }
   }
   .proof-chip,
   .proof-chip:hover { transform: none; }
-  .pc-lavender, .pc-peach, .pc-blush { --tilt: 0deg; margin: 0; }
+  .hero-proof { margin-top: 4px; padding-left: 0; }
+  .hero-proof::before { display: none; }
+  .pc-lavender, .pc-peach, .pc-blush { --tilt: 0deg; margin: 0; padding: 10px 14px; }
   .proof-chip { padding: 10px 14px; border-radius: 14px; }
+  .pc-lavender .proof-stat, .pc-peach .proof-stat, .pc-blush .proof-stat { font-size: 1.05rem; }
+  .pc-blush .proof-label { font-size: 0.72rem; }
   .proof-chip .proof-stat { font-size: 1.05rem; }
   .proof-chip .proof-label { font-size: 0.72rem; margin-top: 1px; }
 }
@@ -548,23 +586,45 @@ body.page-sub .aura { --aura-base: 0.45; }
    staggered widths, and the soft lift kept, echoing the desktop
    cascade and the paper-tab language. */
 @media (max-width: 760px) {
-  .hero { min-height: 0; padding: 118px 0 56px; }
-  .hero .subhead { margin-bottom: 30px; }
-  .hero-proof { flex-direction: column; gap: 13px; margin-top: 12px; }
+  .hero { min-height: 0; padding: 104px 0 40px; }
+  .hero h1 { line-height: 1.14; }
+  .hero .subhead { margin-bottom: 34px; }
+  .hero .btn { padding: 13px 24px; }
+  .trusted { margin-top: 36px; }
+  /* A concise credibility strip: three identical-width one-line rows,
+     tight to the experience statement, whisper of tilt for texture. */
+  .hero-proof { flex-direction: column; gap: 8px; margin-top: 18px; }
+  .trusted { margin-top: 30px; max-width: 100%; }
+  .trusted-set { font-size: 0.85rem; }
   .proof-chip {
     display: flex;
     align-items: baseline;
-    gap: 12px;
-    padding: 13px 16px;
-    box-shadow: var(--shadow-soft);
+    gap: 10px;
+    width: 97%;
+    padding: 10px 13px;
+    border-radius: 8px;
+    box-shadow: 0 8px 22px -16px rgba(46, 42, 39, 0.14);
   }
   .proof-chip,
   .proof-chip:hover { transform: rotate(var(--tilt, 0deg)); }
-  .proof-chip .proof-stat { font-size: 1.1rem; white-space: nowrap; }
-  .proof-chip .proof-label { font-size: 0.8rem; margin-top: 0; }
-  .pc-lavender { --tilt: -1deg;  width: 95%; margin: 0; background: rgba(218, 212, 245, 0.38); border-color: rgba(87, 74, 166, 0.18); }
-  .pc-peach    { --tilt: 0.9deg; width: 94%; margin: 0 0 0 6%; background: rgba(252, 228, 196, 0.44); border-color: rgba(138, 90, 20, 0.16); }
-  .pc-blush    { --tilt: -0.7deg; width: 96%; margin: 0 0 0 1%; background: rgba(251, 213, 228, 0.42); border-color: rgba(166, 53, 99, 0.16); }
+  /* Fixed stat column: the widest stat (Scanoptics) sets it, so all
+     three labels start at the same point. */
+  .proof-chip .proof-stat { font-size: 0.92rem; white-space: nowrap; min-width: 7.8em; }
+  .proof-chip .proof-label { font-size: 0.78rem; margin-top: 0; white-space: nowrap; }
+  .pc-lavender { --tilt: -0.6deg; margin: 0; padding: 10px 14px; background: rgba(218, 212, 245, 0.32); border-color: rgba(87, 74, 166, 0.12); }
+  .pc-lavender .proof-stat { font-size: 0.92rem; min-width: 7.8em; }
+  .pc-lavender .proof-label { font-size: 0.78rem; }
+  .pc-peach    { --tilt: 0.5deg;  margin: 0; background: rgba(252, 228, 196, 0.36); border-color: rgba(138, 90, 20, 0.11); }
+  .pc-blush    { --tilt: -0.4deg; margin: 0; background: rgba(251, 213, 228, 0.34); border-color: rgba(166, 53, 99, 0.11); }
+}
+/* Small phones: keep every strip row on one line (the Scanoptics
+   stat is the widest — give it a touch less width, per the brief) */
+@media (max-width: 380px) {
+  .proof-chip { gap: 8px; padding: 9px 11px; }
+  .proof-chip .proof-stat,
+  .pc-lavender .proof-stat { font-size: 0.84rem; min-width: 7.8em; }
+  .proof-chip .proof-label,
+  .pc-lavender .proof-label { font-size: 0.72rem; }
 }
 
 /* Hand-drawn underline beneath the hero accent word */
@@ -753,11 +813,11 @@ section { padding: 104px 0; }
 
 /* ============ Hero (home) ============ */
 .hero {
-  min-height: 88vh;
-  min-height: 88dvh;
+  min-height: 72vh;
+  min-height: 72dvh;
   display: flex;
   align-items: center;
-  padding: 160px 0 100px;
+  padding: 148px 0 64px;
 }
 .hero-content { max-width: 760px; }
 /* With the proof column, the hero spans the full wrap; copy keeps
@@ -776,18 +836,49 @@ section { padding: 104px 0; }
 .hero .subhead {
   font-size: clamp(1.05rem, 2vw, 1.25rem);
   color: var(--body);
+  letter-spacing: -0.01em;
+  line-height: 1.5;
   max-width: 640px;
   margin-bottom: 42px;
 }
 
 .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
 
-.trusted { margin-top: 56px; }
-.trusted .trusted-line {
-  font-size: 0.95rem;
-  font-weight: 500;
+/* Credibility marquee: the industry list glides slowly on one line —
+   the quote-marquee pattern at whisper scale. Hairline divider above,
+   soft fades at both edges, seamless two-set loop (~15px/s). The real
+   text lives in the container's aria-label; the moving copy is
+   decoration. Static single list under reduced motion. */
+.trusted {
+  margin-top: 52px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(46, 42, 39, 0.1);
+  max-width: 480px;
+}
+.trusted-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+.trusted-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: trusted-scroll 38s linear infinite;
+  will-change: transform;
+}
+.trusted-set {
+  font-size: 0.92rem;
+  font-weight: 600;
   color: var(--muted);
-  max-width: 46ch;
+  letter-spacing: -0.005em;
+  line-height: 1.5;
+}
+/* The joining separator is a pseudo so the loop reads seamlessly and
+   the static reduced-motion list ends clean. */
+.trusted-set::after { content: "\00a0\00a0\00b7\00a0\00a0"; }
+@keyframes trusted-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* Hero entrance: staggered rise on load (home only) */
@@ -1594,6 +1685,10 @@ footer {
   .squiggle { transform: none; animation: none !important; }
   .reveal .tab-em::before { opacity: 1; transform: rotate(var(--trb)); transition: none; }
   .reveal .tab-em::after  { opacity: 1; transform: rotate(var(--trf)); transition: none; }
+  .trusted-track { animation: none; white-space: normal; }
+  .trusted-set + .trusted-set { display: none; }
+  .trusted-set::after { content: none; }
+  .trusted-marquee { -webkit-mask-image: none; mask-image: none; }
   .quote-track { animation: none; width: auto; flex-wrap: wrap; }
   .quote-set { flex-wrap: wrap; }
   .quote-set[aria-hidden="true"] { display: none; }
