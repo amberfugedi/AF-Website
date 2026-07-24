@@ -934,34 +934,43 @@ section { padding: 104px 0; }
 .bld-cat-head h3 { margin-bottom: 8px; }
 .bld-cat-head p { color: var(--muted); }
 .bld-items { list-style: none; margin: 0; padding: 0; }
-.bld-items li + li .bld-item { border-top: 1px solid rgba(46, 42, 39, 0.15); }
+.bld-items li + li { margin-top: 14px; }
+/* Each project is a soft nested card inside the white category
+   card: near-white warm surface, hairline border, no shadow */
 .bld-item {
   display: block;
-  padding: 14px 2px;
+  padding: 20px 22px;
   text-decoration: none;
-  border-radius: 6px;
+  background: #FBF8F4;
+  border: 1px solid rgba(46, 42, 39, 0.08);
+  border-radius: 12px;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
 }
-/* first project sits close under the category description */
-.bld-items li:first-child .bld-item { padding-top: 4px; }
 .bld-item-name {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
   font-weight: 600;
   color: var(--ink);
   margin-bottom: 3px;
   transition: color 0.2s;
 }
-/* lighter than --muted but still 5.5:1 on the white card */
+/* lighter than --muted but still ~5.2:1 on the inner card */
 .bld-item-desc { display: block; color: #6F675D; max-width: 58ch; }
-/* Linked rows (external project sites, new tab) carry a ↗ on the
-   title line; rows without a real destination stay plain divs */
+/* Linked cards (external project sites, new tab) carry a ↗ in the
+   top-right corner; cards without a destination stay plain divs */
+a.bld-item:hover { border-color: rgba(46, 42, 39, 0.2); transform: translateY(-2px); }
 a.bld-item:hover .bld-item-name { color: var(--coral-deep); }
 a.bld-item .bld-item-arrow {
-  display: inline-block;
   color: var(--coral-deep);
   font-weight: 600;
-  transition: transform 0.2s var(--ease);
+  line-height: 1.55;
 }
-a.bld-item:hover .bld-item-arrow { transform: translate(3px, -3px); }
+@media (max-width: 860px) {
+  .bld-item { padding: 16px 18px; }
+  .bld-items li + li { margin-top: 12px; }
+}
 @media (max-width: 860px) {
   .bld-cat { grid-template-columns: 1fr; gap: 6px; padding: 24px 20px 18px; }
   .bld-cat-head p { margin-bottom: 8px; }
@@ -1813,7 +1822,7 @@ footer {
   .reveal[data-delay="1"], .reveal[data-delay="2"] { transition-delay: 0s; }
   .btn:hover, .card:hover, .case:hover, .cap-card:hover,
   .feat-card:hover, .quote-card:hover, .proof-chip:hover,
-  .cta-band .btn:hover, .btn:active { transform: none; }
+  .cta-band .btn:hover, .btn:active, a.bld-item:hover { transform: none; }
   .xp-chev { transition: none; }
   .nav-links { transition: none; transform: none; }
   .field-error.show, .form-status.show { animation: none; }

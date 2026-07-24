@@ -599,14 +599,19 @@ brand hue) · 3. Products ("Independent apps and digital
 products.": The Log · Digital Template Shop) · 4. Courses &
 Resources ("Practical courses and guides built for specific
 audiences.": Build Your Marketing Foundation · Youth Baseball
-Parent Guide · Spain Travel Guide). ROW FORMAT (Amber's compact-
-row brief, July 2026): title + inline coral ↗ on the SAME line
-(arrow inside .bld-item-name), description is ONE concise
-sentence in #6F675D (lighter than --muted, 5.5:1 on the white
-card — the floor stays 4.5), dividers rgba(46,42,39,0.15), rows
-14px padding (~28px apart, her 24–32 range), first row 4px top
-so it tucks under the category description. Alternating-row
-tint was considered and declined (zebra noise on 2–3 row lists).
+Parent Guide · Spain Travel Guide). ROW FORMAT (Amber's nested-
+card brief, July 2026, superseding the divider-list format): each
+project is a soft inner card inside the white category card —
+background #FBF8F4 (warm near-white, one step off the outer
+card), 1px border rgba(46,42,39,0.08), 12px radius, NO shadow,
+padding 20px 22px desktop / 16px 18px mobile, 14px between cards
+(12px mobile). Title bold with the coral ↗ pinned top-right of
+the card on the title line (.bld-item-name is flex
+space-between); description ONE concise sentence in #6F675D
+(~5.2:1 on the inner surface — the floor stays 4.5). Linked
+cards are fully clickable; hover = border deepens to
+rgba(46,42,39,0.2) + translateY(-2px), 0.2s var(--ease), disabled
+under reduced motion.
 Two descriptions are Amber's verbatim (BYMF "An eight-module
 marketing course for service businesses.", YBPG "A season-long
 guide for parents of a 9–10U youth baseball team."); the rest
