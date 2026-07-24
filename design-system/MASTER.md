@@ -569,8 +569,7 @@ section sits on the CREAM background like Leading and Consulting
 (band-white removed — Amber: the white band didn't match; all
 three Work sections share one background): Courses & Resources
 (Build Your Marketing Foundation · Youth Baseball Parent Guide ·
-Spain Travel Guide — added July 2026, description is a Claude
-draft awaiting Amber's wording and link) ·
+Spain Travel Guide) ·
 Products (The Log · Digital Template Shop · Conference Tarot Draw
 · The Secret Marketing Society) · AI Tools (Content Engine ·
 Messaging Agent · AI Sales Assistant). All descriptions are
@@ -580,14 +579,20 @@ is "Youth Baseball Parent Guide"; the tarot stat is 950 CARD DRAWS
 (usage), not a 950-card deck; "Content Engine" drops the client
 name in this section. LINKED ROWS (Amber-supplied live sites,
 July 2026): Youth Baseball Parent Guide →
-glastonbury-minors-parent-guide.netlify.app · Conference Tarot
-Draw → apartmentalize.netlify.app · The Secret Marketing Society
-→ thesecretmarketingsociety.netlify.app · Messaging Agent →
-perq-messaging-agent.netlify.app. Linked rows are `a.bld-item`
-with `target="_blank" rel="noopener"` and a coral ↗ (aria-hidden;
-hover nudges translate(3px,-3px)) — the site's first external
-body links, so this IS the external-link convention. Remaining
+glastonbury-minors-parent-guide.netlify.app · Spain Travel Guide
+→ autumn-2026-trip.netlify.app · Conference Tarot Draw →
+apartmentalize.netlify.app · The Secret Marketing Society →
+thesecretmarketingsociety.netlify.app. Linked rows are
+`a.bld-item` with `target="_blank" rel="noopener"` and a coral ↗
+(aria-hidden; hover nudges translate(3px,-3px)) — the site's
+first external body links, so this IS the external-link
+convention. IP RULE (Amber, July 2026): the internal AI tools —
+Messaging Agent, Content Engine, AI Sales Assistant — NEVER link
+out; the value inside them (personas, brand guidelines,
+competitive positioning) is PERQ's and the client's IP. Messaging
+Agent was briefly linked to perq-messaging-agent.netlify.app and
+Amber had it removed — do not re-link it. The Template Shop never
+links out either (shop name is on the withheld list). Remaining
 rows stay plain divs until they gain a real destination — when
-one does, same pattern; never ship an arrow to a thin page. The
-Template Shop never links out (shop name is on the withheld
-list). Mobile stacks the category header above its rows.
+one does, same pattern; never ship an arrow to a thin page.
+Mobile stacks the category header above its rows.
