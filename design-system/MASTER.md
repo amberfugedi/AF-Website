@@ -567,12 +567,20 @@ category sits in the SAME white card surface as the case studies
 collection stood apart from the boxed sections above it), and the
 section sits on the CREAM background like Leading and Consulting
 (band-white removed — Amber: the white band didn't match; all
-three Work sections share one background): Courses & Resources
-(Build Your Marketing Foundation · Youth Baseball Parent Guide ·
-Spain Travel Guide) ·
-Products (The Log · Digital Template Shop · Conference Tarot Draw
-· The Secret Marketing Society) · AI Tools (Content Engine ·
-Messaging Agent · AI Sales Assistant). All descriptions are
+three Work sections share one background). FOUR categories in
+Amber's order (July 2026: AI first, courses last — "to me this
+one should be first and the courses and resources should be the
+last block"): 1. AI Tools for GTM (Content Engine · Messaging
+Agent · AI Sales Assistant — name per Amber: "ai gtm tools or AI
+tools for GTM etc.") · 2. Marketing Activations ("Interactive
+experiences built for conferences and campaigns.": Conference
+Tarot Draw · The Secret Marketing Society — Amber: those two are
+marketing assets, not products; new coral spark glyph, id wkg-m,
+gradient FFD9CC→FF8F7A, strokes #B8354A — coral was the unused
+brand hue) · 3. Products ("Independent apps and digital
+products.": The Log · Digital Template Shop) · 4. Courses &
+Resources (Build Your Marketing Foundation · Youth Baseball
+Parent Guide · Spain Travel Guide). All project descriptions are
 Amber's, verbatim. NAMING CANON per her brief: the scavenger hunt
 is publicly "The Secret Marketing Society"; the baseball project
 is "Youth Baseball Parent Guide"; the tarot stat is 950 CARD DRAWS
