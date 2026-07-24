@@ -911,21 +911,51 @@ section { padding: 104px 0; }
 .bridge .eyebrow { font-family: var(--font-body); margin-bottom: 12px; }
 .bridge .wrap { text-align: center; }
 .stack-note { margin-top: 18px; color: var(--muted); font-size: var(--fs-small); }
-/* Building categories: three distinct cards, extra air on phones */
-.bld-card { padding-bottom: 28px; }
-.bld-list { list-style: none; margin: 14px 0 18px; padding: 0; display: grid; gap: 9px; }
-.bld-list li { font-size: var(--fs-small); line-height: 1.4; color: var(--muted); position: relative; padding-left: 15px; }
-.bld-list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0.42em;
-  width: 6px; height: 6px;
-  border-radius: 2px;
-  background: var(--coral-deep);
+/* Building: curated collection — category header left, featured
+   project rows right; rows are whole-row links with hairline
+   dividers, no cards */
+.bld-cat {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 18px 56px;
+  align-items: start;
+  padding: 44px 0 10px;
 }
-.bld-list strong { color: var(--ink); font-weight: 600; }
+.bld-cat + .bld-cat { border-top: 1px solid rgba(46, 42, 39, 0.1); margin-top: 24px; }
+.bld-cat-head h3 { margin-bottom: 8px; }
+.bld-cat-head p { color: var(--muted); }
+.bld-items { list-style: none; margin: 0; padding: 0; }
+.bld-items li + li .bld-item { border-top: 1px solid rgba(46, 42, 39, 0.07); }
+.bld-item {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 18px 2px;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.bld-item-body { flex: 1; min-width: 0; }
+.bld-item-name {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+  transition: color 0.2s;
+}
+.bld-item-desc { display: block; color: var(--muted); max-width: 58ch; }
+/* Rows are link-ready: when a project gains a real destination it
+   becomes an <a> again and these hover affordances apply */
+a.bld-item:hover .bld-item-name { color: var(--coral-deep); }
+a.bld-item .bld-item-arrow {
+  color: var(--coral-deep);
+  font-weight: 600;
+  transition: transform 0.2s var(--ease);
+  align-self: center;
+}
+a.bld-item:hover .bld-item-arrow { transform: translateX(4px); }
 @media (max-width: 860px) {
-  .bld-grid { gap: 28px; }
+  .bld-cat { grid-template-columns: 1fr; gap: 6px; padding: 36px 0 8px; }
+  .bld-cat-head p { margin-bottom: 8px; }
 }
 /* When the band leads into a white section, one hairline is enough */
 .bridge + .band-white { border-top: 0; }

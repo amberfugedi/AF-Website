@@ -551,24 +551,25 @@ case-study pages wait until deliverable imagery and long-form
 narratives exist. The full portfolio-redesign mock is parked in
 the session scratchpad.
 
-## Building section (Work page, 2026-07 category restructure)
+## Building section (Work page — curated collection, brief v3)
 
-"Things I've Built" shows THREE category cards, not the project
-inventory (Amber: organized and scannable, especially mobile):
-Each card carries NAMED examples in a compact .bld-list (Amber:
-categories alone read vague; small size, coral square markers,
-names in ink 600): Courses (peach arc glyph, services#courses):
-Build Your Marketing Foundation, Youth Baseball Season Bible ·
-Products (blush stacked-frames glyph, contact until a detail page
-exists): The Log, Digital Template Shop, Conference Tarot Draw ·
-AI Tools (lavender orbit glyph, services#automations): AI Sales
-Assistant, MembersFirst Content Engine, Event Intelligence Tool.
-PERQ Brand Book and Conference Scavenger Hunt sit out of the lists
-(strongest as future PERQ case deliverables; still parked). Cards reuse the home-offers pattern
-(card-art + title + one sentence + arrow-link); .bld-grid takes a
-28px gap on phones so the cards stay distinct. Supporting copy is
-Amber's, verbatim. The full ten-project inventory is PARKED in the
-session scratchpad (builds-inventory-parked.html) as source
-material for future category detail pages — repoint the card
-arrows there when those pages exist. The anchor tab stays
-"Building"; capabilities' inline CTA still lands on #builds.
+The section reads "Building" with Amber's lede ("Products,
+education, and AI tools I've created to solve real problems and
+explore new ideas." — "Things I've Built" title retired by her
+brief). Three categories, each a two-column block (280px header
+left: h3 + one-line description; featured project rows right with
+hairline dividers — NO cards, no glyphs): Courses & Resources
+(Build Your Marketing Foundation · Youth Baseball Parent Guide) ·
+Products (The Log · Digital Template Shop · Conference Tarot Draw
+· The Secret Marketing Society) · AI Tools (Content Engine ·
+Messaging Agent · AI Sales Assistant). All descriptions are
+Amber's, verbatim. NAMING CANON per her brief: the scavenger hunt
+is publicly "The Secret Marketing Society"; the baseball project
+is "Youth Baseball Parent Guide"; the tarot stat is 950 CARD DRAWS
+(usage), not a 950-card deck; "Content Engine" drops the client
+name in this section. ROWS ARE LINK-READY BUT UNLINKED: detail
+pages wait for real content (screenshots, walkthroughs) — when a
+project gains a destination its row becomes an <a> and the hover
+affordances in styles.css apply; never ship an arrow to a thin
+page. The Template Shop never links out (shop name is on the
+withheld list). Mobile stacks the category header above its rows.
