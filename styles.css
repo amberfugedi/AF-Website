@@ -930,18 +930,20 @@ section { padding: 104px 0; }
   padding: 34px 38px 30px;
 }
 .bld-cat + .bld-cat { margin-top: 22px; }
-.bld-cat-head .glyph { margin-bottom: 14px; display: block; }
+.bld-cat-head .glyph { margin-bottom: 10px; display: block; width: 56px; height: 56px; }
 /* category titles sit on the card-title grade (they were inheriting
    the browser-default h3 size, the one off-token text on the site) */
 .bld-cat-head h3 { margin-bottom: 8px; font-size: var(--fs-intro); line-height: 1.3; }
-.bld-cat-head p { color: var(--muted); }
+/* small like the project descriptions: the project title dominates,
+   category copy recedes to a supporting label */
+.bld-cat-head p { color: var(--muted); font-size: var(--fs-small); line-height: 1.5; }
 .bld-items { list-style: none; margin: 0; padding: 0; }
 .bld-items li + li { margin-top: 14px; }
 /* Each project is a soft nested card inside the white category
    card: near-white warm surface, hairline border, no shadow */
 .bld-item {
   display: block;
-  padding: 20px 22px;
+  padding: 14px 22px;
   text-decoration: none;
   background: #FBF8F4;
   border: 1px solid rgba(46, 42, 39, 0.08);
@@ -951,7 +953,7 @@ section { padding: 104px 0; }
 .bld-item-name {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: baseline; /* arrow rides the title's first baseline */
   gap: 12px;
   font-weight: 600;
   color: var(--ink);
@@ -974,15 +976,15 @@ a.bld-item:hover .bld-item-name { color: var(--coral-deep); }
 a.bld-item .bld-item-arrow {
   color: var(--coral-deep);
   font-weight: 600;
-  line-height: 1.55;
+  line-height: 1;
 }
 @media (max-width: 860px) {
-  .bld-item { padding: 16px 18px; }
+  .bld-item { padding: 11px 18px; }
   .bld-items li + li { margin-top: 12px; }
 }
 @media (max-width: 860px) {
-  .bld-cat { grid-template-columns: 1fr; gap: 6px; padding: 24px 20px 18px; }
-  .bld-cat-head p { margin-bottom: 8px; }
+  .bld-cat { grid-template-columns: 1fr; gap: 18px; padding: 24px 20px 18px; }
+  .bld-cat-head p { margin-bottom: 0; }
 }
 /* When the band leads into a white section, one hairline is enough */
 .bridge + .band-white { border-top: 0; }

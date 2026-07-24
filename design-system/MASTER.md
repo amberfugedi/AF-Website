@@ -608,11 +608,17 @@ card brief, July 2026, superseding the divider-list format): each
 project is a soft inner card inside the white category card —
 background #FBF8F4 (warm near-white, one step off the outer
 card), 1px border rgba(46,42,39,0.08), 12px radius, NO shadow,
-padding 20px 22px desktop / 16px 18px mobile, 14px between cards
-(12px mobile). Title bold with the coral ↗ pinned top-right of
-the card on the title line (.bld-item-name is flex
-space-between); description ONE concise sentence in #6F675D
-(~5.2:1 on the inner surface — the floor stays 4.5). Linked
+padding 14px 22px desktop / 11px 18px mobile (Amber July 2026:
+cards were oversized for the copy), 14px between cards (12px
+mobile). Title bold with the coral ↗ pinned top-right on the
+title's FIRST BASELINE (.bld-item-name is flex space-between,
+align-items baseline, arrow line-height 1); description ONE
+concise sentence in #6F675D (~5.2:1 on the inner surface — the
+floor stays 4.5). Category head: glyph 56px (shrunk ~12% from
+64, margin 10px), h3 intro grade, category description at SMALL/
+muted so the project titles dominate (her ladder: project title
+> project desc > category copy); mobile gap head-to-cards 18px
+(was 6 — first card sat too close to the description). Linked
 cards are fully clickable; hover = border deepens to
 rgba(46,42,39,0.2) + translateY(-2px), 0.2s var(--ease), disabled
 under reduced motion.
