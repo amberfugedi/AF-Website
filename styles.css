@@ -799,10 +799,13 @@ section { padding: 104px 0; }
 .wrap > :last-child { margin-bottom: 0; }
 .page-head h1:last-child { margin-bottom: 0; }
 /* Phones: the desktop rhythm doubles into 200px+ of dead scroll
-   between sections — tighten it. Sections with their own padding
-   (hero, bridge, CTA band) keep it via class specificity. */
+   between sections — tighten it. 48px per side (Amber, July 2026:
+   the 64px rhythm still read as "big gaps" around sparse content —
+   single links, band lines, floating photos). Bridge and CTA band
+   scale down with it so every joint stays equal. */
 @media (max-width: 760px) {
-  section { padding: 64px 0; }
+  section { padding: 48px 0; }
+  section.bridge { padding: 40px 0; }
   .section-foot-link { margin-top: 30px; }
   .foot-links {
     flex-direction: column;
@@ -1942,7 +1945,7 @@ footer p,
 @media (max-width: 760px) {
   .page-head h1, .hero h1 { line-height: 1.05; letter-spacing: -0.025em; }
   /* phone hero: same 88px nav-to-headline gap as every page head */
-  .hero { min-height: 0; padding: 149px 0 64px; }
+  .hero { min-height: 0; padding: 149px 0 48px; }
   .section-title,
   .case h2,
   .tier-head h2,
@@ -1957,7 +1960,7 @@ footer p,
 /* Phone rhythm: class-padded sections join the 64px mobile scale,
    and page heads start at the same height as the home hero */
 @media (max-width: 760px) {
-  .cta-band-wrap { padding: 64px 0; }
+  .cta-band-wrap { padding: 48px 0 64px; }
   .page-head { padding: 112px 0 24px; }
 }
 

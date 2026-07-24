@@ -352,7 +352,13 @@ tile as an in-page graphic.
    chevron rotates 0.2s var(--ease) — the only motion; none under
    reduced motion. ONE link in the whole section (the PERQ case
    study, Amber's one-link rule). Proof points use only numbers
-   already published elsewhere on the site.
+   already published elsewhere on the site. TIMELINE CANON: the
+   Fractional Marketing chapter runs 2017–Present — consulting
+   began with Robert James Restoration in 2017 (Amber, July 2026:
+   the old 2019 start left an apparent 2018 resume gap, since her
+   MembersFirst employee period isn't listed as a job). Named
+   clients in the chapter: Robert James Restoration (2017),
+   MembersFirst CT FCU (client since 2018).
 
 Interaction timing (per review-animations STANDARDS.md, installed
 in `.claude/skills/`): press feedback 160ms, hover transforms and
@@ -495,15 +501,18 @@ census (scratchpad fontaudit) before shipping type changes.
 Content-to-content gaps between consecutive blocks, uniform on
 every page (measured, not assumed — rerun scratchpad spacingaudit
 before shipping spacing changes):
-- Section <-> section: 208px desktop / 128px phone (uniform
-  104/64 section padding; the old Selected-Work->Why-Me 72px
-  phone seam is retired).
-- Band seams: 157/117 on BOTH sides of every transition band
-  (bridge padding symmetric 52px; bands are interludes and sit
-  deliberately tighter than full section rhythm).
-- The dark CTA card joins the section rhythm (104/64 padding both
-  sides of its wrap).
-- Page-head -> first section: 134/88 (capabilities, about); on
+- Section <-> section: 208px desktop / 96px phone (104 desktop /
+  48 phone section padding; Amber tightened the phone rhythm a
+  second time July 2026 — screenshots of the 128px seams around
+  sparse content, "here are some big gaps"; the old
+  Selected-Work->Why-Me 72px phone seam stays retired).
+- Band seams: 157/89 on BOTH sides of every transition band
+  (bridge padding 52px desktop / 40px phone, symmetric; bands are
+  interludes and sit deliberately tighter than full section
+  rhythm).
+- The dark CTA card joins the section rhythm (104 desktop both
+  sides; phone 48 top / 64 bottom against the footer).
+- Page-head -> first section: 134/72 (capabilities, about); on
   services and work the sticky anchor bar sits in that seam, and
   the section directly under a bar takes reduced top padding
   (74/48 via `.anchor-nav + section` — Amber tightened the
