@@ -554,7 +554,16 @@ active color: coral wash / blush / lavender, and the first tab
 starts active on load. The
 MembersFirst case leads with the trust story: employee first, kept
 as the consultant, working relationship in its eighth year (exact
-employee-period dates pending from Amber). Case studies stay
+employee-period dates pending from Amber). Consulting cases run
+MembersFirst -> Robert James Restoration -> A2 Exteriors. The
+Robert James case (added July 2026, client since 2017 — Amber's
+scope: "Built a website and branding, manage social media and
+review management, consulting on AI systems for biz"): brand +
+website, then ongoing social media management, review management,
+and AI-systems consulting; Impact has an {{ADJUST}} for metrics.
+Because RJR dates from 2017, it — not MembersFirst — is the
+longest-running client (About copy says MembersFirst "followed in
+2018"; never call MembersFirst the longest). Case studies stay
 visible on one page (challenge/approach/impact); separate
 case-study pages wait until deliverable imagery and long-form
 narratives exist. The full portfolio-redesign mock is parked in
