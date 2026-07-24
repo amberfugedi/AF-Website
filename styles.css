@@ -919,9 +919,14 @@ section { padding: 104px 0; }
   grid-template-columns: 280px minmax(0, 1fr);
   gap: 18px 56px;
   align-items: start;
-  padding: 44px 0 10px;
+  /* same card surface as the case studies above, so the three
+     sections read as one family (Amber) */
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 34px 38px 30px;
 }
-.bld-cat + .bld-cat { border-top: 1px solid rgba(46, 42, 39, 0.1); margin-top: 24px; }
+.bld-cat + .bld-cat { margin-top: 22px; }
 .bld-cat-head .glyph { margin-bottom: 14px; display: block; }
 .bld-cat-head h3 { margin-bottom: 8px; }
 .bld-cat-head p { color: var(--muted); }
@@ -955,7 +960,7 @@ a.bld-item .bld-item-arrow {
 }
 a.bld-item:hover .bld-item-arrow { transform: translateX(4px); }
 @media (max-width: 860px) {
-  .bld-cat { grid-template-columns: 1fr; gap: 6px; padding: 36px 0 8px; }
+  .bld-cat { grid-template-columns: 1fr; gap: 6px; padding: 24px 20px 18px; }
   .bld-cat-head p { margin-bottom: 8px; }
 }
 /* When the band leads into a white section, one hairline is enough */
