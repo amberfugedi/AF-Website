@@ -533,17 +533,14 @@ projects are where I explore ideas, test what works, and build
 something useful." The page-head lede: "Every project looks
 different. The goal doesn't. From leading marketing teams to
 building products of my own, the work reflects different ways of
-helping businesses move forward." (Amber's final line, verbatim.) Anchor tabs carry the FULL
-section names (Leading Marketing / Helping Businesses Grow /
-Things I've Built — the in-house/consulting words are retired);
-on phones the chip row bleeds to the viewport edge so partial
-chips read as scrollable; the bar keeps one row and swipes
-horizontally on phones (scrollbar hidden); the anchor bar carries the
-`anchor-nav-compact` modifier (eyebrow-size labels 13/12, padding
-7px 13px desktop / 14px 9px mobile, gap 4px): the long
-section-name labels need a lighter bar to read as compact as the
-short Services tabs (Amber). Services/Capabilities keep the base
-spec (small 15/14). Each tab takes its own
+helping businesses move forward." (Amber's final line, verbatim.) Anchor tabs read Leading /
+Consulting / Building (Amber's short forms — one word each so
+every anchor bar on the site shares ONE spec, no compact
+variant); the bar keeps one row and swipes
+horizontally on phones (scrollbar hidden); every anchor bar shares the
+single base spec (small 15/14, padding 8px 18px desktop / 13px
+10px mobile, gap 8px) — the compact variant is retired with the
+short labels. Each tab takes its own
 active color: coral wash / blush / lavender, and the first tab
 starts active on load. The
 MembersFirst case leads with the trust story: employee first, kept
