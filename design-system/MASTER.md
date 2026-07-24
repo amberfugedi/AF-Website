@@ -568,7 +568,9 @@ collection stood apart from the boxed sections above it), and the
 section sits on the CREAM background like Leading and Consulting
 (band-white removed — Amber: the white band didn't match; all
 three Work sections share one background): Courses & Resources
-(Build Your Marketing Foundation · Youth Baseball Parent Guide) ·
+(Build Your Marketing Foundation · Youth Baseball Parent Guide ·
+Spain Travel Guide — added July 2026, description is a Claude
+draft awaiting Amber's wording and link) ·
 Products (The Log · Digital Template Shop · Conference Tarot Draw
 · The Secret Marketing Society) · AI Tools (Content Engine ·
 Messaging Agent · AI Sales Assistant). All descriptions are
