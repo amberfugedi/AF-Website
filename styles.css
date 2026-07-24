@@ -1859,7 +1859,14 @@ footer p,
 .offer-aside p,
 .offer-aside .offer-note { font-size: var(--fs-body); line-height: 1.55; }
 .offer-aside .who { font-size: var(--fs-body); line-height: 1.5; }
-.anchor-nav a { font-size: var(--fs-small); } /* compact utility tabs: the Services spec, shared by every anchor bar */
+.anchor-nav a { font-size: var(--fs-small); } /* compact utility tabs: small slot */
+/* Work: long section-name labels take a lighter, tighter bar so the
+   pills read like the short Services tabs (Amber) */
+.anchor-nav-compact ul { gap: 4px; }
+.anchor-nav-compact a { font-size: var(--fs-eyebrow); padding: 7px 13px; }
+@media (max-width: 760px) {
+  .anchor-nav-compact a { padding: 14px 9px; } /* ≥44px touch target */
+}
 /* Uppercase tags and tier chips read as eyebrow-grade metadata */
 .card .card-tag,
 .case .case-tag,
