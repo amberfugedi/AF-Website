@@ -910,8 +910,12 @@ section { padding: 104px 0; }
 }
 .bridge .eyebrow { font-family: var(--font-body); margin-bottom: 12px; }
 .bridge .wrap { text-align: center; }
-.builds-more { display: block; margin: 44px 0 18px; color: var(--muted); }
 .stack-note { margin-top: 18px; color: var(--muted); font-size: var(--fs-small); }
+/* Building categories: three distinct cards, extra air on phones */
+.bld-card { padding-bottom: 28px; }
+@media (max-width: 860px) {
+  .bld-grid { gap: 28px; }
+}
 /* When the band leads into a white section, one hairline is enough */
 .bridge + .band-white { border-top: 0; }
 .bridge-line {

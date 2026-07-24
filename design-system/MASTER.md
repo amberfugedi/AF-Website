@@ -550,3 +550,20 @@ visible on one page (challenge/approach/impact); separate
 case-study pages wait until deliverable imagery and long-form
 narratives exist. The full portfolio-redesign mock is parked in
 the session scratchpad.
+
+## Building section (Work page, 2026-07 category restructure)
+
+"Things I've Built" shows THREE category cards, not the project
+inventory (Amber: organized and scannable, especially mobile):
+Courses (peach arc glyph, links to services#courses — no course
+named in the main view per Amber) · Products (blush stacked-frames
+glyph, names The Log, arrow to contact until a detail page
+exists) · AI Tools (lavender orbit glyph, links to
+services#automations). Cards reuse the home-offers pattern
+(card-art + title + one sentence + arrow-link); .bld-grid takes a
+28px gap on phones so the cards stay distinct. Supporting copy is
+Amber's, verbatim. The full ten-project inventory is PARKED in the
+session scratchpad (builds-inventory-parked.html) as source
+material for future category detail pages — repoint the card
+arrows there when those pages exist. The anchor tab stays
+"Building"; capabilities' inline CTA still lands on #builds.
