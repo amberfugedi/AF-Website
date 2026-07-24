@@ -1138,7 +1138,13 @@ section { padding: 104px 0; }
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
+.anchor-nav ul::-webkit-scrollbar { display: none; }
+.anchor-nav a { white-space: nowrap; }
 .anchor-nav a {
   display: inline-block;
   font-size: 0.875rem;

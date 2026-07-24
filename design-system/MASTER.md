@@ -525,9 +525,13 @@ businesses need another team member. Sometimes they need another
 perspective." / "Curiosity has always shaped how I learn. These
 projects are where I explore ideas, test what works, and build
 something useful." The page-head lede opens "Every project looks
-different. The goal doesn't." Anchor tabs read In-house /
-Consulting / Independent (short, one row at 390) and each takes
-its own active color: coral wash / blush / lavender. The
+different. The goal doesn't." Anchor tabs carry the FULL
+section names (Leading Marketing / Helping Businesses Grow /
+Building New Ideas — Amber: the in-house/consulting words are
+retired from the tabs); the bar keeps one row and swipes
+horizontally on phones (scrollbar hidden). Each tab takes its own
+active color: coral wash / blush / lavender, and the first tab
+starts active on load. The
 MembersFirst case leads with the trust story: employee first, kept
 as the consultant, working relationship in its eighth year (exact
 employee-period dates pending from Amber). Case studies stay
