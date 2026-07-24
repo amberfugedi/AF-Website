@@ -931,7 +931,9 @@ section { padding: 104px 0; }
 }
 .bld-cat + .bld-cat { margin-top: 22px; }
 .bld-cat-head .glyph { margin-bottom: 14px; display: block; }
-.bld-cat-head h3 { margin-bottom: 8px; }
+/* category titles sit on the card-title grade (they were inheriting
+   the browser-default h3 size, the one off-token text on the site) */
+.bld-cat-head h3 { margin-bottom: 8px; font-size: var(--fs-intro); line-height: 1.3; }
 .bld-cat-head p { color: var(--muted); }
 .bld-items { list-style: none; margin: 0; padding: 0; }
 .bld-items li + li { margin-top: 14px; }
