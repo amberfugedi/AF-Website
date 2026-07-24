@@ -530,8 +530,10 @@ different. The goal doesn't." Anchor tabs carry the FULL
 section names (Leading Marketing / Helping Businesses Grow /
 Building New Ideas — Amber: the in-house/consulting words are
 retired from the tabs); the bar keeps one row and swipes
-horizontally on phones (scrollbar hidden); tab labels read at the
-eyebrow size (13/12, sentence case) with 44px+ touch targets. Each tab takes its own
+horizontally on phones (scrollbar hidden); tab labels share the ONE
+anchor-bar spec with Services and Capabilities (small 15/14,
+sentence case, 44px+ touch targets) — never style one page's bar
+independently. Each tab takes its own
 active color: coral wash / blush / lavender, and the first tab
 starts active on load. The
 MembersFirst case leads with the trust story: employee first, kept
