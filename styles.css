@@ -922,6 +922,7 @@ section { padding: 104px 0; }
   padding: 44px 0 10px;
 }
 .bld-cat + .bld-cat { border-top: 1px solid rgba(46, 42, 39, 0.1); margin-top: 24px; }
+.bld-cat-head .glyph { margin-bottom: 14px; display: block; }
 .bld-cat-head h3 { margin-bottom: 8px; }
 .bld-cat-head p { color: var(--muted); }
 .bld-items { list-style: none; margin: 0; padding: 0; }

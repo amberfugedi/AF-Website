@@ -557,8 +557,11 @@ The section reads "Building" with Amber's lede ("Products,
 education, and AI tools I've created to solve real problems and
 explore new ideas." — "Things I've Built" title retired by her
 brief). Three categories, each a two-column block (280px header
-left: h3 + one-line description; featured project rows right with
-hairline dividers — NO cards, no glyphs): Courses & Resources
+left: animated 72-box glyph above h3 + one-line description —
+the glyphs reuse the services drawing language and the existing
+stroke draw-on reveal, no new motion device: peach arc (Courses),
+blush stacked frames (Products), lavender orbit (AI Tools);
+featured project rows right with hairline dividers — NO cards): Courses & Resources
 (Build Your Marketing Foundation · Youth Baseball Parent Guide) ·
 Products (The Log · Digital Template Shop · Conference Tarot Draw
 · The Secret Marketing Society) · AI Tools (Content Engine ·
