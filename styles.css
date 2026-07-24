@@ -913,6 +913,17 @@ section { padding: 104px 0; }
 .stack-note { margin-top: 18px; color: var(--muted); font-size: var(--fs-small); }
 /* Building categories: three distinct cards, extra air on phones */
 .bld-card { padding-bottom: 28px; }
+.bld-list { list-style: none; margin: 14px 0 18px; padding: 0; display: grid; gap: 9px; }
+.bld-list li { font-size: var(--fs-small); line-height: 1.4; color: var(--muted); display: flex; gap: 8px; }
+.bld-list li::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 2px;
+  background: var(--coral-deep);
+  flex-shrink: 0;
+  transform: translateY(0.4em);
+}
+.bld-list strong { color: var(--ink); font-weight: 600; }
 @media (max-width: 860px) {
   .bld-grid { gap: 28px; }
 }

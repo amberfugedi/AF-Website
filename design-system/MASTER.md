@@ -555,11 +555,16 @@ the session scratchpad.
 
 "Things I've Built" shows THREE category cards, not the project
 inventory (Amber: organized and scannable, especially mobile):
-Courses (peach arc glyph, links to services#courses — no course
-named in the main view per Amber) · Products (blush stacked-frames
-glyph, names The Log, arrow to contact until a detail page
-exists) · AI Tools (lavender orbit glyph, links to
-services#automations). Cards reuse the home-offers pattern
+Each card carries NAMED examples in a compact .bld-list (Amber:
+categories alone read vague; small size, coral square markers,
+names in ink 600): Courses (peach arc glyph, services#courses):
+Build Your Marketing Foundation, Youth Baseball Season Bible ·
+Products (blush stacked-frames glyph, contact until a detail page
+exists): The Log, Digital Template Shop, Conference Tarot Draw ·
+AI Tools (lavender orbit glyph, services#automations): AI Sales
+Assistant, MembersFirst Content Engine, Event Intelligence Tool.
+PERQ Brand Book and Conference Scavenger Hunt sit out of the lists
+(strongest as future PERQ case deliverables; still parked). Cards reuse the home-offers pattern
 (card-art + title + one sentence + arrow-link); .bld-grid takes a
 28px gap on phones so the cards stay distinct. Supporting copy is
 Amber's, verbatim. The full ten-project inventory is PARKED in the
