@@ -1863,6 +1863,11 @@ footer p,
 /* Work: long section-name labels take a lighter, tighter bar so the
    pills read like the short Services tabs (Amber) */
 .anchor-nav-compact ul { gap: 4px; }
+/* Phones: the chip row bleeds to the viewport edge so a cut-off chip
+   reads as scrollable, not broken, with end padding to land on */
+@media (max-width: 760px) {
+  .anchor-nav-compact ul { margin: 0 -24px; padding: 0 24px; }
+}
 .anchor-nav-compact a { font-size: var(--fs-eyebrow); padding: 7px 13px; }
 @media (max-width: 760px) {
   .anchor-nav-compact a { padding: 14px 9px; } /* ≥44px touch target */

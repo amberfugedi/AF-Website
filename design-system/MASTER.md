@@ -516,20 +516,27 @@ before shipping spacing changes):
 ## Work page framing (2026-07 graft from the portfolio redesign)
 
 Sections are organized by HOW AMBER CREATES VALUE, not employment
-type — eyebrows In-house / Consulting / Independent (plain, no
-numbering per Amber), titles "Leading Marketing" / "Helping
-Businesses Grow" / "Building New Ideas" — each h2
+type — NO section eyebrows (Amber removed them 2026-07: the old
+category words conflicted with the new names; the Work chapters
+are the one sanctioned eyebrow-less sections, the tabs carry the
+wayfinding), titles "Leading Marketing" / "Helping Businesses
+Grow" / "Things I've Built" (Amber restored the original third
+name: "tangible, covers finished work") — each h2
 followed by Amber's one-line philosophy as a standard section-lede
 (her words, verbatim): "I enjoy building teams, brands, and
 marketing functions that can grow with the business." / "Sometimes
 businesses need another team member. Sometimes they need another
 perspective." / "Curiosity has always shaped how I learn. These
 projects are where I explore ideas, test what works, and build
-something useful." The page-head lede opens "Every project looks
-different. The goal doesn't." Anchor tabs carry the FULL
+something useful." The page-head lede: "Every project looks
+different. The goal doesn't. From leading marketing teams to
+building products of my own, each one reflects a different way of
+solving business challenges." (Amber's line, "every project"
+de-duplicated against the opener.) Anchor tabs carry the FULL
 section names (Leading Marketing / Helping Businesses Grow /
-Building New Ideas — Amber: the in-house/consulting words are
-retired from the tabs); the bar keeps one row and swipes
+Things I've Built — the in-house/consulting words are retired);
+on phones the chip row bleeds to the viewport edge so partial
+chips read as scrollable; the bar keeps one row and swipes
 horizontally on phones (scrollbar hidden); the anchor bar carries the
 `anchor-nav-compact` modifier (eyebrow-size labels 13/12, padding
 7px 13px desktop / 14px 9px mobile, gap 4px): the long
