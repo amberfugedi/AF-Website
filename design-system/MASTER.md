@@ -515,8 +515,9 @@ before shipping spacing changes):
 ## Work page framing (2026-07 graft from the portfolio redesign)
 
 Sections are organized by HOW AMBER CREATES VALUE, not employment
-type: 01 In-house = "Leading Marketing", 02 Consulting = "Helping
-Businesses Grow", 03 Independent = "Building New Ideas" — each h2
+type — eyebrows In-house / Consulting / Independent (plain, no
+numbering per Amber), titles "Leading Marketing" / "Helping
+Businesses Grow" / "Building New Ideas" — each h2
 followed by Amber's one-line philosophy as a standard section-lede
 (her words, verbatim): "I enjoy building teams, brands, and
 marketing functions that can grow with the business." / "Sometimes
