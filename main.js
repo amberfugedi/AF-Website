@@ -267,6 +267,11 @@
       var target = document.getElementById(a.getAttribute("href").slice(1));
       if (target) spyObserver.observe(target);
     });
+    /* Resting state: the first tab starts colored so the bar always
+       shows where you are — the observer moves it on scroll */
+    if (anchorLinks.length && !anchorNav.querySelector("a.active")) {
+      anchorLinks[0].classList.add("active");
+    }
   }
 
   /* ---------- Forms (front-only — wire to a real backend) ----------
