@@ -105,10 +105,13 @@ cards.
   the heading's width and `text-wrap: pretty`. EVERY running-text
   paragraph reads at BODY, and small is strictly metadata: names,
   roles, labels, notes, footer — plus ONE sanctioned content use,
-  the Building nested-card descriptions at small/lh 1.5 [Amber
-  July 2026, "issues with the font size": title and desc were
-  both 16 inside the cards, so the card had no internal
-  hierarchy]) · body 16/17 (lh 1.55; stepped from
+  the Building nested-card text, which runs exactly 1px BELOW its
+  tokens via calc(): titles at body−1 (15/16), descriptions at
+  small−1 (13/14), lh 1.5 [Amber July 2026, two calls: "issues
+  with the font size" — title and desc were both 16 inside the
+  cards, no internal hierarchy — then "the text in the boxes
+  within the boxes can be 1 pt smaller"]) · body 16/17 (lh 1.55;
+  stepped from
   the spec's 17/18 so no supporting text outranks the hero deck at
   16/17.5) · small 14/15 (lh 1.4) ·
   eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px desktop /
@@ -614,7 +617,10 @@ mobile). Title bold with the coral ↗ pinned top-right on the
 title's FIRST BASELINE (.bld-item-name is flex space-between,
 align-items baseline, arrow line-height 1); description ONE
 concise sentence in #6F675D (~5.2:1 on the inner surface — the
-floor stays 4.5). Category head: glyph 56px (shrunk ~12% from
+floor stays 4.5). NESTED-CARD SIZES (Amber): the inner-card text
+sits 1px below its tokens, title calc(body−1px) = 15/16,
+description calc(small−1px) = 13/14 — keep the calc() form so
+the offset tracks any future token change. Category head: glyph 56px (shrunk ~12% from
 64, margin 10px), h3 intro grade, category description at SMALL/
 muted so the project titles dominate (her ladder: project title
 > project desc > category copy); mobile gap head-to-cards 18px
