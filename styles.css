@@ -1820,8 +1820,8 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    than home. */
 .page-head .section-lede { font-size: var(--fs-body); line-height: 1.55; max-width: 600px; }
 .offer-desc { font-size: var(--fs-body); line-height: 1.55; }
-/* Band statements match the ledes: body scale */
-.bridge-line { font-size: var(--fs-body); line-height: 1.55; }
+/* Band statements sit below body: quiet interlude scale (Amber) */
+.bridge-line { font-size: var(--fs-small); line-height: 1.5; }
 /* Hero subhead matches the page-head ledes: body scale (the old
    15 -> 17.5 clamp overshot body at desktop and undershot the other
    heads on phones' widest siblings) */

@@ -399,8 +399,10 @@ strategy to the details that bring it to life." · capabilities
 "AI should give teams more time to think strategically, not just
 more ways to produce." · about "My title has changed. What I love
 most is still figuring out what will move the business forward."
-The statement reads at BODY scale (like all ledes, per Amber),
-60ch centered. When the band leads into a band-white section
+The statement reads at SMALL (14/15 — Amber stepped the banners
+below body 2026-07 so the interludes sit quieter than content),
+60ch centered. Small elsewhere stays metadata-only; the banner is
+the one sanctioned small-scale sentence. When the band leads into a band-white section
 the doubled hairline collapses (.bridge + .band-white).
 Center-aligned like the dark CTA band; bands center, content
 sections stay left-aligned. The
