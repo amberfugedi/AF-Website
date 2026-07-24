@@ -597,9 +597,20 @@ marketing assets, not products; new coral spark glyph, id wkg-m,
 gradient FFD9CC→FF8F7A, strokes #B8354A — coral was the unused
 brand hue) · 3. Products ("Independent apps and digital
 products.": The Log · Digital Template Shop) · 4. Courses &
-Resources (Build Your Marketing Foundation · Youth Baseball
-Parent Guide · Spain Travel Guide). All project descriptions are
-Amber's, verbatim. NAMING CANON per her brief: the scavenger hunt
+Resources ("Practical courses and guides built for specific
+audiences.": Build Your Marketing Foundation · Youth Baseball
+Parent Guide · Spain Travel Guide). ROW FORMAT (Amber's compact-
+row brief, July 2026): title + inline coral ↗ on the SAME line
+(arrow inside .bld-item-name), description is ONE concise
+sentence in #6F675D (lighter than --muted, 5.5:1 on the white
+card — the floor stays 4.5), dividers rgba(46,42,39,0.15), rows
+14px padding (~28px apart, her 24–32 range), first row 4px top
+so it tucks under the category description. Alternating-row
+tint was considered and declined (zebra noise on 2–3 row lists).
+Two descriptions are Amber's verbatim (BYMF "An eight-module
+marketing course for service businesses.", YBPG "A season-long
+guide for parents of a 9–10U youth baseball team."); the rest
+are condensations of her originals. NAMING CANON per her brief: the scavenger hunt
 is publicly "The Secret Marketing Society"; the baseball project
 is "Youth Baseball Parent Guide"; the tarot stat is 950 CARD DRAWS
 (usage), not a 950-card deck; "Content Engine" drops the client
