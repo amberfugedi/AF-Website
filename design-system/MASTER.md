@@ -576,9 +576,16 @@ Amber's, verbatim. NAMING CANON per her brief: the scavenger hunt
 is publicly "The Secret Marketing Society"; the baseball project
 is "Youth Baseball Parent Guide"; the tarot stat is 950 CARD DRAWS
 (usage), not a 950-card deck; "Content Engine" drops the client
-name in this section. ROWS ARE LINK-READY BUT UNLINKED: detail
-pages wait for real content (screenshots, walkthroughs) — when a
-project gains a destination its row becomes an <a> and the hover
-affordances in styles.css apply; never ship an arrow to a thin
-page. The Template Shop never links out (shop name is on the
-withheld list). Mobile stacks the category header above its rows.
+name in this section. LINKED ROWS (Amber-supplied live sites,
+July 2026): Youth Baseball Parent Guide →
+glastonbury-minors-parent-guide.netlify.app · Conference Tarot
+Draw → apartmentalize.netlify.app · The Secret Marketing Society
+→ thesecretmarketingsociety.netlify.app · Messaging Agent →
+perq-messaging-agent.netlify.app. Linked rows are `a.bld-item`
+with `target="_blank" rel="noopener"` and a coral ↗ (aria-hidden;
+hover nudges translate(3px,-3px)) — the site's first external
+body links, so this IS the external-link convention. Remaining
+rows stay plain divs until they gain a real destination — when
+one does, same pattern; never ship an arrow to a thin page. The
+Template Shop never links out (shop name is on the withheld
+list). Mobile stacks the category header above its rows.

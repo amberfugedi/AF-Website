@@ -949,8 +949,8 @@ section { padding: 104px 0; }
   transition: color 0.2s;
 }
 .bld-item-desc { display: block; color: var(--muted); max-width: 58ch; }
-/* Rows are link-ready: when a project gains a real destination it
-   becomes an <a> again and these hover affordances apply */
+/* Linked rows (external project sites, new tab) carry a ↗ affordance;
+   rows without a real destination stay plain divs */
 a.bld-item:hover .bld-item-name { color: var(--coral-deep); }
 a.bld-item .bld-item-arrow {
   color: var(--coral-deep);
@@ -958,7 +958,7 @@ a.bld-item .bld-item-arrow {
   transition: transform 0.2s var(--ease);
   align-self: center;
 }
-a.bld-item:hover .bld-item-arrow { transform: translateX(4px); }
+a.bld-item:hover .bld-item-arrow { transform: translate(3px, -3px); }
 @media (max-width: 860px) {
   .bld-cat { grid-template-columns: 1fr; gap: 6px; padding: 24px 20px 18px; }
   .bld-cat-head p { margin-bottom: 8px; }
