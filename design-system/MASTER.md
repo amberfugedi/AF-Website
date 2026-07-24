@@ -219,6 +219,36 @@ Gradient ids must be unique per page instance. (A hero butterfly and Magic UI-st
 sparkles were both tried and removed 2026-07 — borrowed decorative
 gestures read as AI tells; don't reintroduce either.)
 
+**Services head diagram (2026-07, Amber's brief + four review
+rounds).** The one page-head illustration: an abstract marketing
+system on the right ~37% of the Services head, 480x272 viewBox,
+markup in `services.html`, styles under "Services head" in
+`styles.css`. Sixteen nodes (six outlined rings, four filled
+discs, six loose dots — four connect to NOTHING, which is what
+stops it reading as a diagram), eleven connectors whose weights
+run 0.9 -> 2.1px, three of them skipping the centre so it is a
+network rather than hub-and-spoke. The centre is five overlapping
+translucent discs with visible lens overlaps plus offset (never
+concentric) rings — NOT a single orb. A horizontal mask fades the
+left edge to 55% toward the copy and eases the right edge out to
+26% over five stops, and the composition runs past the wrap into
+the gutter so one node and one line dissolve off the page.
+NO LABELS — Strategy/Brand/AI/Growth were drafted and cut (Amber:
+"the illustration should support the message, not explain it";
+a lone AI callout was cut too, it read as random). Wide-and-short
+on purpose so the row height stays driven by the copy. Accepted
+costs, both hers: the h1 wraps to two lines on desktop (a 35-40%
+art column leaves under the ~800px the headline needs for one
+line) and the head grows 354->420 desktop, 403->536 phone.
+TWO OVERRIDE TRAPS, both cost a debugging round — `.reveal.in-view`
+sets `opacity: 1` and `transform: none` at higher specificity than
+`.head-art`, so the fade-back AND the rightward nudge must ride the
+inner `svg`, never the container. Related: the shared `fill-fade`
+keyframe ends at `opacity: 1`, so any element that needs to stay
+translucent must sit INSIDE a `<g class="fill">` rather than carry
+the class itself (this is also quietly flattening the pink
+evaluation band in the home problem art — fix when convenient).
+
 ## Photography
 
 Three appearances, three DISTINCT photos: the neon studio shot

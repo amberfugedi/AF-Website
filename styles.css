@@ -1016,6 +1016,46 @@ a.bld-item .bld-item-arrow {
 
 /* Interior page headers */
 .page-head { padding: 124px 0 30px; } /* sub-page headlines align with the hero's start (~90px under the nav) */
+
+/* ---- Services head: copy left, marketing-system diagram right ----
+   The art is wide and short (480x272) so the row height stays driven
+   by the copy. TWO TRAPS, both learned the hard way: `.reveal.in-view`
+   sets `opacity: 1` and `transform: none` at higher specificity than
+   `.head-art`, so BOTH the fade-back and the nudge have to ride the
+   inner svg or they silently do nothing. */
+.head-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 34vw, 400px);
+  gap: 40px;
+  align-items: center;
+}
+.head-art .glyph { width: 100%; height: auto; margin-bottom: 0; opacity: 0.92; }
+/* One rule drives every draw-in; per-element timing rides --d/--fd.
+   Reuses the existing stroke draw-on — no new motion device. */
+.reveal.in-view .head-art .stroke { animation-duration: 1.5s; animation-delay: var(--d, 0s); }
+.reveal.in-view .head-art .fill { animation-delay: var(--fd, 0.6s); }
+/* The composition runs past the wrap into the gutter so a node and a
+   line dissolve off the page edge; the head clips the overflow. */
+.page-head-art { overflow: hidden; }
+@media (min-width: 1021px) {
+  .head-art .glyph { transform: translateX(clamp(0px, (100vw - 1060px) / 6, 58px)); }
+}
+@media (min-width: 1180px) {
+  .head-art { width: calc(100% + 68px); max-width: none; margin-right: -68px; }
+}
+/* Tablet: same composition, smaller and quieter. */
+@media (max-width: 1020px) {
+  .head-grid { grid-template-columns: minmax(0, 1fr) 280px; gap: 28px; }
+  .head-art .glyph { opacity: 0.68; }
+}
+/* Phone: under the copy at accent scale. Behind the copy as a
+   watermark was tried and rejected — it sat under the paragraph. */
+@media (max-width: 760px) {
+  .head-grid { grid-template-columns: 1fr; gap: 14px; }
+  .head-art { max-width: 250px; overflow: hidden; }
+  .head-art .glyph { opacity: 0.85; margin: -10px 0 -12px; }
+  .page-head-art { padding-bottom: 14px; }
+}
 .page-head h1 {
   font-size: clamp(2.4rem, 5.5vw, 3.6rem);
   letter-spacing: -0.02em;
