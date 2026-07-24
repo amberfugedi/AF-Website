@@ -564,7 +564,10 @@ blush stacked frames (Products), lavender orbit (AI Tools);
 featured project rows right with hairline dividers). Each
 category sits in the SAME white card surface as the case studies
 (bg-raised, var(--line) border, 24px radius — Amber: the unboxed
-collection stood apart from the boxed sections above it): Courses & Resources
+collection stood apart from the boxed sections above it), and the
+section sits on the CREAM background like Leading and Consulting
+(band-white removed — Amber: the white band didn't match; all
+three Work sections share one background): Courses & Resources
 (Build Your Marketing Foundation · Youth Baseball Parent Guide) ·
 Products (The Log · Digital Template Shop · Conference Tarot Draw
 · The Secret Marketing Society) · AI Tools (Content Engine ·
