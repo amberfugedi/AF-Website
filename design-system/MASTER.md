@@ -239,7 +239,17 @@ a lone AI callout was cut too, it read as random). Wide-and-short
 on purpose so the row height stays driven by the copy. Accepted
 costs, both hers: the h1 wraps to two lines on desktop (a 35-40%
 art column leaves under the ~800px the headline needs for one
-line) and the head grows 354->420 desktop, 403->536 phone.
+line) and the head grows 354->420 desktop, 403->512 phone.
+PHONE RUNS A SECOND, PURPOSE-DRAWN SVG (`.sys-art-sm`, 480x140),
+never a scaled-down desktop (Amber: scaling down "looks like a
+pile of overlapping bubbles"): landscape band at full copy width,
+THREE discs, FOUR connectors (one coral, one gold, one blue, one
+grey), ONE floating dot, 55% opacity. It is a watermark on
+purpose — the butter highlight behind "work together." is the
+hero's focal point and nothing may compete with it. Watch the
+specificity: the tablet rule `.head-art .glyph` (0,2,0) outranks
+a bare `.sys-art-sm`, so the phone opacity must be written
+`.head-art .sys-art-sm`.
 TWO OVERRIDE TRAPS, both cost a debugging round — `.reveal.in-view`
 sets `opacity: 1` and `transform: none` at higher specificity than
 `.head-art`, so the fade-back AND the rightward nudge must ride the

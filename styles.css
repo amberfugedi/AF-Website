@@ -1048,13 +1048,16 @@ a.bld-item .bld-item-arrow {
   .head-grid { grid-template-columns: minmax(0, 1fr) 280px; gap: 28px; }
   .head-art .glyph { opacity: 0.68; }
 }
-/* Phone: under the copy at accent scale. Behind the copy as a
-   watermark was tried and rejected — it sat under the paragraph. */
+/* Phone runs its OWN drawing (.sys-art-sm), not a scaled-down desktop
+   (Amber): landscape band, three discs, four connectors, one dot, and
+   half-strength so the highlighted headline stays the focal point. */
+.sys-art-sm { display: none; }
 @media (max-width: 760px) {
-  .head-grid { grid-template-columns: 1fr; gap: 14px; }
-  .head-art { max-width: 250px; overflow: hidden; }
-  .head-art .glyph { opacity: 0.85; margin: -10px 0 -12px; }
-  .page-head-art { padding-bottom: 14px; }
+  .head-grid { grid-template-columns: 1fr; gap: 10px; }
+  .head-art { max-width: none; }
+  .sys-art-lg { display: none; }
+  .head-art .sys-art-sm { display: block; opacity: 0.55; transform: none; margin: 0; }
+  .page-head-art { padding-bottom: 16px; }
 }
 .page-head h1 {
   font-size: clamp(2.4rem, 5.5vw, 3.6rem);

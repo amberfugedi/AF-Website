@@ -116,7 +116,7 @@
              overlapping centre make them whole. Abstract on purpose — no
              labels. Same line-art language as the section glyphs. -->
         <div class="head-art reveal" aria-hidden="true">
-          <svg class="glyph sys-art" viewBox="0 0 480 272" fill="none" stroke-linecap="round">
+          <svg class="glyph sys-art sys-art-lg" viewBox="0 0 480 272" fill="none" stroke-linecap="round">
             <defs>
               <radialGradient id="sys-f1"><stop offset="0" stop-color="#FBD5E4" stop-opacity="0.5"/><stop offset="1" stop-color="#FBD5E4" stop-opacity="0"/></radialGradient>
               <radialGradient id="sys-f2"><stop offset="0" stop-color="#DAD4F5" stop-opacity="0.5"/><stop offset="1" stop-color="#DAD4F5" stop-opacity="0"/></radialGradient>
@@ -195,6 +195,50 @@
               </g>
             </g>
 
+          </svg>
+          <!-- Phone gets its own drawing, not a shrunk desktop: landscape
+               band, three discs, four connectors, one dot. A watermark
+               under the copy — the highlighted headline stays the star. -->
+          <svg class="glyph sys-art sys-art-sm" viewBox="0 0 480 140" fill="none" stroke-linecap="round">
+            <defs>
+              <radialGradient id="sysm-f1"><stop offset="0" stop-color="#FBD5E4" stop-opacity="0.45"/><stop offset="1" stop-color="#FBD5E4" stop-opacity="0"/></radialGradient>
+              <radialGradient id="sysm-f2"><stop offset="0" stop-color="#DAD4F5" stop-opacity="0.45"/><stop offset="1" stop-color="#DAD4F5" stop-opacity="0"/></radialGradient>
+              <linearGradient id="sysm-edge" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#fff" stop-opacity="0.6"/>
+                <stop offset="0.16" stop-color="#fff" stop-opacity="1"/>
+                <stop offset="0.62" stop-color="#fff" stop-opacity="1"/>
+                <stop offset="0.82" stop-color="#fff" stop-opacity="0.7"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0.28"/>
+              </linearGradient>
+              <mask id="sysm-mask"><rect width="480" height="140" fill="url(#sysm-edge)"/></mask>
+            </defs>
+            <g mask="url(#sysm-mask)">
+              <g class="fill" style="--fd:.25s">
+                <ellipse cx="300" cy="64" rx="150" ry="70" fill="url(#sysm-f1)"/>
+                <ellipse cx="150" cy="86" rx="120" ry="58" fill="url(#sysm-f2)"/>
+              </g>
+              <!-- three discs, not a pile -->
+              <g class="fill" style="--fd:.6s">
+                <circle cx="292" cy="64" r="34" fill="#FBD5E4" opacity="0.7"/>
+                <circle cx="326" cy="82" r="27" fill="#DAD4F5" opacity="0.6"/>
+                <circle cx="310" cy="48" r="20" fill="#FCE4C4" opacity="0.62"/>
+              </g>
+              <circle class="stroke" pathLength="100" cx="292" cy="64" r="34" stroke="#A63563" stroke-width="0.9" opacity="0.26" style="--d:1.1s"/>
+              <circle class="stroke" pathLength="100" cx="304" cy="68" r="47" stroke="#2E2A27" stroke-width="1" opacity="0.18" style="--d:1.2s"/>
+              <!-- four connectors: coral, gold, blue, grey -->
+              <path class="stroke" pathLength="100" d="M60 38 C 130 50, 198 58, 256 62" stroke="#B8354A" stroke-width="1.6" opacity="0.85" style="--d:.35s"/>
+              <path class="stroke" pathLength="100" d="M150 112 C 200 106, 244 96, 274 88" stroke="#8A5A14" stroke-width="1.2" opacity="0.7" style="--d:.5s"/>
+              <path class="stroke" pathLength="100" d="M438 96 C 400 92, 366 86, 340 82" stroke="#574AA6" stroke-width="1.8" style="--d:.65s"/>
+              <path class="stroke" pathLength="100" d="M206 22 C 238 34, 264 44, 282 52" stroke="#2E2A27" stroke-width="1" opacity="0.32" style="--d:.8s"/>
+              <!-- four endpoints and a single dot -->
+              <circle class="stroke" pathLength="100" cx="60" cy="38" r="11" stroke="#B8354A" stroke-width="1.6" opacity="0.85" style="--d:.05s"/>
+              <circle class="stroke" pathLength="100" cx="150" cy="112" r="8" stroke="#8A5A14" stroke-width="1.3" opacity="0.75" style="--d:.14s"/>
+              <circle class="stroke" pathLength="100" cx="438" cy="96" r="13" stroke="#574AA6" stroke-width="1.7" style="--d:.23s"/>
+              <g class="fill" style="--fd:.45s">
+                <circle cx="206" cy="22" r="6" fill="#DAD4F5"/>
+                <circle cx="104" cy="78" r="2.5" fill="#A63563" opacity="0.4"/>
+              </g>
+            </g>
           </svg>
         </div>
       </div>
