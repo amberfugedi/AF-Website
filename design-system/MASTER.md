@@ -104,7 +104,11 @@ cards.
   intro, and the band credo lines read at BODY (16/17), keeping
   the heading's width and `text-wrap: pretty`. EVERY running-text
   paragraph reads at BODY, and small is strictly metadata: names,
-  roles, labels, notes, footer) · body 16/17 (lh 1.55; stepped from
+  roles, labels, notes, footer — plus ONE sanctioned content use,
+  the Building nested-card descriptions at small/lh 1.5 [Amber
+  July 2026, "issues with the font size": title and desc were
+  both 16 inside the cards, so the card had no internal
+  hierarchy]) · body 16/17 (lh 1.55; stepped from
   the spec's 17/18 so no supporting text outranks the hero deck at
   16/17.5) · small 14/15 (lh 1.4) ·
   eyebrow 12/13 (600, 0.08em, uppercase) · buttons 17px desktop /

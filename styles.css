@@ -956,8 +956,15 @@ section { padding: 104px 0; }
   margin-bottom: 3px;
   transition: color 0.2s;
 }
-/* lighter than --muted but still ~5.2:1 on the inner card */
-.bld-item-desc { display: block; color: #6F675D; max-width: 58ch; }
+/* lighter than --muted but still ~5.2:1 on the inner card; small
+   size gives the card an internal hierarchy (title 16/17 > desc) */
+.bld-item-desc {
+  display: block;
+  color: #6F675D;
+  max-width: 58ch;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
 /* Linked cards (external project sites, new tab) carry a ↗ in the
    top-right corner; cards without a destination stay plain divs */
 a.bld-item:hover { border-color: rgba(46, 42, 39, 0.2); transform: translateY(-2px); }
