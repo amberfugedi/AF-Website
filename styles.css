@@ -1158,7 +1158,7 @@ section { padding: 104px 0; }
 }
 .anchor-nav a:hover { color: var(--ink); border-color: var(--line); }
 @media (max-width: 760px) {
-  .anchor-nav a { padding: 13px 10px; } /* ≥44px touch target, one row of three tabs at 390px */
+  .anchor-nav a { padding: 15px 10px; } /* ≥44px touch target with the smaller label */
   /* Touch targets ≥44px for links that render small on phones */
   .arrow-link { padding-top: 13px; padding-bottom: 14px; }
   .footer-nav a { display: inline-block; padding: 10px 6px; }
@@ -1820,8 +1820,8 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    than home. */
 .page-head .section-lede { font-size: var(--fs-body); line-height: 1.55; max-width: 600px; }
 .offer-desc { font-size: var(--fs-body); line-height: 1.55; }
-/* Band statements sit below body: quiet interlude scale (Amber) */
-.bridge-line { font-size: var(--fs-small); line-height: 1.5; }
+/* Band statements match the ledes: body scale */
+.bridge-line { font-size: var(--fs-body); line-height: 1.55; }
 /* Hero subhead matches the page-head ledes: body scale (the old
    15 -> 17.5 clamp overshot body at desktop and undershot the other
    heads on phones' widest siblings) */
@@ -1859,7 +1859,7 @@ footer p,
 .offer-aside p,
 .offer-aside .offer-note { font-size: var(--fs-body); line-height: 1.55; }
 .offer-aside .who { font-size: var(--fs-body); line-height: 1.5; }
-.anchor-nav a { font-size: var(--fs-small); } /* compact utility tabs: small slot */
+.anchor-nav a { font-size: var(--fs-eyebrow); } /* compact utility tabs: quiet, per Amber */
 /* Uppercase tags and tier chips read as eyebrow-grade metadata */
 .card .card-tag,
 .case .case-tag,
@@ -1950,5 +1950,5 @@ footer p,
 /* Small phones: anchor tabs step to the 15px small slot so the
    sticky nav holds one row (cascade: must follow the type system) */
 @media (max-width: 380px) {
-  .anchor-nav a { padding: 13px 8px; }
+  .anchor-nav a { padding: 15px 8px; }
 }

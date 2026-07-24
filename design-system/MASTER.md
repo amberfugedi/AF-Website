@@ -399,10 +399,9 @@ strategy to the details that bring it to life." · capabilities
 "AI should give teams more time to think strategically, not just
 more ways to produce." · about "My title has changed. What I love
 most is still figuring out what will move the business forward."
-The statement reads at SMALL (14/15 — Amber stepped the banners
-below body 2026-07 so the interludes sit quieter than content),
-60ch centered. Small elsewhere stays metadata-only; the banner is
-the one sanctioned small-scale sentence. When the band leads into a band-white section
+The statement reads at BODY scale (like all ledes, per Amber —
+a brief small-scale experiment was reverted same day), 60ch
+centered. When the band leads into a band-white section
 the doubled hairline collapses (.bridge + .band-white).
 Center-aligned like the dark CTA band; bands center, content
 sections stay left-aligned. The
@@ -531,7 +530,8 @@ different. The goal doesn't." Anchor tabs carry the FULL
 section names (Leading Marketing / Helping Businesses Grow /
 Building New Ideas — Amber: the in-house/consulting words are
 retired from the tabs); the bar keeps one row and swipes
-horizontally on phones (scrollbar hidden). Each tab takes its own
+horizontally on phones (scrollbar hidden); tab labels read at the
+eyebrow size (13/12, sentence case) with 44px+ touch targets. Each tab takes its own
 active color: coral wash / blush / lavender, and the first tab
 starts active on load. The
 MembersFirst case leads with the trust story: employee first, kept
