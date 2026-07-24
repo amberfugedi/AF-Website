@@ -787,6 +787,13 @@ body.page-sub .aura { --aura-base: 0.45; }
 
 /* ============ Sections shared ============ */
 section { padding: 104px 0; }
+/* The section directly under a sticky anchor bar sits closer to it
+   (Amber: the tab-to-title gap read large) — applies to Services
+   and Work alike */
+.anchor-nav + section { padding-top: 74px; }
+@media (max-width: 760px) {
+  .anchor-nav + section { padding-top: 48px; }
+}
 /* Equal rhythm: last-child margins must not leak through section
    wraps into the seam (2026-07 spacing audit) */
 .wrap > :last-child { margin-bottom: 0; }

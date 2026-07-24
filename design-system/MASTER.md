@@ -504,8 +504,10 @@ before shipping spacing changes):
 - The dark CTA card joins the section rhythm (104/64 padding both
   sides of its wrap).
 - Page-head -> first section: 134/88 (capabilities, about); on
-  services and work the sticky anchor bar sits in that seam so
-  the measured gap is 204/167 — structural, not drift.
+  services and work the sticky anchor bar sits in that seam, and
+  the section directly under a bar takes reduced top padding
+  (74/48 via `.anchor-nav + section` — Amber tightened the
+  tab-to-title gap ~28% 2026-07).
 - GUARD: `.wrap > :last-child` and `.page-head h1:last-child`
   carry margin-bottom 0 so trailing margins never leak into
   seams (this was skewing two seams by 20-22px).
@@ -530,9 +532,8 @@ perspective." / "Curiosity has always shaped how I learn. These
 projects are where I explore ideas, test what works, and build
 something useful." The page-head lede: "Every project looks
 different. The goal doesn't. From leading marketing teams to
-building products of my own, each one reflects a different way of
-solving business challenges." (Amber's line, "every project"
-de-duplicated against the opener.) Anchor tabs carry the FULL
+building products of my own, the work reflects different ways of
+helping businesses move forward." (Amber's final line, verbatim.) Anchor tabs carry the FULL
 section names (Leading Marketing / Helping Businesses Grow /
 Things I've Built — the in-house/consulting words are retired);
 on phones the chip row bleeds to the viewport edge so partial
