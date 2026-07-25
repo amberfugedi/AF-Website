@@ -1518,7 +1518,10 @@ a.bld-item .bld-item-arrow {
   border-top: 2px solid var(--peach);
 }
 .case-col p { font-size: 0.95rem; color: var(--body); }
-.case-col.result h3 { border-top-color: var(--coral); }
+/* All three column rules stay peach. The Impact rule used to run
+   coral: side by side that read as emphasis, but stacked on a phone
+   it just looked like one divider was the wrong colour (Amber,
+   July 2026). The coral bold Impact text carries the emphasis. */
 .case-col.result p {
   font-weight: 600;
   color: var(--coral-deep);
