@@ -1651,6 +1651,40 @@ a.bld-item .bld-item-arrow {
   margin-bottom: 10px;
   border-bottom: 1px solid var(--line);
 }
+/* --- curated groupings: asymmetric, no equal cards, no app grid --- */
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  row-gap: 58px;
+  margin-top: 52px;
+}
+.pg { padding-top: 18px; border-top: 1px solid rgba(255, 111, 97, 0.42); }
+.pg-1 { grid-column: 1 / 6;  grid-row: 1; }
+.pg-2 { grid-column: 8 / 13; grid-row: 1; margin-top: 52px; border-top-color: rgba(150, 138, 214, 0.5); }
+.pg-3 { grid-column: 2 / 7;  grid-row: 2; border-top-color: rgba(150, 138, 214, 0.5); }
+.pg-4 { grid-column: 8 / 12; grid-row: 2; margin-top: 42px; }
+.pg-marks { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.pg-logo { width: 20px; height: 20px; fill: var(--muted); opacity: 0.8; }
+.pg h3 { font-family: var(--font-display); margin-bottom: 8px; }
+.pg p { color: var(--muted); }
+
+.plat-also { color: var(--muted); max-width: 66ch; margin-top: 62px; }
+
+/* the full categorised list stays available, folded away */
+.plat-all { margin-top: 26px; }
+.plat-all summary {
+  display: inline-flex; align-items: center; gap: 8px;
+  cursor: pointer; list-style: none;
+  font-family: var(--font-body); font-weight: 600;
+  color: var(--coral-deep);
+  padding: 6px 0;
+}
+.plat-all summary::-webkit-details-marker { display: none; }
+.plat-all .pa-sign { transition: transform 0.2s var(--ease); display: inline-block; }
+.plat-all[open] .pa-sign { transform: rotate(45deg); }
+.plat-all summary:hover { color: #96263C; }
+.plat-all .plat-grid { margin-top: 30px; }
+
 .plat-list {
   list-style: none; margin: 0; padding: 0;
   display: grid; grid-template-columns: 1fr;
@@ -1717,6 +1751,11 @@ a.bld-item .bld-item-arrow {
   .brd-intro { position: static; }
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
   .plat-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pg-grid { row-gap: 44px; }
+  .pg-1 { grid-column: 1 / 7; }
+  .pg-2 { grid-column: 7 / 13; margin-top: 36px; }
+  .pg-3 { grid-column: 1 / 7; }
+  .pg-4 { grid-column: 7 / 13; margin-top: 30px; }
 }
 @media (max-width: 760px) {
   /* stacked with horizontal rules, never four generic cards */
@@ -1734,6 +1773,13 @@ a.bld-item .bld-item-arrow {
   .brd-group { padding: 28px 0; }
   /* two groups per row on phones: the single biggest saving here */
   .plat-section { padding-top: 32px; padding-bottom: 34px; }
+  /* staggered editorial rhythm rather than a flush column */
+  .pg-grid { grid-template-columns: 1fr; row-gap: 30px; margin-top: 34px; }
+  .pg { grid-column: 1 / -1 !important; grid-row: auto !important; margin-top: 0 !important; }
+  .pg-2 { margin-left: 26px; }
+  .pg-3 { margin-left: 12px; }
+  .pg-4 { margin-left: 34px; }
+  .plat-also { margin-top: 34px; }
   .plat-section .eyebrow { margin-bottom: 12px; }
   .plat-section #plat-title { margin-bottom: 10px; }
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; gap: 20px 16px; margin-top: 18px; }
@@ -2235,7 +2281,9 @@ footer p,
 .brd-flow li { font-size: var(--fs-body); line-height: 1.45; }
 .res-num { font-size: clamp(3rem, 6.4vw, 4.6rem); }
 .res-lab { font-size: var(--fs-small); line-height: 1.4; }
-.plat-list li, .exp-strip-note { font-size: var(--fs-small); line-height: 1.45; }
+.plat-list li, .exp-strip-note, .pg p, .plat-also { font-size: var(--fs-small); line-height: 1.45; }
+.pg h3 { font-size: var(--fs-intro); line-height: 1.25; }
+.plat-all summary { font-size: var(--fs-small); }
 .exp-strip li { font-size: var(--fs-intro); line-height: 1.2; }
 
 /* Uppercase tags and tier chips read as eyebrow-grade metadata */

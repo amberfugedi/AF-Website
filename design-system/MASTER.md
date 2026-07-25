@@ -669,31 +669,28 @@ a card grid:
    Category headings sit on their own serif grade, clamp 25 -> 28px
    (her numbers), with 34px of air between categories so the
    section still breathes. 22% shorter than the stacked version.
-4. SELECTED PLATFORMS — the quietest block on the page and the
-   shortest: a 19px neutral mark plus the name on ONE line
-   (`.plat-list`), four groups. REAL MONOCHROME BRAND MARKS
-   (Amber, July 2026): 15 single-path logos from simple-icons,
-   inlined once as an SVG `<symbol>` sprite at the top of `main`
-   and referenced with `<use>`, filled `--muted` at 82% so they
-   sit quieter than the type. Nominative use — identifying tools
-   she has worked in. NOTE for future edits: current simple-icons
-   releases have DROPPED many of these brands, so the sprite was
-   generated from simple-icons v11; don't regenerate from latest
-   expecting the same set. Constant Contact, Storylane and Wrike
-   have no mark in any release and keep the neutral initial tile
-   (`.plat-mark`), sized to match the logos exactly so the rows
-   stay aligned. GROUP ALIGNMENT: headings wrap to one or two
-   lines depending on the name, which left each group's rule and
-   list starting at a different height (Amber flagged it on the
-   live phone view). `.plat` spans two subgrid rows so every
-   heading shares one row and every list the next; `.plat-list`
-   needs `align-content: start` or the shorter groups spread to
-   fill the taller row. A min-height fallback covers browsers
-   without subgrid. Phones run TWO GROUPS PER ROW (the single biggest
-   saving) with single-column lists, and the section carries its
-   own reduced padding via `.plat-section`: 35% shorter on phones,
-   13% on desktop. Amber cut "Additional platform experience
-   available on request."
+4. SELECTED PLATFORMS — curated groupings, not an inventory
+   (Amber, July 2026: "editorial and curated rather than a
+   software directory"). FOUR named groupings, each a thin rule +
+   two logos + serif title + the platform names on one line:
+   Build the system (HubSpot, Salesforce) · Understand performance
+   (Google Analytics, SEMrush) · Create the experience (WordPress,
+   Adobe Creative Suite) · Work smarter (ChatGPT, Claude, Notion).
+   TWO logos per grouping at most — never one beside every name.
+   Laid out on a 12-column grid with deliberate asymmetry: spans
+   of 5/5/5/4, alternating sides, and per-group top offsets so no
+   two align; rules alternate coral and lavender. Phones stack in
+   a STAGGERED rhythm (left margins 0/26/12/34px), never a flush
+   column. Beneath: a compact "Also experienced with:" line
+   naming the remaining nine, then a `<details>` disclosure
+   ("View all platforms +", the sign rotates 45deg when open)
+   holding the full categorised grid with all 15 brand marks.
+   Lede replaced with "The tool matters less than how it fits the
+   work, the team, and the goal."
+   NOTE: this redesign deliberately reverses the earlier 35%
+   compaction — the section is ~870px again by choice, spent on
+   whitespace rather than density.
+
 5. EXPERIENCE STRIP above the platforms: five company names set in
    the serif between hairlines, with "Experience across SaaS,
    financial services, technology, education, and consulting."
