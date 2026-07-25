@@ -671,10 +671,18 @@ a card grid:
    section still breathes. 22% shorter than the stacked version.
 4. SELECTED PLATFORMS — the quietest block on the page and the
    shortest: a 19px neutral mark plus the name on ONE line
-   (`.plat-list`), four groups. The marks are NEUTRAL INITIAL
-   TILES, not brand logos — real logos are trademarked artwork we
-   don't hold and can't fetch here; swap them for licensed SVGs if
-   ever wanted. Phones run TWO GROUPS PER ROW (the single biggest
+   (`.plat-list`), four groups. REAL MONOCHROME BRAND MARKS
+   (Amber, July 2026): 15 single-path logos from simple-icons,
+   inlined once as an SVG `<symbol>` sprite at the top of `main`
+   and referenced with `<use>`, filled `--muted` at 82% so they
+   sit quieter than the type. Nominative use — identifying tools
+   she has worked in. NOTE for future edits: current simple-icons
+   releases have DROPPED many of these brands, so the sprite was
+   generated from simple-icons v11; don't regenerate from latest
+   expecting the same set. Constant Contact, Storylane and Wrike
+   have no mark in any release and keep the neutral initial tile
+   (`.plat-mark`), sized to match the logos exactly so the rows
+   stay aligned. Phones run TWO GROUPS PER ROW (the single biggest
    saving) with single-column lists, and the section carries its
    own reduced padding via `.plat-section`: 35% shorter on phones,
    13% on desktop. Amber cut "Additional platform experience

@@ -1651,7 +1651,14 @@ a.bld-item .bld-item-arrow {
   display: flex; align-items: center; gap: 9px;
   color: var(--muted);
 }
-/* neutral monochrome marks, not brand logos */
+/* real brand marks, monochrome, sized to match the fallback tile */
+.plat-logo {
+  flex: none;
+  width: 19px; height: 19px;
+  fill: var(--muted);
+  opacity: 0.82;
+}
+/* fallback tile for the three platforms with no mark available */
 .plat-mark {
   flex: none;
   width: 19px; height: 19px;
