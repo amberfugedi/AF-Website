@@ -577,7 +577,15 @@ Sections are organized by HOW AMBER CREATES VALUE, not employment
 type — NO section eyebrows (Amber removed them 2026-07: the old
 category words conflicted with the new names; the Work chapters
 are the one sanctioned eyebrow-less sections, the tabs carry the
-wayfinding), titles "Leading Marketing" / "Helping Businesses
+wayfinding). LEADING MARKETING IS CAPPED AT THREE CASES — PERQ,
+Scanoptics, StormwaterONE, each carrying a published number
+(Amber, July 2026: a longer in-house list "becomes redundant with
+About"). Morris Controls was removed rather than relocated: she
+confirmed it was in-house, so it could not move to the consulting
+group, and it was the only leadership entry with no dates and no
+metric. Its {{ADJUST}} for inbound/ranking numbers is retired with
+it; the parked markup is recoverable from git history if it ever
+earns a number. Titles "Leading Marketing" / "Helping Businesses
 Grow" / "Things I've Built" (Amber restored the original third
 name: "tangible, covers finished work") — each h2
 followed by Amber's one-line philosophy as a standard section-lede
