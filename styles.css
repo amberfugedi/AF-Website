@@ -1488,12 +1488,17 @@ a.bld-item .bld-item-arrow {
   transform: translateY(-5px);
   box-shadow: var(--shadow-soft);
 }
+/* Label colour is by ROLE, not by taste: section eyebrows are
+   coral (wayfinding), everything that annotates content — card
+   tags, case tags, case-column labels — is muted. Coral here made
+   the case tag read like a section eyebrow sitting above grey
+   column labels inside the same card (Amber, July 2026). */
 .case .case-tag {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--coral-deep);
+  color: var(--muted);
   display: block;
   margin-bottom: 8px;
 }
@@ -1646,7 +1651,7 @@ a.bld-item .bld-item-arrow {
 .xp-chapter .arrow-link { margin-top: 16px; display: inline-block; }
 .xp-areas { margin-top: 14px; color: var(--muted); }
 .xp-earlier { margin-top: 10px; border-top: 1px solid rgba(46, 42, 39, 0.1); padding-top: 26px; }
-.xp-earlier .eyebrow { color: var(--muted); display: block; margin-bottom: 6px; }
+.xp-earlier .eyebrow { display: block; margin-bottom: 6px; }
 .xp-earlier details { border-top: 1px solid rgba(46, 42, 39, 0.07); }
 .xp-earlier details:first-of-type { border-top: 0; }
 .xp-earlier summary {
@@ -1718,7 +1723,7 @@ a.bld-item .bld-item-arrow {
 .contact-intro > p { color: var(--body); margin-bottom: 32px; max-width: 420px; }
 
 .email-capture .capture-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1972,7 +1977,6 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .quote-foot .who-role,
 .quote-foot .who-name,
 .form-note,
-.email-capture .capture-label,
 .xp-years,
 .xp-yr,
 .xp-co,
@@ -1992,6 +1996,7 @@ footer p,
 /* Uppercase tags and tier chips read as eyebrow-grade metadata */
 .card .card-tag,
 .case .case-tag,
+.email-capture .capture-label,
 .offer-aside .tier { font-size: var(--fs-eyebrow); }
 .case-col.result p { font-size: var(--fs-body); } /* Impact lines join body scale */
 .tier-head p { font-size: var(--fs-body); }

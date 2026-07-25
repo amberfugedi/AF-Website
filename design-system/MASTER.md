@@ -145,6 +145,18 @@ cards.
   wider tracking belongs to uppercase eyebrows/labels only, and
   ALL of them share 0.08em (tags, tier chips, capture label, and
   case-column labels included — consolidated 2026-07).
+  LABEL COLOUR IS BY ROLE, not by taste (Amber, July 2026 — "these
+  are not consistent"): section EYEBROWS are coral-deep and mark
+  where a section starts; everything that ANNOTATES content is
+  muted — card tags, case tags, case-column labels, the capture
+  label. The three offer `.tier` chips are the sanctioned
+  exception: they carry their offer's own deep colour as
+  colour-coding. `.eyebrow` now has exactly ONE appearance — the
+  muted override on "Earlier experience" is gone, so the class
+  can never render two ways. All uppercase labels sit on the
+  eyebrow grade (12/13): `.capture-label` was the lone stray at
+  small (14/15) because it sat in the small-text group in the type
+  layer, which outranked its base rule.
 - Header: nav bar 62px (60px on phones + safe-area inset), brand
   wordmark 1.25rem desktop / 1.5rem mobile, hamburger three 27px
   1.5px lines in a ≥44px tap target.
