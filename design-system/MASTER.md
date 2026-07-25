@@ -682,7 +682,14 @@ a card grid:
    expecting the same set. Constant Contact, Storylane and Wrike
    have no mark in any release and keep the neutral initial tile
    (`.plat-mark`), sized to match the logos exactly so the rows
-   stay aligned. Phones run TWO GROUPS PER ROW (the single biggest
+   stay aligned. GROUP ALIGNMENT: headings wrap to one or two
+   lines depending on the name, which left each group's rule and
+   list starting at a different height (Amber flagged it on the
+   live phone view). `.plat` spans two subgrid rows so every
+   heading shares one row and every list the next; `.plat-list`
+   needs `align-content: start` or the shorter groups spread to
+   fill the taller row. A min-height fallback covers browsers
+   without subgrid. Phones run TWO GROUPS PER ROW (the single biggest
    saving) with single-column lists, and the section carries its
    own reduced padding via `.plat-section`: 35% shorter on phones,
    13% on desktop. Amber cut "Additional platform experience
