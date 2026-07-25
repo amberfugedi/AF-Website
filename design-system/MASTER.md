@@ -662,10 +662,33 @@ a card grid:
    beneath, no cards. Two-up on phones, one-up under 430px.
    Closes with an arrow link to Work.
 3. BREADTH — sticky intro left (top 132px), five rule-separated
-   groups right, each list in two columns. Typeset, not a resume.
-4. SELECTED PLATFORMS — deliberately secondary: four text groups
-   under hairline headings, no logos, no logo wall. Amber cut
-   "Additional platform experience available on request."
+   groups right. COMPACT FLOW, not one term per line (Amber, July
+   2026: "too text-heavy... oversized, widely spaced, stacked one
+   per line"): `.brd-flow` is a wrapping flex row where terms share
+   lines, parted by a CORAL MIDDLE DOT, lh 1.45, row-gap 2px.
+   Category headings sit on their own serif grade, clamp 25 -> 28px
+   (her numbers), with 34px of air between categories so the
+   section still breathes. 22% shorter than the stacked version.
+4. SELECTED PLATFORMS — the quietest block on the page and the
+   shortest: a 19px neutral mark plus the name on ONE line
+   (`.plat-list`), four groups. The marks are NEUTRAL INITIAL
+   TILES, not brand logos — real logos are trademarked artwork we
+   don't hold and can't fetch here; swap them for licensed SVGs if
+   ever wanted. Phones run TWO GROUPS PER ROW (the single biggest
+   saving) with single-column lists, and the section carries its
+   own reduced padding via `.plat-section`: 35% shorter on phones,
+   13% on desktop. Amber cut "Additional platform experience
+   available on request."
+5. EXPERIENCE STRIP above the platforms: five company names set in
+   the serif between hairlines, with "Experience across SaaS,
+   financial services, technology, education, and consulting."
+   Names, not logos, for the same trademark reason.
+
+STILL OUTSTANDING: the visual proof break after the breadth
+section. It needs cropped shots of real deliverables (a site, a
+roadmap, a positioning doc, a Notion system). Nothing was built:
+inventing artifacts is what made the earlier hero collages read
+as AI, and this sandbox cannot reach the live project URLs.
 
 The closing band is the only page-specific CTA on the site: "See
 the expertise in practice." with TWO actions — coral primary to
