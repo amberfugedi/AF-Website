@@ -675,21 +675,44 @@ a card grid:
    two logos + serif title + the platform names on one line:
    Build the system (HubSpot, Salesforce) · Understand performance
    (Google Analytics, SEMrush) · Create the experience (WordPress,
-   Adobe Creative Suite) · Work smarter (ChatGPT, Claude, Notion).
+   Adobe) · Work smarter (ChatGPT, Claude, Notion). "Adobe
+   Creative Suite" is SHORTENED to "Adobe" in the collapsed view;
+   the full name survives in the expanded panel.
    TWO logos per grouping at most — never one beside every name.
-   Laid out on a 12-column grid with deliberate asymmetry: spans
-   of 5/5/5/4, alternating sides, and per-group top offsets so no
-   two align; rules alternate coral and lavender. Phones stack in
-   a STAGGERED rhythm (left margins 0/26/12/34px), never a flush
-   column. Beneath: a compact "Also experienced with:" line
-   naming the remaining nine, then a `<details>` disclosure
-   ("View all platforms +", the sign rotates 45deg when open)
-   holding the full categorised grid with all 15 brand marks.
-   Lede replaced with "The tool matters less than how it fits the
-   work, the team, and the goal."
+   Laid out on a 12-column grid with deliberate asymmetry, and the
+   four groups are each varied so the set reads composed rather
+   than templated (Amber, July 2026: "make the four primary groups
+   slightly more varied… alternate left and right alignment / let
+   one divider be shorter / use one small lavender label behind a
+   heading / slightly overlap one logo pair with the rule / vary
+   the width of each group. Not dramatically."):
+   - widths vary 5 / 4 / 6 / 4 columns, none aligned to another;
+   - groups 2 and 4 are RIGHT-aligned, 1 and 3 left;
+   - group 1's rule is interrupted by its own logos — the rule is
+     a `::before` starting at `left: 62px` and the marks pull up
+     `-10px` so the pair overlaps it;
+   - group 4's rule is short (62%) and right-anchored;
+   - group 3's heading carries `.pg-lav`, a single hand-drawn
+     lavender wash (55% opacity, irregular radii, -0.6deg) — the
+     only one on the page;
+   - remaining rules alternate coral and lavender.
+   Phones keep the STAGGERED rhythm (left margins 0/26/12/34px),
+   drop the right-alignment, and flip group 4's short rule left.
+   Beneath, in this order: a labelled `.plat-also` block — small
+   muted "Also experienced with" label over a ·-separated line of
+   the remaining nine — and only THEN the disclosure, worded
+   "See platforms by category +" (the sign rotates 45deg when
+   open). The full grid is deliberately SECONDARY: it opens under
+   a "Full platform list" eyebrow, its category names take plus
+   signs (CRM + Automation, Analytics + Acquisition, Web +
+   Creative, AI + Collaboration), and its headings drop to
+   `--fs-small` muted body type — NOT the serif grade used above —
+   with tighter gaps (22px columns, 6/16px lists) and every logo
+   at 0.62 opacity. Lede: "The tool matters less than how it fits
+   the work, the team, and the goal."
    NOTE: this redesign deliberately reverses the earlier 35%
-   compaction — the section is ~870px again by choice, spent on
-   whitespace rather than density.
+   compaction — the section is 917px desktop / 922px phone by
+   choice, spent on whitespace rather than density.
 
 5. EXPERIENCE STRIP above the platforms: five company names set in
    the serif between hairlines, with "Experience across SaaS,
