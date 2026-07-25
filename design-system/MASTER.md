@@ -132,7 +132,7 @@ cards.
   at body scale everywhere, the page-head rule now differs only in
   its 600px measure cap.)
   Deliberate exceptions, don't "fix" them: LONG HEADLINES (10+
-  words) step down one grade via `.h1-long` (about/capabilities
+  words) step down one grade via `.h1-long` (about/expertise
   page h1s at the h2 size) and `.h2-long` (h2s that would wrap
   3+ phone lines, ~40+ chars: home problem, home selected work,
   home about teaser, about experience — 26/38) so sentences read as sentences, not walls — apply the
@@ -217,7 +217,7 @@ gradient and was removed 2026-07. Current placements — exactly
 six phrases: "what to build." (blush, home problem), "different
 needs." (blush, work h1), "actually needs." (blush, about h1 —
 needs sit on the question side), "work together." (butter,
-services h1), "marketing experience." (butter, capabilities h1),
+services h1), "marketing experience." (butter, expertise h1),
 and "comes next." (butter, dark CTA bands + about contact) —
 every page-top carries emphasis (home via the coral italic em)
 and every page runs exactly two tabs; 404 stays plain,
@@ -460,7 +460,7 @@ refrain is retired from the bands):
 home "Good marketing starts with what will have the most impact."
 · services "The right support depends on what the business is
 trying to achieve." · work "The strongest work connects the
-strategy to the details that bring it to life." · capabilities
+strategy to the details that bring it to life." · expertise
 "AI should give teams more time to think strategically, not just
 more ways to produce." · about "My title has changed. What I love
 most is still figuring out what will move the business forward."
@@ -473,7 +473,7 @@ sections stay left-aligned. The
 eyebrow is the FIXED refrain (never varies); the supporting line
 is page-aware (Amber, 2026-07): home = industries breadth,
 services = formats shaped around the need, work = same question
-five ways, capabilities = functions pointed at one outcome,
+five ways, expertise = functions pointed at one outcome,
 about = career arc with one constant. Keep each line one thought,
 under ~140 chars, no em dashes. Company
 names appear only inside case studies where the relationship tag
@@ -484,7 +484,7 @@ gives them context. Never add a "trusted by" logo strip.
 - Five plain HTML pages, no framework/build: `index.html`,
   `services.html` (offer ladder + sticky anchor nav),
   `work.html` (case studies: challenge → approach → impact),
-  `capabilities.html` (capability areas + platform stack),
+  `expertise.html` (core expertise -> results -> breadth -> platforms),
   `about.html` (bio, career story, team testimonials, education, contact
   + email capture). Home also carries a three-quote testimonial
   section; quotes are real, transcribed from the previous site and
@@ -635,6 +635,45 @@ visible on one page (challenge/approach/impact); separate
 case-study pages wait until deliverable imagery and long-form
 narratives exist. The full portfolio-redesign mock is parked in
 the session scratchpad.
+
+## Expertise page (renamed from Capabilities, 2026-07)
+
+The page is `expertise.html`; "Capabilities" is retired from the
+nav, footers, titles and sitemap, and `_redirects` 301s the old
+URL. PRESERVED VERBATIM on Amber's instruction: the page head
+(eyebrow relabelled to "Expertise", h1 and lede untouched) and
+the transition band ("AI should give teams more time to think
+strategically, not just more ways to produce."), which sits
+between the expertise section and the results as the page's
+editorial pause.
+
+Four sections, deliberately different in shape so none reads as
+a card grid:
+1. CORE EXPERTISE — four columns split by vertical hairlines, no
+   boxes, each opening with a numbered label (01 · Strategy …).
+   The numbering uses the site's MIDDLE DOT, not an em dash: the
+   brief asked for "01 — Strategy" but four em dashes trip
+   Impeccable's em-dash-overuse rule, and · is already the site's
+   label separator (card tags, case tags). List items carry a
+   short coral rule as a marker. Phones stack with horizontal
+   rules — never four generic cards.
+2. SELECTED RESULTS — four oversized Newsreader figures
+   (clamp 3rem→4.6rem) on hairline-divided columns, sans labels
+   beneath, no cards. Two-up on phones, one-up under 430px.
+   Closes with an arrow link to Work.
+3. BREADTH — sticky intro left (top 132px), five rule-separated
+   groups right, each list in two columns. Typeset, not a resume.
+4. SELECTED PLATFORMS — deliberately secondary: four text groups
+   under hairline headings, no logos, no logo wall. Amber cut
+   "Additional platform experience available on request."
+
+The closing band is the only page-specific CTA on the site: "See
+the expertise in practice." with TWO actions — coral primary to
+Work, and `.btn-ghost` (transparent, cream text, hairline border,
+13.6:1 on the ink band). The ghost rule must sit AFTER
+`.cta-band .btn` in the stylesheet or the coral fill outranks it.
+Every other page still closes with "Let's figure out what comes
+next."
 
 ## Building section (Work page — curated collection, brief v3)
 
