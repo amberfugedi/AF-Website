@@ -665,10 +665,13 @@ maintained."), MembersFirst CT FCU (three campaign flyers,
 A2 Exteriors (the yard sign, "Brand applied to signage." — the
 case copy already named yard signs, so the image lands on its own
 sentence). Total added weight 320KB across seven webp files.
-IN HAND AND UNUSED: screenshots of two more client sites,
-Andrea's Bridal and Alterations and Nutmeg Technologies. Neither
-company appears anywhere on the site, so publishing them would
-name two new clients publicly — hold until Amber confirms.
+IN HAND AND UNUSED: screenshots of two more client sites, Andrea's
+Bridal and Alterations and Nutmeg Technologies. Amber cleared both
+in July 2026. They are held back anyway because neither has a case
+study, and dropping a screenshot into a page just to use it is the
+"exists only because it fills space" failure her own brief rules
+out. They earn their place as two short cases here — which needs
+challenge, approach and outcome from her, not guesses.
 
 The page is `projects.html` (Amber, July 2026: "update work to
 projects"). "Work" is retired as a PAGE NAME from the nav,
@@ -766,17 +769,23 @@ Flow, after the third pass:
    CAPTION — the statement sits with the work instead of above
    empty space, which is what it used to do. Phones put the
    artifact directly beneath the copy.
-   THE ARTIFACT is the services page of the Robert James
-   Restoration site (`artifact-robert-james-site.webp`), a real
-   client site Amber designed and still builds on. The collage
-   crop that stood in before it is retired. Robert James was
-   chosen over the other screenshots she sent because it is
-   ALREADY A NAMED CLIENT on the Projects page — publishing a
-   screenshot claims the work, and that disclosure is hers to
-   make. Two other client sites (Andrea's Bridal and Alterations,
-   Nutmeg Technologies) and three MembersFirst campaign pieces are
-   in hand and unused, pending her word on naming the first two.
-   Never fabricate an artifact; there is no longer any excuse to.
+   THE ARTIFACT is an EDITORIAL CROP, never a browser screenshot
+   (Amber, July 2026: "it looks like you pasted a screenshot into
+   the page"). The rules: crop to the hero alone with the nav
+   gone, crop in ~12% so it is composed rather than complete, and
+   BLEED IT OFF THE PAGE — `width: calc(100% + max(24px, (100vw -
+   1120px) / 2 + 24px))` puts the right edge exactly on the
+   viewport at every width, with the left border dropped and the
+   radius only on the bleeding side. Note the global
+   `img { max-width: 100% }` will silently clamp any bleed;
+   `max-width: none` is required.
+   PROOF ROTATES BY SECTION so the page reads as a narrative
+   rather than one repeated visual: the range carries a WEBSITE
+   (Robert James hero), the rows carry CAMPAIGN work (MembersFirst
+   membership band, right-aligned and bleeding the same way), and
+   tools carry nothing. Results is still waiting on a reporting or
+   analytics screenshot — no artifact there until one exists, and
+   never a drawn one.
 3. HOW MY EXPERTISE SHOWS UP. Four compact rows, title plus one
    sentence. The titles are VERBS in her voice ("I set the
    direction", "I create demand", "I build what supports the
