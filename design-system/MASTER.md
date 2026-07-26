@@ -297,14 +297,18 @@ evaluation band in the home problem art — fix when convenient).
 
 ## Photography
 
-Three appearances, three DISTINCT photos: the neon studio shot
+Four appearances, four DISTINCT photos: the neon studio shot
 ("good ideas start here", amber-fugedi-studio.jpg) in the About
 blob per Amber's pick, the sunlit blazer portrait
-(amber-fugedi-sunlit.jpg) at 150px in the home about teaser, and
-the mug photo at the contact moment, 108px. The cream portrait
-serves only as the structured-data headshot (amber-fugedi.jpg). All share the organic radius
-family. Never in the hero (the aura is the signature), never on
-proof pages (results are the picture), no photo used twice.
+(amber-fugedi-sunlit.jpg) at 150px in the home about teaser, the
+mug photo at the contact moment, 108px, and — the one exception
+to the old never-in-the-hero rule — Amber's own collage in the
+How I Work hero (see that page's section). The cream portrait
+serves only as the structured-data headshot (amber-fugedi.jpg).
+The three small ones share the organic radius family. The hero
+photograph is HERS SPECIFICALLY and stays a page of one: no other
+page opens on a photograph, none goes on the proof pages (results
+are the picture), and no photo is used twice.
 
 ## Identity marks (the af system)
 
@@ -562,8 +566,8 @@ deviate from this Master.
   button.
 - About: quotes curated to FIVE per set (Andy Lee and Andrei
   Severin removed, never edited); "Scan-Optics" role lines
-  normalized to "Scanoptics" — flip site-wide if Amber confirms
-  the hyphenated official styling instead. Contact area now holds
+  normalized to "Scanoptics" — SETTLED July 2026, Amber confirmed
+  the unhyphenated spelling. All 12 instances stay as they are. Contact area now holds
   only the form.
 - Header mark: 22px desktop / 19px mobile (was 30/26) so the tile
   reads clearly smaller than the name block, per review.
@@ -787,12 +791,56 @@ tailored solutions, optimize your business, unlock potential.
 STRUCTURE — an editorial feature, deliberately not another card
 page. Six content sections, alternating shape, one artifact per
 section at most:
-1. PAGE HEAD (`.page-head-art`, the Services head-grid reused):
-   eyebrow, h1 "How I work with businesses.", the lede, then a
-   SECOND short paragraph (`.hw-stanza`, muted, 480px) carrying
-   the four "Sometimes it is ..." lines. The only two-paragraph
-   page head on the site; the second paragraph is deliberately
-   quieter so the top stays lighter than home.
+1. PAGE HEAD — THE SITE'S ONE PHOTOGRAPH (2026-07, Amber's pick
+   between three mocked treatments). Her own collage: a portrait
+   at her desk surrounded by a campaign roadmap, a homepage
+   wireframe, content notes and four sticky notes. It belongs on
+   this page because the artifacts ARE the page's content; one of
+   the notes reads "Strategy, then execution.", which is section
+   4's heading.
+   THE IMAGE IS CUT OUT OF ITS PAPER GROUND so the aura drifts
+   behind it (Amber's call: "what if the image removes the
+   background"). That is what solved it. A full-bleed band was
+   mocked first and needed the band painted her paper cream
+   (#F1ECE5) with gradients dissolving it into the page — a seam
+   managed rather than removed. The cutout has no seam because it
+   has no rectangle.
+   HOW THE CUTOUT WAS MADE, in case it is ever regenerated: her
+   ground is flat (std < 2) at #F1ECE5, so it separates by
+   FLOOD-FILLING FROM THE FRAME EDGES rather than by a colour
+   threshold — that keeps the collage's own cream papers opaque
+   instead of punching holes in them. The whole image is then
+   re-white-pointed by cream/ground so the paper maps exactly onto
+   #FDF9F5; drop shadows survive as translucent darkening; the
+   shadow alpha takes a 0.12 floor and is masked to a ~50px halo
+   around the artwork, or the paper texture reappears as speckle;
+   frame edges fade so the desk dissolves instead of stopping.
+   Assets are WEBP WITH ALPHA, the first on the site: 1222x941
+   desktop (197KB, cropped past the transparent third so the empty
+   pixels are not shipped) and 890x941 phone (142KB, both side
+   edges faded because the phone frame slices through the notes).
+   LAYOUT: copy is laid into the void she composed the image
+   around. It is FIRST in the source and only absolutely placed
+   above 1020px, so reading order never depends on CSS. The offset
+   is `padding-top: 6.64%`, which is 11.8% of the band's HEIGHT at
+   this aspect ratio — percentage padding resolves against WIDTH,
+   and writing it this way holds the h1 on the site's shared 158px
+   line at full size while letting it scale with the collage
+   instead of drifting into her notebook. Below 1020px the overlay
+   stops: copy above, a tighter crop beneath, never the wide
+   composition shrunk.
+   The hand-drawn "work surface" SVG that used to open this page
+   is retired — it was an abstraction of exactly this image, and
+   running both was redundant. The `.head-art` / `.sys-art-*` CSS
+   stays; Services still uses it.
+   The head closes with `.hw-stanza`, the four "Sometimes it
+   is ..." lines, which sits below the image and carries the
+   head's own bottom padding so the seam into section 1 stays
+   134/72 like every page. It is a direct `.wrap` child of the
+   header for the same reason.
+   The butterfly in the collage is hers and stays. The
+   no-hero-butterfly rule was about a decorative SVG we added; a
+   line drawing inside her own artwork is not the same thing.
 2. EVERY BUSINESS IS DIFFERENT — full-width prose, closing on
    pull quote 1.
 3. I ASK A LOT OF QUESTIONS — copy left, `.hw-notebook` right:

@@ -2111,6 +2111,49 @@ footer {
 }
 
 
+/* ---- How I Work hero: the site's one photograph ----
+   Amber's collage, CUT OUT of its paper ground so the aura drifts
+   behind it instead of the collage sitting on a pasted rectangle.
+   That removed the seam problem entirely: there is no band colour to
+   match, because there is no band. The ground was flat enough
+   (std < 2) to separate by flood-filling from the frame edges; drop
+   shadows survive as translucent darkening, and the frame edges fade
+   so the desk dissolves rather than stopping.
+   The asset is cropped past the transparent third on the left, so the
+   image is 73.09% of the band's width and sits right. Band height is
+   still 0.5628 x width, which is what the copy offset below depends
+   on: 6.64% of WIDTH equals 11.8% of HEIGHT at this ratio. Written
+   that way on purpose — percentage padding resolves against width, so
+   the headline holds the site's 158px line at full size and scales
+   with the collage below it rather than drifting into her notebook. */
+.hero-band { padding: var(--nav-h) 0 30px; margin: 0; }
+.hero-band .band { position: relative; }
+.hero-band picture { display: block; margin-left: auto; width: 73.09%; }
+.hero-band img { display: block; width: 100%; height: auto; }
+.hero-band-after { padding-top: 30px; }
+.hero-band-after .hw-stanza { margin-top: 0; }
+
+@media (min-width: 1021px) {
+  /* Copy is FIRST in the source and only absolutely placed here, so
+     reading order never depends on CSS. */
+  .hero-band .band-copy {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    padding-top: 6.64%;
+  }
+  .hero-band .head-copy { max-width: 442px; }
+  .hero-band .section-lede { margin-bottom: 0; }
+}
+@media (max-width: 1020px) {
+  /* Below the width where the void can hold a headline the overlay
+     stops: copy above, collage beneath. */
+  .hero-band { padding: 149px 0 24px; }
+  .hero-band picture { width: 100%; }
+  .hero-band .band-copy { padding-bottom: 26px; }
+  .hero-band-after { padding-top: 22px; }
+}
+
 /* ============ How I Work page ============
    An editorial feature, not another card page: alternating two-column
    splits, one artifact panel per section at most, hairline rules
