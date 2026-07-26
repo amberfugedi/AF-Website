@@ -156,7 +156,11 @@ cards.
   can never render two ways. All uppercase labels sit on the
   eyebrow grade (12/13): `.capture-label` was the lone stray at
   small (14/15) because it sat in the small-text group in the type
-  layer, which outranked its base rule.
+  layer, which outranked its base rule. `.pa-label` and
+  `.pa-panel-label` were tracking at 0.12em (1.56px vs everyone
+  else's 1.04px) and were normalized to 0.08em in the same audit.
+  How I Work's `.nb-label` and `.hw-q-num` join the muted
+  annotation group; its section eyebrows stay coral-deep.
 - Header: nav bar 62px (60px on phones + safe-area inset), brand
   wordmark 1.25rem desktop / 1.5rem mobile, hamburger three 27px
   1.5px lines in a ≥44px tap target.
@@ -214,13 +218,22 @@ phrase reads as plain words in the sentence without it. Tabs live
 on cream surfaces plus the one dark CTA band (ink text on butter
 holds 12:1 there); a pastel tab on the old coral band fought the
 gradient and was removed 2026-07. Current placements — exactly
-six phrases: "what to build." (blush, home problem), "different
+nine phrases: "what to build." (blush, home problem), "different
 needs." (blush, work h1), "actually needs." (blush, about h1 —
 needs sit on the question side), "work together." (butter,
 services h1), "marketing experience." (butter, expertise h1),
-and "comes next." (butter, dark CTA bands + about contact) —
+"practice." (butter, expertise CTA), "businesses." (butter, how
+i work h1 — the collaboration side), "a lot of questions."
+(blush, how i work section 2 — literally the open-question
+side), and "comes next." (butter, dark CTA bands + about
+contact) —
 every page-top carries emphasis (home via the coral italic em)
 and every page runs exactly two tabs; 404 stays plain,
+A THIRD tab on expertise ("work together." in blush on the core
+h2) was removed July 2026 during the How I Work pattern audit:
+it broke the two-per-page count AND the one-colour-per-phrase
+rule, since services already owns that phrase in butter. Audit
+the count whenever a page gains a heading.
 organic blob portrait with offset coral outline, and the offer
 card-art compositions (home): a pastel gradient blob backdrop, the
 offer's mark enlarged over it, and small geometric accents (dot
@@ -481,8 +494,9 @@ gives them context. Never add a "trusted by" logo strip.
 
 ## Site structure
 
-- Five plain HTML pages, no framework/build: `index.html`,
+- Six plain HTML pages, no framework/build: `index.html`,
   `services.html` (offer ladder + sticky anchor nav),
+  `how-i-work.html` (what an engagement is actually like),
   `work.html` (case studies: challenge → approach → impact),
   `expertise.html` (core expertise -> results -> breadth -> platforms),
   `about.html` (bio, career story, team testimonials, education, contact
@@ -492,7 +506,12 @@ gives them context. Never add a "trusted by" logo strip.
   trimming whole sentences.
 - Shared `styles.css` + `main.js`. Nav/footer duplicated per page inside
   `<!-- SHARED NAV/FOOTER — keep in sync -->` comment blocks; only
-  `aria-current="page"` differs.
+  `aria-current="page"` differs. NAV ORDER is the visitor's
+  sequence, not alphabetical: Services (what I offer) -> How I
+  Work (what it is like) -> Work (proof) -> Expertise (depth) ->
+  About (who) -> Let's talk. All six navs and all six footers are
+  written from one generator block; if they ever drift, rewrite
+  them together rather than patching one.
 - Placeholders: `{{PLACEHOLDER: …}}` = real data needed;
   `{{RESULT_n}}` = case-study outcomes; `{{ADJUST}}` (HTML comments) =
   copy Amber wants to tune. Never delete unresolved markers.
@@ -554,6 +573,16 @@ the capability feat-stats (3.1/2.4rem), and the brand name
 (25/22). Everything else must resolve to
 h1/h1-long/h2/h2-long/h3/intro/body/small/eyebrow. Re-run the
 census (scratchpad fontaudit) before shipping type changes.
+Added July 2026 with How I Work, all on token: the notebook
+questions and outcome titles at intro, the five simplifying
+questions at h3, its prose and margin notes at body, its panel
+labels and question numbers at eyebrow. TWO further sanctioned
+exceptions from that page: the pull-quote grade (24.8 -> 36,
+between h2 and h3) and the margin note, which is the site's only
+serif-ITALIC paragraph — everything else serif is still a
+heading, a card title, or the brand. Verified ladder at 1440:
+64 h1 > 44 h2 > 38 h2-long > 34.9 quote > 30 h3 > 28 breadth >
+25 brand > 21 intro.
 
 ## Section rhythm (2026-07 spacing audit — two values, site-wide)
 
@@ -732,6 +761,101 @@ Work, and `.btn-ghost` (transparent, cream text, hairline border,
 `.cta-band .btn` in the stylesheet or the coral fill outranks it.
 Every other page still closes with "Let's figure out what comes
 next."
+
+## How I Work page (2026-07, Amber's brief)
+
+`how-i-work.html`. The page answers one question — what is it
+actually like to work with Amber — and it is written to leave a
+reader with six impressions she named: she will take the time to
+understand my business, she will not force a solution, she sees
+the bigger picture, she can do strategy AND execution, she will
+challenge assumptions, and she will leave the business better
+than she found it. Her tone brief: conversational, thoughtful,
+approachable, practical, editorial, confident without being
+corporate. BANNED on this page beyond the sitewide list, all
+hers: operational excellence, digital transformation, proven
+methodology, discovery/strategy/execution as a named process,
+tailored solutions, optimize your business, unlock potential.
+"Speaking across a table, not giving a keynote."
+
+STRUCTURE — an editorial feature, deliberately not another card
+page. Six content sections, alternating shape, one artifact per
+section at most:
+1. PAGE HEAD (`.page-head-art`, the Services head-grid reused):
+   eyebrow, h1 "How I work with businesses.", the lede, then a
+   SECOND short paragraph (`.hw-stanza`, muted, 480px) carrying
+   the four "Sometimes it is ..." lines. The only two-paragraph
+   page head on the site; the second paragraph is deliberately
+   quieter so the top stays lighter than home.
+2. EVERY BUSINESS IS DIFFERENT — full-width prose, closing on
+   pull quote 1.
+3. I ASK A LOT OF QUESTIONS — copy left, `.hw-notebook` right:
+   the one boxed artifact on the page, five real opening
+   questions numbered 01-05 on hairlines, questions set in the
+   display face at the card-title grade.
+4. I LOOK BEYOND MARKETING — REVERSED split. The tracks swap
+   with the order (`.hw-reverse` sets 0.78fr/1fr) so the copy
+   always keeps the wider column; putting only `order` on the
+   children hands the artifact the wide track and reads as a
+   bug. Carries the connection map plus margin note 1.
+5. STRATEGY AND EXECUTION BELONG TOGETHER — the strongest
+   section by construction: full-width h2 and lede, then copy
+   left with pull quote 2 tucked under it (this closes the void
+   the 7-item list opens on the right) and `.hw-do` right, the
+   hands-on list on the Expertise coral-rule marker.
+6. I LOOK FOR WAYS TO SIMPLIFY — carried by typography alone:
+   the five questions as `.hw-q-list`, display face at the h3
+   grade, numbered in the eyebrow grade on hairlines. Closes on
+   margin note 2.
+7. WHERE THIS WORK LEADS — eight outcomes on a hairline grid
+   (4-up / 2-up / 1-up), rules alternating coral and lavender.
+   NOT cards. Outcomes, never deliverables. Keep every title to
+   one line so the descriptions share a baseline.
+
+CLOSING BAND is page-specific, the site's second (expertise has
+the other): "Sometimes the answer is marketing. Sometimes it
+isn't." — a deliberate bookend to the head's four "Sometimes"
+lines. Her closing sentence runs as a second, wider paragraph
+(`.cta-band-close`, 620px, cream rather than the muted
+supporting tone). Actions are ONE coral button plus a text link,
+not two buttons: `.cta-band .arrow-link` flips the underline to
+cream (13.6:1 on the ink band).
+
+TWO NEW DEVICES, both documented so they do not spread:
+- THE WORK SURFACE (page head, 480x272, phone gets its own
+  480x140 band per the never-scale-the-desktop rule). A ruled
+  page, a page wireframe, two notes, a small right-angle
+  workflow, and coral annotation marks drawn over the top. The
+  ruled lines are UNEVEN-LENGTH STROKES standing in for
+  handwriting — never letterforms, never a scribble, which is
+  what would make it read as a scrapbook. This page carries the
+  site's ONE arrowhead (two short strokes on the annotation
+  curve); the no-arrowheads rule still holds everywhere else.
+- MARGIN ANNOTATIONS (`.hw-note`, two per page, never more). A
+  short hand-drawn coral gesture over or under one italic line
+  in the display face. This is the site's ONE sanctioned
+  serif-italic PARAGRAPH — the font census rule that serif
+  belongs to headings, card titles and the brand still holds for
+  everything else. Note 1 takes the gesture above with an
+  arrowhead, note 2 takes a flat underline below; they are not
+  the same component twice.
+
+THE CONNECTION MAP (`.hw-map`, 300x260) is drawn as a FLOOR
+PLAN, not another orbital system: five rounded tiles routed at
+right angles, marketing the only filled one, one route leaving
+the frame and two loose nodes. It has to look nothing like the
+Services head diagram or the two illustrations blur together.
+No labels, same reason as Services.
+
+PULL QUOTES take one new display grade, clamp 24.8 -> 36px,
+deliberately set BETWEEN h2 (30/44) and h3 (24/30) so they never
+outrank a section title. Quote 1 wears the short coral rule
+above, quote 2 wears it below.
+
+THE TRANSITION BAND LINE IS A PLACEHOLDER. Every other band on
+the site is Amber's own sentence, verbatim; this one reads
+"Understanding the business comes before recommending anything."
+and is marked {{ADJUST}} in the markup until she writes her own.
 
 ## Building section (Work page — curated collection, brief v3)
 

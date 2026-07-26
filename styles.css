@@ -1696,7 +1696,7 @@ a.bld-item .bld-item-arrow {
 .pa-label {
   display: block;
   font-family: var(--font-body); font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
+  letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 10px;
 }
 .plat-also p { color: var(--muted); max-width: 76ch; }
@@ -1717,7 +1717,7 @@ a.bld-item .bld-item-arrow {
 .pa-panel-label {
   display: block; margin-top: 22px;
   font-family: var(--font-body); font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
+  letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--muted); opacity: 0.7;
 }
 /* secondary by construction: smaller labels, tighter rows, quieter marks */
@@ -2221,6 +2221,232 @@ footer {
 }
 
 
+/* ============ How I Work page ============
+   An editorial feature, not another card page: alternating two-column
+   splits, one artifact panel per section at most, hairline rules
+   instead of boxes, and two pull quotes on opposite sides. Reuses the
+   Services head-grid, the Expertise coral-rule markers, and the
+   existing reveal + stroke draw-on. No new motion. */
+
+/* The head's second paragraph: four short lines under the lede,
+   quieter than it so the page top stays restrained. */
+.hw-stanza { margin: 14px 0 0; max-width: 480px; color: var(--muted); }
+
+/* Body prose blocks. Measure caps at ~64 characters so the sections
+   read as columns of an article, never as full-width slabs. */
+.hw-body p { max-width: 64ch; margin-bottom: 18px; }
+.hw-body > :last-child { margin-bottom: 0; }
+
+/* Pull quotes: short coral rule, then the line in the display face at
+   400 so it reads as something spoken. Two per page, opposite sides. */
+.hw-quote {
+  position: relative;
+  max-width: 17em;
+  margin: 66px 0 0;
+  padding-top: 26px;
+}
+.hw-quote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 2px;
+  background: var(--coral);
+}
+.hw-quote p {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+/* Second quote flips the rule under the line so the two moments are
+   not the same component twice. */
+.hw-quote-under { margin-top: 44px; padding-top: 0; padding-bottom: 24px; }
+.hw-quote-under::before { top: auto; bottom: 0; }
+
+/* Alternating splits: copy column plus one artifact. */
+.hw-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: 48px 72px;
+  align-items: start;
+  margin-top: 34px;
+}
+.hw-split-even { grid-template-columns: minmax(0, 1fr) minmax(0, 0.66fr); }
+/* Reversed rows put the artifact first on desktop and keep the copy
+   first in the source order, so reading order never depends on CSS.
+   The tracks swap with it: the copy always gets the wider column. */
+.hw-reverse { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr); }
+.hw-reverse .hw-body-second { order: 2; }
+.hw-reverse .hw-map { order: 1; }
+
+/* The questions panel: the one boxed artifact on the page. Numbered
+   rows on hairlines, questions in the display face. */
+.hw-notebook {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px 30px 26px;
+}
+.nb-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.nb-list { list-style: none; margin: 0; padding: 0; counter-reset: nb; }
+.nb-list li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 12px;
+  padding: 15px 0;
+  border-top: 1px solid rgba(46, 42, 39, 0.1);
+}
+.nb-list li:first-child { border-top: 0; padding-top: 2px; }
+.nb-list li:last-child { padding-bottom: 2px; }
+.nb-list li::before {
+  counter-increment: nb;
+  content: counter(nb, decimal-leading-zero);
+  color: var(--coral-deep);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding-top: 0.42em;
+}
+.nb-list span {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.32;
+}
+
+/* The hands-on list: same short coral rule the Expertise page uses as
+   a list marker, so the two pages share one bullet language. */
+.hw-do { list-style: none; margin: 0; padding: 0; }
+.hw-do li {
+  position: relative;
+  padding: 13px 0 13px 26px;
+  border-top: 1px solid rgba(46, 42, 39, 0.1);
+  color: var(--body);
+}
+.hw-do li:first-child { border-top: 0; }
+.hw-do li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.42em;
+  width: 12px;
+  height: 2px;
+  background: var(--coral);
+}
+
+/* Margin annotations: a short hand-drawn coral gesture over an italic
+   line in the display face. The site's one sanctioned handwriting
+   stand-in — never letterforms, never a scribble. Two per page. */
+.hw-note { margin-top: 34px; max-width: 34ch; }
+.hw-note svg { display: block; width: 92px; height: 22px; color: var(--coral-deep); margin-bottom: 6px; }
+.hw-note p {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--muted);
+  margin: 0;
+}
+.hw-note-wide { max-width: 42ch; margin-top: 42px; }
+.hw-note-wide svg { width: 148px; height: 10px; margin: 10px 0 0; }
+
+/* The five simplifying questions: large display lines on hairlines,
+   numbered in the eyebrow grade. Typography carries this section. */
+.hw-q-list { list-style: none; margin: 44px 0 0; padding: 0; max-width: 900px; }
+.hw-q-list li {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 18px;
+  align-items: baseline;
+  padding: 22px 0;
+  border-top: 1px solid rgba(46, 42, 39, 0.12);
+}
+.hw-q-list li:last-child { border-bottom: 1px solid rgba(46, 42, 39, 0.12); }
+.hw-q-num {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--muted);
+}
+.hw-q-list p {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Outcomes: a hairline grid, not cards. Rules alternate coral and
+   lavender by column so the eight entries do not read as one repeated
+   component. */
+.lead-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 42px 36px;
+  margin-top: 52px;
+}
+.lead { padding-top: 16px; border-top: 1px solid rgba(255, 111, 97, 0.42); }
+.lead:nth-child(2n) { border-top-color: rgba(150, 138, 214, 0.5); }
+.lead h3 { margin-bottom: 7px; line-height: 1.25; }
+.lead p { color: var(--muted); margin: 0; }
+
+/* The connection map sits a little low against its copy so the two
+   columns do not start on the same line. */
+.hw-map { padding-top: 10px; }
+.hw-map .glyph { width: 100%; max-width: 300px; height: auto; margin: 0; display: block; }
+
+/* Closing band: the last line carries the page, so it reads at the
+   band's full width rather than the 480px supporting measure. */
+.cta-band .cta-band-close { max-width: 620px; color: var(--bg); }
+/* Secondary action is a text link, not a second button; the arrow
+   underline flips to cream on the ink band. */
+.cta-band .arrow-link {
+  color: var(--bg);
+  background-image: linear-gradient(var(--bg), var(--bg));
+}
+.cta-band .arrow-link:hover {
+  color: #FFD9CC;
+  background-image: linear-gradient(#FFD9CC, #FFD9CC);
+}
+.cta-band .cta-actions { align-items: center; }
+
+@media (max-width: 1020px) {
+  .lead-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 38px 40px; }
+  .lead:nth-child(2n) { border-top-color: rgba(255, 111, 97, 0.42); }
+  .lead:nth-child(4n+2), .lead:nth-child(4n+3) { border-top-color: rgba(150, 138, 214, 0.5); }
+}
+@media (max-width: 860px) {
+  .hw-split, .hw-split-even { grid-template-columns: 1fr; gap: 32px; }
+  /* On one column the artifact always follows its copy. */
+  .hw-reverse .hw-body-second { order: 0; }
+  .hw-reverse .hw-map { order: 1; }
+  .hw-map .glyph { max-width: 260px; }
+}
+@media (max-width: 760px) {
+  .hw-quote { margin-top: 40px; max-width: none; padding-top: 22px; }
+  .hw-quote-under { margin-top: 34px; padding-bottom: 20px; }
+  .hw-notebook { padding: 22px 20px 20px; }
+  .nb-list li { grid-template-columns: 26px minmax(0, 1fr); gap: 10px; padding: 13px 0; }
+  .hw-q-list { margin-top: 32px; }
+  .hw-q-list li { grid-template-columns: 44px minmax(0, 1fr); gap: 14px; padding: 18px 0; }
+  .hw-note { margin-top: 26px; max-width: none; }
+  .hw-note-wide { margin-top: 30px; max-width: none; }
+  .lead-grid { gap: 30px 26px; margin-top: 34px; }
+  .hw-body p { margin-bottom: 16px; }
+}
+@media (max-width: 430px) {
+  .lead-grid { grid-template-columns: 1fr; gap: 26px; }
+  .lead:nth-child(2n) { border-top-color: rgba(150, 138, 214, 0.5); }
+  .lead:nth-child(4n+3) { border-top-color: rgba(255, 111, 97, 0.42); }
+}
+
+
 /* ============ Type system (see MASTER.md) ============
    One responsive scale across every page. Deliberate exceptions:
    the home hero h1 (3-line rule), the home problem h2 (mobile
@@ -2335,6 +2561,25 @@ footer p,
 .pg h3 { font-size: var(--fs-intro); line-height: 1.25; }
 .plat-all summary { font-size: var(--fs-small); }
 .exp-strip li { font-size: var(--fs-intro); line-height: 1.2; }
+
+/* How I Work joins the shared scale: prose at body, panel questions
+   and outcome titles on the card-title grade, the simplifying
+   questions at h3, numbers and panel labels at eyebrow. The pull
+   quotes take one new display grade, deliberately set between h2 and
+   h3 so they never outrank a section title. */
+.hw-stanza,
+.hw-body p,
+.hw-do li,
+.hw-note p { font-size: var(--fs-body); line-height: 1.55; }
+.hw-note p { line-height: 1.45; }
+.nb-list span,
+.lead h3 { font-size: var(--fs-intro); }
+.hw-q-list p { font-size: var(--fs-h3); }
+.lead p { font-size: var(--fs-small); line-height: 1.5; }
+.nb-label,
+.nb-list li::before,
+.hw-q-num { font-size: var(--fs-eyebrow); }
+.hw-quote p { font-size: clamp(1.55rem, 1.316rem + 0.96vw, 2.25rem); line-height: 1.28; }
 
 /* Uppercase tags and tier chips read as eyebrow-grade metadata */
 .card .card-tag,
