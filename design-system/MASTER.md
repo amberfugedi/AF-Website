@@ -751,25 +751,30 @@ Six sections, all short:
    inline sprite was deleted. Note "smallest" does not mean less
    padding — the section rhythm stays uniform, because uneven
    seams are something Amber has flagged twice with screenshots.
+   Tools is now the last section before the closing band.
 
 The tools line — "The tool matters less than knowing when—and
 why—to use it." — is the ONE sanctioned em dash pair in site
 copy. It is hers, verbatim, and her lines outrank the
 no-em-dashes rule.
 
-COMPANY STRIP: names, small and quiet, paired tightly to the
-section above it (104px, the same coda treatment the platform
-strip used). She asked for small monochrome logos; none of the
-five exist in the repo and this sandbox cannot reach the web, so
-the names hold the slot rather than being invented. Never
-labelled "Trusted by".
+NO COMPANY STRIP. It was built here twice and is now REMOVED
+(Amber, July 2026: "I don't know I need the company names on
+expertise?"). She was right, and by her own rule for this page —
+do not repeat what Services, Projects or About already cover.
+Measured before cutting it: PERQ appears 19 other times on the
+site, Scanoptics 11, StormwaterONE 10, MembersFirst 11, and the
+industries sentence was a weaker restatement of one already on
+About. Projects does credibility properly, with case studies and
+published numbers. Do not reintroduce a name or logo strip here,
+with or without logos.
 
 RESIST ADDING. Every one of these was built on this page and
 removed: a seven-word typographic composition, four oversized
 statement rows, a numbered 01-05 index, a sticky side statement,
 asymmetric platform groups with per-group rule treatments, a
-lavender label, per-tool logos, and a five-frame rotated artifact
-collage. If a future brief asks for "more" here, the answer is
+lavender label, per-tool logos, a five-frame rotated artifact
+collage, and the company name strip. If a future brief asks for "more" here, the answer is
 almost always a subtraction somewhere else.
 
 ## How I Work page (2026-07, Amber's brief)

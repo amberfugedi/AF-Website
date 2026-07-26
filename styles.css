@@ -1671,22 +1671,6 @@ a.bld-item .bld-item-arrow {
 .plat h3 { font-family: var(--font-body); font-weight: 600; color: var(--muted); margin-bottom: 5px; }
 .plat p { color: var(--muted); opacity: 0.86; margin-bottom: 0; }
 
-/* --- Company experience: small, quiet, confident. Names until the
-   five real logos exist; inventing a company mark is not ours to
-   do. --- */
-/* The strip is a coda to the section above it, not a section of its
-   own — same pairing the platform strip used before. */
-.exp-strip-wrap { padding-top: 0; }
-.exp-strip {
-  list-style: none; margin: 0 0 12px; padding: 20px 0;
-  display: flex; flex-wrap: wrap; align-items: center;
-  gap: 10px 26px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-.exp-strip li { font-family: var(--font-display); color: var(--muted); letter-spacing: 0.005em; }
-.exp-strip-note { color: var(--muted); max-width: 62ch; margin-bottom: 0; }
-
 /* --- two actions in the closing band --- */
 .cta-actions {
   display: flex; gap: 14px;
@@ -1723,7 +1707,6 @@ a.bld-item .bld-item-arrow {
   .idx-cat:last-child { border-bottom: 1px solid var(--line); }
 
   .plat-grid { grid-template-columns: 1fr; gap: 16px; }
-  .exp-strip { gap: 8px 18px; padding: 16px 0; }
   .cta-actions { flex-direction: column; align-items: stretch; }
 }
 
@@ -2482,12 +2465,11 @@ footer p,
 .row h3, .idx-cat h3 { font-size: var(--fs-intro); line-height: 1.25; }
 .row p, .idx-cat p, .craft-support { font-size: var(--fs-body); line-height: 1.55; }
 .craft-line { font-size: clamp(1.55rem, 1.316rem + 0.96vw, 2.25rem); line-height: 1.28; }
-.tool-line, .exp-strip-note { font-size: var(--fs-small); line-height: 1.55; }
+.tool-line { font-size: var(--fs-small); line-height: 1.55; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
 .res-num { font-size: clamp(3rem, 6.4vw, 4.6rem); }
 .res-lab { font-size: var(--fs-small); line-height: 1.4; }
 .plat-all summary { font-size: var(--fs-small); }
-.exp-strip li { font-size: var(--fs-intro); line-height: 1.2; }
 
 /* How I Work joins the shared scale: prose at body, panel questions
    and outcome titles on the card-title grade, the simplifying
