@@ -739,11 +739,17 @@ Flow, after the third pass:
    CAPTION — the statement sits with the work instead of above
    empty space, which is what it used to do. Phones put the
    artifact directly beneath the copy.
-   THE ARTIFACT is currently a crop of the campaign roadmap from
-   Amber's own desk collage, white-pointed onto the page cream
-   and marked {{ADJUST}}. It is real, it is hers, and it is a
-   STOPGAP: swap the image and caption the moment she sends a
-   project screenshot. Never fabricate one.
+   THE ARTIFACT is the services page of the Robert James
+   Restoration site (`artifact-robert-james-site.webp`), a real
+   client site Amber designed and still builds on. The collage
+   crop that stood in before it is retired. Robert James was
+   chosen over the other screenshots she sent because it is
+   ALREADY A NAMED CLIENT on the Projects page — publishing a
+   screenshot claims the work, and that disclosure is hers to
+   make. Two other client sites (Andrea's Bridal and Alterations,
+   Nutmeg Technologies) and three MembersFirst campaign pieces are
+   in hand and unused, pending her word on naming the first two.
+   Never fabricate an artifact; there is no longer any excuse to.
 3. HOW MY EXPERTISE SHOWS UP. Four compact rows, title plus one
    sentence. The titles are VERBS in her voice ("I set the
    direction", "I create demand", "I build what supports the
