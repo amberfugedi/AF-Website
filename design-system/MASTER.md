@@ -311,8 +311,18 @@ How I Work hero (see that page's section). The cream portrait
 serves only as the structured-data headshot (amber-fugedi.jpg).
 The three small ones share the organic radius family. The hero
 photograph is HERS SPECIFICALLY and stays a page of one: no other
-page opens on a photograph, none goes on the proof pages (results
-are the picture), and no photo is used twice.
+page opens on a photograph, and no photo is used twice.
+
+WORK ARTIFACTS ARE A SEPARATE CATEGORY and are not governed by the
+photography rules above. Screenshots and photographs of real client
+deliverables belong on Projects, inside the case they prove, and one
+sits on Expertise. They take a plain rectangular frame — hairline
+`rgba(46,42,39,.12)`, 4-5px radius, soft shadow — never the organic
+blob radius, which belongs to Amber's own portraits. THE ONE HARD
+RULE: an artifact must be REAL and the client must already be named
+on the site, because publishing a screenshot claims the work and
+naming a client is a disclosure only Amber can make. Never draw,
+mock up, or invent one.
 
 ## Identity marks (the af system)
 
@@ -642,6 +652,23 @@ before shipping spacing changes):
   ~217px at 900px viewport height; do not pin it.
 
 ## Projects page framing (renamed from Work, 2026-07)
+
+CASE ARTIFACTS (added July 2026, from assets Amber supplied): each
+client case can close on a `.case-art` row — a short row of small
+real pieces on a hairline, plus a one-line caption. NEVER a
+gallery. Images are sized by HEIGHT (200px desktop / 132px phone)
+so a row of portrait flyers and a row of landscape screenshots
+both line up without per-case rules. Live now: Robert James
+Restoration (two site screenshots, "Brand and website, built and
+maintained."), MembersFirst CT FCU (three campaign flyers,
+"Campaign creative for member growth and product promotion."),
+A2 Exteriors (the yard sign, "Brand applied to signage." — the
+case copy already named yard signs, so the image lands on its own
+sentence). Total added weight 320KB across seven webp files.
+IN HAND AND UNUSED: screenshots of two more client sites,
+Andrea's Bridal and Alterations and Nutmeg Technologies. Neither
+company appears anywhere on the site, so publishing them would
+name two new clients publicly — hold until Amber confirms.
 
 The page is `projects.html` (Amber, July 2026: "update work to
 projects"). "Work" is retired as a PAGE NAME from the nav,

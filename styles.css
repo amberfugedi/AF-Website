@@ -1706,6 +1706,39 @@ a.bld-item .bld-item-arrow {
 }
 
 
+/* ---- Case study artifacts (Projects) ----
+   Real client work sitting under the case it belongs to: a short row
+   of small pieces, never a gallery. Every image is sized by HEIGHT so
+   a row of portrait flyers and a row of landscape screenshots both
+   line up without per-case rules. */
+.case-art {
+  margin: 30px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(46, 42, 39, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+}
+.case-art img {
+  display: block;
+  height: 200px;
+  width: auto;
+  max-width: 100%;
+  border: 1px solid rgba(46, 42, 39, 0.12);
+  border-radius: 4px;
+  box-shadow: 0 14px 32px -22px rgba(46, 42, 39, 0.4);
+}
+.case-art figcaption {
+  flex-basis: 100%;
+  color: var(--muted);
+  margin-top: 2px;
+}
+@media (max-width: 760px) {
+  .case-art { gap: 12px; margin-top: 24px; padding-top: 18px; }
+  .case-art img { height: 132px; }
+}
+
 /* ============ About page ============ */
 .about-grid {
   display: grid;
@@ -2465,6 +2498,7 @@ footer p,
 .range-line { font-size: var(--fs-intro); line-height: 1.35; }
 .tool-line, .industries { font-size: var(--fs-small); line-height: 1.55; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
+.case-art figcaption { font-size: var(--fs-small); line-height: 1.45; }
 .res-num { font-size: clamp(3rem, 6.4vw, 4.6rem); }
 .res-lab { font-size: var(--fs-small); line-height: 1.4; }
 .plat-all summary { font-size: var(--fs-small); }
