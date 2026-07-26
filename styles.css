@@ -1479,11 +1479,15 @@ a.bld-item .bld-item-arrow {
   position: relative;
   background: var(--bg-raised);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: clamp(28px, 4.5vw, 44px);
-  margin-bottom: 22px;
-  transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease);
+  border-radius: 16px;
+  padding: clamp(22px, 3.4vw, 32px);
+  margin-bottom: 14px;
+  transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease), border-radius 0.2s var(--ease);
 }
+/* open cards earn the fuller card treatment; collapsed rows stay
+   compact and closer to the editorial styling of the rest of the site
+   (Amber: the card "feels very tall and slightly disconnected") */
+.case:has(.case-d[open]) { border-radius: var(--radius); padding: clamp(28px, 4.5vw, 40px); }
 /* Featured-work hover: a quiet layered gradient surfaces behind the
    case content — the aura thread carried into the cards. */
 .case > * { position: relative; z-index: 1; }
@@ -1520,12 +1524,67 @@ a.bld-item .bld-item-arrow {
   margin-bottom: 8px;
 }
 .case h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 26px; }
+.case-head h2 { margin-bottom: 6px; }
 
 .case-cols {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* two or three columns depending on whether the case has impact
+     detail beyond its preview line — auto-fit rather than a fixed 3 */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 28px;
 }
+
+/* ---- Case disclosures ----
+   Every case previews first and opens on demand (Amber, July 2026:
+   "let someone skim all of your work first, then choose where to go
+   deeper"). The whole preview is the control, not an icon: <summary>
+   carries the tag, name, scope, IMPACT LINE and a thumbnail strip, so
+   the strongest proof and one image survive the collapse. */
+.case-d > summary {
+  display: block;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+.case-d > summary::-webkit-details-marker { display: none; }
+.case-d > summary:focus-visible {
+  outline: 2px solid var(--coral-deep);
+  outline-offset: 6px;
+  border-radius: 6px;
+}
+.case-head h2 { margin-bottom: 6px; }
+.case-scope { color: var(--muted); margin-bottom: 10px; }
+.case-impact { color: var(--coral-deep); font-weight: 600; margin-bottom: 0; max-width: 62ch; }
+.case-thumbs { display: flex; gap: 8px; margin-top: 16px; }
+/* the preview strip is the collapsed stand-in for the real figure;
+   once open, the full-size images replace it */
+.case-d[open] .case-thumbs { display: none; }
+/* the hover lift is a preview affordance; an open case is a page of
+   content and should not float */
+.case:has(.case-d[open]):hover { transform: none; box-shadow: none; }
+.case-thumbs img {
+  height: 56px;
+  width: auto;
+  border: 1px solid rgba(46, 42, 39, 0.12);
+  border-radius: 3px;
+}
+.case-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 18px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--coral-deep);
+}
+.case-d > summary:hover .case-toggle { color: #96263C; }
+.tg-b { display: none; }
+.case-d[open] .tg-a { display: none; }
+.case-d[open] .tg-b { display: inline; }
+.case-chev { display: inline-block; transition: transform 0.2s var(--ease); }
+.case-d[open] .case-chev { transform: rotate(180deg); }
+/* the detail sits under a hairline so the seam reads as structure */
+.case-body { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
 @media (max-width: 800px) { .case-cols { grid-template-columns: 1fr; gap: 20px; } }
 
 .case-col h3 {
@@ -2524,7 +2583,9 @@ footer p,
 .range-line { font-size: var(--fs-intro); line-height: 1.35; }
 .tool-line, .industries, .rows-art figcaption { font-size: var(--fs-small); line-height: 1.55; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
-.case-art figcaption { font-size: var(--fs-small); line-height: 1.45; }
+.case-art figcaption, .case-scope { font-size: var(--fs-small); line-height: 1.45; }
+.case-impact { font-size: var(--fs-body); line-height: 1.5; }
+.case-toggle { font-size: var(--fs-small); }
 .res-num { font-size: clamp(3rem, 6.4vw, 4.6rem); }
 .res-lab { font-size: var(--fs-small); line-height: 1.4; }
 .plat-all summary { font-size: var(--fs-small); }

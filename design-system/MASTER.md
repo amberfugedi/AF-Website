@@ -653,6 +653,34 @@ before shipping spacing changes):
 
 ## Projects page framing (renamed from Work, 2026-07)
 
+CASES ARE DISCLOSURES (July 2026, Amber: "the page is asking people
+to scroll through a full case study for every tab... let someone skim
+all of your work first, then choose where to go deeper"). Each case is
+a native `<details>`; `<summary>` is the whole preview row, not an
+icon, and carries the tag, the name, a one-line SCOPE, the IMPACT LINE
+and a thumbnail strip. Her rules, all implemented:
+- the impact summary stays VISIBLE while collapsed, because it is the
+  strongest proof (coral, body scale);
+- one small image per project survives the collapse — the page must
+  not become another text list. The strip hides when open and the
+  full-size figure takes over;
+- the label reads "View project" / "Close project", never a bare plus;
+- desktop opens the FIRST case in each chapter, phones start every case
+  CLOSED (main.js, evaluated once at load);
+- a case linked to directly (`#perq`, and every in-page anchor from
+  home) opens itself, or the link would land on a closed row;
+- the collapsed card is tighter than the open one — 16px radius and
+  ~22-32px padding collapsed, the full 24px/40px when open, via
+  `.case:has(.case-d[open])`. The hover lift is a preview affordance
+  and is cancelled once the case is open.
+Scope lines are CONDENSED FROM each case's own Approach copy, never
+invented. PERQ is the only case whose impact runs past a preview line,
+so its first sentence previews and the rest lives in the open state;
+every other case shows its whole impact collapsed and drops the Impact
+column from the open grid rather than repeating itself. `.case-cols`
+is auto-fit for that reason.
+Measured: the phone page fell from 9297px to 6112px.
+
 CASE ARTIFACTS (added July 2026, from assets Amber supplied): each
 client case can close on a `.case-art` row — a short row of small
 real pieces on a hairline, plus a one-line caption. NEVER a

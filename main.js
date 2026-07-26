@@ -197,6 +197,31 @@
     xpRows.forEach(function (d) { d.setAttribute("open", ""); });
   }
 
+  /* ---------- Case disclosures (projects) ----------
+     Desktop opens the FIRST case in each chapter so the page never
+     reads as a bare list; phones start every case closed, which is the
+     whole point of collapsing them (Amber, July 2026). A case linked
+     to directly (/projects.html#perq, or a click on an in-page anchor)
+     always opens, or the link would land on a closed row. */
+  var caseRows = document.querySelectorAll(".case-d");
+  if (caseRows.length) {
+    if (window.matchMedia("(min-width: 761px)").matches) {
+      document.querySelectorAll("main > section").forEach(function (sec) {
+        var first = sec.querySelector(".case-d");
+        if (first) first.setAttribute("open", "");
+      });
+    }
+    var openTarget = function () {
+      var id = location.hash.slice(1);
+      if (!id) return;
+      var art = document.getElementById(id);
+      var d = art && art.querySelector(".case-d");
+      if (d) d.setAttribute("open", "");
+    };
+    openTarget();
+    window.addEventListener("hashchange", openTarget);
+  }
+
   /* ---------- Nav: scrolled state + mobile toggle ---------- */
   var nav = document.querySelector(".site-nav");
   var onScroll = function () {
