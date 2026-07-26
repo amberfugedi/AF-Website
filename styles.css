@@ -1618,7 +1618,6 @@ a.bld-item .bld-item-arrow {
    statement rows, the numbered index, the asymmetric platform groups
    and the logo sprite were all built here and all removed. */
 
-.range-section { overflow: hidden; }
 
 /* --- 1. The range, with the work beside it ---
    On a WHITE BAND and in two columns, because on the aura with a full
@@ -1631,25 +1630,50 @@ a.bld-item .bld-item-arrow {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
   gap: clamp(36px, 5vw, 76px);
-  align-items: center;
+  /* the headline starts on the same line as the project label; with
+     the artifact column now carrying meta, image, belief and link,
+     centring left the copy floating in the middle of nothing */
+  align-items: start;
 }
 .range-copy p { color: var(--muted); max-width: 52ch; margin-bottom: 0; }
 .range-title { margin-bottom: 16px; letter-spacing: -0.02em; }
-/* Editorial crop, not a portfolio thumbnail: the artifact is cropped
-   to the hero alone and runs past its column and off the section, so
-   it reads as a composed detail rather than a pasted screenshot. */
-.range-art { margin: 0; }
-.range-art img {
+/* A PROJECT DETAIL, not a loose screenshot (Amber, July 2026: "make
+   it look like a project detail, not just an image"). The crop alone
+   still read as pasted, however it was framed, because nothing told
+   the visitor what they were looking at. The label block does that:
+   kind, client, disciplines, then the work. The image fills its
+   column edge to edge rather than bleeding off the page — the meta
+   above and the belief below are part of the same unit, and the unit
+   should hold together. */
+.art-meta { display: block; margin-bottom: 14px; }
+.art-kind {
   display: block;
-  width: calc(100% + max(24px, (100vw - 1120px) / 2 + 24px));
-  max-width: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+.art-client {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin-bottom: 5px;
+}
+.art-disc { display: block; color: var(--muted); }
+.art-frame { margin: 0; }
+.art-frame img {
+  display: block;
+  width: 100%;
   height: auto;
   border: 1px solid rgba(46, 42, 39, 0.12);
-  border-left-width: 0;
-  border-radius: 0 4px 4px 0;
-  box-shadow: 0 20px 44px -24px rgba(46, 42, 39, 0.4);
+  border-radius: 5px;
+  box-shadow: 0 18px 40px -24px rgba(46, 42, 39, 0.36);
 }
-.range-art figcaption { margin-top: 20px; max-width: 440px; }
+.range-art { margin: 0; }
+.range-line { margin-top: 20px; }
 .range-line {
   display: block;
   font-family: var(--font-display);
@@ -1674,21 +1698,10 @@ a.bld-item .bld-item-arrow {
 
 /* A second, different KIND of proof under the rows: campaign work
    rather than another website, so the page reads as a narrative
-   instead of one repeated visual (Amber, July 2026). Bleeds right
-   like the range crop; the section clips it. */
-.rows-section { overflow: hidden; }
+   instead of one repeated visual. Same project-detail treatment as
+   the range artifact — one component, used twice, not two. */
 .rows-art { margin: 44px 0 0; margin-left: auto; width: min(560px, 100%); }
-.rows-art img {
-  display: block;
-  width: calc(100% + max(24px, (100vw - 1120px) / 2 + 24px));
-  max-width: none;
-  height: auto;
-  border: 1px solid rgba(46, 42, 39, 0.12);
-  border-right-width: 0;
-  border-radius: 4px 0 0 4px;
-  box-shadow: 0 20px 44px -24px rgba(46, 42, 39, 0.4);
-}
-.rows-art figcaption { margin-top: 16px; color: var(--muted); }
+.rows-art p { margin-top: 16px; margin-bottom: 0; }
 
 /* --- 4. Results: oversized serif figures on hairlines, no cards --- */
 .res-row {
@@ -1769,10 +1782,8 @@ a.bld-item .bld-item-arrow {
      staggers, and no section carries two columns of text. */
   /* one cropped artifact directly beneath the copy */
   .range-grid { grid-template-columns: 1fr; gap: 26px; }
-  .range-art img { width: calc(100% + 24px); }
-  .range-art figcaption { max-width: none; margin-top: 16px; }
+  .range-line { margin-top: 16px; }
   .rows-art { width: 100%; margin-top: 32px; }
-  .rows-art img { width: calc(100% + 24px); }
 
   .rows { margin-top: 28px; }
   .row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
@@ -2581,7 +2592,9 @@ footer p,
    for a second hero */
 .range-title { font-size: clamp(1.625rem, 1.346rem + 1.1429vw, 2.375rem); line-height: 1.18; }
 .range-line { font-size: var(--fs-intro); line-height: 1.35; }
-.tool-line, .industries, .rows-art figcaption { font-size: var(--fs-small); line-height: 1.55; }
+.tool-line, .industries, .art-disc, .rows-art p { font-size: var(--fs-small); line-height: 1.55; }
+.art-kind { font-size: var(--fs-eyebrow); }
+.art-client { font-size: var(--fs-intro); line-height: 1.25; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
 .case-art figcaption, .case-scope { font-size: var(--fs-small); line-height: 1.45; }
 .case-impact { font-size: var(--fs-body); line-height: 1.5; }

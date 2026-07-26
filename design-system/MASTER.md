@@ -797,23 +797,40 @@ Flow, after the third pass:
    CAPTION — the statement sits with the work instead of above
    empty space, which is what it used to do. Phones put the
    artifact directly beneath the copy.
-   THE ARTIFACT is an EDITORIAL CROP, never a browser screenshot
-   (Amber, July 2026: "it looks like you pasted a screenshot into
-   the page"). The rules: crop to the hero alone with the nav
-   gone, crop in ~12% so it is composed rather than complete, and
-   BLEED IT OFF THE PAGE — `width: calc(100% + max(24px, (100vw -
-   1120px) / 2 + 24px))` puts the right edge exactly on the
-   viewport at every width, with the left border dropped and the
-   radius only on the bleeding side. Note the global
-   `img { max-width: 100% }` will silently clamp any bleed;
-   `max-width: none` is required.
+   THE ARTIFACT IS A PROJECT DETAIL, not a loose crop (Amber, July
+   2026: "make it look like a project detail, not just an image").
+   A bleeding editorial crop was tried first and STILL read as
+   pasted, because nothing told the visitor what they were looking
+   at. What fixed it was the label block, not the framing:
+   `.art-meta` = KIND (eyebrow grade, muted, uppercase) / CLIENT
+   (display face, card-title grade) / DISCIPLINES (small, muted,
+   middot-separated), then the image, then the belief, then the
+   link. The image fills its column edge to edge with a full
+   border and radius; the off-page bleed is retired, because the
+   meta above and the belief below are one unit and the unit has
+   to hold together.
+   Crop rules still stand: hero only, no nav, no browser chrome,
+   cropped in ~12% so it is composed rather than complete.
    PROOF ROTATES BY SECTION so the page reads as a narrative
    rather than one repeated visual: the range carries a WEBSITE
    (Robert James hero), the rows carry CAMPAIGN work (MembersFirst
-   membership band, right-aligned and bleeding the same way), and
-   tools carry nothing. Results is still waiting on a reporting or
+   membership band, same project-detail component, right-aligned),
+   and tools carry nothing. Both link into the matching case on
+   Projects, which opens itself on arrival. THE TWO LINKS ARE
+   WORDED DIFFERENTLY on purpose — "See what that became" and
+   "See how that looked in practice", both Amber's phrasings.
+   "Explore selected work" is retired: it was the last line on the
+   page that sounded like everyone else's site. Results is still waiting on a reporting or
    analytics screenshot — no artifact there until one exists, and
    never a drawn one.
+   THE BELIEF under the artifact is "Good strategy should be
+   recognizable in the finished product." It replaces "Strategy
+   doesn't live in slide decks", which replaced "Strategy only
+   matters if it becomes useful work." Of the options Amber
+   offered, this one is SELF-DEMONSTRATING: it sits directly under
+   a finished product, so the section shows the claim instead of
+   making it. That is the standing test for this page — "am I
+   showing this, or just saying it?"
 3. HOW MY EXPERTISE SHOWS UP. Four compact rows, title plus one
    sentence. The titles are VERBS in her voice ("I set the
    direction", "I create demand", "I build what supports the
