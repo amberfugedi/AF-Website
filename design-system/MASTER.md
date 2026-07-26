@@ -576,7 +576,13 @@ census (scratchpad fontaudit) before shipping type changes.
 Added July 2026 with How I Work, all on token: the notebook
 questions and outcome titles at intro, the five simplifying
 questions at h3, its prose and margin notes at body, its panel
-labels and question numbers at eyebrow. TWO further sanctioned
+labels and question numbers at eyebrow. The Expertise rebuild
+added: the four "ways" statements at h2 (they ARE that section's
+headings), the index and platform-group titles at intro, every
+descriptor at small, the index numbers at eyebrow, the sticky
+statement at h3, and `.craft-line` joining the pull-quote grade.
+The seven connected words carry their own composition scale
+(64 / 44 / 30 / 24 desktop), capped at h1. TWO further sanctioned
 exceptions from that page: the pull-quote grade (24.8 -> 36,
 between h2 and h3) and the margin note, which is the site's only
 serif-ITALIC paragraph — everything else serif is still a
@@ -665,102 +671,109 @@ case-study pages wait until deliverable imagery and long-form
 narratives exist. The full portfolio-redesign mock is parked in
 the session scratchpad.
 
-## Expertise page (renamed from Capabilities, 2026-07)
+## Expertise page (renamed from Capabilities; rebuilt 2026-07)
 
 The page is `expertise.html`; "Capabilities" is retired from the
 nav, footers, titles and sitemap, and `_redirects` 301s the old
-URL. PRESERVED VERBATIM on Amber's instruction: the page head
-(eyebrow relabelled to "Expertise", h1 and lede untouched) and
-the transition band ("AI should give teams more time to think
-strategically, not just more ways to produce."), which sits
-between the expertise section and the results as the page's
-editorial pause.
+URL. REBUILT in full on Amber's second brief: "make the rest of
+the page feel more original, editorial, and human... not a
+generic AI-generated consulting page, resume, capability grid,
+software directory, or polished template." Everything below the
+hero was replaced. The July asymmetric-platform version and the
+four-column core-expertise version are both retired; recover
+from git if ever needed.
 
-Four sections, deliberately different in shape so none reads as
-a card grid:
-1. CORE EXPERTISE — four columns split by vertical hairlines, no
-   boxes, each opening with a numbered label (01 · Strategy …).
-   The numbering uses the site's MIDDLE DOT, not an em dash: the
-   brief asked for "01 — Strategy" but four em dashes trip
-   Impeccable's em-dash-overuse rule, and · is already the site's
-   label separator (card tags, case tags). List items carry a
-   short coral rule as a marker. Phones stack with horizontal
-   rules — never four generic cards.
-2. SELECTED RESULTS — four oversized Newsreader figures
-   (clamp 3rem→4.6rem) on hairline-divided columns, sans labels
-   beneath, no cards. Two-up on phones, one-up under 430px.
-   Closes with an arrow link to Work.
-3. BREADTH — sticky intro left (top 132px), five rule-separated
-   groups right. COMPACT FLOW, not one term per line (Amber, July
-   2026: "too text-heavy... oversized, widely spaced, stacked one
-   per line"): `.brd-flow` is a wrapping flex row where terms share
-   lines, parted by a CORAL MIDDLE DOT, lh 1.45, row-gap 2px.
-   Category headings sit on their own serif grade, clamp 25 -> 28px
-   (her numbers), with 34px of air between categories so the
-   section still breathes. 22% shorter than the stacked version.
-4. SELECTED PLATFORMS — curated groupings, not an inventory
-   (Amber, July 2026: "editorial and curated rather than a
-   software directory"). FOUR named groupings, each a thin rule +
-   two logos + serif title + the platform names on one line:
-   Build the system (HubSpot, Salesforce) · Understand performance
-   (Google Analytics, SEMrush) · Create the experience (WordPress,
-   Adobe) · Work smarter (ChatGPT, Claude, Notion). "Adobe
-   Creative Suite" is SHORTENED to "Adobe" in the collapsed view;
-   the full name survives in the expanded panel.
-   TWO logos per grouping at most — never one beside every name.
-   Laid out on a 12-column grid with deliberate asymmetry, and the
-   four groups are each varied so the set reads composed rather
-   than templated (Amber, July 2026: "make the four primary groups
-   slightly more varied… alternate left and right alignment / let
-   one divider be shorter / use one small lavender label behind a
-   heading / slightly overlap one logo pair with the rule / vary
-   the width of each group. Not dramatically."):
-   - widths vary 5 / 4 / 6 / 4 columns, none aligned to another;
-   - groups 2 and 4 are RIGHT-aligned, 1 and 3 left;
-   - group 1's rule is interrupted by its own logos — the rule is
-     a `::before` starting at `left: 62px` and the marks pull up
-     `-10px` so the pair overlaps it;
-   - group 4's rule is short (62%) and right-anchored;
-   - group 3's heading carries `.pg-lav`, a single hand-drawn
-     lavender wash (55% opacity, irregular radii, -0.6deg) — the
-     only one on the page;
-   - remaining rules alternate coral and lavender.
-   Phones keep the STAGGERED rhythm (left margins 0/26/12/34px),
-   drop the right-alignment, and flip group 4's short rule left.
-   Beneath, in this order: a labelled `.plat-also` block — small
-   muted "Also experienced with" label over a ·-separated line of
-   the remaining nine — and only THEN the disclosure, worded
-   "See platforms by category +" (the sign rotates 45deg when
-   open). The full grid is deliberately SECONDARY: it opens under
-   a "Full platform list" eyebrow, its category names take plus
-   signs (CRM + Automation, Analytics + Acquisition, Web +
-   Creative, AI + Collaboration), and its headings drop to
-   `--fs-small` muted body type — NOT the serif grade used above —
-   with tighter gaps (22px columns, 6/16px lists) and every logo
-   at 0.62 opacity. Lede: "The tool matters less than how it fits
-   the work, the team, and the goal."
-   NOTE: this redesign deliberately reverses the earlier 35%
-   compaction — the section is 917px desktop / 922px phone by
-   choice, spent on whitespace rather than density.
+PRESERVED VERBATIM on her instruction, twice now: the page head
+(eyebrow, h1, lede, spacing, background) and the transition band
+("AI should give teams more time to think strategically, not
+just more ways to produce."), which now sits AFTER the artifact
+section as the page's visual pause. The closing band keeps its
+copy and both actions.
 
-5. EXPERIENCE STRIP above the platforms: five company names set in
-   the serif between hairlines, with "Experience across SaaS,
-   financial services, technology, education, and consulting."
-   Names, not logos, for the same trademark reason.
+NO SECTION EYEBROWS. Expertise is the SECOND sanctioned
+eyebrow-less page after Work — her brief bans "repeated eyebrow,
+headline, paragraph, list patterns," and six identical openings
+were exactly that. The page-head eyebrow stays. Every section
+opens differently instead: a headline, a statement, a number
+row, an index, a tool row.
 
-STILL OUTSTANDING: the visual proof break after the breadth
-section. It needs cropped shots of real deliverables (a site, a
-roadmap, a positioning doc, a Notion system). Nothing was built:
-inventing artifacts is what made the earlier hero collages read
-as AI, and this sandbox cannot reach the live project URLs.
+Sections, none built the same way:
+1. MARKETING IS CONNECTED — typography-led. "Marketing isn't one
+   discipline." plus her supporting line, then the seven words
+   (Strategy, Demand, Brand, Web, Systems, Leadership, AI) AS the
+   illustration. One flex row: scale, weight and colour carry the
+   hierarchy, three hairlines of different lengths stand in for
+   the connections, one word is coral, one italic, one carries
+   the single lavender wash. Vertical scatter rides `align-self`
+   and never absolute positioning, so it survives every width.
+   THE BIGGEST WORD IS CAPPED AT THE h1 GRADE (64px): at 84 it
+   outranked the 50px page headline and broke the ladder Amber
+   has enforced twice. 64 -> 24 is still a 2.7x shift. Phones
+   stack left-aligned and keep the scale but drop the scatter and
+   the rules, per her mobile rule ("consistent left alignment,
+   no staggered layouts"). Closes on "I work across the
+   connections, not just the individual parts." (her line, the
+   "not X" construction is hers and stays).
+2. THE WORK BEHIND THE EXPERTISE — BUILT BUT NOT LIVE. The
+   editorial artifact spread is finished and styled in the
+   stylesheet, and its markup sits COMMENTED OUT in the page with
+   activation instructions: five paper frames on a 12-column grid
+   with explicit rows (so the overlaps are deliberate, not
+   absolute-positioned guesses), varied sizes, small rotations,
+   one cropped past the wrap, one folded corner, real shadows,
+   one circled moment. It is held back because the only thing
+   missing is five REAL cropped screenshots (PERQ page,
+   positioning doc, campaign roadmap, Notion workspace, reporting
+   view) and five empty frames on a live page is worse than
+   none. NOTHING HERE MAY BE FABRICATED — a drawn "screenshot" or
+   invented dashboard is precisely what made the earlier hero
+   collages read as AI, and it would undo the whole page. What
+   IS live is the typographic half: "Strategy is only valuable if
+   it survives execution." on the shared pull-quote grade, her
+   supporting line, a "See selected work" arrow link, and one
+   margin annotation.
+3. FOUR WAYS THE EXPERTISE SHOWS UP — one continuous section with
+   NO section heading: the four statements ARE the headings, set
+   at the h2 grade, with the skills compact and secondary at
+   small/muted. Thin rules between, no cards. Rows two and four
+   shift the whole row one grid column right so the block never
+   reads as a table; phones drop the shift and stack.
+4. SELECTED RESULTS — four oversized Newsreader figures on
+   hairline-divided columns, one horizontal row on desktop and a
+   clean two-column grid on phones (the old one-up breakpoint
+   under 430 is retired at her request). Closes with an arrow
+   link to Work.
+5. THE FULL MARKETING FUNCTION — a compact numbered index (01-05)
+   with thin rules, titles on the card-title grade and
+   descriptors at small, beside ONE short sticky statement on a
+   coral rule. Replaces the old sticky-intro-plus-five-groups
+   breadth section and its coral dot separators, which her brief
+   bans by name.
+6. SELECTED PLATFORMS — four curated groups, small monochrome
+   marks, CONSISTENT LEFT ALIGNMENT, no stagger, no cards. This
+   REVERSES the July asymmetric version (varied widths,
+   alternating alignment, short rule, lavender label) that she
+   approved a week earlier: her second brief says "consistent
+   left alignment. Do not stagger the groups." Beneath: a single
+   "Also experienced with:" sentence, then the "See platforms by
+   category +" disclosure. THE EXPANDED PANEL CARRIES NO LOGOS —
+   one mark per tool turned it into the software directory the
+   section exists to avoid. The inline sprite is trimmed to the
+   NINE marks still used; Google Ads, LinkedIn, Meta, Canva,
+   Slack and Teams were removed with the panel logos.
 
-The closing band is the only page-specific CTA on the site: "See
-the expertise in practice." with TWO actions — coral primary to
-Work, and `.btn-ghost` (transparent, cream text, hairline border,
-13.6:1 on the ink band). The ghost rule must sit AFTER
-`.cta-band .btn` in the stylesheet or the coral fill outranks it.
-Every other page still closes with "Let's figure out what comes
-next."
+EXPERIENCE STRIP stays names, never logos. Her brief asked for
+"four or five monochrome company logos"; employer and client
+marks are a trademark call that is not ours to make, and the
+names carry the same credibility. Paired with "Experience across
+SaaS, financial services, technology, education, and consulting."
+Never labelled "Trusted by".
+
+The closing band is one of two page-specific CTAs on the site
+(How I Work has the other): "See the expertise in practice."
+with a coral primary to Work and `.btn-ghost` (transparent,
+cream, hairline, 13.6:1 on the ink band). The ghost rule must
+sit AFTER `.cta-band .btn` or the coral fill outranks it.
 
 ## How I Work page (2026-07, Amber's brief)
 
