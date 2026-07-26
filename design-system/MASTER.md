@@ -706,76 +706,80 @@ the session scratchpad.
 `expertise.html`. "Capabilities" is retired from the nav, footers,
 titles and sitemap; `_redirects` 301s the old URL.
 
-REBUILT TWICE IN ONE WEEK. The second rebuild is the one that
-matters, and its governing sentence is Amber's: **"When in doubt,
-remove something instead of adding something. The page should
-earn attention through clarity, not complexity."** Her diagnosis
-was that every iteration had added another idea, and that the
-page had been trying to become the star of the site. It is not.
-Home, Services, Projects and About already carry the hero, the
-offers, the proof and the story; THIS PAGE CONNECTS THEM. It
-answers one question — what kind of marketing leader is Amber —
-and it communicates judgment, not inventory.
+REBUILT THREE TIMES IN ONE WEEK. Governing sentence, Amber's:
+**"When in doubt, remove something instead of adding something.
+The page should earn attention through clarity, not
+complexity."** The page does not compete with Home, Services,
+Projects or About — it CONNECTS them, answers one question (what
+kind of marketing leader is Amber) and communicates judgment,
+not inventory. Reference targets she named: Kinfolk, Linear,
+Stripe editorial, Aesop, Notion, Figma.
 
-Reference targets she named: Kinfolk, Linear, Stripe editorial,
-Aesop, Notion, Figma. Anti-targets: agency site, consultant
-template, AI-generated page, resume, capabilities grid.
-
-PRESERVED: the page head (h1, lede, butter tab — no eyebrow, as
-on every page since July), the quote banner ("AI should give
+PRESERVED: the page head, the quote banner ("AI should give
 teams more time to think strategically, not just more ways to
-produce."), and the closing band.
+produce.") and the closing band. NO SECTION EYEBROWS — this is
+the second sanctioned eyebrow-less page after Projects.
 
-Six sections, all short:
-1. THE RANGE — "The range to see the entire picture." plus one
-   paragraph. Nothing else. No typographic collage, no floating
-   words.
-2. REAL WORK — three artifacts with room to breathe, then
-   "Strategy only matters if it becomes useful work.", one
-   supporting line, one link to Projects. BUILT AND COMMENTED
-   OUT pending three real screenshots; the typographic half is
-   live. Down from five frames, and deliberately CALM this time:
-   no rotation, no folded corner, no circled annotation. Still
-   nothing fabricated.
-3. HOW MY EXPERTISE SHOWS UP — four compact rows (Strategy /
-   Growth / Systems / Leadership), title plus ONE sentence.
-   No bullets, no keyword dumping, no giant headings.
-4. RESULTS — the four figures on hairlines, no cards.
-5. EXPERIENCE — five categories (Strategy, Growth, Brand,
-   Operations, Leadership), four curated capabilities each.
-   Clarity over completeness: this is not the full list and must
-   not grow back into one.
-6. TOOLS — the smallest section by CONTENT: a headline, Amber's
-   line, nine names on one line, and a "View all platforms"
-   disclosure. No logos anywhere, which is why the 15-symbol
-   inline sprite was deleted. Note "smallest" does not mean less
-   padding — the section rhythm stays uniform, because uneven
-   seams are something Amber has flagged twice with screenshots.
-   Tools is now the last section before the closing band.
+Flow, after the third pass:
+1. HEAD. The butter tab sits on "hands-on", NOT on "marketing
+   experience." (Amber, July 2026: the long phrase was the
+   generic part of the line, and a marker across five words felt
+   more handmade than the rest of the page. One distinctive word
+   is the pattern now.)
+2. THE RANGE, WITH THE WORK BESIDE IT. On a WHITE BAND, in two
+   columns, headline stepped down to the h2-long grade. All three
+   are deliberate: on the aura with a full serif headline and a
+   body paragraph it read as a second hero stacked under the
+   first. The right column carries ONE real artifact, and the
+   line "Strategy only matters if it becomes useful work." is its
+   CAPTION — the statement sits with the work instead of above
+   empty space, which is what it used to do. Phones put the
+   artifact directly beneath the copy.
+   THE ARTIFACT is currently a crop of the campaign roadmap from
+   Amber's own desk collage, white-pointed onto the page cream
+   and marked {{ADJUST}}. It is real, it is hers, and it is a
+   STOPGAP: swap the image and caption the moment she sends a
+   project screenshot. Never fabricate one.
+3. HOW MY EXPERTISE SHOWS UP. Four compact rows, title plus one
+   sentence. The titles are VERBS in her voice ("I set the
+   direction", "I create demand", "I build what supports the
+   work", "I lead people through it"), not category nouns — the
+   noun version read as category definitions rather than as her.
+4. SELECTED RESULTS. Four figures on hairlines, no cards, 2x2 on
+   phones, closing on a link to Projects. Heading shortened from
+   "Experience measured by what changed."; the 36% label
+   shortened to "Lower paid-media spend while increasing
+   impression share" so it stops being twice the length of its
+   siblings.
+5. COMPANY AND INDUSTRY EXPERIENCE. Above tools on purpose:
+   results prove impact, companies prove range, tools are
+   supporting detail — platforms were getting more prominence
+   than the organizations. Names set in the BODY SANS at small,
+   never the serif display grade: five serif names read as five
+   more headings. Real monochrome logos would be better and none
+   of the five exist in the repo; this sandbox cannot reach the
+   web, so names hold the slot. Never labelled "Trusted by".
+   (This section was cut entirely in the second pass and restored
+   in the third at her direction — check with her before touching
+   it again.)
+6. TOOLS. The smallest section by CONTENT: a headline, her line,
+   nine names on one line, one disclosure. No logos, which is why
+   the 15-symbol sprite is gone. "Smallest" never means less
+   padding — the rhythm stays uniform.
 
-The tools line — "The tool matters less than knowing when—and
+Her tools line — "The tool matters less than knowing when—and
 why—to use it." — is the ONE sanctioned em dash pair in site
-copy. It is hers, verbatim, and her lines outrank the
-no-em-dashes rule.
+copy. Hers, verbatim; her lines outrank the no-em-dashes rule.
 
-NO COMPANY STRIP. It was built here twice and is now REMOVED
-(Amber, July 2026: "I don't know I need the company names on
-expertise?"). She was right, and by her own rule for this page —
-do not repeat what Services, Projects or About already cover.
-Measured before cutting it: PERQ appears 19 other times on the
-site, Scanoptics 11, StormwaterONE 10, MembersFirst 11, and the
-industries sentence was a weaker restatement of one already on
-About. Projects does credibility properly, with case studies and
-published numbers. Do not reintroduce a name or logo strip here,
-with or without logos.
-
-RESIST ADDING. Every one of these was built on this page and
-removed: a seven-word typographic composition, four oversized
-statement rows, a numbered 01-05 index, a sticky side statement,
-asymmetric platform groups with per-group rule treatments, a
-lavender label, per-tool logos, a five-frame rotated artifact
-collage, and the company name strip. If a future brief asks for "more" here, the answer is
-almost always a subtraction somewhere else.
+RESIST ADDING. Built here and removed: a seven-word typographic
+composition, four oversized statement rows, a numbered 01-05
+index, a five-category Experience index, a sticky side statement,
+asymmetric platform groups, a lavender label, per-tool logos, and
+a five-frame rotated artifact collage. THE REPETITION TRAP on
+this page is three sections all explaining breadth with different
+labels; the third pass cut the Experience index for exactly that
+reason. If a new section describes range, check it is not the
+fourth thing doing so.
 
 ## How I Work page (2026-07, Amber's brief)
 
