@@ -161,6 +161,17 @@ cards.
   else's 1.04px) and were normalized to 0.08em in the same audit.
   How I Work's `.nb-label` and `.hw-q-num` join the muted
   annotation group; its section eyebrows stay coral-deep.
+- PAGE-HEAD EYEBROWS ARE RETIRED SITEWIDE (Amber, July 2026:
+  "remove all eyebrows from hero's"). No page top on any page
+  carries a label above its headline; the headline leads and the
+  paper tab carries the emphasis. Section eyebrows inside the
+  page are untouched, and `.page-head` padding was raised from
+  124/112 to 158/149 so the h1 still lands at the SAME measured
+  position it always has (158 desktop / 149 phone, ~95/88 under
+  the nav) instead of riding 34px higher. Related: `.head-grid`
+  is now `align-items: start` with `.head-art` centring itself,
+  because with shorter copy the whole row began centring and
+  dragged the Services headline off that shared line.
 - Header: nav bar 62px (60px on phones + safe-area inset), brand
   wordmark 1.25rem desktop / 1.5rem mobile, hamburger three 27px
   1.5px lines in a ≥44px tap target.
@@ -477,6 +488,11 @@ strategy to the details that bring it to life." · expertise
 "AI should give teams more time to think strategically, not just
 more ways to produce." · about "My title has changed. What I love
 most is still figuring out what will move the business forward."
+· how i work "If a recommendation makes the week heavier, it is
+probably the wrong recommendation." (Amber chose this one in
+July 2026, promoting it out of a margin annotation: "this should
+be the banner quote". The placeholder line it replaced is gone,
+so every band on the site is hers again.)
 The statement reads at BODY scale (like all ledes, per Amber —
 a brief small-scale experiment was reverted same day), 60ch
 centered. When the band leads into a band-white section
@@ -497,7 +513,7 @@ gives them context. Never add a "trusted by" logo strip.
 - Six plain HTML pages, no framework/build: `index.html`,
   `services.html` (offer ladder + sticky anchor nav),
   `how-i-work.html` (what an engagement is actually like),
-  `work.html` (case studies: challenge → approach → impact),
+  `projects.html` (case studies: challenge → approach → impact),
   `expertise.html` (core expertise -> results -> breadth -> platforms),
   `about.html` (bio, career story, team testimonials, education, contact
   + email capture). Home also carries a three-quote testimonial
@@ -618,7 +634,18 @@ before shipping spacing changes):
   viewport-proportional (the hero keeps min-height 72dvh air) —
   ~217px at 900px viewport height; do not pin it.
 
-## Work page framing (2026-07 graft from the portfolio redesign)
+## Projects page framing (renamed from Work, 2026-07)
+
+The page is `projects.html` (Amber, July 2026: "update work to
+projects"). "Work" is retired as a PAGE NAME from the nav,
+footers, title, h1 and sitemap, and `_redirects` 301s
+`/work.html` alongside the older `/capabilities.html` rule. The
+h1 became "Projects shaped around different needs." and keeps its
+blush tab. THE WORD "WORK" STAYS IN PROSE — it is central to her
+voice ("Explore selected work", "the work is where it becomes
+real", "Explore the work behind the results", the home "Selected
+work" section, and How I Work itself), and only the page's own
+identity was renamed. Do not sweep the noun out of body copy.
 
 Sections are organized by HOW AMBER CREATES VALUE, not employment
 type — NO section eyebrows (Amber removed them 2026-07: the old
@@ -693,8 +720,7 @@ copy and both actions.
 NO SECTION EYEBROWS. Expertise is the SECOND sanctioned
 eyebrow-less page after Work — her brief bans "repeated eyebrow,
 headline, paragraph, list patterns," and six identical openings
-were exactly that. The page-head eyebrow stays. Every section
-opens differently instead: a headline, a statement, a number
+were exactly that. Every section opens differently instead: a headline, a statement, a number
 row, an index, a tool row.
 
 Sections, none built the same way:
@@ -844,14 +870,15 @@ TWO NEW DEVICES, both documented so they do not spread:
   what would make it read as a scrapbook. This page carries the
   site's ONE arrowhead (two short strokes on the annotation
   curve); the no-arrowheads rule still holds everywhere else.
-- MARGIN ANNOTATIONS (`.hw-note`, two per page, never more). A
-  short hand-drawn coral gesture over or under one italic line
-  in the display face. This is the site's ONE sanctioned
-  serif-italic PARAGRAPH — the font census rule that serif
-  belongs to headings, card titles and the brand still holds for
-  everything else. Note 1 takes the gesture above with an
-  arrowhead, note 2 takes a flat underline below; they are not
-  the same component twice.
+- MARGIN ANNOTATIONS (`.hw-note`, at most two per page). A short
+  hand-drawn coral gesture over one italic line in the display
+  face. This is the site's ONE sanctioned serif-italic PARAGRAPH
+  — the font census rule that serif belongs to headings, card
+  titles and the brand still holds for everything else. The page
+  now runs ONE: the second note's line was promoted to the
+  transition band at Amber's call, and the flat-underline variant
+  (`.hw-note-wide`) went with it rather than getting invented
+  replacement copy.
 
 THE CONNECTION MAP (`.hw-map`, 300x260) is drawn as a FLOOR
 PLAN, not another orbital system: five rounded tiles routed at
@@ -865,12 +892,13 @@ deliberately set BETWEEN h2 (30/44) and h3 (24/30) so they never
 outrank a section title. Quote 1 wears the short coral rule
 above, quote 2 wears it below.
 
-THE TRANSITION BAND LINE IS A PLACEHOLDER. Every other band on
-the site is Amber's own sentence, verbatim; this one reads
-"Understanding the business comes before recommending anything."
-and is marked {{ADJUST}} in the markup until she writes her own.
+THE TRANSITION BAND carries Amber's own line, as every band does:
+"If a recommendation makes the week heavier, it is probably the
+wrong recommendation." She promoted it out of the Simplify
+section's margin note in July 2026. The earlier placeholder is
+retired.
 
-## Building section (Work page — curated collection, brief v3)
+## Building section (Projects page — curated collection, brief v3)
 
 The section reads "Building" with Amber's lede ("Products,
 education, and AI tools I've created to solve real problems and

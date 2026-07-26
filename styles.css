@@ -637,6 +637,15 @@ body.page-sub .aura { --aura-base: 0.45; }
   .proof-chip .proof-label,
   .pc-lavender .proof-label { font-size: 0.73rem; }
 }
+/* Under ~355px the longest label ("Qualified leads at StormwaterONE")
+   cannot hold one line at any legible size. The one-line rule gives way
+   here rather than scrolling the page sideways. */
+@media (max-width: 355px) {
+  .proof-chip .proof-stat,
+  .pc-lavender .proof-stat { min-width: 6.4em; }
+  .proof-chip .proof-label,
+  .pc-lavender .proof-label { white-space: normal; line-height: 1.3; }
+}
 
 /* Hand-drawn underline beneath the hero accent word */
 .hero h1 em {
@@ -1015,7 +1024,12 @@ a.bld-item .bld-item-arrow {
 }
 
 /* Interior page headers */
-.page-head { padding: 124px 0 30px; } /* sub-page headlines align with the hero's start (~90px under the nav) */
+/* 158/149 rather than 124/112: with the page-head eyebrows removed
+   (Amber, July 2026) the headline has to absorb the eyebrow block's
+   height, or every sub-page headline rides ~34px higher than the home
+   hero's. The measured target is the same as it always was: h1 top at
+   158 desktop / 149 phone. */
+.page-head { padding: 158px 0 30px; }
 
 /* ---- Services head: copy left, marketing-system diagram right ----
    The art is wide and short (480x272) so the row height stays driven
@@ -1027,8 +1041,11 @@ a.bld-item .bld-item-arrow {
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(300px, 34vw, 400px);
   gap: 40px;
-  align-items: center;
+  /* copy starts at the top so its h1 lands on the same line as every
+     other page's; only the art centres against the row */
+  align-items: start;
 }
+.head-grid .head-art { align-self: center; }
 .head-art .glyph { width: 100%; height: auto; margin-bottom: 0; opacity: 0.92; }
 /* One rule drives every draw-in; per-element timing rides --d/--fd.
    Reuses the existing stroke draw-on — no new motion device. */
@@ -1929,6 +1946,12 @@ a.bld-item .bld-item-arrow {
   pointer-events: none;
   opacity: 0.55;
 }
+/* Once the grid is one column the portrait sits flush with the wrap,
+   so the outline's right-hand overhang has to come inside or it scrolls
+   the page (measured: +9px at 760). */
+@media (max-width: 860px) {
+  .about-blob-outline { inset: -12px 2px 10px 16px; }
+}
 .about-portrait img { width: 100%; height: 100%; object-fit: cover; }
 .about-portrait .portrait-note {
   position: absolute;
@@ -2393,8 +2416,6 @@ footer {
   color: var(--muted);
   margin: 0;
 }
-.hw-note-wide { max-width: 42ch; margin-top: 42px; }
-.hw-note-wide svg { width: 148px; height: 10px; margin: 10px 0 0; }
 
 /* The five simplifying questions: large display lines on hairlines,
    numbered in the eyebrow grade. Typography carries this section. */
@@ -2476,7 +2497,6 @@ footer {
   .hw-q-list { margin-top: 32px; }
   .hw-q-list li { grid-template-columns: 44px minmax(0, 1fr); gap: 14px; padding: 18px 0; }
   .hw-note { margin-top: 26px; max-width: none; }
-  .hw-note-wide { margin-top: 30px; max-width: none; }
   .lead-grid { gap: 30px 26px; margin-top: 34px; }
   .hw-body p { margin-bottom: 16px; }
 }
@@ -2668,7 +2688,7 @@ footer p,
    and page heads start at the same height as the home hero */
 @media (max-width: 760px) {
   .cta-band-wrap { padding: 48px 0 64px; }
-  .page-head { padding: 112px 0 24px; }
+  .page-head { padding: 149px 0 24px; }
 }
 
 /* Portrait accents: one small blob photo at the home about teaser
