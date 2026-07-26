@@ -69,8 +69,12 @@ Courses = peach · Workflow & AI Guidance = lavender · Consulting = blush.
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is
 the only text color allowed on top of them or as accent text on cream.
-STAT NUMBERS are the exception (2026-07): all stats read in
-`--coral-deep`, the single brand accent — settled after trying the
+STAT NUMBERS are the exception (2026-07): ALL stats read in
+`--coral-deep`, the single brand accent — home proof chips, the
+About proof points, and the Expertise result figures, which were
+the last ones still in ink until Amber caught it in July ("data
+numbers should be in coral"). List ordinals are NOT data and stay
+muted with the other annotation labels — settled after trying the
 per-company deep tones (arbitrary, and the peach partner reads
 brown outside peach contexts) and ink (too flat; Amber chose coral
 seeing both live). The pastel washes alone differentiate result
@@ -751,18 +755,15 @@ Flow, after the third pass:
    shortened to "Lower paid-media spend while increasing
    impression share" so it stops being twice the length of its
    siblings.
-5. COMPANY AND INDUSTRY EXPERIENCE. Above tools on purpose:
-   results prove impact, companies prove range, tools are
-   supporting detail — platforms were getting more prominence
-   than the organizations. Names set in the BODY SANS at small,
-   never the serif display grade: five serif names read as five
-   more headings. Real monochrome logos would be better and none
-   of the five exist in the repo; this sandbox cannot reach the
-   web, so names hold the slot. Never labelled "Trusted by".
-   (This section was cut entirely in the second pass and restored
-   in the third at her direction — check with her before touching
-   it again.)
-6. TOOLS. The smallest section by CONTENT: a headline, her line,
+   NO COMPANY NAMES. The strip was cut, restored, and cut again
+   (Amber, July 2026: "remove company names from this page"). It
+   is settled: this page carries none. Its industries sentence
+   survives as a quiet coda under the metrics, on a short hairline
+   — one line rather than a section, since a full section for a
+   single sentence is the "big gap around sparse content" she has
+   flagged before. Projects does credibility properly, with case
+   studies and published numbers.
+5. TOOLS. The smallest section by CONTENT: a headline, her line,
    nine names on one line, one disclosure. No logos, which is why
    the 15-symbol sprite is gone. "Smallest" never means less
    padding — the rhythm stays uniform.

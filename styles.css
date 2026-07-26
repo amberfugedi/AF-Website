@@ -1624,32 +1624,25 @@ a.bld-item .bld-item-arrow {
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.03em;
-  color: var(--ink);
+  /* every stat on the site reads coral; these were the last ones in
+     ink, which was a drift from the rule, not a decision */
+  color: var(--coral-deep);
   margin-bottom: 14px;
 }
 .res-lab { display: block; color: var(--muted); max-width: 22ch; }
 
-/* --- 3. Company and industry experience ---
-   Set in the BODY SANS at small, not the serif display grade: five
-   serif names read as five more headings and competed with the real
-   ones (Amber, July 2026). Sits above tools on purpose — results
-   prove impact, companies prove range, tools are supporting detail. */
-.co-strip {
-  list-style: none; margin: 0 0 14px; padding: 20px 0;
-  display: flex; flex-wrap: wrap; align-items: center;
-  gap: 10px 30px;
+/* --- the industries line: a quiet coda under the metrics, on the
+   same hairline the company strip used to carry --- */
+.industries {
+  margin-top: 30px;
+  padding-top: 20px;
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-.co-strip li {
-  font-family: var(--font-body);
-  font-weight: 600;
   color: var(--muted);
-  letter-spacing: 0.01em;
+  max-width: 62ch;
+  margin-bottom: 0;
 }
-.co-note { color: var(--muted); max-width: 62ch; margin-bottom: 0; }
 
-/* --- 4. Tools: the smallest section on the page, and it stays that
+/* --- 3. Tools: the smallest section on the page/* --- 4. Tools: the smallest section on the page, and it stays that
    way. One line of names, one link, no logos, no cards. --- */
 /* "Smallest section" means least content, not less padding: the site
    rhythm is uniform and Amber has flagged uneven seams twice. */
@@ -1707,7 +1700,7 @@ a.bld-item .bld-item-arrow {
   .res:nth-child(n+3) { border-top: 1px solid var(--line); }
   .res-lab { max-width: none; }
 
-  .co-strip { gap: 8px 20px; padding: 16px 0; }
+  .industries { margin-top: 24px; padding-top: 16px; }
   .plat-grid { grid-template-columns: 1fr; gap: 16px; }
   .cta-actions { flex-direction: column; align-items: stretch; }
 }
@@ -2470,7 +2463,7 @@ footer p,
    for a second hero */
 .range-title { font-size: clamp(1.625rem, 1.346rem + 1.1429vw, 2.375rem); line-height: 1.18; }
 .range-line { font-size: var(--fs-intro); line-height: 1.35; }
-.tool-line, .co-note, .co-strip li { font-size: var(--fs-small); line-height: 1.55; }
+.tool-line, .industries { font-size: var(--fs-small); line-height: 1.55; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
 .res-num { font-size: clamp(3rem, 6.4vw, 4.6rem); }
 .res-lab { font-size: var(--fs-small); line-height: 1.4; }
