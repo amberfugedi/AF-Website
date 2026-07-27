@@ -660,7 +660,12 @@ a native `<details>`; `<summary>` is the whole preview row, not an
 icon, and carries the tag, the name, a one-line SCOPE, the IMPACT LINE
 and a thumbnail strip. Her rules, all implemented:
 - the impact summary stays VISIBLE while collapsed, because it is the
-  strongest proof (coral, body scale);
+  strongest proof (coral, body scale), and MOVES to its proper place
+  after Approach once the case opens (Amber, July 2026), so an open
+  card reads challenge, approach, impact in order. Implemented as two
+  copies with the hidden one on `display: none` — that takes it out of
+  the accessibility tree so nothing is announced twice, and it survives
+  with JS off, which a node move would not;
 - one small image per project survives the collapse — the page must
   not become another text list. The strip hides when open and the
   full-size figure takes over;
@@ -676,9 +681,9 @@ and a thumbnail strip. Her rules, all implemented:
 Scope lines are CONDENSED FROM each case's own Approach copy, never
 invented. PERQ is the only case whose impact runs past a preview line,
 so its first sentence previews and the rest lives in the open state;
-every other case shows its whole impact collapsed and drops the Impact
-column from the open grid rather than repeating itself. `.case-cols`
-is auto-fit for that reason.
+every other case shows its whole impact collapsed. The open grid
+always carries the FULL impact in its third column, so `.case-cols`
+stays auto-fit and simply resolves to three.
 Measured: the phone page fell from 9297px to 6112px.
 
 CASE ARTIFACTS (added July 2026, from assets Amber supplied): each

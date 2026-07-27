@@ -1559,6 +1559,13 @@ a.bld-item .bld-item-arrow {
 /* the preview strip is the collapsed stand-in for the real figure;
    once open, the full-size images replace it */
 .case-d[open] .case-thumbs { display: none; }
+/* The impact line previews at the top of a closed case and MOVES to
+   its proper place after Approach once the case opens (Amber, July
+   2026), so the open card reads challenge, approach, impact in order.
+   Two copies rather than a JS move: display:none takes the hidden one
+   out of the accessibility tree, so nothing is announced twice, and it
+   still works with JS off. */
+.case-d[open] .case-impact { display: none; }
 /* the hover lift is a preview affordance; an open case is a page of
    content and should not float */
 .case:has(.case-d[open]):hover { transform: none; box-shadow: none; }
