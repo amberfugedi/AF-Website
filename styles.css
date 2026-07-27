@@ -1926,6 +1926,23 @@ a.bld-item .bld-item-arrow {
   transition: background-size 0.2s var(--ease);
 }
 .art-link a::after { content: " \2197"; }
+
+/* Clients whose website exists but whose case study does not. A
+   sentence at the end of the chapter, never a card: naming them is
+   the point and the lightbox does the showing. */
+.case-more { margin: 30px 0 0; color: var(--muted); max-width: 62ch; }
+.case-more a {
+  color: var(--coral-deep);
+  font-weight: 600;
+  text-decoration: none;
+  background-image: linear-gradient(var(--coral-deep), var(--coral-deep));
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  background-position: 0 100%;
+  transition: background-size 0.2s var(--ease);
+}
+.case-more a::after { content: " \2197"; }
+.case-more a:hover { background-size: 100% 2px; }
 .art-link a:hover { background-size: 100% 2px; }
 
 /* ---- Case study artifacts (Projects) ----
@@ -2722,7 +2739,7 @@ footer p,
 .art-outcome { font-size: var(--fs-intro); line-height: 1.32; }
 .range-copy .range-line { font-size: clamp(1.25rem, 1.13rem + 0.5vw, 1.5rem); line-height: 1.35; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
-.case-art figcaption, .case-scope, .art-link a { font-size: var(--fs-small); line-height: 1.45; }
+.case-art figcaption, .case-scope, .art-link a, .case-more { font-size: var(--fs-small); line-height: 1.55; }
 .case-rel { font-size: var(--fs-eyebrow); }
 .lb-stage figcaption { font-size: var(--fs-small); line-height: 1.5; }
 .lb-count { font-size: var(--fs-eyebrow); }

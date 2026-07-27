@@ -763,13 +763,20 @@ maintained."), MembersFirst CT FCU (three campaign flyers,
 A2 Exteriors (the yard sign, "Brand applied to signage." — the
 case copy already named yard signs, so the image lands on its own
 sentence). Total added weight 320KB across seven webp files.
-IN HAND AND UNUSED: screenshots of two more client sites, Andrea's
-Bridal and Alterations and Nutmeg Technologies. Amber cleared both
-in July 2026. They are held back anyway because neither has a case
-study, and dropping a screenshot into a page just to use it is the
-"exists only because it fills space" failure her own brief rules
-out. They earn their place as two short cases here — which needs
-challenge, approach and outcome from her, not guesses.
+OTHER WEBSITE CLIENTS is a SENTENCE, not a card (Amber, July 2026:
+"should we add Andreas bridal … maybe as a view other website
+clients?"). `.case-more` closes the Consulting chapter with one
+muted line — "Websites also built for X and Y." — where each name
+is an inline `.art-open` trigger carrying its own gallery in
+`data-more`. Live: Andrea's Bridal and Alterations (home, about)
+and Nutmeg Technologies (home, services). This is the right weight
+for a client with no case study: the work is visible, the page
+does not pretend there is a narrative behind it, and no screenshot
+sits on the page "only because it fills space". A client only
+graduates to a real case when Amber supplies challenge, approach
+and outcome — never guesses. AWAITING ASSETS: Ostara Solar, named
+by Amber but with no screenshot in the repo. Nothing about it
+ships until she sends one.
 
 The page is `projects.html` (Amber, July 2026: "update work to
 projects"). "Work" is retired as a PAGE NAME from the nav,
