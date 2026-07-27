@@ -793,15 +793,17 @@ Flow, after the third pass:
    generic part of the line, and a marker across five words felt
    more handmade than the rest of the page. One distinctive word
    is the pattern now.)
-2. THE RANGE, WITH THE WORK BESIDE IT. On a WHITE BAND, in two
-   columns, headline stepped down to the h2-long grade. All three
-   are deliberate: on the aura with a full serif headline and a
-   body paragraph it read as a second hero stacked under the
-   first. The right column carries ONE real artifact, and the
-   line "Strategy only matters if it becomes useful work." is its
-   CAPTION — the statement sits with the work instead of above
-   empty space, which is what it used to do. Phones put the
-   artifact directly beneath the copy.
+2. THE RANGE, WITH THE WORK BESIDE IT. A WHITE CARD ON CREAM
+   (`.range-card`, bg-raised + line + 24px radius), in two
+   columns, headline stepped down to the h2-long grade. It was a
+   white BAND first; Amber moved it to a card in July 2026 ("white
+   cards on a warm cream background, remove unnecessary coloured
+   backgrounds"). The card still solves what the band solved —
+   on the aura with a full serif headline and a body paragraph
+   the section read as a second hero stacked under the first — and
+   it now matches the Projects case cards, so the two pages read
+   as one site. ONE card on this page, not a card per section;
+   everything below it stays on cream with hairlines.
    THE COLUMNS SPLIT ARGUMENT FROM EVIDENCE, and that split is what
    finally made the section legible. LEFT is Amber's argument:
    headline, the range paragraph, then the belief as its closer.
@@ -844,17 +846,25 @@ Flow, after the third pass:
    a finished product, so the section shows the claim instead of
    making it. That is the standing test for this page — "am I
    showing this, or just saying it?"
-3. HOW MY EXPERTISE SHOWS UP. Four compact rows, title plus one
-   sentence. The titles are VERBS in her voice ("I set the
-   direction", "I create demand", "I build what supports the
-   work", "I lead people through it"), not category nouns — the
-   noun version read as category definitions rather than as her.
+3. HOW MY EXPERTISE SHOWS UP. FIVE compact rows, title plus one
+   sentence, no bullets and no skill lists. THE TITLES STAY VERBS
+   in her voice — "I set the direction", "I create demand", "I
+   shape the brand", "I build what supports the work", "I lead
+   people through it". A later brief respecified them as nouns
+   (Strategy / Growth / Brand / Operations / Leadership) but that
+   is the version she herself rejected earlier as "very generic...
+   category definitions"; the verbs were her fix and they stay.
+   The DESCRIPTIONS are her newer, tighter sentences, verbatim.
+   Brand was the genuinely missing fifth area.
 4. SELECTED RESULTS. Four figures on hairlines, no cards, 2x2 on
    phones, closing on a link to Projects. Heading shortened from
    "Experience measured by what changed."; the 36% label
    shortened to "Lower paid-media spend while increasing
    impression share" so it stops being twice the length of its
    siblings.
+   Industries line reads "SaaS, financial services, home services,
+   education, technology, and consulting" — home services is
+   accurate, Robert James and A2 Exteriors are both.
    NO COMPANY NAMES. The strip was cut, restored, and cut again
    (Amber, July 2026: "remove company names from this page"). It
    is settled: this page carries none. Its industries sentence

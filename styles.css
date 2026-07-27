@@ -1633,10 +1633,20 @@ a.bld-item .bld-item-arrow {
    for the same reason. The artifact carries the "strategy only
    matters" line as its caption, so the statement sits with the work
    instead of above empty space. */
+/* A WHITE CARD ON CREAM, not a white band (Amber, July 2026). Same
+   surface the Projects cases use, so the two pages read as one site,
+   and it still separates this section from the hero above it — which
+   is what the band was solving. */
+.range-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(26px, 3.6vw, 52px);
+}
 .range-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
-  gap: clamp(36px, 5vw, 76px);
+  gap: clamp(36px, 5vw, 68px);
   /* the headline starts on the same line as the project label; with
      the artifact column now carrying meta, image, belief and link,
      centring left the copy floating in the middle of nothing */
@@ -1691,7 +1701,7 @@ a.bld-item .bld-item-arrow {
   grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
   gap: 24px;
   align-items: baseline;
-  padding: 22px 0;
+  padding: 26px 0;
   border-top: 1px solid var(--line);
 }
 .row:last-child { border-bottom: 1px solid var(--line); }
@@ -1709,9 +1719,9 @@ a.bld-item .bld-item-arrow {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
-  margin-top: 48px;
+  margin-top: 58px;
 }
-.res { padding: 0 26px; }
+.res { padding: 0 30px; }
 .res:first-child { padding-left: 0; }
 .res:last-child { padding-right: 0; }
 .res + .res { border-left: 1px solid var(--line); }
@@ -1724,9 +1734,9 @@ a.bld-item .bld-item-arrow {
   /* every stat on the site reads coral; these were the last ones in
      ink, which was a drift from the rule, not a decision */
   color: var(--coral-deep);
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
-.res-lab { display: block; color: var(--muted); max-width: 22ch; }
+.res-lab { display: block; color: var(--muted); max-width: 24ch; }
 
 /* --- the industries line: a quiet coda under the metrics, on the
    same hairline the company strip used to carry --- */
@@ -2600,7 +2610,7 @@ footer p,
 .case-impact { font-size: var(--fs-body); line-height: 1.5; }
 .case-toggle { font-size: var(--fs-small); }
 .res-num { font-size: clamp(3rem, 6.4vw, 4.6rem); }
-.res-lab { font-size: var(--fs-small); line-height: 1.4; }
+.res-lab { font-size: var(--fs-small); line-height: 1.5; }
 .plat-all summary { font-size: var(--fs-small); }
 
 /* How I Work joins the shared scale: prose at body, panel questions
