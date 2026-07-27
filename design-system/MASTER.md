@@ -797,24 +797,32 @@ Flow, after the third pass:
    CAPTION — the statement sits with the work instead of above
    empty space, which is what it used to do. Phones put the
    artifact directly beneath the copy.
-   THE ARTIFACT IS A PROJECT DETAIL, not a loose crop (Amber, July
-   2026: "make it look like a project detail, not just an image").
-   A bleeding editorial crop was tried first and STILL read as
-   pasted, because nothing told the visitor what they were looking
-   at. What fixed it was the label block, not the framing:
-   `.art-meta` = KIND (eyebrow grade, muted, uppercase) / CLIENT
-   (display face, card-title grade) / DISCIPLINES (small, muted,
-   middot-separated), then the image, then the belief, then the
-   link. The image fills its column edge to edge with a full
-   border and radius; the off-page bleed is retired, because the
-   meta above and the belief below are one unit and the unit has
-   to hold together.
+   THE COLUMNS SPLIT ARGUMENT FROM EVIDENCE, and that split is what
+   finally made the section legible. LEFT is Amber's argument:
+   headline, the range paragraph, then the belief as its closer.
+   RIGHT is only proof, and it LEADS WITH THE OUTCOME (Amber, July
+   2026: "the outcome should be the lead, the way you set this up
+   is confusing"). Order: what happened (`.art-outcome`, display
+   face at card-title grade), a SMALL picture of it, one credit
+   line, one link. Nothing else.
+   THE IMAGE IS DELIBERATELY UNDERSIZED against its column (320px
+   cap). Shrinking it is what stops it reading as a feature —
+   three fuller treatments were tried and all of them competed
+   with the section instead of supporting it: a plain screenshot,
+   an editorial crop bleeding off the viewport, and a project-
+   detail block that opened with kind / client / disciplines. That
+   last one had six elements in a supporting column and read as a
+   rival case study.
    Crop rules still stand: hero only, no nav, no browser chrome,
    cropped in ~12% so it is composed rather than complete.
+   SPECIFICITY, fourth time on this site: `.range-copy p` (0,1,1)
+   outranks `.range-line` (0,1,0), so the belief silently rendered
+   as another body paragraph. It has to be written
+   `.range-copy .range-line`.
    PROOF ROTATES BY SECTION so the page reads as a narrative
    rather than one repeated visual: the range carries a WEBSITE
    (Robert James hero), the rows carry CAMPAIGN work (MembersFirst
-   membership band, same project-detail component, right-aligned),
+   membership band, same outcome-led component, right-aligned),
    and tools carry nothing. Both link into the matching case on
    Projects, which opens itself on arrival. THE TWO LINKS ARE
    WORDED DIFFERENTLY on purpose — "See what that became" and

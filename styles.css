@@ -1637,49 +1637,44 @@ a.bld-item .bld-item-arrow {
 }
 .range-copy p { color: var(--muted); max-width: 52ch; margin-bottom: 0; }
 .range-title { margin-bottom: 16px; letter-spacing: -0.02em; }
-/* A PROJECT DETAIL, not a loose screenshot (Amber, July 2026: "make
-   it look like a project detail, not just an image"). The crop alone
-   still read as pasted, however it was framed, because nothing told
-   the visitor what they were looking at. The label block does that:
-   kind, client, disciplines, then the work. The image fills its
-   column edge to edge rather than bleeding off the page — the meta
-   above and the belief below are part of the same unit, and the unit
-   should hold together. */
-.art-meta { display: block; margin-bottom: 14px; }
-.art-kind {
-  display: block;
-  font-family: var(--font-body);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 7px;
-}
-.art-client {
-  display: block;
+/* EVIDENCE, LED BY THE OUTCOME (Amber, July 2026: "the outcome should
+   be the lead, the way you set this up is confusing"). The previous
+   version opened with kind / client / disciplines above the image and
+   closed with a belief and a link — six competing elements in a column
+   that is meant to SUPPORT the section, not rival it. Now: what
+   happened, a small picture of it, one credit line, one link. The
+   belief moved to the copy column, where the argument belongs; the
+   right column is only the proof.
+   The image is deliberately UNDERSIZED against its column. Shrinking
+   it is what stops it reading as a feature. */
+.art-outcome {
   font-family: var(--font-display);
   color: var(--ink);
   letter-spacing: -0.015em;
-  margin-bottom: 5px;
+  margin-bottom: 16px;
 }
-.art-disc { display: block; color: var(--muted); }
-.art-frame { margin: 0; }
+.art-frame { margin: 0; width: min(320px, 100%); }
 .art-frame img {
   display: block;
   width: 100%;
   height: auto;
   border: 1px solid rgba(46, 42, 39, 0.12);
-  border-radius: 5px;
-  box-shadow: 0 18px 40px -24px rgba(46, 42, 39, 0.36);
+  border-radius: 4px;
+  box-shadow: 0 12px 28px -20px rgba(46, 42, 39, 0.34);
 }
+.art-credit { color: var(--muted); margin: 14px 0 10px; }
 .range-art { margin: 0; }
-.range-line { margin-top: 20px; }
-.range-line {
-  display: block;
+.range-art p:last-child, .rows-art p:last-child { margin-bottom: 0; }
+/* the belief closes the argument column now, not the evidence, and it
+   needs enough weight to read as a statement rather than a fourth
+   sentence of the paragraph above it */
+.range-copy .range-line {
   font-family: var(--font-display);
   color: var(--ink);
   letter-spacing: -0.015em;
-  margin-bottom: 10px;
+  margin-top: 24px;
+  margin-bottom: 0;
+  max-width: 24em;
 }
 
 /* --- 3. How my expertise shows up: four compact rows --- */
@@ -1700,8 +1695,7 @@ a.bld-item .bld-item-arrow {
    rather than another website, so the page reads as a narrative
    instead of one repeated visual. Same project-detail treatment as
    the range artifact — one component, used twice, not two. */
-.rows-art { margin: 44px 0 0; margin-left: auto; width: min(560px, 100%); }
-.rows-art p { margin-top: 16px; margin-bottom: 0; }
+.rows-art { margin: 44px 0 0; margin-left: auto; width: min(430px, 100%); }
 
 /* --- 4. Results: oversized serif figures on hairlines, no cards --- */
 .res-row {
@@ -1782,8 +1776,8 @@ a.bld-item .bld-item-arrow {
      staggers, and no section carries two columns of text. */
   /* one cropped artifact directly beneath the copy */
   .range-grid { grid-template-columns: 1fr; gap: 26px; }
-  .range-line { margin-top: 16px; }
   .rows-art { width: 100%; margin-top: 32px; }
+  .range-copy .range-line { max-width: none; margin-top: 18px; }
 
   .rows { margin-top: 28px; }
   .row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
@@ -2591,10 +2585,9 @@ footer p,
 /* the range headline steps down to h2-long so it cannot be mistaken
    for a second hero */
 .range-title { font-size: clamp(1.625rem, 1.346rem + 1.1429vw, 2.375rem); line-height: 1.18; }
-.range-line { font-size: var(--fs-intro); line-height: 1.35; }
-.tool-line, .industries, .art-disc, .rows-art p { font-size: var(--fs-small); line-height: 1.55; }
-.art-kind { font-size: var(--fs-eyebrow); }
-.art-client { font-size: var(--fs-intro); line-height: 1.25; }
+.tool-line, .industries, .art-credit { font-size: var(--fs-small); line-height: 1.55; }
+.art-outcome { font-size: var(--fs-intro); line-height: 1.32; }
+.range-copy .range-line { font-size: clamp(1.25rem, 1.13rem + 0.5vw, 1.5rem); line-height: 1.35; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
 .case-art figcaption, .case-scope { font-size: var(--fs-small); line-height: 1.45; }
 .case-impact { font-size: var(--fs-body); line-height: 1.5; }
