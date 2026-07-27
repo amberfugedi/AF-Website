@@ -222,6 +222,76 @@
     window.addEventListener("hashchange", openTarget);
   }
 
+  /* ---------- Asset lightbox ----------
+     Client work opens in its own window rather than sitting on the
+     page (Amber, July 2026). That is what solved it: the credit
+     union's blue and the restoration site's photography never have to
+     share a surface with the cream editorial layout, and each piece
+     gets shown at a size where it can actually be read.
+     Built on native <dialog>, which gives focus trapping, Escape and
+     focus restore for free. Every trigger is a real <a href> to the
+     full image, so with JS off a click still opens the asset. */
+  var triggers = document.querySelectorAll(".art-open");
+  if (triggers.length && typeof HTMLDialogElement === "function") {
+    var lb = document.createElement("dialog");
+    lb.className = "lightbox";
+    lb.innerHTML =
+      '<button class="lb-close" type="button" aria-label="Close">&#10005;</button>' +
+      '<button class="lb-nav lb-prev" type="button" aria-label="Previous">&#8592;</button>' +
+      '<figure class="lb-stage"><figcaption></figcaption></figure>' +
+      '<button class="lb-nav lb-next" type="button" aria-label="Next">&#8594;</button>' +
+      '<span class="lb-count" aria-live="polite"></span>';
+    var stage = lb.querySelector(".lb-stage");
+    var cap = lb.querySelector("figcaption");
+    /* built rather than templated: an image element with no src in
+       markup is a broken image until the first open */
+    var img = document.createElement("img");
+    stage.insertBefore(img, cap);
+    document.body.appendChild(lb);
+    var count = lb.querySelector(".lb-count");
+    var prev = lb.querySelector(".lb-prev");
+    var next = lb.querySelector(".lb-next");
+    var group = [];
+    var at = 0;
+
+    var show = function (i) {
+      at = (i + group.length) % group.length;
+      var a = group[at];
+      img.src = a.getAttribute("href");
+      img.alt = a.getAttribute("data-caption") || "";
+      cap.textContent = a.getAttribute("data-caption") || "";
+      count.textContent = group.length > 1 ? at + 1 + " / " + group.length : "";
+      var many = group.length > 1;
+      prev.hidden = next.hidden = !many;
+    };
+
+    triggers.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        /* modified clicks keep their normal meaning: open in a new tab */
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        var fig = a.closest("[data-gallery]");
+        group = [].slice.call(fig ? fig.querySelectorAll(".art-open") : [a]);
+        show(group.indexOf(a));
+        document.documentElement.style.overflow = "hidden";
+        lb.showModal();
+      });
+    });
+
+    prev.addEventListener("click", function () { show(at - 1); });
+    next.addEventListener("click", function () { show(at + 1); });
+    lb.querySelector(".lb-close").addEventListener("click", function () { lb.close(); });
+    /* clicking the backdrop closes; clicking the image does not */
+    lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
+    lb.addEventListener("keydown", function (e) {
+      if (group.length < 2) return;
+      if (e.key === "ArrowRight") { e.preventDefault(); show(at + 1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); show(at - 1); }
+    });
+    /* the page must not scroll behind the dialog */
+    lb.addEventListener("close", function () { document.documentElement.style.overflow = ""; });
+  }
+
   /* ---------- Nav: scrolled state + mobile toggle ---------- */
   var nav = document.querySelector(".site-nav");
   var onScroll = function () {

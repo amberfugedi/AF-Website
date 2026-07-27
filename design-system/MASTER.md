@@ -686,6 +686,33 @@ always carries the FULL impact in its third column, so `.case-cols`
 stays auto-fit and simply resolves to three.
 Measured: the phone page fell from 9297px to 6112px.
 
+ASSETS OPEN IN A LIGHTBOX (July 2026, Amber's idea: "is it a
+clickable asset link that shows the assets in a window pop up").
+That is what solved a problem four crop treatments and three
+placements could not: the client's material never has to share a
+surface with the cream editorial layout. MembersFirst blue,
+watermelon clip art and NCUA compliance text read as a foreign
+object on this site at ANY size, and every treatment that made
+them larger made the clash louder. In their own window, on the
+site's warm ink backdrop, they are simply shown — full size, where
+they can actually be read.
+Built on native `<dialog>` + `showModal()`, which gives focus
+trapping, Escape and focus restore for free. VERIFIED: `:modal`
+true, focus lands inside, focus returns to the trigger on close,
+backdrop click closes, arrow keys page a gallery, counter is
+`aria-live`, and the page behind is scroll-locked.
+EVERY TRIGGER IS A REAL `<a href>` to the full asset, so with JS
+off a click opens the image and modified clicks still open a new
+tab. Single-item galleries hide the arrows and the counter.
+The full-size files are separate from the page thumbnails
+(`full-*.webp`, ~1180-1400px) so the page never downloads what it
+does not show. NEW INTERACTION, added to the closed motion budget
+deliberately: a 0.2s hover transition on the chrome, nothing else,
+and none of it under reduced motion.
+The DETECTOR reads literal `<img>` inside JS strings and even
+inside code comments as a broken image — build the element with
+`createElement` and describe it in prose.
+
 CASE ARTIFACTS (added July 2026, from assets Amber supplied): each
 client case can close on a `.case-art` row — a short row of small
 real pieces on a hairline, plus a one-line caption. NEVER a

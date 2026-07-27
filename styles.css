@@ -1813,6 +1813,105 @@ a.bld-item .bld-item-arrow {
 }
 
 
+/* ---- Asset lightbox ----
+   Client work is shown in its own window rather than on the page. The
+   backdrop is the site's warm ink so the room reads as ours while the
+   asset inside stays entirely the client's. New interaction, added to
+   the motion budget deliberately: a 0.2s fade at the UI-response
+   tier, nothing else, and none of it under reduced motion. */
+.lightbox {
+  border: 0;
+  padding: 0;
+  /* the UA centres a modal dialog with auto margins; setting width
+     here loses that, so it has to be restated */
+  margin: auto;
+  max-width: min(1180px, 94vw);
+  max-height: 92vh;
+  /* fit-content so the frame wraps the asset: with a portrait piece a
+     fixed width parked the arrows at the far edges of the screen */
+  width: fit-content;
+  background: transparent;
+  overflow: visible;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  color: var(--bg);
+}
+.lightbox::backdrop {
+  background: rgba(26, 23, 20, 0.86);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.lb-stage { margin: 0; grid-column: 2; min-width: 0; }
+.lb-stage img {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.7);
+  background: var(--bg-raised);
+}
+.lb-stage figcaption {
+  margin-top: 14px;
+  text-align: center;
+  color: #D9D2C9; /* 9.2:1 on the backdrop */
+  max-width: 66ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lb-close, .lb-nav {
+  border: 1px solid rgba(253, 249, 245, 0.34);
+  background: rgba(253, 249, 245, 0.08);
+  color: var(--bg);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.lb-close:hover, .lb-nav:hover { background: rgba(253, 249, 245, 0.18); border-color: rgba(253, 249, 245, 0.7); }
+/* fixed, not absolute: a tall asset pushes the dialog to the top of
+   the viewport and an absolutely placed close button goes off-screen */
+.lb-close { position: fixed; top: 20px; right: 20px; }
+.lb-prev { grid-column: 1; }
+.lb-next { grid-column: 3; }
+.lb-nav[hidden] { display: none; }
+.lb-count {
+  grid-column: 2;
+  text-align: center;
+  color: #D9D2C9;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 4px;
+}
+@media (max-width: 760px) {
+  .lightbox { grid-template-columns: minmax(0, 1fr); max-width: 94vw; gap: 12px; }
+  .lb-stage { grid-column: 1; }
+  .lb-stage img { max-height: 66vh; }
+  .lb-count { grid-column: 1; }
+  /* on a phone the arrows sit under the image rather than beside it */
+  .lb-prev, .lb-next { grid-column: 1; justify-self: center; position: absolute; bottom: -56px; }
+  .lb-prev { transform: translateX(-32px); }
+  .lb-next { transform: translateX(32px); }
+  .lb-close { top: 14px; right: 14px; }
+}
+/* the trigger is a real link: it reads as one, and it opens the asset
+   with JS off */
+.art-open { display: block; border-radius: 4px; }
+.art-open:hover img { border-color: rgba(46, 42, 39, 0.3); }
+.art-count {
+  align-self: center;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
 /* ---- Case study artifacts (Projects) ----
    Real client work sitting under the case it belongs to: a short row
    of small pieces, never a gallery. Every image is sized by HEIGHT so
@@ -2221,6 +2320,7 @@ footer {
   .feat-card:hover, .quote-card:hover, .proof-chip:hover,
   .cta-band .btn:hover, .btn:active, a.bld-item:hover { transform: none; }
   .xp-chev { transition: none; }
+  .lb-close, .lb-nav { transition: none; }
   .nav-links { transition: none; transform: none; }
   .field-error.show, .form-status.show { animation: none; }
   /* Color, underline, and opacity feedback stays: reduced motion
@@ -2606,7 +2706,9 @@ footer p,
 .art-outcome { font-size: var(--fs-intro); line-height: 1.32; }
 .range-copy .range-line { font-size: clamp(1.25rem, 1.13rem + 0.5vw, 1.5rem); line-height: 1.35; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
-.case-art figcaption, .case-scope { font-size: var(--fs-small); line-height: 1.45; }
+.case-art figcaption, .case-scope, .art-count { font-size: var(--fs-small); line-height: 1.45; }
+.lb-stage figcaption { font-size: var(--fs-small); line-height: 1.5; }
+.lb-count { font-size: var(--fs-eyebrow); }
 .case-impact { font-size: var(--fs-body); line-height: 1.5; }
 .case-toggle { font-size: var(--fs-small); }
 .res-num { font-size: clamp(3rem, 6.4vw, 4.6rem); }
