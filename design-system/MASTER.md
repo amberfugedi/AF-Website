@@ -681,10 +681,19 @@ and a thumbnail strip. Her rules, all implemented:
   DOWN arrow, not a right arrow: the label can be editorial but the
   affordance has to stay honest about opening in place;
 - the COLLAPSED TAG carries the INDUSTRY ALONE ("Financial Services",
-  "MarTech"). Role, dates and "client since" move into the open view
-  as `.case-rel`, the first line of the body. They are a good detail
-  but not the first thing anyone needs, and the provenance rule still
-  gets its explicit relationship, just one tap later;
+  "MarTech"). `.case-rel`, the first line of the open body, carries
+  the ROLE AND TENURE for in-house cases only — "Director of
+  Marketing · 2021-2023". THE "CLIENT SINCE" LINES ARE GONE from
+  client cases entirely (Amber, July 2026), and the provenance rule
+  now rests on two other things for them: the section they sit in
+  ("Helping Businesses Grow", whose lede is "Sometimes businesses need
+  another team member. Sometimes they need another perspective") and
+  their own prose. MembersFirst says "ongoing consultant", Robert
+  James says "nine years into the relationship", and A2 opens on "a
+  small pressure washing company" — someone else's company, plainly.
+  KEEP IT THAT WAY: the risk the rule guards against is an EMPLOYER
+  reading as a client, which is why the in-house role line stays and
+  the client one did not need to;
 - desktop opens the FIRST case in each chapter, phones start every case
   CLOSED (main.js, evaluated once at load);
 - a case linked to directly (`#perq`, and every in-page anchor from
