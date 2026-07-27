@@ -847,129 +847,117 @@ case-study pages wait until deliverable imagery and long-form
 narratives exist. The full portfolio-redesign mock is parked in
 the session scratchpad.
 
-## Expertise page (renamed from Capabilities; rebuilt calm 2026-07)
+## Expertise page (renamed from Capabilities; rebuilt 4× by 2026-07)
 
 `expertise.html`. "Capabilities" is retired from the nav, footers,
 titles and sitemap; `_redirects` 301s the old URL.
 
-REBUILT THREE TIMES IN ONE WEEK. Governing sentence, Amber's:
-**"When in doubt, remove something instead of adding something.
-The page should earn attention through clarity, not
-complexity."** The page does not compete with Home, Services,
-Projects or About — it CONNECTS them, answers one question (what
-kind of marketing leader is Amber) and communicates judgment,
-not inventory. Reference targets she named: Kinfolk, Linear,
-Stripe editorial, Aesop, Notion, Figma.
+REBUILT FOUR TIMES. The fourth rebuild is the one that settled it,
+because it started from what the page is FOR rather than what it
+could list. AMBER'S THREE-PAGE SPLIT, which now governs all three:
 
-PRESERVED: the page head, the quote banner ("AI should give
-teams more time to think strategically, not just more ways to
-produce.") and the closing band. NO SECTION EYEBROWS — this is
-the second sanctioned eyebrow-less page after Projects.
+- **Projects** — what you have built, changed, launched, improved.
+- **Expertise** — the types of business and marketing problems you
+  know how to solve.
+- **How I Work** — what it is like to work with you, and how you
+  approach messy problems.
 
-Flow, after the third pass:
-1. HEAD. The butter tab sits on "hands-on", NOT on "marketing
-   experience." (Amber, July 2026: the long phrase was the
-   generic part of the line, and a marker across five words felt
-   more handmade than the rest of the page. One distinctive word
-   is the pattern now.)
-2. THE RANGE, WITH THE WORK BESIDE IT. A WHITE CARD ON CREAM
-   (`.range-card`, bg-raised + line + 24px radius), in two
-   columns, headline stepped down to the h2-long grade. It was a
-   white BAND first; Amber moved it to a card in July 2026 ("white
-   cards on a warm cream background, remove unnecessary coloured
-   backgrounds"). The card still solves what the band solved —
-   on the aura with a full serif headline and a body paragraph
-   the section read as a second hero stacked under the first — and
-   it now matches the Projects case cards, so the two pages read
-   as one site. ONE card on this page, not a card per section;
-   everything below it stays on cream with hairlines.
-   THE COLUMNS SPLIT ARGUMENT FROM EVIDENCE, and that split is what
-   finally made the section legible. LEFT is Amber's argument:
-   headline, the range paragraph, then the belief as its closer.
-   RIGHT is only proof, and it LEADS WITH THE OUTCOME (Amber, July
-   2026: "the outcome should be the lead, the way you set this up
-   is confusing"). Order: what happened (`.art-outcome`, display
-   face at card-title grade), a SMALL picture of it, one credit
-   line, one link. Nothing else.
-   THE IMAGE IS DELIBERATELY UNDERSIZED against its column (320px
-   cap). Shrinking it is what stops it reading as a feature —
-   three fuller treatments were tried and all of them competed
-   with the section instead of supporting it: a plain screenshot,
-   an editorial crop bleeding off the viewport, and a project-
-   detail block that opened with kind / client / disciplines. That
-   last one had six elements in a supporting column and read as a
-   rival case study.
-   Crop rules still stand: hero only, no nav, no browser chrome,
-   cropped in ~12% so it is composed rather than complete.
-   SPECIFICITY, fourth time on this site: `.range-copy p` (0,1,1)
-   outranks `.range-line` (0,1,0), so the belief silently rendered
-   as another body paragraph. It has to be written
-   `.range-copy .range-line`.
-   PROOF ROTATES BY SECTION so the page reads as a narrative
-   rather than one repeated visual: the range carries a WEBSITE
-   (Robert James hero), the rows carry CAMPAIGN work (MembersFirst
-   membership band, same outcome-led component, right-aligned),
-   and tools carry nothing. Both link into the matching case on
-   Projects, which opens itself on arrival. THE TWO LINKS ARE
-   WORDED DIFFERENTLY on purpose — "See what that became" and
-   "See how that looked in practice", both Amber's phrasings.
-   "Explore selected work" is retired: it was the last line on the
-   page that sounded like everyone else's site. Results is still waiting on a reporting or
-   analytics screenshot — no artifact there until one exists, and
-   never a drawn one.
-   THE BELIEF under the artifact is "Good strategy should be
-   recognizable in the finished product." It replaces "Strategy
-   doesn't live in slide decks", which replaced "Strategy only
-   matters if it becomes useful work." Of the options Amber
-   offered, this one is SELF-DEMONSTRATING: it sits directly under
-   a finished product, so the section shows the claim instead of
-   making it. That is the standing test for this page — "am I
-   showing this, or just saying it?"
-3. HOW MY EXPERTISE SHOWS UP. FIVE compact rows, title plus one
-   sentence, no bullets and no skill lists. THE TITLES STAY VERBS
-   in her voice — "I set the direction", "I create demand", "I
-   shape the brand", "I build what supports the work", "I lead
-   people through it". A later brief respecified them as nouns
-   (Strategy / Growth / Brand / Operations / Leadership) but that
-   is the version she herself rejected earlier as "very generic...
-   category definitions"; the verbs were her fix and they stay.
-   The DESCRIPTIONS are her newer, tighter sentences, verbatim.
-   Brand was the genuinely missing fifth area.
-4. SELECTED RESULTS. Four figures on hairlines, no cards, 2x2 on
-   phones, closing on a link to Projects. Heading shortened from
-   "Experience measured by what changed."; the 36% label
-   shortened to "Lower paid-media spend while increasing
-   impression share" so it stops being twice the length of its
-   siblings.
-   Industries line reads "SaaS, financial services, home services,
-   education, technology, and consulting" — home services is
-   accurate, Robert James and A2 Exteriors are both.
-   NO COMPANY NAMES. The strip was cut, restored, and cut again
-   (Amber, July 2026: "remove company names from this page"). It
-   is settled: this page carries none. Its industries sentence
-   survives as a quiet coda under the metrics, on a short hairline
-   — one line rather than a section, since a full section for a
-   single sentence is the "big gap around sparse content" she has
-   flagged before. Projects does credibility properly, with case
-   studies and published numbers.
-5. TOOLS. The smallest section by CONTENT: a headline, her line,
-   nine names on one line, one disclosure. No logos, which is why
-   the 15-symbol sprite is gone. "Smallest" never means less
-   padding — the rhythm stays uniform.
+The page answers ONE question: *what can Amber actually help with,
+and how does she think about the work?* It is NOT a portfolio, a
+services menu, or a résumé. Everything that made it a second
+portfolio was cut in pass four: the two work artifacts, the four
+oversized result figures, the "how my expertise shows up" verb rows,
+the always-visible tool line, the industries section.
 
-Her tools line — "The tool matters less than knowing when—and
-why—to use it." — is the ONE sanctioned em dash pair in site
-copy. Hers, verbatim; her lines outrank the no-em-dashes rule.
+THE NUMBERS ARE GONE FROM THIS PAGE. 115% / 120% / 95% / 36% all
+live inside their Projects case studies, About, and the home proof
+strip. Repeating them here made Expertise a proof page competing
+with Projects. If a figure ever comes back it belongs in a case,
+not in a row of four.
 
-RESIST ADDING. Built here and removed: a seven-word typographic
-composition, four oversized statement rows, a numbered 01-05
-index, a five-category Experience index, a sticky side statement,
-asymmetric platform groups, a lavender label, per-tool logos, and
-a five-frame rotated artifact collage. THE REPETITION TRAP on
-this page is three sections all explaining breadth with different
-labels; the third pass cut the Experience index for exactly that
-reason. If a new section describes range, check it is not the
-fourth thing doing so.
+PRESERVED across all four rebuilds: the quote banner ("AI should
+give teams more time to think strategically, not just more ways to
+produce."). NO SECTION EYEBROWS — Expertise, Projects and How I
+Work are the eyebrow-less pages.
+
+Flow, after the fourth pass:
+1. HEAD. Amber's headline, verbatim: "I know how to find what's
+   getting in the way of growth." She chose it over "Marketing
+   expertise built through doing the work" because it positions her
+   around BUSINESS PROBLEMS, not marketing skills. Butter tab on
+   "growth." — one distinctive word, the site pattern. Lede: "My
+   expertise sits across marketing strategy, execution, operations,
+   and team development…" No eyebrow.
+2. WHAT I HELP WITH. FOUR substantial areas, never twelve equal
+   cards ("that will feel like a generic agency capabilities page").
+   Each `.area` is a two-column block on a hairline — name left at
+   the h3/card-title grade, everything else right — and each one
+   runs in a fixed order:
+   a. `.area-for` — WHO IT IS FOR, first, so the reader recognises
+      themselves before they read a capability list;
+   b. `.area-list` — six capabilities, two columns, small/muted, on
+      the site's one bullet language (a 12×2px coral rule, shared
+      with `.hw-do` and `.useful`);
+   c. `.area-line` — the human sentence a capability list cannot
+      carry, display face at intro grade;
+   d. `.area-link` — ONE real project, and FOUR DIFFERENT
+      DESTINATIONS: Strategy & Growth → #scanoptics, Brand/Content/
+      Digital → #robert-james, Operations → #builds, Leadership →
+      #perq.
+   AI LIVES IN THE OPERATIONS AREA ("practical applications of
+   AI"), as one capability among six. It is part of her expertise,
+   not the page's identity.
+3. QUOTE BANNER (her AI line, unchanged) as the chapter seam.
+4. I'M ESPECIALLY USEFUL WHEN… Amber's six lines verbatim, and per
+   her own note the strongest section on the page for communicating
+   real value. A LOOSE EDITORIAL LIST, never cards: one column, the
+   whole measure, hairlines, coral-rule markers, display face at
+   intro grade. Nothing sits beside it.
+5. TOOLS I'VE WORKED IN, COLLAPSED. Her sentence first — "Tools are
+   useful, but they are rarely the strategy." — then a `<details>`
+   disclosure over SIX groups in a 3×2 grid: Marketing and CRM ·
+   Analytics and advertising · Web and creative · Planning and
+   collaboration · Sales and operations · AI and emerging tools.
+   NO LOGO WALL, EVER (Amber: "it would make the page feel more
+   junior and software-focused than you are"). The always-visible
+   `.tool-line` is gone — the whole point is that tools are hidden.
+   ANALYTICS AND ADVERTISING IS THE ONE GROUP NOT IN HER LIST: her
+   five groups omitted Google Ads, Google Analytics and SEMrush
+   entirely, which would be a strange gap under a marketer whose
+   strongest published results are paid-media results. Flagged to
+   her; cut it if she disagrees.
+6. THE BRIDGE TO PROJECTS. `.work-strip` — three links across on
+   hairlines, display face, coral arrow. NOT cards, and never a
+   repeat of a full project card. Three different areas: demand
+   generation (#scanoptics), brand and website (#robert-james),
+   tools and resources (#builds). Leadership is covered by the PERQ
+   link inside its own area block. The industries line survives ONLY
+   as small context beneath the strip, one sentence — Amber ruled it
+   does not need its own section.
+7. CLOSING BAND. "Not sure what kind of help you need yet?" with
+   her paragraph, `Start a conversation` primary and `See how I
+   work` ghost — the first CTA on the site pointing at How I Work,
+   which is correct now that the three pages have distinct jobs.
+
+THE STANDING REMOVE LIST for this page (Amber, July 2026): company
+logos · client duration or tenure · long industry lists · multiple
+rows of small capability cards · a permanently visible software
+grid · detailed mini case studies · "full-service", "end-to-end",
+"results-driven" · anything that sounds like she offers every
+marketing service to everyone.
+
+RESIST ADDING. Built here across four passes and all removed: a
+typographic word composition, four oversized statement rows, a
+numbered capability index, an asymmetric platform grid, a company-
+logo strip, two outcome-led work artifacts, a four-across results
+row. `artifact-rjr-hero.webp` and `artifact-mfcu-campaign.webp` are
+still in the repo, orphaned — they were the artifacts, and the
+full-size versions they linked to are still live on Projects.
+
+The page's central message, in Amber's words: *"Amber understands
+strategy, execution, systems, and people. She can figure out what is
+wrong, recommend a realistic path forward, and help make it
+happen."*
 
 ## How I Work page (2026-07, Amber's brief)
 

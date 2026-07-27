@@ -1621,145 +1621,101 @@ a.bld-item .bld-item-arrow {
 }
 
 /* ============ Expertise page ============
-   Rebuilt calm, 2026-07 (Amber: "when in doubt, remove something
-   instead of adding something"). The page connects Services, Work and
-   About rather than competing with them. Almost everything here is
-   the shared type scale plus a hairline; the only bespoke pieces are
-   the artifact row and the tools disclosure.
-   RESIST ADDING. The typographic word composition, the four oversized
-   statement rows, the numbered index, the asymmetric platform groups
-   and the logo sprite were all built here and all removed. */
+   Rebuilt 2026-07 around what the page is FOR, not what it can list.
+   Amber set the three-page split: Projects = what was built and
+   changed; Expertise = the kinds of problems she knows how to solve;
+   How I Work = what working with her is like. Everything that made
+   this page a second portfolio came out — the two work artifacts, the
+   four oversized result figures, the "how my expertise shows up"
+   rows, the always-visible tool line.
+   RESIST ADDING. Also built here and also removed: a typographic word
+   composition, a numbered capability index, a company-logo strip, an
+   asymmetric platform grid. Twelve equal capability cards would read
+   as a generic agency page — four substantial areas is the format. */
 
-
-/* --- 1. The range, with the work beside it ---
-   On a WHITE BAND and in two columns, because on the aura with a full
-   serif headline and a paragraph it read as a second hero stacked
-   under the first (Amber, July 2026). The headline steps down a grade
-   for the same reason. The artifact carries the "strategy only
-   matters" line as its caption, so the statement sits with the work
-   instead of above empty space. */
-/* A WHITE CARD ON CREAM, not a white band (Amber, July 2026). Same
-   surface the Projects cases use, so the two pages read as one site,
-   and it still separates this section from the hero above it — which
-   is what the band was solving. */
-.range-card {
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: clamp(26px, 3.6vw, 52px);
-}
-.range-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
-  gap: clamp(36px, 5vw, 68px);
-  /* the headline starts on the same line as the project label; with
-     the artifact column now carrying meta, image, belief and link,
-     centring left the copy floating in the middle of nothing */
-  align-items: start;
-}
-.range-copy p { color: var(--muted); max-width: 52ch; margin-bottom: 0; }
-.range-title { margin-bottom: 16px; letter-spacing: -0.02em; }
-/* EVIDENCE, LED BY THE OUTCOME (Amber, July 2026: "the outcome should
-   be the lead, the way you set this up is confusing"). The previous
-   version opened with kind / client / disciplines above the image and
-   closed with a belief and a link — six competing elements in a column
-   that is meant to SUPPORT the section, not rival it. Now: what
-   happened, a small picture of it, one credit line, one link. The
-   belief moved to the copy column, where the argument belongs; the
-   right column is only the proof.
-   The image is deliberately UNDERSIZED against its column. Shrinking
-   it is what stops it reading as a feature. */
-.art-outcome {
-  font-family: var(--font-display);
-  color: var(--ink);
-  letter-spacing: -0.015em;
-  margin-bottom: 16px;
-}
-.art-frame { margin: 0; width: min(320px, 100%); }
-.art-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid rgba(46, 42, 39, 0.12);
-  border-radius: 4px;
-  box-shadow: 0 12px 28px -20px rgba(46, 42, 39, 0.34);
-}
-.art-credit { color: var(--muted); margin: 14px 0 10px; }
-.range-art { margin: 0; }
-.range-art p:last-child, .rows-art p:last-child { margin-bottom: 0; }
-/* the belief closes the argument column now, not the evidence, and it
-   needs enough weight to read as a statement rather than a fourth
-   sentence of the paragraph above it */
-.range-copy .range-line {
-  font-family: var(--font-display);
-  color: var(--ink);
-  letter-spacing: -0.015em;
-  margin-top: 24px;
-  margin-bottom: 0;
-  max-width: 24em;
-}
-
-/* --- 3. How my expertise shows up: four compact rows --- */
-.rows { margin-top: 40px; }
-.row {
+/* --- 1. What I help with: four areas, each a two-column block on a
+   hairline. Same ledger proportions the rest of the site uses, scaled
+   up: name left, everything else right. --- */
+.areas { margin-top: 44px; }
+.area {
   display: grid;
   grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
-  gap: 24px;
-  align-items: baseline;
-  padding: 26px 0;
+  gap: 24px clamp(28px, 4vw, 56px);
+  padding: 40px 0;
   border-top: 1px solid var(--line);
 }
-.row:last-child { border-bottom: 1px solid var(--line); }
-.row h3 { font-family: var(--font-display); margin-bottom: 0; letter-spacing: -0.015em; }
-.row p { color: var(--muted); margin-bottom: 0; max-width: 56ch; }
-
-/* A second, different KIND of proof under the rows: campaign work
-   rather than another website, so the page reads as a narrative
-   instead of one repeated visual. Same project-detail treatment as
-   the range artifact — one component, used twice, not two. */
-.rows-art { margin: 44px 0 0; margin-left: auto; width: min(430px, 100%); }
-
-/* --- 4. Results: oversized serif figures on hairlines, no cards --- */
-.res-row {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  margin-top: 58px;
-}
-.res { padding: 0 30px; }
-.res:first-child { padding-left: 0; }
-.res:last-child { padding-right: 0; }
-.res + .res { border-left: 1px solid var(--line); }
-.res-num {
-  display: block;
+.area:last-child { border-bottom: 1px solid var(--line); }
+.area-head h3 {
   font-family: var(--font-display);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  /* every stat on the site reads coral; these were the last ones in
-     ink, which was a drift from the rule, not a decision */
-  color: var(--coral-deep);
+  margin-bottom: 0;
+  letter-spacing: -0.015em;
+}
+/* who the area is FOR comes first: the reader recognises themselves
+   before they read a capability list (Amber's brief) */
+.area-for { color: var(--body); max-width: 58ch; margin-bottom: 22px; }
+.area-list {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+}
+/* the site's one bullet language: a short coral rule, shared with the
+   How I Work hands-on list and the "especially useful" list below */
+.area-list li {
+  position: relative;
+  padding: 8px 0 8px 24px;
+  color: var(--muted);
+}
+.area-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.05em;
+  width: 12px;
+  height: 2px;
+  background: var(--coral);
+}
+/* the human line closes each area — the sentence a capability list
+   cannot carry */
+.area-line {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  max-width: 34em;
   margin-bottom: 18px;
 }
-.res-lab { display: block; color: var(--muted); max-width: 24ch; }
+.area-link { margin-bottom: 0; }
 
-/* --- the industries line: a quiet coda under the metrics, on the
-   same hairline the company strip used to carry --- */
-.industries {
-  margin-top: 30px;
-  padding-top: 20px;
+/* --- 2. Where I'm most useful: the strongest section on the page,
+   so it gets the whole measure and nothing beside it. Loose and
+   editorial, never cards. --- */
+.useful { list-style: none; margin: 40px 0 0; padding: 0; max-width: 68ch; }
+.useful li {
+  position: relative;
+  padding: 20px 0 20px 32px;
   border-top: 1px solid var(--line);
-  color: var(--muted);
-  max-width: 62ch;
-  margin-bottom: 0;
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.useful li:last-child { border-bottom: 1px solid var(--line); }
+.useful li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.55em;
+  width: 14px;
+  height: 2px;
+  background: var(--coral);
 }
 
-/* --- 3. Tools: the smallest section on the page/* --- 4. Tools: the smallest section on the page, and it stays that
-   way. One line of names, one link, no logos, no cards. --- */
-/* "Smallest section" means least content, not less padding: the site
-   rhythm is uniform and Amber has flagged uneven seams twice. */
+/* --- 3. Tools: collapsed by default, and it stays that way. No logo
+   wall — it would read more junior and more software-focused than she
+   is (Amber, July 2026). "Smallest section" means least content, not
+   less padding: the site rhythm is uniform. --- */
 .tools-section .section-lede { margin-bottom: 22px; }
-.tool-line { color: var(--muted); max-width: 70ch; margin-bottom: 18px; }
 .plat-all summary {
   display: inline-flex; align-items: center; gap: 7px;
   cursor: pointer; list-style: none;
@@ -1773,14 +1729,49 @@ a.bld-item .bld-item-arrow {
 .plat-all summary:hover { color: #96263C; }
 .plat-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
+  /* three across so six groups resolve to two even rows */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px 32px;
   margin-top: 18px;
   padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 .plat h3 { font-family: var(--font-body); font-weight: 600; color: var(--muted); margin-bottom: 5px; }
 .plat p { color: var(--muted); opacity: 0.86; margin-bottom: 0; }
+
+/* --- 4. The bridge to Projects: a strip of three links, never cards.
+   Projects carries the case studies; this page only points. --- */
+.work-strip {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 40px;
+}
+.work-strip li { border-top: 1px solid var(--line); }
+.work-strip a {
+  display: block;
+  padding: 20px 0;
+  font-family: var(--font-display);
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.2s var(--ease);
+}
+.work-strip a::after { content: " \2192"; color: var(--coral-deep); }
+.work-strip a:hover { color: var(--coral-deep); }
+
+/* the industries line: small context, not a section of its own
+   (Amber, July 2026) */
+.industries {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  max-width: 62ch;
+  margin-bottom: 0;
+}
 
 /* --- two actions in the closing band --- */
 .cta-actions {
@@ -1791,29 +1782,25 @@ a.bld-item .bld-item-arrow {
 
 @media (max-width: 1020px) {
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
-  .range-grid { gap: 34px; }
+  .area { gap: 18px 32px; }
+  .work-strip { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
   /* One idea per screen: everything stacks left-aligned, nothing
      staggers, and no section carries two columns of text. */
-  /* one cropped artifact directly beneath the copy */
-  .range-grid { grid-template-columns: 1fr; gap: 26px; }
-  .rows-art { width: 100%; margin-top: 32px; }
-  .range-copy .range-line { max-width: none; margin-top: 18px; }
+  .areas { margin-top: 28px; }
+  .area { grid-template-columns: 1fr; gap: 14px; padding: 30px 0; }
+  .area-for { max-width: none; margin-bottom: 18px; }
+  .area-list { grid-template-columns: 1fr; margin-bottom: 20px; }
+  .area-line { max-width: none; }
 
-  .rows { margin-top: 28px; }
-  .row { grid-template-columns: 1fr; gap: 6px; padding: 20px 0; }
-  .row p { max-width: none; }
-
-  .res-row { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 34px; }
-  .res { padding: 20px 16px; border-left: 0 !important; }
-  .res:nth-child(odd) { padding-left: 0; }
-  .res:nth-child(even) { border-left: 1px solid var(--line) !important; }
-  .res:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .res-lab { max-width: none; }
+  .useful { margin-top: 28px; }
+  .useful li { padding: 16px 0 16px 28px; }
 
   .industries { margin-top: 24px; padding-top: 16px; }
   .plat-grid { grid-template-columns: 1fr; gap: 16px; }
+  .work-strip { margin-top: 28px; }
+  .work-strip a { padding: 16px 0; }
   .cta-actions { flex-direction: column; align-items: stretch; }
 }
 
@@ -2748,14 +2735,13 @@ footer p,
    the tools list and company note at small. Two display grades stay
    off-token by design: the result figures and the pull-quote grade it
    shares with How I Work. */
-.row h3 { font-size: var(--fs-intro); line-height: 1.25; }
-.row p, .range-copy p { font-size: var(--fs-body); line-height: 1.55; }
-/* the range headline steps down to h2-long so it cannot be mistaken
+.area-head h3 { font-size: var(--fs-h3); line-height: 1.22; }
+.area-for { font-size: var(--fs-body); line-height: 1.55; }
+.area-list li, /* the range headline steps down to h2-long so it cannot be mistaken
    for a second hero */
-.range-title { font-size: clamp(1.625rem, 1.346rem + 1.1429vw, 2.375rem); line-height: 1.18; }
-.tool-line, .industries, .art-credit { font-size: var(--fs-small); line-height: 1.55; }
-.art-outcome { font-size: var(--fs-intro); line-height: 1.32; }
-.range-copy .range-line { font-size: clamp(1.25rem, 1.13rem + 0.5vw, 1.5rem); line-height: 1.35; }
+.industries { font-size: var(--fs-small); line-height: 1.55; }
+.area-line { font-size: var(--fs-intro); line-height: 1.35; }
+.useful li, .work-strip a { font-size: var(--fs-intro); line-height: 1.35; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
 .case-art figcaption, .case-scope, .art-link a, .case-more { font-size: var(--fs-small); line-height: 1.55; }
 .case-rel { font-size: var(--fs-eyebrow); }
@@ -2763,8 +2749,6 @@ footer p,
 .lb-count { font-size: var(--fs-eyebrow); }
 .case-impact { font-size: var(--fs-body); line-height: 1.5; }
 .case-toggle { font-size: var(--fs-small); }
-.res-num { font-size: clamp(3rem, 6.4vw, 4.6rem); }
-.res-lab { font-size: var(--fs-small); line-height: 1.5; }
 .plat-all summary { font-size: var(--fs-small); }
 
 /* How I Work joins the shared scale: prose at body, panel questions
