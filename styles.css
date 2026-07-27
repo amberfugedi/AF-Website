@@ -947,18 +947,18 @@ section { padding: 104px 0; }
    category copy recedes to a supporting label */
 .bld-cat-head p { color: var(--muted); font-size: var(--fs-small); line-height: 1.5; }
 .bld-items { list-style: none; margin: 0; padding: 0; }
-.bld-items li + li { margin-top: 14px; }
-/* Each project is a soft nested card inside the white category
-   card: near-white warm surface, hairline border, no shadow */
+/* Each project is a ROW ON A HAIRLINE, not a card. Nested cards inside
+   the category card made the section read as a product directory —
+   boxes inside boxes, worst on a phone (Amber, July 2026). One surface
+   per section: the category card holds, the rows divide. */
 .bld-item {
   display: block;
-  padding: 14px 22px;
+  padding: 15px 0;
   text-decoration: none;
-  background: #FBF8F4;
-  border: 1px solid rgba(46, 42, 39, 0.08);
-  border-radius: 12px;
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+  border-top: 1px solid var(--line);
+  transition: border-color 0.2s var(--ease);
 }
+.bld-items li:first-child .bld-item { border-top: 0; padding-top: 0; }
 .bld-item-name {
   display: flex;
   justify-content: space-between;
@@ -968,21 +968,21 @@ section { padding: 104px 0; }
   color: var(--ink);
   margin-bottom: 3px;
   transition: color 0.2s;
-  /* nested-card text runs 1px under its token (Amber, July 2026) */
-  font-size: calc(var(--fs-body) - 1px);
+  font-size: var(--fs-body);
 }
-/* lighter than --muted but still ~5.2:1 on the inner card; small
-   size gives the card an internal hierarchy (title 16/17 > desc) */
+/* lighter than --muted but still ~5.2:1 on the card; the small grade
+   gives each row its own hierarchy (title 16/17 > description) */
 .bld-item-desc {
   display: block;
   color: #6F675D;
-  max-width: 58ch;
-  font-size: calc(var(--fs-small) - 1px);
+  font-size: var(--fs-small);
   line-height: 1.5;
+  /* no measure cap: the row is now the full card column and a
+     58ch clamp broke one-sentence descriptions mid-thought */
+  text-wrap: pretty;
 }
 /* Linked cards (external project sites, new tab) carry a ↗ in the
    top-right corner; cards without a destination stay plain divs */
-a.bld-item:hover { border-color: rgba(46, 42, 39, 0.2); transform: translateY(-2px); }
 a.bld-item:hover .bld-item-name { color: var(--coral-deep); }
 a.bld-item .bld-item-arrow {
   color: var(--coral-deep);
@@ -990,10 +990,10 @@ a.bld-item .bld-item-arrow {
   line-height: 1;
 }
 @media (max-width: 860px) {
-  .bld-item { padding: 11px 18px; }
-  .bld-items li + li { margin-top: 12px; }
-}
-@media (max-width: 860px) {
+  .bld-item { padding: 13px 0; }
+  /* stacked, the first row sits directly under the category
+     description and needs its own rule to separate them */
+  .bld-items li:first-child .bld-item { border-top: 1px solid var(--line); padding-top: 13px; }
   .bld-cat { grid-template-columns: 1fr; gap: 18px; padding: 24px 20px 18px; }
   .bld-cat-head p { margin-bottom: 0; }
 }
@@ -1514,7 +1514,8 @@ a.bld-item .bld-item-arrow {
    tags, case tags, case-column labels — is muted. Coral here made
    the case tag read like a section eyebrow sitting above grey
    column labels inside the same card (Amber, July 2026). */
-.case .case-tag {
+.case .case-tag,
+.more-list .case-tag {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -1928,10 +1929,23 @@ a.bld-item .bld-item-arrow {
 .art-link a::after { content: " \2197"; }
 
 /* Clients whose website exists but whose case study does not. A
-   sentence at the end of the chapter, never a card: naming them is
-   the point and the lightbox does the showing. */
-.case-more { margin: 30px 0 0; color: var(--muted); max-width: 62ch; }
-.case-more a {
+   short labelled list at the end of the chapter, never cards: each
+   entry carries the same industry tag the cases above use, so both
+   read as equally real, and the lightbox does the showing. The first
+   pass ran them inline in one sentence and the stray "and" and full
+   stop broke onto their own lines (Amber, July 2026). */
+.more-sites { margin-top: 44px; }
+.more-title { font-size: var(--fs-intro); line-height: 1.3; margin-bottom: 16px; }
+.more-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 44px;
+}
+.more-list li { padding: 16px 0; border-top: 1px solid var(--line); }
+.more-list a {
   color: var(--coral-deep);
   font-weight: 600;
   text-decoration: none;
@@ -1941,8 +1955,12 @@ a.bld-item .bld-item-arrow {
   background-position: 0 100%;
   transition: background-size 0.2s var(--ease);
 }
-.case-more a::after { content: " \2197"; }
-.case-more a:hover { background-size: 100% 2px; }
+.more-list a::after { content: " \2197"; }
+.more-list a:hover { background-size: 100% 2px; }
+@media (max-width: 760px) {
+  .more-sites { margin-top: 34px; }
+  .more-list { grid-template-columns: 1fr; }
+}
 .art-link a:hover { background-size: 100% 2px; }
 
 /* ---- Case study artifacts (Projects) ----
@@ -2351,7 +2369,7 @@ footer {
   .reveal[data-delay="1"], .reveal[data-delay="2"] { transition-delay: 0s; }
   .btn:hover, .card:hover, .case:hover, .cap-card:hover,
   .feat-card:hover, .quote-card:hover, .proof-chip:hover,
-  .cta-band .btn:hover, .btn:active, a.bld-item:hover { transform: none; }
+  .cta-band .btn:hover, .btn:active { transform: none; }
   .xp-chev { transition: none; }
   .lb-close, .lb-nav { transition: none; }
   .nav-links { transition: none; transform: none; }
@@ -2771,6 +2789,7 @@ footer p,
 /* Uppercase tags and tier chips read as eyebrow-grade metadata */
 .card .card-tag,
 .case .case-tag,
+.more-list .case-tag,
 .email-capture .capture-label,
 .offer-aside .tier { font-size: var(--fs-eyebrow); }
 .case-col.result p { font-size: var(--fs-body); } /* Impact lines join body scale */
@@ -2846,6 +2865,7 @@ footer p,
    and inputs, 8px phone strip rows, 50% circles, organic blobs. */
 .card .card-tag,
 .case .case-tag,
+.more-list .case-tag,
 .offer-aside .tier,
 .email-capture .capture-label,
 .case-col h3 { letter-spacing: 0.08em; }

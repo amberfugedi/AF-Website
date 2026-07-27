@@ -108,13 +108,11 @@ cards.
   intro, and the band credo lines read at BODY (16/17), keeping
   the heading's width and `text-wrap: pretty`. EVERY running-text
   paragraph reads at BODY, and small is strictly metadata: names,
-  roles, labels, notes, footer — plus ONE sanctioned content use,
-  the Building nested-card text, which runs exactly 1px BELOW its
-  tokens via calc(): titles at body−1 (15/16), descriptions at
-  small−1 (13/14), lh 1.5 [Amber July 2026, two calls: "issues
-  with the font size" — title and desc were both 16 inside the
-  cards, no internal hierarchy — then "the text in the boxes
-  within the boxes can be 1 pt smaller"]) · body 16/17 (lh 1.55;
+  roles, labels, notes, footer. THE 1px-UNDER EXCEPTION IS RETIRED
+  along with the nested cards it existed for: Building rows now sit
+  on the real tokens, title at body (16/17) and description at small
+  (14/15), lh 1.5. The hierarchy that calc() bought — title above
+  description — comes from the token gap itself now) · body 16/17 (lh 1.55;
   stepped from
   the spec's 17/18 so no supporting text outranks the hero deck at
   16/17.5) · small 14/15 (lh 1.4) ·
@@ -686,8 +684,9 @@ and a thumbnail strip. Her rules, all implemented:
   Marketing · 2021-2023". THE "CLIENT SINCE" LINES ARE GONE from
   client cases entirely (Amber, July 2026), and the provenance rule
   now rests on two other things for them: the section they sit in
-  ("Helping Businesses Grow", whose lede is "Sometimes businesses need
-  another team member. Sometimes they need another perspective") and
+  ("Stepping in where growth gets stuck", whose lede is "Sometimes
+  businesses need another team member. Sometimes they need another
+  perspective. Often, they need someone willing to do both.") and
   their own prose. MembersFirst says "ongoing consultant", Robert
   James says "nine years into the relationship", and A2 opens on "a
   small pressure washing company" — someone else's company, plainly.
@@ -763,13 +762,21 @@ maintained."), MembersFirst CT FCU (three campaign flyers,
 A2 Exteriors (the yard sign, "Brand applied to signage." — the
 case copy already named yard signs, so the image lands on its own
 sentence). Total added weight 320KB across seven webp files.
-OTHER WEBSITE CLIENTS is a SENTENCE, not a card (Amber, July 2026:
-"should we add Andreas bridal … maybe as a view other website
-clients?"). `.case-more` closes the Consulting chapter with one
-muted line — "Websites also built for X and Y." — where each name
-is an inline `.art-open` trigger carrying its own gallery in
-`data-more`. Live: Andrea's Bridal and Alterations (home, about)
-and Nutmeg Technologies (home, services). This is the right weight
+OTHER WEBSITE CLIENTS is a LABELLED LIST, not cards. `.more-sites`
+closes the Consulting chapter with an h3 at card-title grade, "Other
+websites I've built", over a two-up (one-up on phone) list of rows
+on hairlines: the same uppercase `.case-tag` the cases above use,
+then the client name as an `.art-open` trigger carrying its own
+gallery in `data-more`. Live: Andrea's Bridal and Alterations
+(Bridal Retail — home, about) and Nutmeg Technologies (Technology
+Services — home, services). THE FIRST PASS RAN THEM INLINE in one
+sentence, "Websites also built for X and Y.", and the stray "and"
+and full stop broke onto their own lines (Amber, July 2026: "the
+isolated 'and' and period create awkward line breaks … that will
+look more intentional and make both projects feel equally
+credible"). The industry tag is what buys the intention: it ties
+the pair to the card pattern above without giving them cards.
+This is the right weight
 for a client with no case study: the work is visible, the page
 does not pretend there is a narrative behind it, and no screenshot
 sits on the page "only because it fills space". A client only
@@ -1135,21 +1142,25 @@ brand hue) · 3. Products ("Independent apps and digital
 products.": The Log · Digital Template Shop) · 4. Courses &
 Resources ("Practical courses and guides built for specific
 audiences.": Build Your Marketing Foundation · Youth Baseball
-Parent Guide · Spain Travel Guide). ROW FORMAT (Amber's nested-
-card brief, July 2026, superseding the divider-list format): each
-project is a soft inner card inside the white category card —
-background #FBF8F4 (warm near-white, one step off the outer
-card), 1px border rgba(46,42,39,0.08), 12px radius, NO shadow,
-padding 14px 22px desktop / 11px 18px mobile (Amber July 2026:
-cards were oversized for the copy), 14px between cards (12px
-mobile). Title bold with the coral ↗ pinned top-right on the
-title's FIRST BASELINE (.bld-item-name is flex space-between,
-align-items baseline, arrow line-height 1); description ONE
-concise sentence in #6F675D (~5.2:1 on the inner surface — the
-floor stays 4.5). NESTED-CARD SIZES (Amber): the inner-card text
-sits 1px below its tokens, title calc(body−1px) = 15/16,
-description calc(small−1px) = 13/14 — keep the calc() form so
-the offset tracks any future token change. Category head: glyph 56px (shrunk ~12% from
+Parent Guide · Spain Travel Guide). ROW FORMAT: each project
+is a ROW ON A HAIRLINE — no background, no border box, no radius,
+padding 15px 0 desktop / 13px 0 mobile, border-top var(--line)
+between rows. THE NESTED CARDS ARE RETIRED (Amber, July 2026: "each
+major white container contains several smaller cards, which makes
+the mobile page feel like nested boxes inside boxes … it starts to
+feel more like a product directory than a personal portfolio"). ONE
+SURFACE PER SECTION is the rule now: the category card holds, the
+rows divide. Desktop drops the first row's rule (it opens the right
+column); mobile restores it, because stacked the first row would
+otherwise run straight into the category description. Title bold
+with the coral ↗ pinned top-right on the title's FIRST BASELINE
+(.bld-item-name is flex space-between, align-items baseline, arrow
+line-height 1); description ONE concise sentence in #6F675D
+(~5.2:1), no measure cap — the row IS the column, and the old 58ch
+clamp broke one-sentence descriptions mid-thought. HOVER IS COLOUR
+ONLY: the linked title goes coral-deep. The translateY(-2px) lift
+went with the cards, and its reduced-motion reset with it — a row
+with no edge has nothing to lift. Category head: glyph 56px (shrunk ~12% from
 64, margin 10px), h3 intro grade, category description at SMALL/
 muted so the project titles dominate (her ladder: project title
 > project desc > category copy); mobile gap head-to-cards 18px
