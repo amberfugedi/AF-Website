@@ -659,17 +659,32 @@ all of your work first, then choose where to go deeper"). Each case is
 a native `<details>`; `<summary>` is the whole preview row, not an
 icon, and carries the tag, the name, a one-line SCOPE, the IMPACT LINE
 and a thumbnail strip. Her rules, all implemented:
-- the impact summary stays VISIBLE while collapsed, because it is the
-  strongest proof (coral, body scale), and MOVES to its proper place
-  after Approach once the case opens (Amber, July 2026), so an open
+- the impact summary stays VISIBLE while collapsed but reads at BODY
+  weight in BODY ink, not coral 600 (Amber, July 2026: as the loudest
+  element it was the first thing the eye landed on, ahead of the
+  project name). The collapsed line is ONE SENTENCE with no metrics;
+  the numbers and the full statement wait for the open view. It MOVES
+  to its proper place after Approach once the case opens (Amber, July 2026), so an open
   card reads challenge, approach, impact in order. Implemented as two
   copies with the hidden one on `display: none` — that takes it out of
   the accessibility tree so nothing is announced twice, and it survives
   with JS off, which a node move would not;
-- one small image per project survives the collapse — the page must
-  not become another text list. The strip hides when open and the
-  full-size figure takes over;
-- the label reads "View project" / "Close project", never a bare plus;
+- NO IMAGES IN THE COLLAPSED CARD. The thumbnail strip is retired
+  (Amber, July 2026: "very small, don't communicate much, and make the
+  card feel busier"). It was her own earlier rule and the lightbox is
+  what changed it — the work is now one tap away at full size, so a
+  row of stamps bought nothing and cost about a third of the card's
+  height;
+- the label reads "Read case study" / "Close case study", never a bare
+  plus and never "View project" — it should invite someone into the
+  story rather than describe a widget expanding. The chevron stays a
+  DOWN arrow, not a right arrow: the label can be editorial but the
+  affordance has to stay honest about opening in place;
+- the COLLAPSED TAG carries the INDUSTRY ALONE ("Financial Services",
+  "MarTech"). Role, dates and "client since" move into the open view
+  as `.case-rel`, the first line of the body. They are a good detail
+  but not the first thing anyone needs, and the provenance rule still
+  gets its explicit relationship, just one tap later;
 - desktop opens the FIRST case in each chapter, phones start every case
   CLOSED (main.js, evaluated once at load);
 - a case linked to directly (`#perq`, and every in-page anchor from

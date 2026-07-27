@@ -1554,11 +1554,11 @@ a.bld-item .bld-item-arrow {
 }
 .case-head h2 { margin-bottom: 6px; }
 .case-scope { color: var(--muted); margin-bottom: 10px; }
-.case-impact { color: var(--coral-deep); font-weight: 600; margin-bottom: 0; max-width: 62ch; }
-.case-thumbs { display: flex; gap: 8px; margin-top: 16px; }
-/* the preview strip is the collapsed stand-in for the real figure;
-   once open, the full-size images replace it */
-.case-d[open] .case-thumbs { display: none; }
+/* The project name is the hero. The impact reads at body weight in
+   body ink, not coral 600 — as the loudest element it was the first
+   thing the eye landed on, ahead of the name (Amber, July 2026). The
+   metrics and the full story wait for the expanded view. */
+.case-impact { color: var(--body); margin-bottom: 0; max-width: 62ch; }
 /* The impact line previews at the top of a closed case and MOVES to
    its proper place after Approach once the case opens (Amber, July
    2026), so the open card reads challenge, approach, impact in order.
@@ -1569,17 +1569,11 @@ a.bld-item .bld-item-arrow {
 /* the hover lift is a preview affordance; an open case is a page of
    content and should not float */
 .case:has(.case-d[open]):hover { transform: none; box-shadow: none; }
-.case-thumbs img {
-  height: 56px;
-  width: auto;
-  border: 1px solid rgba(46, 42, 39, 0.12);
-  border-radius: 3px;
-}
 .case-toggle {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  margin-top: 18px;
+  margin-top: 22px;
   font-family: var(--font-body);
   font-weight: 600;
   color: var(--coral-deep);
@@ -1592,6 +1586,16 @@ a.bld-item .bld-item-arrow {
 .case-d[open] .case-chev { transform: rotate(180deg); }
 /* the detail sits under a hairline so the seam reads as structure */
 .case-body { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
+/* Provenance lives here rather than in the collapsed tag: it is a good
+   detail, but it is not the first thing anyone needs. It still has to
+   exist somewhere, so an employer is never implied to be a client. */
+.case-rel {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
 @media (max-width: 800px) { .case-cols { grid-template-columns: 1fr; gap: 20px; } }
 
 .case-col h3 {
@@ -2719,6 +2723,7 @@ footer p,
 .range-copy .range-line { font-size: clamp(1.25rem, 1.13rem + 0.5vw, 1.5rem); line-height: 1.35; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
 .case-art figcaption, .case-scope, .art-link a { font-size: var(--fs-small); line-height: 1.45; }
+.case-rel { font-size: var(--fs-eyebrow); }
 .lb-stage figcaption { font-size: var(--fs-small); line-height: 1.5; }
 .lb-count { font-size: var(--fs-eyebrow); }
 .case-impact { font-size: var(--fs-body); line-height: 1.5; }
