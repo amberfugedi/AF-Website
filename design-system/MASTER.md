@@ -707,9 +707,13 @@ tab. Single-item galleries hide the arrows and the counter.
 THE OPEN CASE DOES NOT PREVIEW ITS WORK. It offers a NAMED LINK
 instead (Amber, July 2026: "an asset link that doesn't preview
 the pics but when they click it they can see the images"). The
-label says what the thing IS — "See the campaign creative", "See
-the website", "See the signage" — never a count; "3 pieces" was
-tried and cut. A lone link carries the rest of its gallery in a
+label says what the thing IS, AND NO MORE THAN IS TRUE. "See the
+website" and "See the signage" name their artifact exactly.
+MembersFirst reads "See some of the work", NOT "See the campaign
+creative": those three pieces span different campaigns across
+eight years, so calling them one campaign was a small lie (Amber,
+July 2026). Name the artifact when you can, generalise when you
+cannot. Never a count; "3 pieces" was tried and cut. A lone link carries the rest of its gallery in a
 `data-more` JSON attribute, which is the second of the two ways
 `collect()` builds a group. The small thumbnail strip stays in the
 COLLAPSED preview only, which is a different job: it tells you a
