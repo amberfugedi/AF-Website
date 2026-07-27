@@ -256,13 +256,35 @@
 
     var show = function (i) {
       at = (i + group.length) % group.length;
-      var a = group[at];
-      img.src = a.getAttribute("href");
-      img.alt = a.getAttribute("data-caption") || "";
-      cap.textContent = a.getAttribute("data-caption") || "";
+      img.src = group[at].href;
+      img.alt = group[at].cap;
+      cap.textContent = group[at].cap;
       count.textContent = group.length > 1 ? at + 1 + " / " + group.length : "";
       var many = group.length > 1;
       prev.hidden = next.hidden = !many;
+    };
+
+    /* A trigger carries its gallery one of two ways: it sits inside a
+       [data-gallery] container alongside its siblings, or it is a lone
+       text link that lists the rest in data-more. The second is what
+       the Projects cases use, so a case can offer its work without
+       previewing it on the page. */
+    var collect = function (a) {
+      var fig = a.closest("[data-gallery]");
+      var sibs = fig ? fig.querySelectorAll(".art-open") : [];
+      if (sibs.length > 1) {
+        return [].map.call(sibs, function (l) {
+          return { href: l.getAttribute("href"), cap: l.getAttribute("data-caption") || "", el: l };
+        });
+      }
+      var list = [{ href: a.getAttribute("href"), cap: a.getAttribute("data-caption") || "", el: a }];
+      var more = a.getAttribute("data-more");
+      if (more) {
+        try {
+          JSON.parse(more).forEach(function (m) { list.push({ href: m[0], cap: m[1] || "" }); });
+        } catch (err) { /* a malformed list just means a single asset */ }
+      }
+      return list;
     };
 
     triggers.forEach(function (a) {
@@ -270,9 +292,10 @@
         /* modified clicks keep their normal meaning: open in a new tab */
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
         e.preventDefault();
-        var fig = a.closest("[data-gallery]");
-        group = [].slice.call(fig ? fig.querySelectorAll(".art-open") : [a]);
-        show(group.indexOf(a));
+        group = collect(a);
+        var i = 0;
+        group.forEach(function (g, n) { if (g.el === a) i = n; });
+        show(i);
         document.documentElement.style.overflow = "hidden";
         lb.showModal();
       });

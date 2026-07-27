@@ -1905,12 +1905,24 @@ a.bld-item .bld-item-arrow {
    with JS off */
 .art-open { display: block; border-radius: 4px; }
 .art-open:hover img { border-color: rgba(46, 42, 39, 0.3); }
-.art-count {
-  align-self: center;
-  color: var(--muted);
+/* The case offers its work as a named link rather than a strip of
+   previews (Amber, July 2026). The label says what the thing IS —
+   "See the campaign creative", "See the website", "See the signage" —
+   not how many pieces there are. */
+.art-link { margin: 30px 0 0; padding-top: 24px; border-top: 1px solid rgba(46, 42, 39, 0.1); }
+.art-link a {
   font-family: var(--font-body);
   font-weight: 600;
+  color: var(--coral-deep);
+  text-decoration: none;
+  background-image: linear-gradient(var(--coral-deep), var(--coral-deep));
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  background-position: 0 100%;
+  transition: background-size 0.2s var(--ease);
 }
+.art-link a::after { content: " \2197"; }
+.art-link a:hover { background-size: 100% 2px; }
 
 /* ---- Case study artifacts (Projects) ----
    Real client work sitting under the case it belongs to: a short row
@@ -2706,7 +2718,7 @@ footer p,
 .art-outcome { font-size: var(--fs-intro); line-height: 1.32; }
 .range-copy .range-line { font-size: clamp(1.25rem, 1.13rem + 0.5vw, 1.5rem); line-height: 1.35; }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
-.case-art figcaption, .case-scope, .art-count { font-size: var(--fs-small); line-height: 1.45; }
+.case-art figcaption, .case-scope, .art-link a { font-size: var(--fs-small); line-height: 1.45; }
 .lb-stage figcaption { font-size: var(--fs-small); line-height: 1.5; }
 .lb-count { font-size: var(--fs-eyebrow); }
 .case-impact { font-size: var(--fs-body); line-height: 1.5; }

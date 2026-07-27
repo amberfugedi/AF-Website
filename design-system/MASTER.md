@@ -704,6 +704,16 @@ backdrop click closes, arrow keys page a gallery, counter is
 EVERY TRIGGER IS A REAL `<a href>` to the full asset, so with JS
 off a click opens the image and modified clicks still open a new
 tab. Single-item galleries hide the arrows and the counter.
+THE OPEN CASE DOES NOT PREVIEW ITS WORK. It offers a NAMED LINK
+instead (Amber, July 2026: "an asset link that doesn't preview
+the pics but when they click it they can see the images"). The
+label says what the thing IS — "See the campaign creative", "See
+the website", "See the signage" — never a count; "3 pieces" was
+tried and cut. A lone link carries the rest of its gallery in a
+`data-more` JSON attribute, which is the second of the two ways
+`collect()` builds a group. The small thumbnail strip stays in the
+COLLAPSED preview only, which is a different job: it tells you a
+case has work attached before you decide to open it.
 The full-size files are separate from the page thumbnails
 (`full-*.webp`, ~1180-1400px) so the page never downloads what it
 does not show. NEW INTERACTION, added to the closed motion budget
