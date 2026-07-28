@@ -2553,6 +2553,7 @@ footer {
   .quote-card:hover, .proof-chip:hover,
   .cta-band .btn:hover, .btn:active { transform: none; }
   .work-strip a:hover .ws-arrow { transform: none; }
+  .hw-principles li:hover .pr-mark { transform: none; }
   .xp-chev { transition: none; }
   .lb-close, .lb-nav { transition: none; }
   .nav-links { transition: none; transform: none; }
@@ -2951,6 +2952,81 @@ footer {
 }
 
 
+/* ---- The people side of the work ----
+   Copy left, five principles right, pull quote across the bottom. The
+   one section on How I Work built on a lavender accent rather than
+   coral, because it is about the team rather than the work. Light and
+   editorial: hairlines, no cards, no borders, no shadows.
+   NO EYEBROW. Section eyebrows are retired site-wide, and
+   "HOW I WORK WITH PEOPLE" over "The people side of the work matters
+   just as much as the strategy" is exactly the restatement that got
+   them retired (2026-07). */
+.hw-people {
+  display: grid;
+  grid-template-columns: minmax(0, 0.62fr) minmax(0, 1fr);
+  gap: clamp(36px, 5vw, 88px);
+  align-items: start;
+}
+.hw-people-copy p { color: var(--muted); max-width: 44ch; }
+.hw-people-copy p:last-child { margin-bottom: 0; }
+
+.hw-principles { list-style: none; margin: 0; padding: 0; }
+.hw-principles li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 22px;
+  padding: 26px 0;
+  border-top: 1px solid rgba(133, 121, 201, 0.28);   /* lavender hairline */
+  transition: border-color 0.25s var(--ease);
+}
+.hw-principles li:first-child { padding-top: 0; border-top: 0; }
+.hw-principles li:last-child { border-bottom: 1px solid rgba(133, 121, 201, 0.28); }
+.pr-mark {
+  display: block;
+  margin-top: 2px;
+  transition: transform 0.25s var(--ease);
+}
+.hw-principles h3 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+  transition: color 0.25s var(--ease);
+}
+.hw-principles p { color: var(--muted); margin-bottom: 0; max-width: 56ch; }
+/* understated on purpose: the title deepens, the mark steps 3px, the
+   rule brightens. Colour and a 3px nudge only — the UI-response tier
+   the rest of the site already uses, not a new motion device. */
+.hw-principles li:hover { border-top-color: rgba(133, 121, 201, 0.6); }
+.hw-principles li:hover + li { border-top-color: rgba(133, 121, 201, 0.6); }
+.hw-principles li:last-child:hover { border-bottom-color: rgba(133, 121, 201, 0.6); }
+.hw-principles li:hover h3 { color: #4A3F86; }
+.hw-principles li:hover .pr-mark { transform: translateX(3px); }
+
+/* the pull quote closes the section across both columns */
+.hw-people-quote {
+  grid-column: 1 / -1;
+  margin: clamp(48px, 5vw, 78px) 0 0;
+  padding-top: 30px;
+  border-top: 1px solid rgba(133, 121, 201, 0.28);
+  max-width: 30em;
+}
+.hw-people-quote p {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .hw-people { grid-template-columns: 1fr; gap: 34px; }
+  .hw-people-copy p { max-width: none; }
+  .hw-principles li { grid-template-columns: 26px minmax(0, 1fr); gap: 16px; padding: 22px 0; }
+  .pr-mark { width: 26px; height: 26px; }
+  .hw-principles p { max-width: none; }
+  .hw-people-quote { max-width: none; margin-top: 40px; }
+}
+
 /* ============ Type system (see MASTER.md) ============
    One responsive scale across every page. Deliberate exceptions:
    the home hero h1 (3-line rule), the home problem h2 (mobile
@@ -3090,6 +3166,9 @@ footer p,
 .nb-list li::before,
 .hw-q-num { font-size: var(--fs-eyebrow); }
 .hw-quote p { font-size: clamp(1.55rem, 1.316rem + 0.96vw, 2.25rem); line-height: 1.28; }
+.hw-people-quote p { font-size: clamp(1.4rem, 1.19rem + 0.86vw, 1.95rem); line-height: 1.32; }
+.hw-principles h3 { font-size: var(--fs-intro); line-height: 1.3; }
+.hw-principles p { font-size: var(--fs-body); line-height: 1.55; }
 
 /* Uppercase tags and tier chips read as eyebrow-grade metadata */
 .card .card-tag,

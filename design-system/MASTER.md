@@ -1145,6 +1145,48 @@ full-size files they linked to are still live on Projects.
 
 ## How I Work page (2026-07, Amber's brief)
 
+### The people side of the work (2026-07, Amber's brief)
+
+`.hw-people`, placed between "I look for ways to simplify" and "Where
+this work leads" — the last "how" before the "so what". Amber's point:
+"plenty of marketing portfolios showcase projects and skills. Very few
+communicate how they influence people, build teams, and lead change."
+It has to read as authentic and hands-on, NEVER as an executive résumé,
+management buzzwords, generic leadership advice or a personality
+assessment.
+
+Copy left (0.62fr), five principles right (1fr), pull quote across the
+bottom at 30em. Nothing is a card: hairlines only, no borders, no
+shadows.
+
+LAVENDER IS THE ACCENT HERE, not coral — the one section on How I Work
+that switches, because it is about the team rather than the work. The
+hairlines are `rgba(133,121,201,0.28)` and the five marks are
+`#8579C9`.
+
+THE FIVE MARKS ARE ABSTRACT LINE DRAWINGS, not pictograms. A dot
+widening into two rays (context), three lines converging on a point
+(clarity), a line dipping below and returning (doing the work), two
+lines meeting at a peak (ideas, not people), a rising curve leaving a
+baseline behind (leave the team stronger). A lightbulb, a handshake or
+any stock-icon metaphor is the failure mode — that is precisely the
+generic leadership look the brief bans.
+
+HOVER, and it stays understated: the title deepens to #4A3F86 (8.5:1),
+the mark steps 3px right, the rule brightens to 0.6 alpha. Colour plus
+a 3px nudge is the UI-response tier the site already uses — no new
+motion device, and the nudge is off under reduced motion. Scroll entry
+is the existing `.reveal`.
+
+NO EYEBROW, and this is a DELIBERATE DEVIATION from the brief, which
+asked for "HOW I WORK WITH PEOPLE" above the headline. Section eyebrows
+were retired site-wide days earlier, and that label over "The people
+side of the work matters just as much as the strategy" is the exact
+restatement pattern that retired them. Flagged to Amber; one line to
+restore if she wants it back.
+
+Measured: titles and quote 13.6:1, body 7.1:1, hover title 8.5:1.
+
 ### Working documents section (moved here from Expertise, 2026-07)
 
 `.diagnose` sits between "I look beyond marketing" and the bridge
