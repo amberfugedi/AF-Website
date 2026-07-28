@@ -920,42 +920,57 @@ Flow, after the fourth pass:
    SERIF (coral-deep, the only italic display on the site and the
    only contrasting treatment this page gets), then a 34x2px coral
    rule, then two sans paragraphs.
-   RIGHT: FOUR MATERIALS, and they are DRAWN, NOT PHOTOGRAPHED — two
-   inline SVGs in the site's existing line-art language plus one paper
-   list in real HTML and one loose note. NOTHING HERE CLAIMS TO BE A
-   REAL CLIENT DELIVERABLE, which is the only honest way to show a
-   working session nobody photographed. NO STOCK, NO STAGED DESK
-   PHOTO: the site's one real photograph is the How I Work hero and it
-   stays spent there.
-   - `.mat-wire` — a page sketch: nav, headline bars, one coral button
-     outline, three column blocks. Warm white #FFFDFA.
-   - `.mat-map` — People / Process / Priorities as three nodes, one
-     edge in coral. Palest lavender #F5F2FB. SVG labels at 13px so
-     they stay legible when the sheet scales down.
-   - `.mat-note` — "Is this the problem, or a symptom?" in italic serif
-     on the cream itself, coral rule beneath. NOT a fourth sheet: a
-     fourth rectangle would have made the column a stack of boxes.
-     `justify-self: start` shrinks the box to the text so the rule
-     underlines the question, not the container.
-   - `.mat-list` — "In what order": Fix the follow-up (done) · Rewrite
-     the homepage · One dashboard, not four · Then the campaign.
-     Palest blush #FCF4F1. The campaign is LAST on purpose — the list
-     is the argument.
-   COMPOSITION RULES (Amber's brief, and they are binding): four or
-   five elements, never more · EXACTLY ONE OVERLAP, and it is a corner
-   — the map clips ~16px of the sketch's paper edge, never its drawing
-   · no tape, pins, sticky notes or layered paper · no dashboards,
-   glow or futuristic UI · no flowers, icons, dotted grids or
-   hand-drawn decoration · shadows almost invisible (0 16px 34px -28px
-   at 0.34) · no rounded container around the section · curated but
-   slightly imperfect.
+   RIGHT: FOUR WORKING DOCUMENTS, DRAWN, NOT PHOTOGRAPHED. Amber,
+   July 2026: "scrap both the triangle and the clean checklist …
+   create 3-4 authentic strategy artifacts that look like they came
+   straight from your desk … this is where the site can become
+   exceptional instead of just beautiful." A DIAGRAM IS THE FAILURE
+   MODE — the People/Process/Priorities triangle and the tidy
+   checklist that preceded these were both correct and both dead.
+   NOTHING HERE IS A REAL CLIENT DELIVERABLE AND NOTHING PRETENDS TO
+   BE. No stock, no staged desk photo: the site's one real photograph
+   is the How I Work hero and it stays spent there.
+   - `.mat-wire` — a homepage marked up in pen: an arrow to the hero
+     ("proof here"), the CTA circled ("one CTA"), the third column
+     struck out ("cut"), footed HOME — PASS 2. Warm white #FFFDFA.
+   - `.mat-prio` — "what first?" plotted impact against effort. Fix
+     follow-up is circled and arrowed "start here"; rebrand is struck
+     through. Palest blush #FCF4F1.
+   - `.mat-flow` — "where does it stop?": ad → page → email → call,
+     with the email-to-call step crossed and annotated "4 days".
+     Palest lavender #F5F2FB.
+   - `.mat-msg` — a messaging worksheet where the first answer,
+     "faster marketing", is crossed out and replaced in pen with
+     "fewer things done twice". Cream #FBF6EE.
+   WHAT MAKES THEM READ AS REAL, and what to preserve if they are ever
+   redrawn:
+   - rules BOW. Quadratic curves, never straight lines.
+   - box corners DO NOT CLOSE. They overshoot or stop short.
+   - the pen is coral-deep #B8354A and ONLY EVER ANNOTATES. It never
+     draws the document itself.
+   - handwriting is Newsreader ITALIC; printed labels are Manrope
+     uppercase at 9.5px with 1.1 tracking. NO THIRD FONT was added —
+     italic serif plus drawn marks carries the handwriting.
+   - EVERY SHEET CARRIES A SECOND THOUGHT: a strike, a circle, an
+     arrow, a correction. A document with no revision in it is a
+     graphic, not an artifact.
+   Each artifact is a single self-contained inline SVG (text included,
+   so it scales with the sheet) and carries a real `role="img"` +
+   `aria-label` describing its marks — these are content, not decor.
+   COMPOSITION: two loose columns, EXACTLY ONE OVERLAP and it is a
+   corner (the prioritization page clips the sketch's paper edge,
+   never its drawing). No tape, pins, sticky notes or layered paper ·
+   no dashboards, glow or futuristic UI · no flowers, icons, dotted
+   grids or decoration · shadows almost invisible (0 16px 34px -28px
+   at 0.34) · rotations under 1.4° · no rounded container around the
+   section.
    ROTATION USES THE `rotate:` PROPERTY, NOT `transform`. `.reveal`
    owns transform, and a rotation written there is wiped the instant
    the item enters the viewport. Verified live in both motion modes.
-   MOBILE drops the page sketch — it is the least legible at 390px and
-   the diagram carries the same idea better — leaving three materials
-   in one column with a 30px grid gap and no margin nudging, so the
-   note's rule can never land on the sheet below it.
+   MOBILE drops the CAMPAIGN FLOW — its boxes and arrows are the least
+   readable at 390px and the other three each say something it does
+   not — leaving three documents in one column on a 30px grid gap with
+   no margin nudging.
    THIS SECTION SITS NEXT TO How I Work AND MUST NOT BECOME IT. The
    split still holds: Expertise says the diagnostic question is where
    expertise BEGINS; How I Work walks the engagement. Its ten
