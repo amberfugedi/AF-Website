@@ -1688,34 +1688,136 @@ a.bld-item .bld-item-arrow {
 }
 .area-link { margin-bottom: 0; }
 
-/* --- 2. Where I'm most useful: the strongest section on the page,
-   so it gets the whole measure and nothing beside it. Loose and
-   editorial, never cards, no icons, no illustration. --- */
-.useful { list-style: none; margin: 34px 0 0; padding: 0; max-width: 62ch; }
-.useful li {
-  position: relative;
-  padding: 18px 0 18px 32px;
-  border-top: 1px solid var(--line);
-  font-family: var(--font-display);
-  color: var(--ink);
-  letter-spacing: -0.01em;
+/* --- 2. Every project starts with the same question ---
+   Copy left, working materials right. THE MATERIALS ARE DRAWN, not
+   photographed: three paper sheets in the site's own line-art
+   language plus one loose note. Nothing here claims to be a real
+   client deliverable, which is the only honest way to show a working
+   session nobody photographed — the site's one real photograph is
+   the How I Work hero and it stays spent there.
+   RULES THIS SECTION KEEPS (Amber, July 2026): four elements, not a
+   scrapboard · minimal overlap · no tape, pins or sticky notes · no
+   dashboards or glow · shadows almost invisible · no rounded
+   container around the section itself · slightly imperfect, not
+   decorative. --- */
+.diagnose {
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
 }
-.useful li:last-child { border-bottom: 1px solid var(--line); }
-.useful li::before {
+.diag-copy p { color: var(--muted); max-width: 46ch; margin-bottom: 16px; }
+.diag-copy p:last-child { margin-bottom: 0; }
+/* the question, set apart: coral italic serif is the one contrasting
+   treatment on the page, and coral-deep keeps it above the 4.5 floor */
+.diag-q {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--coral-deep) !important;
+  letter-spacing: -0.015em;
+  margin: 18px 0 0;
+  max-width: 18em !important;
+}
+.diag-rule {
+  display: block;
+  width: 34px;
+  height: 2px;
+  background: var(--coral);
+  margin: 26px 0 24px;
+}
+
+/* --- the materials: two loose columns, the sheets set against each
+   other rather than queued in a stack. Minimal overlap is the brief,
+   so exactly two edges cross. --- */
+.diag-art {
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  align-items: start;
+}
+.mat {
+  margin: 0;
+  border: 1px solid rgba(46, 42, 39, 0.09);
+  border-radius: 3px;
+  box-shadow: 0 16px 34px -28px rgba(46, 42, 39, 0.34);
+  /* the `rotate` property, NOT transform: .reveal owns transform and
+     a rotation written there is wiped the moment the item enters */
+}
+.mat svg { display: block; width: 100%; height: auto; }
+.mat-wire {
+  grid-column: 1; grid-row: 1;
+  background: #FFFDFA;
+  padding: 15px 13px;
+  rotate: -1.1deg;
+}
+.mat-map {
+  grid-column: 2; grid-row: 1;
+  background: #F5F2FB;           /* the palest lavender in the aura */
+  padding: 13px 11px;
+  /* the ONE overlap in the composition, and it is a corner: the map
+     clips ~16px of the sketch's edge, never its drawing */
+  margin: 148px 0 0 -16px;
+  rotate: 1.4deg;
+  position: relative;
+  z-index: 2;
+}
+/* the loose note sits on the cream itself — a fourth sheet would have
+   made the column a stack of boxes */
+.mat-note {
+  grid-column: 1 / -1; grid-row: 3;
+  margin: 32px 0 0 44px !important;
+  position: relative;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink);
+  margin: 30px 0 0;
+  padding-bottom: 9px;
+  justify-self: start;
+}
+.mat-note::after {
   content: "";
   position: absolute;
   left: 0;
-  top: 1.5em;
-  width: 14px;
+  bottom: 0;
+  width: 100%;
   height: 2px;
   background: var(--coral);
+  opacity: 0.55;
 }
-/* Two of the six are TWO DELIBERATE LINES: a claim, then the turn.
-   The weight change is what stops the second line reading as a wrap,
-   so the emphasis is structural — do not bold anything in the other
-   four (Amber, July 2026). */
-.useful strong { font-weight: 600; }
-.useful .u-turn { display: block; margin-top: 3px; }
+/* justify-self: start shrinks the box to the text, so the rule
+   underlines the question rather than the box around it */
+.mat-list {
+  grid-column: 1; grid-row: 2;
+  background: #FCF4F1;           /* the palest blush */
+  padding: 18px 20px 16px;
+  margin: 34px 0 0 18px;
+  rotate: -0.7deg;
+}
+.ml-head {
+  color: var(--muted);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.mat-list ul { list-style: none; margin: 0; padding: 0; }
+.mat-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--body);
+  padding: 5px 0;
+}
+.ml-mark {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border: 1.2px solid rgba(46, 42, 39, 0.34);
+  border-radius: 2px;
+  position: relative;
+  top: 1px;
+}
+/* one item already done, so the list reads as a real working order
+   rather than a checklist template */
+.ml-done { border-color: var(--coral); background: var(--coral); }
 
 /* --- 3. Tools: collapsed by default, and it stays that way. No logo
    wall — it would read more junior and more software-focused than she
@@ -1744,6 +1846,15 @@ a.bld-item .bld-item-arrow {
 }
 .plat h3 { font-family: var(--font-body); font-weight: 600; color: var(--muted); margin-bottom: 5px; }
 .plat p { color: var(--muted); opacity: 0.86; margin-bottom: 0; }
+
+/* a hairline and generous air, so the working materials above do not
+   bleed into the project links (Amber, July 2026) */
+.rule-top > .wrap::before {
+  content: "";
+  display: block;
+  border-top: 1px solid var(--line);
+  margin-bottom: clamp(44px, 5.4vw, 78px);
+}
 
 /* --- 4. The bridge to Projects: three full-width rows, never cards
    and never thumbnails. Projects carries the case studies; this page
@@ -1805,7 +1916,9 @@ a.bld-item .bld-item-arrow {
 @media (max-width: 1020px) {
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
   .area { gap: 18px 32px; }
-  .work-strip { grid-template-columns: 1fr; }
+  .diagnose { gap: 44px; }
+  .mat-map { margin-left: -12px; margin-top: 124px; }
+  .mat-list { margin-left: 10px; }
 }
 @media (max-width: 760px) {
   /* One idea per screen: everything stacks left-aligned, nothing
@@ -1816,8 +1929,19 @@ a.bld-item .bld-item-arrow {
   .area-list { grid-template-columns: 1fr; margin-bottom: 20px; }
   .area-line { max-width: none; }
 
-  .useful { margin-top: 26px; }
-  .useful li { padding: 15px 0 15px 28px; }
+  /* MOBILE: one column, three materials, no overlap and no rotation
+     stacking up. The page sketch goes — it is the least legible at
+     this width and the diagram carries the same idea better. */
+  .diagnose { grid-template-columns: 1fr; gap: 40px; }
+  .diag-copy p { max-width: none; }
+  .diag-rule { margin: 22px 0 20px; }
+  /* one column and a real gap, so nothing has to be nudged by margin
+     and the note's rule can never land on the sheet below it */
+  .diag-art { grid-template-columns: 1fr; gap: 30px; }
+  .mat-wire { display: none; }
+  .mat-map, .mat-note, .mat-list { grid-column: 1; grid-row: auto; margin: 0 !important; }
+  .mat-map { rotate: 1deg; padding: 16px 14px; }
+  .mat-list { rotate: -0.7deg; }
 
   .industries { margin-top: 24px; padding-top: 16px; }
   .plat-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -2764,8 +2888,12 @@ footer p,
    for a second hero */
 .industries { font-size: var(--fs-small); line-height: 1.55; }
 .area-line { font-size: var(--fs-intro); line-height: 1.35; }
-.useful li, .work-strip a { font-size: var(--fs-intro); line-height: 1.35; }
-@media (max-width: 760px) { .useful li, .work-strip a { font-size: 1.125rem; } }
+.work-strip a { font-size: var(--fs-intro); line-height: 1.35; }
+.diag-q { font-size: var(--fs-h3); line-height: 1.3; }
+.mat-note { font-size: var(--fs-intro); line-height: 1.35; }
+.ml-head { font-size: var(--fs-eyebrow); letter-spacing: 0.08em; text-transform: uppercase; }
+.mat-list li { font-size: var(--fs-small); line-height: 1.5; }
+@media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
 .case-art figcaption, .case-scope, .art-link a, .case-more { font-size: var(--fs-small); line-height: 1.55; }
 .case-rel { font-size: var(--fs-eyebrow); }

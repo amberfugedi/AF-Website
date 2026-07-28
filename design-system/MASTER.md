@@ -908,18 +908,59 @@ Flow, after the fourth pass:
    AI"), as one capability among six. It is part of her expertise,
    not the page's identity.
 3. QUOTE BANNER (her AI line, unchanged) as the chapter seam.
-4. I'M ESPECIALLY USEFUL WHEN… Amber's six lines verbatim, and per
-   her own note the strongest section on the page for communicating
-   real value. A LOOSE EDITORIAL LIST, never cards, no icons, no
-   illustration, no animation: one column at 62ch, hairlines,
-   coral-rule markers, display face at intro grade (stepped to 18px
-   on a phone so it reads polished rather than oversized). A sans
-   supporting sentence sits under the heading. TWO OF THE SIX ARE
-   TWO DELIBERATE LINES — a claim in semibold, then the turn in
-   regular, in a block `.u-turn`. The WEIGHT CHANGE is what stops
-   line two reading as a wrap, which is why nothing in the other
-   four items may be bolded: the emphasis is structural, not
-   decorative (Amber, July 2026).
+4. EVERY PROJECT STARTS WITH THE SAME QUESTION. Replaced the six-item
+   "especially useful when" list in July 2026 after Amber said the
+   page still needed to be "a bit more designed" and rejected, in
+   order: a two-column split of that list, numbered items, and the
+   list format itself. This is a TWO-COLUMN EDITORIAL COMPOSITION —
+   copy left, working materials right.
+   LEFT: headline at the h2-long grade (26/38, NOT the full 30/44 —
+   she asked for important, not dominating), then the featured
+   question "What is actually getting in the way?" in CORAL ITALIC
+   SERIF (coral-deep, the only italic display on the site and the
+   only contrasting treatment this page gets), then a 34x2px coral
+   rule, then two sans paragraphs.
+   RIGHT: FOUR MATERIALS, and they are DRAWN, NOT PHOTOGRAPHED — two
+   inline SVGs in the site's existing line-art language plus one paper
+   list in real HTML and one loose note. NOTHING HERE CLAIMS TO BE A
+   REAL CLIENT DELIVERABLE, which is the only honest way to show a
+   working session nobody photographed. NO STOCK, NO STAGED DESK
+   PHOTO: the site's one real photograph is the How I Work hero and it
+   stays spent there.
+   - `.mat-wire` — a page sketch: nav, headline bars, one coral button
+     outline, three column blocks. Warm white #FFFDFA.
+   - `.mat-map` — People / Process / Priorities as three nodes, one
+     edge in coral. Palest lavender #F5F2FB. SVG labels at 13px so
+     they stay legible when the sheet scales down.
+   - `.mat-note` — "Is this the problem, or a symptom?" in italic serif
+     on the cream itself, coral rule beneath. NOT a fourth sheet: a
+     fourth rectangle would have made the column a stack of boxes.
+     `justify-self: start` shrinks the box to the text so the rule
+     underlines the question, not the container.
+   - `.mat-list` — "In what order": Fix the follow-up (done) · Rewrite
+     the homepage · One dashboard, not four · Then the campaign.
+     Palest blush #FCF4F1. The campaign is LAST on purpose — the list
+     is the argument.
+   COMPOSITION RULES (Amber's brief, and they are binding): four or
+   five elements, never more · EXACTLY ONE OVERLAP, and it is a corner
+   — the map clips ~16px of the sketch's paper edge, never its drawing
+   · no tape, pins, sticky notes or layered paper · no dashboards,
+   glow or futuristic UI · no flowers, icons, dotted grids or
+   hand-drawn decoration · shadows almost invisible (0 16px 34px -28px
+   at 0.34) · no rounded container around the section · curated but
+   slightly imperfect.
+   ROTATION USES THE `rotate:` PROPERTY, NOT `transform`. `.reveal`
+   owns transform, and a rotation written there is wiped the instant
+   the item enters the viewport. Verified live in both motion modes.
+   MOBILE drops the page sketch — it is the least legible at 390px and
+   the diagram carries the same idea better — leaving three materials
+   in one column with a 30px grid gap and no margin nudging, so the
+   note's rule can never land on the sheet below it.
+   THIS SECTION SITS NEXT TO How I Work AND MUST NOT BECOME IT. The
+   split still holds: Expertise says the diagnostic question is where
+   expertise BEGINS; How I Work walks the engagement. Its ten
+   questions are all different from this one — check before adding
+   another.
 5. TOOLS I'VE WORKED IN, COLLAPSED. Her sentence first — "Tools are
    useful, but they are rarely the strategy." — then a `<details>`
    disclosure over SIX groups in a 3×2 grid: Marketing and CRM ·
@@ -934,7 +975,12 @@ Flow, after the fourth pass:
    strongest published results are paid-media results. Flagged to
    her; cut it if she disagrees.
 6. THE BRIDGE TO PROJECTS, "See the expertise in action." with a
-   sans supporting sentence. `.work-strip` — three FULL-WIDTH ROWS
+   sans supporting sentence ("Real work across different industries,
+   business stages, and types of challenges."). The section carries
+   `.rule-top`, a hairline drawn by `.wrap::before` with 44-78px of
+   air beneath it, so the working materials above cannot bleed into
+   the project links. NO PARAGRAPH goes between the two sections —
+   the rule does that job (Amber, July 2026). `.work-strip` — three FULL-WIDTH ROWS
    on hairlines at the SAME 60ch measure as the useful list above,
    so the two sections read as one thought. NOT cards, never
    thumbnails, never a repeat of a full project card. It is
@@ -950,8 +996,9 @@ Flow, after the fourth pass:
    resources (#builds). Leadership is covered by the PERQ link inside
    its own area block. The industries line survives ONLY as small
    context beneath the strip, one sentence — Amber ruled it does not
-   need its own section — and now opens on "Different industries.
-   Similar challenges."
+   need its own section. It LOST its "Different industries. Similar
+   challenges." opening when the section lede took that idea over;
+   the echo was only two sentences wide.
 7. CLOSING BAND. "Not sure what kind of help you need yet?" with
    her paragraph, `Start a conversation` primary and `See how I
    work` ghost — the first CTA on the site pointing at How I Work,
