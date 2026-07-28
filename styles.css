@@ -1633,165 +1633,93 @@ a.bld-item .bld-item-arrow {
    asymmetric platform grid. Twelve equal capability cards would read
    as a generic agency page — four substantial areas is the format. */
 
-/* --- 1. What I help with: four areas, each a two-column block on a
-   hairline. Same ledger proportions the rest of the site uses, scaled
-   up: name left, everything else right. --- */
-.areas { margin-top: 44px; }
-.area {
-  display: grid;
-  grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
-  gap: 24px clamp(28px, 4vw, 56px);
-  padding: 40px 0;
-  border-top: 1px solid var(--line);
-}
-.area:last-child { border-bottom: 1px solid var(--line); }
-.area-head h3 {
+/* --- 1. Four chapters ---
+   Four oversized words, each opening a chapter (Amber, July 2026:
+   "imagine four oversized words that dominate the page ... it becomes
+   almost like reading chapters in a book. No cards. No icons. No
+   feature grid. Just beautiful typography.").
+   THE WORDS SIT AT --fs-h1, the site's single display size. They read
+   larger than this page's own h1 only because that headline is a long
+   sentence and takes the h1-long step-down; the chapters are at the
+   canonical size, not above it. On a page whose whole job is naming
+   four things, the four things are the display.
+   RESIST ADDING. Built here and removed across five passes: a
+   typographic word composition, four oversized statement rows, a
+   numbered capability index, an asymmetric platform grid, a company
+   logo strip, two outcome-led artifacts, a four-across results row, a
+   six-item "especially useful when" list, and the four working
+   documents — those moved to How I Work, where they belong. --- */
+.chapters { margin-top: 44px; }
+.ch { border-top: 1px solid var(--line); padding: 50px 0 54px; }
+.ch:last-child { border-bottom: 1px solid var(--line); }
+/* the rules run the full column while the CONTENT steps right on the
+   second and fourth chapters — Amber's own sketch staggered the words,
+   and staggering the whole chapter is what keeps it from reading as a
+   broken margin */
+.ch:nth-child(2) { padding-left: 7%; }
+.ch:nth-child(4) { padding-left: 14%; }
+.ch-word {
   font-family: var(--font-display);
-  margin-bottom: 0;
-  letter-spacing: -0.015em;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 32px;
 }
-/* who the area is FOR comes first: the reader recognises themselves
-   before they read a capability list (Amber's brief) */
-.area-for { color: var(--body); max-width: 58ch; margin-bottom: 22px; }
-.area-list {
-  list-style: none;
-  margin: 0 0 24px;
-  padding: 0;
+.ch-body {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.84fr);
+  gap: clamp(30px, 4.5vw, 68px);
+  align-items: start;
 }
-/* the site's one bullet language: a short coral rule, shared with the
-   How I Work hands-on list and the "especially useful" list below */
-.area-list li {
-  position: relative;
-  padding: 8px 0 8px 24px;
-  color: var(--muted);
-}
-.area-list li::before {
+.ch-for { color: var(--muted); max-width: 46ch; margin-bottom: 20px; }
+/* capabilities run inline on the site's one bullet language — a short
+   coral rule, shared with the How I Work hands-on list */
+.ch-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 28px; }
+.ch-list li { position: relative; padding-left: 24px; color: var(--body); }
+.ch-list li::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 1.05em;
-  width: 12px;
-  height: 2px;
+  left: 0; top: 0.72em;
+  width: 12px; height: 2px;
   background: var(--coral);
 }
-/* the human line closes each area — the sentence a capability list
-   cannot carry */
-.area-line {
+.ch-line {
   font-family: var(--font-display);
   color: var(--ink);
   letter-spacing: -0.015em;
-  max-width: 34em;
+  max-width: 22em;
   margin-bottom: 18px;
 }
-.area-link { margin-bottom: 0; }
+.ch-link { margin-bottom: 0; }
 
-/* --- 2. Every project starts with the same question ---
-   Copy left, working materials right. THE MATERIALS ARE DRAWN, not
-   photographed: three paper sheets in the site's own line-art
-   language plus one loose note. Nothing here claims to be a real
-   client deliverable, which is the only honest way to show a working
-   session nobody photographed — the site's one real photograph is
-   the How I Work hero and it stays spent there.
-   RULES THIS SECTION KEEPS (Amber, July 2026): four elements, not a
-   scrapboard · minimal overlap · no tape, pins or sticky notes · no
-   dashboards or glow · shadows almost invisible · no rounded
-   container around the section itself · slightly imperfect, not
-   decorative. --- */
-.diagnose {
+/* --- 3. Tools: collapsed by default, and it stays that way. No logo
+   wall — it would read more junior and more software-focused than she
+   is (Amber, July 2026). "Smallest section" means least content, not
+   less padding: the site rhythm is uniform. --- */
+.tools-section .section-lede { margin-bottom: 22px; }
+.plat-all summary {
+  display: inline-flex; align-items: center; gap: 7px;
+  cursor: pointer; list-style: none;
+  font-family: var(--font-body); font-weight: 600;
+  color: var(--coral-deep);
+  padding: 6px 0;
+}
+.plat-all summary::-webkit-details-marker { display: none; }
+.plat-all .pa-sign { transition: transform 0.2s var(--ease); display: inline-block; }
+.plat-all[open] .pa-sign { transform: rotate(90deg); }
+.plat-all summary:hover { color: #96263C; }
+.plat-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1fr);
-  gap: clamp(40px, 6vw, 88px);
-  align-items: center;
-}
-.diag-copy p { color: var(--muted); max-width: 46ch; margin-bottom: 16px; }
-.diag-copy p:last-child { margin-bottom: 0; }
-/* the question, set apart: coral italic serif is the one contrasting
-   treatment on the page, and coral-deep keeps it above the 4.5 floor */
-.diag-q {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--coral-deep) !important;
-  letter-spacing: -0.015em;
-  margin: 18px 0 0;
-  max-width: 18em !important;
-}
-.diag-rule {
-  display: block;
-  width: 34px;
-  height: 2px;
-  background: var(--coral);
-  margin: 26px 0 24px;
-}
-
-/* --- the materials: FOUR WORKING DOCUMENTS, not diagrams (Amber,
-   July 2026: "scrap both the triangle and the clean checklist …
-   create 3-4 authentic strategy artifacts that look like they came
-   straight from your desk"). A page marked up in pen, a
-   prioritization page, a campaign flow, and a messaging worksheet
-   with the first answer crossed out.
-   WHAT MAKES THEM READ AS REAL, and what to preserve if these are
-   ever redrawn: rules BOW (quadratic curves, never straight lines) ·
-   box corners DO NOT CLOSE, they overshoot or stop short · the pen
-   is coral-deep #B8354A and only ever annotates, it never draws the
-   document itself · handwriting is Newsreader ITALIC, printed labels
-   are Manrope uppercase at 9.5px · every sheet carries at least one
-   correction, strike or arrow, because a document with no second
-   thought in it is a graphic, not an artifact.
-   A CLEAN VERSION OF ANY OF THESE IS THE FAILURE MODE. The triangle
-   diagram and the tidy checklist that came before were both correct
-   and both dead. --- */
-.diag-art {
-  display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
-  gap: 26px 16px;
-  align-items: start;
-}
-.mat {
-  margin: 0;
-  border: 1px solid rgba(46, 42, 39, 0.09);
-  border-radius: 3px;
-  box-shadow: 0 16px 34px -28px rgba(46, 42, 39, 0.34);
-  padding: 14px 12px;
-  /* the `rotate` property, NOT transform: .reveal owns transform and
-     a rotation written there is wiped the moment the item enters */
-}
-.mat svg { display: block; width: 100%; height: auto; }
-.mat-wire { grid-column: 1; grid-row: 1; background: #FFFDFA; rotate: -1.1deg; }
-.mat-prio {
-  grid-column: 2; grid-row: 1;
-  background: #FCF4F1;            /* palest blush */
-  /* the ONE overlap, and it is a corner: the prioritization page
-     clips the sketch's paper edge, never its drawing */
-  margin: 74px 0 0 -16px;
-  rotate: 1.3deg;
-  position: relative;
-  z-index: 2;
-}
-.mat-flow {
-  grid-column: 1; grid-row: 2;
-  background: #F5F2FB;            /* palest lavender */
-  margin: 4px 0 0 14px;
-  rotate: 0.8deg;
-}
-.mat-msg {
-  grid-column: 2; grid-row: 2;
-  background: #FBF6EE;            /* cream, one step warmer than the page */
-  margin: 60px 0 0 0;
-  rotate: -0.6deg;
-}
-
-/* a hairline and generous air, so the working materials above do not
-   bleed into the project links (Amber, July 2026) */
-.rule-top > .wrap::before {
-  content: "";
-  display: block;
+  /* three across so six groups resolve to two even rows */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px 32px;
+  margin-top: 18px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
-  margin-bottom: clamp(44px, 5.4vw, 78px);
 }
+.plat h3 { font-family: var(--font-body); font-weight: 600; color: var(--muted); margin-bottom: 5px; }
+.plat p { color: var(--muted); opacity: 0.86; margin-bottom: 0; }
 
 /* --- 4. The bridge to Projects: three full-width rows, never cards
    and never thumbnails. Projects carries the case studies; this page
@@ -1852,39 +1780,23 @@ a.bld-item .bld-item-arrow {
 
 @media (max-width: 1020px) {
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
-  .area { gap: 18px 32px; }
-  .diagnose { gap: 44px; }
-  .diag-art { gap: 20px 12px; }
-  .mat-prio { margin: 58px 0 0 -10px; }
-  .mat-flow { margin-left: 8px; }
-  .mat-msg { margin-top: 44px; }
+  .ch { padding: 40px 0 44px; }
+  .ch:nth-child(2) { padding-left: 4%; }
+  .ch:nth-child(4) { padding-left: 8%; }
+  .ch-body { grid-template-columns: 1fr; gap: 24px; }
+  .ch-line { max-width: none; }
 }
 @media (max-width: 760px) {
   /* One idea per screen: everything stacks left-aligned, nothing
      staggers, and no section carries two columns of text. */
-  .areas { margin-top: 28px; }
-  .area { grid-template-columns: 1fr; gap: 14px; padding: 30px 0; }
-  .area-for { max-width: none; margin-bottom: 18px; }
-  .area-list { grid-template-columns: 1fr; margin-bottom: 20px; }
-  .area-line { max-width: none; }
-
-  /* MOBILE: one column, three materials, no overlap and no rotation
-     stacking up. The page sketch goes — it is the least legible at
-     this width and the diagram carries the same idea better. */
-  .diagnose { grid-template-columns: 1fr; gap: 40px; }
-  .diag-copy p { max-width: none; }
-  .diag-rule { margin: 22px 0 20px; }
-  /* one column and a real gap, so nothing has to be nudged by margin.
-     THREE of the four: the campaign flow goes, because at 390px its
-     boxes and arrows are the least readable and the other three each
-     say something the flow does not. */
-  .diag-art { grid-template-columns: 1fr; gap: 30px; }
-  .mat-flow { display: none; }
-  .mat-wire, .mat-prio, .mat-msg { grid-column: 1; grid-row: auto; margin: 0 !important; }
-  .mat { padding: 15px 13px; }
-  .mat-wire { rotate: -0.9deg; }
-  .mat-prio { rotate: 1deg; }
-  .mat-msg { rotate: -0.6deg; }
+  /* the stagger goes: at 390px an indent reads as a broken margin */
+  .chapters { margin-top: 26px; }
+  .ch, .ch:nth-child(2), .ch:nth-child(4) { padding: 32px 0 34px; }
+  .ch-word { margin-bottom: 20px; }
+  .ch-body { grid-template-columns: 1fr; gap: 22px; }
+  .ch-for { max-width: none; }
+  .ch-list { flex-direction: column; gap: 5px; }
+  .ch-line { max-width: none; }
 
   .industries { margin-top: 24px; padding-top: 16px; }
   .plat-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -2500,6 +2412,128 @@ footer {
   .hero-band-after { padding-top: 22px; }
 }
 
+/* ---- Every project starts with the same question ----
+   Moved here from Expertise (Amber, July 2026).
+   Copy left, working materials right. THE MATERIALS ARE DRAWN, not
+   photographed: three paper sheets in the site's own line-art
+   language plus one loose note. Nothing here claims to be a real
+   client deliverable, which is the only honest way to show a working
+   session nobody photographed — the site's one real photograph is
+   the How I Work hero and it stays spent there.
+   RULES THIS SECTION KEEPS (Amber, July 2026): four elements, not a
+   scrapboard · minimal overlap · no tape, pins or sticky notes · no
+   dashboards or glow · shadows almost invisible · no rounded
+   container around the section itself · slightly imperfect, not
+   decorative. --- */
+.diagnose {
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+.diag-copy p { color: var(--muted); max-width: 46ch; margin-bottom: 16px; }
+.diag-copy p:last-child { margin-bottom: 0; }
+/* the question, set apart: coral italic serif is the one contrasting
+   treatment on the page, and coral-deep keeps it above the 4.5 floor */
+.diag-q {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--coral-deep) !important;
+  letter-spacing: -0.015em;
+  margin: 18px 0 0;
+  max-width: 18em !important;
+}
+.diag-rule {
+  display: block;
+  width: 34px;
+  height: 2px;
+  background: var(--coral);
+  margin: 26px 0 24px;
+}
+
+/* --- the materials: FOUR WORKING DOCUMENTS, not diagrams (Amber,
+   July 2026: "scrap both the triangle and the clean checklist …
+   create 3-4 authentic strategy artifacts that look like they came
+   straight from your desk"). A page marked up in pen, a
+   prioritization page, a campaign flow, and a messaging worksheet
+   with the first answer crossed out.
+   WHAT MAKES THEM READ AS REAL, and what to preserve if these are
+   ever redrawn: rules BOW (quadratic curves, never straight lines) ·
+   box corners DO NOT CLOSE, they overshoot or stop short · the pen
+   is coral-deep #B8354A and only ever annotates, it never draws the
+   document itself · handwriting is Newsreader ITALIC, printed labels
+   are Manrope uppercase at 9.5px · every sheet carries at least one
+   correction, strike or arrow, because a document with no second
+   thought in it is a graphic, not an artifact.
+   A CLEAN VERSION OF ANY OF THESE IS THE FAILURE MODE. The triangle
+   diagram and the tidy checklist that came before were both correct
+   and both dead. --- */
+.diag-art {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 26px 16px;
+  align-items: start;
+}
+.mat {
+  margin: 0;
+  border: 1px solid rgba(46, 42, 39, 0.09);
+  border-radius: 3px;
+  box-shadow: 0 16px 34px -28px rgba(46, 42, 39, 0.34);
+  padding: 14px 12px;
+  /* the `rotate` property, NOT transform: .reveal owns transform and
+     a rotation written there is wiped the moment the item enters */
+}
+.mat svg { display: block; width: 100%; height: auto; }
+.mat-wire { grid-column: 1; grid-row: 1; background: #FFFDFA; rotate: -1.1deg; }
+.mat-prio {
+  grid-column: 2; grid-row: 1;
+  background: #FCF4F1;            /* palest blush */
+  /* the ONE overlap, and it is a corner: the prioritization page
+     clips the sketch's paper edge, never its drawing */
+  margin: 74px 0 0 -16px;
+  rotate: 1.3deg;
+  position: relative;
+  z-index: 2;
+}
+.mat-flow {
+  grid-column: 1; grid-row: 2;
+  background: #F5F2FB;            /* palest lavender */
+  margin: 4px 0 0 14px;
+  rotate: 0.8deg;
+}
+.mat-msg {
+  grid-column: 2; grid-row: 2;
+  background: #FBF6EE;            /* cream, one step warmer than the page */
+  margin: 60px 0 0 0;
+  rotate: -0.6deg;
+}
+
+
+@media (max-width: 1020px) {
+  .diagnose { gap: 44px; }
+  .diag-art { gap: 20px 12px; }
+  .mat-prio { margin: 58px 0 0 -10px; }
+  .mat-flow { margin-left: 8px; }
+  .mat-msg { margin-top: 44px; }
+}
+@media (max-width: 760px) {
+  .diagnose { grid-template-columns: 1fr; gap: 40px; }
+  .diag-copy p { max-width: none; }
+  .diag-rule { margin: 22px 0 20px; }
+  /* one column and a real gap, so nothing has to be nudged by margin.
+     THREE of the four: the campaign flow goes, because at 390px its
+     boxes and arrows are the least readable and the other three each
+     say something the flow does not. */
+  .diag-art { grid-template-columns: 1fr; gap: 30px; }
+  .mat-flow { display: none; }
+  .mat-wire, .mat-prio, .mat-msg { grid-column: 1; grid-row: auto; margin: 0 !important; }
+  .mat { padding: 15px 13px; }
+  .mat-wire { rotate: -0.9deg; }
+  .mat-prio { rotate: 1deg; }
+  .mat-msg { rotate: -0.6deg; }
+}
+
 /* ============ How I Work page ============
    An editorial feature, not another card page: alternating two-column
    splits, one artifact panel per section at most, hairline rules
@@ -2825,12 +2859,10 @@ footer p,
    the tools list and company note at small. Two display grades stay
    off-token by design: the result figures and the pull-quote grade it
    shares with How I Work. */
-.area-head h3 { font-size: var(--fs-h3); line-height: 1.22; }
-.area-for { font-size: var(--fs-body); line-height: 1.55; }
-.area-list li, /* the range headline steps down to h2-long so it cannot be mistaken
-   for a second hero */
-.industries { font-size: var(--fs-small); line-height: 1.55; }
-.area-line { font-size: var(--fs-intro); line-height: 1.35; }
+.ch-word { font-size: var(--fs-h1); }
+.ch-for { font-size: var(--fs-body); line-height: 1.55; }
+.ch-list li, .industries { font-size: var(--fs-small); line-height: 1.55; }
+.ch-line { font-size: var(--fs-intro); line-height: 1.35; }
 .work-strip a { font-size: var(--fs-intro); line-height: 1.35; }
 .diag-q { font-size: var(--fs-h3); line-height: 1.3; }
 @media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }

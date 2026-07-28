@@ -847,199 +847,168 @@ case-study pages wait until deliverable imagery and long-form
 narratives exist. The full portfolio-redesign mock is parked in
 the session scratchpad.
 
-## Expertise page (renamed from Capabilities; rebuilt 4× by 2026-07)
+## Expertise page (renamed from Capabilities; rebuilt 5x by 2026-07)
 
 `expertise.html`. "Capabilities" is retired from the nav, footers,
 titles and sitemap; `_redirects` 301s the old URL.
 
-REBUILT FOUR TIMES. The fourth rebuild is the one that settled it,
-because it started from what the page is FOR rather than what it
-could list. AMBER'S THREE-PAGE SPLIT, which now governs all three:
+THE PAGE STOPPED DRIFTING WHEN AMBER NAMED WHY IT KEPT FEELING OFF
+(July 2026): **"Expertise: here's what I bring. How I Work: here's
+what it looks like in practice. Projects: here's the evidence. Trying
+to make one section do all three is why it keeps feeling off."**
 
-- **Projects** — what you have built, changed, launched, improved.
-- **Expertise** — the types of business and marketing problems you
-  know how to solve.
-- **How I Work** — what it is like to work with you, and how you
-  approach messy problems.
+- **Expertise** ORGANIZES HER KNOWLEDGE. A visitor lands here asking
+  "what is she actually good at?" — NOT "how does she solve
+  problems?" Those are different questions and they belong on
+  different pages.
+- **How I Work** shows the thinking. Anything that demonstrates
+  PROCESS belongs there, including the four working documents that
+  were built on this page and moved (see the How I Work section).
+- **Projects** carries the proof.
 
-The page answers ONE question: *what can Amber actually help with,
-and how does she think about the work?* It is NOT a portfolio, a
-services menu, or a résumé. Everything that made it a second
-portfolio was cut in pass four: the two work artifacts, the four
-oversized result figures, the "how my expertise shows up" verb rows,
-the always-visible tool line, the industries section.
-
-THE NUMBERS ARE GONE FROM THIS PAGE. 115% / 120% / 95% / 36% all
-live inside their Projects case studies, About, and the home proof
-strip. Repeating them here made Expertise a proof page competing
-with Projects. If a figure ever comes back it belongs in a case,
-not in a row of four.
-
-PRESERVED across all four rebuilds: the quote banner ("AI should
-give teams more time to think strategically, not just more ways to
-produce."). NO SECTION EYEBROWS — Expertise, Projects and How I
-Work are the eyebrow-less pages.
-
-Flow, after the fourth pass:
-1. HEAD. Amber's headline, verbatim: "I know how to find what's
+Flow, after the fifth rebuild:
+1. HEAD. Amber's headline verbatim: "I know how to find what's
    getting in the way of growth." She chose it over "Marketing
    expertise built through doing the work" because it positions her
    around BUSINESS PROBLEMS, not marketing skills. Butter tab on
-   "growth." — one distinctive word, the site pattern. Lede: "My
-   expertise sits across marketing strategy, execution, operations,
-   and team development…" No eyebrow.
-2. WHAT I HELP WITH. FOUR substantial areas, never twelve equal
-   cards ("that will feel like a generic agency capabilities page").
-   Each `.area` is a two-column block on a hairline — name left at
-   the h3/card-title grade, everything else right — and each one
-   runs in a fixed order:
-   a. `.area-for` — WHO IT IS FOR, first, so the reader recognises
-      themselves before they read a capability list;
-   b. `.area-list` — six capabilities, two columns, small/muted, on
-      the site's one bullet language (a 12×2px coral rule, shared
-      with `.hw-do` and `.useful`);
-   c. `.area-line` — the human sentence a capability list cannot
-      carry, display face at intro grade;
-   d. `.area-link` — ONE real project, and FOUR DIFFERENT
-      DESTINATIONS: Strategy & Growth → #scanoptics, Brand/Content/
-      Digital → #robert-james, Operations → #builds, Leadership →
-      #perq.
-   AI LIVES IN THE OPERATIONS AREA ("practical applications of
-   AI"), as one capability among six. It is part of her expertise,
-   not the page's identity.
+   "growth." No eyebrow.
+2. FOUR CHAPTERS — the whole substance of the page. Amber, July 2026:
+   "imagine four oversized words that dominate the page ... it becomes
+   almost like reading chapters in a book. No cards. No icons. No
+   feature grid. Just beautiful typography."
+   STRATEGY · DIGITAL · OPERATIONS · LEADERSHIP, her names, one word
+   each. Each `.ch` is a full-width rule, then the oversized word,
+   then a two-column body: a short "for businesses…" paragraph and
+   the capabilities on the left, her belief line and ONE project link
+   on the right. Four different destinations: #scanoptics,
+   #robert-james, #builds, #perq.
+   THE WORDS SIT AT `--fs-h1`, the site's single display size. They
+   read larger than this page's own h1 only because that headline is
+   a long sentence taking the h1-long step-down — the chapters are AT
+   the canonical size, not above it. On a page whose whole job is
+   naming four things, the four things are the display.
+   CAPABILITIES ARE HERS VERBATIM and deliberately short: 4/4/4/3, not
+   padded to match. Sales enablement was dropped from Leadership with
+   the old six-item lists; it is real and published elsewhere, and
+   putting it back is a one-line change if she wants it.
+   THE STAGGER: chapters 2 and 4 step right (7% / 14%), following her
+   own sketch. The RULES stay full width while the CONTENT moves,
+   which is what keeps the indent from reading as a broken margin. It
+   goes entirely at 760px, where an indent reads as a bug.
+   NO SCROLL-EXPAND. She imagined each chapter expanding on scroll;
+   the motion budget is closed and a scroll-driven reveal is a new
+   device, so the chapters are static and use the existing `.reveal`.
+   Raise it with her before adding one.
 3. QUOTE BANNER (her AI line, unchanged) as the chapter seam.
-4. EVERY PROJECT STARTS WITH THE SAME QUESTION. Replaced the six-item
-   "especially useful when" list in July 2026 after Amber said the
-   page still needed to be "a bit more designed" and rejected, in
-   order: a two-column split of that list, numbered items, and the
-   list format itself. This is a TWO-COLUMN EDITORIAL COMPOSITION —
-   copy left, working materials right.
-   LEFT: headline at the h2-long grade (26/38, NOT the full 30/44 —
-   she asked for important, not dominating), then the featured
-   question "What is actually getting in the way?" in CORAL ITALIC
-   SERIF (coral-deep, the only italic display on the site and the
-   only contrasting treatment this page gets), then a 34x2px coral
-   rule, then two sans paragraphs.
-   RIGHT: FOUR WORKING DOCUMENTS, DRAWN, NOT PHOTOGRAPHED. Amber,
-   July 2026: "scrap both the triangle and the clean checklist …
-   create 3-4 authentic strategy artifacts that look like they came
-   straight from your desk … this is where the site can become
-   exceptional instead of just beautiful." A DIAGRAM IS THE FAILURE
-   MODE — the People/Process/Priorities triangle and the tidy
-   checklist that preceded these were both correct and both dead.
-   NOTHING HERE IS A REAL CLIENT DELIVERABLE AND NOTHING PRETENDS TO
-   BE. No stock, no staged desk photo: the site's one real photograph
-   is the How I Work hero and it stays spent there.
-   - `.mat-wire` — a homepage marked up in pen: an arrow to the hero
-     ("proof here"), the CTA circled ("one CTA"), the third column
-     struck out ("cut"), footed HOME — PASS 2. Warm white #FFFDFA.
-   - `.mat-prio` — "what first?" plotted impact against effort. Fix
-     follow-up is circled and arrowed "start here"; rebrand is struck
-     through. Palest blush #FCF4F1.
-   - `.mat-flow` — "where does it stop?": ad → page → email → call,
-     with the email-to-call step crossed and annotated "4 days".
-     Palest lavender #F5F2FB.
-   - `.mat-msg` — a messaging worksheet where the first answer,
-     "faster marketing", is crossed out and replaced in pen with
-     "fewer things done twice". Cream #FBF6EE.
-   WHAT MAKES THEM READ AS REAL, and what to preserve if they are ever
-   redrawn:
-   - rules BOW. Quadratic curves, never straight lines.
-   - box corners DO NOT CLOSE. They overshoot or stop short.
-   - the pen is coral-deep #B8354A and ONLY EVER ANNOTATES. It never
-     draws the document itself.
-   - handwriting is Newsreader ITALIC; printed labels are Manrope
-     uppercase at 9.5px with 1.1 tracking. NO THIRD FONT was added —
-     italic serif plus drawn marks carries the handwriting.
-   - EVERY SHEET CARRIES A SECOND THOUGHT: a strike, a circle, an
-     arrow, a correction. A document with no revision in it is a
-     graphic, not an artifact.
-   Each artifact is a single self-contained inline SVG (text included,
-   so it scales with the sheet) and carries a real `role="img"` +
-   `aria-label` describing its marks — these are content, not decor.
-   COMPOSITION: two loose columns, EXACTLY ONE OVERLAP and it is a
-   corner (the prioritization page clips the sketch's paper edge,
-   never its drawing). No tape, pins, sticky notes or layered paper ·
-   no dashboards, glow or futuristic UI · no flowers, icons, dotted
-   grids or decoration · shadows almost invisible (0 16px 34px -28px
-   at 0.34) · rotations under 1.4° · no rounded container around the
-   section.
-   ROTATION USES THE `rotate:` PROPERTY, NOT `transform`. `.reveal`
-   owns transform, and a rotation written there is wiped the instant
-   the item enters the viewport. Verified live in both motion modes.
-   MOBILE drops the CAMPAIGN FLOW — its boxes and arrows are the least
-   readable at 390px and the other three each say something it does
-   not — leaving three documents in one column on a 30px grid gap with
-   no margin nudging.
-   THIS SECTION SITS NEXT TO How I Work AND MUST NOT BECOME IT. The
-   split still holds: Expertise says the diagnostic question is where
-   expertise BEGINS; How I Work walks the engagement. Its ten
-   questions are all different from this one — check before adding
-   another.
-5. TOOLS I'VE WORKED IN, COLLAPSED. Her sentence first — "Tools are
+4. TOOLS I'VE WORKED IN, COLLAPSED. Her sentence first — "Tools are
    useful, but they are rarely the strategy." — then a `<details>`
-   disclosure over SIX groups in a 3×2 grid: Marketing and CRM ·
-   Analytics and advertising · Web and creative · Planning and
-   collaboration · Sales and operations · AI and emerging tools.
-   NO LOGO WALL, EVER (Amber: "it would make the page feel more
-   junior and software-focused than you are"). The always-visible
-   `.tool-line` is gone — the whole point is that tools are hidden.
-   ANALYTICS AND ADVERTISING IS THE ONE GROUP NOT IN HER LIST: her
-   five groups omitted Google Ads, Google Analytics and SEMrush
-   entirely, which would be a strange gap under a marketer whose
-   strongest published results are paid-media results. Flagged to
-   her; cut it if she disagrees.
-6. THE BRIDGE TO PROJECTS, "See the expertise in action." with a
-   sans supporting sentence ("Real work across different industries,
-   business stages, and types of challenges."). The section carries
-   `.rule-top`, a hairline drawn by `.wrap::before` with 44-78px of
-   air beneath it, so the working materials above cannot bleed into
-   the project links. NO PARAGRAPH goes between the two sections —
-   the rule does that job (Amber, July 2026). `.work-strip` — three FULL-WIDTH ROWS
-   on hairlines at the SAME 60ch measure as the useful list above,
-   so the two sections read as one thought. NOT cards, never
-   thumbnails, never a repeat of a full project card. It is
-   deliberately QUIETER than the expertise content: titles stay INK
-   in the display face and coral is spent only on the arrows and the
-   closing link. The whole row is the target, not the arrow — the
-   `<a>` is a flex row and `.ws-arrow` is a flex ITEM (`flex: none`),
-   which is what keeps it from being stranded on its own line when a
-   title wraps on a phone. Hover is a 3.5% warm tint on the row plus
-   a 3px arrow nudge; `:active` deepens the tint to 6%; the nudge is
-   off under reduced motion. Three different areas: demand generation
-   (#scanoptics), brand and website (#robert-james), tools and
-   resources (#builds). Leadership is covered by the PERQ link inside
-   its own area block. The industries line survives ONLY as small
-   context beneath the strip, one sentence — Amber ruled it does not
-   need its own section. It LOST its "Different industries. Similar
-   challenges." opening when the section lede took that idea over;
-   the echo was only two sentences wide.
-7. CLOSING BAND. "Not sure what kind of help you need yet?" with
-   her paragraph, `Start a conversation` primary and `See how I
-   work` ghost — the first CTA on the site pointing at How I Work,
-   which is correct now that the three pages have distinct jobs.
+   over SIX groups in a 3x2 grid: Marketing and CRM · Analytics and
+   advertising · Web and creative · Planning and collaboration · Sales
+   and operations · AI and emerging tools. NO LOGO WALL, EVER (Amber:
+   "it would make the page feel more junior and software-focused than
+   you are"). Analytics and advertising is the one group not in her
+   list — her five omitted Google Ads, Analytics and SEMrush, a
+   strange gap under a marketer whose strongest published results are
+   paid-media results. Flagged; cut it if she disagrees.
+5. THE BRIDGE TO PROJECTS, "See the expertise in action." over
+   `.work-strip` — three FULL-WIDTH ROWS on hairlines at a 60ch
+   measure. Deliberately quieter: titles stay INK, coral only on the
+   arrows and the closing link. The whole row is the target and
+   `.ws-arrow` is a flex ITEM (`flex: none`) so it cannot strand
+   itself when a title wraps. Hover is a 3.5% warm tint plus a 3px
+   arrow nudge; `:active` deepens to 6%; the nudge is off under
+   reduced motion. The industries line survives ONLY as small context
+   beneath the strip, one sentence.
+6. CLOSING BAND. "Not sure what kind of help you need yet?" with
+   `Start a conversation` primary and `See how I work` ghost — the
+   first CTA on the site pointing at How I Work, which is correct now
+   that the three pages have distinct jobs.
 
 THE STANDING REMOVE LIST for this page (Amber, July 2026): company
 logos · client duration or tenure · long industry lists · multiple
-rows of small capability cards · a permanently visible software
-grid · detailed mini case studies · "full-service", "end-to-end",
-"results-driven" · anything that sounds like she offers every
-marketing service to everyone.
+rows of small capability cards · a permanently visible software grid ·
+detailed mini case studies · numbered items · "full-service",
+"end-to-end", "results-driven" · anything that sounds like she offers
+every marketing service to everyone. AND: any section whose subject is
+HOW SHE THINKS. That is How I Work's page now.
 
-RESIST ADDING. Built here across four passes and all removed: a
+THE NUMBERS ARE GONE FROM THIS PAGE. 115% / 120% / 95% / 36% live in
+their Projects case studies, About, and the home proof strip.
+
+RESIST ADDING. Built here across five rebuilds and all removed: a
 typographic word composition, four oversized statement rows, a
-numbered capability index, an asymmetric platform grid, a company-
-logo strip, two outcome-led work artifacts, a four-across results
-row. `artifact-rjr-hero.webp` and `artifact-mfcu-campaign.webp` are
-still in the repo, orphaned — they were the artifacts, and the
-full-size versions they linked to are still live on Projects.
-
-The page's central message, in Amber's words: *"Amber understands
-strategy, execution, systems, and people. She can figure out what is
-wrong, recommend a realistic path forward, and help make it
-happen."*
+numbered capability index, an asymmetric platform grid, a company-logo
+strip, two outcome-led work artifacts, a four-across results row, a
+six-item "especially useful when" list, and the four working documents
+(moved, not deleted). `artifact-rjr-hero.webp` and
+`artifact-mfcu-campaign.webp` remain in the repo, orphaned; the
+full-size files they linked to are still live on Projects.
 
 ## How I Work page (2026-07, Amber's brief)
+
+### Working documents section (moved here from Expertise, 2026-07)
+
+`.diagnose` sits between "I look beyond marketing" and the bridge
+band, eyebrow "On paper". IT LIVES HERE BECAUSE IT SHOWS PROCESS
+(Amber: "the artifact section belongs on How I Work because it's
+literally showing your process"). It was built on Expertise, argued
+over for three passes, and only worked once it moved.
+
+LEFT: headline "Every project starts with the same question." at the
+h2-long grade (26/38 — important, not dominating), the featured
+question "What is actually getting in the way?" in CORAL ITALIC SERIF
+(coral-deep; the only italic display on the site), a 34x2px coral
+rule, then two sans paragraphs.
+
+RIGHT: FOUR WORKING DOCUMENTS, DRAWN, NOT PHOTOGRAPHED. Amber, July
+2026: "scrap both the triangle and the clean checklist … create 3-4
+authentic strategy artifacts that look like they came straight from
+your desk … this is where the site can become exceptional instead of
+just beautiful." A DIAGRAM IS THE FAILURE MODE — the
+People/Process/Priorities triangle and the tidy checklist that
+preceded these were both correct and both dead.
+NOTHING HERE IS A REAL CLIENT DELIVERABLE AND NOTHING PRETENDS TO BE.
+No stock, no staged desk photo: the site's one real photograph is the
+How I Work hero and it stays spent there.
+
+- `.mat-wire` — a homepage marked up in pen: an arrow to the hero
+  ("proof here"), the CTA circled ("one CTA"), the third column struck
+  out ("cut"), footed HOME — PASS 2. Warm white #FFFDFA.
+- `.mat-prio` — "what first?" plotted impact against effort. Fix
+  follow-up is circled and arrowed "start here"; rebrand is struck
+  through. Palest blush #FCF4F1.
+- `.mat-flow` — "where does it stop?": ad → page → email → call, the
+  email-to-call step crossed and annotated "4 days". Palest lavender
+  #F5F2FB.
+- `.mat-msg` — a messaging worksheet where the first answer, "faster
+  marketing", is crossed out and replaced in pen with "fewer things
+  done twice". Cream #FBF6EE.
+
+WHAT MAKES THEM READ AS REAL, and what to preserve if they are redrawn:
+- rules BOW. Quadratic curves, never straight lines.
+- box corners DO NOT CLOSE. They overshoot or stop short.
+- the pen is coral-deep #B8354A and ONLY EVER ANNOTATES. It never
+  draws the document itself.
+- handwriting is Newsreader ITALIC; printed labels are Manrope
+  uppercase 9.5px / 1.1 tracking. NO THIRD FONT was added.
+- EVERY SHEET CARRIES A SECOND THOUGHT: a strike, a circle, an arrow,
+  a correction. A document with no revision in it is a graphic, not an
+  artifact.
+
+Each artifact is one self-contained inline SVG (text included, so it
+scales with the sheet) carrying `role="img"` + an `aria-label`
+describing its marks — the annotations are the argument, not decor.
+COMPOSITION: two loose columns, EXACTLY ONE OVERLAP and it is a corner
+(the prioritization page clips the sketch's paper edge, never its
+drawing). No tape, pins, sticky notes or layered paper · no
+dashboards, glow or futuristic UI · no icons, dotted grids or
+decoration · shadows almost invisible (0 16px 34px -28px at 0.34) ·
+rotations under 1.4°, written with the `rotate:` PROPERTY, NOT
+`transform` — `.reveal` owns transform and a rotation written there is
+wiped the instant the item enters. Verified in both motion modes.
+MOBILE drops the CAMPAIGN FLOW — its boxes and arrows are the least
+readable at 390px — leaving three documents in one column on a 30px
+grid gap.
 
 `how-i-work.html`. The page answers one question — what is it
 actually like to work with Amber — and it is written to leave a
