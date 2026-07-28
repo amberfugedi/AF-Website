@@ -1,2 +1,4 @@
 /capabilities.html  /expertise.html  301
 /work.html         /projects.html   301
+/courses  /courses.html  200
+/courses/build-your-marketing-foundation  /courses.html  302  # TEMPORARY: until the course sales page exists

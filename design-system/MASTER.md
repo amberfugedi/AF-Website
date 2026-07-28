@@ -542,6 +542,77 @@ thumbnails from the retired preview strip, and
 `artifact-{rjr-hero,mfcu-campaign}.webp` from the retired Expertise
 artifacts.
 
+## Courses page (2026-07, Amber's brief)
+
+`courses.html`, `/courses` via `_redirects`. Added to the nav and
+footer as a top-level item, positioned right after Services because
+both are ways to work with her. NOT a Shop, NOT Products, NOT
+Templates — those stay off the nav.
+
+THE PAGE IS AN EXTENSION OF THE CONSULTING BRAND, NOT A COURSE
+BUSINESS. Banned outright by her brief and by this file: generic
+online-course styling · loud gradients · floating laptop or dashboard
+mockups · polished stock imagery · fake testimonials · icon grids ·
+bright ecommerce styling · a catalogue grid that makes one course look
+lonely · hero eyebrows · passive-income, coaching-hype or
+"six-figure" language · heavy AI language · em dashes.
+
+Ten sections: hero · point of view · featured course · quote band ·
+the framework · what you leave knowing · who it is for · course
+experience · instructor · future courses · closing band.
+
+THE MATERIALS ARE DRAWN, in the same hand as the How I Work working
+documents — bowed rules, unclosed corners, coral pen that only ever
+annotates, Newsreader italic for handwriting. That is what keeps the
+course looking like part of the practice. FOUR SHEETS: a corner of the
+Foundation Map (three layers), a part-answered workbook page
+("mostly referrals", circled), the seven foundations in order, and a
+lesson screen with a part-filled progress bar.
+NOTHING HERE IS A SCREENSHOT OF A REAL PRODUCT. The structure is
+Amber's — three layers, seven named foundations, eight modules, about
+three hours — but the sheets illustrate it. SWAP IN REAL CAPTURES WHEN
+THE COURSE EXISTS.
+
+TWO THINGS I DID NOT INVENT, and neither should anyone else:
+1. **WHICH FOUNDATION SITS IN WHICH LAYER.** The brief gives three
+   layers and seven foundations and never maps them together. The
+   layers render as three tinted bands; the seven render BELOW them as
+   one route, labelled "The seven foundations run through all three".
+   Coral dots implying a 2/3/2 split were drawn and deleted. Ask Amber
+   for the mapping before placing them.
+2. **THE EIGHTH MODULE.** Eight modules, seven foundations. Numbering
+   the foundations 02-08 implied an opening module nobody has named,
+   so the sheet is titled "THE SEVEN FOUNDATIONS" and numbered 01-07.
+   The module count lives in the facts row, where it is simply true.
+
+THE THREE LAYER BANDS use the brand tints at fill strength only —
+butter 0.34, blush 0.40, lavender 0.42 — with every word in ink.
+Measured 9.7:1 to 12.4:1. Tints never carry text colour here.
+
+STUDENT LOGIN IS ALWAYS SECONDARY. `learn.amberfugedi.com` appears
+twice, both times as a plain text link under the primary CTA, never as
+a button and never in the main nav. The primary CTA always goes to the
+course sales page on the main site.
+
+THE NAV NOW CARRIES SIX LINKS PLUS THE CTA and ran out of room around
+790px, where the brand collided with the menu. Fixed with a fluid gap
+`clamp(18px, 2.2vw, 32px)` plus a step-down between 761 and 900
+(12px gap, 0.8rem links, tighter CTA, smaller brand). THE STEP-DOWN
+MUST SIT AFTER the base `.nav-links` rule — a media query adds no
+specificity, so placed before it, it silently loses. Verified: brand
+to menu never closer than 21px at any width above the 760 mobile
+breakpoint.
+
+BLOCKED ON AMBER, and the page should not go live until the first is
+resolved:
+- `/courses/build-your-marketing-foundation` DOES NOT EXIST. Three
+  CTAs point at it. `_redirects` currently 302s it back to
+  `/courses.html` so nothing 404s, and that line is marked TEMPORARY.
+- `learn.amberfugedi.com` is not live yet either.
+- The email capture posts to Netlify Forms as `course-updates`, the
+  same form Services already uses, so it works the moment the site
+  deploys.
+
 ## SEO baseline (2026-07 audit — keep every page inside these)
 
 Verified across all seven pages. When a page is added or a headline

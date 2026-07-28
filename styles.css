@@ -335,7 +335,10 @@ body.page-sub .aura { --aura-base: 0.45; }
 /* responsive exception only: below 350px the mark stands alone */
 @media (max-width: 350px) { .brand-name { display: none; } }
 
-.nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+/* six links plus the CTA: the gap has to breathe with the viewport or
+   the brand and the menu collide before the mobile menu takes over at
+   760 (Courses was added 2026-07 and pushed the row to the edge) */
+.nav-links { display: flex; gap: clamp(18px, 2.2vw, 32px); list-style: none; align-items: center; }
 .nav-links a {
   text-decoration: none;
   font-size: 0.925rem;
@@ -383,6 +386,16 @@ body.page-sub .aura { --aura-base: 0.45; }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+/* The last stretch before the mobile menu takes over at 760. With six
+   links plus the CTA the row runs out of room around 790, so the type
+   and the gap step down rather than letting the brand collide with the
+   menu (2026-07, after Courses joined the nav). */
+@media (max-width: 900px) and (min-width: 761px) {
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: 0.8rem; }
+  .nav-cta { padding-left: 12px; padding-right: 12px; }
+  .brand { font-size: 1.25rem; }
+}
 @media (max-width: 760px) {
   :root { --nav-h: 60px; }
   .brand { font-size: 1.375rem; gap: 10px; }
@@ -823,7 +836,11 @@ section { padding: 104px 0; }
     margin-top: 20px;
   }
   .foot-links .arrow-link { padding-top: 10px; padding-bottom: 10px; background-position: 0 calc(100% - 8px); }
-  .wrap .eyebrow { margin-bottom: 18px; }
+  .wrap .eyebrow, .wrap .xp-divider { margin-bottom: 18px; }
+
+/* not a section eyebrow: a divider inside the experience list,
+   the one place the uppercase label still does a job the heading
+   cannot (2026-07) */
   section[aria-labelledby="why-title"] .section-title { margin-bottom: 30px; }
   .cap-card { padding: 20px 20px 22px; }
   .cap-card h3 { margin-bottom: 8px; }
@@ -831,6 +848,13 @@ section { padding: 104px 0; }
   .proof-chip { padding-left: 14px; padding-right: 16px; }
 }
 
+/* NOT a section eyebrow. Section eyebrows are retired site-wide
+   (2026-07: ten of eighteen only restated the heading beneath them,
+   and the rest left section headings sitting at two different heights,
+   166px or 132px, depending on whether one was present). This is the
+   single survivor and it does a different job: a divider inside the
+   About experience list. */
+.xp-divider,
 .eyebrow {
   display: block;
   font-size: 0.8rem;
@@ -1908,6 +1932,270 @@ a.bld-item .bld-item-arrow {
 @media (max-width: 760px) {
 }
 
+/* ============ Courses page ============
+   An extension of the consulting brand, not a course business. No
+   ecommerce styling, no loud gradients, no floating laptop mockups,
+   no icon grids. The materials are DRAWN in the same hand as the How
+   I Work documents, which is what keeps the course looking like part
+   of the practice.
+   NOTHING HERE IS A SCREENSHOT OF A REAL PRODUCT. The structure is
+   Amber's — three layers, seven named foundations, eight modules,
+   about three hours — but the sheets are illustrations of it and are
+   marked as such. Swap in real captures when the course exists. */
+
+/* --- 1. Hero: copy left, two sheets and a note right --- */
+.co-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: clamp(36px, 5vw, 76px);
+  align-items: center;
+}
+.co-hero-copy .section-lede { max-width: 46ch; }
+.co-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; margin: 30px 0 0; }
+/* deliberately secondary: no button, no coral fill, just a link */
+.co-login { margin: 18px 0 0; color: var(--muted); }
+.co-login a {
+  color: var(--coral-deep);
+  font-weight: 600;
+  text-decoration: none;
+  background-image: linear-gradient(var(--coral-deep), var(--coral-deep));
+  background-repeat: no-repeat; background-size: 0 2px; background-position: 0 100%;
+  transition: background-size 0.2s var(--ease);
+}
+.co-login a:hover { background-size: 100% 2px; }
+
+.co-hero-art { display: grid; grid-template-columns: 1fr 1fr; align-items: start; }
+.co-m-map  { grid-column: 1 / -1; background: #FFFDFA; rotate: -1deg; }
+.co-m-work { grid-column: 2 / -1; background: #F5F2FB; margin: -34px -6px 0 0; rotate: 1.2deg; position: relative; z-index: 2; }
+.co-note {
+  grid-column: 1 / 2; grid-row: 2;
+  justify-self: start;
+  align-self: end;
+  /* the workbook sheet hangs into this row; the note stops short of it */
+  max-width: 15em;
+  position: relative;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink);
+  margin: 0 0 6px;
+  padding-bottom: 8px;
+}
+.co-note::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 100%; height: 2px; background: var(--coral); opacity: 0.55;
+}
+
+/* --- 2. Point of view: headline left, two paragraphs right, on a
+   hairline. No card. --- */
+.co-pov {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+  padding-top: 34px;
+  border-top: 1px solid var(--line);
+}
+.co-pov .section-title { margin-bottom: 0; }
+.co-pov-body p { color: var(--muted); max-width: 52ch; }
+.co-pov-body p:last-child { margin-bottom: 0; }
+
+/* --- 3. Featured course: asymmetric, no product card --- */
+.co-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+  gap: clamp(36px, 5vw, 78px);
+  align-items: start;
+}
+.co-kicker {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.co-feature .section-title { margin-bottom: 18px; }
+.co-lede { color: var(--body); }
+.co-feature-copy p { color: var(--muted); max-width: 48ch; }
+.co-lede { color: var(--body) !important; margin-bottom: 20px; }
+.co-facts {
+  list-style: none; margin: 26px 0 0; padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 10px 30px;
+}
+.co-facts li { position: relative; padding-left: 24px; color: var(--body); }
+.co-facts li::before {
+  content: ""; position: absolute; left: 0; top: 0.72em;
+  width: 12px; height: 2px; background: var(--coral);
+}
+.co-feature-art { display: grid; grid-template-columns: 1fr; justify-items: end; }
+.co-m-mod    { background: #FFFDFA; rotate: -0.8deg; width: min(300px, 100%); }
+.co-m-lesson { background: #FBF6EE; rotate: 1.1deg; width: min(280px, 100%); margin: -30px 0 0 0; justify-self: start; position: relative; z-index: 2; }
+
+/* --- 4. The framework: three bands, then one path --- */
+.co-layers { display: grid; gap: 14px; margin-top: 44px; }
+.co-layer { padding: 26px clamp(22px, 3vw, 40px); border-radius: var(--radius); }
+.co-layer h3 { font-family: var(--font-display); margin-bottom: 6px; letter-spacing: -0.015em; }
+.co-layer p { margin-bottom: 0; color: var(--body); max-width: 60ch; }
+/* the three brand tints, at fill strength only — every word here is
+   ink, so contrast is never in question */
+.co-l-found      { background: rgba(242, 220, 156, 0.34); }
+.co-l-chosen     { background: rgba(251, 213, 228, 0.40); }
+.co-l-remembered { background: rgba(218, 212, 245, 0.42); }
+
+/* the seven read as a route, not a checklist: one line, nodes on it */
+.co-path { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--line); }
+.co-path-label {
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;
+  font-weight: 600; margin-bottom: 22px;
+}
+.co-path-list {
+  list-style: none; margin: 0 0 20px; padding: 0;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0;
+}
+.co-path-list li {
+  position: relative;
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  padding: 0 30px 0 0;
+  margin-bottom: 14px;
+}
+.co-path-list li:not(:last-child)::after {
+  content: ""; position: absolute; right: 10px; top: 0.62em;
+  width: 12px; height: 2px; background: var(--coral);
+}
+.co-path-note { color: var(--muted); max-width: 58ch; margin-bottom: 0; }
+
+/* --- 5. What you leave knowing: a numbered editorial list, two
+   columns, no checkmarks --- */
+.co-know {
+  list-style: none; counter-reset: k;
+  margin: 40px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(30px, 4vw, 60px);
+}
+.co-know li {
+  counter-increment: k;
+  position: relative;
+  padding: 20px 0 20px 46px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+}
+.co-know li::before {
+  content: counter(k, decimal-leading-zero);
+  position: absolute; left: 0; top: 1.55em;
+  font-family: var(--font-body); font-weight: 600;
+  color: var(--coral-deep);
+  letter-spacing: 0.06em;
+}
+
+/* --- 6. Fit: two balanced columns --- */
+.co-fit {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 64px);
+  margin-top: 40px;
+}
+.co-fit-col h3 {
+  font-family: var(--font-body); font-weight: 600; color: var(--muted);
+  padding-bottom: 14px; margin-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.co-fit ul { list-style: none; margin: 0; padding: 0; }
+.co-fit li { padding: 14px 0 14px 24px; position: relative; color: var(--body); border-bottom: 1px solid var(--line); }
+.co-fit li::before { content: ""; position: absolute; left: 0; top: 1.45em; width: 12px; height: 2px; }
+.co-fit-yes li::before { background: var(--coral); }
+/* not-a-fit is muted, never a red cross: the tone stays respectful */
+.co-fit-no li::before { background: rgba(46, 42, 39, 0.28); }
+.co-fit-no li { color: var(--muted); }
+
+/* --- 7. Experience: a numbered progression, not four cards --- */
+.co-steps {
+  list-style: none; counter-reset: s;
+  margin: 40px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+}
+.co-steps li {
+  counter-increment: s;
+  position: relative;
+  padding: 30px 26px 0 0;
+  border-top: 2px solid var(--coral);
+}
+.co-steps li + li { padding-left: 26px; }
+.co-steps li::before {
+  content: counter(s, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-body); font-weight: 600;
+  color: var(--coral-deep); letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+.co-steps h3 { font-family: var(--font-display); margin-bottom: 8px; letter-spacing: -0.015em; }
+.co-steps p { color: var(--muted); margin-bottom: 0; }
+
+/* --- 8. Instructor --- */
+.co-who {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+  gap: clamp(32px, 4.5vw, 70px);
+  align-items: center;
+}
+.co-who-copy p { color: var(--muted); max-width: 52ch; }
+.co-who-photo { margin: 0; }
+.co-who-photo img {
+  display: block; width: 100%; height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 26px 54px -34px rgba(46, 42, 39, 0.4);
+}
+
+/* --- 9. Future courses --- */
+.co-next {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+  gap: clamp(30px, 4vw, 64px);
+  align-items: center;
+  padding-top: 34px;
+  border-top: 1px solid var(--line);
+}
+.co-next .section-title { margin-bottom: 14px; }
+.co-next p { color: var(--muted); max-width: 46ch; margin-bottom: 0; }
+.co-login-band { margin-top: 20px; color: #D9D2C9; }
+/* on the charcoal band, coral-deep would fail: the login link takes
+   the butter tab colour instead (11.9:1 on #2E2A27) */
+.co-login-band a { color: #FBEDBF; background-image: linear-gradient(#FBEDBF, #FBEDBF); }
+
+@media (max-width: 1020px) {
+  .co-hero-grid, .co-feature, .co-who, .co-next, .co-pov { grid-template-columns: 1fr; }
+  .co-pov, .co-next { gap: 24px; }
+  .co-feature-art { grid-template-columns: 1fr 1fr; align-items: start; justify-items: start; gap: 16px; }
+  .co-m-lesson { margin-top: 40px; }
+  .co-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 26px; }
+  .co-steps li + li { padding-left: 0; }
+  .co-steps li:nth-child(n+3) { margin-top: 30px; }
+}
+@media (max-width: 760px) {
+  /* One idea per screen. The CTA stays high: it sits directly under
+     the lede, before any of the materials. */
+  .co-hero-copy .section-lede { max-width: none; }
+  .co-hero-art { grid-template-columns: 1fr; gap: 22px; margin-top: 6px; }
+  .co-m-map, .co-m-work, .co-note { grid-column: 1; grid-row: auto; margin: 0; }
+  .co-m-work { rotate: 1deg; }
+  .co-note { margin-top: 4px; }
+  .co-actions { gap: 14px; }
+  .co-actions .btn { width: 100%; text-align: center; }
+  .co-feature-copy p { max-width: none; }
+  .co-facts { gap: 8px 22px; }
+  .co-feature-art { grid-template-columns: 1fr; gap: 20px; }
+  .co-m-mod, .co-m-lesson { width: 100%; margin: 0; }
+  .co-layer { padding: 22px 20px; }
+  .co-path-list li { padding-right: 26px; }
+  .co-know { grid-template-columns: 1fr; }
+  .co-know li { padding: 16px 0 16px 42px; }
+  .co-fit { grid-template-columns: 1fr; gap: 30px; }
+  .co-steps { grid-template-columns: 1fr; }
+  .co-steps li { padding: 24px 0 0; }
+  .co-steps li + li { margin-top: 26px; }
+  .co-who-copy p { max-width: none; }
+  .co-next p { max-width: none; }
+}
+
 /* ============ About page ============ */
 .about-grid {
   display: grid;
@@ -2015,7 +2303,7 @@ a.bld-item .bld-item-arrow {
 .xp-chapter .arrow-link { margin-top: 16px; display: inline-block; }
 .xp-areas { margin-top: 14px; color: var(--muted); }
 .xp-earlier { margin-top: 10px; border-top: 1px solid rgba(46, 42, 39, 0.1); padding-top: 26px; }
-.xp-earlier .eyebrow { display: block; margin-bottom: 6px; }
+.xp-earlier .xp-divider { display: block; margin-bottom: 6px; }
 .xp-earlier details { border-top: 1px solid rgba(46, 42, 39, 0.07); }
 .xp-earlier details:first-of-type { border-top: 0; }
 .xp-earlier summary {
@@ -2767,6 +3055,13 @@ footer p,
 .ch-line { font-size: var(--fs-intro); line-height: 1.35; }
 .work-strip a { font-size: var(--fs-intro); line-height: 1.35; }
 .diag-q { font-size: var(--fs-h3); line-height: 1.3; }
+/* Courses */
+.co-layer h3, .co-steps h3 { font-size: var(--fs-intro); line-height: 1.3; }
+.co-note, .co-path-list li { font-size: var(--fs-intro); line-height: 1.35; }
+.co-kicker, .co-path-label, .co-know li::before, .co-steps li::before { font-size: var(--fs-eyebrow); letter-spacing: 0.08em; }
+.co-lede { font-size: var(--fs-intro); line-height: 1.45; }
+.co-facts li, .co-fit li, .co-fit-col h3, .co-path-note, .co-login { font-size: var(--fs-small); line-height: 1.5; }
+.co-know li { font-size: var(--fs-body); line-height: 1.55; }
 @media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
  .case-scope, .art-link a{ font-size: var(--fs-small); line-height: 1.55; }
@@ -2804,6 +3099,7 @@ footer p,
 .offer-aside .tier { font-size: var(--fs-eyebrow); }
 .case-col.result p { font-size: var(--fs-body); } /* Impact lines join body scale */
 
+.xp-divider,
 .eyebrow {
   font-size: var(--fs-eyebrow);
   letter-spacing: 0.08em;
