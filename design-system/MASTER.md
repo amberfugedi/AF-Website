@@ -910,9 +910,16 @@ Flow, after the fourth pass:
 3. QUOTE BANNER (her AI line, unchanged) as the chapter seam.
 4. I'M ESPECIALLY USEFUL WHEN… Amber's six lines verbatim, and per
    her own note the strongest section on the page for communicating
-   real value. A LOOSE EDITORIAL LIST, never cards: one column, the
-   whole measure, hairlines, coral-rule markers, display face at
-   intro grade. Nothing sits beside it.
+   real value. A LOOSE EDITORIAL LIST, never cards, no icons, no
+   illustration, no animation: one column at 62ch, hairlines,
+   coral-rule markers, display face at intro grade (stepped to 18px
+   on a phone so it reads polished rather than oversized). A sans
+   supporting sentence sits under the heading. TWO OF THE SIX ARE
+   TWO DELIBERATE LINES — a claim in semibold, then the turn in
+   regular, in a block `.u-turn`. The WEIGHT CHANGE is what stops
+   line two reading as a wrap, which is why nothing in the other
+   four items may be bolded: the emphasis is structural, not
+   decorative (Amber, July 2026).
 5. TOOLS I'VE WORKED IN, COLLAPSED. Her sentence first — "Tools are
    useful, but they are rarely the strategy." — then a `<details>`
    disclosure over SIX groups in a 3×2 grid: Marketing and CRM ·
@@ -926,14 +933,25 @@ Flow, after the fourth pass:
    entirely, which would be a strange gap under a marketer whose
    strongest published results are paid-media results. Flagged to
    her; cut it if she disagrees.
-6. THE BRIDGE TO PROJECTS. `.work-strip` — three links across on
-   hairlines, display face, coral arrow. NOT cards, and never a
-   repeat of a full project card. Three different areas: demand
-   generation (#scanoptics), brand and website (#robert-james),
-   tools and resources (#builds). Leadership is covered by the PERQ
-   link inside its own area block. The industries line survives ONLY
-   as small context beneath the strip, one sentence — Amber ruled it
-   does not need its own section.
+6. THE BRIDGE TO PROJECTS, "See the expertise in action." with a
+   sans supporting sentence. `.work-strip` — three FULL-WIDTH ROWS
+   on hairlines at the SAME 60ch measure as the useful list above,
+   so the two sections read as one thought. NOT cards, never
+   thumbnails, never a repeat of a full project card. It is
+   deliberately QUIETER than the expertise content: titles stay INK
+   in the display face and coral is spent only on the arrows and the
+   closing link. The whole row is the target, not the arrow — the
+   `<a>` is a flex row and `.ws-arrow` is a flex ITEM (`flex: none`),
+   which is what keeps it from being stranded on its own line when a
+   title wraps on a phone. Hover is a 3.5% warm tint on the row plus
+   a 3px arrow nudge; `:active` deepens the tint to 6%; the nudge is
+   off under reduced motion. Three different areas: demand generation
+   (#scanoptics), brand and website (#robert-james), tools and
+   resources (#builds). Leadership is covered by the PERQ link inside
+   its own area block. The industries line survives ONLY as small
+   context beneath the strip, one sentence — Amber ruled it does not
+   need its own section — and now opens on "Different industries.
+   Similar challenges."
 7. CLOSING BAND. "Not sure what kind of help you need yet?" with
    her paragraph, `Start a conversation` primary and `See how I
    work` ghost — the first CTA on the site pointing at How I Work,

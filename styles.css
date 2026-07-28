@@ -1690,11 +1690,11 @@ a.bld-item .bld-item-arrow {
 
 /* --- 2. Where I'm most useful: the strongest section on the page,
    so it gets the whole measure and nothing beside it. Loose and
-   editorial, never cards. --- */
-.useful { list-style: none; margin: 40px 0 0; padding: 0; max-width: 68ch; }
+   editorial, never cards, no icons, no illustration. --- */
+.useful { list-style: none; margin: 34px 0 0; padding: 0; max-width: 62ch; }
 .useful li {
   position: relative;
-  padding: 20px 0 20px 32px;
+  padding: 18px 0 18px 32px;
   border-top: 1px solid var(--line);
   font-family: var(--font-display);
   color: var(--ink);
@@ -1705,11 +1705,17 @@ a.bld-item .bld-item-arrow {
   content: "";
   position: absolute;
   left: 0;
-  top: 1.55em;
+  top: 1.5em;
   width: 14px;
   height: 2px;
   background: var(--coral);
 }
+/* Two of the six are TWO DELIBERATE LINES: a claim, then the turn.
+   The weight change is what stops the second line reading as a wrap,
+   so the emphasis is structural — do not bold anything in the other
+   four (Amber, July 2026). */
+.useful strong { font-weight: 600; }
+.useful .u-turn { display: block; margin-top: 3px; }
 
 /* --- 3. Tools: collapsed by default, and it stays that way. No logo
    wall — it would read more junior and more software-focused than she
@@ -1739,28 +1745,44 @@ a.bld-item .bld-item-arrow {
 .plat h3 { font-family: var(--font-body); font-weight: 600; color: var(--muted); margin-bottom: 5px; }
 .plat p { color: var(--muted); opacity: 0.86; margin-bottom: 0; }
 
-/* --- 4. The bridge to Projects: a strip of three links, never cards.
-   Projects carries the case studies; this page only points. --- */
-.work-strip {
-  list-style: none;
-  margin: 40px 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0 40px;
-}
+/* --- 4. The bridge to Projects: three full-width rows, never cards
+   and never thumbnails. Projects carries the case studies; this page
+   only points. Quieter than the expertise content above it: the
+   titles stay INK and coral is spent only on the arrows and the
+   closing link. --- */
+/* the same measure as the "especially useful" list above, so the two
+   sections read as one thought and the arrow never sits marooned at
+   the far side of a 1120px row */
+.work-strip { list-style: none; margin: 34px 0 0; padding: 0; max-width: 60ch; }
 .work-strip li { border-top: 1px solid var(--line); }
+.work-strip li:last-child { border-bottom: 1px solid var(--line); }
+/* the whole row is the target, not the arrow */
 .work-strip a {
-  display: block;
-  padding: 20px 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  /* the tint is inset on the left so the hover reads as a row, not a
+     block butted against the measure */
+  margin-left: -16px;
+  padding: 20px 16px;
+  border-radius: 10px;
   font-family: var(--font-display);
   color: var(--ink);
   text-decoration: none;
   letter-spacing: -0.01em;
-  transition: color 0.2s var(--ease);
+  transition: background 0.2s var(--ease);
 }
-.work-strip a::after { content: " \2192"; color: var(--coral-deep); }
-.work-strip a:hover { color: var(--coral-deep); }
+.work-strip a:hover { background: rgba(46, 42, 39, 0.035); }
+.work-strip a:active { background: rgba(46, 42, 39, 0.06); }
+/* a flex item, so it can never be stranded on a line of its own when
+   the title wraps on a phone */
+.ws-arrow {
+  color: var(--coral-deep);
+  flex: none;
+  transition: transform 0.2s var(--ease);
+}
+.work-strip a:hover .ws-arrow { transform: translateX(3px); }
 
 /* the industries line: small context, not a section of its own
    (Amber, July 2026) */
@@ -1794,13 +1816,13 @@ a.bld-item .bld-item-arrow {
   .area-list { grid-template-columns: 1fr; margin-bottom: 20px; }
   .area-line { max-width: none; }
 
-  .useful { margin-top: 28px; }
-  .useful li { padding: 16px 0 16px 28px; }
+  .useful { margin-top: 26px; }
+  .useful li { padding: 15px 0 15px 28px; }
 
   .industries { margin-top: 24px; padding-top: 16px; }
   .plat-grid { grid-template-columns: 1fr; gap: 16px; }
-  .work-strip { margin-top: 28px; }
-  .work-strip a { padding: 16px 0; }
+  .work-strip { margin-top: 26px; }
+  .work-strip a { padding: 16px 12px; margin-left: -12px; gap: 16px; }
   .cta-actions { flex-direction: column; align-items: stretch; }
 }
 
@@ -2357,6 +2379,7 @@ footer {
   .btn:hover, .card:hover, .case:hover, .cap-card:hover,
   .feat-card:hover, .quote-card:hover, .proof-chip:hover,
   .cta-band .btn:hover, .btn:active { transform: none; }
+  .work-strip a:hover .ws-arrow { transform: none; }
   .xp-chev { transition: none; }
   .lb-close, .lb-nav { transition: none; }
   .nav-links { transition: none; transform: none; }
@@ -2742,6 +2765,7 @@ footer p,
 .industries { font-size: var(--fs-small); line-height: 1.55; }
 .area-line { font-size: var(--fs-intro); line-height: 1.35; }
 .useful li, .work-strip a { font-size: var(--fs-intro); line-height: 1.35; }
+@media (max-width: 760px) { .useful li, .work-strip a { font-size: 1.125rem; } }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
 .case-art figcaption, .case-scope, .art-link a, .case-more { font-size: var(--fs-small); line-height: 1.55; }
 .case-rel { font-size: var(--fs-eyebrow); }
