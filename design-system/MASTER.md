@@ -542,6 +542,60 @@ thumbnails from the retired preview strip, and
 `artifact-{rjr-hero,mfcu-campaign}.webp` from the retired Expertise
 artifacts.
 
+## SEO baseline (2026-07 audit — keep every page inside these)
+
+Verified across all seven pages. When a page is added or a headline
+changes, re-check these, because they drift silently.
+
+- **ONE h1 PER PAGE**, no heading-level skips. Confirmed on all seven.
+  The h1 is the page's real headline, never the logo.
+- **TITLE ≤ 60 CHARACTERS** so Google stops truncating it. Three were
+  over (Services 69, How I Work 69, About 67) and were rewritten. The
+  pattern is `Subject — Qualifier | Amber Fugedi`.
+- **DESCRIPTION 120-160 CHARACTERS.** Five of six were over; Projects
+  was 327, a keyword dump listing all six clients. All rewritten into
+  the 134-152 band. Every one is unique and names Connecticut or a
+  real client outcome, never both at length.
+- **CANONICAL on every page**, including 404.
+- **404 IS `noindex`** and carries a description and canonical anyway,
+  so a shared broken link is not a blank card. It has no OG tags on
+  purpose — a 404 has nothing to preview and no JSON-LD.
+- **OG + TWITTER on all six indexed pages**, with `og:image:alt`,
+  `og:image:width` 2400 and `og:image:height` 1260 (og-image.jpg is 2x
+  the recommended 1200x630, which is correct for retina). SOCIAL
+  TITLES ARE ≤ 65 CHARACTERS — separate from the `<title>` limit,
+  because previews truncate shorter. Expertise was 82 and Projects
+  repeated the word "Projects" twice; both fixed.
+- **JSON-LD (Person + ProfessionalService) parses on all six indexed
+  pages.** 404 has none, correctly.
+- `lang="en"`, `charset`, `viewport` and `theme-color` on all seven.
+- `robots.txt` allows everything and points at the sitemap; the
+  sitemap lists the six indexed pages and excludes 404. STAMP
+  `lastmod` when a page changes — it was three days stale at audit.
+
+### Alt text rules
+- **Every `<img>` carries an `alt`.** Decorative images take `alt=""`:
+  the brand mark on all seven pages, and the lightbox's image before
+  one is set.
+- **Photographs of Amber describe the picture AND say who she is**,
+  because that is what makes the alt useful to a screen reader and to
+  image search at the same time. "Amber Fugedi" alone was the alt on
+  two portraits and is not enough. The model: *"Amber Fugedi,
+  marketing consultant in Connecticut, seated in a sunlit studio in
+  front of a wall of pinned reference images."*
+- **125 CHARACTERS IS THE CEILING.** The How I Work desk photo ran
+  207 and was cut back.
+- **NEVER open with "Image of" or "Photo of."**
+- **DRAWN ARTWORK USES `role="img"` + `aria-label` ON THE SVG**, not an
+  alt. The four working documents on How I Work each describe their
+  own marks, because the annotations are the argument. Purely
+  decorative SVG takes `aria-hidden="true"` — there are 12 on
+  Services, 4 on Projects, 1 each on Home and How I Work.
+- The lightbox `<img>` has no `width`/`height` and an automated check
+  flags it for layout shift. IT IS NOT A CLS RISK: it lives inside a
+  `<dialog>` sized by `max-height`, so nothing on the page moves. Do
+  not "fix" it by hard-coding dimensions that would break the fit.
+
 ## Accessibility floor (hard requirements)
 
 - All text ≥4.5:1 on its actual background (see token table).
