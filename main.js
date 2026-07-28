@@ -158,7 +158,7 @@
      reduced motion. */
   if (!reducedMotion && finePointer) {
     var TILT_MAX = 7; /* degrees */
-    document.querySelectorAll(".card, .case, .cap-card, .quote-card, .feat-card").forEach(function (card) {
+    document.querySelectorAll(".card, .case, .cap-card, .quote-card").forEach(function (card) {
       var tx = 0, ty = 0, cx = 0, cy = 0, hovering = false, tRaf = null;
 
       var tFrame = function () {
@@ -246,6 +246,9 @@
     /* built rather than templated: an image element with no src in
        markup is a broken image until the first open */
     var img = document.createElement("img");
+    /* empty alt from the start: an image element with no alt is
+       announced by its filename until one is set (2026-07 audit) */
+    img.alt = "";
     stage.insertBefore(img, cap);
     document.body.appendChild(lb);
     var count = lb.querySelector(".lb-count");
@@ -364,6 +367,41 @@
       });
     }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
     revealEls.forEach(function (el) { revealObserver.observe(el); });
+
+    /* SAFETY SWEEP. The observer's 0.15 threshold is what gives the
+       reveal its staged feel, and it is also how things get stranded:
+       an element can go from below the fold to above it inside one
+       frame during a fast scroll or an anchor jump and never register
+       15% on screen, and an element inside a closed <details> has no
+       area to measure at all. Either way it sits at opacity 0 forever.
+       So anything that has reached the viewport gets revealed
+       regardless of ratio, checked once per frame on scroll and again
+       whenever a disclosure opens. */
+    var sweepQueued = false;
+    var sweep = function () {
+      sweepQueued = false;
+      var h = window.innerHeight;
+      revealEls.forEach(function (el) {
+        if (el.classList.contains("in-view")) return;
+        var r = el.getBoundingClientRect();
+        if (r.width === 0 && r.height === 0) return;   /* still collapsed */
+        /* top < viewport bottom, with NO lower bound: anything the
+           page has already scrolled past must be revealed too, or a
+           fast scroll to the footer leaves a trail of blank sections */
+        if (r.top < h) {
+          el.classList.add("in-view");
+          revealObserver.unobserve(el);
+        }
+      });
+    };
+    var queueSweep = function () {
+      if (sweepQueued) return;
+      sweepQueued = true;
+      requestAnimationFrame(sweep);
+    };
+    window.addEventListener("scroll", queueSweep, { passive: true });
+    window.addEventListener("resize", queueSweep, { passive: true });
+    document.addEventListener("toggle", queueSweep, true);
   } else {
     revealEls.forEach(function (el) { el.classList.add("in-view"); });
   }

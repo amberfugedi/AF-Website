@@ -920,9 +920,7 @@ section { padding: 104px 0; }
   border-top: 1px solid rgba(46, 42, 39, 0.08);
   border-bottom: 1px solid rgba(46, 42, 39, 0.08);
 }
-.bridge .eyebrow { font-family: var(--font-body); margin-bottom: 12px; }
 .bridge .wrap { text-align: center; }
-.stack-note { margin-top: 18px; color: var(--muted); font-size: var(--fs-small); }
 /* Building: curated collection — category header left, featured
    project rows right; rows are whole-row links with hairline
    dividers, no cards */
@@ -1178,6 +1176,14 @@ a.bld-item .bld-item-arrow {
 .quote-marquee.paused .quote-track {
   animation-play-state: paused;
 }
+
+
+/* The marquee is its own motion. Its cards must NOT also be scroll
+   reveals: the duplicated set exists off-screen to make the loop
+   seamless, so it never intersects the viewport, and every card in it
+   sat at opacity 0 permanently — a five-card hole in the track
+   (found in the 2026-07 audit). Horizontal travel is the reveal. */
+.quote-marquee .quote-card.reveal { opacity: 1; transform: none; }
 /* Visible pause control (WCAG 2.2.2): hover isn't a mechanism on touch */
 .marquee-toggle {
   display: block;
@@ -1216,12 +1222,6 @@ a.bld-item .bld-item-arrow {
   to   { transform: translateX(-50%); }
 }
 
-.quote-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-@media (max-width: 900px) { .quote-grid { grid-template-columns: 1fr; } }
 
 .quote-card {
   background: var(--bg-raised);
@@ -1312,7 +1312,6 @@ a.bld-item .bld-item-arrow {
 .anchor-nav a.nav-courses.active     { color: var(--courses-deep);     background: var(--peach); }
 .anchor-nav a.nav-automations.active { color: var(--automations-deep); background: var(--lavender); }
 .anchor-nav a.nav-consulting.active  { color: var(--consulting-deep);  background: var(--blush); }
-.anchor-nav a.nav-capabilities.active { color: var(--coral-deep); background: rgba(255, 111, 97, 0.18); }
 /* Work: each section's tab takes its own color as you scroll */
 .anchor-nav a.nav-lead.active  { color: var(--coral-deep);      background: rgba(255, 111, 97, 0.18); }
 .anchor-nav a.nav-grow.active  { color: var(--consulting-deep); background: var(--blush); }
@@ -1388,62 +1387,9 @@ a.bld-item .bld-item-arrow {
 .offer-section.offer-consulting .offer-aside .tier  { color: var(--consulting-deep); }
 
 /* Capabilities page: impact tiers */
-.feat-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
 @media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr; } }
-.feat-card {
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 34px 30px;
-  transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease);
-}
-.feat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); }
-.feat-card.f-peach    { background: radial-gradient(circle at top right, rgba(252,228,196,0.5), transparent 55%), var(--bg-raised); }
-.feat-card.f-lavender { background: radial-gradient(circle at top right, rgba(218,212,245,0.5), transparent 55%), var(--bg-raised); }
-.feat-card.f-blush    { background: radial-gradient(circle at top right, rgba(251,213,228,0.5), transparent 55%), var(--bg-raised); }
-.feat-card p.feat-stat {
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: clamp(2.4rem, 4vw, 3.1rem);
-  line-height: 1;
-}
-.feat-card .feat-stat { color: var(--coral-deep); }
-.feat-card p.feat-stat-label { font-size: var(--fs-small); color: var(--muted); margin: 8px 0 18px; }
-.feat-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
-.feat-card p { font-size: 0.95rem; color: var(--body); }
 
-.tier-head { margin: 72px 0 28px; }
-.tier-head:first-of-type { margin-top: 0; }
-.tier-head h2 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); margin-bottom: 6px; }
-.tier-head p { color: var(--muted); font-size: 0.95rem; }
 
-.kit-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px 48px;
-  max-width: 860px;
-}
-@media (max-width: 640px) { .kit-list { grid-template-columns: 1fr; } }
-.kit-list li {
-  position: relative;
-  padding-left: 28px;
-  font-size: var(--fs-body);
-  color: var(--body);
-  font-weight: 500;
-}
-.kit-list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0.42em;
-  width: 11px; height: 11px;
-  border-radius: 50%;
-  border: 2.5px solid var(--coral);
-}
 
 /* Capabilities grid (imported from the previous site's services) */
 .cap-grid {
@@ -1915,6 +1861,9 @@ a.bld-item .bld-item-arrow {
   transition: background-size 0.2s var(--ease);
 }
 .art-link a::after { content: " \2197"; }
+/* 22px of text is under the 24px minimum target: the padding buys the
+   hit area without moving the baseline (2026-07 audit) */
+.art-link a, .more-list a { display: inline-block; padding: 4px 0; }
 
 /* Clients whose website exists but whose case study does not. A
    short labelled list at the end of the chapter, never cards: each
@@ -1956,32 +1905,7 @@ a.bld-item .bld-item-arrow {
    of small pieces, never a gallery. Every image is sized by HEIGHT so
    a row of portrait flyers and a row of landscape screenshots both
    line up without per-case rules. */
-.case-art {
-  margin: 30px 0 0;
-  padding-top: 24px;
-  border-top: 1px solid rgba(46, 42, 39, 0.1);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 16px;
-}
-.case-art img {
-  display: block;
-  height: 200px;
-  width: auto;
-  max-width: 100%;
-  border: 1px solid rgba(46, 42, 39, 0.12);
-  border-radius: 4px;
-  box-shadow: 0 14px 32px -22px rgba(46, 42, 39, 0.4);
-}
-.case-art figcaption {
-  flex-basis: 100%;
-  color: var(--muted);
-  margin-top: 2px;
-}
 @media (max-width: 760px) {
-  .case-art { gap: 12px; margin-top: 24px; padding-top: 18px; }
-  .case-art img { height: 132px; }
 }
 
 /* ============ About page ============ */
@@ -2036,24 +1960,6 @@ a.bld-item .bld-item-arrow {
   .about-blob-outline { inset: -12px 2px 10px 16px; }
 }
 .about-portrait img { width: 100%; height: 100%; object-fit: cover; }
-.about-portrait .portrait-note {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--muted);
-  padding: 24px;
-  text-align: center;
-}
-.about-portrait .portrait-monogram {
-  font-size: clamp(4rem, 9vw, 6.5rem);
-  letter-spacing: 0.04em;
-  color: var(--coral-deep);
-  opacity: 0.85;
-}
 
 .about-copy p {
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);
@@ -2321,7 +2227,7 @@ footer {
 /* Touch: taps fire sticky :hover — keep lifts for real pointers only */
 @media (hover: none), (pointer: coarse) {
   .btn-primary:hover, .btn-outline:hover, .card:hover, .case:hover,
-  .cap-card:hover, .feat-card:hover, .quote-card:hover,
+  .cap-card:hover, .quote-card:hover,
   .proof-chip:hover, .cta-band .btn:hover {
     transform: none;
     box-shadow: none;
@@ -2356,7 +2262,7 @@ footer {
   .page-home .hero .hero-proof { opacity: 1; transform: none; animation: none; }
   .reveal[data-delay="1"], .reveal[data-delay="2"] { transition-delay: 0s; }
   .btn:hover, .card:hover, .case:hover, .cap-card:hover,
-  .feat-card:hover, .quote-card:hover, .proof-chip:hover,
+  .quote-card:hover, .proof-chip:hover,
   .cta-band .btn:hover, .btn:active { transform: none; }
   .work-strip a:hover .ws-arrow { transform: none; }
   .xp-chev { transition: none; }
@@ -2779,7 +2685,6 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 }
 .section-title,
 .case h2,
-.tier-head h2,
 .offer-section h2,
 .cta-band h2 {
   font-size: var(--fs-h2);
@@ -2795,7 +2700,6 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    reserved for structural subheads. */
 .card h3,
 .cap-card h3,
-.feat-card h3,
 .edu-card h3 {
   font-size: var(--fs-intro);
   line-height: 1.3;
@@ -2824,7 +2728,6 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 
 .card p,
 .cap-card p,
-.feat-card p,
 .quote-card blockquote,
 .case-col p,
 .xp-desc,
@@ -2851,7 +2754,6 @@ footer p,
 .footer-nav a { font-size: var(--fs-small); line-height: 1.4; }
 /* sentence paragraphs are body, never small */
 .offer-aside p,
-.offer-aside .offer-note { font-size: var(--fs-body); line-height: 1.55; }
 .offer-aside .who { font-size: var(--fs-body); line-height: 1.5; }
 .anchor-nav a { font-size: var(--fs-small); } /* compact utility tabs: small slot */
 /* Expertise sits almost entirely on the shared scale now: row and
@@ -2867,7 +2769,7 @@ footer p,
 .diag-q { font-size: var(--fs-h3); line-height: 1.3; }
 @media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
-.case-art figcaption, .case-scope, .art-link a, .case-more { font-size: var(--fs-small); line-height: 1.55; }
+ .case-scope, .art-link a{ font-size: var(--fs-small); line-height: 1.55; }
 .case-rel { font-size: var(--fs-eyebrow); }
 .lb-stage figcaption { font-size: var(--fs-small); line-height: 1.5; }
 .lb-count { font-size: var(--fs-eyebrow); }
@@ -2901,7 +2803,6 @@ footer p,
 .email-capture .capture-label,
 .offer-aside .tier { font-size: var(--fs-eyebrow); }
 .case-col.result p { font-size: var(--fs-body); } /* Impact lines join body scale */
-.tier-head p { font-size: var(--fs-body); }
 
 .eyebrow {
   font-size: var(--fs-eyebrow);
@@ -2923,7 +2824,6 @@ footer p,
   .hero { min-height: 0; padding: 149px 0 48px; }
   .section-title,
   .case h2,
-  .tier-head h2,
   .offer-section h2,
   .cta-band h2 { line-height: 1.1; }
   /* CTA practice on phones: buttons keep dominance through coral,

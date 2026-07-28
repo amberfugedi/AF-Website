@@ -468,6 +468,80 @@ and stroke draw-ins — marketing moments, not UI response.
 `prefers-reduced-motion`: aura static, reveals instant, no hover
 transforms. Hard requirement — never ship motion outside this contract.
 
+## Full-site audit, 2026-07 (findings and fixes)
+
+Three REAL BUGS, all in the scroll-reveal system, all shipped and all
+now fixed. Any future change to `.reveal` must keep these fixed.
+
+1. **THE TESTIMONIAL MARQUEE HAD A FIVE-CARD HOLE.** `.quote-card` in
+   the marquee also carried `.reveal`. The track is duplicated so the
+   loop is seamless, and the duplicate set lives off-screen where it
+   NEVER intersects the viewport, so every card in it sat at opacity 0
+   forever while still taking up layout. On home, 3 of 8 cards were
+   visible. On About, 1 of 8. FIX: `.quote-marquee .quote-card.reveal
+   { opacity: 1; transform: none; }` — the horizontal travel IS the
+   reveal; the marquee does not get a second one. NEVER put `.reveal`
+   inside a horizontally-translated track.
+
+2. **FAST SCROLL STRANDED WHOLE SECTIONS.** The observer's
+   `threshold: 0.15` is what gives the reveal its staged feel and is
+   also how content gets stranded: an element can travel from below
+   the fold to above it inside a single frame during a fast scroll or
+   an anchor jump, never registering 15% on screen. On How I Work an
+   entire section head — eyebrow, headline, lede — stayed invisible.
+   FIX: a SAFETY SWEEP in `main.js` reveals anything whose
+   `getBoundingClientRect().top < innerHeight`, regardless of ratio,
+   queued once per frame on scroll/resize and on any `toggle` event.
+   THE CONDITION HAS NO LOWER BOUND ON PURPOSE — checking
+   `bottom > 0` too would leave a trail of blank sections behind
+   anyone who scrolls straight to the footer.
+
+3. **OPENING A CASE COULD REVEAL NOTHING.** `.art-link` inside a
+   closed `<details>` has no area to measure, so it never crossed the
+   threshold; opening the disclosure showed an empty row where "See
+   the website" should be. FIXED by the same sweep, hooked to `toggle`
+   with capture (the event does not bubble).
+
+Smaller fixes from the same pass:
+- the lightbox's `<img>` is created empty and had NO `alt`, so screen
+  readers announced the filename until one was set. Now `alt = ""` at
+  creation.
+- `404.html` had no meta description and no canonical. Both added.
+- `.art-link` / `.more-list` links were 22-25px tall, under the 24px
+  minimum target size. Padded to 30px without moving the baseline.
+- ~110 lines of DEAD CSS removed: `.feat-card` (whole component),
+  `.feat-grid`, `.tier-head`, `.kit-list`, `.quote-grid`,
+  `.stack-note`, `.case-art`, `.case-more`, `.portrait-note`,
+  `.offer-note`, `.nav-capabilities`. CAUTION LEARNED: two of those
+  names sat in MULTI-SELECTOR lists alongside live ones
+  (`.feat-card:hover, .quote-card:hover, .proof-chip:hover`), and
+  dropping the line dropped the live selectors too. Trim the name out
+  of the list; never delete the line.
+
+VERIFIED CLEAN, and these are the checks worth repeating: detector 0 ·
+no horizontal scroll at 1440/1020/760/390/320 · every `.reveal`
+resolves on all six pages after a real scroll · every case discloses
+its content at desktop and phone · one h1 per page and no heading-level
+skips · every internal link and anchor resolves · nav and footer byte-
+identical across all seven pages · JSON-LD parses on all six indexed
+pages · titles, descriptions and canonicals unique · no `target=_blank`
+without `rel=noopener` · no unnamed interactive element.
+
+CONTRAST FALSE POSITIVES: an automated walker that only reads
+`backgroundColor` reports 1.00:1 on the CTA-band tab words and the
+lightbox chrome, because both sit on a `background-image` gradient or
+on `::backdrop`. Measured by hand they are 5.64:1 and 15.07:1. Do not
+"fix" them.
+
+KNOWN AND LEFT ALONE: `full-a2-sign.webp` is the heaviest file at
+411KB, but every `full-*.webp` loads only when someone opens the
+lightbox, so it costs nothing on page load. ORPHANED IN THE REPO
+(~592KB, never requested): `favicon-512.png` (292KB, referenced
+nowhere and wildly unoptimised for an icon), the six `work-*.webp`
+thumbnails from the retired preview strip, and
+`artifact-{rjr-hero,mfcu-campaign}.webp` from the retired Expertise
+artifacts.
+
 ## Accessibility floor (hard requirements)
 
 - All text ≥4.5:1 on its actual background (see token table).
