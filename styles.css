@@ -1652,16 +1652,19 @@ a.bld-item .bld-item-arrow {
 .offer-points { list-style: none; display: grid; gap: 14px; }
 .offer-points li {
   position: relative;
-  padding-left: 30px;
+  padding-left: 24px;
   font-size: 0.98rem;
   color: var(--body);
 }
+/* THE SITE'S ONE BULLET LANGUAGE: a 12x2px rule, shared with the How I
+   Work hands-on list, the Expertise chapter capabilities and the course
+   facts. This was a 16px ring — the same idea drawn a second way, and
+   Services was the only page using it (2026-07). */
 .offer-points li::before {
   content: "";
   position: absolute;
-  left: 0; top: 7px;
-  width: 16px; height: 16px;
-  border-radius: 50%;
+  left: 0; top: 0.72em;
+  width: 12px; height: 2px;
   background: var(--coral);
 }
 
@@ -1690,9 +1693,11 @@ a.bld-item .bld-item-arrow {
 .offer-aside p { font-size: 0.92rem; color: var(--body); margin-bottom: 22px; }
 
 /* Per-offer section accents */
-.offer-section.offer-courses .offer-points li::before     { background: var(--peach);    border: 2px solid var(--courses-deep); }
-.offer-section.offer-automations .offer-points li::before { background: var(--lavender); border: 2px solid var(--automations-deep); }
-.offer-section.offer-consulting .offer-points li::before  { background: var(--blush);    border: 2px solid var(--consulting-deep); }
+/* the marker keeps its per-offer accent, at the deep value now that it
+   is a hairline rather than a filled disc */
+.offer-section.offer-courses .offer-points li::before     { background: var(--courses-deep); }
+.offer-section.offer-automations .offer-points li::before { background: var(--automations-deep); }
+.offer-section.offer-consulting .offer-points li::before  { background: var(--consulting-deep); }
 .offer-section.offer-courses .offer-aside     { background: var(--peach); }
 .offer-section.offer-automations .offer-aside { background: var(--lavender); }
 .offer-section.offer-consulting .offer-aside  { background: var(--blush); }
@@ -1910,8 +1915,24 @@ a.bld-item .bld-item-arrow {
    six-item "especially useful when" list, and the four working
    documents — those moved to How I Work, where they belong. --- */
 .chapters { margin-top: 44px; }
-.ch { border-top: 1px solid var(--line); padding: 50px 0 54px; }
-.ch:last-child { border-bottom: 1px solid var(--line); }
+.ch { border-top: 2px solid var(--line); padding: 50px 0 54px; }
+.ch:last-child { border-bottom: 2px solid var(--line); }
+/* PER-CHAPTER ACCENTS, carried the way Services carries its per-offer
+   accents — the one system on the site where colour means something.
+   Four typographically identical chapters read as a list; four coded
+   chapters read as four different kinds of work. NO NEW ELEMENTS: the
+   rule above each chapter and its capability markers take the colour,
+   nothing is added. Operations takes lavender deliberately, rhyming
+   with the Workflow & AI offer it shares subject matter with. */
+.ch:nth-child(1) { border-top-color: rgba(242, 169, 59, 0.62); }
+.ch:nth-child(2) { border-top-color: rgba(166, 53, 99, 0.48); }
+.ch:nth-child(3) { border-top-color: rgba(87, 74, 166, 0.5); }
+.ch:nth-child(4) { border-top-color: rgba(184, 53, 74, 0.46); }
+.ch:last-child { border-bottom-color: rgba(184, 53, 74, 0.46); }
+.ch:nth-child(1) .ch-list li::before { background: #F2A93B; }
+.ch:nth-child(2) .ch-list li::before { background: var(--consulting-deep); }
+.ch:nth-child(3) .ch-list li::before { background: var(--automations-deep); }
+.ch:nth-child(4) .ch-list li::before { background: var(--coral-deep); }
 /* the rules run the full column while the CONTENT steps right on the
    second and fourth chapters — Amber's own sketch staggered the words,
    and staggering the whole chapter is what keeps it from reading as a

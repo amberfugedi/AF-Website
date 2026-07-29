@@ -817,6 +817,45 @@ changes, re-check these, because they drift silently.
   `<dialog>` sized by `max-height`, so nothing on the page moves. Do
   not "fix" it by hard-coding dimensions that would break the fit.
 
+## Colour coding and the one bullet language (2026-07)
+
+**COLOUR MEANS SOMETHING ON THIS SITE, AND IT ONLY MEANS ONE THING PER
+SET.** Two coded sets exist and they do not overlap:
+
+- **The three OFFERS** (Services, and their cards on Home): peach/gold
+  = Courses, lavender = Workflow & AI, blush = Consulting. The accent
+  runs through the glyph, the bullet marker and the aside tint.
+- **The four EXPERTISE CHAPTERS**: gold = Strategy, blush = Digital,
+  lavender = Operations, coral = Leadership. Carried by the 2px rule
+  above each chapter and by its capability markers. NO NEW ELEMENTS —
+  four typographically identical chapters read as a list, four coded
+  ones read as four kinds of work. Operations takes lavender
+  deliberately, rhyming with the Workflow & AI offer it shares subject
+  matter with.
+
+Amber, July 2026, on why Services felt resolved: it is not the leanest
+page (Courses is 151 words, Services 440) — it is THE ONLY PAGE WHERE
+COLOUR CARRIES MEANING. That system is the transferable thing, not the
+styling.
+
+WHAT DOES NOT TRANSFER: `.offer-aside`, the tier-chip / who-it-is-for /
+next-step rail. It works because Services is SELLING. Expertise
+organises knowledge, Projects proves work, How I Work explains
+thinking — none has a next step per section, so an aside there would be
+furniture with nothing to hold. Do not add one.
+
+### One bullet language
+
+**A 12 x 2px RULE. That is the only marker on the site.** Used by the
+Services offer points, the How I Work hands-on list, the Expertise
+chapter capabilities and the course facts. It takes the local accent
+colour where one exists, coral otherwise.
+
+Services used to carry a 16px filled RING instead — the same idea drawn
+a second way, on one page only. It is gone. If a new list needs a
+marker, it takes the rule; if the rule genuinely will not work, change
+it everywhere or not at all.
+
 ## Accessibility floor (hard requirements)
 
 - All text ≥4.5:1 on its actual background (see token table).
