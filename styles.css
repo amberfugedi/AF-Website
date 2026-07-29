@@ -3634,18 +3634,14 @@ footer p,
    THIS MUST STAY AFTER THE TYPE LAYER. `.nav-links a` is set to 1rem
    up there at equal specificity, so an earlier media query is dead
    on arrival — that is exactly how the previous step-down silently
-   stopped changing the font size. Measured fit at every width from
-   1440 down to 761: one row, brand clear by 24px at the tightest. */
+   stopped changing the font size. Six primary links plus Shop and the
+   CTA need this one band and nothing tighter; a second band under
+   840 was added for seven and removed again when Home came out.
+   Measured one row at every width from 1440 down to 761, tightest
+   brand clearance 163px at 960. */
 @media (max-width: 900px) and (min-width: 761px) {
   .nav-links { gap: 10px; }
   .nav-links a, .nav-drop-btn { font-size: 0.8rem; }
   .nav-cta { padding-left: 11px; padding-right: 11px; }
   .brand { font-size: 1.25rem; }
-}
-@media (max-width: 840px) and (min-width: 761px) {
-  .nav-links { gap: 8px; }
-  .nav-links a, .nav-drop-btn { font-size: 0.75rem; }
-  .nav-cta { padding-left: 10px; padding-right: 10px; }
-  .brand { font-size: 1.0625rem; gap: 10px; }
-  .brand-mark { width: 19px; height: 19px; }
 }

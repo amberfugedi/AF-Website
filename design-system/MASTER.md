@@ -639,11 +639,14 @@ follows the nav order below.
 
 ## Nav order (2026-07, Amber)
 
-**Home · Expertise · Work · My Approach · Services · Shop · About**,
-then Student login and the Let's talk CTA. Same order in the mobile
-panel, and `aria-current="page"` verified on all eight pages.
+**Expertise · Work · My Approach · Services · Shop · About**, then
+Student login and the Let's talk CTA. Same order in the mobile panel,
+and `aria-current="page"` verified on all eight pages — the home page
+carries none, which is correct: the brand mark is the way home and
+always has been.
 
-- **Home is a real link now**, not only the brand mark.
+- **Home was in this list for one revision and came straight back out**
+  (Amber: "I don't think we need home in the menu"). Do not re-add it.
 - **"Work" points at `projects.html`.** The LABEL changed, the URL did
   not — `/work.html` already 301s TO `/projects.html` from the earlier
   rename, so pointing the label back at a `work.html` file would build
@@ -653,9 +656,11 @@ panel, and `aria-current="page"` verified on all eight pages.
   do"** and lists the same four in nav order. "The work" over an item
   labelled "Work" read like a mistake.
 - SEVEN primary links plus Shop and the CTA is the most this row
-  holds. Anything more needs the mobile menu to take over earlier
-  than 760. Measured one row at 1440, 1280, 1180, 1100, 1020, 960,
-  900, 860, 820, 780 and 761; tightest brand clearance 97px at 960.
+  holds, and it needed a second tighter band under 840 to do it. At
+  six it needs only the one 761-900 band. Anything beyond seven needs
+  the mobile menu to take over earlier than 760. Measured one row at
+  1440, 1280, 1180, 1100, 1020, 960, 900, 860, 820, 780 and 761;
+  tightest brand clearance 163px at 960.
 - THE STEP-DOWN THAT MADE IT FIT HAD BEEN DEAD. The 761-900 block sat
   at line 480 and set `.nav-links a { font-size: 0.8rem }`, but the
   type layer sets `.nav-links a { font-size: 1rem }` at equal
