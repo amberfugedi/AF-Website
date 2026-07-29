@@ -378,7 +378,9 @@ body.page-sub .aura { --aura-base: 0.45; }
 }
 .nav-links a.nav-cta:hover { background: var(--coral); color: var(--ink); }
 /* the secondary group and the CTA note exist for the mobile menu only */
-.nav-secondary, .nav-note { display: none; }
+/* the secondary group, the CTA note and the Shop group label all
+   exist for the mobile menu only */
+.nav-secondary, .nav-note, .nav-group-label { display: none; }
 
 .nav-toggle {
   display: none;
@@ -556,8 +558,22 @@ body.page-sub .aura { --aura-base: 0.45; }
   /* SHOP FLATTENS. One item behind a disclosure is a click for nothing
      on a phone, so the button goes and Courses becomes an ordinary
      item. The dropdown stays on desktop, where it has room to grow. */
-  .nav-drop { display: block; }
+  /* COURSES SITS UNDER SHOP (Amber, July 2026). On a phone Shop is a
+     quiet GROUP LABEL rather than a disclosure — one item behind a
+     click is a click for nothing — and the list under it is simply
+     open. The button stays for desktop, where it has room to grow. */
+  .nav-drop { display: block; margin-top: 4px; }
   .nav-drop-btn { display: none; }
+  .nav-group-label {
+    display: block;
+    padding: 6px 0 2px;
+    font-family: var(--font-body);
+    font-size: var(--fs-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
   .nav-drop-menu {
     position: static;
     display: block;
@@ -569,7 +585,7 @@ body.page-sub .aura { --aura-base: 0.45; }
   .nav-drop-menu::before { content: none; }
   .nav-links .nav-drop-menu a {
     display: block;
-    padding: 7px 0;
+    padding: 5px 0 7px 14px;
     border-radius: 0;
     font-family: var(--font-body);
     font-size: 1.875rem;
@@ -586,7 +602,7 @@ body.page-sub .aura { --aura-base: 0.45; }
     background-image: linear-gradient(var(--coral), var(--coral));
     background-repeat: no-repeat;
     background-size: 28px 2px;
-    background-position: 0 calc(100% - 5px);
+    background-position: 14px calc(100% - 5px);
   }
 
   /* the divider, and everything under it pushed to the bottom */
