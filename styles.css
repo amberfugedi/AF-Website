@@ -1337,75 +1337,124 @@ a.bld-item .bld-item-arrow {
    158 desktop / 149 phone. */
 .page-head { padding: 158px 0 30px; }
 
-/* ---- Expertise head: copy left, chapter index right ----
-   58/42 with a controlled gutter. The copy starts at the top so its
-   h1 lands on the same line as every other page head; only the index
-   centres against the row. THE INDEX IS NOT NAVIGATION — no links, no
-   cards, no icons, no second gradient. It previews the four chapters
-   and then gets out of the way. */
+/* ---- Expertise head: copy left, layered expertise map right ----
+   55/45 with a controlled gutter. The copy starts at the top so its h1
+   lands on the same line as every other page head; the map centres
+   against the row and is allowed to break the column on both edges so
+   the hero reads as composed rather than boxed.
+
+   THE MAP IS FOUR STRATA, NOT FOUR CARDS. Each band is a soft gradient
+   in one brand accent with a torn clip-path and NO outline — an
+   outlined rounded rectangle is a card no matter what it contains.
+   They overlap by a few pixels so the translucency does the arguing:
+   these areas are connected. The only stroked element on the whole
+   composition is the thread that runs through all four and turns back
+   toward the highlighted word in the headline. */
 .head-split {
   display: grid;
-  grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
-  gap: clamp(36px, 5.5vw, 92px);
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  gap: clamp(32px, 4.5vw, 76px);
   align-items: start;
 }
-.head-split .xindex { align-self: center; }
-.xindex { position: relative; }
-/* ONE faint wash, in the butter family the paper tab already uses, at
-   a fraction of its strength. It is a hint of warmth behind the list,
-   not a panel — no border, no radius you can read, no shadow. */
-.xindex::before {
-  content: "";
-  position: absolute;
-  inset: -34px -30px -30px -34px;
-  /* CENTRED and fully transparent before the box edge. Anchored near
-     a corner it stopped fading before it ran out of box and read as a
-     hard-edged panel — exactly the card this is not supposed to be. */
-  background: radial-gradient(closest-side circle at 48% 46%, rgba(242, 169, 59, 0.16), rgba(242, 169, 59, 0) 100%);
-  z-index: 0;
-}
-.xindex ol {
+.head-split .xmap { align-self: center; }
+
+.xmap {
   position: relative;
-  z-index: 1;
+  aspect-ratio: 560 / 468;
+}
+/* Same aspect ratio as the list box, so the thread stays registered to
+   the bands at every width without a single hardcoded pixel. */
+.xmap-thread {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;   /* the thread leaves the column on purpose */
+  z-index: 2;
+  pointer-events: none;
+}
+.xmap-list {
+  position: absolute;
+  inset: 0;
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.xindex li {
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr);
-  align-items: baseline;
-  gap: 14px;
-  padding: 14px 0;
-  border-top: 1px solid rgba(46, 42, 39, 0.14);
+  grid-template-rows: repeat(4, minmax(0, 1fr));
 }
-.xindex li:last-child { border-bottom: 1px solid rgba(46, 42, 39, 0.14); }
-.xi-num {
+.xmap-list li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-content: center;
+  gap: 1px 12px;
+  padding: 10px 26px 12px 22px;
+  background: var(--band);
+  clip-path: var(--torn);
+}
+.xmap-list .xm-num { grid-row: span 2; align-self: center; }
+/* Bands lift into the one above them; later rows paint on top so the
+   overlap darkens downward, the way stacked paper does. */
+.xmap-list li + li { margin-top: -13px; }
+.xmap-list li:nth-child(1) {
+  z-index: 1;
+  margin: 0 -9% 0 7%;
+  --band: linear-gradient(104deg, rgba(242, 169, 59, 0.16), rgba(242, 169, 59, 0.04));
+  --torn: polygon(0% 8%, 34% 2%, 71% 6%, 100% 0%, 99.2% 91%, 63% 99%, 27% 93%, 0.8% 100%);
+}
+.xmap-list li:nth-child(2) {
+  z-index: 2;
+  margin: -13px 11% 0 -11%;
+  --band: linear-gradient(96deg, rgba(251, 213, 228, 0.5), rgba(251, 213, 228, 0.16));
+  --torn: polygon(0.8% 3%, 41% 8%, 100% 2%, 99.4% 95%, 57% 100%, 19% 94%, 0% 99%);
+}
+.xmap-list li:nth-child(3) {
+  z-index: 3;
+  margin: -13px -5% 0 15%;
+  --band: linear-gradient(108deg, rgba(150, 138, 214, 0.18), rgba(150, 138, 214, 0.05));
+  --torn: polygon(0% 7%, 47% 0%, 100% 5%, 99.3% 96%, 55% 100%, 21% 95%, 0.6% 99%);
+}
+.xmap-list li:nth-child(4) {
+  z-index: 4;
+  margin: -13px 17% 0 -3%;
+  --band: linear-gradient(92deg, rgba(206, 158, 160, 0.3), rgba(206, 158, 160, 0.08));
+  --torn: polygon(0.6% 4%, 31% 0%, 79% 5%, 100% 1%, 99% 97%, 45% 100%, 13% 95%, 0% 99%);
+}
+.xm-num {
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--muted);
   opacity: 0.72;
 }
-.xi-name {
+.xm-name {
   /* 500, not 600: at semibold in full ink these four words started
      reading as a second headline beside the h1. */
   font-weight: 500;
   color: var(--ink);
   letter-spacing: -0.005em;
 }
+.xm-note { color: var(--muted); grid-column: 2; }
 
 @media (max-width: 900px) {
-  /* One column, index under the paragraph as a compact two-up so it
-     costs the page one row of height rather than four. */
-  .head-split { grid-template-columns: 1fr; gap: 30px; }
-  .head-split .xindex { align-self: start; }
-  .xindex::before { inset: -20px -22px -18px -24px; }
-  .xindex ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(20px, 5vw, 48px); }
-  .xindex li { padding: 11px 0; }
-  .xindex li:last-child { border-bottom: 0; }
-  .xindex li:nth-child(3), .xindex li:nth-child(4) { border-bottom: 1px solid rgba(46, 42, 39, 0.14); }
+  /* One column. The map keeps its strata and its overlap so the areas
+     still read as connected, but the stagger flattens and the thread
+     goes — a woven line drawn across a phone-width column is a
+     scribble, not a diagram. */
+  .head-split { grid-template-columns: 1fr; gap: 28px; }
+  .head-split .xmap { align-self: start; }
+  .xmap { aspect-ratio: auto; }
+  .xmap-thread { display: none; }
+  .xmap-list { position: static; display: block; }
+  .xmap-list li {
+    padding: 13px 20px 14px 18px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .xmap-list li:nth-child(1) { margin: 0 -4% 0 0; }
+  .xmap-list li:nth-child(2) { margin: -9px 0 0 -4%; }
+  .xmap-list li:nth-child(3) { margin: -9px -4% 0 0; }
+  .xmap-list li:nth-child(4) { margin: -9px 0 0 -4%; }
 }
-
 /* ---- Services head: copy left, marketing-system diagram right ----
    The art is wide and short (480x272) so the row height stays driven
    by the copy. TWO TRAPS, both learned the hard way: `.reveal.in-view`
@@ -1994,27 +2043,30 @@ a.bld-item .bld-item-arrow {
 .chapters { margin-top: 44px; }
 .ch { border-top: 2px solid var(--line); padding: 50px 0 54px; }
 .ch:last-child { border-bottom: 2px solid var(--line); }
-/* PER-CHAPTER ACCENTS, carried the way Services carries its per-offer
-   accents — the one system on the site where colour means something.
-   Four typographically identical chapters read as a list; four coded
-   chapters read as four different kinds of work. NO NEW ELEMENTS: the
-   rule above each chapter and its capability markers take the colour,
-   nothing is added. Operations takes lavender deliberately, rhyming
-   with the Workflow & AI offer it shares subject matter with. */
-.ch:nth-child(1) { border-top-color: rgba(242, 169, 59, 0.62); }
-.ch:nth-child(2) { border-top-color: rgba(166, 53, 99, 0.48); }
-.ch:nth-child(3) { border-top-color: rgba(87, 74, 166, 0.5); }
-.ch:nth-child(4) { border-top-color: rgba(184, 53, 74, 0.46); }
-.ch:last-child { border-bottom-color: rgba(184, 53, 74, 0.46); }
-.ch:nth-child(1) .ch-list li::before { background: var(--peach);    border-color: var(--courses-deep); }
-.ch:nth-child(2) .ch-list li::before { background: var(--blush);    border-color: var(--consulting-deep); }
-.ch:nth-child(3) .ch-list li::before { background: var(--lavender); border-color: var(--automations-deep); }
-.ch:nth-child(4) .ch-list li::before { background: rgba(255, 111, 97, 0.3); border-color: var(--coral-deep); }
+/* THE COLOUR-CODED RULES ARE GONE (Amber, July 2026: "the Expertise
+   rows should not introduce a new strong colour-coding system that
+   competes with these established roles"). They used to run gold,
+   magenta, violet and coral at 46-62% — four saturated horizontal
+   bars that read as the loudest thing on the page and put coral,
+   which means INTERACTION everywhere else on this site, on a
+   decorative divider. All five rules now share one softly tinted
+   lavender-neutral: structure, not decoration.
+
+   The per-category accent survives in ONE place, the 12px capability
+   markers, muted well below their old strength. Quiet editorial
+   detail, not a rainbow-coded index. Nothing else in the row takes a
+   category colour: headings and copy are charcoal, every project link
+   is coral, gold is spent only on the paper tab in the headline. */
+.ch,
+.ch:last-child { border-color: rgba(84, 76, 112, 0.22); }
+.ch:nth-child(1) .ch-list li::before { background: rgba(242, 169, 59, 0.26); border-color: rgba(158, 118, 44, 0.8); }
+.ch:nth-child(2) .ch-list li::before { background: rgba(251, 213, 228, 0.8);  border-color: rgba(190, 108, 132, 0.82); }
+.ch:nth-child(3) .ch-list li::before { background: rgba(150, 138, 214, 0.24); border-color: rgba(108, 96, 168, 0.78); }
+.ch:nth-child(4) .ch-list li::before { background: rgba(206, 158, 160, 0.34); border-color: rgba(164, 108, 114, 0.82); }
 /* THE STAGGER IS GONE (Amber, July 2026: "remove the alternating
    indentation from the Digital and Leadership rows"). Chapters two and
    four used to step right by 7% and 14%; all four now share one left
-   edge and one grid, and the colour-coded rules above them carry the
-   variation on their own. */
+   edge and one grid. */
 .ch-word {
   font-family: var(--font-display);
   font-weight: 500;
@@ -2205,7 +2257,9 @@ a.bld-item .bld-item-arrow {
   color: var(--ink);
 }
 .sc-from { color: var(--muted); }
-.sc-arrow { color: var(--coral-deep); line-height: 1; }
+/* muted, not coral: coral means INTERACTION everywhere on this site
+   and this arrow sits inside a figure. */
+.sc-arrow { color: rgba(164, 108, 114, 0.9); line-height: 1; }
 .sc-plate-note {
   flex-basis: 100%;
   text-transform: uppercase;
@@ -3685,8 +3739,8 @@ footer p,
    the tools list and company note at small. Two display grades stay
    off-token by design: the result figures and the pull-quote grade it
    shares with How I Work. */
-.xi-num { font-size: var(--fs-eyebrow); }
-.xi-name { font-size: var(--fs-intro); line-height: 1.25; }
+.xm-num, .xm-note { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.xm-name { font-size: var(--fs-intro); line-height: 1.2; }
 .ch-word { font-size: var(--fs-h3); }
 .ch-for { font-size: var(--fs-body); line-height: 1.55; }
 .ch-list li, .industries { font-size: var(--fs-small); line-height: 1.55; }

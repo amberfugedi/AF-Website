@@ -121,12 +121,50 @@
           <p class="section-lede">My expertise sits across marketing strategy, execution, operations, and team development. That means I can zoom out to identify the real problem, then get close enough to help fix it.</p>
         </div>
 
-        <aside class="xindex" aria-label="The four areas covered on this page">
-          <ol>
-            <li><span class="xi-num">01</span><span class="xi-name">Strategy</span></li>
-            <li><span class="xi-num">02</span><span class="xi-name">Digital</span></li>
-            <li><span class="xi-num">03</span><span class="xi-name">Operations</span></li>
-            <li><span class="xi-num">04</span><span class="xi-name">Leadership</span></li>
+        <!-- The layered expertise map: four translucent strata, one
+             per area, staggered and overlapping so the areas read as
+             connected rather than filed. The bands are CSS (gradient
+             fill, torn clip-path, no outline — a card is exactly what
+             this must not be); the SVG carries only the thread that
+             runs through all four and turns back toward "growth." -->
+        <aside class="xmap" aria-label="The four areas of expertise, drawn as connected layers">
+          <svg class="xmap-thread" viewBox="0 0 560 468" fill="none" aria-hidden="true"
+               stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+            <g stroke="#9E762C" opacity="0.5">
+              <path d="M552 24 C 506 58, 470 94, 434 124 C 392 158, 348 176, 328 212
+                       C 304 254, 340 288, 392 306 C 442 324, 446 368, 398 402
+                       C 344 440, 206 450, 112 404 C 52 374, 20 268, 14 122" stroke-width="1.3"/>
+              <path d="M32 146 L 13 116 L 40 106" stroke-width="1.2"/>
+            </g>
+            <g opacity="0.8">
+              <circle cx="434" cy="124" r="3.1" fill="#9E762C"/>
+              <circle cx="328" cy="212" r="3.1" fill="#BE6C84"/>
+              <circle cx="392" cy="306" r="3.1" fill="#6C60A8"/>
+              <circle cx="398" cy="402" r="3.1" fill="#A46C72"/>
+            </g>
+          </svg>
+
+          <ol class="xmap-list">
+            <li>
+              <span class="xm-num">01</span>
+              <span class="xm-name">Strategy</span>
+              <span class="xm-note">Clarify what matters.</span>
+            </li>
+            <li>
+              <span class="xm-num">02</span>
+              <span class="xm-name">Digital</span>
+              <span class="xm-note">Build the experience.</span>
+            </li>
+            <li>
+              <span class="xm-num">03</span>
+              <span class="xm-name">Operations</span>
+              <span class="xm-note">Make the work run better.</span>
+            </li>
+            <li>
+              <span class="xm-num">04</span>
+              <span class="xm-name">Leadership</span>
+              <span class="xm-note">Help people move it forward.</span>
+            </li>
           </ol>
         </aside>
       </div>

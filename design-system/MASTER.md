@@ -1448,21 +1448,59 @@ automatically — do not replace this with a hardcoded number.
 
 ## Expertise page head and showcase (2026-07, Amber)
 
-**HEAD.** It was one column of copy with an empty right half. Now
-`.head-split`, 58/42, copy at the top so the h1 lands on the same line
-as every other page head, and `.xindex` centred beside it: 01-04 with
-the four chapter names, hairlines between, one faint gold wash behind.
+**HEAD: THE LAYERED EXPERTISE MAP.** It was one column of copy with an
+empty right half; a numbered index fixed the spacing and Amber called
+it "too simple and functional". Now `.head-split` at 55/45, copy at
+the top so the h1 lands on the same line as every other page head, and
+`.xmap` centred beside it.
 
-- THE INDEX IS NOT NAVIGATION. No links, no cards, no icons. It
-  previews the four chapters and gets out of the way.
-- The wash is a `closest-side` circle centred at 48%/46%, transparent
-  before the box edge. Anchored near a corner (the first attempt) it
-  still had colour where the box stopped and read as a hard-edged
-  panel — the exact card the brief rules out.
-- `.xi-name` is weight **500**, not 600. At semibold in full ink the
+Four translucent strata, one per area, staggered and overlapping by
+13px so the areas argue for themselves: connected, not filed.
+
+- THE BANDS ARE CSS, NOT SVG: a soft gradient in one accent, a torn
+  `clip-path`, and **no outline**. An outlined rounded rectangle is a
+  card whatever you put in it, and cards are the thing this replaced.
+  The bands break the column on both edges via negative margins so the
+  hero reads composed rather than boxed.
+- THE ONLY STROKED ELEMENT is the thread: one bowed path down through
+  all four, a sweep left under Leadership, then back up toward the
+  butter tab behind "growth." It is **muted bronze, not coral** —
+  coral means interaction everywhere else on this site and a
+  decorative line must not wear it. Bronze also rhymes with the gold
+  tab the thread is pointing at.
+- `.xmap` and the thread SVG share the 560/468 aspect ratio, so the
+  dots stay registered to the bands at every width with no hardcoded
+  pixels. THE THREAD IS DRAWN INSIDE THE VIEWBOX — `overflow: visible`
+  did not survive the SVG viewport, so a tail at negative x silently
+  vanished. Keep every point within 0-560.
+- `.xm-name` is weight **500**, not 600. At semibold in full ink the
   four words started competing with the h1.
-- Phones: one column, index under the paragraph as a two-up, so it
-  costs the page one row rather than four.
+- Phones: strata and overlap kept, stagger flattened, thread removed.
+  A woven line across a phone-width column is a scribble, not a
+  diagram.
+
+**COLOUR ROLES (Amber, July 2026).** This page had drifted into a
+second colour system and was pulled back onto the site's roles:
+charcoal carries content, **coral means interaction and nothing
+else**, gold is reserved emphasis, lavender and pink are atmosphere,
+neutral lines are structure.
+
+- The four colour-coded chapter rules are GONE. They ran gold,
+  magenta, violet and coral at 46-62% — four saturated bars that were
+  the loudest thing on the page, and one of them put coral on a
+  divider. All five rules now share `rgba(84, 76, 112, 0.22)`.
+- The category accent survives in exactly ONE place: the 12px
+  capability markers, muted well below their old strength. Gold, pink,
+  lavender, dusty rose. Nothing else in a row takes a category colour.
+- `.sc-arrow` in the showcase plate went from coral to dusty rose for
+  the same reason — it sits inside a figure, not a link.
+- All four project links verified identical: `#B8354A`, weight 600,
+  16px, same underline gradient and hover.
+- The hero bands were pulled down a few points each. THE SHARED AURA
+  WAS LEFT ALONE ON PURPOSE — it is site-wide, and dimming it here
+  would change every page.
+- This supersedes the old "per-chapter accents, the one system on the
+  site where colour means something" note. Amber overruled it.
 
 **CHAPTERS.** The stagger is gone (Amber: "remove the alternating
 indentation from the Digital and Leadership rows"). Two and four used
