@@ -1515,19 +1515,28 @@ TWO DIFFERENT THINGS, and they were being confused:
   "The goal isn't to force a solution. It's to find the right one."
   was a `.hw-quote` sitting inside the section above it and became a
   real banner (Amber, July 2026: "should be the quote banner
-  template"). How I Work now carries two banners, which is fine — it
-  is the longest page and has two real chapter breaks.
+  template"). "Great marketing isn't built by one person" followed in
+  the same pass — it was `.hw-people-quote`, a left-aligned block on a
+  lavender hairline closing the people section, and it is a seam, not
+  a margin voice. HOW I WORK NOW CARRIES THREE BANNERS, one after each
+  of the first, second and fourth main sections. That is the ceiling:
+  a fourth would make the band the page's rhythm rather than its
+  punctuation. When `.hw-people-quote` left, the principles grid lost
+  the rule that closed it, so the fifth principle took a bottom border
+  back — check that pairing if either ever moves again.
 - **THE PULL-QUOTE** (`.hw-quote`) sits INSIDE a column, at 17em with a
-  56x2px coral rule above it. One instance survives: "The best ideas
-  are the ones that actually get used", inside the two-column body of
-  "Strategy and execution belong together". It is a margin voice, not
-  a seam. IF A LINE DESERVES A FULL-WIDTH BAND IT IS A BANNER; if it
+  56x2px coral rule above it. One instance survives site-wide: "The
+  best ideas are the ones that actually get used", inside the
+  two-column body of "Strategy only matters if it gets built". It is a
+  margin voice, not a seam. Below it sits `.hw-kicker`, a third grade
+  down: display face at h3 over a 44px rule, for the sentence a
+  section lands on. IF A LINE DESERVES A FULL-WIDTH BAND IT IS A BANNER; if it
   belongs to the paragraph beside it, it is a pull-quote.
 
 ### The people side of the work (2026-07, Amber's brief)
 
-`.hw-people`, placed between "I look for ways to simplify" and "Where
-this work leads" — the last "how" before the "so what". Amber's point:
+`.hw-people`, placed between "Strategy only matters if it gets built"
+and "What clients leave with" — the last "how" before the "so what". Amber's point:
 "plenty of marketing portfolios showcase projects and skills. Very few
 communicate how they influence people, build teams, and lead change."
 It has to read as authentic and hands-on, NEVER as an executive résumé,
