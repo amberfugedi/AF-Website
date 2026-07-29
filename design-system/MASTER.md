@@ -1299,6 +1299,11 @@ Flow, after the fifth rebuild:
    RULE AND THE SPACE AROUND EACH BLOCK, not from size — that is the
    lesson: on this site, hierarchy is spacing and colour before it is
    type size.
+   THE "FOR" LINE IS ONE CLAUSE, and it opens on "When", not "For".
+   All four used to run "For businesses/teams that..." at 15-20 words,
+   and four blocks in the same shape read as a form rather than a page
+   (Amber, July 2026: "too much copy"). They are 9-11 words now and the
+   page dropped from 344 words to 289.
    CAPABILITIES ARE HERS VERBATIM and deliberately short: 4/4/4/3, not
    padded to match. Sales enablement was dropped from Leadership with
    the old six-item lists; it is real and published elsewhere, and
@@ -1323,7 +1328,10 @@ Flow, after the fifth rebuild:
    strange gap under a marketer whose strongest published results are
    paid-media results. Flagged; cut it if she disagrees.
 5. THE BRIDGE TO PROJECTS, "See the expertise in action." over
-   `.work-strip` — three FULL-WIDTH ROWS on hairlines at a 60ch
+   `.work-strip`. NO SECTION LEDE: it said "real work across different
+   industries" two sentences above a coda that said "the work spans
+   SaaS, financial services..." — the same idea twice. The coda stayed
+   because it names the industries; the lede went. — three FULL-WIDTH ROWS on hairlines at a 60ch
    measure. Deliberately quieter: titles stay INK, coral only on the
    arrows and the closing link. The whole row is the target and
    `.ws-arrow` is a flex ITEM (`flex: none`) so it cannot strand
@@ -1357,6 +1365,25 @@ six-item "especially useful when" list, and the four working documents
 full-size files they linked to are still live on Projects.
 
 ## How I Work page (2026-07, Amber's brief)
+
+### Quote banners vs pull-quotes (2026-07)
+
+TWO DIFFERENT THINGS, and they were being confused:
+
+- **THE QUOTE BANNER** (`.bridge` + `.bridge-line`) is a SECTION-LEVEL
+  SEAM. Full width, its own hairline-bounded band between two sections,
+  157px of air either side. Every page uses it to mark a chapter break.
+  "The goal isn't to force a solution. It's to find the right one."
+  was a `.hw-quote` sitting inside the section above it and became a
+  real banner (Amber, July 2026: "should be the quote banner
+  template"). How I Work now carries two banners, which is fine — it
+  is the longest page and has two real chapter breaks.
+- **THE PULL-QUOTE** (`.hw-quote`) sits INSIDE a column, at 17em with a
+  56x2px coral rule above it. One instance survives: "The best ideas
+  are the ones that actually get used", inside the two-column body of
+  "Strategy and execution belong together". It is a margin voice, not
+  a seam. IF A LINE DESERVES A FULL-WIDTH BAND IT IS A BANNER; if it
+  belongs to the paragraph beside it, it is a pull-quote.
 
 ### The people side of the work (2026-07, Amber's brief)
 
