@@ -3030,34 +3030,90 @@ footer {
    that way on purpose — percentage padding resolves against width, so
    the headline holds the site's 158px line at full size and scales
    with the collage below it rather than drifting into her notebook. */
-.hero-band { padding: var(--nav-h) 0 30px; margin: 0; }
-.hero-band .band { position: relative; }
-.hero-band picture { display: block; margin-left: auto; width: 73.09%; }
-.hero-band img { display: block; width: 100%; height: auto; }
-/* The stanza now runs straight into a quote band, so it carries the
-   bottom half of that seam itself: 30 + 44 + the band's 52 lands on
-   the 157px band-seam figure the rest of the site uses. */
+/* ---- My Approach head: the site's one photograph ----
+   It used to run 939px tall and behave like a full-screen homepage
+   hero (Amber, July 2026: "substantially shorter, more focused, and
+   better balanced"). Nothing about the composition changed; its SCALE
+   and CROP did.
+
+   THE COLLAGE IS ONE FLAT IMAGE, so "show fewer objects" can only be
+   done with the crop. The box is wide (15/8) and `object-fit: cover`
+   pulls the frame up, which drops the laptop, the mug and the lower
+   sticky notes off the bottom while keeping every element Amber named:
+   Campaign Roadmap, "Start with what moves the business", the homepage
+   wireframe, the Content Ideas notebook, the colour swatch, the
+   butterfly and the drawn arrow. Nothing is cropped horizontally, so
+   no element is half-lost at a side. */
+.hero-band { padding: var(--nav-h) 0 26px; margin: 0; }
+/* The band stays full-bleed and pads itself to the wrap's left edge,
+   so the copy lines up with every other page while the photograph
+   still runs off the right of the viewport — that bleed is what keeps
+   it from reading as a boxed poster. */
+.hero-band .band {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 40fr) minmax(0, 60fr);
+  gap: clamp(24px, 3vw, 48px);
+  align-items: center;
+  padding-left: max(24px, calc((100% - 1120px) / 2 + 24px));
+}
+.hero-band .band-copy .wrap { max-width: none; padding: 0; }
+.hero-band picture {
+  display: block;
+  aspect-ratio: 15 / 8;
+  /* Two constraints from the brief that fight on a short laptop: 560
+     to 640px tall AND no more than 65vh. The px range wins, because a
+     hero that shrinks with the window stops being a composition. At
+     900vh this lands on 600px and 0.67vh. */
+  max-height: clamp(350px, 40vh, 400px);
+  overflow: hidden;
+  /* Soft at the bottom and the right so the photograph reads as part
+     of the page rather than a poster dropped onto it, and so the
+     bottom edge leads down into the section below. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 100%),
+                      linear-gradient(to right, #000 90%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to bottom, #000 74%, transparent 100%),
+              linear-gradient(to right, #000 90%, transparent 100%);
+  mask-composite: intersect;
+}
+.hero-band img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 12% keeps the face high in the frame and spends the crop on the
+     desk rather than the headroom. */
+  object-position: 50% 12%;
+}
+/* The stanza carries the bottom half of the band seam itself: 26 + 30
+   + 44 + the quote band's 52 lands on the 157px figure the rest of the
+   site uses. */
 .hero-band-after { padding-top: 30px; padding-bottom: 44px; }
 .hero-band-after .hw-stanza { margin-top: 0; }
 
 @media (min-width: 1021px) {
-  /* Copy is FIRST in the source and only absolutely placed here, so
-     reading order never depends on CSS. */
-  .hero-band .band-copy {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    padding-top: 6.64%;
-  }
-  .hero-band .head-copy { max-width: 442px; }
+  .hero-band .band-copy { z-index: 3; }
+  .hero-band .head-copy { max-width: 430px; }
   .hero-band .section-lede { margin-bottom: 0; }
 }
 @media (max-width: 1020px) {
-  /* Below the width where the void can hold a headline the overlay
-     stops: copy above, collage beneath. */
-  .hero-band { padding: 149px 0 24px; }
-  .hero-band picture { width: 100%; }
-  .hero-band .band-copy { padding-bottom: 26px; }
+  /* Tablet KEEPS TWO COLUMNS down to the mobile breakpoint. Stacking
+     here pushed the head past 900px: the photograph gets the full
+     column width and its height goes with it. */
+  .hero-band { padding: calc(var(--nav-h) + 26px) 0 20px; }
+  .hero-band .band { grid-template-columns: minmax(0, 42fr) minmax(0, 58fr); gap: 24px; }
+  .hero-band .head-copy { max-width: none; }
+  .hero-band .section-lede { margin-bottom: 0; }
+  .hero-band picture { max-height: 300px; }
+}
+@media (max-width: 760px) {
+  /* Phone: a tighter crop that keeps the face and the two strongest
+     artifacts rather than trying to show the whole board. */
+  .hero-band { padding: calc(var(--nav-h) + 22px) 0 12px; }
+  .hero-band .band { grid-template-columns: 1fr; gap: 20px; padding-left: 24px; }
+  .hero-band picture { aspect-ratio: 4 / 3; max-height: none; }
+  .hero-band img { object-position: 56% 8%; }
   /* Phones already sit on the 89px band seam without the extra pad. */
   .hero-band-after { padding-top: 22px; padding-bottom: 0; }
 }

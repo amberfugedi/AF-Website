@@ -1605,6 +1605,36 @@ rather than an essay, which is the brief.
 
 ## How I Work section reference (history)
 
+### Hero scale and crop (2026-07: "substantially shorter")
+
+It ran 939px tall and behaved like a full-screen homepage hero. The
+composition did not change; its SCALE and CROP did.
+
+- **The collage is ONE FLAT IMAGE**, so "show fewer objects" can only
+  be done with the crop. The box is 15/8 and `object-fit: cover` at
+  `object-position: 50% 12%` pulls the frame up, dropping the laptop,
+  the mug and the lower sticky notes while keeping every element Amber
+  named: Campaign Roadmap, "Start with what moves the business", the
+  homepage wireframe, the Content Ideas notebook, the colour swatch,
+  the butterfly and the drawn arrow. NOTHING IS CROPPED HORIZONTALLY,
+  so no element is half-lost at a side.
+- `.band` is full-bleed but pads itself to the wrap's left edge
+  (`max(24px, calc((100% - 1120px) / 2 + 24px))`), so the copy lines up
+  with every other page while the photograph still runs off the right
+  of the viewport. That bleed is what keeps it from reading as a boxed
+  poster, and a bottom/right `mask-image` fade leads the eye down into
+  the next section.
+- 40/60 desktop, still TWO COLUMNS on tablet down to 761. Stacking at
+  1020 pushed the head past 900px, because the photograph then gets
+  the full column width and its height goes with it.
+- **THE TWO HEIGHT CONSTRAINTS IN THE BRIEF FIGHT.** 560-640px tall
+  AND no more than 65vh cannot both hold on an 800px-tall laptop
+  (65% of 800 is 520). The px range wins — a hero that shrinks with
+  the window stops being a composition. `max-height: clamp(350px,
+  40vh, 400px)` on the picture lands: 1600x1000 615px/0.61vh,
+  1440x900 575px/0.64vh, 1280x800 564px/0.70vh, tablet 472px, phone
+  702px. Only the 800px-tall laptop misses the vh cap, by 0.05.
+
 ### Length audit (2026-07: "the how I work page is very long")
 
 At 1,431 words and 8,468px it was the longest page on the site by
