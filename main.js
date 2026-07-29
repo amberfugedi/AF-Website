@@ -374,6 +374,11 @@
 
     dropBtn.addEventListener("click", function () { setDrop(!isOpen()); });
 
+    /* If the page you are on lives inside Shop, the group opens itself
+       so the mobile menu can show you where you are — otherwise the
+       current-page marker is hidden behind a collapsed row. */
+    if (dropMenu.querySelector("[aria-current='page']")) setDrop(true);
+
     if (finePointer) {
       drop.addEventListener("mouseenter", function () { setDrop(true); });
       drop.addEventListener("mouseleave", function () { setDrop(false); });
@@ -401,6 +406,9 @@
     });
 
     document.addEventListener("click", function (e) {
+      /* the hamburger is "outside" the group, so without this guard
+         opening the mobile menu instantly closed Shop again */
+      if (toggle && toggle.contains(e.target)) return;
       if (isOpen() && !drop.contains(e.target)) setDrop(false);
     });
   }
