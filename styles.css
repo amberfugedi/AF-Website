@@ -477,12 +477,10 @@ body.page-sub .aura { --aura-base: 0.45; }
 .nav-drop-menu a:hover { background: rgba(46, 42, 39, 0.045); color: var(--ink); }
 .nav-drop-menu a[aria-current="page"] { color: var(--coral-deep); font-weight: 600; }
 
-@media (max-width: 900px) and (min-width: 761px) {
-  .nav-links { gap: 12px; }
-  .nav-links a, .nav-drop-btn { font-size: 0.8rem; }
-  .nav-cta { padding-left: 12px; padding-right: 12px; }
-  .brand { font-size: 1.25rem; }
-}
+/* The tablet nav step-down lives at the END of this file, after the
+   type layer: `.nav-links a { font-size: 1rem }` is set there, and a
+   media query written up here loses to it on source order no matter
+   how narrow the breakpoint. Search "TABLET NAV STEP-DOWN". */
 @media (max-width: 760px) {
   :root { --nav-h: 60px; }
   .brand { font-size: 1.375rem; gap: 10px; }
@@ -3625,4 +3623,29 @@ footer p,
    sticky nav holds one row (cascade: must follow the type system) */
 @media (max-width: 380px) {
   .anchor-nav a { padding: 13px 8px; }
+}
+
+
+/* ============ TABLET NAV STEP-DOWN ============
+   Seven primary links plus the Shop group and the CTA (Amber, July
+   2026: Home was added and Projects became Work). Between the mobile
+   menu at 760 and roughly 900 the row only fits if the labels, the
+   gaps and the wordmark all step down together.
+   THIS MUST STAY AFTER THE TYPE LAYER. `.nav-links a` is set to 1rem
+   up there at equal specificity, so an earlier media query is dead
+   on arrival — that is exactly how the previous step-down silently
+   stopped changing the font size. Measured fit at every width from
+   1440 down to 761: one row, brand clear by 24px at the tightest. */
+@media (max-width: 900px) and (min-width: 761px) {
+  .nav-links { gap: 10px; }
+  .nav-links a, .nav-drop-btn { font-size: 0.8rem; }
+  .nav-cta { padding-left: 11px; padding-right: 11px; }
+  .brand { font-size: 1.25rem; }
+}
+@media (max-width: 840px) and (min-width: 761px) {
+  .nav-links { gap: 8px; }
+  .nav-links a, .nav-drop-btn { font-size: 0.75rem; }
+  .nav-cta { padding-left: 10px; padding-right: 10px; }
+  .brand { font-size: 1.0625rem; gap: 10px; }
+  .brand-mark { width: 19px; height: 19px; }
 }

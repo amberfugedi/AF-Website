@@ -635,8 +635,33 @@ returns focus to the toggle.
 Measured: rows 11.9:1, Courses 9.7:1, Student login and the note 6.2:1,
 CTA 5.4:1 on coral. No tap target under 24px. Nothing clipped and
 nothing scrolls at 390x844, 375x667, 360x640 or the 760 edge. Tab order
-runs Services, Shop, Courses, How I Work, Projects, Expertise, About,
-Student login, Let's talk.
+follows the nav order below.
+
+## Nav order (2026-07, Amber)
+
+**Home · Expertise · Work · My Approach · Services · Shop · About**,
+then Student login and the Let's talk CTA. Same order in the mobile
+panel, and `aria-current="page"` verified on all eight pages.
+
+- **Home is a real link now**, not only the brand mark.
+- **"Work" points at `projects.html`.** The LABEL changed, the URL did
+  not — `/work.html` already 301s TO `/projects.html` from the earlier
+  rename, so pointing the label back at a `work.html` file would build
+  a redirect loop. The page's own title and h1 still say Projects;
+  flagged to Amber as a follow-up, not assumed.
+- The footer's first column head moved from "The work" to **"What I
+  do"** and lists the same four in nav order. "The work" over an item
+  labelled "Work" read like a mistake.
+- SEVEN primary links plus Shop and the CTA is the most this row
+  holds. Anything more needs the mobile menu to take over earlier
+  than 760. Measured one row at 1440, 1280, 1180, 1100, 1020, 960,
+  900, 860, 820, 780 and 761; tightest brand clearance 97px at 960.
+- THE STEP-DOWN THAT MADE IT FIT HAD BEEN DEAD. The 761-900 block sat
+  at line 480 and set `.nav-links a { font-size: 0.8rem }`, but the
+  type layer sets `.nav-links a { font-size: 1rem }` at equal
+  specificity 3,000 lines later, so source order killed it. It is now
+  at the END of the file under "TABLET NAV STEP-DOWN", with a second
+  tighter band under 840. Leave it there.
 
 ## Shop dropdown in the nav (2026-07)
 
