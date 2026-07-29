@@ -342,6 +342,54 @@
     });
   }
 
+  /* ---------- Shop dropdown ----------
+     "Shop" is a disclosure button, not a link: there is no /shop page.
+     Pointer and keyboard both drive it. Hover only opens it on a fine
+     pointer, because on touch a hover-open menu swallows the first tap. */
+  var drop = document.querySelector(".nav-drop");
+  if (drop) {
+    var dropBtn = drop.querySelector(".nav-drop-btn");
+    var dropMenu = drop.querySelector(".nav-drop-menu");
+    var setDrop = function (open) {
+      dropBtn.setAttribute("aria-expanded", String(open));
+    };
+    var isOpen = function () {
+      return dropBtn.getAttribute("aria-expanded") === "true";
+    };
+
+    dropBtn.addEventListener("click", function () { setDrop(!isOpen()); });
+
+    if (finePointer) {
+      drop.addEventListener("mouseenter", function () { setDrop(true); });
+      drop.addEventListener("mouseleave", function () { setDrop(false); });
+    }
+
+    /* focus leaving the whole group closes it, so tabbing past the last
+       item does not leave a menu hanging open behind you */
+    drop.addEventListener("focusout", function (e) {
+      if (!drop.contains(e.relatedTarget)) setDrop(false);
+    });
+
+    drop.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && isOpen()) {
+        setDrop(false);
+        dropBtn.focus();
+      }
+      /* down arrow from the button lands on the first item, the usual
+         menu-button behaviour */
+      if (e.key === "ArrowDown" && e.target === dropBtn) {
+        e.preventDefault();
+        setDrop(true);
+        var first = dropMenu.querySelector("a");
+        if (first) first.focus();
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (isOpen() && !drop.contains(e.target)) setDrop(false);
+    });
+  }
+
   /* ---------- Scroll reveal (auto-staggered inside grids) ---------- */
   var revealEls = document.querySelectorAll(".reveal");
   document.querySelectorAll(".card-grid, .cap-grid").forEach(function (grid) {

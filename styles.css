@@ -390,11 +390,118 @@ body.page-sub .aura { --aura-base: 0.45; }
    links plus the CTA the row runs out of room around 790, so the type
    and the gap step down rather than letting the brand collide with the
    menu (2026-07, after Courses joined the nav). */
+/* ---- Shop dropdown ----
+   "Shop" is a DISCLOSURE, not a link: there is no /shop page and there
+   should not be one until it has something to hold. The button opens a
+   one-item menu today (Courses) and is built to take more.
+   Keyboard and pointer both drive it: hover opens on a fine pointer,
+   click and Enter/Space toggle, Escape closes and returns focus, and
+   focus leaving the group closes it. */
+.nav-drop { position: relative; }
+.nav-drop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 0;
+  padding: 0 0 3px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.nav-drop-btn:hover, .nav-drop-btn[aria-expanded="true"] { color: var(--ink); }
+/* the current-page underline the plain nav links get */
+.nav-drop-btn.is-current { color: var(--ink); font-weight: 600; box-shadow: 0 2px 0 -1px var(--coral); }
+.nav-caret {
+  width: 7px; height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.2s var(--ease);
+}
+.nav-drop-btn[aria-expanded="true"] .nav-caret { transform: translateY(1px) rotate(-135deg); }
+
+.nav-drop-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: -18px;
+  min-width: 176px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 22px 46px -26px rgba(46, 42, 39, 0.34);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease), visibility 0.18s;
+  z-index: 60;
+}
+/* :focus-within is the no-JS path. Focusing the button — which a
+   click also does — opens the menu with CSS alone, so Courses stays
+   reachable by pointer AND keyboard with scripting off. JS then adds
+   the aria state, hover-open, Escape and click-outside on top. */
+.nav-drop-btn[aria-expanded="true"] + .nav-drop-menu,
+.nav-drop:focus-within .nav-drop-menu {
+  opacity: 1; visibility: visible; transform: none;
+}
+.nav-drop-menu a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 9px;
+  color: var(--body);
+  transition: background 0.18s var(--ease), color 0.18s var(--ease);
+}
+.nav-drop-menu a:hover { background: rgba(46, 42, 39, 0.045); color: var(--ink); }
+.nav-drop-menu a[aria-current="page"] { color: var(--coral-deep); font-weight: 600; }
+
 @media (max-width: 900px) and (min-width: 761px) {
   .nav-links { gap: 12px; }
-  .nav-links a { font-size: 0.8rem; }
+  .nav-links a, .nav-drop-btn { font-size: 0.8rem; }
   .nav-cta { padding-left: 12px; padding-right: 12px; }
   .brand { font-size: 1.25rem; }
+}
+@media (max-width: 760px) {
+  /* inside the hamburger the dropdown is an indented sub-list: a
+     floating popover inside an already-overlaid menu is a trap */
+  /* the mobile menu is centred, so the button stays inline and the
+     sub-list centres under it — a full-width row with a left rule
+     fought the alignment of every other item */
+  .nav-drop { display: flex; flex-direction: column; align-items: center; }
+  /* 26px was under the 24px-plus target floor once the caret was the
+     only thing adding height */
+  .nav-drop-btn { font-size: 1rem; padding: 9px 4px; }
+  .nav-drop-menu {
+    position: static;
+    min-width: 0;
+    padding: 0;
+    margin-top: 10px;
+    text-align: center;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: none;
+    opacity: 1; visibility: visible; transform: none;
+  }
+  /* one short coral rule marks the sub-list instead of a side border */
+  .nav-drop-menu::before {
+    content: "";
+    display: block;
+    width: 20px; height: 2px;
+    margin: 0 auto 10px;
+    background: var(--coral);
+    opacity: 0.6;
+  }
+  .nav-drop-btn[aria-expanded="true"] + .nav-drop-menu,
+  .nav-drop:focus-within .nav-drop-menu { display: block; }
+  .nav-drop-menu a { padding: 8px 0; border-radius: 0; }
+  .nav-drop-menu a:hover { background: none; }
 }
 @media (max-width: 760px) {
   :root { --nav-h: 60px; }
@@ -1963,6 +2070,8 @@ a.bld-item .bld-item-arrow {
   transition: background-size 0.2s var(--ease);
 }
 .co-login a:hover { background-size: 100% 2px; }
+/* 16px of text is well under the 24px target floor (2026-07 audit) */
+.co-login a { display: inline-block; padding: 5px 0; }
 
 .co-hero-art { display: grid; grid-template-columns: 1fr 1fr; align-items: start; }
 .co-m-map  { grid-column: 1 / -1; background: #FFFDFA; rotate: -1deg; }

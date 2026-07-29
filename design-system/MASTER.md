@@ -542,6 +542,49 @@ thumbnails from the retired preview strip, and
 `artifact-{rjr-hero,mfcu-campaign}.webp` from the retired Expertise
 artifacts.
 
+## Shop dropdown in the nav (2026-07)
+
+The nav item reads **Shop** and Courses lives inside it (Amber: "in
+the menu it should say shop and courses is a drop down"). This
+supersedes the earlier "do not add Shop to the primary navigation"
+line in her Courses brief — she changed it. Templates and Products
+still stay off the nav.
+
+**"SHOP" IS A DISCLOSURE BUTTON, NOT A LINK.** There is no `/shop`
+page and there should not be one until it has something to hold. It is
+a real `<button>` with `aria-expanded` and `aria-controls`, so it is
+announced as a menu button rather than a dead link.
+
+ONE ITEM TODAY. A dropdown holding a single entry adds a click for no
+gain right now; it earns itself the moment a second thing ships.
+Flagged to Amber, kept because she asked and because the structure is
+the point.
+
+BEHAVIOUR, and every path is covered:
+- hover opens it, but ONLY on a fine pointer — on touch a hover-open
+  menu swallows the first tap;
+- click toggles; Escape closes and returns focus to the button;
+- ArrowDown from the button lands on the first item, the standard
+  menu-button move;
+- `focusout` on the group closes it, so tabbing past the last item does
+  not leave a menu hanging open behind you;
+- a click anywhere outside closes it.
+- **`:focus-within` IN CSS IS THE NO-JS PATH.** Focusing the button —
+  which a click also does — opens the menu with CSS alone. Without it,
+  Courses had NO navigation path with scripting off. Verified by
+  loading with JS disabled, clicking Shop and landing on
+  `/courses.html`. Do not remove that selector.
+
+MOBILE: inside the hamburger it is an indented sub-list, never a
+floating popover — a popover inside an already-overlaid menu is a
+trap. The mobile menu is CENTRED, so the button stays inline and the
+sub-list centres under it behind one short coral rule; a full-width
+row with a left border fought the alignment of every other item.
+Button padding is 9px so the target clears 24px.
+
+THE FOOTER STILL SAYS COURSES, not Shop. A footer lists destinations
+and "Shop" has none.
+
 ## Courses page (2026-07, Amber's brief)
 
 `courses.html`, `/courses` via `_redirects`. Added to the nav and
