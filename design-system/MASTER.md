@@ -585,76 +585,60 @@ Button padding is 9px so the target clears 24px.
 THE FOOTER STILL SAYS COURSES, not Shop. A footer lists destinations
 and "Shop" has none.
 
-## Courses page (2026-07, Amber's brief)
+## Courses page (2026-07, rebuilt as a library)
 
-`courses.html`, `/courses` via `_redirects`. Added to the nav and
-footer as a top-level item, positioned right after Services because
-both are ways to work with her. NOT a Shop, NOT Products, NOT
-Templates — those stay off the nav.
+`courses.html`, `/courses` via `_redirects`. Reached from the nav's
+Shop dropdown; the footer links it directly.
 
-THE PAGE IS AN EXTENSION OF THE CONSULTING BRAND, NOT A COURSE
-BUSINESS. Banned outright by her brief and by this file: generic
-online-course styling · loud gradients · floating laptop or dashboard
-mockups · polished stock imagery · fake testimonials · icon grids ·
-bright ecommerce styling · a catalogue grid that makes one course look
-lonely · hero eyebrows · passive-income, coaching-hype or
-"six-figure" language · heavy AI language · em dashes.
+IT IS A COURSE LIBRARY, NOT A SALES PAGE. Amber, July 2026: "the
+current page contains too much explanation about Build Your Marketing
+Foundation." The first build was ten sections and 6491px; this one is
+five sections and 2243px, 2525px on a phone. EVERYTHING THAT EXPLAINS
+A COURSE BELONGS ON THAT COURSE'S OWN PAGE — the framework, the seven
+foundations, the outcomes list, the audience columns, the instructor
+biography, the workbook spreads and the lesson screen all came out and
+belong at `/courses/build-your-marketing-foundation`.
 
-Ten sections: hero · point of view · featured course · quote band ·
-the framework · what you leave knowing · who it is for · course
-experience · instructor · future courses · closing band.
+The page answers four questions and stops: what kind of courses does
+she make, what is available now, what is coming, where do students log
+in.
 
-THE MATERIALS ARE DRAWN, in the same hand as the How I Work working
-documents — bowed rules, unclosed corners, coral pen that only ever
-annotates, Newsreader italic for handwriting. That is what keeps the
-course looking like part of the practice. FOUR SHEETS: a corner of the
-Foundation Map (three layers), a part-answered workbook page
-("mostly referrals", circled), the seven foundations in order, and a
-lesson screen with a part-filled progress bar.
-NOTHING HERE IS A SCREENSHOT OF A REAL PRODUCT. The structure is
-Amber's — three layers, seven named foundations, eight modules, about
-three hours — but the sheets illustrate it. SWAP IN REAL CAPTURES WHEN
-THE COURSE EXISTS.
+1. HERO. Text-led, same shape as every other page head. No eyebrow, no
+   collage, and NO FULL-WIDTH CTA BEFORE THE COURSES ARE SHOWN. The
+   student login sits under the lede as a plain link.
+2. AVAILABLE COURSES. `.crs-grid` is ALREADY A TWO-UP GRID holding one
+   card. The single card takes `.crs-wide` so it reads editorial
+   instead of lonely — cover left, copy right — AND THAT CLASS COMES
+   OFF THE MOMENT THERE ARE TWO. No redesign needed to add a course.
+   ONE cropped cover, never a stack of pages: a detail of the
+   Foundation Map showing only its three layers.
+3. COMING SOON. Three topic markers on lavender hairlines —
+   Marketing systems · Working smarter · Leading the work. NEVER
+   placeholder cards, NEVER an invented course name. The email capture
+   is included because it genuinely posts (Netlify Forms,
+   `course-updates`, the same form Services uses); omit it on any page
+   where it does not.
+4. TEACHING PHILOSOPHY. Two sentences and a link. Not feature cards,
+   not a biography.
+5. STUDENT LOGIN. A compact utility close on the raised surface,
+   deliberately quieter than the course above it.
 
-TWO THINGS I DID NOT INVENT, and neither should anyone else:
-1. **WHICH FOUNDATION SITS IN WHICH LAYER.** The brief gives three
-   layers and seven foundations and never maps them together. The
-   layers render as three tinted bands; the seven render BELOW them as
-   one route, labelled "The seven foundations run through all three".
-   Coral dots implying a 2/3/2 split were drawn and deleted. Ask Amber
-   for the mapping before placing them.
-2. **THE EIGHTH MODULE.** Eight modules, seven foundations. Numbering
-   the foundations 02-08 implied an opening module nobody has named,
-   so the sheet is titled "THE SEVEN FOUNDATIONS" and numbered 01-07.
-   The module count lives in the facts row, where it is simply true.
+NOT A SEPARATE COURSE BRAND: same cream, same serif heads, same coral
+CTA, same hairlines, same container, same 134/208 rhythm. No
+ecommerce styling, no gradients, no giant tiles, and handwritten
+annotation appears exactly once, inside the cover.
 
-THE THREE LAYER BANDS use the brand tints at fill strength only —
-butter 0.34, blush 0.40, lavender 0.42 — with every word in ink.
-Measured 9.7:1 to 12.4:1. Tints never carry text colour here.
+DIVERGENCE FROM THE SITE PATTERN, and it is deliberate: Courses is the
+ONLY page with no closing `.cta-band` and therefore only one tab
+emphasis instead of two. Her structure ends on the student-login
+utility, and a "let's talk" band on top of it would be the sales
+funnel the brief rules out. `.crs-login` is the closing band in
+everything but name. Flagged to her.
 
-STUDENT LOGIN IS ALWAYS SECONDARY. `learn.amberfugedi.com` appears
-twice, both times as a plain text link under the primary CTA, never as
-a button and never in the main nav. The primary CTA always goes to the
-course sales page on the main site.
-
-THE NAV NOW CARRIES SIX LINKS PLUS THE CTA and ran out of room around
-790px, where the brand collided with the menu. Fixed with a fluid gap
-`clamp(18px, 2.2vw, 32px)` plus a step-down between 761 and 900
-(12px gap, 0.8rem links, tighter CTA, smaller brand). THE STEP-DOWN
-MUST SIT AFTER the base `.nav-links` rule — a media query adds no
-specificity, so placed before it, it silently loses. Verified: brand
-to menu never closer than 21px at any width above the 760 mobile
-breakpoint.
-
-BLOCKED ON AMBER, and the page should not go live until the first is
-resolved:
-- `/courses/build-your-marketing-foundation` DOES NOT EXIST. Three
-  CTAs point at it. `_redirects` currently 302s it back to
-  `/courses.html` so nothing 404s, and that line is marked TEMPORARY.
-- `learn.amberfugedi.com` is not live yet either.
-- The email capture posts to Netlify Forms as `course-updates`, the
-  same form Services already uses, so it works the moment the site
-  deploys.
+STILL BLOCKED: `/courses/build-your-marketing-foundation` does not
+exist and two CTAs point at it (the card title and the View course
+button). `_redirects` 302s it back to `/courses.html` so nothing 404s,
+marked TEMPORARY. `learn.amberfugedi.com` is not live yet either.
 
 ## SEO baseline (2026-07 audit — keep every page inside these)
 
