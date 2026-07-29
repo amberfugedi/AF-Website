@@ -1446,6 +1446,55 @@ cap 92px, minimum gap 246px. ANY future change to the hero's bottom
 padding or the first section's top padding is picked up
 automatically — do not replace this with a hardcoded number.
 
+## Expertise page head and showcase (2026-07, Amber)
+
+**HEAD.** It was one column of copy with an empty right half. Now
+`.head-split`, 58/42, copy at the top so the h1 lands on the same line
+as every other page head, and `.xindex` centred beside it: 01-04 with
+the four chapter names, hairlines between, one faint gold wash behind.
+
+- THE INDEX IS NOT NAVIGATION. No links, no cards, no icons. It
+  previews the four chapters and gets out of the way.
+- The wash is a `closest-side` circle centred at 48%/46%, transparent
+  before the box edge. Anchored near a corner (the first attempt) it
+  still had colour where the box stopped and read as a hard-edged
+  panel — the exact card the brief rules out.
+- `.xi-name` is weight **500**, not 600. At semibold in full ink the
+  four words started competing with the h1.
+- Phones: one column, index under the paragraph as a two-up, so it
+  costs the page one row rather than four.
+
+**CHAPTERS.** The stagger is gone (Amber: "remove the alternating
+indentation from the Digital and Leadership rows"). Two and four used
+to step right 7% and 14%; all four now share one left edge and one
+grid, and the colour-coded rules carry the variation alone. `.ch-line`
+margin dropped 18 -> 10px so each claim sits tight to its proof link.
+The section heading is **"Where I make the biggest difference"** on
+the h2-long grade, deliberately under the h1.
+
+**SHOWCASE.** "See the expertise in action" had the same empty-right-
+half problem. Each row now owns a `.show-card` figure: absolutely
+placed into the right column on desktop, cross-fading on hover OR
+focus; static under its own row on phones, so nothing depends on
+hover. One DOM copy either way. With JS off the first card stays up
+and every link still works.
+
+- OPACITY ONLY on `.show-card`. `.reveal.in-view` sets
+  `transform: none` at higher specificity, so a transform written
+  there dies silently. This is the third time that trap has bitten.
+- **ONLY ONE OF THE THREE HAS A REAL SCREENSHOT.** Robert James
+  Restoration uses `full-rjr-home.webp`. There is no Scanoptics image
+  in the repo and none for the products and AI tools, so those two get
+  typographic plates instead of a stand-in: the published $1.3M ->
+  $2.8M figures, and Amber's own course cover from the Courses page.
+  NOTHING HERE IMITATES A CLIENT DELIVERABLE and no metric was
+  invented. If Amber sends a Scanoptics screenshot and one for the
+  tools, they drop straight into those two plates.
+- The site spells it **Scanoptics** everywhere; her brief wrote
+  "Scan-Optics". Kept the site spelling.
+- `.page-head-tight` and `.showcase` drop below the uniform 80px
+  bottom padding, on this page only, at her request.
+
 ## My Approach page (renamed from How I Work, 2026-07)
 
 RENAMED IN FULL, not just relabelled: `how-i-work.html` became

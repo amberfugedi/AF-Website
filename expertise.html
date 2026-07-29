@@ -109,10 +109,26 @@
 
   <main id="main">
 
-    <header class="page-head">
-      <div class="wrap">
-        <h1 class="h1-long">I know how to find what&#8217;s getting in the way of <span class="tab-em tab-butter">growth.</span></h1>
-        <p class="section-lede">My expertise sits across marketing strategy, execution, operations, and team development. That means I can zoom out to identify the real problem, then get close enough to help fix it.</p>
+    <!-- ============ Head ============
+         Copy left, a quiet index of the four chapters right (Amber,
+         July 2026: "the current hero looks like a two-column layout
+         with the second column missing"). The index is a preview, NOT
+         navigation: no links, no cards, no icons. -->
+    <header class="page-head page-head-tight">
+      <div class="wrap head-split">
+        <div class="head-copy">
+          <h1 class="h1-long">I know how to find what&#8217;s getting in the way of <span class="tab-em tab-butter">growth.</span></h1>
+          <p class="section-lede">My expertise sits across marketing strategy, execution, operations, and team development. That means I can zoom out to identify the real problem, then get close enough to help fix it.</p>
+        </div>
+
+        <aside class="xindex" aria-label="The four areas covered on this page">
+          <ol>
+            <li><span class="xi-num">01</span><span class="xi-name">Strategy</span></li>
+            <li><span class="xi-num">02</span><span class="xi-name">Digital</span></li>
+            <li><span class="xi-num">03</span><span class="xi-name">Operations</span></li>
+            <li><span class="xi-num">04</span><span class="xi-name">Leadership</span></li>
+          </ol>
+        </aside>
       </div>
     </header>
 
@@ -125,7 +141,7 @@
          Work shows the thinking. -->
     <section aria-labelledby="chapters-title">
       <div class="wrap">
-        <h2 class="section-title reveal" id="chapters-title">What I bring</h2>
+        <h2 class="section-title h2-long reveal" id="chapters-title">Where I make the biggest difference</h2>
         <div class="chapters">
 
           <article class="ch reveal">
@@ -141,7 +157,7 @@
                 </ul>
               </div>
               <div class="ch-right">
-                <p class="ch-line">I connect the marketing to the business strategy.</p>
+                <p class="ch-line">I connect marketing decisions to the business strategy.</p>
                 <p class="ch-link"><a class="arrow-link" href="projects.html#scanoptics">See the Scanoptics rebuild</a></p>
               </div>
             </div>
@@ -258,16 +274,62 @@
          A STRIP, not cards. Projects carries the case studies now, so
          this page only points at them. Three entries from three
          different areas above, each a full-width clickable row. -->
-    <section aria-labelledby="bridge-title">
-      <div class="wrap">
-        <h2 class="section-title reveal" id="bridge-title">See the expertise in action.</h2>
-                <ul class="work-strip">
-          <li class="reveal"><a href="projects.html#scanoptics">Rebuilding demand generation from the foundation <span class="ws-arrow" aria-hidden="true">&#8594;</span></a></li>
-          <li class="reveal"><a href="projects.html#robert-james">Building a brand and website that still works nine years later <span class="ws-arrow" aria-hidden="true">&#8594;</span></a></li>
-          <li class="reveal"><a href="projects.html#builds">Creating practical tools and resources from scratch <span class="ws-arrow" aria-hidden="true">&#8594;</span></a></li>
-        </ul>
-        <p class="industries reveal">The work spans SaaS, financial services, home services, education, and technology.</p>
-        <p class="section-foot-link reveal"><a class="arrow-link" href="projects.html">Explore all projects</a></p>
+    <!-- ============ 4. The bridge to Projects ============
+         Rows left, a preview stage right (Amber, July 2026: "use the
+         empty space to show proof, not introduce more copy"). ONE DOM
+         COPY of each preview: on desktop the figures are absolutely
+         placed into the right column and cross-fade on hover or focus;
+         on phones they go static and sit under their own row, so
+         nothing depends on hover. No JS means the first one stays up. -->
+    <section class="showcase" aria-labelledby="bridge-title">
+      <div class="wrap show-split">
+        <div class="show-copy">
+          <h2 class="section-title reveal" id="bridge-title">See the expertise in action.</h2>
+          <ul class="work-strip">
+            <li class="reveal">
+              <a href="projects.html#scanoptics" data-show="sc">Rebuilding demand generation from the foundation <span class="ws-arrow" aria-hidden="true">&#8594;</span></a>
+              <figure class="show-card is-on" data-panel="sc">
+                <div class="sc-plate sc-plate-figure">
+                  <span class="sc-from">$1.3M</span>
+                  <span class="sc-arrow" aria-hidden="true">&#8594;</span>
+                  <span class="sc-to">$2.8M</span>
+                  <span class="sc-plate-note">opportunity created</span>
+                </div>
+                <figcaption>
+                  <span class="sc-label">Scanoptics</span>
+                  <span class="sc-areas">Strategy &middot; Demand generation &middot; Digital</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="reveal">
+              <a href="projects.html#robert-james" data-show="rj">Building a brand and website that still works nine years later <span class="ws-arrow" aria-hidden="true">&#8594;</span></a>
+              <figure class="show-card" data-panel="rj">
+                <img class="sc-shot" src="full-rjr-home.webp" alt="The Robert James Restoration homepage, showing the brand and site Amber Fugedi built and still runs." width="1179" height="555" loading="lazy" decoding="async">
+                <figcaption>
+                  <span class="sc-label">Robert James Restoration</span>
+                  <span class="sc-areas">Brand &middot; Website &middot; Content</span>
+                  <span class="sc-out">Built in 2016 and still running the marketing on it.</span>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="reveal">
+              <a href="projects.html#builds" data-show="bd">Creating practical tools and resources from scratch <span class="ws-arrow" aria-hidden="true">&#8594;</span></a>
+              <figure class="show-card" data-panel="bd">
+                <div class="sc-plate sc-plate-course">
+                  <span class="sc-course-kicker">Course</span>
+                  <span class="sc-course-title">Build your<br>marketing foundation</span>
+                  <span class="sc-course-stages">get found &middot; get chosen &middot; be remembered</span>
+                </div>
+                <figcaption>
+                  <span class="sc-label">Products, activations and AI tools</span>
+                  <span class="sc-areas">Product thinking &middot; Content &middot; Execution</span>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+          <p class="industries reveal">The work spans SaaS, financial services, home services, education, and technology.</p>
+          <p class="section-foot-link reveal"><a class="arrow-link" href="projects.html">Explore all projects</a></p>
+        </div>
       </div>
     </section>
 

@@ -1337,6 +1337,75 @@ a.bld-item .bld-item-arrow {
    158 desktop / 149 phone. */
 .page-head { padding: 158px 0 30px; }
 
+/* ---- Expertise head: copy left, chapter index right ----
+   58/42 with a controlled gutter. The copy starts at the top so its
+   h1 lands on the same line as every other page head; only the index
+   centres against the row. THE INDEX IS NOT NAVIGATION — no links, no
+   cards, no icons, no second gradient. It previews the four chapters
+   and then gets out of the way. */
+.head-split {
+  display: grid;
+  grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+  gap: clamp(36px, 5.5vw, 92px);
+  align-items: start;
+}
+.head-split .xindex { align-self: center; }
+.xindex { position: relative; }
+/* ONE faint wash, in the butter family the paper tab already uses, at
+   a fraction of its strength. It is a hint of warmth behind the list,
+   not a panel — no border, no radius you can read, no shadow. */
+.xindex::before {
+  content: "";
+  position: absolute;
+  inset: -34px -30px -30px -34px;
+  /* CENTRED and fully transparent before the box edge. Anchored near
+     a corner it stopped fading before it ran out of box and read as a
+     hard-edged panel — exactly the card this is not supposed to be. */
+  background: radial-gradient(closest-side circle at 48% 46%, rgba(242, 169, 59, 0.16), rgba(242, 169, 59, 0) 100%);
+  z-index: 0;
+}
+.xindex ol {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.xindex li {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(46, 42, 39, 0.14);
+}
+.xindex li:last-child { border-bottom: 1px solid rgba(46, 42, 39, 0.14); }
+.xi-num {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  opacity: 0.72;
+}
+.xi-name {
+  /* 500, not 600: at semibold in full ink these four words started
+     reading as a second headline beside the h1. */
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+@media (max-width: 900px) {
+  /* One column, index under the paragraph as a compact two-up so it
+     costs the page one row of height rather than four. */
+  .head-split { grid-template-columns: 1fr; gap: 30px; }
+  .head-split .xindex { align-self: start; }
+  .xindex::before { inset: -20px -22px -18px -24px; }
+  .xindex ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(20px, 5vw, 48px); }
+  .xindex li { padding: 11px 0; }
+  .xindex li:last-child { border-bottom: 0; }
+  .xindex li:nth-child(3), .xindex li:nth-child(4) { border-bottom: 1px solid rgba(46, 42, 39, 0.14); }
+}
+
 /* ---- Services head: copy left, marketing-system diagram right ----
    The art is wide and short (480x272) so the row height stays driven
    by the copy. TWO TRAPS, both learned the hard way: `.reveal.in-view`
@@ -1941,12 +2010,11 @@ a.bld-item .bld-item-arrow {
 .ch:nth-child(2) .ch-list li::before { background: var(--blush);    border-color: var(--consulting-deep); }
 .ch:nth-child(3) .ch-list li::before { background: var(--lavender); border-color: var(--automations-deep); }
 .ch:nth-child(4) .ch-list li::before { background: rgba(255, 111, 97, 0.3); border-color: var(--coral-deep); }
-/* the rules run the full column while the CONTENT steps right on the
-   second and fourth chapters — Amber's own sketch staggered the words,
-   and staggering the whole chapter is what keeps it from reading as a
-   broken margin */
-.ch:nth-child(2) { padding-left: 7%; }
-.ch:nth-child(4) { padding-left: 14%; }
+/* THE STAGGER IS GONE (Amber, July 2026: "remove the alternating
+   indentation from the Digital and Leadership rows"). Chapters two and
+   four used to step right by 7% and 14%; all four now share one left
+   edge and one grid, and the colour-coded rules above them carry the
+   variation on their own. */
 .ch-word {
   font-family: var(--font-display);
   font-weight: 500;
@@ -1981,7 +2049,9 @@ a.bld-item .bld-item-arrow {
   color: var(--ink);
   letter-spacing: -0.015em;
   max-width: 22em;
-  margin-bottom: 18px;
+  /* tight to the link under it so the claim and its proof read as one
+     unit rather than two stacked lines */
+  margin-bottom: 10px;
 }
 .ch-link { margin-bottom: 0; }
 
@@ -2054,6 +2124,136 @@ a.bld-item .bld-item-arrow {
 
 /* the industries line: small context, not a section of its own
    (Amber, July 2026) */
+/* ---- The showcase: rows left, preview stage right ----
+   The section used to put everything in the left half and leave the
+   right empty. Each row now owns a preview figure that is absolutely
+   placed into the right column on desktop and cross-fades on hover or
+   focus. RULES: no dark card, no browser chrome, no drop shadow, no
+   second gradient. A hairline, a soft radius, the page's own ground. */
+/* Amber, July 2026, on both this section and the head above it:
+   "reduce the excessive empty space". The head's own bottom padding
+   and the showcase's drop below the site's uniform 80px, and only on
+   this page — the seams either side still read as one rhythm because
+   the columns are now full rather than half empty. */
+.page-head-tight { padding-bottom: 8px; }
+.showcase { padding-bottom: 58px; }
+@media (max-width: 760px) {
+  .showcase { padding-bottom: 34px; }
+}
+.show-split { position: relative; }
+.show-copy { width: 48%; }
+.show-copy .work-strip { max-width: none; }
+
+.show-card {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 54%;
+  right: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  opacity: 0;
+  pointer-events: none;
+  /* OPACITY ONLY. `.reveal.in-view` sets `transform: none` at higher
+     specificity, so anything written on transform here dies silently. */
+  transition: opacity 0.34s var(--ease);
+}
+.show-card.is-on { opacity: 1; }
+
+.sc-shot,
+.sc-plate {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(46, 42, 39, 0.12);
+  border-radius: 8px;
+  background: #FFFDFA;
+}
+.sc-shot { height: auto; object-fit: cover; object-position: top center; aspect-ratio: 16 / 10; }
+.show-card .sc-shot { border-radius: 8px; }
+
+/* The two rows with no screenshot get a typographic plate, not a
+   stand-in image. NOTHING HERE IMITATES A CLIENT DELIVERABLE: the
+   figures are the published ones and the course cover is Amber's own
+   product, already sitting on the Courses page. */
+.sc-plate {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 26px;
+  text-align: center;
+}
+.sc-plate-figure {
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* align-content, not just justify-content: with a 100%-basis child
+     the default stretch pushed the label to the bottom of the plate. */
+  align-content: center;
+  gap: 10px 14px;
+  background: linear-gradient(152deg, #FFF6EE 0%, #FDF1F3 58%, #F4F0FB 100%);
+}
+.sc-from, .sc-to {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+}
+.sc-from { color: var(--muted); }
+.sc-arrow { color: var(--coral-deep); line-height: 1; }
+.sc-plate-note {
+  flex-basis: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.sc-plate-course {
+  background: linear-gradient(158deg, #3A2E3E 0%, #2C2331 52%, #241D28 100%);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+.sc-course-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: rgba(255, 249, 242, 0.6);
+}
+.sc-course-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: #FFF9F2;
+}
+.sc-course-stages { color: rgba(255, 249, 242, 0.62); letter-spacing: 0.02em; }
+
+.show-card figcaption { display: flex; flex-direction: column; gap: 3px; }
+.sc-label { font-weight: 600; color: var(--ink); }
+.sc-areas { color: var(--muted); }
+.sc-out { color: var(--body); }
+
+@media (max-width: 900px) {
+  /* No hover on a phone: every preview goes static under its own row,
+     compact, with the cross-fade switched off. */
+  .show-copy { width: 100%; }
+  .show-card {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    gap: 12px;
+    padding: 0 16px 24px;
+    max-width: 430px;
+  }
+  .sc-shot, .sc-plate { aspect-ratio: 16 / 9; }
+  .sc-plate { padding: 18px; }
+}
+
 .industries {
   margin-top: 30px;
   padding-top: 20px;
@@ -2073,8 +2273,6 @@ a.bld-item .bld-item-arrow {
 @media (max-width: 1020px) {
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
   .ch { padding: 40px 0 44px; }
-  .ch:nth-child(2) { padding-left: 4%; }
-  .ch:nth-child(4) { padding-left: 8%; }
   .ch-body { grid-template-columns: 1fr; gap: 24px; }
   .ch-line { max-width: none; }
 }
@@ -2083,7 +2281,7 @@ a.bld-item .bld-item-arrow {
      staggers, and no section carries two columns of text. */
   /* the stagger goes: at 390px an indent reads as a broken margin */
   .chapters { margin-top: 26px; }
-  .ch, .ch:nth-child(2), .ch:nth-child(4) { padding: 32px 0 34px; }
+  .ch { padding: 32px 0 34px; }
   .ch-word { margin-bottom: 20px; }
   .ch-body { grid-template-columns: 1fr; gap: 22px; }
   .ch-for { max-width: none; }
@@ -3487,9 +3685,17 @@ footer p,
    the tools list and company note at small. Two display grades stay
    off-token by design: the result figures and the pull-quote grade it
    shares with How I Work. */
+.xi-num { font-size: var(--fs-eyebrow); }
+.xi-name { font-size: var(--fs-intro); line-height: 1.25; }
 .ch-word { font-size: var(--fs-h3); }
 .ch-for { font-size: var(--fs-body); line-height: 1.55; }
 .ch-list li, .industries { font-size: var(--fs-small); line-height: 1.55; }
+/* Showcase previews: the metadata stays quiet under the image. */
+.sc-label, .sc-out { font-size: var(--fs-small); line-height: 1.45; }
+.sc-areas, .sc-plate-note, .sc-course-kicker, .sc-course-stages { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.sc-from, .sc-to { font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.3rem); }
+.sc-arrow { font-size: clamp(1.1rem, 0.95rem + 0.6vw, 1.6rem); }
+.sc-course-title { font-size: clamp(1.15rem, 0.98rem + 0.7vw, 1.65rem); }
 .ch-line { font-size: var(--fs-intro); line-height: 1.35; }
 .work-strip a { font-size: var(--fs-intro); line-height: 1.35; }
 .diag-q { font-size: var(--fs-h3); line-height: 1.3; }
