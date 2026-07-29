@@ -1903,11 +1903,14 @@ a.bld-item .bld-item-arrow {
    "imagine four oversized words that dominate the page ... it becomes
    almost like reading chapters in a book. No cards. No icons. No
    feature grid. Just beautiful typography.").
-   THE WORDS SIT AT --fs-h1, the site's single display size. They read
-   larger than this page's own h1 only because that headline is a long
-   sentence and takes the h1-long step-down; the chapters are at the
-   canonical size, not above it. On a page whose whole job is naming
-   four things, the four things are the display.
+   THE WORDS SIT AT --fs-h3, the card-title grade. They were at --fs-h1
+   and it was wrong: 59px against a 47px h1 and a 41px section title
+   INVERTED THE LADDER, so the chapter names out-shouted the page
+   headline (Amber, July 2026: "they're too big"). The ladder now runs
+   h1 47 > section h2 41 > chapter 29 > belief line 21 > body 17. A
+   chapter name is a card title in function, and it takes that rung.
+   Prominence here comes from the coloured rule and the space around
+   each block, not from size.
    RESIST ADDING. Built here and removed across five passes: a
    typographic word composition, four oversized statement rows, a
    numbered capability index, an asymmetric platform grid, a company
@@ -3383,7 +3386,7 @@ footer p,
    the tools list and company note at small. Two display grades stay
    off-token by design: the result figures and the pull-quote grade it
    shares with How I Work. */
-.ch-word { font-size: var(--fs-h1); }
+.ch-word { font-size: var(--fs-h3); }
 .ch-for { font-size: var(--fs-body); line-height: 1.55; }
 .ch-list li, .industries { font-size: var(--fs-small); line-height: 1.55; }
 .ch-line { font-size: var(--fs-intro); line-height: 1.35; }

@@ -1270,11 +1270,15 @@ Flow, after the fifth rebuild:
    the capabilities on the left, her belief line and ONE project link
    on the right. Four different destinations: #scanoptics,
    #robert-james, #builds, #perq.
-   THE WORDS SIT AT `--fs-h1`, the site's single display size. They
-   read larger than this page's own h1 only because that headline is
-   a long sentence taking the h1-long step-down — the chapters are AT
-   the canonical size, not above it. On a page whose whole job is
-   naming four things, the four things are the display.
+   THE WORDS SIT AT `--fs-h3`, the card-title grade. They were built at
+   `--fs-h1` and that was WRONG: 59px against a 47px h1 and a 41px
+   section title INVERTED THE LADDER (Amber, July 2026: "they're too
+   big"). The ladder now runs h1 47 > section h2 41 > chapter 29 >
+   belief line 21 > body 17. A chapter name is a card title in
+   function and takes that rung. PROMINENCE COMES FROM THE COLOURED
+   RULE AND THE SPACE AROUND EACH BLOCK, not from size — that is the
+   lesson: on this site, hierarchy is spacing and colour before it is
+   type size.
    CAPABILITIES ARE HERS VERBATIM and deliberately short: 4/4/4/3, not
    padded to match. Sales enablement was dropped from Leadership with
    the old six-item lists; it is real and published elsewhere, and
