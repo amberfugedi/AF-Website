@@ -329,15 +329,30 @@
   var toggle = document.querySelector(".nav-toggle");
   var links = document.getElementById("nav-links");
   if (toggle && links) {
+    /* The panel is full height now, so the page behind it must not
+       scroll under the menu (2026-07). */
+    var lockScroll = function (on) {
+      document.body.style.overflow = on ? "hidden" : "";
+    };
     toggle.addEventListener("click", function () {
       var open = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!open));
       links.classList.toggle("open", !open);
+      lockScroll(!open);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        toggle.setAttribute("aria-expanded", "false");
+        links.classList.remove("open");
+        lockScroll(false);
+        toggle.focus();
+      }
     });
     links.addEventListener("click", function (e) {
       if (e.target.tagName === "A") {
         toggle.setAttribute("aria-expanded", "false");
         links.classList.remove("open");
+        lockScroll(false);
       }
     });
   }

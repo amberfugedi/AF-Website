@@ -542,6 +542,60 @@ thumbnails from the retired preview strip, and
 `artifact-{rjr-hero,mfcu-campaign}.webp` from the retired Expertise
 artifacts.
 
+## Mobile menu (rebuilt 2026-07)
+
+Amber: "more atmospheric, polished, and branded while staying minimal
+and editorial." Three moves carry it — the links go LEFT and into the
+display serif, primary and secondary separate, and the CTA sits at the
+bottom under a line of copy instead of trailing after the last link.
+
+A FULL-HEIGHT PANEL, not a short dropdown. `.site-nav` carries a
+`backdrop-filter`, which makes it the containing block even for
+`position: fixed` children — so the panel is positioned against the
+60px BAR, not the viewport, and ITS HEIGHT HAS TO BE STATED
+(`calc(100dvh - var(--nav-h) - safe-area)`) rather than stretched with
+`bottom: 0`. That cost an hour; do not "simplify" it back.
+
+HIERARCHY:
+- PRIMARY — Services, Courses, How I Work, Projects, Expertise, About.
+  Display serif at 1.6rem, left-aligned, 57px rows.
+- SECONDARY — Student login, on a hairline, sans, small, muted, pushed
+  down by `margin-top: auto`.
+- CLOSING — "Have something in mind?" then the Let's talk button, 28px
+  off the bottom edge.
+
+AMBIENT COLOUR, NOT A GRAPHIC. Three very soft blurred radial fields
+in the page aura's own palette — soft gold top-right, lavender
+mid-left, pale blush behind the closing block — at roughly a third of
+the page aura's strength, blurred 50px, and STATIC. No neon, no glow
+around links, nothing animated: the menu is a surface you read.
+
+THE ACTIVE PAGE GETS A HALO, not a border or an underline: a low
+ellipse of coral at 0.16 behind the word, offset left. Barely
+noticeable is the brief and the point.
+
+SHOP FLATTENS ON MOBILE. One item behind a disclosure is a click for
+nothing on a phone, so the button is `display: none` and Courses
+becomes an ordinary primary item. THE DROPDOWN STAYS ON DESKTOP, where
+it has room to grow. That asymmetry is deliberate.
+
+TWO SPECIFICITY TRAPS, both hit here:
+- `.nav-links > li > a` (0,2,1) beats `.nav-secondary a` (0,2,0), so
+  Student login rendered at the primary serif size until the selector
+  became `.nav-links > li.nav-secondary > a`.
+- the TYPE LAYER at the bottom of the file sets `.nav-links a` to 1rem,
+  and it comes AFTER the mobile media query — so `.nav-drop-menu a`
+  lost at equal specificity and had to become
+  `.nav-links .nav-drop-menu a`.
+
+THE BODY SCROLL LOCKS while the panel is open — a full-height overlay
+with the page sliding underneath is worse than the short panel it
+replaced. Escape closes the menu and returns focus to the toggle.
+
+Measured: primary 13.6:1, secondary and note 7.1:1, CTA 5.5:1, no tap
+target under 24px, no overflow at 390x844, 375x667, 360x640 or the
+760 breakpoint edge, and the CTA is on screen at every one.
+
 ## Shop dropdown in the nav (2026-07)
 
 The nav item reads **Shop** and Courses lives inside it (Amber: "in

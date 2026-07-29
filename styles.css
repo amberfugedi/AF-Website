@@ -366,6 +366,8 @@ body.page-sub .aura { --aura-base: 0.45; }
   transition: background 0.2s, color 0.2s;
 }
 .nav-links a.nav-cta:hover { background: var(--coral); color: var(--ink); }
+/* the secondary group and the CTA note exist for the mobile menu only */
+.nav-secondary, .nav-note { display: none; }
 
 .nav-toggle {
   display: none;
@@ -467,72 +469,185 @@ body.page-sub .aura { --aura-base: 0.45; }
   .brand { font-size: 1.25rem; }
 }
 @media (max-width: 760px) {
-  /* inside the hamburger the dropdown is an indented sub-list: a
-     floating popover inside an already-overlaid menu is a trap */
-  /* the mobile menu is centred, so the button stays inline and the
-     sub-list centres under it — a full-width row with a left rule
-     fought the alignment of every other item */
-  .nav-drop { display: flex; flex-direction: column; align-items: center; }
-  /* 26px was under the 24px-plus target floor once the caret was the
-     only thing adding height */
-  .nav-drop-btn { font-size: 1rem; padding: 9px 4px; }
-  .nav-drop-menu {
-    position: static;
-    min-width: 0;
-    padding: 0;
-    margin-top: 10px;
-    text-align: center;
-    background: none;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    display: none;
-    opacity: 1; visibility: visible; transform: none;
-  }
-  /* one short coral rule marks the sub-list instead of a side border */
-  .nav-drop-menu::before {
-    content: "";
-    display: block;
-    width: 20px; height: 2px;
-    margin: 0 auto 10px;
-    background: var(--coral);
-    opacity: 0.6;
-  }
-  .nav-drop-btn[aria-expanded="true"] + .nav-drop-menu,
-  .nav-drop:focus-within .nav-drop-menu { display: block; }
-  .nav-drop-menu a { padding: 8px 0; border-radius: 0; }
-  .nav-drop-menu a:hover { background: none; }
-}
-@media (max-width: 760px) {
   :root { --nav-h: 60px; }
   .brand { font-size: 1.375rem; gap: 10px; }
   .brand-mark { width: 19px; height: 19px; }
   .nav-toggle { display: block; }
+
+  /* ---- Mobile menu: a full-height panel, left-aligned, with the
+     site's own aura behind it ----
+     Rebuilt 2026-07 (Amber: "more atmospheric, polished, and branded
+     while staying minimal and editorial"). Three changes carry it: the
+     links go LEFT and into the display serif, the primary and
+     secondary groups separate, and the CTA sits at the bottom under a
+     line of copy instead of floating after the last link. */
   .nav-links {
+    /* `.site-nav` carries a backdrop-filter, which makes it the
+       containing block even for `position: fixed` children — so the
+       panel is positioned against the 60px BAR, not the viewport, and
+       its height has to be stated rather than stretched. */
     position: absolute;
-    top: calc(var(--nav-h) + env(safe-area-inset-top, 0px)); left: 0; right: 0;
+    top: 100%;
+    left: 0; right: 0;
+    height: calc(100vh - var(--nav-h) - env(safe-area-inset-top, 0px));
+    height: calc(100dvh - var(--nav-h) - env(safe-area-inset-top, 0px));
     flex-direction: column;
+    align-items: stretch;
     gap: 0;
     background: var(--bg);
-    border-bottom: 1px solid var(--line);
-    padding: 8px 0 16px;
+    border-bottom: 0;
+    padding: 30px 24px calc(28px + env(safe-area-inset-bottom, 0px));
+    overflow: hidden auto;
+    overscroll-behavior: contain;
     visibility: hidden;
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
-    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease),
-                visibility 0s linear 0.2s;
+    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease),
+                visibility 0s linear 0.22s;
   }
   .nav-links.open {
     visibility: visible;
     opacity: 1;
     transform: none;
     pointer-events: auto;
-    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
   }
-  .nav-links li { width: 100%; text-align: center; }
-  .nav-links a { display: block; padding: 12px; font-size: 1.05rem; background-image: none; }
-  .nav-links a.nav-cta { display: inline-block; margin-top: 8px; }
+
+  /* AMBIENT COLOUR, NOT A GRAPHIC. Two very soft blurred fields, the
+     same palette the page aura uses, at a fraction of its strength.
+     No neon, no glowing outlines, nothing animated — the menu is a
+     surface you read, not a light show. */
+  .nav-links::before,
+  .nav-links::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(50px);
+  }
+  .nav-links::before {
+    top: -18%; right: -30%;
+    width: 84vw; height: 84vw;
+    background: radial-gradient(circle at 50% 46%,
+      rgba(248, 190, 116, 0.38), rgba(252, 228, 196, 0) 64%);
+  }
+  .nav-links::after {
+    bottom: 4%; left: -36%;
+    width: 92vw; height: 92vw;
+    background: radial-gradient(circle at 50% 50%,
+      rgba(172, 158, 232, 0.34), rgba(218, 212, 245, 0) 64%);
+  }
+  .nav-links > li { position: relative; z-index: 1; width: 100%; text-align: left; }
+
+  /* PRIMARY: display serif, left-aligned, generous */
+  .nav-links > li > a {
+    display: block;
+    padding: 13px 12px 13px 0;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    background-image: none;
+  }
+  .nav-links > li > a:hover { color: var(--coral-deep); }
+
+  /* the current page gets a soft halo, not a border or a bar */
+  .nav-links > li > a[aria-current="page"] {
+    color: var(--ink);
+    font-weight: 500;
+    background-image: radial-gradient(ellipse at 12% 50%,
+      rgba(232, 132, 107, 0.16), rgba(232, 132, 107, 0) 62%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: -12px 0;
+  }
+
+  /* SHOP FLATTENS. One item behind a disclosure is a click for nothing
+     on a phone, so the button goes and Courses becomes an ordinary
+     item (Amber, July 2026). The dropdown stays on desktop, where it
+     has room to grow. */
+  .nav-drop { display: block; }
+  .nav-drop-btn { display: none; }
+  .nav-drop-menu {
+    position: static;
+    display: block;
+    min-width: 0; margin: 0; padding: 0;
+    background: none; border: 0; border-radius: 0; box-shadow: none;
+    opacity: 1; visibility: visible; transform: none;
+    text-align: left;
+  }
+  .nav-drop-menu::before { content: none; }
+  .nav-links .nav-drop-menu a {
+    display: block;
+    padding: 13px 12px 13px 0;
+    border-radius: 0;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .nav-links .nav-drop-menu a:hover { background: none; color: var(--coral-deep); }
+  .nav-links .nav-drop-menu a[aria-current="page"] {
+    color: var(--ink); font-weight: 500;
+    background-image: radial-gradient(ellipse at 12% 50%,
+      rgba(232, 132, 107, 0.16), rgba(232, 132, 107, 0) 62%);
+    background-repeat: no-repeat; background-size: 100% 100%; background-position: -12px 0;
+  }
+
+  /* SECONDARY: small, muted, on a hairline, pushed to the bottom */
+  .nav-secondary {
+    display: block;
+    margin-top: auto;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+  .nav-links > li.nav-secondary > a {
+    display: inline-block;
+    padding: 8px 0;
+    font-family: var(--font-body);
+    font-size: var(--fs-small);
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--muted);
+    background-image: none;
+  }
+  .nav-links > li.nav-secondary > a:hover { color: var(--coral-deep); }
+
+  /* the line of copy above the button */
+  .nav-note { display: block; margin-top: 14px; }
+  .nav-note span {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--muted);
+  }
+  /* the third, quietest field sits behind the closing block */
+  .nav-note::after {
+    content: "";
+    position: absolute;
+    left: -24%; bottom: -140%;
+    width: 78vw; height: 78vw;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(50px);
+    background: radial-gradient(circle at 50% 50%,
+      rgba(246, 158, 199, 0.3), rgba(251, 213, 228, 0) 64%);
+  }
+
+  .nav-links a.nav-cta {
+    display: block;
+    margin-top: 14px;
+    padding: 14px 22px;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 1rem;
+  }
 }
 
 /* ============ Buttons ============ */
