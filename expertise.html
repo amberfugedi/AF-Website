@@ -287,20 +287,51 @@
 
   </main>
 
-  <!-- ============ SHARED FOOTER — keep in sync across all pages ============ -->
+  <!-- ============ SHARED FOOTER — keep in sync across all pages ============
+       Brand block, three labelled link columns, then a bottom bar.
+       404.html carries this same markup with a leading slash on every
+       internal href; everything else is relative. -->
   <footer>
-    <div class="wrap footer-inner">
-      <p>© <span id="year">2026</span> Amber Fugedi · Connecticut, USA</p>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="services.html">Services</a>
-        <a href="courses.html">Courses</a>
-        <a href="how-i-work.html">How I Work</a>
-        <a href="projects.html">Projects</a>
-        <a href="expertise.html">Expertise</a>
-        <a href="about.html">About</a>
-        <a href="about.html#contact">Contact</a>
-      </nav>
-      <p><a href="mailto:amberfugedi@gmail.com">amberfugedi@gmail.com</a></p>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html"><img class="brand-mark" src="brand-mark.png" alt="" width="96" height="96"><span class="brand-name">Amber Fugedi</span></a>
+          <p>Marketing strategy, consulting, and practical courses. Based in Connecticut.</p>
+        </div>
+
+        <div class="footer-cols">
+          <nav class="footer-col" aria-labelledby="ft-work">
+            <p class="footer-head" id="ft-work">The work</p>
+            <ul>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="how-i-work.html">How I Work</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="expertise.html">Expertise</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-labelledby="ft-shop">
+            <p class="footer-head" id="ft-shop">Shop</p>
+            <ul>
+              <li><a href="courses.html">Courses</a></li>
+              <li><a href="https://learn.amberfugedi.com" rel="noopener">Student login</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-labelledby="ft-talk">
+            <p class="footer-head" id="ft-talk">Get in touch</p>
+            <ul>
+              <li><a href="about.html">About Amber</a></li>
+              <li><a href="about.html#contact">Start a conversation</a></li>
+              <li><a href="mailto:amberfugedi@gmail.com">amberfugedi@gmail.com</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <p>© <span id="year">2026</span> Amber Fugedi · Connecticut, USA</p>
+      </div>
     </div>
   </footer>
   <!-- ============ /SHARED FOOTER ============ -->

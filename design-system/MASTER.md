@@ -1365,6 +1365,57 @@ six-item "especially useful when" list, and the four working documents
 `artifact-mfcu-campaign.webp` remain in the repo, orphaned; the
 full-size files they linked to are still live on Projects.
 
+## Footer (2026-07: "the footer needs more structure")
+
+It was one flat row of seven links, which gave every destination the
+same weight and no grouping. Now: a brand block (mark, wordmark, one
+identifying line), three labelled columns, and a bottom bar carrying
+the copyright over a hairline.
+
+- Columns are **The work** (Services, How I Work, Projects,
+  Expertise), **Shop** (Courses, Student login), **Get in touch**
+  (About Amber, Start a conversation, the email). They mirror the
+  nav's own shape, so Shop reads as Shop in both places.
+- Each column is a `<nav aria-labelledby>` pointing at its visible
+  `.footer-head`, NOT an `<h2>`. Three extra h2s per page would
+  dilute every outline on the site for no accessibility gain.
+- 900px drops to one column of columns; 560px drops the link groups
+  to two columns so "Start a conversation" is never squeezed into a
+  third of a phone.
+- The nav hides `.brand-name` under 350px; the footer overrides that
+  back on, because it has the room.
+- ALL EIGHT PAGES carry it identically and `404.html` needs a leading
+  slash on every internal href. Verified with scratchpad
+  `footparity.cjs` — one distinct structure across all eight.
+- Retired with it: `.footer-inner`, `.footer-nav`. `.footer-inner a`
+  was trimmed OUT of the body-link selector list rather than the line
+  being deleted, and the phone tap-target rule was rewritten for
+  `.footer-col a` rather than dropped.
+
+## Hero parallax must not exceed the room below it (2026-07 bug)
+
+`.hero-content` scrolls slower than the page, so it drifts DOWN the
+document. The drift was `min(scrollY, innerHeight) * 0.2` — up to
+140px at a 700px viewport — while the room under the phone hero is
+only its 48px bottom padding plus the next section's 48px top
+padding. Measured on a 393x700 phone: the gap between the proof
+chips and "The hardest part is not always doing the marketing" went
+from 99px at rest to **-44px** by 580px of scroll, with the chips at
+29-53% opacity. That is what Amber photographed: faded chips sitting
+across the heading, mid-scroll only, invisible in any still.
+
+Desktop hid it because the hero has `min-height: 72dvh` and the
+chips sit in a right-hand column; phones set `min-height: 0`, so the
+hero box is exactly as tall as its content and has no slack at all.
+
+FIX: the drift is now capped at `(hero padding-bottom + next section
+padding-top) * 0.55`, measured from the live computed styles and
+re-measured on resize (iOS collapses its toolbar mid-scroll and
+re-lays the page out). Phone cap 52.8px, minimum gap 43px; desktop
+cap 92px, minimum gap 246px. ANY future change to the hero's bottom
+padding or the first section's top padding is picked up
+automatically — do not replace this with a hardcoded number.
+
 ## How I Work page (2026-07, Amber's brief)
 
 ### Length audit (2026-07: "the how I work page is very long")

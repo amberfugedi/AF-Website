@@ -121,12 +121,31 @@
   if (heroContent && !reducedMotion) {
     var hCurX = 0, hCurY = 0, hTgtX = 0, hTgtY = 0, hRaf = null, hLastY = -1;
 
+    /* THE LAG MUST NEVER EXCEED THE ROOM UNDER THE HERO. The foreground
+       scrolls slower than the page, so it drifts DOWN the document; if
+       that drift is bigger than the hero's bottom padding plus the next
+       section's top padding, the hero rides into the section below.
+       Phones are where it bit (Amber, July 2026: proof chips sitting
+       over "The hardest part is not always doing the marketing") because
+       the phone hero is min-height:0 — its box is exactly as tall as its
+       content, so there is no slack at all to absorb the drift. */
+    var heroEl = heroContent.closest(".hero");
+    var shiftCap = 0;
+    var measureHero = function () {
+      if (!heroEl) { shiftCap = 0; return; }
+      var pad = parseFloat(getComputedStyle(heroEl).paddingBottom) || 0;
+      var next = heroEl.nextElementSibling;
+      var nextPad = next ? (parseFloat(getComputedStyle(next).paddingTop) || 0) : 0;
+      shiftCap = Math.max(0, (pad + nextPad) * 0.55);
+    };
+    measureHero();
+
     var hFrame = function () {
       hCurX += (hTgtX - hCurX) * 0.06;
       hCurY += (hTgtY - hCurY) * 0.06;
       var sy = window.scrollY;
       var vh = window.innerHeight;
-      var shift = Math.min(sy, vh) * 0.2;
+      var shift = Math.min(Math.min(sy, vh) * 0.2, shiftCap);
       var op = Math.max(0, Math.min(1, 1 - (sy - vh * 0.5) / (vh * 0.7)));
       heroContent.style.transform =
         "perspective(1000px) translate3d(" + (-hCurX * 12).toFixed(1) + "px," +
@@ -148,6 +167,9 @@
       }, { passive: true });
     }
     window.addEventListener("scroll", hWake, { passive: true });
+    /* iOS collapses its toolbar mid-scroll, which re-lays the page out;
+       re-measure so the ceiling tracks the paddings that are in force. */
+    window.addEventListener("resize", function () { measureHero(); hWake(); }, { passive: true });
     hWake();
   }
 

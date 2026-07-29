@@ -101,7 +101,7 @@ img { max-width: 100%; display: block; }
 .skip-link:focus { transform: none; }
 
 /* Body links: coral + underline — never color alone */
-main p a, .form-note a, .footer-inner a {
+main p a, .form-note a {
   color: var(--coral-deep);
   font-weight: 500;
   text-decoration: underline;
@@ -110,7 +110,7 @@ main p a, .form-note a, .footer-inner a {
   text-decoration-color: rgba(184, 53, 74, 0.4);
   transition: text-decoration-color 0.2s;
 }
-main p a:hover, .form-note a:hover, .footer-inner a:hover {
+main p a:hover, .form-note a:hover {
   text-decoration-color: var(--coral-deep);
 }
 
@@ -1618,8 +1618,10 @@ a.bld-item .bld-item-arrow {
   .anchor-nav a { padding: 13px 10px; } /* ≥44px touch target */
   /* Touch targets ≥44px for links that render small on phones */
   .arrow-link { padding-top: 13px; padding-bottom: 14px; }
-  .footer-nav a { display: inline-block; padding: 10px 6px; }
-  .footer-inner > p a { display: inline-block; padding: 14px 0; }
+  /* the footer's column links stand alone on their own rows, so the
+     target grows with padding rather than a taller line-height */
+  .footer-col a { display: inline-block; padding: 8px 0; }
+  .footer-col li + li { margin-top: 2px; }
   .form-note a { display: inline-block; padding: 14px 0; }
   .brand { padding: 8px 0; }
 }
@@ -2757,29 +2759,63 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--
 }
 
 /* ============ Footer ============ */
+/* Footer: a brand block, three labelled columns, and a bottom bar
+   (Amber, July 2026: "the footer needs more structure"). It replaced
+   one flat row of seven links, which gave every destination the same
+   weight and no grouping. The columns mirror the nav's own shape, so
+   Shop reads as Shop in both places. */
 footer {
   border-top: 1px solid var(--line);
-  padding: 36px 0;
+  padding: clamp(48px, 5vw, 72px) 0 26px;
   background: var(--bg);
-}
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  font-size: 0.9rem;
   color: var(--muted);
 }
-
-.footer-nav { display: flex; gap: 22px; flex-wrap: wrap; }
-.footer-nav a {
+.footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
+  gap: clamp(36px, 5vw, 92px);
+  align-items: start;
+}
+.footer-brand p { max-width: 32ch; margin: 16px 0 0; }
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px clamp(20px, 3vw, 52px);
+}
+.footer-head {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.footer-col ul { list-style: none; margin: 0; padding: 0; }
+.footer-col li + li { margin-top: 10px; }
+.footer-col a {
   color: var(--muted);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
 }
-.footer-nav a:hover { color: var(--coral-deep); text-decoration: underline; }
+.footer-col a:hover { color: var(--coral-deep); text-decoration: underline; }
+
+.footer-bar {
+  margin-top: clamp(40px, 4.5vw, 66px);
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.footer-bar p { margin: 0; }
+
+@media (max-width: 900px) {
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-brand p { max-width: 46ch; }
+}
+@media (max-width: 560px) {
+  /* Two columns, so "Start a conversation" is never squeezed into a
+     third of a phone. The last group takes the second row. */
+  .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 24px; }
+}
+/* The nav hides the wordmark under 350px; the footer has the room. */
+@media (max-width: 350px) { .footer-brand .brand-name { display: inline; } }
 
 /* Touch: taps fire sticky :hover — keep lifts for real pointers only */
 @media (hover: none), (pointer: coarse) {
@@ -3448,7 +3484,9 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .contact-form label,
 .cb-step span,
 footer p,
-.footer-nav a { font-size: var(--fs-small); line-height: 1.4; }
+.footer-col a { font-size: var(--fs-small); line-height: 1.4; }
+.footer-brand p { line-height: 1.55; }
+.footer-head { font-size: var(--fs-eyebrow); }
 /* sentence paragraphs are body, never small */
 .offer-aside p,
 .offer-aside .who { font-size: var(--fs-body); line-height: 1.5; }
