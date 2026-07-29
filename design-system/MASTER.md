@@ -846,15 +846,35 @@ furniture with nothing to hold. Do not add one.
 
 ### One bullet language
 
-**A 12 x 2px RULE. That is the only marker on the site.** Used by the
-Services offer points, the How I Work hands-on list, the Expertise
-chapter capabilities and the course facts. It takes the local accent
-colour where one exists, coral otherwise.
+**AN OPEN RING: a pale fill inside a deep 2px border, in the local
+accent.** The only marker on the site. Used by the Services offer
+points, the How I Work hands-on list and the Expertise chapter
+capabilities.
 
-Services used to carry a 16px filled RING instead — the same idea drawn
-a second way, on one page only. It is gone. If a new list needs a
-marker, it takes the rule; if the rule genuinely will not work, change
-it everywhere or not at all.
+Amber chose it over a 12x2px rule (July 2026) after seeing both. It
+reads as a marker BELONGING TO its item rather than a dash sitting
+beside it, and it holds its own at the start of a wrapping line where a
+2px dash nearly disappears.
+
+**BECAUSE IT IS OPEN IT DOES NOT COLLIDE** with the two places a circle
+already means something: the FILLED coral dot marking the current page
+in the mobile menu, and the filled terminal dots that end strokes in
+the line-art glyphs. Open ring = list item. Filled dot = a mark. Keep
+that distinction.
+
+SIZE SCALES WITH ITS TEXT, the shape does not: 15px against the
+Services offer points (0.98rem), 13px against the How I Work hands-on
+list (body), 12px against the Expertise capabilities (small). Border
+stays 2px throughout, and `box-sizing: border-box` keeps the outer
+diameter honest.
+
+COLOUR IS THE LOCAL ACCENT, pale fill + deep border:
+peach/courses-deep, lavender/automations-deep, blush/consulting-deep on
+Services and the matching Expertise chapters; a 30% coral fill with
+coral-deep border where there is no section accent.
+
+If a new list needs a marker it takes this one. If it genuinely will
+not work, change it everywhere or not at all.
 
 ## Accessibility floor (hard requirements)
 

@@ -1652,20 +1652,26 @@ a.bld-item .bld-item-arrow {
 .offer-points { list-style: none; display: grid; gap: 14px; }
 .offer-points li {
   position: relative;
-  padding-left: 24px;
+  padding-left: 30px;
   font-size: 0.98rem;
   color: var(--body);
 }
-/* THE SITE'S ONE BULLET LANGUAGE: a 12x2px rule, shared with the How I
-   Work hands-on list, the Expertise chapter capabilities and the course
-   facts. This was a 16px ring — the same idea drawn a second way, and
-   Services was the only page using it (2026-07). */
+/* THE SITE'S ONE BULLET LANGUAGE: AN OPEN RING — a pale fill inside a
+   deep 2px border, in the local accent. Amber chose it over the rule
+   (July 2026). It reads as a marker belonging to its item rather than
+   a dash beside it, and because it is OPEN it never collides with the
+   filled coral dot that means "you are here" in the mobile menu.
+   Shared with the How I Work hands-on list and the Expertise chapter
+   capabilities. If a new list needs a marker it takes this one. */
 .offer-points li::before {
   content: "";
   position: absolute;
-  left: 0; top: 0.72em;
-  width: 12px; height: 2px;
-  background: var(--coral);
+  left: 0; top: 0.34em;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: var(--peach);
+  border: 2px solid var(--coral-deep);
+  box-sizing: border-box;
 }
 
 .offer-aside {
@@ -1693,11 +1699,10 @@ a.bld-item .bld-item-arrow {
 .offer-aside p { font-size: 0.92rem; color: var(--body); margin-bottom: 22px; }
 
 /* Per-offer section accents */
-/* the marker keeps its per-offer accent, at the deep value now that it
-   is a hairline rather than a filled disc */
-.offer-section.offer-courses .offer-points li::before     { background: var(--courses-deep); }
-.offer-section.offer-automations .offer-points li::before { background: var(--automations-deep); }
-.offer-section.offer-consulting .offer-points li::before  { background: var(--consulting-deep); }
+/* per-offer accent: pale fill, deep border */
+.offer-section.offer-courses .offer-points li::before     { background: var(--peach);    border-color: var(--courses-deep); }
+.offer-section.offer-automations .offer-points li::before { background: var(--lavender); border-color: var(--automations-deep); }
+.offer-section.offer-consulting .offer-points li::before  { background: var(--blush);    border-color: var(--consulting-deep); }
 .offer-section.offer-courses .offer-aside     { background: var(--peach); }
 .offer-section.offer-automations .offer-aside { background: var(--lavender); }
 .offer-section.offer-consulting .offer-aside  { background: var(--blush); }
@@ -1932,10 +1937,10 @@ a.bld-item .bld-item-arrow {
 .ch:nth-child(3) { border-top-color: rgba(87, 74, 166, 0.5); }
 .ch:nth-child(4) { border-top-color: rgba(184, 53, 74, 0.46); }
 .ch:last-child { border-bottom-color: rgba(184, 53, 74, 0.46); }
-.ch:nth-child(1) .ch-list li::before { background: #F2A93B; }
-.ch:nth-child(2) .ch-list li::before { background: var(--consulting-deep); }
-.ch:nth-child(3) .ch-list li::before { background: var(--automations-deep); }
-.ch:nth-child(4) .ch-list li::before { background: var(--coral-deep); }
+.ch:nth-child(1) .ch-list li::before { background: var(--peach);    border-color: var(--courses-deep); }
+.ch:nth-child(2) .ch-list li::before { background: var(--blush);    border-color: var(--consulting-deep); }
+.ch:nth-child(3) .ch-list li::before { background: var(--lavender); border-color: var(--automations-deep); }
+.ch:nth-child(4) .ch-list li::before { background: rgba(255, 111, 97, 0.3); border-color: var(--coral-deep); }
 /* the rules run the full column while the CONTENT steps right on the
    second and fourth chapters — Amber's own sketch staggered the words,
    and staggering the whole chapter is what keeps it from reading as a
@@ -1964,9 +1969,12 @@ a.bld-item .bld-item-arrow {
 .ch-list li::before {
   content: "";
   position: absolute;
-  left: 0; top: 0.72em;
-  width: 12px; height: 2px;
-  background: var(--coral);
+  left: 0; top: 0.24em;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 111, 97, 0.28);
+  border: 2px solid var(--coral-deep);
+  box-sizing: border-box;
 }
 .ch-line {
   font-family: var(--font-display);
@@ -3096,7 +3104,7 @@ footer {
 .hw-do { list-style: none; margin: 0; padding: 0; }
 .hw-do li {
   position: relative;
-  padding: 13px 0 13px 26px;
+  padding: 13px 0 13px 28px;
   border-top: 1px solid rgba(46, 42, 39, 0.1);
   color: var(--body);
 }
@@ -3105,10 +3113,13 @@ footer {
   content: "";
   position: absolute;
   left: 0;
-  top: 1.42em;
-  width: 12px;
-  height: 2px;
-  background: var(--coral);
+  top: 1.05em;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 111, 97, 0.28);
+  border: 2px solid var(--coral-deep);
+  box-sizing: border-box;
 }
 
 /* Margin annotations: a short hand-drawn coral gesture over an italic
