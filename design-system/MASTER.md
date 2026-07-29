@@ -938,7 +938,7 @@ gives them context. Never add a "trusted by" logo strip.
 
 - Six plain HTML pages, no framework/build: `index.html`,
   `services.html` (offer ladder + sticky anchor nav),
-  `how-i-work.html` (what an engagement is actually like),
+  `my-approach.html` (what an engagement is actually like),
   `projects.html` (case studies: challenge → approach → impact),
   `expertise.html` (core expertise -> results -> breadth -> platforms),
   `about.html` (bio, career story, team testimonials, education, contact
@@ -1416,7 +1416,55 @@ cap 92px, minimum gap 246px. ANY future change to the hero's bottom
 padding or the first section's top padding is picked up
 automatically — do not replace this with a hardcoded number.
 
-## How I Work page (2026-07, Amber's brief)
+## My Approach page (renamed from How I Work, 2026-07)
+
+RENAMED IN FULL, not just relabelled: `how-i-work.html` became
+`my-approach.html` with `/how-i-work.html /my-approach.html 301` at
+the top of `_redirects` (same pattern as capabilities -> expertise and
+work -> projects). Nav and footer say **My Approach**; Expertise's
+secondary CTA says "See my approach"; sitemap, canonical, OG, Twitter
+and the JSON-LD `url` all moved. The image files keep their old names
+(`amber-how-i-work.webp`) — renaming assets is churn with no benefit.
+
+Amber's brief: "less like consulting methodology and more like a
+window into how Amber thinks", and it should read for a CEO hiring a
+consultant, an executive hiring a VP, a founder looking for an
+advisor, and someone considering the courses.
+
+- **H1 is now "My approach."** with the butter tab on "approach."
+- **A new opening idea** carries the top of section one: "Some of the
+  best work starts in a situation nobody can name yet." It replaced
+  "I do not arrive with the answer already decided", which said the
+  same thing as the paragraph directly under it.
+- Because that idea now opens the page, the CTA band's closing line
+  stopped repeating it. "I enjoy stepping into something complicated,
+  finding the clearest path forward, and helping build it" became "If
+  you are somewhere in the middle of one of these, I am happy to take
+  a look." FLAGGED TO AMBER — that was her own line.
+- The people h2 shortened to **"The people side of the work."** The
+  old one ("...matters just as much as the strategy") made the exact
+  argument the paragraph under it makes, and Amber's own brief titles
+  the section this way.
+- "Strategy only matters if it gets built" LOST ITS LEDE: the h2 says
+  it. The documents row lost its supporting paragraph for the same
+  reason and now runs question, rule, one line, four documents —
+  `.diagnose-inline` went to 0.58fr/1fr so the documents take the
+  width the paragraph used to need.
+- Principles are one sentence each. Outcome lines were tightened.
+
+**860 words, 6,739px desktop.** From the pre-brief page that is -23%
+on words; counting only prose (the four documents carry ~60 words of
+hand-lettering inside the artwork, which is not copy anyone reads as
+copy) it is about -24%. Amber asked for 25-30%. What stops it going
+further is everything the brief also asked to KEEP: the hero
+photograph, notebook and its five questions, routed map, four
+documents, three quote banners, the pull quote, all five principles
+and all six outcomes. Those are roughly 300 words and 5,000px before
+a sentence of prose. Do not cut further by deleting a visual without
+asking — the visuals are the reason the page reads as a magazine
+rather than an essay, which is the brief.
+
+## How I Work section reference (history)
 
 ### Length audit (2026-07: "the how I work page is very long")
 
@@ -1639,7 +1687,7 @@ MOBILE drops the CAMPAIGN FLOW — its boxes and arrows are the least
 readable at 390px — leaving three documents in one column on a 30px
 grid gap.
 
-`how-i-work.html`. The page answers one question — what is it
+`my-approach.html`. The page answers one question — what is it
 actually like to work with Amber — and it is written to leave a
 reader with six impressions she named: she will take the time to
 understand my business, she will not force a solution, she sees

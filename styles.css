@@ -2937,8 +2937,13 @@ footer {
 }
 /* July 2026: this is now the SECOND ROW of "I solve business
    problems", not a section of its own, so it carries the gap that
-   used to come from the section boundary. */
-.diagnose-inline { margin-top: clamp(56px, 6.5vw, 104px); }
+   used to come from the section boundary. The copy beside it is down
+   to a question and one line — the documents answer it, so they take
+   the width the paragraph used to need. */
+.diagnose-inline {
+  margin-top: clamp(56px, 6.5vw, 104px);
+  grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
+}
 .diag-copy p { color: var(--muted); max-width: 46ch; margin-bottom: 16px; }
 .diag-copy p:last-child { margin-bottom: 0; }
 /* the question, set apart: coral italic serif is the one contrasting
