@@ -700,12 +700,41 @@ in.
 1. HERO. Text-led, same shape as every other page head. No eyebrow, no
    collage, and NO FULL-WIDTH CTA BEFORE THE COURSES ARE SHOWN. The
    student login sits under the lede as a plain link.
-2. AVAILABLE COURSES. `.crs-grid` is ALREADY A TWO-UP GRID holding one
-   card. The single card takes `.crs-wide` so it reads editorial
-   instead of lonely — cover left, copy right — AND THAT CLASS COMES
-   OFF THE MOMENT THERE ARE TWO. No redesign needed to add a course.
-   ONE cropped cover, never a stack of pages: a detail of the
-   Foundation Map showing only its three layers.
+2. AVAILABLE COURSES. `.crs-grid` is `repeat(auto-fill, minmax(300px,
+   1fr))` — one card sits in one column and the next two drop in with
+   NO redesign. A single card stretched across 1120px would have to be
+   undone the moment a second course ships. Verified by cloning the
+   card twice: three cards fill the row cleanly.
+
+   **THE COURSE COVER** (`.crs-thumb`) is THE ONE DARK SURFACE on a
+   very light site, and that is its whole job: contrast without noise.
+   - **Warm plum, never black and never a jewel tone.** The gradient
+     runs #3A2E3E → #2C2331 → #241D28: the site's charcoal pulled
+     toward the lavender already in the palette, so it reads as the
+     same family rather than a second brand.
+   - **The course name leads**, in the display serif, sentence case,
+     left-aligned, two lines. The Marketing Foundation Map is a tool
+     inside the course, NOT the product — it never becomes the title.
+   - **One track split three ways**, coral / lavender / gold, with
+     "get found · get chosen · be remembered" beneath. THE SEGMENTS
+     TOUCH ON PURPOSE: three separated blocks would say "three
+     things", one divided track says "one system", which is the
+     argument the course makes. No icons, no logo, no monogram, no
+     name, no explanatory line.
+   - **BUILT IN HTML AND CSS, NOT AN IMAGE.** Real text: crisp at any
+     size, responsive, and the next course is a two-string swap. It
+     carries `aria-hidden="true"` because every word in it repeats as
+     real content directly below — the card heading is the accessible
+     name, and announcing the cover too would just stutter.
+   - 4:3, and it BLEEDS to the card's own rounded corners. The padded
+     white sheet that used to hold the cover read as a card inside a
+     card (Amber, July 2026).
+   Measured on the cover: title 11.4:1 against the lightest gradient
+   stop, 14.6:1 against the darkest; stage labels 7.6:1 and 9.8:1; the
+   three segments 5.7-8:1 as non-text marks.
+
+   THE METADATA IS A DEFINITION LIST, not a bullet run: label and value
+   in two aligned columns, so four facts scan as a spec.
 3. COMING SOON. Three topic markers on lavender hairlines —
    Marketing systems · Working smarter · Leading the work. NEVER
    placeholder cards, NEVER an invented course name. The email capture

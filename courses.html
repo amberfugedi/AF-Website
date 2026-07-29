@@ -144,31 +144,37 @@
         <h2 class="section-title reveal" id="available-title">Available courses</h2>
 
         <ul class="crs-grid">
-          <li class="crs-card crs-wide reveal">
-            <figure class="crs-cover">
-              <svg viewBox="0 0 200 150" fill="none" stroke-linecap="round" role="img" aria-label="A cropped detail of the Marketing Foundation Map showing its three layers: get found, get chosen and be remembered.">
-                <g stroke="#3A3531" stroke-width="1.1">
-                  <path d="M14.5 26 L186 25.5 L186.6 58 L15 58.6 L14.6 29"/>
-                  <path d="M14.5 70 L186 69.5 L186.6 102 L15 102.6 L14.6 73"/>
-                  <path d="M14.5 114 L186 113.5 L186.6 146 L15 146.6 L14.6 117"/>
-                </g>
-                <g font-family="Newsreader, Georgia, serif" font-style="italic" font-size="12.5" fill="#3A3531">
-                  <text x="27" y="47">get found</text>
-                  <text x="27" y="91">get chosen</text>
-                  <text x="27" y="135">be remembered</text>
-                </g>
-                <text x="14" y="14" fill="#8A827A" font-family="Manrope, system-ui, sans-serif" font-size="8" letter-spacing="1">FOUNDATION MAP</text>
-              </svg>
-            </figure>
+          <li class="crs-card reveal">
+            <!-- The cover. Real text, not a raster: crisp at any size,
+                 restyled by swapping two strings for the next course.
+                 aria-hidden because every word in it is repeated as
+                 real content directly below — the card heading is the
+                 accessible name. -->
+            <div class="crs-thumb" aria-hidden="true">
+              <p class="ct-title">Build your<br>marketing foundation</p>
+              <div class="ct-system">
+                <div class="ct-track">
+                  <span class="ct-seg ct-found"></span>
+                  <span class="ct-seg ct-chosen"></span>
+                  <span class="ct-seg ct-remembered"></span>
+                </div>
+                <ul class="ct-stages">
+                  <li>get found</li>
+                  <li>get chosen</li>
+                  <li>be remembered</li>
+                </ul>
+              </div>
+            </div>
+
             <div class="crs-body">
               <h3><a href="/courses/build-your-marketing-foundation">Build Your Marketing Foundation</a></h3>
               <p>A practical course for service-based businesses that want a clearer, more dependable approach to marketing.</p>
-              <ul class="crs-meta">
-                <li>8 modules</li>
-                <li>About 3 hours</li>
-                <li>Self-paced</li>
-                <li>Includes the Marketing Foundation Map</li>
-              </ul>
+              <dl class="crs-meta">
+                <div><dt>Modules</dt><dd>8</dd></div>
+                <div><dt>Length</dt><dd>About 3 hours</dd></div>
+                <div><dt>Pace</dt><dd>Self-paced</dd></div>
+                <div><dt>Includes</dt><dd>The Marketing Foundation Map</dd></div>
+              </dl>
               <p class="crs-cta"><a class="btn btn-primary btn-arrow" href="/courses/build-your-marketing-foundation">View course</a></p>
             </div>
           </li>
