@@ -182,6 +182,41 @@ cards.
 - Loaded via preconnect + `media="print" onload` swap — never
   render-blocking. Google Fonts is the only external dependency.
 
+### Font loading — what is actually available (2026-07 audit)
+
+TWO FAMILIES, and the Google request is the contract:
+
+    Newsreader: 400, 500, 600  +  italic 400, 500, 600
+    Manrope:    400, 500, 600, 700, 800
+
+**ANY WEIGHT OUTSIDE THAT LIST IS FAUX.** The browser smears the
+nearest face and it reads subtly wrong — heavier, muddier, slightly
+wider. `.quote-foot .monogram` was set to Newsreader 700 and had been
+synthesised the whole time; it is 600 now. Before using a serif weight
+above 600 anywhere, ADD IT TO THE REQUEST IN ALL EIGHT PAGES FIRST, or
+do not use it.
+
+Verified with the real binaries loaded: every visible text node on all
+eight pages renders in Newsreader or Manrope, at
+400/500/600/700/800 sans and 400/500/600 serif plus 400/500 italic.
+
+TWO PLACES THAT SILENTLY FALL BACK, both found by audit:
+- A `<dialog>` RESETS THE UA FONT. The lightbox close and arrow buttons
+  are built in JS with no family of their own and rendered in Arial
+  until `.lb-close, .lb-nav` got `font-family: var(--font-body)`.
+  Anything else added inside `<dialog>` needs the same.
+- `<noscript>` content reports Times New Roman to a naive DOM sweep. It
+  is never painted; ignore it.
+
+TESTING NOTE: this sandbox's Chromium fetches the Google CSS but
+DOWNLOADS NO FONT FILES, so every screenshot taken with a plain page
+load is showing fallbacks — a serif that is not Newsreader and a sans
+that is not Manrope. To review type honestly, download the faces with a
+browser User-Agent (`curl -A "Mozilla/5.0"` on the css2 URL returns
+woff2 and the files fetch fine), serve them locally, and route
+`**fonts.googleapis.com**` to a rewritten stylesheet. Layout and
+spacing are unaffected either way; letterforms and weight are not.
+
 ## Shape & depth
 
 - Radius scale (minimal, 2026-07): 24px for cards, pills, and

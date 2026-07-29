@@ -1565,7 +1565,11 @@ a.bld-item .bld-item-arrow {
   display: grid;
   place-items: center;
   font-family: var(--font-display);
-  font-weight: 700;
+  /* 600, NOT 700: the Newsreader request is 400/500/600, so a 700 here
+     was faux bold — Chromium smearing the 600 face (2026-07 font
+     audit). Any serif weight outside 400/500/600 must either change or
+     be added to the Google request first. */
+  font-weight: 600;
   font-size: 0.95rem;
   flex-shrink: 0;
 }
@@ -2112,6 +2116,9 @@ a.bld-item .bld-item-arrow {
   margin-right: auto;
 }
 .lb-close, .lb-nav {
+  /* a <dialog> resets the UA font, and these buttons are built in JS
+     with no family of their own — without this they render in Arial */
+  font-family: var(--font-body);
   border: 1px solid rgba(253, 249, 245, 0.34);
   background: rgba(253, 249, 245, 0.08);
   color: var(--bg);
