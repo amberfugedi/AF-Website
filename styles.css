@@ -312,6 +312,17 @@ body.page-sub .aura { --aura-base: 0.45; }
   transition: border-color 0.3s;
 }
 .site-nav.scrolled { border-bottom-color: var(--line); background: rgba(253, 249, 245, 0.96); }
+/* With the menu open the bar and the panel are ONE surface. The bar is
+   normally 80% cream over a blur, so the page aura shows through it
+   while the panel below is solid — which is exactly the "header and
+   menu body feel like two separate designs" Amber flagged (2026-07).
+   `:has()` is already used elsewhere on the site. */
+.site-nav:has(.nav-links.open) {
+  background: var(--bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+}
 
 .nav-inner {
   display: flex;
@@ -474,13 +485,15 @@ body.page-sub .aura { --aura-base: 0.45; }
   .brand-mark { width: 19px; height: 19px; }
   .nav-toggle { display: block; }
 
-  /* ---- Mobile menu: a full-height panel, left-aligned, with the
-     site's own aura behind it ----
-     Rebuilt 2026-07 (Amber: "more atmospheric, polished, and branded
-     while staying minimal and editorial"). Three changes carry it: the
-     links go LEFT and into the display serif, the primary and
-     secondary groups separate, and the CTA sits at the bottom under a
-     line of copy instead of floating after the last link. */
+  /* ---- Mobile menu ----
+     CLEAN FIRST, BRANDED SECOND (Amber, July 2026, correcting the
+     previous version: "the aura sits behind random areas instead of
+     reinforcing a focal point … a clean menu with one aura accent,
+     not an aura background with a menu placed over it").
+     The serif went — it read formal and disconnected from the rest of
+     the site — and so did the three full-screen blurred fields. What
+     is left is the body sans at 30px, tighter rows, and ONE contained
+     oval behind the closing block. */
   .nav-links {
     /* `.site-nav` carries a backdrop-filter, which makes it the
        containing block even for `position: fixed` children — so the
@@ -496,7 +509,7 @@ body.page-sub .aura { --aura-base: 0.45; }
     gap: 0;
     background: var(--bg);
     border-bottom: 0;
-    padding: 30px 24px calc(28px + env(safe-area-inset-bottom, 0px));
+    padding: 26px 42px calc(26px + env(safe-area-inset-bottom, 0px));
     overflow: hidden auto;
     overscroll-behavior: contain;
     visibility: hidden;
@@ -513,63 +526,36 @@ body.page-sub .aura { --aura-base: 0.45; }
     pointer-events: auto;
     transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
   }
+  .nav-links > li { position: relative; width: 100%; text-align: left; }
 
-  /* AMBIENT COLOUR, NOT A GRAPHIC. Two very soft blurred fields, the
-     same palette the page aura uses, at a fraction of its strength.
-     No neon, no glowing outlines, nothing animated — the menu is a
-     surface you read, not a light show. */
-  .nav-links::before,
-  .nav-links::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-    filter: blur(50px);
-  }
-  .nav-links::before {
-    top: -18%; right: -30%;
-    width: 84vw; height: 84vw;
-    background: radial-gradient(circle at 50% 46%,
-      rgba(248, 190, 116, 0.38), rgba(252, 228, 196, 0) 64%);
-  }
-  .nav-links::after {
-    bottom: 4%; left: -36%;
-    width: 92vw; height: 92vw;
-    background: radial-gradient(circle at 50% 50%,
-      rgba(172, 158, 232, 0.34), rgba(218, 212, 245, 0) 64%);
-  }
-  .nav-links > li { position: relative; z-index: 1; width: 100%; text-align: left; }
-
-  /* PRIMARY: display serif, left-aligned, generous */
+  /* PRIMARY: the site's own sans, 30px, medium, close together */
   .nav-links > li > a {
     display: block;
-    padding: 13px 12px 13px 0;
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--ink);
+    padding: 7px 0;
+    font-family: var(--font-body);
+    font-size: 1.875rem;
+    font-weight: 500;
+    line-height: 1.16;
+    letter-spacing: -0.015em;
+    color: var(--body);
     background-image: none;
+    transition: color 0.2s var(--ease);
   }
   .nav-links > li > a:hover { color: var(--coral-deep); }
-
-  /* the current page gets a soft halo, not a border or a bar */
+  /* current page: ink, heavier, and the same short coral underline the
+     desktop nav uses. NO glow — the one aura moment is at the bottom. */
   .nav-links > li > a[aria-current="page"] {
     color: var(--ink);
-    font-weight: 500;
-    background-image: radial-gradient(ellipse at 12% 50%,
-      rgba(232, 132, 107, 0.16), rgba(232, 132, 107, 0) 62%);
+    font-weight: 600;
+    background-image: linear-gradient(var(--coral), var(--coral));
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: -12px 0;
+    background-size: 28px 2px;
+    background-position: 0 calc(100% - 5px);
   }
 
   /* SHOP FLATTENS. One item behind a disclosure is a click for nothing
      on a phone, so the button goes and Courses becomes an ordinary
-     item (Amber, July 2026). The dropdown stays on desktop, where it
-     has room to grow. */
+     item. The dropdown stays on desktop, where it has room to grow. */
   .nav-drop { display: block; }
   .nav-drop-btn { display: none; }
   .nav-drop-menu {
@@ -583,70 +569,91 @@ body.page-sub .aura { --aura-base: 0.45; }
   .nav-drop-menu::before { content: none; }
   .nav-links .nav-drop-menu a {
     display: block;
-    padding: 13px 12px 13px 0;
+    padding: 7px 0;
     border-radius: 0;
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.875rem;
+    font-weight: 500;
+    line-height: 1.16;
+    letter-spacing: -0.015em;
+    color: var(--body);
+    transition: color 0.2s var(--ease);
   }
   .nav-links .nav-drop-menu a:hover { background: none; color: var(--coral-deep); }
   .nav-links .nav-drop-menu a[aria-current="page"] {
-    color: var(--ink); font-weight: 500;
-    background-image: radial-gradient(ellipse at 12% 50%,
-      rgba(232, 132, 107, 0.16), rgba(232, 132, 107, 0) 62%);
-    background-repeat: no-repeat; background-size: 100% 100%; background-position: -12px 0;
+    color: var(--ink);
+    font-weight: 600;
+    background-image: linear-gradient(var(--coral), var(--coral));
+    background-repeat: no-repeat;
+    background-size: 28px 2px;
+    background-position: 0 calc(100% - 5px);
   }
 
-  /* SECONDARY: small, muted, on a hairline, pushed to the bottom */
+  /* the divider, and everything under it pushed to the bottom */
   .nav-secondary {
     display: block;
     margin-top: auto;
-    padding-top: 22px;
+    padding-top: 20px;
     border-top: 1px solid var(--line);
   }
   .nav-links > li.nav-secondary > a {
     display: inline-block;
-    padding: 8px 0;
+    padding: 6px 0;
     font-family: var(--font-body);
-    font-size: var(--fs-small);
-    font-weight: 600;
+    font-size: 1.0625rem;
+    font-weight: 500;
     letter-spacing: 0;
     color: var(--muted);
     background-image: none;
   }
   .nav-links > li.nav-secondary > a:hover { color: var(--coral-deep); }
 
-  /* the line of copy above the button */
-  .nav-note { display: block; margin-top: 14px; }
+  /* the line above the button, small enough not to rival the nav */
+  .nav-note { display: block; margin-top: 16px; }
   .nav-note span {
+    position: relative;
+    z-index: 1;
     font-family: var(--font-display);
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: var(--muted);
   }
-  /* the third, quietest field sits behind the closing block */
+
+  /* THE ONE AURA MOMENT: a contained oval about 210px across with a
+     visible centre, three brand hues blended in a single element, and
+     enough blur that it fades into the cream instead of edging it. It
+     sits behind the closing block, which is the focal point — nothing
+     else in the panel is tinted. */
   .nav-note::after {
     content: "";
     position: absolute;
-    left: -24%; bottom: -140%;
-    width: 78vw; height: 78vw;
+    left: -14px;
+    bottom: -66px;
+    width: 212px;
+    height: 138px;
     border-radius: 50%;
     pointer-events: none;
-    z-index: -1;
-    filter: blur(50px);
-    background: radial-gradient(circle at 50% 50%,
-      rgba(246, 158, 199, 0.3), rgba(251, 213, 228, 0) 64%);
+    /* NOT z-index:-1 — the panel paints a solid cream background and a
+       negative index puts the oval behind it, where it vanishes. It
+       sits at 0 and the text is lifted to 1 instead. */
+    z-index: 0;
+    filter: blur(30px);
+    background:
+      radial-gradient(closest-side at 34% 42%, rgba(232, 132, 107, 0.34), rgba(232, 132, 107, 0) 100%),
+      radial-gradient(closest-side at 70% 36%, rgba(172, 158, 232, 0.30), rgba(172, 158, 232, 0) 100%),
+      radial-gradient(closest-side at 52% 80%, rgba(242, 196, 110, 0.28), rgba(242, 196, 110, 0) 100%);
   }
 
+  /* lighter than the page buttons: same coral outline, less height */
   .nav-links a.nav-cta {
     display: block;
-    margin-top: 14px;
-    padding: 14px 22px;
+    position: relative;
+    z-index: 1;
+    margin-top: 12px;
+    padding: 11px 20px;
     text-align: center;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.95rem;
+    border-width: 1px;
   }
 }
 

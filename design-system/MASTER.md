@@ -542,59 +542,71 @@ thumbnails from the retired preview strip, and
 `artifact-{rjr-hero,mfcu-campaign}.webp` from the retired Expertise
 artifacts.
 
-## Mobile menu (rebuilt 2026-07)
+## Mobile menu (2026-07, second pass)
 
-Amber: "more atmospheric, polished, and branded while staying minimal
-and editorial." Three moves carry it — the links go LEFT and into the
-display serif, primary and secondary separate, and the CTA sits at the
-bottom under a line of copy instead of trailing after the last link.
+**CLEAN FIRST, BRANDED SECOND.** Amber's correction, and the sentence
+to design against: *"a clean menu with one aura accent, not an aura
+background with a menu placed over it."*
 
-A FULL-HEIGHT PANEL, not a short dropdown. `.site-nav` carries a
+WHAT THE FIRST PASS GOT WRONG, so it does not come back:
+- three full-screen blurred fields read as "a pale rainbow wash", not
+  a designed aura, and sat behind random areas with no focal point;
+- display serif links felt formal and disconnected from the rest of
+  the site;
+- everything was oversized — "a list taking over the screen";
+- Student login, the CTA note and the button all competed;
+- the bar and the panel looked like two different designs.
+
+WHAT IT IS NOW:
+- **Sans, not serif.** `--font-body` at 1.875rem (30px), weight 500,
+  7px vertical padding, 49px rows. Left-aligned, 42px side padding.
+- **Current page:** ink, weight 600, and the SAME 28px coral underline
+  the desktop nav uses. NO halo behind the link — the previous pale
+  wash under the active word is gone.
+- **ONE AURA MOMENT.** A single contained oval, 212×138px, blurred
+  30px, behind the closing block — the focal point. Three brand hues
+  blended inside one element (coral 0.34, lavender 0.30, gold 0.28
+  before blur, which lands in the 10-15% range after it). It has a
+  visible centre and fades into the cream. NOTHING ELSE IN THE PANEL
+  IS TINTED.
+  **NOT `z-index: -1`.** The panel paints a solid cream background and
+  a negative index puts the oval behind it, where it disappears. The
+  oval sits at 0 and the note and button are lifted to 1.
+- **Hierarchy at the bottom:** hairline divider, then Student login at
+  17px muted sans, then "Have something in mind?" at 0.95rem serif —
+  small enough not to rival the nav — then a lighter Let's talk (11px
+  padding, 1px border, 42px tall against the page buttons' 49px).
+- **THE BAR AND THE PANEL ARE ONE SURFACE.** The nav bar is normally
+  80% cream over a blur, so the page aura shows through it while the
+  panel below is solid — that was the "two separate designs" problem.
+  `.site-nav:has(.nav-links.open)` makes it solid cream with no blur
+  while the menu is open.
+
+STRUCTURE: a full-height panel. `.site-nav` carries a
 `backdrop-filter`, which makes it the containing block even for
 `position: fixed` children — so the panel is positioned against the
 60px BAR, not the viewport, and ITS HEIGHT HAS TO BE STATED
-(`calc(100dvh - var(--nav-h) - safe-area)`) rather than stretched with
-`bottom: 0`. That cost an hour; do not "simplify" it back.
+(`calc(100dvh - var(--nav-h) - safe-area)`). Do not "simplify" that.
 
-HIERARCHY:
-- PRIMARY — Services, Courses, How I Work, Projects, Expertise, About.
-  Display serif at 1.6rem, left-aligned, 57px rows.
-- SECONDARY — Student login, on a hairline, sans, small, muted, pushed
-  down by `margin-top: auto`.
-- CLOSING — "Have something in mind?" then the Let's talk button, 28px
-  off the bottom edge.
+SHOP FLATTENS HERE. One item behind a disclosure is a click for
+nothing on a phone, so the button is `display: none` and Courses is an
+ordinary primary item. The dropdown stays on desktop, where it has
+room to grow. The asymmetry is deliberate.
 
-AMBIENT COLOUR, NOT A GRAPHIC. Three very soft blurred radial fields
-in the page aura's own palette — soft gold top-right, lavender
-mid-left, pale blush behind the closing block — at roughly a third of
-the page aura's strength, blurred 50px, and STATIC. No neon, no glow
-around links, nothing animated: the menu is a surface you read.
-
-THE ACTIVE PAGE GETS A HALO, not a border or an underline: a low
-ellipse of coral at 0.16 behind the word, offset left. Barely
-noticeable is the brief and the point.
-
-SHOP FLATTENS ON MOBILE. One item behind a disclosure is a click for
-nothing on a phone, so the button is `display: none` and Courses
-becomes an ordinary primary item. THE DROPDOWN STAYS ON DESKTOP, where
-it has room to grow. That asymmetry is deliberate.
-
-TWO SPECIFICITY TRAPS, both hit here:
+TWO SPECIFICITY TRAPS, both hit while building this:
 - `.nav-links > li > a` (0,2,1) beats `.nav-secondary a` (0,2,0), so
-  Student login rendered at the primary serif size until the selector
-  became `.nav-links > li.nav-secondary > a`.
-- the TYPE LAYER at the bottom of the file sets `.nav-links a` to 1rem,
-  and it comes AFTER the mobile media query — so `.nav-drop-menu a`
-  lost at equal specificity and had to become
-  `.nav-links .nav-drop-menu a`.
+  Student login rendered at the primary size until the selector became
+  `.nav-links > li.nav-secondary > a`;
+- the TYPE LAYER at the bottom of the file sets `.nav-links a` to 1rem
+  and comes AFTER the mobile media query, so `.nav-drop-menu a` lost at
+  equal specificity and had to become `.nav-links .nav-drop-menu a`.
 
-THE BODY SCROLL LOCKS while the panel is open — a full-height overlay
-with the page sliding underneath is worse than the short panel it
-replaced. Escape closes the menu and returns focus to the toggle.
+The body scroll locks while the panel is open, and Escape closes it and
+returns focus to the toggle.
 
-Measured: primary 13.6:1, secondary and note 7.1:1, CTA 5.5:1, no tap
-target under 24px, no overflow at 390x844, 375x667, 360x640 or the
-760 breakpoint edge, and the CTA is on screen at every one.
+Measured: primary links 11:1, current page 13.6:1, secondary and note
+7.1:1, CTA 5.5:1, no tap target under 24px, no overflow at 390x844,
+375x667, 360x640 or the 760 breakpoint edge, CTA on screen at all four.
 
 ## Shop dropdown in the nav (2026-07)
 
