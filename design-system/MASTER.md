@@ -1402,12 +1402,57 @@ verbose prose. Two structural cuts did the real work:
   phones already sat on the seam) because the stanza now runs
   straight into a quote band and needed the 157px band seam.
 
-Result: 1,431 -> ~1,200 words, 8,468 -> ~7,300px desktop, 12
-sections -> 10. Still the longest page, and correctly so — it is
-the page that explains the work. THE PEOPLE SIDE (1,357px
-desktop, 1,771px mobile) is now the largest single block and was
-left alone: it is Amber's own briefed copy, and its height is
-five principles, not padding. Cutting it is her call.
+First pass result: 1,431 -> 1,240 words, 8,468 -> 7,416px, 12
+sections -> 10.
+
+### Consolidation to five sections (2026-07, Amber's brief)
+
+The second pass, from a full restructure brief. The page now runs
+FIVE content sections, and that count is the constraint to hold:
+
+1. **I ask a lot of questions** — copy plus the notebook. Ends on
+   `.hw-kicker`, a display-face line at h3 over a 44px coral rule.
+   That device is deliberately a grade BELOW the pull quotes so a
+   section can land on a beat without a third quote appearing.
+2. **I solve business problems, not just marketing problems** —
+   absorbed "Every project starts with the same question." ONE
+   section, TWO rows: the argument plus the routed map, then
+   `.diagnose-inline` carrying the coral question and the four
+   working documents. The documents kept their own heading until
+   this pass; they do not need one.
+3. **Strategy only matters if it gets built** — absorbed "I look
+   for ways to simplify" as a third paragraph. Its five questions
+   became `.hw-check`, a paper panel in the messaging-worksheet
+   language (printed label, italic lines, hairline under each, no
+   bullet — the ring belongs to lists, and this is a worksheet).
+   `.hw-do` went two-column, filled DOWN then across, full width
+   under the split, and lost its hairlines: two stacks of rules
+   read as noise where the rings alone read as a list.
+4. **The people side of the work** — copy above, five principles
+   in a two-column grid below, fifth spanning. Half the height,
+   same hairlines and marks. Watch the borders: in two columns
+   the top row is items 1 AND 2, so it is `:nth-child(1),
+   :nth-child(2)`, never `:first-child`. The bottom rule came off
+   entirely — the pull quote's own top hairline closes the block,
+   and two lavender rules 60px apart read as a mistake. The
+   "brighten the next rule" hover went too: source order stopped
+   being visual order, so it lit a rule across the gutter.
+5. **What clients leave with** — renamed from "Where this work
+   leads", six outcomes unchanged.
+
+Result across both passes: **1,431 -> 1,124 words (-21%), 8,468 ->
+7,102px desktop (-16%), 12 sections -> 8 (five of them content).**
+
+WHY IT DID NOT REACH 25-35% ON HEIGHT: the brief also required
+keeping every visual — the hero photograph (939px), the four
+working documents (~800px), the notebook, the map, both quote
+banners, both pull quotes, all five principles and all six
+outcomes. Those plus the site-wide 208/157px section rhythm are
+roughly 5,500px before a word of copy. Word count is where the
+cut landed; height is floored by the artwork, which is the point
+of the page. Further height needs one of: fewer documents, a
+shorter hero crop, or a tighter rhythm on this page alone (which
+would break the site-wide two-value rule — do not do it quietly).
 
 ### Quote banners vs pull-quotes (2026-07)
 
