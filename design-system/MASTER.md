@@ -161,8 +161,10 @@ cards.
   layer, which outranked its base rule. `.pa-label` and
   `.pa-panel-label` were tracking at 0.12em (1.56px vs everyone
   else's 1.04px) and were normalized to 0.08em in the same audit.
-  How I Work's `.nb-label` and `.hw-q-num` join the muted
-  annotation group; its section eyebrows stay coral-deep.
+  How I Work's `.nb-label` joins the muted annotation group; its
+  section eyebrows stay coral-deep. (`.hw-q-num` was in this group
+  until the numbered question list was retired — see the length
+  audit below.)
 - PAGE-HEAD EYEBROWS ARE RETIRED SITEWIDE (Amber, July 2026:
   "remove all eyebrows from hero's"). No page top on any page
   carries a label above its headline; the headline leads and the
@@ -1014,9 +1016,8 @@ the capability feat-stats (3.1/2.4rem), and the brand name
 h1/h1-long/h2/h2-long/h3/intro/body/small/eyebrow. Re-run the
 census (scratchpad fontaudit) before shipping type changes.
 Added July 2026 with How I Work, all on token: the notebook
-questions and outcome titles at intro, the five simplifying
-questions at h3, its prose and margin notes at body, its panel
-labels and question numbers at eyebrow. Expertise, after the calm
+questions and outcome titles at intro, its prose and margin notes
+at body, its panel labels at eyebrow. Expertise, after the calm
 rebuild, sits almost entirely on the shared scale: row and
 category titles at intro, every descriptor at body, the tools
 line and company note at small. Only two grades there are
@@ -1365,6 +1366,48 @@ six-item "especially useful when" list, and the four working documents
 full-size files they linked to are still live on Projects.
 
 ## How I Work page (2026-07, Amber's brief)
+
+### Length audit (2026-07: "the how I work page is very long")
+
+At 1,431 words and 8,468px it was the longest page on the site by
+40% and five times Expertise. Trimming sentences moved the word
+count 11% and the height 3% — the length was STRUCTURAL, not
+verbose prose. Two structural cuts did the real work:
+
+- **"Every business is different" was absorbed into "I ask a lot
+  of questions."** Its heading repeated the hero lede word for
+  word, and its paragraphs made the same argument ("I don't
+  arrive with the answer decided") that the next section makes
+  better. The merged section runs four paragraphs against the
+  five-question notebook and balances the split.
+- **The numbered `.hw-q-list` was retired.** The page carried SIX
+  list-like devices — notebook, four documents, hands-on list,
+  five principles, outcomes grid, and this. This one was the
+  weakest against Amber's test ("could another consultant have
+  written this?"): "Can this be simpler? Are we solving the right
+  problem?" is generic where the notebook's "What happens in the
+  first 48 hours after someone reaches out?" is not. Four of the
+  five questions survive inside the prose. Simplify is now a
+  short prose section — a deliberate breath between two dense
+  ones. CSS removed with it: `.hw-q-list`, `.hw-q-num`, their
+  media-query overrides, and `.hw-q-num` trimmed OUT of the
+  eyebrow-size selector list (not deleted with the line).
+- Outcomes went 8 -> 6 (Efficient workflows folded into Improved
+  processes, Confidence in what's next into Clearer priorities)
+  and the grid went 4 -> 3 columns so six fills two rows with no
+  orphan cell. "Once I am no longer in the room" was rescued from
+  the cut card into the Simplify prose.
+- The CTA band's middle paragraph went; it restated the hero.
+- `.hero-band-after` gained 44px of bottom padding (desktop only —
+  phones already sat on the seam) because the stanza now runs
+  straight into a quote band and needed the 157px band seam.
+
+Result: 1,431 -> ~1,200 words, 8,468 -> ~7,300px desktop, 12
+sections -> 10. Still the longest page, and correctly so — it is
+the page that explains the work. THE PEOPLE SIDE (1,357px
+desktop, 1,771px mobile) is now the largest single block and was
+left alone: it is Amber's own briefed copy, and its height is
+five principles, not padding. Cutting it is her call.
 
 ### Quote banners vs pull-quotes (2026-07)
 

@@ -2852,7 +2852,10 @@ footer {
 .hero-band .band { position: relative; }
 .hero-band picture { display: block; margin-left: auto; width: 73.09%; }
 .hero-band img { display: block; width: 100%; height: auto; }
-.hero-band-after { padding-top: 30px; }
+/* The stanza now runs straight into a quote band, so it carries the
+   bottom half of that seam itself: 30 + 44 + the band's 52 lands on
+   the 157px band-seam figure the rest of the site uses. */
+.hero-band-after { padding-top: 30px; padding-bottom: 44px; }
 .hero-band-after .hw-stanza { margin-top: 0; }
 
 @media (min-width: 1021px) {
@@ -2873,7 +2876,8 @@ footer {
   .hero-band { padding: 149px 0 24px; }
   .hero-band picture { width: 100%; }
   .hero-band .band-copy { padding-bottom: 26px; }
-  .hero-band-after { padding-top: 22px; }
+  /* Phones already sit on the 89px band seam without the extra pad. */
+  .hero-band-after { padding-top: 22px; padding-bottom: 0; }
 }
 
 /* ---- Every project starts with the same question ----
@@ -3134,39 +3138,16 @@ footer {
   margin: 0;
 }
 
-/* The five simplifying questions: large display lines on hairlines,
-   numbered in the eyebrow grade. Typography carries this section. */
-.hw-q-list { list-style: none; margin: 44px 0 0; padding: 0; max-width: 900px; }
-.hw-q-list li {
-  display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-  gap: 18px;
-  align-items: baseline;
-  padding: 22px 0;
-  border-top: 1px solid rgba(46, 42, 39, 0.12);
-}
-.hw-q-list li:last-child { border-bottom: 1px solid rgba(46, 42, 39, 0.12); }
-.hw-q-num {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 600;
-  color: var(--muted);
-}
-.hw-q-list p {
-  font-family: var(--font-display);
-  color: var(--ink);
-  letter-spacing: -0.015em;
-  line-height: 1.25;
-  margin: 0;
-}
-
 /* Outcomes: a hairline grid, not cards. Rules alternate coral and
-   lavender by column so the eight entries do not read as one repeated
-   component. */
+   lavender so the entries do not read as one repeated component; on
+   three columns that lands as a checkerboard rather than stripes.
+   Six on three columns fills two rows with no orphan cell — the list
+   ran to eight on four columns until July 2026, when two entries were
+   folded into the ones they repeated. */
 .lead-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 42px 36px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px 44px;
   margin-top: 52px;
 }
 .lead { padding-top: 16px; border-top: 1px solid rgba(255, 111, 97, 0.42); }
@@ -3211,8 +3192,6 @@ footer {
   .hw-quote-under { margin-top: 34px; padding-bottom: 20px; }
   .hw-notebook { padding: 22px 20px 20px; }
   .nb-list li { grid-template-columns: 26px minmax(0, 1fr); gap: 10px; padding: 13px 0; }
-  .hw-q-list { margin-top: 32px; }
-  .hw-q-list li { grid-template-columns: 44px minmax(0, 1fr); gap: 14px; padding: 18px 0; }
   .hw-note { margin-top: 26px; max-width: none; }
   .lead-grid { gap: 30px 26px; margin-top: 34px; }
   .hw-body p { margin-bottom: 16px; }
@@ -3431,11 +3410,9 @@ footer p,
 .hw-note p { line-height: 1.45; }
 .nb-list span,
 .lead h3 { font-size: var(--fs-intro); }
-.hw-q-list p { font-size: var(--fs-h3); }
 .lead p { font-size: var(--fs-small); line-height: 1.5; }
 .nb-label,
-.nb-list li::before,
-.hw-q-num { font-size: var(--fs-eyebrow); }
+.nb-list li::before { font-size: var(--fs-eyebrow); }
 .hw-quote p { font-size: clamp(1.55rem, 1.316rem + 0.96vw, 2.25rem); line-height: 1.28; }
 .hw-people-quote p { font-size: clamp(1.4rem, 1.19rem + 0.86vw, 1.95rem); line-height: 1.32; }
 .hw-principles h3 { font-size: var(--fs-intro); line-height: 1.3; }
