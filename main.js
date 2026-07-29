@@ -340,29 +340,6 @@
     lb.addEventListener("close", function () { document.documentElement.style.overflow = ""; });
   }
 
-  /* ---------- Expertise showcase: preview follows the row ----------
-     Hover OR focus, so it works from the keyboard. The panels are the
-     figures inside each row, absolutely placed into the right column
-     by CSS; this only moves the `is-on` class. With no JS the first
-     panel stays up and every link still works, and under 900px the
-     stylesheet makes all three static so nothing depends on hover. */
-  var showRows = document.querySelectorAll(".show-copy .work-strip a[data-show]");
-  if (showRows.length) {
-    var panels = document.querySelectorAll(".show-card[data-panel]");
-    var showPanel = function (key) {
-      for (var i = 0; i < panels.length; i++) {
-        panels[i].classList.toggle("is-on", panels[i].getAttribute("data-panel") === key);
-      }
-    };
-    for (var r = 0; r < showRows.length; r++) {
-      (function (row) {
-        var key = row.getAttribute("data-show");
-        row.addEventListener("mouseenter", function () { showPanel(key); });
-        row.addEventListener("focus", function () { showPanel(key); });
-      })(showRows[r]);
-    }
-  }
-
   /* ---------- Nav: scrolled state + mobile toggle ---------- */
   var nav = document.querySelector(".site-nav");
   var onScroll = function () {

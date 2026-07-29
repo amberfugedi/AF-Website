@@ -1510,28 +1510,50 @@ margin dropped 18 -> 10px so each claim sits tight to its proof link.
 The section heading is **"Where I make the biggest difference"** on
 the h2-long grade, deliberately under the h1.
 
-**SHOWCASE.** "See the expertise in action" had the same empty-right-
-half problem. Each row now owns a `.show-card` figure: absolutely
-placed into the right column on desktop, cross-fading on hover OR
-focus; static under its own row on phones, so nothing depends on
-hover. One DOM copy either way. With JS off the first card stays up
-and every link still works.
+**THE MAP, SECOND PASS.** The first version was four staggered strata
+with a winding thread through them. Amber: "it reads like four
+translucent sticky notes with a decorative path laid over them...
+refine this into one layered editorial object." What makes it read as
+one object now:
 
-- OPACITY ONLY on `.show-card`. `.reveal.in-view` sets
-  `transform: none` at higher specificity, so a transform written
-  there dies silently. This is the third time that trap has bitten.
-- **ONLY ONE OF THE THREE HAS A REAL SCREENSHOT.** Robert James
-  Restoration uses `full-rjr-home.webp`. There is no Scanoptics image
-  in the repo and none for the products and AI tools, so those two get
-  typographic plates instead of a stand-in: the published $1.3M ->
-  $2.8M figures, and Amber's own course cover from the Courses page.
-  NOTHING HERE IMITATES A CLIENT DELIVERABLE and no metric was
-  invented. If Amber sends a Scanoptics screenshot and one for the
-  tools, they drop straight into those two plates.
-- The site spells it **Scanoptics** everywhere; her brief wrote
-  "Scan-Optics". Kept the site spelling.
-- `.page-head-tight` and `.showcase` drop below the uniform 80px
-  bottom padding, on this page only, at her request.
+- a CONSTANT alternating offset (+/-7%), not four hand-picked ones
+- a CONSTANT 17px overlap, so the rhythm is even top to bottom
+- three short hairlines on a SHARED SPINE joining plane to plane —
+  they replace the winding line at a fraction of its weight
+- one warm plane and three cool ones, all at low opacity. Butter runs
+  LOWER than the others because it reads brighter at equal alpha, and
+  Strategy sitting highest AND brightest implied a hierarchy that is
+  not there
+- labels up a grade to h3 while the object shrank to 92% of its
+  column: the size mismatch was attacked from both ends
+
+NO `z-index` ON THE PLANES. They are positioned, so DOM order already
+paints later ones on top — and giving them one made each a stacking
+context, which trapped the spine ticks under the plane below and left
+only the first visible.
+
+`.head-copy h1` needs its own `margin-bottom`. The other page heads
+get that gap from the wrap's own flow; inside `.head-copy` the h1 and
+the lede butted, and the paper tab's descender ran into the first line
+of the paragraph.
+
+**THE BRIDGE TO PROJECTS: PROOF ROWS, NOT A SHOWCASE.** It was briefly
+a hover preview stage with screenshots. Amber: "it feels like a
+portfolio interaction dropped into the middle of the Expertise page...
+it needs a confident bridge from expertise to proof." Now three
+full-width rows: label, one sentence running challenge to change to
+result, a quiet published figure at the right, one coral link. No
+images, no interaction, no JS.
+
+THE THIRD ROW HAS NO FIGURE ON PURPOSE. There is no published number
+for the products and tools, and the row reads fine without one.
+Inventing a proof point to balance a grid is not a reason.
+
+Amber's brief wrote "still works a decade later"; the case study says
+nine years and the site says nine years elsewhere, so the row says
+NINE YEARS. Rounding a stated fact up in one place and not the other
+is how a site starts contradicting itself. Same reason "Scanoptics"
+stays as the site spells it rather than her brief's "Scan-Optics".
 
 ## My Approach page (renamed from How I Work, 2026-07)
 
