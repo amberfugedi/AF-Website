@@ -1,0 +1,14 @@
+@keyframes stageCrossfade {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stage-crossfade {
+  animation: stageCrossfade 350ms ease both;
+}
