@@ -1335,7 +1335,107 @@ a.bld-item .bld-item-arrow {
    height, or every sub-page headline rides ~34px higher than the home
    hero's. The measured target is the same as it always was: h1 top at
    158 desktop / 149 phone. */
-.page-head { padding: 158px 0 30px; }
+/* ============ INTERIOR HERO SYSTEM (2026-08) ============
+   ONE FRAME FOR SIX PAGES. Before this pass the interior heroes shared
+   colour and type but nothing else: Services ran 1358px tall with a
+   1072px diagram, Work ran 334px with no visual at all, and the copy
+   sat in a different place on almost every page.
+
+   The frame every interior head now shares:
+   · 76px of air beneath the nav, 80px below
+   · one h1 scale (with the documented long variant)
+   · the lede DIRECTLY under the h1, never elsewhere in the hero
+   · a two-column grid whenever a visual is present
+   · the visual inside ONE bounding area, secondary to the h1
+   · typical height 480-580, hard cap 620
+   Variant A (editorial: Expertise, Work, Services, Courses) splits
+   48/52. Variant B (portrait: My Approach, About) splits 44/56. The
+   only difference between them is that ratio. */
+.page-head { padding: calc(var(--nav-h) + 76px) 0 80px; }
+
+/* RESTORED 2026-08. This whole block was deleted by accident in the
+   "Quiet the Expertise map" commit: a scripted range-replace computed
+   its end position with a loose search and swallowed the Services head
+   along with it. Services then rendered its 480x272 diagram at the
+   full 1072px container width, with the phone drawing showing beneath
+   it, and the head ran 1358px tall. If that hero ever looks enormous
+   again, check that these selectors still exist. */
+/* ---- Services head: copy left, marketing-system diagram right ----
+   The art is wide and short (480x272) so the row height stays driven
+   by the copy. TWO TRAPS, both learned the hard way: `.reveal.in-view`
+   sets `opacity: 1` and `transform: none` at higher specificity than
+   `.head-art`, so BOTH the fade-back and the nudge have to ride the
+   inner svg or they silently do nothing. */
+.head-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 34vw, 400px);
+  gap: 40px;
+  /* copy starts at the top so its h1 lands on the same line as every
+     other page's; only the art centres against the row */
+  align-items: start;
+}
+.head-grid .head-art { align-self: center; }
+.head-art .glyph { width: 100%; height: auto; margin-bottom: 0; opacity: 0.92; }
+/* One rule drives every draw-in; per-element timing rides --d/--fd.
+   Reuses the existing stroke draw-on — no new motion device. */
+.reveal.in-view .head-art .stroke { animation-duration: 1.5s; animation-delay: var(--d, 0s); }
+.reveal.in-view .head-art .fill { animation-delay: var(--fd, 0.6s); }
+/* The composition runs past the wrap into the gutter so a node and a
+   line dissolve off the page edge; the head clips the overflow. */
+.page-head-art { overflow: hidden; }
+@media (min-width: 1021px) {
+  .head-art .glyph { transform: translateX(clamp(0px, (100vw - 1060px) / 6, 58px)); }
+}
+@media (min-width: 1180px) {
+  .head-art { width: calc(100% + 68px); max-width: none; margin-right: -68px; }
+}
+/* Tablet: same composition, smaller and quieter. */
+@media (max-width: 1020px) {
+  .head-grid { grid-template-columns: minmax(0, 1fr) 280px; gap: 28px; }
+  .head-art .glyph { opacity: 0.68; }
+}
+/* Phone runs its OWN drawing (.sys-art-sm), not a scaled-down desktop
+   (Amber): landscape band, three discs, four connectors, one dot, and
+   half-strength so the highlighted headline stays the focal point. */
+.sys-art-sm { display: none; }
+@media (max-width: 760px) {
+  .head-grid { grid-template-columns: 1fr; gap: 10px; }
+  .head-art { max-width: none; }
+  .sys-art-lg { display: none; }
+  .head-art .sys-art-sm { display: block; opacity: 0.55; transform: none; margin: 0; }
+  .page-head-art { padding-bottom: 16px; }
+}
+
+
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 48fr) minmax(0, 52fr);
+  gap: clamp(32px, 4vw, 72px);
+  align-items: center;
+}
+.hero-split-portrait { grid-template-columns: minmax(0, 44fr) minmax(0, 56fr); }
+/* The copy block: h1 and lede together, top-aligned against the row so
+   every hero's headline starts on the same line. */
+.hero-split .head-copy { align-self: center; }
+.hero-split .head-copy h1 { margin-bottom: 20px; }
+.hero-split .head-copy .section-lede { margin-bottom: 0; max-width: 46ch; }
+/* THE BOUNDING AREA. Every hero visual lives inside this, so no page
+   gets a bigger footprint than another. */
+.hero-visual {
+  align-self: center;
+  width: 100%;
+  max-width: 560px;
+  margin-left: auto;
+}
+.hero-visual > * { max-height: 336px; }
+
+@media (max-width: 900px) {
+  .page-head { padding: calc(var(--nav-h) + 40px) 0 44px; }
+  .hero-split,
+  .hero-split-portrait { grid-template-columns: 1fr; gap: 26px; }
+  .hero-visual { max-width: none; margin-left: 0; }
+  .hero-visual > * { max-height: 300px; }
+}
 
 /* ---- Expertise head: copy left, layered expertise map right ----
    56/44. The copy starts at the top so its h1 lands on the same line as
@@ -3717,7 +3817,7 @@ footer p,
    and page heads start at the same height as the home hero */
 @media (max-width: 760px) {
   .cta-band-wrap { padding: 48px 0 64px; }
-  .page-head { padding: 149px 0 24px; }
+  .page-head { padding: calc(var(--nav-h) + 34px) 0 36px; }
 }
 
 /* Portrait accents: one small blob photo at the home about teaser
