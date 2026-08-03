@@ -1395,6 +1395,45 @@ six-item "especially useful when" list, and the four working documents
 `artifact-mfcu-campaign.webp` remain in the repo, orphaned; the
 full-size files they linked to are still live on Projects.
 
+## Interior hero system (2026-08)
+
+SIX PAGES, ONE FRAME, TWO VARIANTS. Before this pass the interior heads
+shared colour and type and nothing else. Measured at 1440 beforehand:
+Services 1358px, My Approach 575, Expertise 426, Courses 386, About
+357, Work 334 — and three of the six had no visual at all.
+
+**FIRST, THE BUG.** Services was not designed badly, it was broken. The
+"Quiet the Expertise map" commit deleted the whole Services head block
+with a loose scripted range-replace: `.head-grid`, `.head-art`,
+`.page-head-art`, `.sys-art-sm/-lg`. Unconstrained, its 480x272 diagram
+rendered at the full 1072px container width WITH the phone drawing
+underneath. Restored, the head is 506px. A comment sits above the block
+so the symptom is recognisable. LESSON: never compute a replace range
+with `s.index("\n\n", ...)`. Anchor on exact text at both ends.
+
+**The frame.** `.page-head` gives 76px beneath the nav and 80px below.
+`.hero-split` is 48/52 (editorial: Expertise, Work, Services, Courses);
+`.hero-split-portrait` is 44/56 (portrait: My Approach, About). The
+only difference between the variants is that ratio. `.hero-visual` is
+one bounding area, max 560 wide and 336 tall, so no page's visual
+outgrows another's.
+
+**Heights after (1440 / 390):** Work 542/599, Courses 503/640,
+Services 506/526, My Approach 448/637, Expertise 432/630, About
+621/691. Every H1 starts at 184px on every page.
+
+**Traps hit on the way:**
+- An `<img>` `height` attribute is a presentational hint and BEATS
+  `aspect-ratio`, silently. `.work-pair img` rendered 555px tall until
+  `height: auto` went on. Any hero image sized by aspect-ratio needs it.
+- About carries the longest headline on the site and Variant B gives
+  the copy 44%. At the shared h1-long grade it wrapped to six lines and
+  pushed the head to 707px. It takes one grade down, on that page only,
+  and another step at 560 where the portrait also drops to 190px.
+- My Approach keeps its OWN `.hero-band .band` grid rather than
+  `.hero-split`. It is already 40/60 with the lede under the h1, and
+  layering the shared grid on top of it moved the h1 160px right.
+
 ## Footer (2026-07: "the footer needs more structure")
 
 It was one flat row of seven links, which gave every destination the

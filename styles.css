@@ -1437,6 +1437,63 @@ a.bld-item .bld-item-arrow {
   .hero-visual > * { max-height: 300px; }
 }
 
+/* Work: two cropped builds, overlapped. Two, not a grid — the hero
+   states the range and the page below does the showing. */
+.work-pair { position: relative; padding-bottom: 42px; }
+.work-pair img {
+  width: 78%;
+  /* height:auto or the HTML height attribute wins as a presentational
+     hint and aspect-ratio is ignored entirely. */
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid rgba(46, 42, 39, 0.12);
+  border-radius: 6px;
+  background: #FFFDFA;
+}
+.work-pair img:last-child {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 62%;
+  rotate: -1.4deg;
+}
+
+/* Courses: the cover at hero scale, not the sales card. */
+.crs-thumb-hero { width: 100%; max-width: 380px; margin-left: auto; }
+
+/* About: the portrait moved out of its own section and into the head
+   (Amber, 2026-08). It keeps the oval crop and the outline, at a
+   smaller scale and cropped to the upper body. */
+.hero-visual.about-shot { max-width: 312px; }
+/* About carries the longest headline on the site, and Variant B gives
+   the copy only 44% to hold it. Left at the shared h1-long grade it
+   wrapped to six lines and pushed the head to 707px, past the 620 cap.
+   One grade down here, and only here. */
+.hero-split-portrait .head-copy h1.h1-long {
+  font-size: clamp(2rem, 1.72rem + 1.16vw, 2.75rem);
+  line-height: 1.14;
+}
+.hero-visual .about-portrait { width: 100%; }
+.hero-visual .about-portrait img { object-position: 50% 22%; }
+.hero-visual > .about-portrait,
+.hero-visual.about-shot > * { max-height: none; }
+
+@media (max-width: 900px) {
+  .work-pair img { width: 72%; }
+  .work-pair img:last-child { width: 56%; }
+  .crs-thumb-hero { margin-left: 0; }
+  .hero-visual.about-shot { max-width: 240px; }
+}
+@media (max-width: 560px) {
+  /* About stacks the longest headline on the site above a portrait and
+     ran 809px on a phone, past the 760 cap. The portrait gives way
+     first — the face still reads at 190px. */
+  .hero-visual.about-shot { max-width: 190px; }
+  .hero-split-portrait .head-copy h1.h1-long { font-size: 1.75rem; }
+}
+
 /* ---- Expertise head: copy left, layered expertise map right ----
    56/44. The copy starts at the top so its h1 lands on the same line as
    every other page head; the object centres against the WHOLE copy
