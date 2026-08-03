@@ -1,0 +1,10 @@
+run = "python3 -m http.server 5000"
+entrypoint = "index.html"
+modules = ["python-3.11", "web"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[env]
+SITE = "amberfugedi.com"
