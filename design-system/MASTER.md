@@ -1510,32 +1510,46 @@ margin dropped 18 -> 10px so each claim sits tight to its proof link.
 The section heading is **"Where I make the biggest difference"** on
 the h2-long grade, deliberately under the h1.
 
-**THE MAP, SECOND PASS.** The first version was four staggered strata
-with a winding thread through them. Amber: "it reads like four
-translucent sticky notes with a decorative path laid over them...
-refine this into one layered editorial object." What makes it read as
-one object now:
+**THE MAP, THIRD PASS — one compact object.** Pass one was four
+staggered strata with a winding thread; pass two tightened them into
+one object; pass three shrank them. Amber on pass two: the full-width
+bands "feel like a decorative list and repeat the content shown
+immediately below". The strips are now sized to their OWN CONTENT
+(`width: max-content`), stepped on a constant 26px offset and
+overlapping by 10px. No spine, no thread, no icons — the overlap is
+the whole idea, and nothing extends far past its text.
 
-- a CONSTANT alternating offset (+/-7%), not four hand-picked ones
-- a CONSTANT 17px overlap, so the rhythm is even top to bottom
-- three short hairlines on a SHARED SPINE joining plane to plane —
-  they replace the winding line at a fraction of its weight
-- one warm plane and three cool ones, all at low opacity. Butter runs
-  LOWER than the others because it reads brighter at equal alpha, and
-  Strategy sitting highest AND brightest implied a hierarchy that is
-  not there
-- labels up a grade to h3 while the object shrank to 92% of its
-  column: the size mismatch was attacked from both ends
+- 56/44 split, object centred against the WHOLE copy block.
+- Labels down a grade to intro, notes down to eyebrow. They must read
+  clearly under the h1, which runs 36-50.
+- Butter runs LOWEST of the four fills: at equal alpha it reads
+  brightest, and the first strip must not look like the first item.
+- Under 480 the step collapses to 10px. A 78px indent on a 360px
+  screen costs more than the cascade is worth.
+- `.page-head-tight { padding-bottom: 0 }` plus `padding-top: 24px` on
+  the following section pulls it up 64px, inside the 60-90 asked for.
 
-NO `z-index` ON THE PLANES. They are positioned, so DOM order already
-paints later ones on top — and giving them one made each a stacking
-context, which trapped the spine ticks under the plane below and left
-only the first visible.
+**THE ROWS — one three-part grid.** Number and name, then the problem
+and its capabilities, then the contribution and its proof link. Every
+row identical, one neutral hairline, no cards, no stagger.
 
-`.head-copy h1` needs its own `margin-bottom`. The other page heads
-get that gap from the wrap's own flow; inside `.head-copy` the h1 and
-the lede butted, and the paper tab's descender ran into the first line
-of the paragraph.
+- **THE RINGED BULLETS ARE GONE FROM THIS PAGE.** Capabilities are
+  editorial text on centred dots now. NOTE THE TENSION: the open ring
+  is the site's one bullet language and it still holds everywhere the
+  items are a LIST (`.hw-do`, `.offer-points`). Here the four items
+  read as one line of metadata, which is why the ring left. Do not
+  "restore consistency" by putting rings back without asking.
+- The contribution is the row's focal point: display face at intro,
+  full ink, against the problem copy's body at muted.
+- The gutter came in hard. The old two-column split left the problem
+  and the contribution reading as two distant halves.
+- `.ch-title` MUST STAY AFTER the `.section-title` type block. Same
+  specificity, source order decides — and the first attempt at it was
+  silently dropped by a failed multi-line replace, which is why the
+  heading sat at 44 against an h1 of 50 and the page read as having
+  two headlines. It now lands at 34.
+- Content width was already 1120, inside the 1100-1180 asked for. No
+  change needed.
 
 **THE BRIDGE TO PROJECTS: PROOF ROWS, NOT A SHOWCASE.** It was briefly
 a hover preview stage with screenshots. Amber: "it feels like a

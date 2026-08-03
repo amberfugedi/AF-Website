@@ -1338,130 +1338,83 @@ a.bld-item .bld-item-arrow {
 .page-head { padding: 158px 0 30px; }
 
 /* ---- Expertise head: copy left, layered expertise map right ----
-   55/45 with a controlled gutter. The copy starts at the top so its h1
-   lands on the same line as every other page head; the object centres
-   against the row and breaks the column on both edges so the hero
-   reads composed rather than boxed.
+   56/44. The copy starts at the top so its h1 lands on the same line as
+   every other page head; the object centres against the WHOLE copy
+   block, headline and paragraph together.
 
-   ONE LAYERED OBJECT, NOT FOUR STRIPS (Amber, July 2026: the first
-   version "reads like four translucent sticky notes with a decorative
-   path laid over them"). What makes it read as one thing:
-
-   · a CONSTANT alternating offset, not four hand-picked ones
-   · a CONSTANT overlap, so the rhythm is even top to bottom
-   · three short hairlines on a SHARED SPINE joining plane to plane
-   · one warm accent and two cool ones, all at low opacity, so no
-     plane is brighter than its neighbours and none reads as first
-
-   The planes are CSS: a soft gradient, a torn clip-path, NO outline.
-   An outlined rounded rectangle is a card whatever you put in it, and
-   cards are what this replaced. The winding line that used to run
-   through them is gone; it carried more visual weight than meaning. */
+   ONE COMPACT OBJECT (Amber, July 2026). The previous version ran four
+   full-width bands, which "feel like a decorative list and repeat the
+   content shown immediately below". These are strips sized to their own
+   content, stepped on a constant 26px offset and overlapping by 10px —
+   a stack of paper, not four rectangles floating in a column. No
+   spine, no thread, no icons: the overlap is the whole idea. */
 .head-split {
   display: grid;
-  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
-  gap: clamp(32px, 4.5vw, 76px);
-  align-items: start;
+  grid-template-columns: minmax(0, 56fr) minmax(0, 44fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
 }
-.head-split .xmap { align-self: center; }
-/* The page's other heads get this gap from the wrap's own flow; inside
-   .head-copy the h1 and the lede were butting, and the paper tab's
-   descender ran into the first line of the paragraph. */
 .head-copy h1 { margin-bottom: 20px; }
+.head-split .head-copy { align-self: center; }
 
-/* The object sits a little inside its column: the labels needed to
-   grow relative to the planes, and shrinking the planes was quieter
-   than enlarging the type twice. */
-.xmap { position: relative; width: 92%; margin-left: auto; }
-.xmap-list { list-style: none; margin: 0; padding: 0; }
+.xmap-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .xmap-list li {
   position: relative;
+  width: max-content;
+  max-width: 100%;
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr);
-  align-content: center;
-  gap: 2px 14px;
-  padding: 17px 24px 18px 20px;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 1px 12px;
+  padding: 13px 26px 14px 18px;
   background: var(--plane);
-  clip-path: var(--torn);
 }
 .xmap-list .xm-num { grid-row: span 2; align-self: center; }
-/* Constant overlap, later planes on top, so the stack darkens
-   downward the way stacked paper does. */
-.xmap-list li + li { margin-top: -17px; }
-/* NO z-index on the planes. They are positioned, so DOM order already
-   paints later ones on top — and giving them one made each a stacking
-   context, which trapped the spine ticks underneath the plane below
-   and left only the first one visible. */
-.xmap-list li:nth-child(1) { margin-right: -7%; }
-.xmap-list li:nth-child(2) { margin-left: -7%; }
-.xmap-list li:nth-child(3) { margin-right: -7%; }
-.xmap-list li:nth-child(4) { margin-left: -7%; }
+.xmap-list li + li { margin-top: -10px; }
+/* A constant step, so the cascade reads as one deliberate object. */
+.xmap-list li:nth-child(1) { margin-left: 0; }
+.xmap-list li:nth-child(2) { margin-left: 26px; }
+.xmap-list li:nth-child(3) { margin-left: 52px; }
+.xmap-list li:nth-child(4) { margin-left: 78px; }
+/* Very subtle butter, blush and lavender. Butter runs lowest: at equal
+   alpha it reads brightest, and the first strip must not look first. */
+.xmap-list li:nth-child(1) { --plane: linear-gradient(102deg, rgba(242, 169, 59, 0.13), rgba(242, 169, 59, 0.05)); }
+.xmap-list li:nth-child(2) { --plane: linear-gradient(98deg, rgba(251, 213, 228, 0.5), rgba(251, 213, 228, 0.2)); }
+.xmap-list li:nth-child(3) { --plane: linear-gradient(104deg, rgba(150, 138, 214, 0.18), rgba(150, 138, 214, 0.07)); }
+.xmap-list li:nth-child(4) { --plane: linear-gradient(96deg, rgba(198, 178, 216, 0.26), rgba(198, 178, 216, 0.09)); }
 
-/* One warm plane and three cool ones, all low. Butter runs lower than
-   the others because it reads brighter at equal alpha, and Strategy
-   sitting highest AND brightest implied a hierarchy that is not
-   there. */
-.xmap-list li:nth-child(1) {
-  --plane: linear-gradient(102deg, rgba(242, 169, 59, 0.11), rgba(242, 169, 59, 0.035));
-  --torn: polygon(0% 7%, 36% 2%, 72% 6%, 100% 0%, 99.3% 92%, 62% 99%, 28% 94%, 0.7% 100%);
-}
-.xmap-list li:nth-child(2) {
-  --plane: linear-gradient(98deg, rgba(251, 213, 228, 0.44), rgba(251, 213, 228, 0.14));
-  --torn: polygon(0.7% 2%, 42% 7%, 100% 2%, 99.4% 96%, 58% 100%, 20% 95%, 0% 99%);
-}
-.xmap-list li:nth-child(3) {
-  --plane: linear-gradient(104deg, rgba(150, 138, 214, 0.15), rgba(150, 138, 214, 0.045));
-  --torn: polygon(0% 6%, 46% 0%, 100% 5%, 99.3% 96%, 56% 100%, 22% 95%, 0.6% 99%);
-}
-.xmap-list li:nth-child(4) {
-  --plane: linear-gradient(96deg, rgba(198, 178, 216, 0.24), rgba(198, 178, 216, 0.07));
-  --torn: polygon(0.6% 3%, 32% 0%, 78% 5%, 100% 1%, 99% 97%, 46% 100%, 14% 95%, 0% 99%);
-}
-
-/* The spine: three short hairlines on ONE x, crossing each seam. They
-   are what turns four planes into one object, and they replace the
-   winding line at a fraction of its weight. */
-.xmap-list li:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  left: 44px;
-  bottom: -9px;
-  width: 1px;
-  height: 19px;
-  background: rgba(84, 76, 112, 0.34);
-  z-index: 5;
-}
-.xmap-list li:nth-child(2)::after { left: calc(44px + 7%); }
-
-.xm-num {
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  opacity: 0.72;
-}
-.xm-name {
-  /* 500, not 600: at semibold in full ink these four words started
-     reading as a second headline beside the h1. */
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: -0.008em;
-}
+.xm-num { font-weight: 600; letter-spacing: 0.08em; color: var(--muted); opacity: 0.7; }
+.xm-name { font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
 .xm-note { color: var(--muted); grid-column: 2; }
 
+/* Pull the first section up: the head was leaving a large empty
+   lavender field under the paragraph (Amber, July 2026). 8 + 56 = 64px
+   off, inside the 60-90 she asked for. */
+.page-head-tight { padding-bottom: 0; }
+.page-head-tight + section { padding-top: 24px; }
+
 @media (max-width: 900px) {
-  /* One column. The object keeps its overlap, its spine and its
-     alternation; only the bleed comes in so nothing runs off a phone. */
-  .head-split { grid-template-columns: 1fr; gap: 28px; }
+  .head-split { grid-template-columns: 1fr; gap: 26px; }
   .head-split .xmap { align-self: start; }
-  .xmap { width: 100%; }
-  .xmap-list li { padding: 15px 20px 16px 18px; }
-  .xmap-list li + li { margin-top: -13px; }
-  .xmap-list li:nth-child(1) { margin-right: -3%; }
-  .xmap-list li:nth-child(2) { margin-left: -3%; }
-  .xmap-list li:nth-child(3) { margin-right: -3%; }
-  .xmap-list li:nth-child(4) { margin-left: -3%; }
-  .xmap-list li:not(:last-child)::after { left: 38px; bottom: -7px; height: 15px; }
-  .xmap-list li:nth-child(2)::after { left: calc(38px + 3%); }
+  .xmap-list li { padding: 12px 22px 13px 16px; }
+  .xmap-list li:nth-child(2) { margin-left: 18px; }
+  .xmap-list li:nth-child(3) { margin-left: 36px; }
+  .xmap-list li:nth-child(4) { margin-left: 54px; }
+  .page-head-tight + section { padding-top: 20px; }
+}
+@media (max-width: 480px) {
+  /* The step has to give way before the strips do — a 54px indent on a
+     360px screen costs more than the cascade is worth. */
+  .xmap-list li:nth-child(2) { margin-left: 10px; }
+  .xmap-list li:nth-child(3) { margin-left: 20px; }
+  .xmap-list li:nth-child(4) { margin-left: 30px; }
 }
 
 .band-white {
@@ -1996,69 +1949,42 @@ a.bld-item .bld-item-arrow {
    logo strip, two outcome-led artifacts, a four-across results row, a
    six-item "especially useful when" list, and the four working
    documents — those moved to How I Work, where they belong. --- */
-.chapters { margin-top: 44px; }
-.ch { border-top: 2px solid var(--line); padding: 50px 0 54px; }
-.ch:last-child { border-bottom: 2px solid var(--line); }
-/* THE COLOUR-CODED RULES ARE GONE (Amber, July 2026: "the Expertise
-   rows should not introduce a new strong colour-coding system that
-   competes with these established roles"). They used to run gold,
-   magenta, violet and coral at 46-62% — four saturated horizontal
-   bars that read as the loudest thing on the page and put coral,
-   which means INTERACTION everywhere else on this site, on a
-   decorative divider. All five rules now share one softly tinted
-   lavender-neutral: structure, not decoration.
-
-   The per-category accent survives in ONE place, the 12px capability
-   markers, muted well below their old strength. Quiet editorial
-   detail, not a rainbow-coded index. Nothing else in the row takes a
-   category colour: headings and copy are charcoal, every project link
-   is coral, gold is spent only on the paper tab in the headline. */
-.ch,
-.ch:last-child { border-color: rgba(84, 76, 112, 0.22); }
-.ch:nth-child(1) .ch-list li::before { background: rgba(242, 169, 59, 0.26); border-color: rgba(158, 118, 44, 0.8); }
-.ch:nth-child(2) .ch-list li::before { background: rgba(251, 213, 228, 0.8);  border-color: rgba(190, 108, 132, 0.82); }
-.ch:nth-child(3) .ch-list li::before { background: rgba(150, 138, 214, 0.24); border-color: rgba(108, 96, 168, 0.78); }
-.ch:nth-child(4) .ch-list li::before { background: rgba(206, 158, 160, 0.34); border-color: rgba(164, 108, 114, 0.82); }
-/* THE STAGGER IS GONE (Amber, July 2026: "remove the alternating
-   indentation from the Digital and Leadership rows"). Chapters two and
-   four used to step right by 7% and 14%; all four now share one left
-   edge and one grid. */
+.chapters { margin-top: 34px; }
+/* THREE-PART ROW (Amber, July 2026): number and name, then the problem
+   and its capabilities, then the contribution and its proof link. Every
+   row identical — no stagger, no cards, one neutral hairline. The
+   gutter came in hard: the old two-column split left the problem and
+   the contribution reading as two distant halves. */
+.ch {
+  display: grid;
+  grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.28fr) minmax(0, 1.1fr);
+  gap: clamp(20px, 2.6vw, 40px);
+  align-items: start;
+  border-top: 1px solid rgba(84, 76, 112, 0.22);
+  padding: 34px 0 36px;
+}
+.ch:last-child { border-bottom: 1px solid rgba(84, 76, 112, 0.22); }
+.ch-id { display: flex; align-items: baseline; gap: 12px; }
+.ch-num { font-weight: 600; letter-spacing: 0.08em; color: var(--muted); opacity: 0.7; }
 .ch-word {
   font-family: var(--font-display);
   font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.035em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 32px;
+  margin: 0;
 }
-.ch-body {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.84fr);
-  gap: clamp(30px, 4.5vw, 68px);
-  align-items: start;
-}
-.ch-for { color: var(--muted); max-width: 46ch; margin-bottom: 20px; }
-/* capabilities run inline on the site's one bullet language — a short
-   coral rule, shared with the How I Work hands-on list */
-.ch-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 28px; }
-.ch-list li { position: relative; padding-left: 24px; color: var(--body); }
-.ch-list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0.24em;
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 111, 97, 0.28);
-  border: 2px solid var(--coral-deep);
-  box-sizing: border-box;
-}
+.ch-for { color: var(--muted); margin-bottom: 10px; }
+/* Capabilities are editorial text now, not a ringed list. The rings
+   stay the site's bullet language everywhere they are still a LIST;
+   here the four items read as one line of metadata. */
+.ch-caps { color: var(--body); margin-bottom: 0; }
+/* The contribution is the focal point of the row: display face, a
+   grade up from the problem copy, full ink against its muted. */
 .ch-line {
   font-family: var(--font-display);
   color: var(--ink);
   letter-spacing: -0.015em;
-  max-width: 22em;
-  /* tight to the link under it so the claim and its proof read as one
-     unit rather than two stacked lines */
   margin-bottom: 10px;
 }
 .ch-link { margin-bottom: 0; }
@@ -2222,21 +2148,18 @@ a.bld-item .bld-item-arrow {
 
 @media (max-width: 1020px) {
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
-  .ch { padding: 40px 0 44px; }
-  .ch-body { grid-template-columns: 1fr; gap: 24px; }
-  .ch-line { max-width: none; }
+  .ch { grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr); gap: 20px 30px; padding: 32px 0 34px; }
+  .ch-give { grid-column: 2; }
 }
 @media (max-width: 760px) {
   /* One idea per screen: everything stacks left-aligned, nothing
      staggers, and no section carries two columns of text. */
   /* the stagger goes: at 390px an indent reads as a broken margin */
-  .chapters { margin-top: 26px; }
-  .ch { padding: 32px 0 34px; }
-  .ch-word { margin-bottom: 20px; }
-  .ch-body { grid-template-columns: 1fr; gap: 22px; }
-  .ch-for { max-width: none; }
-  .ch-list { flex-direction: column; gap: 5px; }
-  .ch-line { max-width: none; }
+  /* Phones stack in reading order: number and name, problem,
+     capabilities, contribution, link. */
+  .chapters { margin-top: 24px; }
+  .ch { grid-template-columns: 1fr; gap: 14px; padding: 28px 0 30px; }
+  .ch-give { grid-column: 1; }
 
   .industries { margin-top: 24px; padding-top: 16px; }
   .plat-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -3619,6 +3542,12 @@ body { font-size: var(--fs-body); line-height: 1.55; }
   line-height: 1.09;
   letter-spacing: -0.02em;
 }
+/* A SECTION TITLE, NOT A SECOND HERO HEADLINE (Amber, July 2026). The
+   Expertise h1 runs 36-50 and the standard h2 grade sat at 44, only
+   6px under it — which is why the page read as having two headlines.
+   MUST STAY AFTER the block above: same specificity, source order
+   decides. */
+.ch-title { font-size: clamp(1.75rem, 1.55rem + 0.7vw, 2.125rem); line-height: 1.15; }
 /* Long conversational headlines (10+ words) step down one grade so
    they read as sentences, not walls — same pattern as .h1-long. */
 .h2-long { font-size: clamp(1.625rem, 1.346rem + 1.1429vw, 2.375rem); line-height: 1.18; } /* 26 -> 38, below h2 */
@@ -3694,12 +3623,13 @@ footer p,
 /* The labels grew a grade against the planes (Amber: "the labels and
    descriptors feel small compared with the size of the bands"); the
    planes shrank at the same time, from both ends of the problem. */
+/* Smaller than the last version, and clearly under the h1. */
 .xm-num { font-size: var(--fs-eyebrow); line-height: 1.4; }
-.xm-note { font-size: var(--fs-small); line-height: 1.45; }
-.xm-name { font-size: var(--fs-h3); line-height: 1.15; }
+.xm-note { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.xm-name { font-size: var(--fs-intro); line-height: 1.2; }
 .ch-word { font-size: var(--fs-h3); }
 .ch-for { font-size: var(--fs-body); line-height: 1.55; }
-.ch-list li, .industries { font-size: var(--fs-small); line-height: 1.55; }
+.ch-caps, .industries { font-size: var(--fs-small); line-height: 1.55; }
 /* Proof rows: the sentence at body, the row title on the card-title
    grade, label and figure caption at eyebrow. */
 .pr-label, .pr-proof { font-size: var(--fs-eyebrow); line-height: 1.4; }
