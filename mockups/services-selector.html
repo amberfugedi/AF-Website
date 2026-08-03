@@ -41,10 +41,12 @@ button.sel-opt { font-family: var(--font-body); background: none; border: 0; cur
 .a-opts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 clamp(24px,4vw,56px); margin-top: 28px; }
 .a-opts button { display: block; width: 100%; padding: 18px 0 18px 22px; position: relative;
   border-top: 1px solid rgba(84,76,112,.22); font-size: var(--fs-intro); line-height: 1.3; transition: color .2s; }
-.a-opts button::before { content: ""; position: absolute; left: 0; top: 22px; width: 10px; height: 2px;
-  background: rgba(84,76,112,.3); transition: background .2s, width .2s; }
+/* scaleX, not width: animating width thrashes layout. */
+.a-opts button::before { content: ""; position: absolute; left: 0; top: 22px; width: 16px; height: 2px;
+  background: rgba(84,76,112,.3); transform: scaleX(.62); transform-origin: left center;
+  transition: background .2s, transform .2s; }
 .a-opts button[aria-selected="true"] { color: var(--ink); font-weight: 600; }
-.a-opts button[aria-selected="true"]::before { background: var(--coral-deep); width: 16px; }
+.a-opts button[aria-selected="true"]::before { background: var(--coral-deep); transform: scaleX(1); }
 .a-opts button:hover { color: var(--ink); }
 
 /* ---------- B: vertical rail ---------- */
