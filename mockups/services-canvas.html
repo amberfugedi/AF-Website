@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Mockup — one working surface, four states</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.mk-bar { position: sticky; top: 0; z-index: 40; background: var(--bg); border-bottom: 1px solid var(--line); padding: 11px 0; }
+.mk-bar strong { font-family: var(--font-body); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); }
+.st-head h2 { margin-bottom: 10px; }
+.st-head p { color: var(--muted); max-width: 52ch; }
+
+.st-grid { display: grid; grid-template-columns: minmax(0, 36fr) minmax(0, 64fr);
+  gap: clamp(30px, 4.5vw, 76px); align-items: center; margin-top: clamp(32px, 4vw, 52px); }
+
+/* ---- the four choices: text only ---- */
+.st-opts { display: flex; flex-direction: column; }
+.st-opt { font-family: var(--font-body); background: none; border: 0; cursor: pointer; text-align: left;
+  padding: 16px 0 16px 22px; position: relative; color: var(--body);
+  font-size: var(--fs-intro); line-height: 1.25; transition: color .2s var(--ease);
+  border-top: 1px solid rgba(84, 76, 112, .2); }
+.st-opt:last-child { border-bottom: 1px solid rgba(84, 76, 112, .2); }
+.st-opt::before { content: ""; position: absolute; left: 0; top: 50%; margin-top: -1px;
+  width: 13px; height: 2px; background: rgba(84, 76, 112, .32);
+  transform: scaleX(.5); transform-origin: left center;
+  transition: background .22s var(--ease), transform .22s var(--ease); }
+.st-opt:hover { color: var(--ink); }
+.st-opt[aria-selected="true"] { color: var(--ink); font-weight: 600; }
+.st-opt[aria-selected="true"]::before { background: var(--coral-deep); transform: scaleX(1); }
+
+/* ---- the one working surface ---- */
+.st-canvas { width: 100%; max-width: 560px; margin: 0 auto; }
+.st-sheet { display: block; width: 100%; height: auto; background: #FFFDFA;
+  border: 1px solid rgba(46, 42, 39, .11); border-radius: 3px;
+  box-shadow: 0 22px 46px -38px rgba(46, 42, 39, .4); }
+/* the base never changes: same paper, same rules, same printed label.
+   only what is written on it does. */
+.st-state { opacity: 0; transition: opacity .34s var(--ease); }
+.st-state.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .st-state, .st-opt, .st-opt::before, .st-panel { transition: none; animation: none; }
+}
+
+/* ---- what the page says ---- */
+.st-panel { margin-top: clamp(38px, 4.5vw, 60px); padding-top: 26px; border-top: 1px solid rgba(84, 76, 112, .22); }
+.st-panel[hidden] { display: none; }
+.st-cols { display: grid; grid-template-columns: minmax(0, 62fr) minmax(0, 38fr); gap: clamp(26px, 4vw, 72px); align-items: start; }
+.st-k { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; font-size: var(--fs-eyebrow); color: var(--muted); margin: 0 0 7px; }
+.st-cols p:not(.st-k) { color: var(--body); font-size: var(--fs-body); line-height: 1.55; margin: 0 0 20px; max-width: 52ch; }
+.st-cols .st-cta { margin: 0; }
+.st-in { animation: st-in .26s var(--ease) both; }
+@keyframes st-in { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 860px) {
+  .st-grid { grid-template-columns: 1fr; gap: 26px; }
+  .st-canvas { max-width: none; }
+  .st-cols { grid-template-columns: 1fr; gap: 22px; }
+  .st-cols p:not(.st-k) { max-width: none; }
+}
+</style>
+</head>
+<body class="page-sub">
+<div class="aura" aria-hidden="true"><span class="aura-blob aura-blob-1"></span><span class="aura-blob aura-blob-2"></span><span class="aura-blob aura-blob-3"></span></div>
+<div class="mk-bar"><div class="wrap"><strong>Mockup · not linked from the site</strong></div></div>
+
+<main><section><div class="wrap">
+  <div class="st-head">
+    <h2 class="section-title">Choose your starting point</h2>
+    <p>Different businesses need different kinds of help. Start with the situation that feels closest.</p>
+  </div>
+
+  <div class="st-grid">
+    <div class="st-opts" role="tablist" aria-label="Starting points"></div>
+
+    <div class="st-canvas">
+      <svg class="st-sheet" viewBox="0 0 420 300" fill="none" stroke-linecap="round" role="img" aria-live="polite" aria-label="A working page that changes with the selected situation">
+        <!-- THE BASE. Identical in every state: same sheet, same margin
+             rule, same printed heading, same four faint lines. -->
+        <text x="34" y="40" fill="#8A827A" font-family="Manrope, system-ui, sans-serif" font-size="9" letter-spacing="1.4">THE PLAN</text>
+        <path d="M34 52 Q210 50.4 388 52.4" stroke="#3A3531" stroke-width="1" opacity="0.38"/>
+        <path d="M62 24 Q60 160 62 278" stroke="#3A3531" stroke-width="0.9" opacity="0.16"/>
+        <g stroke="#3A3531" stroke-width="0.9" opacity="0.2">
+          <path d="M76 92 Q220 90.6 386 92.4"/>
+          <path d="M76 124 Q200 122.7 344 124.5"/>
+          <path d="M76 156 Q230 154.6 388 156.4"/>
+          <path d="M76 188 Q190 186.8 316 188.6"/>
+        </g>
+
+        <!-- 01 blank -->
+        <g class="st-state on" data-state="0">
+          <text x="76" y="238" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="19">Where do we even start?</text>
+          <path d="M72 250 Q160 246 262 251" stroke="#B8354A" stroke-width="1.4"/>
+        </g>
+
+        <!-- 02 one page carrying everything -->
+        <g class="st-state" data-state="1">
+          <g fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
+            <text x="76" y="88">Website</text><text x="212" y="84">Emails</text><text x="316" y="90">Social</text>
+            <text x="76" y="120">Follow up</text><text x="212" y="124">Newsletter</text>
+            <text x="76" y="152">Fix this</text><text x="196" y="156">Reporting</text><text x="316" y="150">Deck</text>
+            <text x="76" y="184">Ads</text><text x="160" y="188">SEO</text><text x="252" y="182">Launch</text>
+          </g>
+          <g stroke="#3A3531" stroke-width="1" opacity="0.42">
+            <path d="M74 114 Q108 112 142 114.6"/><path d="M74 146 Q100 144 128 146.6"/>
+          </g>
+          <g stroke="#B8354A" stroke-width="1.4">
+            <path d="M72 178 Q104 175.6 138 178.8"/>
+            <path d="M366 106 Q392 168, 342 224"/><path d="M342 224 L354 219 M342 224 L353 230"/>
+          </g>
+          <text x="256" y="248" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17">all mine</text>
+        </g>
+
+        <!-- 03 the same plan, annotated from two directions -->
+        <g class="st-state" data-state="2">
+          <g fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
+            <text x="76" y="88">Campaign launch</text><text x="76" y="120">Pricing page</text><text x="76" y="152">Sales enablement</text>
+          </g>
+          <g fill="#8A827A" font-family="Manrope, system-ui, sans-serif" font-size="8.5" letter-spacing="1.1">
+            <text x="262" y="76">MARKETING</text><text x="262" y="140">SALES</text>
+          </g>
+          <g stroke="#B8354A" stroke-width="1.4">
+            <path d="M258 86 Q226 92 200 86"/><path d="M200 86 L210 83 M200 86 L209 90"/>
+            <path d="M258 150 Q226 144 200 150"/><path d="M200 150 L210 147 M200 150 L209 154"/>
+          </g>
+          <g fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
+            <text x="266" y="92">Launch now</text><text x="266" y="156">Wait for us</text>
+          </g>
+          <text x="76" y="240" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="18">Who owns this?</text>
+          <path d="M72 252 Q140 248 210 253" stroke="#B8354A" stroke-width="1.4"/>
+        </g>
+
+        <!-- 04 the same page, worked through -->
+        <g class="st-state" data-state="3">
+          <g fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
+            <text x="76" y="88">Where the team is stuck</text><text x="76" y="120">What I keep deferring</text><text x="76" y="152">The call I have to make</text>
+          </g>
+          <g stroke="#B8354A" stroke-width="1.4">
+            <path d="M40 80 Q36 124 40 168"/>
+            <path d="M300 116 Q330 118 358 114"/><path d="M358 114 L349 111 M358 114 L350 118"/>
+          </g>
+          <text x="76" y="240" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="18">Talk this through with me.</text>
+          <path d="M72 252 Q168 248 288 253" stroke="#B8354A" stroke-width="1.4"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="st-panels"></div>
+</div></section></main>
+
+<script>
+var S = [
+ {label:"No marketing yet",
+  happening:"The business works, but marketing has never been clearly defined. You need clarity on what matters, what to build, and what can wait.",
+  help:"I help create the positioning, priorities, and practical foundation the business actually needs.",
+  start:"Build Your Marketing Foundation or a focused strategy engagement.",
+  cta:"Explore the course", href:"../courses.html"},
+ {label:"It all depends on me",
+  happening:"Marketing lives in your head, your calendar, and a collection of disconnected people or tools.",
+  help:"I simplify the work, create clearer systems, and reduce how much depends on one person.",
+  start:"Workflow and AI advisory or focused consulting.",
+  cta:"See how I work", href:"../my-approach.html"},
+ {label:"The team is not aligned",
+  happening:"There is plenty of activity, but priorities, ownership, messaging, or decisions are not working together.",
+  help:"I find where the work is breaking down and help the team move the right changes forward.",
+  start:"Strategic consulting, fractional leadership, or a cross-functional project.",
+  cta:"See the expertise in action", href:"../expertise.html"},
+ {label:"I need someone in my corner",
+  happening:"You are leading the work, growing into a larger role, or making difficult decisions without an experienced person to pressure-test them with.",
+  help:"I provide practical guidance, honest perspective, and ongoing thought partnership.",
+  start:"One-to-one mentoring or marketing leadership advisory.",
+  cta:"Ask about mentoring", href:"../about.html#contact"}
+];
+
+var opts = document.querySelector(".st-opts"), panels = document.querySelector(".st-panels");
+var states = document.querySelectorAll(".st-state");
+
+S.forEach(function (s, i) {
+  var b = document.createElement("button");
+  b.type = "button"; b.className = "st-opt"; b.setAttribute("role", "tab");
+  b.id = "st-tab-" + i; b.setAttribute("aria-controls", "st-panel-" + i);
+  b.setAttribute("aria-selected", i === 0 ? "true" : "false");
+  b.tabIndex = i === 0 ? 0 : -1;
+  b.textContent = s.label;
+  opts.appendChild(b);
+
+  var p = document.createElement("div");
+  p.className = "st-panel"; p.id = "st-panel-" + i; p.setAttribute("role", "tabpanel");
+  p.setAttribute("aria-labelledby", b.id); p.tabIndex = 0;
+  if (i !== 0) p.hidden = true;
+  p.innerHTML = '<div class="st-cols"><div>' +
+    '<p class="st-k">What may be happening</p><p>' + s.happening + '</p>' +
+    '<p class="st-k">How I help</p><p>' + s.help + '</p></div><div>' +
+    '<p class="st-k">Best place to start</p><p>' + s.start + '</p>' +
+    '<p class="st-cta"><a class="arrow-link" href="' + s.href + '">' + s.cta + '</a></p></div></div>';
+  panels.appendChild(p);
+});
+
+var btns = opts.querySelectorAll("button"), pans = panels.querySelectorAll(".st-panel");
+function select(n) {
+  btns.forEach(function (b, i) {
+    b.setAttribute("aria-selected", i === n ? "true" : "false");
+    b.tabIndex = i === n ? 0 : -1;
+  });
+  states.forEach(function (g, i) { g.classList.toggle("on", i === n); });
+  pans.forEach(function (p, i) {
+    p.hidden = i !== n;
+    if (i === n) { p.classList.remove("st-in"); void p.offsetWidth; p.classList.add("st-in"); }
+  });
+}
+btns.forEach(function (b, i) {
+  b.addEventListener("click", function () { select(i); });
+  b.addEventListener("keydown", function (e) {
+    var n = null;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") n = (i + 1) % btns.length;
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = (i - 1 + btns.length) % btns.length;
+    if (e.key === "Home") n = 0;
+    if (e.key === "End") n = btns.length - 1;
+    if (n !== null) { e.preventDefault(); select(n); btns[n].focus(); }
+  });
+});
+select(0);
+</script>
+</body>
+</html>
