@@ -3070,10 +3070,10 @@ footer {
   /* Soft at the bottom and the right so the photograph reads as part
      of the page rather than a poster dropped onto it, and so the
      bottom edge leads down into the section below. */
-  -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 100%),
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, rgba(0, 0, 0, 0.55) 88%, transparent 100%),
                       linear-gradient(to right, #000 90%, transparent 100%);
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to bottom, #000 74%, transparent 100%),
+  mask-image: linear-gradient(to bottom, #000 58%, rgba(0, 0, 0, 0.55) 88%, transparent 100%),
               linear-gradient(to right, #000 90%, transparent 100%);
   mask-composite: intersect;
 }
@@ -3086,11 +3086,25 @@ footer {
      desk rather than the headroom. */
   object-position: 50% 12%;
 }
-/* The stanza carries the bottom half of the band seam itself: 26 + 30
-   + 44 + the quote band's 52 lands on the 157px figure the rest of the
-   site uses. */
-.hero-band-after { padding-top: 30px; padding-bottom: 44px; }
-.hero-band-after .hw-stanza { margin-top: 0; }
+/* THE STANZA MOVED INTO THE COPY COLUMN (Amber, July 2026). It reads
+   as the third beat of the headline rather than a caption under the
+   whole composition — and with it out of the way the photograph's row
+   sits directly above the quote band, which is the only reason the
+   band can overlap it. Before this it floated in its own full-width
+   block and put 152px between the photograph and the band. */
+.hero-band .hw-stanza { margin-top: 22px; }
+
+/* The band rides UP over the photograph's soft bottom edge. Its own
+   background is translucent white, so the collage ghosts THROUGH it
+   rather than being covered: layered paper, not a panel sliding over
+   a poster. Its top padding grows by the same amount it rises, so the
+   quote itself does not move. */
+.hero-band + .bridge {
+  position: relative;
+  z-index: 2;
+  margin-top: -62px;
+  padding-top: 114px;
+}
 
 @media (min-width: 1021px) {
   .hero-band .band-copy { z-index: 3; }
@@ -3114,8 +3128,9 @@ footer {
   .hero-band .band { grid-template-columns: 1fr; gap: 20px; padding-left: 24px; }
   .hero-band picture { aspect-ratio: 4 / 3; max-height: none; }
   .hero-band img { object-position: 56% 8%; }
-  /* Phones already sit on the 89px band seam without the extra pad. */
-  .hero-band-after { padding-top: 22px; padding-bottom: 0; }
+  /* Phones: no overlap. The photograph is full-bleed at this width and
+     a band riding over it just clips the collage. */
+  .hero-band + .bridge { margin-top: 0; padding-top: 40px; }
 }
 
 /* ---- Every project starts with the same question ----
