@@ -1898,13 +1898,35 @@ a.bld-item .bld-item-arrow {
 .sp-section {
   padding: clamp(60px, 8vw, 100px) 0;
   border-top: 1px solid var(--line);
+  /* A very gentle wash — lavender (Workflow & AI) + peach (Courses) at low
+     opacity signals this is a crossroads for all three services. */
+  background:
+    radial-gradient(ellipse 70% 55% at 18% 8%,  rgba(218,212,245,0.18), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 82% 92%, rgba(252,228,196,0.14), transparent 65%);
 }
 
 .sp-head { margin-bottom: clamp(30px, 4vw, 46px); }
-.sp-head p { color: var(--muted); font-size: var(--fs-body); max-width: 52ch; }
+.sp-head .section-title { margin-bottom: 12px; }
+.sp-head p { color: var(--muted); font-size: var(--fs-body); max-width: 52ch; margin: 0; }
 
-.sp-row { border-top: 1px solid rgba(84, 76, 112, .22); }
+/* Each row carries a left-rail slot. The rail is transparent by default;
+   on the open row it fills with coral so the active item is unmistakable
+   at a glance — matching the coral-deep number and butter label highlight. */
+.sp-row {
+  position: relative;
+  border-top: 1px solid rgba(84, 76, 112, .22);
+}
 .sp-row:last-child { border-bottom: 1px solid rgba(84, 76, 112, .22); }
+.sp-row::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  border-radius: 1px;
+  background: transparent;
+  transition: background .3s var(--ease);
+}
+.sp-row.on::before { background: var(--coral-deep); }
 
 .sp-btn {
   font-family: var(--font-body);
@@ -1916,10 +1938,12 @@ a.bld-item .bld-item-arrow {
   grid-template-columns: 62px minmax(0, 1fr) auto;
   align-items: baseline;
   gap: 0 18px;
-  padding: 26px 0;
+  padding: 28px 0 28px 12px; /* 12px left gives breathing room from the rail */
   text-align: left;
   color: var(--body);
   transition: color .2s var(--ease);
+  /* Ensure z-index: -1 on sp-l::before stays within this stacking context */
+  isolation: isolate;
 }
 
 .sp-n {
@@ -1927,7 +1951,7 @@ a.bld-item .bld-item-arrow {
   letter-spacing: .1em;
   font-weight: 600;
   color: var(--muted);
-  transition: color .2s;
+  transition: color .22s var(--ease);
 }
 
 .sp-l {
@@ -1953,33 +1977,37 @@ a.bld-item .bld-item-arrow {
   transition: opacity .26s var(--ease), transform .26s var(--ease);
 }
 
+/* The dash mark: a short bar that extends on open. Gives a secondary
+   directional cue on top of the rail accent and number colour shift. */
 .sp-mark {
   display: block;
-  width: 16px;
+  width: 18px;
   height: 2px;
-  background: rgba(84, 76, 112, .34);
+  background: rgba(84, 76, 112, .28);
   align-self: center;
-  transform: scaleX(.55);
+  transform: scaleX(.5);
   transform-origin: right center;
-  transition: background .22s, transform .22s;
+  transition: background .22s var(--ease), transform .22s var(--ease);
   flex-shrink: 0;
 }
 
-.sp-btn:hover                 { color: var(--ink); }
-.sp-row.on .sp-btn            { color: var(--ink); }
-.sp-row.on .sp-n              { color: var(--coral-deep); }
-.sp-row.on .sp-l::before      { opacity: 1; transform: scaleX(1); }
-.sp-row.on .sp-mark           { background: var(--coral-deep); transform: scaleX(1); }
+.sp-btn:hover                { color: var(--ink); }
+.sp-btn:hover .sp-n          { color: var(--coral-deep); opacity: .6; }
+.sp-row.on .sp-btn           { color: var(--ink); }
+.sp-row.on .sp-n             { color: var(--coral-deep); opacity: 1; }
+.sp-row.on .sp-l::before     { opacity: 1; transform: scaleX(1); }
+.sp-row.on .sp-mark          { background: var(--coral-deep); transform: scaleX(1); }
 
 .sp-body[hidden] { display: none; }
-.sp-body { padding: 0 0 38px; }
+.sp-body { padding: 0 0 42px; }
 
 .sp-cols {
   display: grid;
   grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
   gap: clamp(26px, 4vw, 66px);
   align-items: center;
-  padding-left: 80px;
+  /* indent content to sit under the label, past the number column + left padding */
+  padding-left: 74px;
 }
 
 .sp-k {
@@ -1988,49 +2016,55 @@ a.bld-item .bld-item-arrow {
   font-weight: 600;
   font-size: var(--fs-eyebrow);
   color: var(--muted);
-  margin: 0 0 7px;
+  margin: 0 0 6px;
 }
+/* First sp-k in a panel gets no top breathing room — the panel top-padding
+   comes from sp-body. Every subsequent sp-k needs a divider of space above it. */
+.sp-cols div > p.sp-k + p + p.sp-k { margin-top: 22px; }
+
 .sp-cols p:not(.sp-k) {
   color: var(--body);
   font-size: var(--fs-body);
   line-height: 1.55;
-  margin: 0 0 20px;
+  margin: 0 0 0;
   max-width: 52ch;
 }
-.sp-cta { margin: 4px 0 0; }
+.sp-cta { margin-top: 24px; }
 
+/* The hand-annotated plan sheet */
 .sp-sheet {
   display: block;
   width: 100%;
   height: auto;
   background: #FFFDFA;
-  border: 1px solid rgba(46, 42, 39, .11);
-  border-radius: 3px;
-  box-shadow: 0 20px 42px -36px rgba(46, 42, 39, .38);
+  border: 1px solid rgba(46, 42, 39, .10);
+  border-radius: 4px;
+  box-shadow: 0 24px 48px -38px rgba(46, 42, 39, .36),
+              0  4px 16px -12px rgba(46, 42, 39, .10);
 }
 
-.sp-in { animation: sp-in .3s var(--ease) both; }
-@keyframes sp-in { from { opacity: 0; } to { opacity: 1; } }
+.sp-in { animation: sp-in .32s var(--ease) both; }
+@keyframes sp-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   .sp-in { animation: none; }
-  .sp-btn, .sp-l::before, .sp-mark { transition: none; }
+  .sp-btn, .sp-l::before, .sp-mark, .sp-row::before { transition: none; }
 }
 
 @media (max-width: 860px) {
   .sp-btn {
     grid-template-columns: 40px minmax(0, 1fr) auto;
-    padding: 20px 0;
+    padding: 22px 0 22px 10px;
     gap: 0 12px;
   }
   .sp-cols {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 20px;
     padding-left: 0;
   }
   .sp-cols p:not(.sp-k) { max-width: none; }
-  .sp-cols > div:last-child { display: none; } /* hide sheet art on mobile — text-only */
-  .sp-body { padding-bottom: 28px; }
+  .sp-cols > div:last-child { display: none; } /* hide sheet art on narrow — text only */
+  .sp-body { padding-bottom: 30px; }
 }
 
 /* Capabilities page: impact tiers */
