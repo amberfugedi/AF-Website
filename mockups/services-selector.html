@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Mockup — Services selector, three directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* ---------- mockup chrome only, never ships ---------- */
+.mk-bar { position: sticky; top: 0; z-index: 40; background: var(--bg); border-bottom: 1px solid var(--line); padding: 12px 0; }
+.mk-bar .wrap { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+.mk-bar strong { font-family: var(--font-body); font-size: 0.8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--coral-deep); }
+.mk-bar a { font-size: var(--fs-small); color: var(--muted); text-decoration: none; }
+.mk-bar a:hover { color: var(--ink); }
+.mk-label { font-family: var(--font-body); font-size: 0.72rem; letter-spacing: .12em; text-transform: uppercase;
+  font-weight: 700; color: var(--coral-deep); margin: 0 0 6px; }
+.mk-note { color: var(--muted); font-size: var(--fs-small); max-width: 62ch; margin: 0 0 30px; }
+
+/* ---------- shared selector language (all three) ---------- */
+.sel-head h2 { margin-bottom: 10px; }
+.sel-head p { color: var(--muted); max-width: 56ch; }
+.sel-panel { margin-top: 30px; }
+.sel-panel[hidden] { display: none; }
+.sel-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,0.82fr); gap: clamp(24px,4vw,64px); }
+.sel-h { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; font-size: var(--fs-eyebrow);
+  color: var(--muted); margin: 0 0 8px; }
+.sel-grid p { color: var(--body); margin-bottom: 22px; max-width: 54ch; }
+.sel-grid p:last-of-type { margin-bottom: 0; }
+.sel-starts { color: var(--muted); font-size: var(--fs-small); margin-bottom: 20px; }
+.sel-fade { animation: sel-in .28s var(--ease) both; }
+@keyframes sel-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .sel-fade { animation: none; } }
+button.sel-opt { font-family: var(--font-body); background: none; border: 0; cursor: pointer; text-align: left;
+  color: var(--body); padding: 0; }
+
+/* ---------- A: two-by-two grid ---------- */
+.a-opts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 clamp(24px,4vw,56px); margin-top: 28px; }
+.a-opts button { display: block; width: 100%; padding: 18px 0 18px 22px; position: relative;
+  border-top: 1px solid rgba(84,76,112,.22); font-size: var(--fs-intro); line-height: 1.3; transition: color .2s; }
+.a-opts button::before { content: ""; position: absolute; left: 0; top: 22px; width: 10px; height: 2px;
+  background: rgba(84,76,112,.3); transition: background .2s, width .2s; }
+.a-opts button[aria-selected="true"] { color: var(--ink); font-weight: 600; }
+.a-opts button[aria-selected="true"]::before { background: var(--coral-deep); width: 16px; }
+.a-opts button:hover { color: var(--ink); }
+
+/* ---------- B: vertical rail ---------- */
+.b-wrap { display: grid; grid-template-columns: minmax(0,0.72fr) minmax(0,1.28fr); gap: clamp(28px,4vw,72px); margin-top: 28px; align-items: start; }
+.b-opts button { display: block; width: 100%; padding: 15px 0 15px 20px; position: relative;
+  border-top: 1px solid rgba(84,76,112,.22); font-size: var(--fs-body); line-height: 1.35; transition: color .2s; }
+.b-opts button:last-child { border-bottom: 1px solid rgba(84,76,112,.22); }
+.b-opts button::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+  background: transparent; transition: background .2s; }
+.b-opts button[aria-selected="true"] { color: var(--ink); font-weight: 600; }
+.b-opts button[aria-selected="true"]::before { background: var(--coral-deep); }
+.b-wrap .sel-panel { margin-top: 0; }
+.b-wrap .sel-grid { grid-template-columns: 1fr; gap: 0; }
+
+/* ---------- C: numbered strips ---------- */
+.c-opts { display: flex; flex-direction: column; align-items: flex-start; margin-top: 28px; }
+.c-opts button { display: grid; grid-template-columns: 26px minmax(0,1fr); gap: 12px; align-items: baseline;
+  width: max-content; max-width: 100%; padding: 13px 26px 14px 18px; font-size: var(--fs-body); line-height: 1.3;
+  background: linear-gradient(98deg, rgba(251,213,228,.28), rgba(251,213,228,.1)); transition: color .2s; }
+.c-opts button + button { margin-top: -8px; }
+.c-opts button:nth-child(2) { margin-left: 24px; }
+.c-opts button:nth-child(3) { margin-left: 48px; }
+.c-opts button:nth-child(4) { margin-left: 72px; }
+.c-opts .c-n { font-size: var(--fs-eyebrow); letter-spacing: .08em; font-weight: 600; color: var(--muted); }
+.c-opts button[aria-selected="true"] { color: var(--ink); font-weight: 600;
+  background: linear-gradient(98deg, rgba(242,169,59,.24), rgba(242,169,59,.08)); }
+
+@media (max-width: 860px) {
+  .sel-grid, .b-wrap { grid-template-columns: 1fr; gap: 24px; }
+  .a-opts { grid-template-columns: 1fr; }
+  .a-opts button, .b-opts button { padding-top: 16px; padding-bottom: 16px; }
+  .c-opts button { width: 100%; }
+  .c-opts button:nth-child(2), .c-opts button:nth-child(3), .c-opts button:nth-child(4) { margin-left: 0; }
+}
+</style>
+</head>
+<body class="page-sub">
+<div class="aura" aria-hidden="true"><span class="aura-blob aura-blob-1"></span><span class="aura-blob aura-blob-2"></span><span class="aura-blob aura-blob-3"></span></div>
+
+<div class="mk-bar"><div class="wrap">
+  <strong>Mockup · not linked from the site</strong>
+  <a href="#a">A · two-by-two</a><a href="#b">B · vertical rail</a><a href="#c">C · numbered strips</a>
+</div></div>
+
+<main>
+  <section id="a"><div class="wrap">
+    <p class="mk-label">Direction A · two-by-two grid</p>
+    <p class="mk-note">Your preferred shape. The four situations read as one set at a glance; the panel sits underneath at full width, so the two content columns get real room.</p>
+    <div class="sel-head">
+      <h2 class="section-title">What kind of help do you need right now?</h2>
+      <p>Choose the situation that feels closest. The right place to start depends less on the size of the business and more on what the work currently needs.</p>
+    </div>
+    <div class="a-opts" role="tablist" aria-label="Situations"></div>
+    <div class="a-panels"></div>
+  </div></section>
+
+  <section id="b"><div class="wrap">
+    <p class="mk-label">Direction B · vertical rail</p>
+    <p class="mk-note">Situations stack in a narrow left column with a coral rule marking the active one; the content sits beside them. Quietest of the three and the least like a tab bar.</p>
+    <div class="sel-head">
+      <h2 class="section-title">What kind of help do you need right now?</h2>
+      <p>Choose the situation that feels closest. The right place to start depends less on the size of the business and more on what the work currently needs.</p>
+    </div>
+    <div class="b-wrap">
+      <div class="b-opts" role="tablist" aria-label="Situations"></div>
+      <div class="b-panels"></div>
+    </div>
+  </div></section>
+
+  <section id="c"><div class="wrap">
+    <p class="mk-label">Direction C · numbered strips</p>
+    <p class="mk-note">Borrows the layered paper language from the Expertise hero, so the selector reads as part of the same system. The active strip warms to butter.</p>
+    <div class="sel-head">
+      <h2 class="section-title">What kind of help do you need right now?</h2>
+      <p>Choose the situation that feels closest. The right place to start depends less on the size of the business and more on what the work currently needs.</p>
+    </div>
+    <div class="c-opts" role="tablist" aria-label="Situations"></div>
+    <div class="c-panels"></div>
+  </div></section>
+</main>
+
+<script>
+var OPTS = [
+ {label:"We do not really have marketing yet",
+  happening:"The business works, but marketing has never been clearly defined. You may not know what to prioritize, what kind of support to hire, or what a realistic marketing foundation should include.",
+  help:"I help clarify the audience, positioning, message, priorities, and practical marketing foundation the business actually needs. Then we decide what can be managed internally, what should be outsourced, and what does not need to be done yet.",
+  starts:"Build Your Marketing Foundation · Marketing foundation consulting · Focused strategy engagement",
+  cta:"Explore Build Your Marketing Foundation", href:"../courses.html"},
+ {label:"Marketing mostly depends on me",
+  happening:"Marketing lives in your head, your calendar, and a collection of disconnected tools, freelancers, or unfinished ideas. Things are getting done, but the work is difficult to maintain, delegate, or improve.",
+  help:"I identify what matters most, simplify the work, build more useful systems, and reduce how much of the marketing function depends on one person.",
+  starts:"Workflow and AI advisory · Focused consulting · Marketing systems work",
+  cta:"See how I work with businesses", href:"../my-approach.html"},
+ {label:"We have a team, but the work is not coming together",
+  happening:"There are capable people and plenty of activity, but priorities, ownership, systems, messaging, or decisions are not aligned. The visible marketing problem may actually sit between departments, tools, processes, or leadership decisions.",
+  help:"I find where the work is breaking down, connect marketing to the broader business strategy, and work alongside the team to make the highest-impact changes practical and usable.",
+  starts:"Strategic consulting · Fractional leadership · Cross-functional projects",
+  cta:"See the expertise in action", href:"../expertise.html"},
+ {label:"I need an experienced person in my corner",
+  happening:"You may be leading marketing, growing into a larger role, building a team, inheriting a function, or making decisions without another experienced marketer nearby to pressure-test the work.",
+  help:"I provide practical guidance, an outside perspective, and a place to work through decisions honestly. We can review priorities, strategy, team challenges, executive communication, career growth, or the work itself.",
+  starts:"One-to-one mentoring · Marketing leadership advisory · Ongoing thought partnership",
+  cta:"Ask about mentoring", href:"../about.html#contact"}
+];
+
+function build(key, optClass, panelClass, numbered) {
+  var tabs = document.querySelector(optClass), panels = document.querySelector(panelClass);
+  OPTS.forEach(function (o, i) {
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "sel-opt";
+    btn.setAttribute("role", "tab");
+    btn.id = key + "-tab-" + i;
+    btn.setAttribute("aria-controls", key + "-panel-" + i);
+    btn.setAttribute("aria-selected", i === 0 ? "true" : "false");
+    btn.tabIndex = i === 0 ? 0 : -1;
+    btn.innerHTML = numbered
+      ? '<span class="c-n">0' + (i + 1) + '</span><span>' + o.label + '</span>'
+      : o.label;
+    tabs.appendChild(btn);
+
+    var pan = document.createElement("div");
+    pan.className = "sel-panel"; pan.id = key + "-panel-" + i;
+    pan.setAttribute("role", "tabpanel");
+    pan.setAttribute("aria-labelledby", btn.id);
+    pan.tabIndex = 0;
+    if (i !== 0) pan.hidden = true;
+    pan.innerHTML =
+      '<div class="sel-grid"><div>' +
+      '<p class="sel-h">What may be happening</p><p>' + o.happening + '</p>' +
+      '<p class="sel-h">How I tend to help</p><p>' + o.help + '</p></div><div>' +
+      '<p class="sel-h">Good places to start</p><p class="sel-starts">' + o.starts + '</p>' +
+      '<p><a class="arrow-link" href="' + o.href + '">' + o.cta + '</a></p></div></div>';
+    panels.appendChild(pan);
+  });
+
+  var btns = tabs.querySelectorAll("button"), pans = panels.querySelectorAll(".sel-panel");
+  function select(n) {
+    btns.forEach(function (b, i) {
+      b.setAttribute("aria-selected", i === n ? "true" : "false");
+      b.tabIndex = i === n ? 0 : -1;
+    });
+    pans.forEach(function (p, i) {
+      p.hidden = i !== n;
+      if (i === n) { p.classList.remove("sel-fade"); void p.offsetWidth; p.classList.add("sel-fade"); }
+    });
+  }
+  btns.forEach(function (b, i) {
+    b.addEventListener("click", function () { select(i); });
+    b.addEventListener("keydown", function (e) {
+      var n = null;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") n = (i + 1) % btns.length;
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = (i - 1 + btns.length) % btns.length;
+      if (e.key === "Home") n = 0;
+      if (e.key === "End") n = btns.length - 1;
+      if (n !== null) { e.preventDefault(); select(n); btns[n].focus(); }
+    });
+  });
+}
+build("a", ".a-opts", ".a-panels", false);
+build("b", ".b-opts", ".b-panels", false);
+build("c", ".c-opts", ".c-panels", true);
+</script>
+</body>
+</html>
