@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Mockup — one working surface, four states</title>
+<title>Mockup — one working page, written four ways</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="../styles.css">
@@ -27,23 +27,56 @@
 .st-opt::before { content: ""; position: absolute; left: 0; top: 50%; margin-top: -1px;
   width: 13px; height: 2px; background: rgba(84, 76, 112, .32);
   transform: scaleX(.5); transform-origin: left center;
-  transition: background .22s var(--ease), transform .22s var(--ease); }
+  transition: background .2s var(--ease), transform .2s var(--ease); }
 .st-opt:hover { color: var(--ink); }
 .st-opt[aria-selected="true"] { color: var(--ink); font-weight: 600; }
 .st-opt[aria-selected="true"]::before { background: var(--coral-deep); transform: scaleX(1); }
+.st-opt:active { transform: scale(.98); transition: transform .16s var(--ease); }
 
-/* ---- the one working surface ---- */
+/* ============ THE SHEET ============
+   One page, not four. The paper, the margin rule and the printed
+   header never change; every selection rewrites what is ON it.
+
+   The whole sequence is built from the site's existing stroke
+   draw-on — pathLength="100" plus an animating dash offset. Even the
+   handwriting uses it: each written line is masked by a stroked band
+   that sweeps left to right, so the ink appears behind a moving pen
+   rather than fading up. Nothing here is a new motion device.
+
+   Beats, ~760ms end to end:
+     rules settle   0-275ms   (35ms apart)
+     handwriting   150-500ms  (55ms apart)
+     coral pen     400-600ms
+     the arrow     500-760ms  (head lands last)
+
+   Driven by TRANSITIONS, not keyframes, so a second choice mid-play
+   retargets from wherever the ink got to instead of restarting. The
+   exit runs the same strokes backwards: the page un-writes right to
+   left in 160ms, arrow first, ruled lines last. */
 .st-canvas { width: 100%; max-width: 560px; margin: 0 auto; }
 .st-sheet { display: block; width: 100%; height: auto; background: #FFFDFA;
   border: 1px solid rgba(46, 42, 39, .11); border-radius: 3px;
   box-shadow: 0 22px 46px -38px rgba(46, 42, 39, .4); }
-/* the base never changes: same paper, same rules, same printed label.
-   only what is written on it does. */
-.st-state { opacity: 0; transition: opacity .34s var(--ease); }
-.st-state.on { opacity: 1; }
-@media (prefers-reduced-motion: reduce) {
-  .st-state, .st-opt, .st-opt::before, .st-panel { transition: none; animation: none; }
+
+.st-sheet .stroke { stroke-dasharray: 100; stroke-dashoffset: 100;
+  transition: stroke-dashoffset .16s var(--ease) var(--dx, 0s); }
+.st-canvas.in-view .st-state.on .stroke,
+.st-canvas.in-view .st-mask.on .stroke {
+  stroke-dashoffset: 0;
+  transition-duration: var(--dur, .2s);
+  transition-delay: var(--d, 0s);
 }
+/* A round cap on a zero-length dash paints a dot, so an undrawn state
+   would freckle the page. Hide it until it is on, and hold it on
+   screen just long enough to finish un-writing. */
+.st-state { visibility: hidden; transition: visibility 0s linear .3s; }
+.st-canvas.in-view .st-state.on { visibility: visible; transition-delay: 0s; }
+/* Exit order is the entrance reversed: the arrow leaves first and the
+   ruled lines are the last thing off the page. */
+.st-arrow, .st-note-band { --dx: 0s; }
+.st-pen { --dx: .03s; }
+.st-write { --dx: .055s; }
+.st-rules { --dx: .085s; }
 
 /* ---- what the page says ---- */
 .st-panel { margin-top: clamp(38px, 4.5vw, 60px); padding-top: 26px; border-top: 1px solid rgba(84, 76, 112, .22); }
@@ -52,8 +85,16 @@
 .st-k { text-transform: uppercase; letter-spacing: .08em; font-weight: 600; font-size: var(--fs-eyebrow); color: var(--muted); margin: 0 0 7px; }
 .st-cols p:not(.st-k) { color: var(--body); font-size: var(--fs-body); line-height: 1.55; margin: 0 0 20px; max-width: 52ch; }
 .st-cols .st-cta { margin: 0; }
-.st-in { animation: st-in .26s var(--ease) both; }
+.st-panel.st-in { animation: st-in .2s var(--ease) both; }
 @keyframes st-in { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  /* The written page still arrives — it just arrives already written. */
+  .st-sheet .stroke { transition: none; }
+  .st-opt, .st-opt::before { transition: none; }
+  .st-opt:active { transform: none; }
+  .st-panel.st-in { animation: none; }
+}
 
 @media (max-width: 860px) {
   .st-grid { grid-template-columns: 1fr; gap: 26px; }
@@ -62,6 +103,14 @@
   .st-cols p:not(.st-k) { max-width: none; }
 }
 </style>
+<noscript><style>
+  /* Without scripting the first situation is the page you get, fully
+     written, and each panel is already in the markup. */
+  .reveal { opacity: 1; transform: none; }
+  .st-canvas .st-state.on { visibility: visible; }
+  .st-canvas .st-state.on .stroke,
+  .st-canvas .st-mask.on .stroke { stroke-dashoffset: 0; }
+</style></noscript>
 </head>
 <body class="page-sub">
 <div class="aura" aria-hidden="true"><span class="aura-blob aura-blob-1"></span><span class="aura-blob aura-blob-2"></span><span class="aura-blob aura-blob-3"></span></div>
@@ -74,144 +123,275 @@
   </div>
 
   <div class="st-grid">
-    <div class="st-opts" role="tablist" aria-label="Starting points"></div>
+    <div class="st-opts" role="tablist" aria-label="Starting points">
+      <button class="st-opt" type="button" role="tab" id="st-tab-0" aria-controls="st-panel-0" aria-selected="true" tabindex="0">No marketing yet</button>
+      <button class="st-opt" type="button" role="tab" id="st-tab-1" aria-controls="st-panel-1" aria-selected="false" tabindex="-1">It all depends on me</button>
+      <button class="st-opt" type="button" role="tab" id="st-tab-2" aria-controls="st-panel-2" aria-selected="false" tabindex="-1">The team is not aligned</button>
+      <button class="st-opt" type="button" role="tab" id="st-tab-3" aria-controls="st-panel-3" aria-selected="false" tabindex="-1">I need someone in my corner</button>
+    </div>
 
-    <div class="st-canvas">
-      <svg class="st-sheet" viewBox="0 0 420 300" fill="none" stroke-linecap="round" role="img" aria-live="polite" aria-label="A working page that changes with the selected situation">
-        <!-- THE BASE. Identical in every state: same sheet, same margin
-             rule, same printed heading, same four faint lines. -->
+    <div class="st-canvas reveal">
+      <svg class="st-sheet" viewBox="0 0 420 300" fill="none" stroke-linecap="round" role="img"
+           aria-label="A working page headed The Plan. Three questions are written on it, an early answer reading post more is struck through, and an arrow curls up from a note reading start here.">
+
+        <!-- The pen. One masked band per written segment; the band
+             sweeps right and the ink appears behind it. Butt caps so
+             the leading edge stays a clean vertical. -->
+        <defs>
+          <mask class="st-mask on" id="st-m0" data-state="0" maskUnits="userSpaceOnUse" x="0" y="0" width="420" height="300">
+            <g class="st-write" stroke="#fff" stroke-width="21" stroke-linecap="butt">
+              <path class="stroke" pathLength="100" d="M70 84.5 H250" style="--d:.15s;--dur:.24s"/>
+              <path class="stroke" pathLength="100" d="M70 116.5 H272" style="--d:.205s;--dur:.24s"/>
+              <path class="stroke" pathLength="100" d="M70 148.5 H160" style="--d:.26s;--dur:.24s"/>
+            </g>
+            <g class="st-note-band" stroke="#fff" stroke-width="22" stroke-linecap="butt">
+              <path class="stroke" pathLength="100" d="M226 238 H306" style="--d:.47s;--dur:.2s"/>
+            </g>
+          </mask>
+
+          <mask class="st-mask" id="st-m1" data-state="1" maskUnits="userSpaceOnUse" x="0" y="0" width="420" height="300">
+            <g class="st-write" stroke="#fff" stroke-width="21" stroke-linecap="butt">
+              <path class="stroke" pathLength="100" d="M70 84.5 H316" style="--d:.15s;--dur:.24s"/>
+              <path class="stroke" pathLength="100" d="M70 116.5 H300" style="--d:.205s;--dur:.24s"/>
+              <path class="stroke" pathLength="100" d="M70 148.5 H288" style="--d:.26s;--dur:.24s"/>
+              <path class="stroke" pathLength="100" d="M70 180.5 H262" style="--d:.315s;--dur:.24s"/>
+            </g>
+            <g class="st-note-band" stroke="#fff" stroke-width="22" stroke-linecap="butt">
+              <path class="stroke" pathLength="100" d="M242 218.5 H364" style="--d:.47s;--dur:.2s"/>
+            </g>
+          </mask>
+
+          <mask class="st-mask" id="st-m2" data-state="2" maskUnits="userSpaceOnUse" x="0" y="0" width="420" height="300">
+            <g class="st-write" stroke="#fff" stroke-width="21" stroke-linecap="butt">
+              <path class="stroke" pathLength="100" d="M70 84.5 H210" style="--d:.15s;--dur:.24s"/>
+              <path class="stroke" pathLength="100" d="M70 116.5 H182" style="--d:.205s;--dur:.24s"/>
+              <path class="stroke" pathLength="100" d="M188 116.5 H272" style="--d:.3s;--dur:.2s"/>
+              <path class="stroke" pathLength="100" d="M70 148.5 H222" style="--d:.26s;--dur:.24s"/>
+            </g>
+            <g class="st-note-band" stroke="#fff" stroke-width="22" stroke-linecap="butt">
+              <path class="stroke" pathLength="100" d="M70 238 H186" style="--d:.47s;--dur:.2s"/>
+            </g>
+          </mask>
+
+          <mask class="st-mask" id="st-m3" data-state="3" maskUnits="userSpaceOnUse" x="0" y="0" width="420" height="300">
+            <g class="st-write" stroke="#fff" stroke-width="21" stroke-linecap="butt">
+              <path class="stroke" pathLength="100" d="M70 84.5 H248" style="--d:.15s;--dur:.24s"/>
+              <path class="stroke" pathLength="100" d="M70 116.5 H228" style="--d:.205s;--dur:.24s"/>
+              <path class="stroke" pathLength="100" d="M234 116.5 H286" style="--d:.3s;--dur:.2s"/>
+              <path class="stroke" pathLength="100" d="M70 148.5 H250" style="--d:.26s;--dur:.24s"/>
+            </g>
+            <g class="st-note-band" stroke="#fff" stroke-width="22" stroke-linecap="butt">
+              <path class="stroke" pathLength="100" d="M70 238 H184" style="--d:.47s;--dur:.2s"/>
+            </g>
+          </mask>
+        </defs>
+
+        <!-- THE PAPER. Never animates, never changes: the same sheet is
+             on the desk the whole time. -->
         <text x="34" y="40" fill="#8A827A" font-family="Manrope, system-ui, sans-serif" font-size="9" letter-spacing="1.4">THE PLAN</text>
         <path d="M34 52 Q210 50.4 388 52.4" stroke="#3A3531" stroke-width="1" opacity="0.38"/>
         <path d="M62 24 Q60 160 62 278" stroke="#3A3531" stroke-width="0.9" opacity="0.16"/>
-        <g stroke="#3A3531" stroke-width="0.9" opacity="0.2">
-          <path d="M76 92 Q220 90.6 386 92.4"/>
-          <path d="M76 124 Q200 122.7 344 124.5"/>
-          <path d="M76 156 Q230 154.6 388 156.4"/>
-          <path d="M76 188 Q190 186.8 316 188.6"/>
-        </g>
 
-        <!-- 01 blank -->
+        <!-- 01 · No marketing yet -->
         <g class="st-state on" data-state="0">
-          <text x="76" y="238" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="19">Where do we even start?</text>
-          <path d="M72 250 Q160 246 262 251" stroke="#B8354A" stroke-width="1.4"/>
+          <g class="st-rules" stroke="#3A3531" stroke-width="0.9" opacity="0.2">
+            <path class="stroke" pathLength="100" d="M76 92 Q200 90.7 320 92.5" style="--d:0s;--dur:.17s"/>
+            <path class="stroke" pathLength="100" d="M76 124 Q180 122.8 284 124.6" style="--d:.035s;--dur:.17s"/>
+            <path class="stroke" pathLength="100" d="M76 156 Q170 154.8 264 156.6" style="--d:.07s;--dur:.17s"/>
+          </g>
+          <g class="st-hand" mask="url(#st-m0)" fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
+            <text x="76" y="88">Who is this for?</text>
+            <text x="76" y="120">What do we actually say?</text>
+            <text x="76" y="152">post more</text>
+          </g>
+          <g class="st-pen" stroke="#B8354A" stroke-width="1.5">
+            <path class="stroke" pathLength="100" d="M72 147 Q106 144.8 142 147.6" style="--d:.4s;--dur:.16s"/>
+          </g>
+          <g class="st-arrow" stroke="#B8354A" stroke-width="1.5">
+            <path class="stroke" pathLength="100" d="M298 232 C 330 182, 288 110, 182 88" style="--d:.5s;--dur:.2s"/>
+            <path class="stroke" pathLength="100" d="M182 88 L191 85 M182 88 L190 93" style="--d:.66s;--dur:.1s"/>
+          </g>
+          <g class="st-hand" mask="url(#st-m0)">
+            <text x="232" y="242" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15.5">start here</text>
+          </g>
         </g>
 
-        <!-- 02 one page carrying everything -->
+        <!-- 02 · It all depends on me -->
         <g class="st-state" data-state="1">
-          <g fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
-            <text x="76" y="88">Website</text><text x="212" y="84">Emails</text><text x="316" y="90">Social</text>
-            <text x="76" y="120">Follow up</text><text x="212" y="124">Newsletter</text>
-            <text x="76" y="152">Fix this</text><text x="196" y="156">Reporting</text><text x="316" y="150">Deck</text>
-            <text x="76" y="184">Ads</text><text x="160" y="188">SEO</text><text x="252" y="182">Launch</text>
+          <g class="st-rules" stroke="#3A3531" stroke-width="0.9" opacity="0.2">
+            <path class="stroke" pathLength="100" d="M76 92 Q220 90.6 386 92.4" style="--d:0s;--dur:.17s"/>
+            <path class="stroke" pathLength="100" d="M76 124 Q210 122.7 372 124.5" style="--d:.035s;--dur:.17s"/>
+            <path class="stroke" pathLength="100" d="M76 156 Q200 154.6 352 156.4" style="--d:.07s;--dur:.17s"/>
+            <path class="stroke" pathLength="100" d="M76 188 Q190 186.8 316 188.6" style="--d:.105s;--dur:.17s"/>
           </g>
-          <g stroke="#3A3531" stroke-width="1" opacity="0.42">
-            <path d="M74 114 Q108 112 142 114.6"/><path d="M74 146 Q100 144 128 146.6"/>
+          <g class="st-hand" mask="url(#st-m1)" fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
+            <text x="76" y="88">Website · Emails · Social</text>
+            <text x="76" y="120">Follow-up · Reporting</text>
+            <text x="76" y="152">Ads · SEO · Launch page</text>
+            <text x="76" y="184">and the newsletter</text>
           </g>
-          <g stroke="#B8354A" stroke-width="1.4">
-            <path d="M72 178 Q104 175.6 138 178.8"/>
-            <path d="M366 106 Q392 168, 342 224"/><path d="M342 224 L354 219 M342 224 L353 230"/>
+          <g class="st-pen" stroke="#B8354A" stroke-width="1.5">
+            <path class="stroke" pathLength="100" d="M142 115 Q174 112.6 210 115.6" style="--d:.4s;--dur:.16s"/>
           </g>
-          <text x="256" y="248" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="17">all mine</text>
+          <g class="st-arrow" stroke="#B8354A" stroke-width="1.5">
+            <path class="stroke" pathLength="100" d="M212 113 C 262 118, 292 150, 298 190" style="--d:.5s;--dur:.2s"/>
+            <path class="stroke" pathLength="100" d="M298 190 L291 184 M298 190 L304 183" style="--d:.66s;--dur:.1s"/>
+          </g>
+          <g class="st-hand" mask="url(#st-m1)">
+            <text x="248" y="222" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15.5">this can move</text>
+          </g>
         </g>
 
-        <!-- 03 the same plan, annotated from two directions -->
+        <!-- 03 · The team is not aligned -->
         <g class="st-state" data-state="2">
-          <g fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
-            <text x="76" y="88">Campaign launch</text><text x="76" y="120">Pricing page</text><text x="76" y="152">Sales enablement</text>
+          <g class="st-rules" stroke="#3A3531" stroke-width="0.9" opacity="0.2">
+            <path class="stroke" pathLength="100" d="M76 92 Q190 90.7 302 92.5" style="--d:0s;--dur:.17s"/>
+            <path class="stroke" pathLength="100" d="M76 124 Q186 122.8 294 124.6" style="--d:.035s;--dur:.17s"/>
+            <path class="stroke" pathLength="100" d="M76 156 Q196 154.8 314 156.6" style="--d:.07s;--dur:.17s"/>
           </g>
-          <g fill="#8A827A" font-family="Manrope, system-ui, sans-serif" font-size="8.5" letter-spacing="1.1">
-            <text x="262" y="76">MARKETING</text><text x="262" y="140">SALES</text>
+          <g class="st-hand" mask="url(#st-m2)" fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
+            <text x="76" y="88">Campaign launch</text>
+            <text x="76" y="120">Pricing page</text>
+            <text x="192" y="120" opacity="0.55">marketing?</text>
+            <text x="76" y="152">Sales enablement</text>
           </g>
-          <g stroke="#B8354A" stroke-width="1.4">
-            <path d="M258 86 Q226 92 200 86"/><path d="M200 86 L210 83 M200 86 L209 90"/>
-            <path d="M258 150 Q226 144 200 150"/><path d="M200 150 L210 147 M200 150 L209 154"/>
+          <g class="st-pen" stroke="#B8354A" stroke-width="1.5">
+            <path class="stroke" pathLength="100" d="M186 115 Q224 112.8 266 115.6" style="--d:.4s;--dur:.16s"/>
           </g>
-          <g fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
-            <text x="266" y="92">Launch now</text><text x="266" y="156">Wait for us</text>
+          <g class="st-arrow" stroke="#B8354A" stroke-width="1.5">
+            <path class="stroke" pathLength="100" d="M178 230 C 214 212, 212 158, 184 128" style="--d:.5s;--dur:.2s"/>
+            <path class="stroke" pathLength="100" d="M184 128 L193 131 M184 128 L183 138" style="--d:.66s;--dur:.1s"/>
           </g>
-          <text x="76" y="240" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="18">Who owns this?</text>
-          <path d="M72 252 Q140 248 210 253" stroke="#B8354A" stroke-width="1.4"/>
+          <g class="st-hand" mask="url(#st-m2)">
+            <text x="76" y="242" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15.5">who owns this?</text>
+          </g>
         </g>
 
-        <!-- 04 the same page, worked through -->
+        <!-- 04 · I need someone in my corner -->
         <g class="st-state" data-state="3">
-          <g fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
-            <text x="76" y="88">Where the team is stuck</text><text x="76" y="120">What I keep deferring</text><text x="76" y="152">The call I have to make</text>
+          <g class="st-rules" stroke="#3A3531" stroke-width="0.9" opacity="0.2">
+            <path class="stroke" pathLength="100" d="M76 92 Q210 90.7 342 92.5" style="--d:0s;--dur:.17s"/>
+            <path class="stroke" pathLength="100" d="M76 124 Q206 122.8 334 124.6" style="--d:.035s;--dur:.17s"/>
+            <path class="stroke" pathLength="100" d="M76 156 Q214 154.8 350 156.6" style="--d:.07s;--dur:.17s"/>
           </g>
-          <g stroke="#B8354A" stroke-width="1.4">
-            <path d="M40 80 Q36 124 40 168"/>
-            <path d="M300 116 Q330 118 358 114"/><path d="M358 114 L349 111 M358 114 L350 118"/>
+          <g class="st-hand" mask="url(#st-m3)" fill="#3A3531" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15">
+            <text x="76" y="88">Where the team is stuck</text>
+            <text x="76" y="120">What I keep deferring</text>
+            <text x="238" y="120" opacity="0.55">later</text>
+            <text x="76" y="152">The call I have to make</text>
           </g>
-          <text x="76" y="240" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="18">Talk this through with me.</text>
-          <path d="M72 252 Q168 248 288 253" stroke="#B8354A" stroke-width="1.4"/>
+          <g class="st-pen" stroke="#B8354A" stroke-width="1.5">
+            <path class="stroke" pathLength="100" d="M234 115 Q252 112.6 274 115.4" style="--d:.4s;--dur:.16s"/>
+            <path class="stroke" pathLength="100" d="M54 77 C 46 79, 45 96, 45 124 C 45 152, 46 169, 54 171" style="--d:.4s;--dur:.2s"/>
+          </g>
+          <g class="st-arrow" stroke="#B8354A" stroke-width="1.5">
+            <path class="stroke" pathLength="100" d="M176 230 C 216 214, 224 186, 214 160" style="--d:.5s;--dur:.2s"/>
+            <path class="stroke" pathLength="100" d="M214 160 L222 165 M214 160 L211 170" style="--d:.66s;--dur:.1s"/>
+          </g>
+          <g class="st-hand" mask="url(#st-m3)">
+            <text x="76" y="242" fill="#B8354A" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="15.5">talk it through</text>
+          </g>
         </g>
       </svg>
     </div>
   </div>
 
-  <div class="st-panels"></div>
+  <div class="st-panels">
+    <div class="st-panel" id="st-panel-0" role="tabpanel" aria-labelledby="st-tab-0" tabindex="0">
+      <div class="st-cols">
+        <div>
+          <p class="st-k">What may be happening</p>
+          <p>The business works, but marketing has never been clearly defined. You need clarity on what matters, what to build, and what can wait.</p>
+          <p class="st-k">How I help</p>
+          <p>I help create the positioning, priorities, and practical foundation the business actually needs.</p>
+        </div>
+        <div>
+          <p class="st-k">Best place to start</p>
+          <p>Build Your Marketing Foundation or a focused strategy engagement.</p>
+          <p class="st-cta"><a class="arrow-link" href="../courses.html">Explore the course</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="st-panel" id="st-panel-1" role="tabpanel" aria-labelledby="st-tab-1" tabindex="0" hidden>
+      <div class="st-cols">
+        <div>
+          <p class="st-k">What may be happening</p>
+          <p>Marketing lives in your head, your calendar, and a collection of disconnected people or tools.</p>
+          <p class="st-k">How I help</p>
+          <p>I simplify the work, create clearer systems, and reduce how much depends on one person.</p>
+        </div>
+        <div>
+          <p class="st-k">Best place to start</p>
+          <p>Workflow and AI guidance or focused consulting.</p>
+          <p class="st-cta"><a class="arrow-link" href="../my-approach.html">See how I work</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="st-panel" id="st-panel-2" role="tabpanel" aria-labelledby="st-tab-2" tabindex="0" hidden>
+      <div class="st-cols">
+        <div>
+          <p class="st-k">What may be happening</p>
+          <p>There is plenty of activity, but priorities, ownership, messaging, or decisions are not working together.</p>
+          <p class="st-k">How I help</p>
+          <p>I find where the work is breaking down and help the team move the right changes forward.</p>
+        </div>
+        <div>
+          <p class="st-k">Best place to start</p>
+          <p>Strategic consulting, fractional leadership, or a cross-functional project.</p>
+          <p class="st-cta"><a class="arrow-link" href="../expertise.html">See the expertise in action</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="st-panel" id="st-panel-3" role="tabpanel" aria-labelledby="st-tab-3" tabindex="0" hidden>
+      <div class="st-cols">
+        <div>
+          <p class="st-k">What may be happening</p>
+          <p>You are leading the work, growing into a larger role, or making difficult decisions without an experienced person to pressure-test them with.</p>
+          <p class="st-k">How I help</p>
+          <p>I provide practical guidance, honest perspective, and ongoing thought partnership.</p>
+        </div>
+        <div>
+          <p class="st-k">Best place to start</p>
+          <p>One-to-one mentoring or marketing leadership advisory.</p>
+          <p class="st-cta"><a class="arrow-link" href="../about.html#contact">Ask about mentoring</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div></section></main>
 
 <script>
-var S = [
- {label:"No marketing yet",
-  happening:"The business works, but marketing has never been clearly defined. You need clarity on what matters, what to build, and what can wait.",
-  help:"I help create the positioning, priorities, and practical foundation the business actually needs.",
-  start:"Build Your Marketing Foundation or a focused strategy engagement.",
-  cta:"Explore the course", href:"../courses.html"},
- {label:"It all depends on me",
-  happening:"Marketing lives in your head, your calendar, and a collection of disconnected people or tools.",
-  help:"I simplify the work, create clearer systems, and reduce how much depends on one person.",
-  start:"Workflow and AI advisory or focused consulting.",
-  cta:"See how I work", href:"../my-approach.html"},
- {label:"The team is not aligned",
-  happening:"There is plenty of activity, but priorities, ownership, messaging, or decisions are not working together.",
-  help:"I find where the work is breaking down and help the team move the right changes forward.",
-  start:"Strategic consulting, fractional leadership, or a cross-functional project.",
-  cta:"See the expertise in action", href:"../expertise.html"},
- {label:"I need someone in my corner",
-  happening:"You are leading the work, growing into a larger role, or making difficult decisions without an experienced person to pressure-test them with.",
-  help:"I provide practical guidance, honest perspective, and ongoing thought partnership.",
-  start:"One-to-one mentoring or marketing leadership advisory.",
-  cta:"Ask about mentoring", href:"../about.html#contact"}
+var masks = document.querySelectorAll(".st-mask");
+
+var LABELS = [
+  "A working page headed The Plan. Three questions are written on it, an early answer reading post more is struck through, and an arrow curls up from a note reading start here.",
+  "The same page, filled with everything one person is carrying: website, emails, social, follow-up, reporting, ads, search, a launch page and the newsletter. Reporting is struck through and an arrow carries it away to a note reading this can move.",
+  "The same page listing a campaign launch, a pricing page and sales enablement. A pencilled owner reading marketing is struck through, and an arrow curls up from a note reading who owns this.",
+  "The same page listing where the team is stuck, what I keep deferring and the call I have to make. The word later is struck through, a coral bracket runs down the margin beside all three, and an arrow curls up from a note reading talk it through."
 ];
 
-var opts = document.querySelector(".st-opts"), panels = document.querySelector(".st-panels");
+var sheet = document.querySelector(".st-sheet");
+var btns = document.querySelectorAll(".st-opt");
 var states = document.querySelectorAll(".st-state");
+var pans = document.querySelectorAll(".st-panel");
 
-S.forEach(function (s, i) {
-  var b = document.createElement("button");
-  b.type = "button"; b.className = "st-opt"; b.setAttribute("role", "tab");
-  b.id = "st-tab-" + i; b.setAttribute("aria-controls", "st-panel-" + i);
-  b.setAttribute("aria-selected", i === 0 ? "true" : "false");
-  b.tabIndex = i === 0 ? 0 : -1;
-  b.textContent = s.label;
-  opts.appendChild(b);
-
-  var p = document.createElement("div");
-  p.className = "st-panel"; p.id = "st-panel-" + i; p.setAttribute("role", "tabpanel");
-  p.setAttribute("aria-labelledby", b.id); p.tabIndex = 0;
-  if (i !== 0) p.hidden = true;
-  p.innerHTML = '<div class="st-cols"><div>' +
-    '<p class="st-k">What may be happening</p><p>' + s.happening + '</p>' +
-    '<p class="st-k">How I help</p><p>' + s.help + '</p></div><div>' +
-    '<p class="st-k">Best place to start</p><p>' + s.start + '</p>' +
-    '<p class="st-cta"><a class="arrow-link" href="' + s.href + '">' + s.cta + '</a></p></div></div>';
-  panels.appendChild(p);
-});
-
-var btns = opts.querySelectorAll("button"), pans = panels.querySelectorAll(".st-panel");
 function select(n) {
   btns.forEach(function (b, i) {
     b.setAttribute("aria-selected", i === n ? "true" : "false");
     b.tabIndex = i === n ? 0 : -1;
   });
   states.forEach(function (g, i) { g.classList.toggle("on", i === n); });
+  masks.forEach(function (m, i) { m.classList.toggle("on", i === n); });
+  sheet.setAttribute("aria-label", LABELS[n]);
   pans.forEach(function (p, i) {
     p.hidden = i !== n;
     if (i === n) { p.classList.remove("st-in"); void p.offsetWidth; p.classList.add("st-in"); }
   });
 }
+
 btns.forEach(function (b, i) {
   b.addEventListener("click", function () { select(i); });
   b.addEventListener("keydown", function (e) {
@@ -223,7 +403,19 @@ btns.forEach(function (b, i) {
     if (n !== null) { e.preventDefault(); select(n); btns[n].focus(); }
   });
 });
-select(0);
+
+/* The mockup has no main.js, so it runs its own reveal gate. */
+if ("IntersectionObserver" in window) {
+  var canvas = document.querySelector(".st-canvas");
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add("in-view"); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  io.observe(canvas);
+} else {
+  document.querySelector(".st-canvas").classList.add("in-view");
+}
 </script>
 </body>
 </html>
