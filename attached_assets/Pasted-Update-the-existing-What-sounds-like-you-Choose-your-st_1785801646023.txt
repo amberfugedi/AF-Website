@@ -1,0 +1,129 @@
+Update the existing “What sounds like you?” / “Choose your starting point” section on the Services page.
+
+The current version has become too editorial and formal. It relies too heavily on oversized serif type, thin rules, large whitespace, and a manifesto-style content card.
+
+Redesign it so it feels:
+
+* warm
+* practical
+* approachable
+* creative
+* interactive
+* easy to understand quickly
+
+Aim for:
+
+Designed, but not editorial. Creative, but not crafty. Clear enough to use immediately.
+
+Keep
+
+Keep the four options:
+
+* No marketing yet
+* It all depends on me
+* The team is not aligned
+* I need someone in my corner
+
+Keep the interaction where only one option is active at a time and the supporting content updates based on the selection.
+
+Change the visual hierarchy
+
+Use the serif font only for the main section heading.
+
+Use the site’s sans-serif font for:
+
+* the four options
+* supporting copy
+* selected-state headline
+* descriptions
+* recommendations
+* CTA
+
+Do not use oversized serif type inside the selected content.
+
+The selected-state headline should be clear and conversational, not styled like a second hero.
+
+Replace the large content card
+
+Remove the oversized boxed panel beneath the selector.
+
+Instead, connect the active option directly to a compact response area.
+
+The response area should include:
+
+* one short headline
+* one concise description
+* a small “How I help” section
+* best place to start
+* CTA
+* one subtle visual or annotation tied to the selected state
+
+Keep the response visually open and integrated with the page rather than placing it inside a large card.
+
+Add warmth and personality
+
+Use restrained design details such as:
+
+* small paper-note accents
+* handwritten-style annotations used sparingly
+* a soft butter highlight
+* coral arrows or underlines
+* subtle pink or lavender background shapes
+* compact working-document details
+* gentle movement when the active state changes
+
+Do not use four full illustrations or separate hero images.
+
+The visual detail should support the selected state without becoming the main content.
+
+Selector design
+
+Keep the four options easy to scan and tap.
+
+Do not present them as:
+
+* giant editorial headlines
+* conventional cards
+* filled pills
+* an accordion
+* a timeline
+* a fashion-magazine contents page
+
+Use simple horizontal or stacked choices with enough personality to feel custom.
+
+The active option should use:
+
+* stronger sans-serif typography
+* a coral accent
+* one small butter highlight or annotation
+* a subtle shift in background or spacing
+
+Inactive options should remain clearly readable.
+
+Mobile design
+
+The current mobile section is too tall.
+
+On mobile:
+
+* keep the section heading concise
+* stack the four options
+* keep the selected response compact
+* avoid a giant card
+* avoid large serif copy
+* show the CTA without requiring excessive scrolling
+* keep the entire interaction useful within roughly one to one-and-a-half phone screens when possible
+
+Tone
+
+The experience should feel like Amber is helping the visitor recognize their situation and choose a practical next step.
+
+It should not feel like:
+
+* a luxury editorial spread
+* a software product selector
+* a personality quiz
+* a formal consulting framework
+* a scrapbook collage
+
+Preserve the current site colors and overall brand, but make the section friendlier, lighter, and more usable.
