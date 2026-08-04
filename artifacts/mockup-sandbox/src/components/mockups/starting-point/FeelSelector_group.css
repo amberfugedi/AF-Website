@@ -1,4 +1,4 @@
-/* ── Outer section ── */
+/* ─── Outer section ─────────────────────────────────────────── */
 .feel-selector {
   position: relative;
   overflow: hidden;
@@ -9,7 +9,8 @@
   font-family: 'Manrope', sans-serif;
 }
 
-/* ── Aura washes — match the site's drifting pastel blobs ── */
+/* ─── Aura washes ─────────────────────────────────────────────
+   Matches the site's drifting pastel blobs (--peach / --lavender). */
 .feel-aura {
   position: absolute;
   border-radius: 50%;
@@ -17,44 +18,39 @@
   filter: blur(72px);
 }
 .feel-aura-peach {
-  width: 340px;
-  height: 240px;
-  background: rgba(252, 228, 196, 0.52);   /* --peach at 52% */
-  top: -60px;
-  left: -80px;
+  width: 360px; height: 260px;
+  background: rgba(252, 228, 196, 0.50);
+  top: -70px; left: -90px;
 }
 .feel-aura-lavender {
-  width: 300px;
-  height: 210px;
-  background: rgba(218, 212, 245, 0.38);   /* --lavender at 38% */
-  bottom: -40px;
-  right: -60px;
+  width: 300px; height: 210px;
+  background: rgba(218, 212, 245, 0.36);
+  bottom: -50px; right: -60px;
 }
 
-/* ── Layout ── */
+/* ─── Two-column layout ───────────────────────────────────────
+   Collapses to one column at 860px (generous breakpoint covers
+   tablets and avoids the squeezed-two-column problem on mobile). */
 .feel-layout {
   position: relative;
   display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
-  gap: clamp(44px, 6vw, 80px);
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: clamp(40px, 5.5vw, 76px);
   max-width: 1040px;
   margin: 0 auto;
   align-items: start;
 }
 
-/* ── Heading — Newsreader only here ── */
+/* ─── Heading — only Newsreader in the section ────────────── */
 .feel-heading {
   margin: 0;
-  font: 500 clamp(1.75rem, 1.5rem + 1vw, 2.2rem) / 1.15 'Newsreader', Georgia, serif;
+  font: 500 clamp(1.8rem, 1.5rem + 1.2vw, 2.25rem) / 1.15 'Newsreader', Georgia, serif;
   letter-spacing: -0.025em;
   color: #2E2A27;
 }
 
-/*
-  Tab-em butter highlight — replicates the site's signature double-tab effect.
-  Two pseudo-elements create a slightly tilted paper-tab behind the text,
-  exactly matching .tab-em .tab-butter from the main site's styles.css.
-*/
+/* Tab-em butter highlight — replicates the site's double-pseudo
+   paper-tab effect used on key phrases across every page. */
 .feel-tab-em {
   position: relative;
   display: inline;
@@ -64,80 +60,66 @@
 .feel-tab-em::after {
   content: '';
   position: absolute;
-  left: -3px;
-  right: -3px;
-  bottom: 1px;
-  top: 1px;
+  inset: 1px -3px;
   z-index: -1;
   border-radius: 3px 6px 4px 2px / 4px 3px 5px 3px;
 }
 .feel-tab-em::before {
-  background: rgba(242, 220, 156, 0.68);  /* tab-back */
+  background: rgba(242, 220, 156, 0.68);
   transform: rotate(-0.6deg) translateY(1px);
 }
 .feel-tab-em::after {
-  background: #FBEDBF;                     /* tab-front / --butter */
+  background: #FBEDBF;
   transform: rotate(0.4deg);
 }
 
-/* ── Intro copy ── */
+/* ─── Intro copy ──────────────────────────────────────────── */
 .feel-intro {
   margin: 14px 0 32px;
   color: #5C544B;
   font-size: 0.875rem;
-  line-height: 1.6;
+  line-height: 1.65;
   max-width: 34ch;
 }
 
-/* ── Selector options ── */
-.feel-situations {
-  display: flex;
-  flex-direction: column;
-}
+/* ─── Selector ────────────────────────────────────────────── */
+.feel-situations { display: flex; flex-direction: column; }
 
 .feel-option {
   position: relative;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 10px;
   width: 100%;
-  min-height: 52px;
-  padding: 13px 2px 13px 14px;
+  min-height: 54px;
+  padding: 13px 4px 13px 14px;
   border: 0;
   border-top: 1px solid rgba(46, 42, 39, 0.10);
   background: transparent;
   color: #5C544B;
-  font: 600 0.9375rem / 1.35 'Manrope', sans-serif;
+  font: 600 1rem / 1.3 'Manrope', sans-serif;
   text-align: left;
   cursor: pointer;
-  /* left border: invisible by default, coral-deep when active */
+  /* Coral left rail — invisible until active */
   box-shadow: inset 3px 0 0 transparent;
-  transition:
-    color 200ms ease,
-    background-color 200ms ease,
-    box-shadow 200ms ease;
+  transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
 }
-.feel-option:last-child {
-  border-bottom: 1px solid rgba(46, 42, 39, 0.10);
-}
-.feel-option:focus-visible {
-  outline: 2px solid #FF6F61;
-  outline-offset: 3px;
-}
+.feel-option:last-child { border-bottom: 1px solid rgba(46, 42, 39, 0.10); }
+.feel-option:focus-visible { outline: 2px solid #FF6F61; outline-offset: 3px; border-radius: 2px; }
 
-/* Active state: coral left rule + butter wash + stronger text */
+/* Active: coral left rail + butter wash + stronger text */
 .feel-option.is-active {
   color: #B8354A;
-  background: rgba(251, 237, 191, 0.30);
+  background: rgba(251, 237, 191, 0.28);
   box-shadow: inset 3px 0 0 #B8354A;
 }
 
-/* Arrow — always present, fades/shifts on active */
+/* Arrow — always present, coral when active */
 .feel-option-arrow {
   flex: 0 0 auto;
-  font-size: 0.85rem;
-  color: rgba(46, 42, 39, 0.25);
+  font-size: 0.8rem;
+  color: rgba(46, 42, 39, 0.20);
   transition: color 200ms ease, transform 200ms ease;
 }
 .feel-option.is-active .feel-option-arrow {
@@ -145,106 +127,113 @@
   transform: translateX(2px);
 }
 
-/*
-  Tab-em butter highlight on the active label —
-  same double-pseudo trick as the heading, but smaller.
-*/
-.feel-option-label {
-  position: relative;
-}
+/* Tab-em butter on the active label text */
+.feel-option-label { position: relative; }
 .feel-option-label.is-highlighted::before,
 .feel-option-label.is-highlighted::after {
   content: '';
   position: absolute;
-  left: -3px;
-  right: -3px;
-  bottom: 0px;
-  top: 0px;
+  inset: 0 -3px;
   z-index: -1;
   border-radius: 3px 6px 4px 2px / 4px 3px 5px 3px;
 }
 .feel-option-label.is-highlighted::before {
-  background: rgba(242, 220, 156, 0.55);
+  background: rgba(242, 220, 156, 0.52);
   transform: rotate(-0.5deg) translateY(1px);
 }
 .feel-option-label.is-highlighted::after {
-  background: rgba(251, 237, 191, 0.75);
+  background: rgba(251, 237, 191, 0.72);
   transform: rotate(0.3deg);
 }
 
-/* ── Response area — sits openly on the page, no card ── */
+/* ─── Artifact ────────────────────────────────────────────────
+   Small changing planning fragment — the visual payoff that makes
+   the interaction feel special beyond swapping text. */
+.feel-artifact {
+  display: block;
+  margin: 0 0 20px;
+  width: 180px;
+  height: auto;
+  /* Light border + tiny tilt: feels like a note dropped on the desk */
+  border: 1px solid rgba(46, 42, 39, 0.10);
+  border-radius: 4px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 6px rgba(46, 42, 39, 0.06);
+  transform: rotate(-0.6deg);
+  overflow: hidden;
+  padding: 0;
+}
+.feel-artifact svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ─── Response area — no card, sits openly on page ─────────── */
 .feel-response {
-  padding-top: 2px;
+  padding-top: 0;
   opacity: 1;
   transform: translateY(0);
   transition: opacity 200ms ease, transform 200ms ease;
 }
 .feel-response.is-out {
   opacity: 0;
-  transform: translateY(5px);
+  transform: translateY(6px);
 }
 
+/* Main statement — dominant hierarchy element */
 .feel-main-statement {
-  margin: 0 0 18px;
+  margin: 0 0 0;
   color: #2E2A27;
-  font: 600 1.05rem / 1.45 'Manrope', sans-serif;
-  max-width: 46ch;
+  /* Clearly larger than body text, clearly smaller than the heading */
+  font: 700 1.2rem / 1.4 'Manrope', sans-serif;
+  max-width: 42ch;
 }
 
+/* Section micro-labels */
 .feel-section-label {
   display: block;
-  margin: 18px 0 5px;
+  margin: 20px 0 5px;
   color: #B8354A;
   font: 700 0.7rem / 1.4 'Manrope', sans-serif;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
+/* Body text — two tones */
 .feel-body {
   margin: 0;
   color: #5C544B;
   font-size: 0.9rem;
   line-height: 1.65;
-  max-width: 50ch;
+  max-width: 48ch;
 }
-.feel-body-ink {
-  color: #2E2A27;
-}
+.feel-body-ink { color: #2E2A27; }
 
-/*
-  Best place to start — proof-chip style:
-  raised white surface, slight rotation, soft shadow.
-  Matches the site's .proof-chip pattern.
-*/
-.feel-start-chip {
-  display: inline-block;
-  margin-top: 22px;
-  padding: 12px 16px 13px;
-  background: #FFFFFF;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(46, 42, 39, 0.09), 0 1px 3px rgba(46, 42, 39, 0.06);
-  transform: rotate(-0.5deg);
-  max-width: 38ch;
+/* Best place to start — plain text block separated by a thin rule.
+   No card, no shadow, no rounded box. */
+.feel-start-block {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(46, 42, 39, 0.10);
 }
-.feel-section-label-inline {
-  margin-top: 0;
-}
+.feel-section-label-start { margin-top: 0; }
 .feel-start-text {
-  margin: 4px 0 0;
-  color: #2E2A27;
+  margin: 5px 0 0;
+  color: #5C544B;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.55;
+  max-width: 44ch;
 }
 
-/*
-  Arrow-link CTA — replicates the site's .arrow-link pattern:
-  coral-deep text, no underline at rest, coral underline + slight movement on hover.
-*/
+/* ─── CTA arrow-link ──────────────────────────────────────────
+   Replicates the site's .arrow-link: coral-deep, no underline at
+   rest, underline + arrow advance on hover. */
 .feel-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 24px;
+  margin-top: 22px;
   color: #B8354A;
   font: 600 0.875rem / 1 'Manrope', sans-serif;
   text-decoration: none;
@@ -254,8 +243,8 @@
 .feel-cta:hover,
 .feel-cta:focus-visible {
   text-decoration: underline;
-  text-decoration-color: rgba(184, 53, 74, 0.5);
-  gap: 11px;
+  text-decoration-color: rgba(184, 53, 74, 0.45);
+  gap: 12px;
 }
 .feel-cta:focus-visible {
   outline: 2px solid #FF6F61;
@@ -263,26 +252,42 @@
   border-radius: 3px;
 }
 .feel-cta-arrow {
-  width: 20px;
-  height: 10px;
+  width: 20px; height: 10px;
   flex: 0 0 auto;
   transition: transform 220ms ease;
 }
 .feel-cta:hover .feel-cta-arrow,
 .feel-cta:focus-visible .feel-cta-arrow {
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
-/* ── Mobile ── */
-@media (max-width: 720px) {
-  .feel-selector { padding: 52px 20px 64px; }
-  .feel-aura-peach { width: 220px; height: 160px; top: -40px; left: -50px; }
+/* ─── Mobile ──────────────────────────────────────────────────
+   860px breakpoint: generous enough to catch tablets and avoid
+   the squeezed-two-column problem. Single-column stack:
+   1. heading + intro  2. selector  3. response  4. CTA */
+@media (max-width: 860px) {
+  .feel-selector { padding: 52px 22px 64px; }
+  .feel-aura-peach { width: 240px; height: 170px; top: -40px; left: -50px; }
   .feel-aura-lavender { display: none; }
-  .feel-layout { grid-template-columns: 1fr; gap: 36px; }
-  .feel-heading { font-size: clamp(1.65rem, 5vw, 1.9rem); }
-  .feel-intro { max-width: none; margin-bottom: 24px; }
-  .feel-option { font-size: 0.9375rem; }
-  .feel-response { padding-top: 0; }
+
+  /* Full single-column — no two-column squeezing */
+  .feel-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Heading */
+  .feel-heading { font-size: clamp(1.65rem, 5vw, 1.95rem); }
+  .feel-intro { max-width: none; margin-bottom: 20px; }
+
+  /* Options: comfortable tap targets, labels wrap naturally */
+  .feel-option { font-size: 1rem; min-height: 56px; }
+
+  /* Artifact slightly smaller on mobile */
+  .feel-artifact { width: 152px; }
+
+  /* Response: full width */
   .feel-body { max-width: none; }
-  .feel-start-chip { max-width: none; width: 100%; box-sizing: border-box; }
+  .feel-main-statement { max-width: none; font-size: 1.1rem; }
+  .feel-start-text { max-width: none; }
 }

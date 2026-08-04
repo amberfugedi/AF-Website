@@ -1,0 +1,65 @@
+What is not working
+
+1. Everything is too small
+
+On mobile, the section looks like a desktop two-column layout scaled down. The selector and response are both squeezed side by side, so neither is comfortable to read.
+
+This should stack on mobile:
+
+1. heading and intro
+2. four options
+3. selected response
+4. CTA
+
+Do not preserve the two-column layout at this width.
+
+2. The content has become too wordy
+
+The selector labels are more accurate, but all four are now long. Combined with the detailed response, the section feels heavy.
+
+I would shorten the visible labels again while keeping the stronger expanded copy:
+
+* No marketing foundation
+* Too much depends on me
+* The team is not connecting
+* I need someone in my corner
+
+The selected content can provide the nuance.
+
+3. The compact visual artifact is missing
+
+The prompt asked for a small changing planning artifact, but the screenshot only shows text. That is why it still feels like a standard text selector.
+
+The artifact does not need to be big, but it needs to exist. A small note fragment above the response would add the creative, human layer we were trying to preserve.
+
+4. “Best place to start” looks like a card
+
+The white rounded box with a shadow feels like a separate UI component and does not match the rest of the section.
+
+Remove the card treatment. Make it a simple text block separated by a thin rule or soft butter wash.
+
+5. The hierarchy is too flat
+
+The active row, state headline, section labels, body copy, recommendation, and CTA are all competing at similar sizes.
+
+The state headline should be the dominant response element. Then:
+
+* what may be happening
+* how I help
+* best place to start
+* CTA
+
+Right now, the text feels compressed into one dense answer.
+
+6. There is no storytelling payoff
+
+The section is clear, but still not memorable. The selected option changes text, yet nothing visual changes enough to make the interaction feel special.
+
+This is where the compact artifact matters:
+
+* blank plan
+* overloaded task sheet
+* conflicting notes
+* focused decision page
+
+That one changing element would give the interaction a reason to exist beyond hiding copy.
