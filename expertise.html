@@ -121,19 +121,46 @@
           <p class="section-lede">My expertise sits across marketing strategy, execution, operations, and team development. That means I can zoom out to identify the real problem, then get close enough to help fix it.</p>
         </div>
 
-        <!-- ONE COMPACT LAYERED OBJECT (Amber, July 2026: the full-width
-             bands "feel like a decorative list and repeat the content
-             shown immediately below"). Four strips sized to their own
-             content, stepped on a constant offset and overlapping
-             tightly, so it reads as one stack of paper rather than four
-             floating rectangles. No paths, arrows, icons or rules. -->
-        <aside class="hero-visual xmap" aria-label="The four areas of expertise, drawn as one layered object">
-          <ol class="xmap-list">
-            <li><span class="xm-num">01</span><span class="xm-name">Strategy</span><span class="xm-note">Clarify what matters.</span></li>
-            <li><span class="xm-num">02</span><span class="xm-name">Digital</span><span class="xm-note">Build the experience.</span></li>
-            <li><span class="xm-num">03</span><span class="xm-name">Operations</span><span class="xm-note">Make the work run better.</span></li>
-            <li><span class="xm-num">04</span><span class="xm-name">Leadership</span><span class="xm-note">Help people move it forward.</span></li>
-          </ol>
+        <!-- Abstract visual: four arcs radiating from a focal point,
+             suggesting expertise that extends across interconnected
+             domains — not a list, not a legend, just a sense of range. -->
+        <aside class="hero-visual xp-visual reveal" aria-hidden="true">
+          <svg class="glyph" viewBox="0 0 420 296" width="420" height="296" fill="none" stroke-linecap="round">
+            <defs>
+              <!-- Gradients fade in from the focal point and breathe out -->
+              <linearGradient id="xp-g1" gradientUnits="userSpaceOnUse" x1="52" y1="0" x2="420" y2="0">
+                <stop offset="0" stop-color="#F2A93B" stop-opacity="0"/>
+                <stop offset="0.45" stop-color="#F2A93B" stop-opacity="0.6"/>
+                <stop offset="1" stop-color="#F2A93B" stop-opacity="0.28"/>
+              </linearGradient>
+              <linearGradient id="xp-g2" gradientUnits="userSpaceOnUse" x1="52" y1="0" x2="420" y2="0">
+                <stop offset="0" stop-color="#FBD5E4" stop-opacity="0"/>
+                <stop offset="0.45" stop-color="#FBD5E4" stop-opacity="0.82"/>
+                <stop offset="1" stop-color="#FBD5E4" stop-opacity="0.48"/>
+              </linearGradient>
+              <linearGradient id="xp-g3" gradientUnits="userSpaceOnUse" x1="52" y1="0" x2="420" y2="0">
+                <stop offset="0" stop-color="#968AD6" stop-opacity="0"/>
+                <stop offset="0.45" stop-color="#968AD6" stop-opacity="0.72"/>
+                <stop offset="1" stop-color="#968AD6" stop-opacity="0.38"/>
+              </linearGradient>
+              <linearGradient id="xp-g4" gradientUnits="userSpaceOnUse" x1="52" y1="0" x2="420" y2="0">
+                <stop offset="0" stop-color="#C6B2D8" stop-opacity="0"/>
+                <stop offset="0.45" stop-color="#C6B2D8" stop-opacity="0.58"/>
+                <stop offset="1" stop-color="#C6B2D8" stop-opacity="0.24"/>
+              </linearGradient>
+            </defs>
+            <!-- Four arcs radiating from focal point at (52, 148) -->
+            <path class="stroke" pathLength="100" d="M 52,148 C 138,52 266,34 420,44"    stroke="url(#xp-g1)" stroke-width="2.2" style="--d:0.05s"/>
+            <path class="stroke" pathLength="100" d="M 52,148 C 158,104 282,99 420,101"  stroke="url(#xp-g2)" stroke-width="2.8" style="--d:0.22s"/>
+            <path class="stroke" pathLength="100" d="M 52,148 C 158,192 282,197 420,195" stroke="url(#xp-g3)" stroke-width="2.8" style="--d:0.38s"/>
+            <path class="stroke" pathLength="100" d="M 52,148 C 138,244 266,262 420,252" stroke="url(#xp-g4)" stroke-width="2.2" style="--d:0.55s"/>
+            <!-- Hair-thin echo arcs for depth -->
+            <path class="stroke" pathLength="100" d="M 52,148 C 148,78 270,66 420,72"   stroke="#F2A93B" stroke-width="0.85" opacity="0.28" style="--d:0.68s"/>
+            <path class="stroke" pathLength="100" d="M 52,148 C 148,218 270,230 420,224" stroke="#968AD6" stroke-width="0.85" opacity="0.28" style="--d:0.78s"/>
+            <!-- Focal point: soft halo then solid coral dot -->
+            <circle class="fill" cx="52" cy="148" r="11" fill="#FF6F61" opacity="0.14" style="--fd:0.35s"/>
+            <circle class="fill" cx="52" cy="148" r="4.8" fill="#FF6F61"                style="--fd:0.5s"/>
+          </svg>
         </aside>
       </div>
     </header>

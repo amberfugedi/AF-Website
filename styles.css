@@ -1641,6 +1641,19 @@ a.bld-item .bld-item-arrow {
 .xm-name { font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
 .xm-note { color: var(--muted); grid-column: 2; }
 
+/* ---- Expertise hero: abstract radiate SVG ----
+   Lives in .hero-visual (not .head-art), so needs its own width rule
+   and its own --d/--fd timing hooks to match the head-art draw-on. */
+.xp-visual .glyph { width: 100%; height: auto; margin: 0; opacity: 0.92; }
+.reveal.in-view .xp-visual .glyph .stroke { animation-duration: 1.5s; animation-delay: var(--d, 0s); }
+.reveal.in-view .xp-visual .glyph .fill   { animation-delay: var(--fd, 0.5s); }
+
+/* ---- Services hero: three-path converge SVG ----
+   Replaces svc-trio; .head-art already handles sizing/animation.
+   Hide on mobile — the anchor nav below already lists the sections. */
+.svc-vis { align-self: center; }
+@media (max-width: 760px) { .svc-vis { display: none; } }
+
 /* Pull the first section up: the head was leaving a large empty
    lavender field under the paragraph (Amber, July 2026). 8 + 56 = 64px
    off, inside the 60-90 she asked for. */
