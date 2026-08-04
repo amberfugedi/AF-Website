@@ -3,6 +3,9 @@ import './FeelSelector_group.css';
 
 type Situation = {
   shortLabel: string;
+  /* Per-situation pastel identity — mirrors the site's colored service cards */
+  tint: string;        // strong-ish pastel for washes
+  tintSoft: string;    // very light version for artifact paper + option bg
   mainStatement: string;
   whatHappening: string;
   howIHelp: string;
@@ -14,6 +17,8 @@ type Situation = {
 const situations: Situation[] = [
   {
     shortLabel: 'No marketing foundation',
+    tint: 'rgba(252, 228, 196, 0.85)',   /* peach — matches Courses card */
+    tintSoft: 'rgba(252, 228, 196, 0.30)',
     mainStatement: 'The business works. Marketing has never been clearly built around it.',
     whatHappening:
       "You may have grown through referrals, reputation, relationships, or the owner's effort without ever building a clear marketing function. Now you need to understand what matters, what support to hire, and what can wait.",
@@ -25,6 +30,8 @@ const situations: Situation[] = [
   },
   {
     shortLabel: 'Too much depends on me',
+    tint: 'rgba(218, 212, 245, 0.85)',   /* lavender — matches Workflow & AI card */
+    tintSoft: 'rgba(218, 212, 245, 0.30)',
     mainStatement: 'Marketing is happening, but too much of it still relies on you.',
     whatHappening:
       'The work lives in your head, your calendar, and a collection of disconnected tools, freelancers, and unfinished ideas. Things are getting done, but they are difficult to maintain, delegate, or improve.',
@@ -36,6 +43,8 @@ const situations: Situation[] = [
   },
   {
     shortLabel: 'The team is not connecting',
+    tint: 'rgba(251, 237, 191, 0.90)',   /* butter — the site's highlight color */
+    tintSoft: 'rgba(251, 237, 191, 0.35)',
     mainStatement: 'There is plenty of activity. The parts are not working together.',
     whatHappening:
       'You may have capable people, useful tools, and active campaigns, but the priorities, ownership, systems, messaging, or decisions are not aligned. The visible marketing problem may actually sit between teams or functions.',
@@ -47,6 +56,8 @@ const situations: Situation[] = [
   },
   {
     shortLabel: 'I need someone in my corner',
+    tint: 'rgba(255, 111, 97, 0.30)',    /* soft coral rose — personal, warm */
+    tintSoft: 'rgba(255, 111, 97, 0.10)',
     mainStatement: 'You do not need someone to take over. You need someone experienced to think with.',
     whatHappening:
       'You may be leading marketing, inheriting a function, growing into a larger role, building a team, or making important decisions without another experienced person nearby to pressure-test the work.',
@@ -61,13 +72,13 @@ const situations: Situation[] = [
 // Small planning fragment SVGs — the changing visual payoff.
 // Each one is a sparse, hand-feel note: ruled lines + sparse text + coral annotation.
 // Newsreader italic inside the SVG matches the site's handwritten-feel notes.
-function Artifact({ index }: { index: number }) {
+function Artifact({ index, tintSoft }: { index: number; tintSoft: string }) {
   const ink = '#2E2A27';
   const coral = '#B8354A';
   const rules = [22, 44, 66, 88, 110];
 
   return (
-    <figure className="feel-artifact" aria-hidden="true">
+    <figure className="feel-artifact" aria-hidden="true" style={{ background: `linear-gradient(${tintSoft}, ${tintSoft}), #FFFFFF` }}>
       <svg viewBox="0 0 200 128" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Ruled lines */}
         {rules.map(y => (
@@ -176,6 +187,7 @@ export function FeelSelector() {
                   role="tab"
                   aria-selected={selected}
                   onClick={() => select(index)}
+                  style={selected ? { background: item.tintSoft } : undefined}
                 >
                   <span className={`feel-option-label${selected ? ' is-highlighted' : ''}`}>
                     {item.shortLabel}
@@ -193,8 +205,12 @@ export function FeelSelector() {
           role="tabpanel"
           aria-live="polite"
         >
+          {/* Color wash behind the response — shifts with each situation,
+              echoing the site's tinted service cards */}
+          <div className="feel-response-wash" aria-hidden="true" style={{ background: active.tint }} />
+
           {/* Compact changing artifact — the visual payoff */}
-          <Artifact index={contentIndex} />
+          <Artifact index={contentIndex} tintSoft={active.tintSoft} />
 
           {/* Main statement — dominant, clear */}
           <p className="feel-main-statement">{active.mainStatement}</p>

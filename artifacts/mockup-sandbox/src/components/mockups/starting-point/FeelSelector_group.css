@@ -1,6 +1,9 @@
 /* ─── Outer section ─────────────────────────────────────────── */
 .feel-selector {
   position: relative;
+  /* Own stacking context so the z-index:-1 washes and tab-em pseudo
+     elements paint above this section's cream background */
+  isolation: isolate;
   overflow: hidden;
   box-sizing: border-box;
   padding: 80px 28px 88px;
@@ -171,6 +174,7 @@
 
 /* ─── Response area — no card, sits openly on page ─────────── */
 .feel-response {
+  position: relative;
   padding-top: 0;
   opacity: 1;
   transform: translateY(0);
@@ -179,6 +183,23 @@
 .feel-response.is-out {
   opacity: 0;
   transform: translateY(6px);
+}
+
+/* Color wash behind the response — soft blurred ellipse whose color
+   comes from the active situation (inline style). Echoes the site's
+   tinted service cards without boxing the content. */
+.feel-response-wash {
+  position: absolute;
+  top: -40px;
+  left: -60px;
+  width: 340px;
+  height: 240px;
+  border-radius: 50%;
+  filter: blur(64px);
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: -1;
+  transition: background 400ms ease;
 }
 
 /* Main statement — dominant hierarchy element */
