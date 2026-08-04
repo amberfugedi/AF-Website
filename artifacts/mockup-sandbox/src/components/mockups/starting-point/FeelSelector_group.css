@@ -1,1 +1,288 @@
-.feel-selector{position:relative;overflow:hidden;box-sizing:border-box;padding:80px 28px;color:#2E2A27;background:#FDF9F5;font-family:'Manrope',sans-serif}.feel-wash{position:absolute;right:-20px;bottom:-55px;width:300px;height:200px;border-radius:50%;background:rgba(218,212,245,.18);filter:blur(60px);pointer-events:none}.feel-layout{position:relative;display:grid;grid-template-columns:360px minmax(0,1fr);gap:clamp(44px,6vw,80px);max-width:1040px;margin:0 auto;align-items:start}.feel-list h2{margin:0;font:500 2.1rem/1.1 'Newsreader',Georgia,serif;letter-spacing:-.025em}.feel-intro{max-width:36ch;margin:14px 0 29px;color:#5C544B;font-size:.82rem;line-height:1.58}.feel-situations{display:flex;flex-direction:column}.feel-option{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;min-height:52px;padding:13px 12px 13px 14px;border:0;border-bottom:1px solid rgba(46,42,39,.1);color:#5C544B;background:transparent;text-align:left;cursor:pointer;font:600 1rem/1.3 'Manrope',sans-serif;transition:color 200ms ease,background-color 200ms ease,border-color 200ms ease}.feel-option:first-child{border-top:1px solid rgba(46,42,39,.1)}.feel-option.is-active{border-left:3px solid #B8354A;color:#B8354A;background:rgba(251,237,191,.35);font-weight:700}.feel-option:focus-visible{outline:2px solid #FF6F61;outline-offset:4px}.feel-arrow{color:#B8354A;font-size:1rem}.feel-response{position:relative;max-width:560px;padding-top:0;opacity:1;transform:translateY(0);transition:opacity 220ms ease,transform 220ms ease}.feel-response.is-transitioning{opacity:0;transform:translateY(4px)}.feel-artifact{width:220px;height:140px;margin:0 0 20px}.feel-artifact svg{display:block;width:220px;height:140px}.feel-artifact text{font:italic 13px 'Newsreader',Georgia,serif}.feel-artifact .feel-artifact-note{font-size:14px}.feel-main-statement{margin:0;color:#2E2A27;font-size:1.1rem;font-weight:600;line-height:1.4}.feel-label-small{margin:18px 0 0;color:#B8354A;font-size:.7rem;font-weight:700;letter-spacing:.1em;line-height:1.4;text-transform:uppercase}.feel-happening,.feel-help,.feel-start{margin:5px 0 0;color:#5C544B;font-size:.9rem;line-height:1.6}.feel-help{color:#2E2A27}.feel-start-label{margin-top:16px}.feel-start{color:#5C544B}.feel-cta{display:inline-block;margin-top:22px;color:#B8354A;font-size:.875rem;font-weight:600;text-decoration:none}.feel-cta:hover,.feel-cta:focus-visible{text-decoration:underline;text-decoration-color:#FF6F61;text-underline-offset:4px}.feel-cta:focus-visible{outline:2px solid #FF6F61;outline-offset:4px}@media(max-width:720px){.feel-selector{padding:48px 20px}.feel-wash{display:none}.feel-layout{grid-template-columns:1fr;gap:38px}.feel-list h2{font-size:1.9rem}.feel-intro{margin-bottom:20px}.feel-option{font-size:1rem;min-height:52px}.feel-response{max-width:none}}
+/* ── Outer section ── */
+.feel-selector {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 80px 28px 88px;
+  background: #FDF9F5;
+  color: #2E2A27;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* ── Aura washes — match the site's drifting pastel blobs ── */
+.feel-aura {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(72px);
+}
+.feel-aura-peach {
+  width: 340px;
+  height: 240px;
+  background: rgba(252, 228, 196, 0.52);   /* --peach at 52% */
+  top: -60px;
+  left: -80px;
+}
+.feel-aura-lavender {
+  width: 300px;
+  height: 210px;
+  background: rgba(218, 212, 245, 0.38);   /* --lavender at 38% */
+  bottom: -40px;
+  right: -60px;
+}
+
+/* ── Layout ── */
+.feel-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: clamp(44px, 6vw, 80px);
+  max-width: 1040px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* ── Heading — Newsreader only here ── */
+.feel-heading {
+  margin: 0;
+  font: 500 clamp(1.75rem, 1.5rem + 1vw, 2.2rem) / 1.15 'Newsreader', Georgia, serif;
+  letter-spacing: -0.025em;
+  color: #2E2A27;
+}
+
+/*
+  Tab-em butter highlight — replicates the site's signature double-tab effect.
+  Two pseudo-elements create a slightly tilted paper-tab behind the text,
+  exactly matching .tab-em .tab-butter from the main site's styles.css.
+*/
+.feel-tab-em {
+  position: relative;
+  display: inline;
+  white-space: nowrap;
+}
+.feel-tab-em::before,
+.feel-tab-em::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  bottom: 1px;
+  top: 1px;
+  z-index: -1;
+  border-radius: 3px 6px 4px 2px / 4px 3px 5px 3px;
+}
+.feel-tab-em::before {
+  background: rgba(242, 220, 156, 0.68);  /* tab-back */
+  transform: rotate(-0.6deg) translateY(1px);
+}
+.feel-tab-em::after {
+  background: #FBEDBF;                     /* tab-front / --butter */
+  transform: rotate(0.4deg);
+}
+
+/* ── Intro copy ── */
+.feel-intro {
+  margin: 14px 0 32px;
+  color: #5C544B;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: 34ch;
+}
+
+/* ── Selector options ── */
+.feel-situations {
+  display: flex;
+  flex-direction: column;
+}
+
+.feel-option {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 13px 2px 13px 14px;
+  border: 0;
+  border-top: 1px solid rgba(46, 42, 39, 0.10);
+  background: transparent;
+  color: #5C544B;
+  font: 600 0.9375rem / 1.35 'Manrope', sans-serif;
+  text-align: left;
+  cursor: pointer;
+  /* left border: invisible by default, coral-deep when active */
+  box-shadow: inset 3px 0 0 transparent;
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+.feel-option:last-child {
+  border-bottom: 1px solid rgba(46, 42, 39, 0.10);
+}
+.feel-option:focus-visible {
+  outline: 2px solid #FF6F61;
+  outline-offset: 3px;
+}
+
+/* Active state: coral left rule + butter wash + stronger text */
+.feel-option.is-active {
+  color: #B8354A;
+  background: rgba(251, 237, 191, 0.30);
+  box-shadow: inset 3px 0 0 #B8354A;
+}
+
+/* Arrow — always present, fades/shifts on active */
+.feel-option-arrow {
+  flex: 0 0 auto;
+  font-size: 0.85rem;
+  color: rgba(46, 42, 39, 0.25);
+  transition: color 200ms ease, transform 200ms ease;
+}
+.feel-option.is-active .feel-option-arrow {
+  color: #B8354A;
+  transform: translateX(2px);
+}
+
+/*
+  Tab-em butter highlight on the active label —
+  same double-pseudo trick as the heading, but smaller.
+*/
+.feel-option-label {
+  position: relative;
+}
+.feel-option-label.is-highlighted::before,
+.feel-option-label.is-highlighted::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  bottom: 0px;
+  top: 0px;
+  z-index: -1;
+  border-radius: 3px 6px 4px 2px / 4px 3px 5px 3px;
+}
+.feel-option-label.is-highlighted::before {
+  background: rgba(242, 220, 156, 0.55);
+  transform: rotate(-0.5deg) translateY(1px);
+}
+.feel-option-label.is-highlighted::after {
+  background: rgba(251, 237, 191, 0.75);
+  transform: rotate(0.3deg);
+}
+
+/* ── Response area — sits openly on the page, no card ── */
+.feel-response {
+  padding-top: 2px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.feel-response.is-out {
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+.feel-main-statement {
+  margin: 0 0 18px;
+  color: #2E2A27;
+  font: 600 1.05rem / 1.45 'Manrope', sans-serif;
+  max-width: 46ch;
+}
+
+.feel-section-label {
+  display: block;
+  margin: 18px 0 5px;
+  color: #B8354A;
+  font: 700 0.7rem / 1.4 'Manrope', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.feel-body {
+  margin: 0;
+  color: #5C544B;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  max-width: 50ch;
+}
+.feel-body-ink {
+  color: #2E2A27;
+}
+
+/*
+  Best place to start — proof-chip style:
+  raised white surface, slight rotation, soft shadow.
+  Matches the site's .proof-chip pattern.
+*/
+.feel-start-chip {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 12px 16px 13px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(46, 42, 39, 0.09), 0 1px 3px rgba(46, 42, 39, 0.06);
+  transform: rotate(-0.5deg);
+  max-width: 38ch;
+}
+.feel-section-label-inline {
+  margin-top: 0;
+}
+.feel-start-text {
+  margin: 4px 0 0;
+  color: #2E2A27;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/*
+  Arrow-link CTA — replicates the site's .arrow-link pattern:
+  coral-deep text, no underline at rest, coral underline + slight movement on hover.
+*/
+.feel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  color: #B8354A;
+  font: 600 0.875rem / 1 'Manrope', sans-serif;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  transition: gap 220ms ease;
+}
+.feel-cta:hover,
+.feel-cta:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: rgba(184, 53, 74, 0.5);
+  gap: 11px;
+}
+.feel-cta:focus-visible {
+  outline: 2px solid #FF6F61;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+.feel-cta-arrow {
+  width: 20px;
+  height: 10px;
+  flex: 0 0 auto;
+  transition: transform 220ms ease;
+}
+.feel-cta:hover .feel-cta-arrow,
+.feel-cta:focus-visible .feel-cta-arrow {
+  transform: translateX(2px);
+}
+
+/* ── Mobile ── */
+@media (max-width: 720px) {
+  .feel-selector { padding: 52px 20px 64px; }
+  .feel-aura-peach { width: 220px; height: 160px; top: -40px; left: -50px; }
+  .feel-aura-lavender { display: none; }
+  .feel-layout { grid-template-columns: 1fr; gap: 36px; }
+  .feel-heading { font-size: clamp(1.65rem, 5vw, 1.9rem); }
+  .feel-intro { max-width: none; margin-bottom: 24px; }
+  .feel-option { font-size: 0.9375rem; }
+  .feel-response { padding-top: 0; }
+  .feel-body { max-width: none; }
+  .feel-start-chip { max-width: none; width: 100%; box-sizing: border-box; }
+}
