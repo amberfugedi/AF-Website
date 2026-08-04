@@ -1894,12 +1894,12 @@ a.bld-item .bld-item-arrow {
 .offer-section.offer-automations .offer-aside .tier { color: var(--automations-deep); }
 .offer-section.offer-consulting .offer-aside .tier  { color: var(--consulting-deep); }
 
-/* ============ Services — Choose your starting point ============ */
+/* ============ Services — What sounds like you? ============ */
 .sp-section {
   padding: clamp(60px, 8vw, 100px) 0;
   border-top: 1px solid var(--line);
-  /* A very gentle wash — lavender (Workflow & AI) + peach (Courses) at low
-     opacity signals this is a crossroads for all three services. */
+  /* A very gentle wash — lavender + peach at low opacity signals this is
+     a crossroads for all of the services. */
   background:
     radial-gradient(ellipse 70% 55% at 18% 8%,  rgba(218,212,245,0.18), transparent 70%),
     radial-gradient(ellipse 55% 50% at 82% 92%, rgba(252,228,196,0.14), transparent 65%);
@@ -1907,164 +1907,154 @@ a.bld-item .bld-item-arrow {
 
 .sp-head { margin-bottom: clamp(30px, 4vw, 46px); }
 .sp-head .section-title { margin-bottom: 12px; }
-.sp-head p { color: var(--muted); font-size: var(--fs-body); max-width: 52ch; margin: 0; }
+.sp-head p { color: var(--muted); font-size: var(--fs-body); max-width: 56ch; margin: 0; }
 
-/* Each row carries a left-rail slot. The rail is transparent by default;
-   on the open row it fills with coral so the active item is unmistakable
-   at a glance — matching the coral-deep number and butter label highlight. */
-.sp-row {
-  position: relative;
-  border-top: 1px solid rgba(84, 76, 112, .22);
-}
-.sp-row:last-child { border-bottom: 1px solid rgba(84, 76, 112, .22); }
-.sp-row::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 2px;
-  border-radius: 1px;
-  background: transparent;
-  transition: background .3s var(--ease);
-}
-.sp-row.on::before { background: var(--coral-deep); }
-
-.sp-btn {
-  font-family: var(--font-body);
-  background: none;
-  border: 0;
-  cursor: pointer;
-  width: 100%;
+/* ---- Two-by-two card grid. Equal heights: every card reserves the height
+   of its tallest face, so opening a card never shifts the layout. ---- */
+.sp-grid {
   display: grid;
-  grid-template-columns: 62px minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 0 18px;
-  padding: 28px 0 28px 12px; /* 12px left gives breathing room from the rail */
-  text-align: left;
-  color: var(--body);
-  transition: color .2s var(--ease);
-  /* Ensure z-index: -1 on sp-l::before stays within this stacking context */
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: clamp(16px, 2.4vw, 26px);
+}
+
+/* Card: front and back stacked in the same grid cell. */
+.sp-card {
+  position: relative;
+  display: grid;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg-raised);
+  overflow: hidden;
   isolation: isolate;
+}
+/* Restrained tonal variation — one family, four temperatures. */
+.sp-tint-peach    { background: linear-gradient(rgba(252,228,196,.26), rgba(252,228,196,.26)) var(--bg-raised); }
+.sp-tint-lavender { background: linear-gradient(rgba(218,212,245,.24), rgba(218,212,245,.24)) var(--bg-raised); }
+.sp-tint-butter   { background: linear-gradient(rgba(251,237,191,.30), rgba(251,237,191,.30)) var(--bg-raised); }
+.sp-tint-blush    { background: linear-gradient(rgba(251,213,228,.22), rgba(251,213,228,.22)) var(--bg-raised); }
+
+.sp-face {
+  grid-area: 1 / 1;
+  min-width: 0;
+  opacity: 1;
+  transition: opacity .3s var(--ease), visibility .3s;
+}
+
+/* Crossfade: the inactive face fades out and becomes unfocusable. */
+.sp-card .sp-back            { opacity: 0; visibility: hidden; }
+.sp-card.open .sp-back       { opacity: 1; visibility: visible; }
+.sp-card.open .sp-front      { opacity: 0; visibility: hidden; }
+
+/* ---- Front: the whole face is one button ---- */
+.sp-open {
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  padding: clamp(24px, 3vw, 36px) clamp(22px, 3vw, 34px);
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.sp-open:focus-visible,
+.sp-close:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .sp-n {
   font-size: var(--fs-eyebrow);
   letter-spacing: .1em;
   font-weight: 600;
+  color: var(--coral-deep);
+}
+.sp-t {
+  font-weight: 700;
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: 26ch;
+}
+.sp-s {
   color: var(--muted);
-  transition: color .22s var(--ease);
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  max-width: 40ch;
 }
-
-.sp-l {
-  font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -.02em;
-  line-height: 1.15;
-  font-size: var(--fs-h3);
-  position: relative;
-  /* hug the words so the butter highlight doesn't fill the whole column */
-  justify-self: start;
+/* Restrained interaction cue */
+.sp-cue {
+  margin-top: 8px;
+  color: var(--coral-deep);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  transition: transform .22s var(--ease);
 }
-.sp-l::before {
-  content: "";
-  position: absolute;
-  inset: -5px -10px -4px -8px;
-  border-radius: 2px;
-  background: #FBE7A8;
-  opacity: 0;
-  transform: scaleX(.92);
-  transform-origin: left center;
-  z-index: -1;
-  transition: opacity .26s var(--ease), transform .26s var(--ease);
+.sp-open:hover .sp-cue { transform: translateX(3px); }
+.sp-open:hover .sp-t   { color: var(--coral-deep); }
+
+/* ---- Back ---- */
+.sp-back {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(22px, 2.8vw, 32px) clamp(22px, 3vw, 34px);
 }
-
-/* The dash mark: a short bar that extends on open. Gives a secondary
-   directional cue on top of the rail accent and number colour shift. */
-.sp-mark {
-  display: block;
-  width: 18px;
-  height: 2px;
-  background: rgba(84, 76, 112, .28);
-  align-self: center;
-  transform: scaleX(.5);
-  transform-origin: right center;
-  transition: background .22s var(--ease), transform .22s var(--ease);
-  flex-shrink: 0;
+.sp-close {
+  font-family: var(--font-body);
+  align-self: flex-start;
+  margin: 0 0 14px -4px;
+  padding: 4px 6px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  transition: color .2s var(--ease);
 }
-
-.sp-btn:hover                { color: var(--ink); }
-.sp-btn:hover .sp-n          { color: var(--coral-deep); opacity: .6; }
-.sp-row.on .sp-btn           { color: var(--ink); }
-.sp-row.on .sp-n             { color: var(--coral-deep); opacity: 1; }
-.sp-row.on .sp-l::before     { opacity: 1; transform: scaleX(1); }
-.sp-row.on .sp-mark          { background: var(--coral-deep); transform: scaleX(1); }
-
-.sp-body[hidden] { display: none; }
-.sp-body { padding: 0 0 42px; }
-
-.sp-cols {
-  display: grid;
-  grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
-  gap: clamp(26px, 4vw, 66px);
-  align-items: center;
-  /* indent content to sit under the label, past the number column + left padding */
-  padding-left: 74px;
-}
+.sp-close:hover { color: var(--coral-deep); }
 
 .sp-k {
   text-transform: uppercase;
   letter-spacing: .08em;
   font-weight: 600;
   font-size: var(--fs-eyebrow);
-  color: var(--muted);
-  margin: 0 0 6px;
+  color: var(--coral-deep);
+  margin: 0 0 4px;
 }
-/* First sp-k in a panel gets no top breathing room — the panel top-padding
-   comes from sp-body. Every subsequent sp-k needs a divider of space above it. */
-.sp-cols div > p.sp-k + p + p.sp-k { margin-top: 22px; }
-
-.sp-cols p:not(.sp-k) {
+.sp-back .sp-k + p { margin: 0 0 14px; }
+.sp-back p:not(.sp-k) {
   color: var(--body);
-  font-size: var(--fs-body);
+  font-size: var(--fs-small);
   line-height: 1.55;
-  margin: 0 0 0;
-  max-width: 52ch;
+  max-width: 58ch;
 }
-.sp-cta { margin-top: 24px; }
-
-/* The hand-annotated plan sheet */
-.sp-sheet {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: #FFFDFA;
-  border: 1px solid rgba(46, 42, 39, .10);
-  border-radius: 4px;
-  box-shadow: 0 24px 48px -38px rgba(46, 42, 39, .36),
-              0  4px 16px -12px rgba(46, 42, 39, .10);
-}
-
-.sp-in { animation: sp-in .32s var(--ease) both; }
-@keyframes sp-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.sp-may { color: var(--muted) !important; }
+.sp-cta { margin: 4px 0 0 !important; }
 
 @media (prefers-reduced-motion: reduce) {
-  .sp-in { animation: none; }
-  .sp-btn, .sp-l::before, .sp-mark, .sp-row::before { transition: none; }
+  .sp-face { transition: none; }
+  .sp-cue, .sp-close { transition: none; }
 }
 
 @media (max-width: 860px) {
-  .sp-btn {
-    grid-template-columns: 40px minmax(0, 1fr) auto;
-    padding: 22px 0 22px 10px;
-    gap: 0 12px;
-  }
-  .sp-cols {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding-left: 0;
-  }
-  .sp-cols p:not(.sp-k) { max-width: none; }
-  .sp-cols > div:last-child { display: none; } /* hide sheet art on narrow — text only */
-  .sp-body { padding-bottom: 30px; }
+  /* Stack one card per row. Card height follows the active face so the
+     back can expand vertically when opened. */
+  .sp-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .sp-card .sp-back        { display: none; }
+  .sp-card.open .sp-back   { display: flex; }
+  .sp-card.open .sp-front  { display: none; }
+  .sp-open { min-height: 44px; }
+  .sp-t, .sp-s { max-width: none; }
+  .sp-back p:not(.sp-k) { max-width: none; }
 }
 
 /* Capabilities page: impact tiers */

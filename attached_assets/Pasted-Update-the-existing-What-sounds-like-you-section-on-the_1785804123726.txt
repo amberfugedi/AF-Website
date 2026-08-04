@@ -1,0 +1,284 @@
+Update the existing “What sounds like you?” section on the Services page.
+
+We can go back to the four-card concept, but revise the card messaging so each option is easier to self-identify with and clearly connects to a different kind of need.
+
+Do not create a new page or standalone mockup. Replace the current selector in place and preserve the site’s existing typography, spacing, colors, header, footer, and responsive system.
+
+Section heading
+
+What sounds like you?
+
+Supporting copy:
+
+Start with the situation that feels closest. The right kind of support depends less on the size of the business and more on what the work needs now.
+
+Card layout
+
+Create four interactive cards.
+
+On desktop, use a two-by-two grid.
+
+On mobile, stack the cards vertically.
+
+Do not force all four cards into a single row.
+
+Only one card should be open at a time.
+
+Updated card fronts
+
+Card 1
+
+I’m building marketing from the ground up
+
+Supporting line:
+
+The business is established. The marketing foundation is not.
+
+Card 2
+
+I’m carrying too much of the marketing
+
+Supporting line:
+
+Too much of the work still depends on one person.
+
+Card 3
+
+Marketing is happening, but it isn’t producing the results we need
+
+Supporting line:
+
+There is activity and investment, but not enough meaningful growth.
+
+Card 4
+
+I need an experienced person to think with
+
+Supporting line:
+
+I need practical guidance, honest perspective, and someone to pressure-test the work.
+
+Card interaction
+
+The card front should be concise and easy to scan.
+
+When clicked or tapped, the card should reveal:
+
+* What may be happening
+* How I help
+* Best place to start
+* CTA
+
+Do not rely on hover.
+
+Use click, tap, and keyboard interaction.
+
+Keep the animation restrained. A subtle flip, rotate, slide, or crossfade is acceptable. Avoid dramatic 3D effects.
+
+Preserve equal card heights and avoid layout shifts.
+
+Card 1 back
+
+What may be happening
+
+The business may have grown through referrals, reputation, relationships, or the owner’s effort without ever building a clear marketing function.
+
+Now you need to understand what matters, what to build first, what support to hire, and what can wait.
+
+Do not imply that the business is brand new or does not have customers.
+
+How I help
+
+I help define the audience, positioning, message, priorities, and practical marketing foundation the business actually needs.
+
+Then we decide what can be handled internally, what should be outsourced, and what does not need to be done yet.
+
+Best place to start
+
+Build Your Marketing Foundation or a focused strategy engagement.
+
+This may look like
+
+Course support · Marketing foundation consulting · Focused strategy work
+
+CTA
+
+Explore the course →
+
+Card 2 back
+
+What may be happening
+
+Marketing lives in your head, your calendar, and a collection of disconnected tools, freelancers, responsibilities, and unfinished ideas.
+
+Things are getting done, but the work is difficult to maintain, delegate, or improve.
+
+How I help
+
+I clarify what matters most, simplify the work, create more useful systems, and reduce how much of the marketing function depends on one person.
+
+Best place to start
+
+Focused consulting, workflow and AI advisory, or hands-on marketing systems work.
+
+This may look like
+
+Project-based consulting · Fractional support · Workflow improvement
+
+CTA
+
+See how I work →
+
+Card 3 back
+
+What may be happening
+
+There may be campaigns, people, tools, and budget in place, but the work is not translating into enough growth.
+
+The issue may be strategy, positioning, execution, ownership, systems, measurement, or friction between marketing and the rest of the business.
+
+How I help
+
+I identify where performance is breaking down, connect marketing to the broader business strategy, and help the team focus on the changes most likely to improve results.
+
+I can stay close enough to the work to help those changes get implemented.
+
+Best place to start
+
+Strategic consulting, fractional marketing leadership, demand generation work, or a cross-functional growth project.
+
+This may look like
+
+Fractional leadership · Strategic consulting · Demand generation · Marketing operations
+
+CTA
+
+See the expertise in action →
+
+Card 4 back
+
+What may be happening
+
+You may be leading marketing, inheriting a function, building a team, growing into a larger role, or making difficult decisions without another experienced person nearby.
+
+This should also speak to founders and business leaders who oversee marketing but do not identify as marketers.
+
+How I help
+
+I provide practical guidance, honest perspective, and a place to work through decisions with someone experienced.
+
+We can review priorities, strategy, team challenges, executive communication, career growth, or the work itself.
+
+Best place to start
+
+One-to-one mentoring, marketing leadership advisory, or ongoing thought partnership.
+
+This may look like
+
+One-time working session · Short mentoring engagement · Monthly advisory
+
+CTA
+
+Ask about mentoring →
+
+Card front design
+
+Keep the fronts visually simple.
+
+Each card should include:
+
+* a small number
+* the main card title
+* the supporting line
+* one restrained interaction cue
+
+Do not use large plus icons.
+
+A small arrow, “Open,” “See how I help,” or a subtle corner treatment is enough.
+
+Use the site’s existing palette:
+
+* warm cream
+* charcoal
+* coral
+* butter
+* soft pink
+* lavender
+
+The four cards can use restrained tonal variation, but do not make them look like four unrelated pastel tiles.
+
+Card back design
+
+Keep the back concise and readable.
+
+Use sans serif for all card content.
+
+Use serif only for the main section heading.
+
+The back should not feel like a dense wall of copy or a second page hero.
+
+Use clear spacing between:
+
+* What may be happening
+* How I help
+* Best place to start
+* This may look like
+* CTA
+
+Do not place every subsection in a separate mini-card.
+
+Visual direction
+
+The section should feel:
+
+* warm
+* practical
+* approachable
+* creative
+* easy to understand
+* clearly interactive
+* more human than corporate
+
+Avoid:
+
+* SaaS feature-card styling
+* oversized serif text
+* heavy shadows
+* rounded app-style tiles
+* dashboards
+* icons
+* generic checkmarks
+* scrapbook styling
+* strong 3D animation
+* hover-only behavior
+
+Accessibility and behavior
+
+* Use semantic buttons or accessible card controls.
+* Support mouse, touch, and keyboard input.
+* Include clear focus states.
+* Only one card may be open at a time.
+* Include an obvious way to return to the card front.
+* Respect prefers-reduced-motion.
+* Do not cause layout shifts when cards open.
+* Ensure CTAs remain usable inside the open card.
+
+Responsive behavior
+
+On desktop:
+
+* use a two-by-two grid
+* keep equal card heights
+* allow enough space for the longer third card title
+* keep the card fronts easy to scan
+
+On mobile:
+
+* stack one card per row
+* keep the full card title readable
+* allow the card back to expand vertically when opened
+* avoid horizontal scrolling
+* keep tap targets large
+* ensure the CTA appears without excessive internal scrolling
+
+Before finishing, test all four cards on desktop, tablet, and mobile and confirm that the content, CTAs, keyboard behavior, and reduced-motion behavior work correctly.
