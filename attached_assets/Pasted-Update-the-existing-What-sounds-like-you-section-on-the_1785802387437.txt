@@ -1,0 +1,267 @@
+Update the existing “What sounds like you?” section on the Services page. Improve both the design and the messaging.
+
+Do not create a new page or standalone mockup. Update the existing section in place and preserve the site’s global typography, navigation, footer, spacing system, and color variables.
+
+Section purpose
+
+This section should help visitors quickly recognize the kind of support they need.
+
+It must account for:
+
+* an established business with little or no formal marketing
+* a founder or leader carrying too much of the marketing
+* a business with a team that is active but not aligned
+* a marketer, founder, or leader who needs experienced guidance
+
+The options are based on the visitor’s situation, not company size.
+
+Section heading
+
+Keep:
+
+What sounds like you?
+
+Update the supporting copy to:
+
+Start with the situation that feels closest. The right kind of support depends less on the size of the business and more on what the work needs now.
+
+This should feel practical and inclusive, not like a personality quiz.
+
+Selector labels
+
+Use these four labels:
+
+1. We have no real marketing foundation
+2. Too much of the marketing depends on me
+3. We have a team, but the work is not connecting
+4. I need an experienced person in my corner
+
+These are intentionally more specific than the current shortened labels.
+
+On smaller screens, allow the labels to wrap naturally. Do not reduce the font until they become difficult to read.
+
+State 1: We have no real marketing foundation
+
+Main statement
+
+The business works. Marketing has never been clearly built around it.
+
+What may be happening
+
+You may have grown through referrals, reputation, relationships, or the owner’s effort without ever building a clear marketing function. Now you need to understand what matters, what support to hire, and what can wait.
+
+Do not imply that the business is new, unsuccessful, or has no customers.
+
+How I help
+
+I help define the audience, positioning, message, priorities, and practical marketing foundation the business actually needs. Then we decide what can be handled internally, what should be outsourced, and what does not need to be done yet.
+
+Best place to start
+
+Build Your Marketing Foundation or a focused strategy engagement.
+
+CTA
+
+Explore the course →
+
+Compact visual artifact
+
+Show a sparse planning fragment with:
+
+* Audience
+* Positioning
+* Priorities
+* What can wait
+* coral note: Where do we start?
+
+State 2: Too much of the marketing depends on me
+
+Main statement
+
+Marketing is happening, but too much of it still relies on you.
+
+What may be happening
+
+The work lives in your head, your calendar, and a collection of disconnected tools, freelancers, and unfinished ideas. Things are getting done, but they are difficult to maintain, delegate, or improve.
+
+How I help
+
+I clarify what matters most, simplify the work, create more useful systems, and reduce how much of the marketing function depends on one person.
+
+Best place to start
+
+Workflow and AI advisory, focused consulting, or marketing systems work.
+
+CTA
+
+See how I work →
+
+Compact visual artifact
+
+Show a task fragment with:
+
+* Website
+* Email
+* Social
+* Follow-up
+* Reporting
+* coral note: All still with me.
+
+Use a few restrained crossed-out or overlapping details to communicate overload.
+
+State 3: We have a team, but the work is not connecting
+
+Main statement
+
+There is plenty of activity. The parts are not working together.
+
+What may be happening
+
+You may have capable people, useful tools, and active campaigns, but the priorities, ownership, systems, messaging, or decisions are not aligned. The visible marketing problem may actually sit between teams or functions.
+
+How I help
+
+I identify where the work is breaking down, connect marketing to the broader business strategy, and help the team make the most important changes practical and usable.
+
+Best place to start
+
+Strategic consulting, fractional leadership, or a cross-functional project.
+
+CTA
+
+See the expertise in action →
+
+Compact visual artifact
+
+Show a shared-plan fragment with:
+
+* Launch now
+* Wait for sales
+* Who owns this?
+* two subtle arrows moving in different directions
+
+Do not use people icons, an org chart, or a generic workflow diagram.
+
+State 4: I need an experienced person in my corner
+
+Main statement
+
+You do not need someone to take over. You need someone experienced to think with.
+
+What may be happening
+
+You may be leading marketing, inheriting a function, growing into a larger role, building a team, or making important decisions without another experienced person nearby to pressure-test the work.
+
+This option should also speak to founders and business leaders who oversee marketing but do not identify as marketers.
+
+How I help
+
+I provide practical guidance, honest perspective, and a place to work through decisions. We can review priorities, strategy, team challenges, executive communication, career growth, or the work itself.
+
+Best place to start
+
+One-to-one mentoring, marketing leadership advisory, or ongoing thought partnership.
+
+CTA
+
+Ask about mentoring →
+
+Compact visual artifact
+
+Show a focused decision note with:
+
+* What am I missing?
+* What needs to happen next?
+* What call do I need to make?
+* coral note: Talk this through with me.
+
+This should feel like practical business and leadership guidance, not therapy or generic life coaching.
+
+Design direction
+
+Keep the current left-selector/right-response structure, but make it feel more connected and intentional.
+
+The section should feel:
+
+* warm
+* practical
+* approachable
+* creative
+* clearly interactive
+* designed without becoming overly editorial
+
+Use serif only for the main section heading.
+
+Use sans serif for:
+
+* selector labels
+* state statement
+* descriptions
+* section labels
+* recommendations
+* CTAs
+
+Do not use oversized serif copy inside the selected response.
+
+Active selector state
+
+Use:
+
+* a soft butter background across the active row
+* a thin coral rule on the left
+* a small coral arrow on the right
+* slightly stronger text weight
+* a subtle transition
+
+Do not use filled pills, conventional cards, checkmarks, or large icons.
+
+Response area
+
+Use this hierarchy:
+
+1. compact changing artifact
+2. main state statement
+3. What may be happening
+4. How I help
+5. Best place to start
+6. CTA
+
+The main statement should be clear and conversational, but not styled like a second page hero.
+
+Keep the response integrated into the page. Do not place it inside a large card.
+
+Responsive behavior
+
+On desktop:
+
+* keep the selector on the left
+* keep the response on the right
+* align both columns at the top
+* reduce empty space
+* make the changing artifact compact
+* keep the content readable without making the section oversized
+
+On mobile:
+
+* stack the selector above the response
+* keep all four choices visible
+* show the compact artifact above the selected statement
+* avoid oversized typography
+* keep the CTA visible without excessive scrolling
+* avoid horizontal overflow
+* keep tap targets accessible
+
+Final checks
+
+Before finishing:
+
+* verify all four states and CTAs
+* test keyboard, touch, and focus behavior
+* test desktop, tablet, and mobile
+* ensure the section does not rely on hover
+* ensure there is no layout jump when switching options
+* confirm no unrelated page styles changed
+* remove obsolete selector markup and styles
+* summarize the files modified
+
+The final section should make visitors think, “That is exactly where I am,” and immediately understand how Amber can help.
