@@ -1311,16 +1311,41 @@ Flow, after the fifth rebuild:
    expertise built through doing the work" because it positions her
    around BUSINESS PROBLEMS, not marketing skills. Butter tab on
    "growth." No eyebrow.
-2. FOUR CHAPTERS — the whole substance of the page. Amber, July 2026:
+2. SIX CHAPTERS — the whole substance of the page.
+   FOUR BECAME SIX (Amber, 2026-08): "the current categories are too
+   broad and hide several important strengths." Strategy / Digital /
+   Operations / Leadership became Strategy and planning · Demand
+   generation · Brand and digital experience · Marketing and sales
+   operations · Workflows and AI · Leadership and enablement. Demand
+   generation came out from under Strategy, where it had been one word
+   in a capability list; Operations split into the platform side (CRM
+   migrations, lifecycle stages, pipeline reporting) and the workflow
+   and AI side. Every situation line, capability list, contribution
+   sentence and link label on the page is hers verbatim.
+   THE NUMBERS ARE GONE. 01-04 were on this page's own standing remove
+   list ("numbered items") the whole time; six rows made the conflict
+   obvious enough to fix.
+   TWO MEASUREMENTS DROVE THE LAYOUT. The title column went 0.62 ->
+   0.86fr because the names are phrases now, not single words: at 0.62
+   "Marketing and sales operations" broke three ways. Row padding came
+   down 34/36 -> 28/30, which holds the section at 1067px instead of
+   the ~1500px six rows would have run at the old rhythm. Content width
+   is 1200px on this page only (`.page-expertise main .wrap`, her
+   "approximately 1180-1240px"); nav and footer stay at the shared 1120
+   so they still line up with every other page.
+   SIX DESTINATIONS, NO TWO THE SAME: #perq, #scanoptics,
+   #robert-james, #stormwaterone, #builds, #in-house. StormwaterONE
+   carries the sales-ops link because its published case is the one
+   with the MarTech migration in it.
+   HISTORY — the four-chapter version. Amber, July 2026:
    "imagine four oversized words that dominate the page ... it becomes
    almost like reading chapters in a book. No cards. No icons. No
    feature grid. Just beautiful typography."
-   STRATEGY · DIGITAL · OPERATIONS · LEADERSHIP, her names, one word
-   each. Each `.ch` is a full-width rule, then the oversized word,
-   then a two-column body: a short "for businesses…" paragraph and
-   the capabilities on the left, her belief line and ONE project link
-   on the right. Four different destinations: #scanoptics,
-   #robert-james, #builds, #perq.
+   STRATEGY · DIGITAL · OPERATIONS · LEADERSHIP, one word each. Each
+   `.ch` is a full-width rule, then the name, then a two-column body:
+   a short "when…" paragraph and the capabilities on the left, her
+   contribution line and ONE project link on the right. That row
+   anatomy survived the six-chapter rewrite unchanged.
    THE WORDS SIT AT `--fs-h3`, the card-title grade. They were built at
    `--fs-h1` and that was WRONG: 59px against a 47px h1 and a 41px
    section title INVERTED THE LADDER (Amber, July 2026: "they're too
@@ -1385,6 +1410,16 @@ HOW SHE THINKS. That is How I Work's page now.
 
 THE NUMBERS ARE GONE FROM THIS PAGE. 115% / 120% / 95% / 36% live in
 their Projects case studies, About, and the home proof strip.
+
+OPEN, NOT FIXED (2026-08): the four h2s on this page do not share a
+grade. "Where I help" sits at 34px via `.ch-title` while "Tools I've
+worked in", "See the expertise in action." and the closing band all sit
+at the standard 44px. So the page's most important section heading is
+its smallest. `.ch-title` was added in July to stop "Where I help"
+reading as a second headline under a 47px h1; the fix was only ever
+applied to that one heading. Either all four drop to 34 or `.ch-title`
+goes. Amber's call — flagged, not changed, because her 2026-08 brief
+said to keep the existing typography.
 
 RESIST ADDING. Built here across five rebuilds and all removed: a
 typographic word composition, four oversized statement rows, a

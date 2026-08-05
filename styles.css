@@ -1641,10 +1641,27 @@ a.bld-item .bld-item-arrow {
 .xm-name { font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
 .xm-note { color: var(--muted); grid-column: 2; }
 
-/* ---- Expertise hero: abstract radiate SVG ----
+/* ---- Expertise content width (Amber, 2026-08: "approximately
+   1180-1240px") ----
+   Six three-column rows need more room than the 1120 shared container.
+   Scoped to main so the nav and footer keep the site-wide 1120 and
+   stay aligned with every other page — the 40px per side shows up as
+   the rows breathing slightly wider than the header, which is the
+   trade she asked for. */
+.page-expertise main .wrap { max-width: 1200px; }
+
+/* ---- Expertise hero: six overlapping sheets ----
    Lives in .hero-visual (not .head-art), so needs its own width rule
    and its own --d/--fd timing hooks to match the head-art draw-on. */
 .xp-visual .glyph { width: 100%; height: auto; margin: 0; opacity: 0.92; }
+/* The 420-wide viewBox renders around 476px on a desktop head and only
+   ~342px on a phone, so the 10px labels fall to about 8px there. Step
+   them up in viewBox units, and buy the width back out of the tracking
+   rather than the sheets. Measured ceiling: at 12px/0.9 four of the six
+   labels run past their own sheet, so 11.5/0.45 is the fit. */
+@media (max-width: 760px) {
+  .xp-visual .glyph text { font-size: 11.5px; letter-spacing: 0.45px; }
+}
 .reveal.in-view .xp-visual .glyph .stroke { animation-duration: 1.5s; animation-delay: var(--d, 0s); }
 .reveal.in-view .xp-visual .glyph .fill   { animation-delay: var(--fd, 0.5s); }
 
@@ -1744,7 +1761,10 @@ a.bld-item .bld-item-arrow {
   background-position: left bottom;
   transition: background-size 0.2s var(--ease);
 }
-.arrow-link::after { content: " →"; }
+/* Non-breaking space before the arrow: on a link long enough to wrap
+   ("See the Scanoptics demand generation rebuild") a normal space let
+   the arrow drop to a line of its own. */
+.arrow-link::after { content: "\00a0→"; }
 .arrow-link:hover { background-size: 100% 2px; }
 
 /* ============ Testimonials ============ */
@@ -2373,22 +2393,26 @@ a.bld-item .bld-item-arrow {
    six-item "especially useful when" list, and the four working
    documents — those moved to How I Work, where they belong. --- */
 .chapters { margin-top: 34px; }
-/* THREE-PART ROW (Amber, July 2026): number and name, then the problem
-   and its capabilities, then the contribution and its proof link. Every
+/* THREE-PART ROW (Amber, July 2026): the name, then the problem and
+   its capabilities, then the contribution and its proof link. Every
    row identical — no stagger, no cards, one neutral hairline. The
    gutter came in hard: the old two-column split left the problem and
-   the contribution reading as two distant halves. */
+   the contribution reading as two distant halves.
+   SIX ROWS, NOT FOUR (Amber, 2026-08). Two things had to give. The
+   title column went 0.62 -> 0.86fr because the names are phrases now,
+   not single words: at 0.62 "Marketing and sales operations" broke
+   three ways. And the padding came down 34/36 -> 28/30, because six
+   rows at the old rhythm ran the section past 1500px. */
 .ch {
   display: grid;
-  grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.28fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.22fr) minmax(0, 1.06fr);
   gap: clamp(20px, 2.6vw, 40px);
   align-items: start;
   border-top: 1px solid rgba(84, 76, 112, 0.22);
-  padding: 34px 0 36px;
+  padding: 28px 0 30px;
 }
 .ch:last-child { border-bottom: 1px solid rgba(84, 76, 112, 0.22); }
 .ch-id { display: flex; align-items: baseline; gap: 12px; }
-.ch-num { font-weight: 600; letter-spacing: 0.08em; color: var(--muted); opacity: 0.7; }
 .ch-word {
   font-family: var(--font-display);
   font-weight: 500;
