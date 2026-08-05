@@ -1557,13 +1557,48 @@ a.bld-item .bld-item-arrow {
    (Amber, 2026-08). It keeps the oval crop and the outline, at a
    smaller scale and cropped to the upper body. */
 .hero-visual.about-shot { max-width: 312px; }
-/* About carries the longest headline on the site, and Variant B gives
-   the copy only 44% to hold it. Left at the shared h1-long grade it
-   wrapped to six lines and pushed the head to 707px, past the 620 cap.
-   One grade down here, and only here. */
-.hero-split-portrait .head-copy h1.h1-long {
-  font-size: clamp(2rem, 1.72rem + 1.16vw, 2.75rem);
-  line-height: 1.14;
+
+/* REBALANCED 2026-08 (Amber: "the h1 looks squished on desktop, the
+   container can be bigger and the picture can be moved").
+   Measured at 1440 before: the copy held 446px, the portrait 312px,
+   and 315px between them was empty — 29% of the hero was nothing,
+   which is why the headline was cramped into five lines while the row
+   looked half-used. The old answer had been to shrink the h1 to 44px,
+   a size that exists nowhere else on the site as an h1 and collides
+   with the h2 grade.
+   The cause was the split, not the type. Widening the container to
+   1200 (as Expertise) and taking the copy to 66% gives the headline
+   room to sit at the shared .h1-long grade and pulls the portrait
+   left into the copy at the same time. Nav and footer stay at 1120. */
+.page-about main .wrap { max-width: 1200px; }
+.page-about .hero-split-portrait {
+  grid-template-columns: minmax(0, 64fr) minmax(0, 36fr);
+}
+/* The portrait is pinned to the container's right edge, so widening the
+   wrap alone pushes it further from the copy. Growing it is what closes
+   the distance: 312 -> 340 at the 4/5 crop puts its left edge 28px
+   nearer and gives the right side of the hero something to hold. The
+   crop is the ceiling here — every extra 10px of width costs 12.5px of
+   head height, and the head is already at the top of the six-page
+   range. */
+.page-about .hero-visual.about-shot { max-width: 340px; }
+/* The shared hero lede caps at 46ch, which was measured against a
+   446px copy column. Against 722px it left the paragraph looking like
+   a narrow inset under a full-width headline. 56ch keeps it inside the
+   56-62ch reading measure the site uses everywhere else. */
+.page-about .hero-split .head-copy .section-lede { max-width: 56ch; }
+/* MUST STAY AFTER the .page-about rules above. The shared collapse at
+   900px is `.hero-split-portrait` (0,2,0); the page-scoped rules are
+   also (0,2,0), so source order decides and the page rules would have
+   kept About in two columns on a phone — the portrait rendered 114px
+   wide at 390. Re-state the collapse here, after them. */
+@media (max-width: 900px) {
+  .page-about .hero-split-portrait { grid-template-columns: 1fr; gap: 26px; }
+  .page-about .hero-visual.about-shot { max-width: 240px; }
+  .page-about .hero-split .head-copy .section-lede { max-width: none; }
+}
+@media (max-width: 560px) {
+  .page-about .hero-visual.about-shot { max-width: 190px; }
 }
 .hero-visual .about-portrait { width: 100%; }
 .hero-visual .about-portrait img { object-position: 50% 22%; }
@@ -1574,14 +1609,14 @@ a.bld-item .bld-item-arrow {
   .work-pair img { width: 72%; }
   .work-pair img:last-child { width: 56%; }
   .crs-thumb-hero { margin-left: 0; }
-  .hero-visual.about-shot { max-width: 240px; }
+  .page-about .hero-visual.about-shot { max-width: 240px; }
 }
 @media (max-width: 560px) {
   /* About stacks the longest headline on the site above a portrait and
      ran 809px on a phone, past the 760 cap. The portrait gives way
      first — the face still reads at 190px. */
-  .hero-visual.about-shot { max-width: 190px; }
-  .hero-split-portrait .head-copy h1.h1-long { font-size: 1.75rem; }
+  .page-about .hero-visual.about-shot { max-width: 190px; }
+  .page-about .head-copy h1.h1-long { font-size: 1.75rem; }
 }
 
 /* ---- Expertise head: copy left, layered expertise map right ----
@@ -2413,9 +2448,12 @@ a.bld-item .bld-item-arrow {
 }
 .ch:last-child { border-bottom: 1px solid rgba(84, 76, 112, 0.22); }
 .ch-id { display: flex; align-items: baseline; gap: 12px; }
+/* 600, not 500: the h3 grade carries 600 everywhere else on the site
+   (`.xp-company` is the only other 30px display element and it is 600;
+   every 21px card title is 600). 500 is the SECTION-HEADLINE weight. */
 .ch-word {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -2428,8 +2466,12 @@ a.bld-item .bld-item-arrow {
 .ch-caps { color: var(--body); margin-bottom: 0; }
 /* The contribution is the focal point of the row: display face, a
    grade up from the problem copy, full ink against its muted. */
+/* 500 is the display weight the whole site uses; Newsreader 400 at this
+   grade appeared only here. Size and colour are untouched, so the
+   contribution still reads larger and darker than the situation copy. */
 .ch-line {
   font-family: var(--font-display);
+  font-weight: 500;
   color: var(--ink);
   letter-spacing: -0.015em;
   margin-bottom: 10px;
@@ -2535,7 +2577,7 @@ a.bld-item .bld-item-arrow {
 }
 .pr-head {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600; /* h3 grade, same as .ch-word */
   color: var(--ink);
   letter-spacing: -0.015em;
   margin-bottom: 10px;
@@ -3989,12 +4031,17 @@ body { font-size: var(--fs-body); line-height: 1.55; }
   line-height: 1.09;
   letter-spacing: -0.02em;
 }
-/* A SECTION TITLE, NOT A SECOND HERO HEADLINE (Amber, July 2026). The
-   Expertise h1 runs 36-50 and the standard h2 grade sat at 44, only
-   6px under it — which is why the page read as having two headlines.
-   MUST STAY AFTER the block above: same specificity, source order
-   decides. */
-.ch-title { font-size: clamp(1.75rem, 1.55rem + 0.7vw, 2.125rem); line-height: 1.15; }
+/* .ch-title IS GONE (Amber, 2026-08: "the font for Where I help and the
+   section beneath are not following brand guidelines"). It was added in
+   July to keep "Where I help" from reading as a second hero headline,
+   and it invented a 28-34 grade that existed nowhere else on the site —
+   a scan of every Newsreader element across all seven pages found 34px
+   exactly once, here. Worse, the fix was only applied to that one h2,
+   so the page's most important section title was 34 while "Tools I've
+   worked in" and "See the expertise in action." sat at 44 below it.
+   The ladder concern it answered was already solved upstream: h2 was
+   stepped down from 50 to 44 precisely so it clears every h1 including
+   the long-display pages. 50 > 44 is the sanctioned step. */
 /* Long conversational headlines (10+ words) step down one grade so
    they read as sentences, not walls — same pattern as .h1-long. */
 .h2-long { font-size: clamp(1.625rem, 1.346rem + 1.1429vw, 2.375rem); line-height: 1.18; } /* 26 -> 38, below h2 */

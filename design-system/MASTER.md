@@ -1411,15 +1411,29 @@ HOW SHE THINKS. That is How I Work's page now.
 THE NUMBERS ARE GONE FROM THIS PAGE. 115% / 120% / 95% / 36% live in
 their Projects case studies, About, and the home proof strip.
 
-OPEN, NOT FIXED (2026-08): the four h2s on this page do not share a
-grade. "Where I help" sits at 34px via `.ch-title` while "Tools I've
-worked in", "See the expertise in action." and the closing band all sit
-at the standard 44px. So the page's most important section heading is
-its smallest. `.ch-title` was added in July to stop "Where I help"
-reading as a second headline under a 47px h1; the fix was only ever
-applied to that one heading. Either all four drop to 34 or `.ch-title`
-goes. Amber's call — flagged, not changed, because her 2026-08 brief
-said to keep the existing typography.
+FIXED 2026-08 (Amber: "the font for Where I help and the section
+beneath are not following brand guidelines, esp on desktop"). Three
+values on this page existed nowhere else on the site. Found by scanning
+every Newsreader element on all seven pages and grouping by size and
+weight — the outliers fall out immediately and no judgement is needed:
+
+  34px/500  "Where I help" (`.ch-title`)   -> 44px/500, the h2 grade
+  30px/500  `.ch-word`, `.pr-head`         -> 30px/600, the h3 grade
+                                              (`.xp-company` was the
+                                              only other 30px display
+                                              element, at 600)
+  21px/400  `.ch-line`                     -> 21px/500, the display
+                                              weight used site-wide
+
+`.ch-title` is deleted, not just unused: it was a single-purpose 28-34
+clamp on one heading. The ladder concern it was invented for was
+already solved upstream — h2 was stepped down from 50 to 44 precisely
+so it clears every h1 including the long-display pages, so 50 > 44 is
+the sanctioned step and needs no extra grade.
+
+RUN THE SCAN, DON'T EYEBALL IT. Reading the CSS would not have caught
+any of these: each rule looked reasonable on its own, and the drift was
+only visible against what the rest of the site does.
 
 RESIST ADDING. Built here across five rebuilds and all removed: a
 typographic word composition, four oversized statement rows, a
@@ -1431,6 +1445,42 @@ six-item "especially useful when" list, and the four working documents
 full-size files they linked to are still live on Projects.
 
 ## Interior hero system (2026-08)
+
+### About head rebalanced (2026-08, Amber: "the h1 looks squished on desktop, the container can be bigger and the picture can be moved")
+
+MEASURED AT 1440 BEFORE: copy column 446px, portrait 312px, and 315px
+of nothing between them. 29% of the hero was empty while the headline
+was cramped into five lines at 44px — a size that appears nowhere else
+on the site as an h1 and collides with the h2 grade.
+
+THE CAUSE WAS THE SPLIT, NOT THE TYPE. The July fix had shrunk the h1
+to fit a column that was too narrow, treating the symptom. Now:
+`.page-about main .wrap` goes to 1200 (matching Expertise), the
+portrait variant goes 44/56 -> 64/36, the About-only h1 step-down is
+deleted so the headline sits at the shared `.h1-long` grade, the hero
+lede goes 46ch -> 56ch (46 was measured against the old 446px column
+and read as a narrow inset under a full-width headline), and the
+portrait grows 312 -> 340.
+
+AFTER: h1 50px over four lines, copy column 700px, head 643px, and the
+gap from headline ink to portrait down to 233px — inside the six-page
+range of 160-311. Nav and footer stay at 1120 and still line up with
+every other page.
+
+THE PORTRAIT CANNOT GROW MUCH FURTHER. At the 4/5 crop every extra
+10px of width costs 12.5px of head height, and 643 is already the
+tallest of the six heads (Services is 625). Widening the wrap alone
+does not help either: the portrait is pinned to the container's right
+edge, so a wider container pushes it AWAY from the copy. Only growing
+it moves it closer.
+
+SOURCE-ORDER TRAP, HIT AND FIXED. `.page-about .hero-split-portrait`
+and the shared 900px collapse `.hero-split-portrait` are both (0,2,0).
+The page-scoped rules sit later in the file, so they won the media
+query and About stayed two-column on a phone with a 114px portrait.
+The page's responsive overrides now sit AFTER its desktop rules. Same
+class of bug as the tablet nav step-down and `.ch-title` itself.
+
 
 SIX PAGES, ONE FRAME, TWO VARIANTS. Before this pass the interior heads
 shared colour and type and nothing else. Measured at 1440 beforehand:
