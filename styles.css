@@ -1706,9 +1706,26 @@ a.bld-item .bld-item-arrow {
 .svc-vis { align-self: center; }
 @media (max-width: 760px) { .svc-vis { display: none; } }
 
-/* Pull the first section up: the head was leaving a large empty
-   lavender field under the paragraph (Amber, July 2026). 8 + 56 = 64px
-   off, inside the 60-90 she asked for. */
+/* HEAD -> FIRST SECTION. Amber asked for 60-90px at this joint in July
+   2026, when the Expertise head "was leaving a large empty field under
+   the paragraph". She raised the same complaint about About in 2026-08.
+   Measured across the six heads before the fix: expertise 24,
+   my-approach 78, courses 184, about 184, projects 224, services 224 —
+   one joint, six values, and only two inside the band she set.
+   Projects and Services are a different joint: both carry an
+   .anchor-nav between the head and the first section, so their gap is
+   serving that nav and is left alone. About and Courses share this
+   exact structure and now share one value: the head keeps its 80px
+   bottom padding and the section adds nothing, so the joint is 80.
+   MUST STAY BEFORE the .page-head-tight rules below — same
+   specificity, source order decides, and Expertise opts into the
+   tighter joint deliberately. */
+.page-head + section { padding-top: 0; }
+/* My Approach's head is also a .page-head, so the rule above caught it
+   and flattened the bridge under it from 78 to 26. It was already
+   inside the band; put it back. */
+.hero-band + section { padding-top: 52px; }
+
 .page-head-tight { padding-bottom: 0; }
 .page-head-tight + section { padding-top: 24px; }
 

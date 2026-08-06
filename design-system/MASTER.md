@@ -1446,6 +1446,36 @@ full-size files they linked to are still live on Projects.
 
 ## Interior hero system (2026-08)
 
+### The head -> first section joint (2026-08)
+
+Amber, 2026-08 on About: "spacing needs to be fixed still" — roughly
+180px of empty ground between the portrait and the Experience section,
+with an aura blob sitting in the middle of it.
+
+MEASURED FIRST, ALL SIX HEADS: expertise 24 · my-approach 78 ·
+courses 184 · about 184 · projects 224 · services 224 (302 to first
+ink). One joint, six values. Her documented ask for this joint is
+60-90px, set in July 2026 when the Expertise head "was leaving a large
+empty field under the paragraph" — the same complaint, on a different
+page, answered on that page only. Third instance this session of a fix
+applied to one instance of a shared problem (see also `.ch-title` and
+the About h1).
+
+NOT ALL SIX ARE THE SAME JOINT. Projects and Services carry an
+`.anchor-nav` between the head and the first section, so their gap is
+serving that nav — left alone. About and Courses share the plain
+`.page-head` + `section` structure exactly, and now share one value:
+the head keeps its 80px bottom padding, `.page-head + section` takes
+its top padding to 0, joint = 80. Expertise keeps 24 because
+`.page-head-tight` is a deliberate opt-in to a tighter joint.
+
+TWO ORDERING TRAPS IN ONE RULE. `.page-head + section` and
+`.page-head-tight + section` are both (0,2,0), so the new rule MUST sit
+before the tight rules or Expertise loses its opt-in. And `.hero-band`
+is also a `.page-head`, so the new rule caught My Approach and
+flattened its bridge from 78 to 26; `.hero-band + section` is restated
+straight after to put it back.
+
 ### About head rebalanced (2026-08, Amber: "the h1 looks squished on desktop, the container can be bigger and the picture can be moved")
 
 MEASURED AT 1440 BEFORE: copy column 446px, portrait 312px, and 315px
