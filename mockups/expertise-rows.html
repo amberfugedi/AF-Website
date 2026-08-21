@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Where I help — layout options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+<style>
+  body { background: var(--bg); }
+  .mk { max-width: 1200px; margin: 0 auto; padding: 0 24px 90px; }
+  .mk-label {
+    font-family: var(--font-body); font-size: 0.8125rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral-deep);
+    margin: 74px 0 6px;
+  }
+  .mk-note { font-size: var(--fs-small); color: var(--muted); max-width: 62ch; margin: 0 0 30px; }
+  .mk-h2 { font-family: var(--font-display); font-weight: 500; font-size: 2.75rem;
+           line-height: 1.09; letter-spacing: -0.02em; color: var(--ink); margin: 0 0 26px; }
+
+  /* ---------- A: two columns, her voice first ---------- */
+  .a-row {
+    display: grid; grid-template-columns: minmax(0,1.06fr) minmax(0,0.94fr);
+    gap: clamp(28px,3.4vw,56px); align-items: start;
+    border-top: 1px solid rgba(84,76,112,0.22); padding: 30px 0 32px;
+  }
+  .a-row:last-of-type { border-bottom: 1px solid rgba(84,76,112,0.22); }
+  .a-t { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h3);
+         line-height: 1.15; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px; }
+  .a-give { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-intro);
+            line-height: 1.35; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 12px; }
+  .a-when { font-size: var(--fs-body); line-height: 1.55; color: var(--muted); margin: 0 0 12px; }
+  .a-caps { font-size: var(--fs-small); line-height: 1.55; color: var(--body); margin: 0; }
+
+  /* ---------- B: full-width statement rows ---------- */
+  .b-row { border-top: 1px solid rgba(84,76,112,0.22); padding: 30px 0 32px; max-width: 66ch; }
+  .b-row:last-of-type { border-bottom: 1px solid rgba(84,76,112,0.22); }
+  .b-t { font-family: var(--font-body); font-size: 0.8125rem; font-weight: 600;
+         letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .b-give { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-h3);
+            line-height: 1.25; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 10px; }
+  .b-when { font-size: var(--fs-body); line-height: 1.55; color: var(--muted); margin: 0 0 10px; }
+  .b-caps { font-size: var(--fs-small); line-height: 1.55; color: var(--body); margin: 0 0 14px; }
+
+  /* ---------- C: compact rows, detail on demand ---------- */
+  .c-row { border-top: 1px solid rgba(84,76,112,0.22); }
+  .c-row:last-of-type { border-bottom: 1px solid rgba(84,76,112,0.22); }
+  .c-sum {
+    display: grid; grid-template-columns: minmax(0,0.82fr) minmax(0,1.18fr) 22px;
+    gap: clamp(20px,2.6vw,44px); align-items: baseline;
+    width: 100%; padding: 22px 0 23px; background: none; border: 0; cursor: pointer;
+    font-family: var(--font-body); text-align: left;
+  }
+  .c-t { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h3);
+         line-height: 1.15; letter-spacing: -0.015em; color: var(--ink); }
+  .c-give { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-intro);
+            line-height: 1.35; letter-spacing: -0.015em; color: var(--ink); }
+  .c-sign { justify-self: end; color: var(--coral-deep); font-weight: 600; font-size: 1.1rem; }
+  .c-body { padding: 0 0 26px; display: grid;
+            grid-template-columns: minmax(0,0.82fr) minmax(0,1.18fr);
+            gap: clamp(20px,2.6vw,44px); }
+  .c-when { font-size: var(--fs-body); line-height: 1.55; color: var(--muted); margin: 0; grid-column: 2; }
+  .c-caps { font-size: var(--fs-small); line-height: 1.55; color: var(--body); margin: 10px 0 0; grid-column: 2; }
+  .c-link { margin: 14px 0 0; grid-column: 2; }
+
+  /* ---------- D: two-up blocks ---------- */
+  .d-grid { display: grid; grid-template-columns: 1fr 1fr;
+            column-gap: clamp(30px,4vw,72px); row-gap: 0; }
+  .d-block { border-top: 1px solid rgba(84,76,112,0.22); padding: 26px 0 28px; }
+  .d-grid .d-block:nth-last-child(-n+2) { border-bottom: 1px solid rgba(84,76,112,0.22); }
+  .d-t { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h3);
+         line-height: 1.15; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 10px; }
+  .d-give { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-intro);
+            line-height: 1.35; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 10px; }
+  .d-when { font-size: var(--fs-body); line-height: 1.55; color: var(--muted); margin: 0 0 10px; }
+  .d-caps { font-size: var(--fs-small); line-height: 1.55; color: var(--body); margin: 0 0 14px; }
+</style>
+</head>
+<body class="page-sub">
+<main class="mk">
+
+  <!-- ============================ CURRENT ============================ -->
+  <p class="mk-label">Current — three columns</p>
+  <p class="mk-note">Title, then situation and capabilities, then contribution and link. Eighteen text blocks over six rows; the eye crosses the full width six times, and the capability lists are the longest text in the row while being the least important thing in it.</p>
+  <h2 class="mk-h2">Where I help</h2>
+  <div class="chapters">
+    <article class="ch">
+      <div class="ch-id"><h3 class="ch-word">Strategy and planning</h3></div>
+      <div class="ch-problem">
+        <p class="ch-for">When the business needs fresh thinking, clearer priorities, or a marketing plan people can actually use.</p>
+        <p class="ch-caps">Positioning · Messaging · Go-to-market · Marketing roadmaps · Campaign planning · Growth ideas · Prioritization</p>
+      </div>
+      <div class="ch-give">
+        <p class="ch-line">I turn business goals and scattered ideas into practical marketing plans the team can execute.</p>
+        <p class="ch-link"><a class="arrow-link" href="#">See the plans and strategies I&rsquo;ve built</a></p>
+      </div>
+    </article>
+    <article class="ch">
+      <div class="ch-id"><h3 class="ch-word">Demand generation</h3></div>
+      <div class="ch-problem">
+        <p class="ch-for">When the business needs a more reliable way to create interest, leads, opportunities, and revenue.</p>
+        <p class="ch-caps">Paid media · SEO · Content · Campaigns · Events · Lead generation · Sales enablement</p>
+      </div>
+      <div class="ch-give">
+        <p class="ch-line">I build demand around how buyers actually find, evaluate, and choose the business.</p>
+        <p class="ch-link"><a class="arrow-link" href="#">See the Scanoptics demand generation rebuild</a></p>
+      </div>
+    </article>
+    <article class="ch">
+      <div class="ch-id"><h3 class="ch-word">Marketing and sales operations</h3></div>
+      <div class="ch-problem">
+        <p class="ch-for">When disconnected platforms, unclear stages, or unreliable reporting make growth difficult to manage.</p>
+        <p class="ch-caps">CRM migrations · Marketing platforms · Lifecycle stages · Pipeline reporting · Lead management · Process design</p>
+      </div>
+      <div class="ch-give">
+        <p class="ch-line">I build the systems, stages, and reporting that help marketing and sales work from the same picture.</p>
+        <p class="ch-link"><a class="arrow-link" href="#">See the systems and reporting I&rsquo;ve built</a></p>
+      </div>
+    </article>
+  </div>
+
+  <!-- ============================ OPTION A ============================ -->
+  <p class="mk-label">Option A — two columns, your voice first</p>
+  <p class="mk-note">The area name and what you actually do move to the left and lead. The situation and the capability list become support on the right. Same information, half the scan width, and the sentence a buyer needs is the first thing they read.</p>
+  <h2 class="mk-h2">Where I help</h2>
+  <div>
+    <article class="a-row">
+      <div>
+        <h3 class="a-t">Strategy and planning</h3>
+        <p class="a-give">I turn business goals and scattered ideas into practical marketing plans the team can execute.</p>
+        <p style="margin:0"><a class="arrow-link" href="#">See the plans and strategies I&rsquo;ve built</a></p>
+      </div>
+      <div>
+        <p class="a-when">When the business needs fresh thinking, clearer priorities, or a marketing plan people can actually use.</p>
+        <p class="a-caps">Positioning · Messaging · Go-to-market · Marketing roadmaps · Campaign planning · Growth ideas · Prioritization</p>
+      </div>
+    </article>
+    <article class="a-row">
+      <div>
+        <h3 class="a-t">Demand generation</h3>
+        <p class="a-give">I build demand around how buyers actually find, evaluate, and choose the business.</p>
+        <p style="margin:0"><a class="arrow-link" href="#">See the Scanoptics demand generation rebuild</a></p>
+      </div>
+      <div>
+        <p class="a-when">When the business needs a more reliable way to create interest, leads, opportunities, and revenue.</p>
+        <p class="a-caps">Paid media · SEO · Content · Campaigns · Events · Lead generation · Sales enablement</p>
+      </div>
+    </article>
+    <article class="a-row">
+      <div>
+        <h3 class="a-t">Marketing and sales operations</h3>
+        <p class="a-give">I build the systems, stages, and reporting that help marketing and sales work from the same picture.</p>
+        <p style="margin:0"><a class="arrow-link" href="#">See the systems and reporting I&rsquo;ve built</a></p>
+      </div>
+      <div>
+        <p class="a-when">When disconnected platforms, unclear stages, or unreliable reporting make growth difficult to manage.</p>
+        <p class="a-caps">CRM migrations · Marketing platforms · Lifecycle stages · Pipeline reporting · Lead management · Process design</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- ============================ OPTION B ============================ -->
+  <p class="mk-label">Option B — one column, read like a book</p>
+  <p class="mk-note">No columns at all. The area name becomes a small label, your contribution becomes the headline of the row, and everything sits at one reading measure. The most editorial and the least like a table. It is also the tallest, so it depends on whether you want this section read or scanned.</p>
+  <h2 class="mk-h2">Where I help</h2>
+  <div>
+    <article class="b-row">
+      <p class="b-t">Strategy and planning</p>
+      <p class="b-give">I turn business goals and scattered ideas into practical marketing plans the team can execute.</p>
+      <p class="b-when">When the business needs fresh thinking, clearer priorities, or a marketing plan people can actually use.</p>
+      <p class="b-caps">Positioning · Messaging · Go-to-market · Marketing roadmaps · Campaign planning · Growth ideas · Prioritization</p>
+      <p style="margin:0"><a class="arrow-link" href="#">See the plans and strategies I&rsquo;ve built</a></p>
+    </article>
+    <article class="b-row">
+      <p class="b-t">Demand generation</p>
+      <p class="b-give">I build demand around how buyers actually find, evaluate, and choose the business.</p>
+      <p class="b-when">When the business needs a more reliable way to create interest, leads, opportunities, and revenue.</p>
+      <p class="b-caps">Paid media · SEO · Content · Campaigns · Events · Lead generation · Sales enablement</p>
+      <p style="margin:0"><a class="arrow-link" href="#">See the Scanoptics demand generation rebuild</a></p>
+    </article>
+    <article class="b-row">
+      <p class="b-t">Marketing and sales operations</p>
+      <p class="b-give">I build the systems, stages, and reporting that help marketing and sales work from the same picture.</p>
+      <p class="b-when">When disconnected platforms, unclear stages, or unreliable reporting make growth difficult to manage.</p>
+      <p class="b-caps">CRM migrations · Marketing platforms · Lifecycle stages · Pipeline reporting · Lead management · Process design</p>
+      <p style="margin:0"><a class="arrow-link" href="#">See the systems and reporting I&rsquo;ve built</a></p>
+    </article>
+  </div>
+
+  <!-- ============================ OPTION C ============================ -->
+  <p class="mk-label">Option C — name and contribution, detail on demand</p>
+  <p class="mk-note">Every row shows the area and what you do, one line each. The situation, the capabilities and the link open underneath when someone wants them. All six areas fit in roughly the height three rows take today, so the whole range is visible at once. The cost is that the capability lists are hidden by default.</p>
+  <h2 class="mk-h2">Where I help</h2>
+  <div>
+    <article class="c-row">
+      <button type="button" class="c-sum" aria-expanded="true">
+        <span class="c-t">Strategy and planning</span>
+        <span class="c-give">I turn business goals and scattered ideas into practical marketing plans.</span>
+        <span class="c-sign" aria-hidden="true">&minus;</span>
+      </button>
+      <div class="c-body">
+        <p class="c-when">When the business needs fresh thinking, clearer priorities, or a marketing plan people can actually use.</p>
+        <p class="c-caps">Positioning · Messaging · Go-to-market · Marketing roadmaps · Campaign planning · Growth ideas · Prioritization</p>
+        <p class="c-link"><a class="arrow-link" href="#">See the plans and strategies I&rsquo;ve built</a></p>
+      </div>
+    </article>
+    <article class="c-row">
+      <button type="button" class="c-sum" aria-expanded="false">
+        <span class="c-t">Demand generation</span>
+        <span class="c-give">I build demand around how buyers actually find, evaluate, and choose the business.</span>
+        <span class="c-sign" aria-hidden="true">+</span>
+      </button>
+    </article>
+    <article class="c-row">
+      <button type="button" class="c-sum" aria-expanded="false">
+        <span class="c-t">Brand and digital experience</span>
+        <span class="c-give">I build experiences that make the business easier to understand, trust, and choose.</span>
+        <span class="c-sign" aria-hidden="true">+</span>
+      </button>
+    </article>
+    <article class="c-row">
+      <button type="button" class="c-sum" aria-expanded="false">
+        <span class="c-t">Marketing and sales operations</span>
+        <span class="c-give">I build the systems, stages, and reporting that keep marketing and sales aligned.</span>
+        <span class="c-sign" aria-hidden="true">+</span>
+      </button>
+    </article>
+    <article class="c-row">
+      <button type="button" class="c-sum" aria-expanded="false">
+        <span class="c-t">Workflows and AI</span>
+        <span class="c-give">I find where technology genuinely improves the work, then build around people.</span>
+        <span class="c-sign" aria-hidden="true">+</span>
+      </button>
+    </article>
+    <article class="c-row">
+      <button type="button" class="c-sum" aria-expanded="false">
+        <span class="c-t">Leadership and enablement</span>
+        <span class="c-give">I create the clarity, context, and support people need to carry the work forward.</span>
+        <span class="c-sign" aria-hidden="true">+</span>
+      </button>
+    </article>
+  </div>
+
+  <!-- ============================ OPTION D ============================ -->
+  <p class="mk-label">Option D — two up</p>
+  <p class="mk-note">Six areas as two columns of three, divided by the same hairlines. Shortest of the four that keep everything visible, and the rhythm echoes the sheets in the hero. It is also the closest to a feature grid, which is what this page has deliberately avoided since July.</p>
+  <h2 class="mk-h2">Where I help</h2>
+  <div class="d-grid">
+    <article class="d-block">
+      <h3 class="d-t">Strategy and planning</h3>
+      <p class="d-give">I turn business goals and scattered ideas into practical marketing plans the team can execute.</p>
+      <p class="d-when">When the business needs fresh thinking, clearer priorities, or a marketing plan people can actually use.</p>
+      <p class="d-caps">Positioning · Messaging · Go-to-market · Marketing roadmaps · Campaign planning · Growth ideas · Prioritization</p>
+      <p style="margin:0"><a class="arrow-link" href="#">See the plans and strategies I&rsquo;ve built</a></p>
+    </article>
+    <article class="d-block">
+      <h3 class="d-t">Demand generation</h3>
+      <p class="d-give">I build demand around how buyers actually find, evaluate, and choose the business.</p>
+      <p class="d-when">When the business needs a more reliable way to create interest, leads, opportunities, and revenue.</p>
+      <p class="d-caps">Paid media · SEO · Content · Campaigns · Events · Lead generation · Sales enablement</p>
+      <p style="margin:0"><a class="arrow-link" href="#">See the Scanoptics demand generation rebuild</a></p>
+    </article>
+    <article class="d-block">
+      <h3 class="d-t">Brand and digital experience</h3>
+      <p class="d-give">I build experiences that make the business easier to understand, trust, and choose.</p>
+      <p class="d-when">When the brand, website, or customer journey no longer reflects the business.</p>
+      <p class="d-caps">Brand strategy · Websites · Conversion · Content experience · User journeys · Messaging systems</p>
+      <p style="margin:0"><a class="arrow-link" href="#">See a brand and website I still support today</a></p>
+    </article>
+    <article class="d-block">
+      <h3 class="d-t">Marketing and sales operations</h3>
+      <p class="d-give">I build the systems, stages, and reporting that help marketing and sales work from the same picture.</p>
+      <p class="d-when">When disconnected platforms, unclear stages, or unreliable reporting make growth difficult to manage.</p>
+      <p class="d-caps">CRM migrations · Marketing platforms · Lifecycle stages · Pipeline reporting · Lead management · Process design</p>
+      <p style="margin:0"><a class="arrow-link" href="#">See the systems and reporting I&rsquo;ve built</a></p>
+    </article>
+    <article class="d-block">
+      <h3 class="d-t">Workflows and AI</h3>
+      <p class="d-give">I find where technology can genuinely improve the work, then build around how people actually operate.</p>
+      <p class="d-when">When manual work, weak handoffs, or disconnected tools are consuming time.</p>
+      <p class="d-caps">Workflow design · Process improvement · Automation · AI use cases · Tool selection · Adoption</p>
+      <p style="margin:0"><a class="arrow-link" href="#">See the workflows and AI tools I&rsquo;ve built</a></p>
+    </article>
+    <article class="d-block">
+      <h3 class="d-t">Leadership and enablement</h3>
+      <p class="d-give">I create the clarity, context, and support people need to carry the work forward.</p>
+      <p class="d-when">When people need clearer direction, stronger alignment, or experienced support to execute well.</p>
+      <p class="d-caps">Team development · Mentorship · Cross-functional alignment · Executive communication · Change leadership</p>
+      <p style="margin:0"><a class="arrow-link" href="#">See how this has played out inside growing teams</a></p>
+    </article>
+  </div>
+
+</main>
+</body>
+</html>
