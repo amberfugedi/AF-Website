@@ -2647,6 +2647,33 @@ a.bld-item .bld-item-arrow {
   }
 }
 
+/* EXPANDED: ONE LEVEL, NOT TWO (Amber, 2026-08). The nine-group 3x2
+   grid under a four-category preview was two taxonomies stacked, which
+   is what made the section read as a software resume. Four groups on
+   hairlines, label left, tools inline right. Breadth, not taxonomy. */
+.plat-list {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+/* dl > div > dt + dd: the wrapper is what carries the rule. With the
+   border on dt and dd separately it broke across the column gap and
+   read as two short rules per group. */
+.plat-row {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 0 clamp(20px, 2.6vw, 40px);
+  padding: 11px 0;
+}
+.plat-row + .plat-row { border-top: 1px solid var(--line); }
+.plat-list dt { font-weight: 600; color: var(--ink); margin: 0; }
+.plat-list dd { margin: 0; color: var(--muted); }
+/* expanded should not read as another page section */
+.plat-all[open] { padding-bottom: 4px; }
+@media (max-width: 760px) {
+  .plat-row { grid-template-columns: 1fr; gap: 2px; padding: 13px 0; }
+}
+
 /* the summary swaps its own label, so no script is needed and
    <summary> keeps its native expanded semantics */
 .plat-all .pa-hide { display: none; }
@@ -2672,7 +2699,7 @@ a.bld-item .bld-item-arrow {
   padding: 6px 0;
 }
 .plat-all summary::-webkit-details-marker { display: none; }
-.plat-all .pa-sign { transition: transform 0.2s var(--ease); display: inline-block; }
+.plat-all .pa-sign { display: inline-block; width: 0.72em; text-align: center; font-weight: 600; }
 .plat-all[open] .pa-sign { transform: rotate(90deg); }
 .plat-all summary:hover { color: #96263C; }
 .plat-grid {
@@ -4417,6 +4444,7 @@ footer p,
 .ev-intro p { font-size: var(--fs-body); line-height: 1.55; }
 .tl-cat { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .tl-eg { font-size: var(--fs-small); line-height: 1.5; }
+.plat-list dt, .plat-list dd { font-size: var(--fs-small); line-height: 1.5; }
 .pr-head { font-size: var(--fs-h3); line-height: 1.2; }
 .pr-copy p { font-size: var(--fs-body); line-height: 1.55; }
 .pr-proof span { font-size: var(--fs-intro); line-height: 1.2; }
