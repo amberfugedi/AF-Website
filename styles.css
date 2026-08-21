@@ -3863,7 +3863,7 @@ footer {
   padding: 0;
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(4, auto);
+  grid-template-rows: repeat(3, auto);
   gap: 2px clamp(28px, 4vw, 64px);
   max-width: 880px;
 }
@@ -3951,7 +3951,18 @@ footer {
   .hw-quote-under { margin-top: 34px; padding-bottom: 20px; }
   .hw-notebook { padding: 22px 20px 20px; }
   .hw-check { padding: 20px 20px 16px; rotate: -0.5deg; }
-  .hw-do { grid-auto-flow: row; grid-template-rows: none; grid-template-columns: 1fr; }
+  /* Three across (Amber, 2026-08). At 390 each column is ~104px, and
+     the 28px ring indent would leave 76px of text — six lines on the
+     longest label. The ring moves above the label instead, which keeps
+     the site's one bullet language and buys the full column width. */
+  .hw-do {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px 14px;
+  }
+  .hw-do li { padding: 22px 0 0; }
+  .hw-do li::before { top: 0; }
   .hw-doing { margin-top: 40px; }
   .hw-body .hw-kicker { margin-top: 28px; padding-top: 18px; max-width: none; }
   .nb-list li { grid-template-columns: 26px minmax(0, 1fr); gap: 10px; padding: 13px 0; }
@@ -4197,9 +4208,12 @@ footer p,
    title; the kicker line sits a grade below them, on h3. */
 .hw-stanza,
 .hw-body p,
-.hw-do li,
 .hw-check li,
 .hw-note p { font-size: var(--fs-body); line-height: 1.55; }
+/* "Things I end up doing" is a list of labels, not running text, so it
+   takes the small grade like the Expertise capability lines do (Amber,
+   2026-08: "the bullet font ... may be too large"). */
+.hw-do li { font-size: var(--fs-small); line-height: 1.45; }
 .hw-body .hw-kicker { font-size: var(--fs-h3); line-height: 1.3; }
 .hw-note p { line-height: 1.45; }
 .nb-list span,

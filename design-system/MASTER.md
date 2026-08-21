@@ -1921,7 +1921,20 @@ TWO DIFFERENT THINGS, and they were being confused:
   a margin voice. HOW I WORK NOW CARRIES THREE BANNERS, one after each
   of the first, second and fourth main sections. That is the ceiling:
   a fourth would make the band the page's rhythm rather than its
-  punctuation. When `.hw-people-quote` left, the principles grid lost
+  punctuation.
+  THE CEILING IS BROKEN AS OF 2026-08, DELIBERATELY AND AT AMBER'S
+  INSTRUCTION: "'a recommendation without.. nicer format' text should
+  be the quote banner that we standardized. same with 'the best
+  ideas..get used'". Both were promoted, which takes the page to FIVE
+  banners, and the order is now strictly alternating — banner, section,
+  banner, section, all the way down. That is the exact outcome the
+  ceiling existed to prevent, so it is her call to keep or reverse; the
+  two mid-page banners are the candidates to demote if she wants four.
+  AND THE PULL-QUOTE IS NOW EXTINCT. "The best ideas are the ones that
+  actually get used" was the last `.hw-quote` on the site, so promoting
+  it left the pull-quote grade with zero instances. `.hw-quote` and
+  `.hw-quote-under` are dead CSS. Left in place rather than deleted:
+  removing a documented device is her decision, not a cleanup. When `.hw-people-quote` left, the principles grid lost
   the rule that closed it, so the fifth principle took a bottom border
   back — check that pairing if either ever moves again.
 - **THE PULL-QUOTE** (`.hw-quote`) sits INSIDE a column, at 17em with a
