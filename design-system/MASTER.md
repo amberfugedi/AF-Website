@@ -1374,15 +1374,30 @@ Flow, after the fifth rebuild:
    Raise it with her before adding one.
 3. QUOTE BANNER (her AI line, unchanged) as the chapter seam.
 4. TOOLS I'VE WORKED IN, COLLAPSED. Her sentence first — "Tools are
-   useful, but they are rarely the strategy." — then a `<details>`
-   over SIX groups in a 3x2 grid: Marketing and CRM · Analytics and
-   advertising · Web and creative · Planning and collaboration · Sales
-   and operations · AI and emerging tools. NO LOGO WALL, EVER (Amber:
-   "it would make the page feel more junior and software-focused than
-   you are"). Analytics and advertising is the one group not in her
-   list — her five omitted Google Ads, Analytics and SEMrush, a
-   strange gap under a marketer whose strongest published results are
-   paid-media results. Flagged; cut it if she disagrees.
+   useful, but they are rarely the strategy." — then a `<details>` over
+   NINE groups in a 3x3 grid (Amber supplied a full inventory 2026-08;
+   it was six groups before). NO LOGO WALL, EVER (Amber: "it would make
+   the page feel more junior and software-focused than you are").
+   NINE, NOT EIGHT, AND THAT IS THE POINT. Her list came in eight
+   groups, which resolves to 3+3+2 in the existing 3-column grid.
+   Splitting ZoomInfo, ALN and CoStar out into "Data and prospecting"
+   makes nine, which fills three even rows AND fixes the grouping:
+   she had filed them under "Webinars and Communication", almost
+   certainly because ZoomInfo reads like Zoom. They are data and
+   prospecting databases. No CSS change was needed for any of this.
+   HOUSE STYLE APPLIED, CONTENT UNTOUCHED: group names go sentence
+   case (the site never uses Title Case), "&" becomes "and", "MS Teams"
+   becomes "Microsoft Teams", and category phrasings like "Paid Social
+   Ads (LinkedIn, Meta)" and "SEO Tools (SEMrush)" become the product
+   names the rest of the list uses. Brand casing is the brand's:
+   VBOUT, SEMrush, Business Wire.
+   DROPPED WHEN HER INVENTORY REPLACED THE OLD SIX GROUPS, flagged to
+   her and restorable in one line: Elementor, Storylane, Notion, Wrike,
+   PandaDoc, Calendly, Microsoft Forms, Claude, and "custom workflow
+   tools". Claude is the notable one.
+   STILL MISSING: a SQL editor she could not name. Left out rather than
+   guessed at.
+
 5. THE BRIDGE TO PROJECTS, "See the expertise in action." over
    `.work-strip`. NO SECTION LEDE: it said "real work across different
    industries" two sentences above a coda that said "the work spans
