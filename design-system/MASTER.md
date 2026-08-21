@@ -1767,6 +1767,34 @@ stays as the site spells it rather than her brief's "Scan-Optics".
 
 ## My Approach page (renamed from How I Work, 2026-07)
 
+### 2026-08 comp pass (Amber: "finish the my approach comp")
+
+- THE DIAGNOSTIC FLOW replaced the routed map in "I solve business
+  problems". The map showed that marketing sits inside the business but
+  never showed the move: symptom, look deeper, real problem, what
+  changes. Four steps across, copy underneath at FULL PAGE WIDTH (her
+  call) rather than the 64ch measure — the paragraph is short enough to
+  land on two lines. Step three is the only one that takes colour,
+  because it is the whole argument; four tinted rings would have read
+  as four categories rather than one line of reasoning.
+  `.fl-body.hw-body p`, not `.fl-body p`: `.hw-body p` in the type layer
+  is the same specificity and lands later, so it kept winning the cap.
+- SECTION NUMBERS 01-05 over a short coral rule, on the five content
+  sections only. The banners between them stay unnumbered: a banner is
+  a seam, not a chapter.
+- ALTERNATING BANDS on 02 and 04 via `.band-white`. Very subtle in
+  practice — the aura sits over everything, so a stronger alternation
+  would fight it. Flagged to Amber.
+- MARKS on "What clients leave with", same hairline language as the
+  Expertise rows at annotation scale. The comp showed a different
+  heading ("I leave the team stronger") and four new lines; the
+  existing six items and their copy were kept instead, and the wording
+  question was put back to her rather than swapped silently.
+- THE BANNER IS UNCHANGED, at her instruction. The comp restyled it as
+  a left-ruled block on a lavender band with a tape graphic, which
+  would have undone the standardisation she asked for an hour earlier.
+
+
 RENAMED IN FULL, not just relabelled: `how-i-work.html` became
 `my-approach.html` with `/how-i-work.html /my-approach.html 301` at
 the top of `_redirects` (same pattern as capabilities -> expertise and

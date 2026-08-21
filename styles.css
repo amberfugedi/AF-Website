@@ -2687,6 +2687,101 @@ a.bld-item .bld-item-arrow {
 .plat-all[open] .pa-hide { display: inline; }
 .plat-all[open] .pa-sign { transform: none; }
 
+/* Section numbers (2026-08, from the comp). A quiet index, not a
+   sequence the reader has to follow: coral, eyebrow grade, over a short
+   rule. The five content sections carry them; the banners between do
+   not, because a banner is a seam, not a chapter. */
+.sec-n {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--coral-deep);
+  margin: 0 0 14px;
+  padding-top: 12px;
+  position: relative;
+}
+.sec-n::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 26px; height: 2px;
+  background: var(--coral-deep);
+}
+
+/* Marks on "What clients leave with" — the same hairline language as
+   the Expertise rows, at annotation scale. */
+.lead-mark { display: block; margin-bottom: 12px; }
+.lead-mark .glyph { width: 24px; height: 24px; margin: 0; }
+
+/* --- My Approach: the diagnostic flow (2026-08) --- */
+.fl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 30px);
+  margin: clamp(26px, 3vw, 38px) 0 0;
+  list-style: none;
+  padding: 0;
+}
+.fl-step { position: relative; text-align: center; }
+/* the connector rides on the step, so it never becomes a grid item
+   that has to be hidden once the row stacks */
+.fl-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 62px;
+  left: calc(50% + 46px);
+  right: calc(-50% + 46px);
+  height: 1px;
+  background: var(--line);
+}
+.fl-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 58px;
+  right: calc(-50% + 46px);
+  width: 6px; height: 6px;
+  border-top: 1px solid rgba(46, 42, 39, 0.28);
+  border-right: 1px solid rgba(46, 42, 39, 0.28);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+.fl-n {
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.fl-ring {
+  width: 84px; height: 84px; border-radius: 50%;
+  margin: 0 auto 18px;
+  display: grid; place-items: center;
+  border: 1.5px solid var(--line);
+}
+.fl-ring svg { width: 34px; height: 34px; display: block; }
+.fl-cap { color: var(--body); margin: 0; }
+.fl-key .fl-n { color: var(--coral-deep); }
+.fl-key .fl-ring { border-color: rgba(184, 53, 74, 0.5); background: rgba(251, 213, 228, 0.42); }
+.fl-key .fl-cap { color: var(--ink); }
+/* full page width, not the 64ch reading measure (Amber, 2026-08). The
+   paragraph is short enough that it lands on two lines rather than one
+   very long one. */
+/* .fl-body.hw-body p, not .fl-body p: `.hw-body p` in the type layer
+   is the same specificity and lands later in the file, so it was still
+   holding the 64ch cap. */
+.fl-body { max-width: none; margin-top: clamp(34px, 4vw, 54px); }
+.fl-body.hw-body p { max-width: none; }
+@media (max-width: 860px) {
+  .fl { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+  .fl-step:not(:last-child)::after,
+  .fl-step:not(:last-child)::before { display: none; }
+}
+@media (max-width: 480px) {
+  .fl { grid-template-columns: 1fr; gap: 26px; }
+  .fl-ring { width: 68px; height: 68px; }
+  .fl-ring svg { width: 28px; height: 28px; }
+}
+
 /* --- 3. Tools: collapsed by default, and it stays that way. No logo
    wall — it would read more junior and more software-focused than she
    is (Amber, July 2026). "Smallest section" means least content, not
@@ -4449,6 +4544,9 @@ footer p,
 .ev-metric-label { font-size: var(--fs-small); line-height: 1.4; }
 .ev-intro p { font-size: var(--fs-body); line-height: 1.55; }
 .tl-cat { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.fl-n { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.sec-n { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.fl-cap { font-size: var(--fs-body); line-height: 1.5; }
 .tl-eg { font-size: var(--fs-small); line-height: 1.5; }
 .plat-list dt, .plat-list dd { font-size: var(--fs-small); line-height: 1.5; }
 .pr-head { font-size: var(--fs-h3); line-height: 1.2; }
