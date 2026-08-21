@@ -2485,7 +2485,7 @@ a.bld-item .bld-item-arrow {
   gap: clamp(18px, 2.2vw, 34px);
   align-items: start;
   border-top: 1px solid rgba(84, 76, 112, 0.22);
-  padding: 28px 0 30px;
+  padding: 24px 0 26px; /* -14% now the capability lists are collapsed */
 }
 /* MARK + TWO COLUMNS (Amber, 2026-08, against a comp: "this feels
    closer"). Three columns of text made the eye cross the full width
@@ -2509,10 +2509,62 @@ a.bld-item .bld-item-arrow {
   place-items: center;
 }
 .ch-mark .glyph { width: 34px; height: 34px; margin: 0; }
-.ch-blush    .ch-mark { background: rgba(251, 213, 228, 0.55); }
-.ch-peach    .ch-mark { background: rgba(252, 228, 196, 0.55); }
-.ch-lavender .ch-mark { background: rgba(218, 212, 245, 0.50); }
+/* SIX TINTS, NONE REPEATED (Amber, 2026-08: "icon colors shouldn't
+   repeat"). Not six arbitrary hues: a six-step ramp through the warm
+   family the site already owns, butter to peach to coral to blush to
+   orchid to lavender, so the set reads as one palette rotating rather
+   than six decisions. Every stroke clears 4.5:1 on its own tint AND on
+   cream — the pale coral needed #AE2F44 rather than --coral-deep,
+   which measured 4.40:1 on it. */
+.ch-strategy   .ch-mark { background: #FBEDBF; }
+.ch-demand     .ch-mark { background: #FCE4C4; }
+.ch-brand      .ch-mark { background: #FFD9CC; }
+.ch-ops        .ch-mark { background: #FBD5E4; }
+.ch-ai         .ch-mark { background: #EDD7EF; }
+.ch-leadership .ch-mark { background: #DAD4F5; }
 .ch-problem .ch-word { margin-bottom: 10px; }
+
+/* ---- "What this can include" ----
+   A quiet editorial action, not a control: no fill, no border, no pill.
+   The capability list is the only thing that hides; the situation, the
+   contribution and the proof link stay visible, so the scan pattern —
+   what is happening, how Amber helps, proof — survives collapsed. */
+.ch-toggle {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.2s var(--ease);
+}
+.ch-toggle:hover,
+.ch-toggle:focus-visible { color: var(--coral-deep); }
+.ch-sign { font-size: 1.05em; line-height: 1; width: 0.7em; text-align: center; }
+
+/* Height via grid-template-rows so nothing measures or thrashes. */
+.ch-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.28s var(--ease), opacity 0.2s var(--ease), visibility 0.28s;
+}
+.ch-detail-in { overflow: hidden; }
+/* visibility, not just clipping: 0fr hides the list on screen but
+   leaves it in the accessibility tree, so a screen reader would read
+   six collapsed capability lists as part of the running copy. */
+.ch-detail { visibility: hidden; }
+.ch.open .ch-detail { grid-template-rows: 1fr; opacity: 1; visibility: visible; }
+.ch .ch-caps { margin-top: 12px; }
+@media (prefers-reduced-motion: reduce) {
+  .ch-detail { transition: none; }
+}
 .ch:last-child { border-bottom: 1px solid rgba(84, 76, 112, 0.22); }
 .ch-id { display: flex; align-items: baseline; gap: 12px; }
 /* 600, not 500: the h3 grade carries 600 everywhere else on the site
@@ -2572,6 +2624,62 @@ a.bld-item .bld-item-arrow {
 }
 .plat h3 { font-family: var(--font-body); font-weight: 600; color: var(--muted); margin-bottom: 5px; }
 .plat p { color: var(--muted); opacity: 0.86; margin-bottom: 0; }
+
+/* --- 4. Bridge to Projects: intro left, three proofs across (2026-08,
+   from the comp Amber approved). It replaced three full-width rows,
+   which were quieter but made the section as tall as the six expertise
+   rows above it. Marks reuse three tints from the row ramp; no new
+   colour enters. --- */
+.pf-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 2.1fr);
+  gap: clamp(28px, 3.6vw, 60px);
+  align-items: start;
+  margin-top: 6px;
+}
+.pf-intro .section-title { margin-bottom: 16px; }
+.pf-intro p { color: var(--muted); margin-bottom: 18px; }
+.pf-intro .pf-industries { color: var(--muted); }
+.pf-intro .section-foot-link { margin-top: 0; }
+.pf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 38px);
+}
+.pf { padding-top: 4px; }
+.pf + .pf { border-left: 1px solid var(--line); padding-left: clamp(20px, 2.6vw, 38px); }
+.pf-mark {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: grid; place-items: center; margin-bottom: 14px;
+}
+.pf-mark .glyph { width: 28px; height: 28px; margin: 0; }
+.pf-demand .pf-mark { background: #FCE4C4; }
+.pf-brand  .pf-mark { background: #FFD9CC; }
+.pf-build  .pf-mark { background: #DAD4F5; }
+.pf-head {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 8px 0 10px;
+}
+.pf-body { color: var(--muted); margin-bottom: 12px; }
+.pf-stat { color: var(--muted); margin-bottom: 12px; }
+.pf-stat span { display: block; font-family: var(--font-display); color: var(--ink); }
+.pf-link { margin-bottom: 0; }
+
+@media (max-width: 1020px) {
+  .pf-grid { grid-template-columns: 1fr; gap: 30px; }
+  .pf-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .pf-list { grid-template-columns: 1fr; gap: 0; }
+  .pf + .pf { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 26px; margin-top: 26px; }
+}
 
 /* --- 4. The bridge to Projects: three full-width rows, never cards
    and never thumbnails. Projects carries the case studies; this page
@@ -4221,6 +4329,12 @@ footer p,
 /* Proof rows: the sentence at body, the row title on the card-title
    grade, label and figure caption at eyebrow. */
 .pr-label, .pr-proof { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.pf-head { font-size: var(--fs-intro); line-height: 1.25; }
+.pf-body { font-size: var(--fs-body); line-height: 1.55; }
+.pf-stat { font-size: var(--fs-eyebrow); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; line-height: 1.4; }
+.pf-stat span { font-size: var(--fs-intro); letter-spacing: -0.015em; text-transform: none; font-weight: 500; line-height: 1.2; }
+.pf-intro p { font-size: var(--fs-body); line-height: 1.55; }
+.pf-industries { font-size: var(--fs-small); line-height: 1.55; }
 .pr-head { font-size: var(--fs-h3); line-height: 1.2; }
 .pr-copy p { font-size: var(--fs-body); line-height: 1.55; }
 .pr-proof span { font-size: var(--fs-intro); line-height: 1.2; }

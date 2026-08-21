@@ -1450,6 +1450,33 @@ RUN THE SCAN, DON'T EYEBALL IT. Reading the CSS would not have caught
 any of these: each rule looked reasonable on its own, and the drift was
 only visible against what the rest of the site does.
 
+2026-08 REDESIGN, AGAINST A COMP AMBER APPROVED ("this feels closer").
+Three changes, and one rule reversed:
+- MARKS. Six hand-drawn glyphs in the site's line-art language, one per
+  area, in pastel circles. This reverses "No cards. No icons. No
+  feature grid. Just beautiful typography." (July 2026) — her call,
+  made knowingly, because six rows of pure type read as a table.
+- SIX TINTS, NONE REPEATED ("icon colors shouldn't repeat"). A first
+  pass rotated three pastels twice; she rejected it. The six are a ramp
+  through the warm family the site already owns — butter, peach, coral,
+  blush, orchid, lavender — so it reads as one palette rotating rather
+  than six decisions. Every stroke clears 4.5:1 on its own tint AND on
+  cream; the pale coral needed #AE2F44, because --coral-deep measured
+  4.40:1 on it.
+- PROGRESSIVE DISCLOSURE. Only the capability list hides, behind a
+  quiet "+ What this can include" / "− Hide details". The situation,
+  the contribution and the proof link stay visible, so the scan pattern
+  survives collapsed: what is happening, how Amber helps, proof. One
+  row open at a time. Height comes from grid-template-rows 0fr -> 1fr,
+  which needs no measuring, plus `visibility` so six collapsed lists do
+  not sit in the accessibility tree. Row padding down 14%. Section
+  1268 -> 1165 closed.
+- BRIDGE TO PROJECTS is now intro-left plus three proofs across, 701px
+  instead of three full-width rows. The published outcome lines stayed;
+  the comp had dropped them and they are the strongest evidence here.
+  `.proofs`, `.proof`, `.pr-head`, `.pr-proof` and `.pr-copy` are now
+  unused site-wide — dead CSS, left in place rather than deleted.
+
 RESIST ADDING. Built here across five rebuilds and all removed: a
 typographic word composition, four oversized statement rows, a
 numbered capability index, an asymmetric platform grid, a company-logo
