@@ -2482,7 +2482,11 @@ a.bld-item .bld-item-arrow {
 .ch {
   display: grid;
   grid-template-columns: 68px minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: clamp(18px, 2.2vw, 34px);
+  column-gap: clamp(18px, 2.2vw, 34px);
+  /* the columns want a wide gutter; the revealed capability row does
+     not, and inheriting the column gutter left it floating well below
+     the toggle that opened it */
+  row-gap: 4px;
   align-items: start;
   border-top: 1px solid rgba(84, 76, 112, 0.22);
   padding: 24px 0 26px; /* -14% now the capability lists are collapsed */
@@ -2548,8 +2552,14 @@ a.bld-item .bld-item-arrow {
 .ch-toggle:focus-visible { color: var(--coral-deep); }
 .ch-sign { font-size: 1.05em; line-height: 1; width: 0.7em; text-align: center; }
 
-/* Height via grid-template-rows so nothing measures or thrashes. */
+/* Height via grid-template-rows so nothing measures or thrashes.
+   THE PANEL SPANS THE ROW (Amber, 2026-08: "should be a full row, not
+   just half a column ... it goes under the case study link"). It sits
+   under BOTH columns, starting at the title's left edge rather than the
+   mark's, so a seven-item capability list runs as one line instead of
+   wrapping four times inside a half-width column. */
 .ch-detail {
+  grid-column: 2 / -1;
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
@@ -2561,7 +2571,7 @@ a.bld-item .bld-item-arrow {
    six collapsed capability lists as part of the running copy. */
 .ch-detail { visibility: hidden; }
 .ch.open .ch-detail { grid-template-rows: 1fr; opacity: 1; visibility: visible; }
-.ch .ch-caps { margin-top: 12px; }
+.ch .ch-caps { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   .ch-detail { transition: none; }
 }
@@ -2625,60 +2635,66 @@ a.bld-item .bld-item-arrow {
 .plat h3 { font-family: var(--font-body); font-weight: 600; color: var(--muted); margin-bottom: 5px; }
 .plat p { color: var(--muted); opacity: 0.86; margin-bottom: 0; }
 
-/* --- 4. Bridge to Projects: intro left, three proofs across (2026-08,
-   from the comp Amber approved). It replaced three full-width rows,
-   which were quieter but made the section as tall as the six expertise
-   rows above it. Marks reuse three tints from the row ramp; no new
-   colour enters. --- */
-.pf-grid {
+/* --- 4. Evidence rows (2026-08, Amber's brief). The four-column
+   version put the intro in its own column and squeezed three projects
+   into narrow strips. The intro is full width above now, and each
+   project is one open editorial row: identity, story, proof. The metric
+   is deliberately the loudest thing in the row — the section answers
+   "why should I believe any of this", so the number outranks the
+   description rather than matching it. No marks, no colour coding, no
+   metric badges, and no vertical rules. --- */
+.ev-intro { max-width: 62ch; margin-bottom: clamp(26px, 2.8vw, 38px); }
+.ev-intro .section-title { margin-bottom: 14px; }
+.ev-intro p { color: var(--muted); margin-bottom: 18px; }
+.ev-intro .section-foot-link { margin-top: 0; }
+
+.ev-list { list-style: none; margin: 0; padding: 0; }
+.ev {
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 2.1fr);
-  gap: clamp(28px, 3.6vw, 60px);
+  grid-template-columns: minmax(0, 21fr) minmax(0, 50fr) minmax(0, 29fr);
+  gap: clamp(22px, 3vw, 52px);
   align-items: start;
-  margin-top: 6px;
+  border-top: 1px solid rgba(84, 76, 112, 0.22);
+  padding: 26px 0 28px;
 }
-.pf-intro .section-title { margin-bottom: 16px; }
-.pf-intro p { color: var(--muted); margin-bottom: 18px; }
-.pf-intro .pf-industries { color: var(--muted); }
-.pf-intro .section-foot-link { margin-top: 0; }
-.pf-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(20px, 2.6vw, 38px);
+.ev:last-child { border-bottom: 1px solid rgba(84, 76, 112, 0.22); }
+.ev-label {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 4px 0 0;
 }
-.pf { padding-top: 4px; }
-.pf + .pf { border-left: 1px solid var(--line); padding-left: clamp(20px, 2.6vw, 38px); }
-.pf-mark {
-  width: 56px; height: 56px; border-radius: 50%;
-  display: grid; place-items: center; margin-bottom: 14px;
-}
-.pf-mark .glyph { width: 28px; height: 28px; margin: 0; }
-.pf-demand .pf-mark { background: #FCE4C4; }
-.pf-brand  .pf-mark { background: #FFD9CC; }
-.pf-build  .pf-mark { background: #DAD4F5; }
-.pf-head {
+.ev-head {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.015em;
   color: var(--ink);
-  margin: 8px 0 10px;
+  margin: 0 0 8px;
 }
-.pf-body { color: var(--muted); margin-bottom: 12px; }
-.pf-stat { color: var(--muted); margin-bottom: 12px; }
-.pf-stat span { display: block; font-family: var(--font-display); color: var(--ink); }
-.pf-link { margin-bottom: 0; }
+.ev-story p { color: var(--muted); margin-bottom: 0; }
+.ev-metric {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 6px;
+}
+.ev-metric-label { color: var(--muted); margin: 0 0 14px; }
+.ev-link { margin: 0; }
+/* the row list already closes on a full-width rule, so the industries
+   line drops its own shorter one rather than stacking two */
+.showcase .industries { margin-top: 22px; padding-top: 0; border-top: 0; }
 
 @media (max-width: 1020px) {
-  .pf-grid { grid-template-columns: 1fr; gap: 30px; }
-  .pf-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ev { grid-template-columns: minmax(0, 26fr) minmax(0, 74fr); gap: 18px 30px; }
+  .ev-proof { grid-column: 2; }
 }
 @media (max-width: 760px) {
-  .pf-list { grid-template-columns: 1fr; gap: 0; }
-  .pf + .pf { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 26px; margin-top: 26px; }
+  .ev { grid-template-columns: 1fr; gap: 12px; padding: 24px 0 26px; }
+  .ev-proof { grid-column: 1; }
+  .ev-label { margin-top: 0; }
 }
 
 /* --- 4. The bridge to Projects: three full-width rows, never cards
@@ -2814,6 +2830,7 @@ a.bld-item .bld-item-arrow {
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
   .ch { grid-template-columns: 60px minmax(0, 1fr); gap: 18px 26px; padding: 30px 0 32px; }
   .ch-give { grid-column: 2; }
+  .ch-detail { grid-column: 2; }
   .ch-mark { width: 60px; height: 60px; }
   .ch-mark .glyph { width: 30px; height: 30px; }
 }
@@ -2829,6 +2846,7 @@ a.bld-item .bld-item-arrow {
      wrapped harder for it. */
   .ch { grid-template-columns: 1fr; gap: 12px; padding: 26px 0 28px; }
   .ch-give { grid-column: 1; }
+  .ch-detail { grid-column: 1; }
   .ch-mark { width: 48px; height: 48px; margin-bottom: 2px; }
   .ch-mark .glyph { width: 25px; height: 25px; }
 
@@ -4329,12 +4347,14 @@ footer p,
 /* Proof rows: the sentence at body, the row title on the card-title
    grade, label and figure caption at eyebrow. */
 .pr-label, .pr-proof { font-size: var(--fs-eyebrow); line-height: 1.4; }
-.pf-head { font-size: var(--fs-intro); line-height: 1.25; }
-.pf-body { font-size: var(--fs-body); line-height: 1.55; }
-.pf-stat { font-size: var(--fs-eyebrow); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; line-height: 1.4; }
-.pf-stat span { font-size: var(--fs-intro); letter-spacing: -0.015em; text-transform: none; font-weight: 500; line-height: 1.2; }
-.pf-intro p { font-size: var(--fs-body); line-height: 1.55; }
-.pf-industries { font-size: var(--fs-small); line-height: 1.55; }
+/* The metric outranks the headline on purpose: this section is proof,
+   not another description. */
+.ev-label { font-size: var(--fs-eyebrow); letter-spacing: 0.08em; line-height: 1.4; }
+.ev-head { font-size: var(--fs-intro); line-height: 1.25; }
+.ev-story p { font-size: var(--fs-body); line-height: 1.55; }
+.ev-metric { font-size: var(--fs-h3); line-height: 1.1; }
+.ev-metric-label { font-size: var(--fs-small); line-height: 1.4; }
+.ev-intro p { font-size: var(--fs-body); line-height: 1.55; }
 .pr-head { font-size: var(--fs-h3); line-height: 1.2; }
 .pr-copy p { font-size: var(--fs-body); line-height: 1.55; }
 .pr-proof span { font-size: var(--fs-intro); line-height: 1.2; }
