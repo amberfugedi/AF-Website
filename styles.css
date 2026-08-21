@@ -2089,54 +2089,81 @@ a.bld-item .bld-item-arrow {
 .sp-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 1fr;
   gap: clamp(16px, 2.4vw, 26px);
+  align-items: start;
 }
 
-/* Card: front and back stacked in the same grid cell. */
+/* Card (Amber, 2026-08: "roughly 220-260px high, not ~400px ... and
+   then the card ends. No giant empty space").
+   THE OLD CARD WAS A FLIP. Both faces sat in the same grid cell via
+   `grid-area: 1 / 1`, and `grid-auto-rows: 1fr` then sized EVERY card
+   to the tallest panel on the board — so a four-line front face was
+   padded out to the height of the longest back panel. That is where
+   the ~200px of empty space came from; the front content was never the
+   problem. The panel now opens underneath the front in normal flow and
+   the card ends where its content ends. */
 .sp-card {
   position: relative;
-  display: grid;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--bg-raised);
   overflow: hidden;
   isolation: isolate;
+  transition: border-color .2s var(--ease), box-shadow .3s var(--ease);
 }
-/* Restrained tonal variation — one family, four temperatures. */
-.sp-tint-peach    { background: linear-gradient(rgba(252,228,196,.26), rgba(252,228,196,.26)) var(--bg-raised); }
-.sp-tint-lavender { background: linear-gradient(rgba(218,212,245,.24), rgba(218,212,245,.24)) var(--bg-raised); }
-.sp-tint-butter   { background: linear-gradient(rgba(251,237,191,.30), rgba(251,237,191,.30)) var(--bg-raised); }
-.sp-tint-blush    { background: linear-gradient(rgba(251,213,228,.22), rgba(251,213,228,.22)) var(--bg-raised); }
+.sp-card:hover { border-color: rgba(46, 42, 39, 0.22); }
+.sp-card.open  { border-color: rgba(46, 42, 39, 0.22); }
+/* Restrained tonal variation — one family, four temperatures. These
+   were written but never applied to any card, so every card rendered
+   plain white. They earn their keep on HOVER and while open (Amber,
+   2026-08: "on hover ... slight background tint"): at rest the board
+   is calm and the four situations read as equals; the tint is the
+   card answering you. */
+.sp-card { background: var(--bg-raised); }
+.sp-tint-peach:hover,    .sp-tint-peach.open    { background: linear-gradient(rgba(252,228,196,.26), rgba(252,228,196,.26)) var(--bg-raised); }
+.sp-tint-lavender:hover, .sp-tint-lavender.open { background: linear-gradient(rgba(218,212,245,.24), rgba(218,212,245,.24)) var(--bg-raised); }
+.sp-tint-butter:hover,   .sp-tint-butter.open   { background: linear-gradient(rgba(251,237,191,.30), rgba(251,237,191,.30)) var(--bg-raised); }
+.sp-tint-blush:hover,    .sp-tint-blush.open    { background: linear-gradient(rgba(251,213,228,.22), rgba(251,213,228,.22)) var(--bg-raised); }
 
-.sp-face {
-  grid-area: 1 / 1;
-  min-width: 0;
-  opacity: 1;
-  transition: opacity .3s var(--ease), visibility .3s;
-}
+.sp-face { min-width: 0; }
 
-/* Crossfade: the inactive face fades out and becomes unfocusable. */
-.sp-card .sp-back            { opacity: 0; visibility: hidden; }
-.sp-card.open .sp-back       { opacity: 1; visibility: visible; }
-.sp-card.open .sp-front      { opacity: 0; visibility: hidden; }
+/* The panel is absent until asked for — same disclosure behaviour as
+   `.plat-all` and `.case-d` elsewhere on the site, and no new motion:
+   the budget is closed and an expand animation would be a new device. */
+.sp-card .sp-back      { display: none; }
+.sp-card.open .sp-back { display: block; }
 
 /* ---- Front: the whole face is one button ---- */
 .sp-open {
   font-family: var(--font-body);
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  gap: 10px;
+  gap: 9px;
   width: 100%;
-  height: 100%;
-  padding: clamp(24px, 3vw, 36px) clamp(22px, 3vw, 34px);
+  padding: clamp(22px, 2.4vw, 28px) clamp(22px, 3vw, 30px);
   border: 0;
   background: none;
   text-align: left;
   cursor: pointer;
 }
+/* The one graphical element: a hairline along the top of the card that
+   draws in from the left on hover. scaleX, not width — animating width
+   is layout thrash and the detector rejects it. */
+.sp-open::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--coral-deep);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .28s var(--ease);
+}
+.sp-open:hover::before,
+.sp-open:focus-visible::before { transform: scaleX(1); }
+.sp-card.open .sp-open::before { transform: scaleX(1); }
 .sp-open:focus-visible,
 .sp-close:focus-visible {
   outline: 2px solid var(--coral);
@@ -2176,16 +2203,13 @@ a.bld-item .bld-item-arrow {
 
 /* ---- Back ---- */
 .sp-back {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: clamp(22px, 2.8vw, 32px) clamp(22px, 3vw, 34px);
+  border-top: 1px solid var(--line);
+  padding: clamp(20px, 2.4vw, 26px) clamp(22px, 3vw, 30px) clamp(22px, 2.6vw, 28px);
 }
 .sp-close {
   font-family: var(--font-body);
   align-self: flex-start;
-  margin: 0 0 14px -4px;
+  margin: 14px 0 0 -6px;
   padding: 4px 6px;
   border: 0;
   background: none;
@@ -2216,17 +2240,17 @@ a.bld-item .bld-item-arrow {
 .sp-cta { margin: 4px 0 0 !important; }
 
 @media (prefers-reduced-motion: reduce) {
-  .sp-face { transition: none; }
   .sp-cue, .sp-close { transition: none; }
+  /* the hover hairline draws with a transform; show it, do not sweep it */
+  .sp-open::before { transition: none; }
 }
 
 @media (max-width: 860px) {
-  /* Stack one card per row. Card height follows the active face so the
-     back can expand vertically when opened. */
-  .sp-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
-  .sp-card .sp-back        { display: none; }
-  .sp-card.open .sp-back   { display: flex; }
-  .sp-card.open .sp-front  { display: none; }
+  /* Stack one card per row. The panel opens UNDER the front, same as
+     desktop — the old rule hid `.sp-front` when open, which was correct
+     for a flip and wrong for a disclosure: tapping a card made its own
+     number and title disappear. */
+  .sp-grid { grid-template-columns: 1fr; }
   .sp-open { min-height: 44px; }
   .sp-t, .sp-s { max-width: none; }
   .sp-back p:not(.sp-k) { max-width: none; }
