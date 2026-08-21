@@ -2684,8 +2684,16 @@ a.bld-item .bld-item-arrow {
 .ev-metric-label { color: var(--muted); margin: 0 0 14px; }
 .ev-link { margin: 0; }
 /* the row list already closes on a full-width rule, so the industries
-   line drops its own shorter one rather than stacking two */
-.showcase .industries { margin-top: 22px; padding-top: 0; border-top: 0; }
+   line drops its own shorter one rather than stacking two. It also
+   drops the 62ch cap: under a 1152px rule a half-width line wrapping to
+   two looked like an unfinished column (Amber, 2026-08: "this should be
+   full length"). It sits on one line at full width. */
+.showcase .industries {
+  margin-top: 22px;
+  padding-top: 0;
+  border-top: 0;
+  max-width: none;
+}
 
 @media (max-width: 1020px) {
   .ev { grid-template-columns: minmax(0, 26fr) minmax(0, 74fr); gap: 18px 30px; }
