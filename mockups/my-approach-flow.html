@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>I solve business problems — flow options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+<style>
+  body { background: var(--bg); }
+  .mk { max-width: 1200px; margin: 0 auto; padding: 0 24px 100px; }
+  .mk-label {
+    font-family: var(--font-body); font-size: 0.8125rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral-deep);
+    margin: 78px 0 6px;
+  }
+  .mk-note { font-size: var(--fs-small); color: var(--muted); max-width: 66ch; margin: 0 0 34px; }
+
+  /* ---------- the flow ---------- */
+  .fl {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(16px, 2vw, 30px);
+    margin: 30px 0 0;
+    list-style: none;
+    padding: 0;
+  }
+  .fl-step { position: relative; text-align: center; }
+  /* the connector lives on the step, so it never becomes a grid item
+     that has to be hidden when the row stacks */
+  .fl-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 62px;
+    left: calc(50% + 46px);
+    right: calc(-50% + 46px);
+    height: 1px;
+    background: var(--line);
+  }
+  .fl-step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: 58px;
+    right: calc(-50% + 46px);
+    width: 6px; height: 6px;
+    border-top: 1px solid rgba(46,42,39,0.28);
+    border-right: 1px solid rgba(46,42,39,0.28);
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+  .fl-n {
+    display: block;
+    font-size: var(--fs-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .fl-ring {
+    width: 84px; height: 84px; border-radius: 50%;
+    margin: 0 auto 18px;
+    display: grid; place-items: center;
+    border: 1.5px solid var(--line);
+  }
+  .fl-ring svg { width: 34px; height: 34px; display: block; }
+  .fl-cap { font-size: var(--fs-body); line-height: 1.5; color: var(--body); margin: 0; }
+
+  /* one step carries the weight: it is the point of the diagram */
+  .fl-key .fl-n { color: var(--coral-deep); }
+  .fl-key .fl-ring { border-color: rgba(184,53,74,0.5); background: rgba(251,213,228,0.42); }
+  .fl-key .fl-cap { color: var(--ink); }
+
+  @media (max-width: 860px) {
+    .fl { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+    .fl-step:not(:last-child)::after,
+    .fl-step:not(:last-child)::before { display: none; }
+  }
+  @media (max-width: 480px) {
+    .fl { grid-template-columns: 1fr; gap: 26px; }
+    .fl-ring { width: 68px; height: 68px; }
+    .fl-ring svg { width: 28px; height: 28px; }
+  }
+
+  .fl-body { max-width: 64ch; margin: clamp(34px, 4vw, 54px) 0 0; }
+  .fl-body p { color: var(--body); margin-bottom: 0; }
+</style>
+</head>
+<body class="page-sub">
+<main class="mk">
+
+  <!-- ===================== CURRENT ===================== -->
+  <p class="mk-label">Current — copy left, routed map right</p>
+  <p class="mk-note">The argument sits in a column and the map sits beside it. The map shows that marketing lives inside the business, but it does not show the move: symptom, look deeper, real problem, what changes.</p>
+  <h2 class="section-title h2-long">I solve business problems, not just marketing problems.</h2>
+  <div class="fl-body hw-body" style="margin-top:24px">
+    <p>Marketing rarely succeeds or fails on its own. It runs into sales, customer experience, operations, technology, and a stack of internal habits nobody wrote down.</p>
+    <p style="margin-top:16px">So the change with the biggest payoff often has nothing to do with a channel. A clearer offer, a shorter handoff, a decision someone has been putting off for a year.</p>
+    <p class="hw-kicker" style="margin-top:26px">The campaign was fine. The follow-up was the problem.</p>
+  </div>
+
+  <!-- ===================== OPTION A ===================== -->
+  <p class="mk-label">Option A — the comp, four steps across</p>
+  <p class="mk-note">The diagnostic move becomes the visual. Step three carries the weight, because that is the whole argument: the campaign was not the problem. Copy sits underneath at reading measure instead of in a column. Rings and connectors are neutral; only the key step takes colour, so coral still means "look here" rather than "category three".</p>
+  <h2 class="section-title h2-long">I solve business problems, not just marketing problems.</h2>
+
+  <ol class="fl">
+    <li class="fl-step">
+      <span class="fl-n">1. The symptom</span>
+      <span class="fl-ring">
+        <svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" aria-hidden="true">
+          <path d="M7 24 L7 17" stroke="#A63563" stroke-width="2"/>
+          <path d="M13.7 24 L13.7 12" stroke="#A63563" stroke-width="2"/>
+          <path d="M20.4 24 L20.4 19.5" stroke="#A63563" stroke-width="2" stroke-opacity="0.7"/>
+          <path d="M27 24 L27 21.5" stroke="#A63563" stroke-width="2" stroke-opacity="0.55"/>
+          <path d="M4 27.5 L28.5 27.5" stroke="#A63563" stroke-width="1.3" stroke-opacity="0.5"/>
+        </svg>
+      </span>
+      <p class="fl-cap">Campaign underperforming</p>
+    </li>
+
+    <li class="fl-step">
+      <span class="fl-n">2. Look deeper</span>
+      <span class="fl-ring">
+        <svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" aria-hidden="true">
+          <circle cx="14" cy="14" r="8.4" stroke="#574AA6" stroke-width="2"/>
+          <path d="M20.2 20.2 L27 27" stroke="#574AA6" stroke-width="2"/>
+          <path d="M10.4 14 A3.6 3.6 0 0 1 14 10.4" stroke="#574AA6" stroke-width="1.4" stroke-opacity="0.55"/>
+        </svg>
+      </span>
+      <p class="fl-cap">The real issue isn&rsquo;t always obvious</p>
+    </li>
+
+    <li class="fl-step fl-key">
+      <span class="fl-n">3. Real problem</span>
+      <span class="fl-ring">
+        <svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" aria-hidden="true">
+          <circle cx="8" cy="11.5" r="3.4" stroke="#B8354A" stroke-width="1.9"/>
+          <path d="M3 23.5 A5.6 5.6 0 0 1 13 23.5" stroke="#B8354A" stroke-width="1.9"/>
+          <circle cx="24" cy="11.5" r="3.4" stroke="#B8354A" stroke-width="1.9"/>
+          <path d="M19 23.5 A5.6 5.6 0 0 1 29 23.5" stroke="#B8354A" stroke-width="1.9"/>
+          <path d="M13.5 14.5 L18.5 14.5" stroke="#B8354A" stroke-width="1.6" stroke-dasharray="2.4 2.6"/>
+        </svg>
+      </span>
+      <p class="fl-cap">The handoff breaks. Leads aren&rsquo;t followed up.</p>
+    </li>
+
+    <li class="fl-step">
+      <span class="fl-n">4. What changes</span>
+      <span class="fl-ring">
+        <svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" aria-hidden="true">
+          <path d="M7 16.8 L13.4 23 L25.5 9.5" stroke="#8A5A14" stroke-width="2.2" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <p class="fl-cap">Fix the handoff. Results follow.</p>
+    </li>
+  </ol>
+
+  <div class="fl-body hw-body">
+    <p>Marketing rarely succeeds or fails on its own. The issue is often somewhere between sales, operations, customer experience, and how the work actually gets done. So I look past the obvious symptom to find the change that will actually move the business.</p>
+    <p class="hw-kicker" style="margin-top:26px">The campaign was fine. The follow-up was the problem.</p>
+  </div>
+
+  <!-- ===================== OPTION B ===================== -->
+  <p class="mk-label">Option B — the same four steps, kept in the two-column frame</p>
+  <p class="mk-note">If the page should keep its column rhythm, the flow can run vertically beside the copy instead of across the full width. Shorter, and it leaves the section looking like the rest of My Approach — but the steps read as a list rather than a movement, which is most of what the comp buys.</p>
+  <h2 class="section-title h2-long">I solve business problems, not just marketing problems.</h2>
+  <div class="hw-split" style="margin-top:26px">
+    <div class="hw-body">
+      <p>Marketing rarely succeeds or fails on its own. The issue is often somewhere between sales, operations, customer experience, and how the work actually gets done. So I look past the obvious symptom to find the change that will actually move the business.</p>
+      <p class="hw-kicker">The campaign was fine. The follow-up was the problem.</p>
+    </div>
+    <ol class="fl" style="grid-template-columns:1fr; gap:22px; margin-top:0">
+      <li class="fl-step" style="text-align:left; display:grid; grid-template-columns:58px 1fr; gap:16px; align-items:center">
+        <span class="fl-ring" style="width:58px;height:58px;margin:0">
+          <svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" aria-hidden="true" style="width:26px;height:26px">
+            <path d="M7 24 L7 17" stroke="#A63563" stroke-width="2"/><path d="M13.7 24 L13.7 12" stroke="#A63563" stroke-width="2"/><path d="M20.4 24 L20.4 19.5" stroke="#A63563" stroke-width="2" stroke-opacity="0.55"/><path d="M4 27.5 L28.5 27.5" stroke="#A63563" stroke-width="1.3" stroke-opacity="0.5"/>
+          </svg>
+        </span>
+        <span><span class="fl-n" style="margin-bottom:4px">1. The symptom</span><span class="fl-cap">Campaign underperforming</span></span>
+      </li>
+      <li class="fl-step" style="text-align:left; display:grid; grid-template-columns:58px 1fr; gap:16px; align-items:center">
+        <span class="fl-ring" style="width:58px;height:58px;margin:0">
+          <svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" aria-hidden="true" style="width:26px;height:26px">
+            <circle cx="14" cy="14" r="8.4" stroke="#574AA6" stroke-width="2"/><path d="M20.2 20.2 L27 27" stroke="#574AA6" stroke-width="2"/>
+          </svg>
+        </span>
+        <span><span class="fl-n" style="margin-bottom:4px">2. Look deeper</span><span class="fl-cap">The real issue isn&rsquo;t always obvious</span></span>
+      </li>
+      <li class="fl-step fl-key" style="text-align:left; display:grid; grid-template-columns:58px 1fr; gap:16px; align-items:center">
+        <span class="fl-ring" style="width:58px;height:58px;margin:0">
+          <svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" aria-hidden="true" style="width:26px;height:26px">
+            <circle cx="8" cy="11.5" r="3.4" stroke="#B8354A" stroke-width="1.9"/><path d="M3 23.5 A5.6 5.6 0 0 1 13 23.5" stroke="#B8354A" stroke-width="1.9"/><circle cx="24" cy="11.5" r="3.4" stroke="#B8354A" stroke-width="1.9"/><path d="M19 23.5 A5.6 5.6 0 0 1 29 23.5" stroke="#B8354A" stroke-width="1.9"/><path d="M13.5 14.5 L18.5 14.5" stroke="#B8354A" stroke-width="1.6" stroke-dasharray="2.4 2.6"/>
+          </svg>
+        </span>
+        <span><span class="fl-n" style="margin-bottom:4px">3. Real problem</span><span class="fl-cap">The handoff breaks. Leads aren&rsquo;t followed up.</span></span>
+      </li>
+      <li class="fl-step" style="text-align:left; display:grid; grid-template-columns:58px 1fr; gap:16px; align-items:center">
+        <span class="fl-ring" style="width:58px;height:58px;margin:0">
+          <svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" aria-hidden="true" style="width:26px;height:26px">
+            <path d="M7 16.8 L13.4 23 L25.5 9.5" stroke="#8A5A14" stroke-width="2.2" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span><span class="fl-n" style="margin-bottom:4px">4. What changes</span><span class="fl-cap">Fix the handoff. Results follow.</span></span>
+      </li>
+    </ol>
+  </div>
+
+</main>
+</body>
+</html>
