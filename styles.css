@@ -3817,7 +3817,16 @@ footer {
   border: 1px solid var(--line);
   border-radius: 24px;
   padding: 28px 30px 26px;
+  /* The panel's BOX already sits flush with the first paragraph, but
+     its 28px of inner padding pushes the label down, so the card reads
+     as starting late against the copy beside it (Amber, 2026-08: "move
+     the checklist up around 30-50px"). Lift it by its own top padding
+     so the LABEL lands on the paragraph's first line instead. Desktop
+     only — the columns stack below 900 and the offset would just crop
+     into the copy above. */
+  margin-top: -34px;
 }
+@media (max-width: 900px) { .hw-notebook { margin-top: 0; } }
 .nb-label {
   display: block;
   text-transform: uppercase;
