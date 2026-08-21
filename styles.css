@@ -2607,11 +2607,63 @@ a.bld-item .bld-item-arrow {
 }
 .ch-link { margin-bottom: 0; }
 
+/* --- Tools preview (2026-08). The section was a heading, a sentence
+   and a link, which read as unfinished. Four categories give it
+   structure; the full nine-group list stays behind the disclosure so
+   the page order holds: problem, expertise, proof, tools. No cards, no
+   logo wall, no per-category colour. --- */
+.tl-preview {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 clamp(20px, 2.6vw, 40px);
+}
+.tl-preview li + li {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(20px, 2.6vw, 40px);
+}
+.tl-cat {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 7px;
+}
+.tl-eg { display: block; color: var(--muted); }
+@media (max-width: 860px) {
+  .tl-preview { grid-template-columns: 1fr 1fr; gap: 22px clamp(20px, 3vw, 34px); }
+  .tl-preview li:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .tl-preview li + li { border-left: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  .tl-preview { grid-template-columns: 1fr; gap: 0; }
+  .tl-preview li + li {
+    border-left: 0; padding-left: 0;
+    border-top: 1px solid var(--line); padding-top: 16px; margin-top: 16px;
+  }
+}
+
+/* the summary swaps its own label, so no script is needed and
+   <summary> keeps its native expanded semantics */
+.plat-all .pa-hide { display: none; }
+.plat-all[open] .pa-show { display: none; }
+.plat-all[open] .pa-hide { display: inline; }
+.plat-all[open] .pa-sign { transform: none; }
+
 /* --- 3. Tools: collapsed by default, and it stays that way. No logo
    wall — it would read more junior and more software-focused than she
    is (Amber, July 2026). "Smallest section" means least content, not
    less padding: the site rhythm is uniform. --- */
 .tools-section .section-lede { margin-bottom: 22px; }
+/* A short bridge between expertise and proof, not a standalone feature
+   block: the 104px section seam either side was making it read as one
+   (Amber, 2026-08). */
+.tools-section { padding-bottom: 64px; }
+.tools-section + .showcase { padding-top: 64px; }
 .plat-all summary {
   display: inline-flex; align-items: center; gap: 7px;
   cursor: pointer; list-style: none;
@@ -4363,6 +4415,8 @@ footer p,
 .ev-metric { font-size: var(--fs-h3); line-height: 1.1; }
 .ev-metric-label { font-size: var(--fs-small); line-height: 1.4; }
 .ev-intro p { font-size: var(--fs-body); line-height: 1.55; }
+.tl-cat { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.tl-eg { font-size: var(--fs-small); line-height: 1.5; }
 .pr-head { font-size: var(--fs-h3); line-height: 1.2; }
 .pr-copy p { font-size: var(--fs-body); line-height: 1.55; }
 .pr-proof span { font-size: var(--fs-intro); line-height: 1.2; }
