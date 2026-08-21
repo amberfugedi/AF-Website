@@ -2481,12 +2481,38 @@ a.bld-item .bld-item-arrow {
    rows at the old rhythm ran the section past 1500px. */
 .ch {
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.22fr) minmax(0, 1.06fr);
-  gap: clamp(20px, 2.6vw, 40px);
+  grid-template-columns: 68px minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(18px, 2.2vw, 34px);
   align-items: start;
   border-top: 1px solid rgba(84, 76, 112, 0.22);
   padding: 28px 0 30px;
 }
+/* MARK + TWO COLUMNS (Amber, 2026-08, against a comp: "this feels
+   closer"). Three columns of text made the eye cross the full width
+   six times and put the capability list — the least important thing in
+   the row — in the middle where it fought the situation line. The name,
+   situation and capabilities now travel together and the contribution
+   keeps its own column, so the row reads left to right once.
+   THE MARK IS THE PART THAT BREAKS THE WALL. It is also the part this
+   page spent five rebuilds removing (Amber, July 2026: "No cards. No
+   icons. No feature grid. Just beautiful typography.") — flagged, and
+   her call to keep.
+   THREE TINTS, NOT SIX. The comp gives every row its own colour, which
+   would undo her own Expertise colour brief (charcoal content, coral
+   for interaction, pastels as atmosphere). The three brand pastels
+   rotate instead, so each appears twice and no new hue enters. */
+.ch-mark {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.ch-mark .glyph { width: 34px; height: 34px; margin: 0; }
+.ch-blush    .ch-mark { background: rgba(251, 213, 228, 0.55); }
+.ch-peach    .ch-mark { background: rgba(252, 228, 196, 0.55); }
+.ch-lavender .ch-mark { background: rgba(218, 212, 245, 0.50); }
+.ch-problem .ch-word { margin-bottom: 10px; }
 .ch:last-child { border-bottom: 1px solid rgba(84, 76, 112, 0.22); }
 .ch-id { display: flex; align-items: baseline; gap: 12px; }
 /* 600, not 500: the h3 grade carries 600 everywhere else on the site
@@ -2678,8 +2704,10 @@ a.bld-item .bld-item-arrow {
 
 @media (max-width: 1020px) {
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
-  .ch { grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr); gap: 20px 30px; padding: 32px 0 34px; }
+  .ch { grid-template-columns: 60px minmax(0, 1fr); gap: 18px 26px; padding: 30px 0 32px; }
   .ch-give { grid-column: 2; }
+  .ch-mark { width: 60px; height: 60px; }
+  .ch-mark .glyph { width: 30px; height: 30px; }
 }
 @media (max-width: 760px) {
   /* One idea per screen: everything stacks left-aligned, nothing
@@ -2688,8 +2716,13 @@ a.bld-item .bld-item-arrow {
   /* Phones stack in reading order: number and name, problem,
      capabilities, contribution, link. */
   .chapters { margin-top: 24px; }
-  .ch { grid-template-columns: 1fr; gap: 14px; padding: 28px 0 30px; }
+  /* The mark goes ABOVE the copy on phones. Held beside it, a 52px
+     column plus its gap took 70px out of 342 and every line in the row
+     wrapped harder for it. */
+  .ch { grid-template-columns: 1fr; gap: 12px; padding: 26px 0 28px; }
   .ch-give { grid-column: 1; }
+  .ch-mark { width: 48px; height: 48px; margin-bottom: 2px; }
+  .ch-mark .glyph { width: 25px; height: 25px; }
 
   .industries { margin-top: 24px; padding-top: 16px; }
   .plat-grid { grid-template-columns: 1fr; gap: 16px; }
