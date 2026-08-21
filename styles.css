@@ -2625,6 +2625,12 @@ a.bld-item .bld-item-arrow {
   border-left: 1px solid var(--line);
   padding-left: clamp(20px, 2.6vw, 40px);
 }
+/* Small hairline marks above each label (from a comp, 2026-08). Drawn
+   in four tones from the row ramp so no new hue enters. They sit
+   against the earlier "do not assign a different strong colour to each
+   category" note — these are 24px hairlines, not filled badges, but if
+   they read as colour-coding they go to one muted tone. */
+.tl-icon { width: 24px; height: 24px; margin: 0 0 12px; }
 .tl-cat {
   display: block;
   text-transform: uppercase;
