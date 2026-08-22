@@ -161,11 +161,19 @@
 
             <circle class="lc-mark" r="5.5" fill="#B8354A"/>
 
+            <!-- Labels sit INSIDE the ring, in the negative space, not
+                 outside it. Outside they floated at the edges of the box,
+                 a long way from the arc each one names. Inside, each word
+                 sits against its own colour and the whole thing reads as
+                 one object. The x positions are tuned, not guessed: at
+                 3 and 9 o'clock a horizontal word runs straight at a
+                 vertical band, and 292 / 110 overlapped it. 282 / 120
+                 clears by 7.6 and 6.0 units. -->
             <g class="lc-lab">
-              <text x="200" y="42"  text-anchor="middle"><tspan class="lc-n">01</tspan> Learn</text>
-              <text x="392" y="204" text-anchor="end"><tspan class="lc-n">02</tspan> Apply</text>
-              <text x="200" y="368" text-anchor="middle"><tspan class="lc-n">03</tspan> Reflect</text>
-              <text x="8"   y="204" text-anchor="start"><tspan class="lc-n">04</tspan> Refine</text>
+              <text x="200" y="124" text-anchor="middle"><tspan class="lc-n">01</tspan> Learn</text>
+              <text x="282" y="208" text-anchor="middle"><tspan class="lc-n">02</tspan> Apply</text>
+              <text x="200" y="288" text-anchor="middle"><tspan class="lc-n">03</tspan> Reflect</text>
+              <text x="120" y="208" text-anchor="middle"><tspan class="lc-n">04</tspan> Refine</text>
             </g>
           </svg>
         </div>

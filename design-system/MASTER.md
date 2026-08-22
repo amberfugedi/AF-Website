@@ -778,6 +778,14 @@ here the colour and the numbered labels are the graphic and the marker
 is only position. A stepped marker on a horizontal bar is a progress
 bar and the stepping is itself the idiom.
 
+THE LABELS SIT INSIDE THE RING, in the negative space. Outside, they
+floated at the edges of the box a long way from the arc each one names,
+and the graphic read as a diagram with callouts. Inside, each word sits
+against its own colour and the whole thing reads as one object.
+Their x positions are tuned, not guessed: at 3 and 9 o'clock a
+horizontal word runs straight at a vertical band. 292 / 110 overlapped
+the ring by 2.3 and 3.9 units; 282 / 120 clears by 7.6 and 6.0.
+
 `offset-path` IS WHAT MOVES THE MARKER. An earlier mockup animated
 `offset-distance` with no `offset-path` declared, which does exactly
 nothing — the dot sat still through the whole review and nobody could
