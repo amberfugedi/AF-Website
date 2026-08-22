@@ -1,46 +1,58 @@
 # To do
 
-Open items for amberfugedi.com. Last updated 2026-08-22.
+Open items for amberfugedi.com. Last updated 2026-08-22 (post-audit).
 
 Not served publicly — `_redirects` returns 404 for this file.
 
 ---
 
-## 1. Contact forms — the code is done, the remaining step is in Netlify
+## 1. Before announcing the site
 
-Both forms (`contact` on About, `course-updates` on Courses, Services and
-the course page) are fully wired: `data-netlify="true"`, a hidden
-`form-name` matching each form's name, and an AJAX POST from `main.js`
-that carries `form-name` in the body. Verified end to end — the payload
-is exactly what Netlify expects and client-side validation works.
+### Student login is pulled — restore it when the subdomain is back
+`learn.amberfugedi.com` returns 502, so all 20 entry points were removed
+on 2026-08-22: nav and footer on 11 pages, the Courses hero line, and
+the "Already enrolled?" section. Each spot is marked with an HTML
+comment; the Courses section is recoverable from git.
 
-Nothing in the markup or JS needs changing. What is missing:
+- [ ] **Fix the subdomain** — check its DNS/CNAME and the hosting-domain
+      assignment.
+- [ ] **Restore the links** — `git show d5e3e01^:courses.html` has the
+      original section. The nav rule needs no change: the mobile menu's
+      bottom pin falls back to `.nav-note` via `:has()` and hands back
+      automatically when `.nav-secondary` returns.
 
-- [ ] **Enable form detection.** Netlify → the site → Project
-      configuration → Forms → Form detection → Enable. Netlify has
-      shipped this switched off by default since August 2024, which is
+### Contact forms — the code is done, the step is in Netlify
+Both forms are fully wired and verified end to end; the payload is
+exactly what Netlify expects.
+
+- [ ] **Enable form detection.** Project configuration → Forms → Form
+      detection → Enable. Off by default since August 2024, which is
       why the forms look wired but nothing arrives.
-- [ ] **Redeploy after enabling.** Turning detection on does not
-      retroactively scan the last build. Trigger a deploy, or push any
-      commit.
-- [ ] **Add an email notification.** Forms → Form notifications → Add
-      notification → Email notification → amberfugedi@gmail.com.
-      Netlify does not email on submission by default; without this,
-      entries collect silently in the dashboard.
-- [ ] **Confirm the host is Netlify.** Not verifiable from the dev
-      environment — outbound requests to the domain are blocked. The
-      `_redirects` file and the `data-netlify` attributes both point to
-      Netlify, but a `.replit` file is also in the repo. If the site
-      serves from somewhere else, none of the above applies and the
-      forms need a different backend.
-
-Free tier covers 100 submissions a month.
-
+- [ ] **Redeploy after enabling** — it does not retroactively scan the
+      last build.
+- [ ] **Add an email notification** to amberfugedi@gmail.com. Netlify
+      does not email on submission by default.
 - [ ] **Add a honeypot to the three `course-updates` forms.** Only the
-      contact form has `netlify-honeypot="bot-field"`. The subscribe
-      forms will collect bot signups as they stand.
+      contact form has one.
 
----
+### Search migration
+Redirects, canonicals and the sitemap are done. The rest is dashboard
+work only you can do.
+
+- [ ] **Submit the sitemap** in Google Search Console.
+- [ ] **Inspect and request indexing** for the homepage, Work,
+      Expertise, Services and Courses.
+- [ ] **Keep the old redirects in place long-term** — do not tidy them
+      out of `_redirects` later.
+
+### Analytics — blocked on you
+- [ ] **Add measurement before announcing.** Needs a GA4 or GTM
+      container ID; I can install it in the shared head of all 11 pages
+      once you have one. Worth tracking: Work views, contact
+      submissions, course-interest submissions, and outbound project
+      clicks. (Student-login clicks are moot while the links are out.)
+- [ ] Then name the tool in `/privacy` — there is an `{{ADJUST}}` marker
+      waiting at the "What happens automatically" section.
 
 ## 2. Waiting on Amber
 
@@ -56,9 +68,16 @@ Free tier covers 100 submissions a month.
 - [ ] **The mp3** (`ElevenLabs_Module_4_Earned_Proof.mp3`, in
       `attached_assets/`). Audio can't be processed here — say what it
       is for and it can be handled.
-- [ ] **MembersFirst dates**, **LinkedIn URL**, and the **120% vs 129%**
-      discrepancy.
-- [ ] **`learn.amberfugedi.com`** is referenced but not live.
+- [ ] **MembersFirst dates** and the **120% vs 129%** discrepancy.
+- [ ] **LinkedIn URL.** The audit calls this an important credibility
+      path for consulting and executive visitors. I do not have the URL,
+      so the footer and About page still have no link. Send it and it
+      goes in.
+- [ ] **Legal `{{ADJUST}}` markers.** `/privacy` needs a retention
+      window if you want a firm one; `/terms` needs the jurisdiction
+      confirmed and the registered business name if the practice is an
+      entity. Course purchase, access and refund terms must exist
+      before checkout opens.
 - [ ] **Amethyst Aesthetics case study** — currently a one-line row on
       Projects, which was the call made on 2026-08-22. It is the
       clearest example on the site of the "no idea where to start"
@@ -79,15 +98,17 @@ Free tier covers 100 submissions a month.
 
 ---
 
+## 3b. Deferred until after launch
+
+- [ ] **Page-specific social images** for Work and the individual
+      course. The shared 2400x1260 asset is strong and correctly sized,
+      so this is polish, not a blocker.
+
 ## 4. Known issues, none blocking
 
 - [ ] **Horizontal overflow on the homepage at 1024px** — about 40px,
       from the aura and the quote marquee. Clipped by
       `overflow-x: hidden`, so it does not show, but it is real.
-- [ ] **Shop dropdown on the Courses hero.** `main.js` deliberately
-      opens the dropdown when the current page sits inside it, so on
-      Courses it renders as a permanently open panel over the hero.
-      Intentional, but it reads as a bug.
 - [ ] **Projects page title and h1 say "Projects" while the nav says
       "Work".**
 - [ ] **Services has three butter tabs** where every other page has two.
