@@ -257,12 +257,17 @@
   if (triggers.length && typeof HTMLDialogElement === "function") {
     var lb = document.createElement("dialog");
     lb.className = "lightbox";
+    /* The dialog is the full-viewport scrim; .lb-frame holds the
+       fit-content grid so the arrows stay beside the asset instead of
+       stretching to the screen edges. */
     lb.innerHTML =
       '<button class="lb-close" type="button" aria-label="Close">&#10005;</button>' +
+      '<div class="lb-frame">' +
       '<button class="lb-nav lb-prev" type="button" aria-label="Previous">&#8592;</button>' +
       '<figure class="lb-stage"><figcaption></figcaption></figure>' +
       '<button class="lb-nav lb-next" type="button" aria-label="Next">&#8594;</button>' +
-      '<span class="lb-count" aria-live="polite"></span>';
+      '<span class="lb-count" aria-live="polite"></span>' +
+      '</div>';
     var stage = lb.querySelector(".lb-stage");
     var cap = lb.querySelector("figcaption");
     /* built rather than templated: an image element with no src in
@@ -330,7 +335,9 @@
     next.addEventListener("click", function () { show(at + 1); });
     lb.querySelector(".lb-close").addEventListener("click", function () { lb.close(); });
     /* clicking the backdrop closes; clicking the image does not */
-    lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
+    lb.addEventListener("click", function (e) {
+      if (e.target === lb || e.target.classList.contains("lb-frame")) lb.close();
+    });
     lb.addEventListener("keydown", function (e) {
       if (group.length < 2) return;
       if (e.key === "ArrowRight") { e.preventDefault(); show(at + 1); }
