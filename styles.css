@@ -1915,9 +1915,9 @@ a.bld-item .bld-item-arrow {
    and flattened the bridge under it from 78 to 26. It was already
    inside the band; put it back. */
 .hero-band + section { padding-top: 52px; }
-/* About only: the experience section butted straight onto the hero, so
-   the two read as one block. 20px lets the hero register first. */
-.page-about .page-head + section { padding-top: 20px; }
+/* About only. The 20px added here on 2026-08-22 put the portrait-to-
+   section gap at 100px, wider than any sibling page. Removed: the joint
+   now measures 80px, level with Courses, My Approach and Services. */
 
 .page-head-tight { padding-bottom: 0; }
 .page-head-tight + section { padding-top: 24px; }
