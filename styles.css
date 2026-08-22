@@ -4174,6 +4174,23 @@ footer {
   gap: 8px 24px;
 }
 .footer-bar p { margin: 0; }
+/* Outbound link in the contact block: the same underline-on-hover
+   treatment the asset and client-work links use, with the site's
+   external arrow rather than the internal one. */
+.contact-elsewhere { margin-top: 14px; }
+.contact-elsewhere a {
+  color: var(--coral-deep);
+  font-weight: 600;
+  text-decoration: none;
+  background-image: linear-gradient(var(--coral-deep), var(--coral-deep));
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  background-position: 0 100%;
+  transition: background-size 0.2s var(--ease);
+}
+.contact-elsewhere a::after { content: " \2197"; }
+.contact-elsewhere a:hover { background-size: 100% 2px; }
+
 .footer-legal a { color: var(--muted); text-decoration: none; }
 .footer-legal a:hover { color: var(--coral-deep); text-decoration: underline; }
 

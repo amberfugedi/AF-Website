@@ -69,10 +69,6 @@ work only you can do.
       `attached_assets/`). Audio can't be processed here — say what it
       is for and it can be handled.
 - [ ] **MembersFirst dates** and the **120% vs 129%** discrepancy.
-- [ ] **LinkedIn URL.** The audit calls this an important credibility
-      path for consulting and executive visitors. I do not have the URL,
-      so the footer and About page still have no link. Send it and it
-      goes in.
 - [ ] **Legal `{{ADJUST}}` markers.** `/privacy` needs a retention
       window if you want a firm one; `/terms` needs the jurisdiction
       confirmed and the registered business name if the practice is an
@@ -122,6 +118,11 @@ work only you can do.
 ---
 
 ## 5. Decided, recorded so it is not re-litigated
+
+- **All asset and internal references are root-relative** (2026-08-22).
+  Relative paths resolve correctly from a one-level clean URL but break
+  from any trailing-slash form, which is what once shipped the course
+  page unstyled. Keep new references starting with `/`.
 
 - **Active clients are not identified anywhere on the site** (2026-08-22).
   Durations and depth stay; present-tense status markers were removed.
