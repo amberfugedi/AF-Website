@@ -132,16 +132,17 @@
           <h1 class="h1-long">Courses for people doing the <span class="tab-em tab-butter">actual work.</span></h1>
           <p class="section-lede">Practical, self-paced learning to help you make clearer decisions, strengthen your marketing and build systems that fit your business.</p>
         </div>
-        <!-- Learning loop. The four stage labels sit INSIDE the band
-             and never move; only the ribbons turn underneath them.
-             THE BAND WIDTH IS DERIVED, NOT CHOSEN. As the ellipse
-             rotates, the band's distance from centre at any fixed point
-             swings between b and a, so the strip that is covered at
-             EVERY angle is only sw - (a - b). With a=138, b=120 and an
-             88 stroke that window is 70 units, which is what a
-             horizontal "REFINE" needs with padding. Narrow the band or
-             stretch the oval and the labels start sliding off the
-             colour. Outer extent stays 182 against a 200 half-box. -->
+        <!-- Learning loop. The labels now ORBIT WITH the ribbon
+             (Amber, 2026-08) rather than sitting still while colour
+             slides underneath, so each word stays locked to its own
+             segment. They counter-rotate inside the spinning group at
+             the same 40s so they never tilt or invert.
+             CONTAINMENT IS UNCONDITIONAL NOW: each label is centred ON
+             the band's centreline, so it stays inside as long as its
+             half-diagonal is under the band's half-width — 32 against
+             44, at every angle, with no dependence on rotation.
+             Segments are offset 30 degrees so each cardinal point sits
+             mid-segment instead of on a join. -->
         <div class="hero-visual co-cycle">
           <svg class="lc" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="lc-title" fill="none">
             <title id="lc-title">Learn, apply, reflect and refine through practical work.</title>
@@ -154,29 +155,29 @@
 
             <rect x="0" y="0" width="400" height="400" filter="url(#lc-paper)" opacity="0.045"/>
 
-            <!-- the only thing that moves -->
+            <!-- stationary registration: a circle, because a stationary
+                 ellipse gets cut across by the rotating band -->
+            <circle cx="200" cy="200" r="72" stroke="#2E2A27" stroke-opacity="0.12" stroke-width="1"/>
+
             <g class="lc-float">
               <g class="lc-spin">
-                <path d="M 164.3 84.1 A 138 120 0 0 1 333.3 231.1" stroke="#F2DC9C" stroke-width="88" stroke-linecap="round" stroke-opacity="0.72"/>
-                <path d="M 333.3 168.9 A 138 120 0 0 1 164.3 315.9" stroke="#F6BBD3" stroke-width="88" stroke-linecap="round" stroke-opacity="0.64"/>
-                <path d="M 235.7 315.9 A 138 120 0 0 1 66.7 168.9" stroke="#C7BDF0" stroke-width="88" stroke-linecap="round" stroke-opacity="0.66"/>
-                <path d="M 66.7 231.1 A 138 120 0 0 1 235.7 84.1" stroke="#F3DCC4" stroke-width="88" stroke-linecap="round" stroke-opacity="0.78"/>
+                <path d="M 80.5 140.0 A 138 120 0 0 1 319.5 140.0" stroke="#F2DC9C" stroke-width="88" stroke-linecap="round" stroke-opacity="0.72"/>
+                <path d="M 269.0 96.1 A 138 120 0 0 1 269.0 303.9"  stroke="#F6BBD3" stroke-width="88" stroke-linecap="round" stroke-opacity="0.64"/>
+                <path d="M 319.5 260.0 A 138 120 0 0 1 80.5 260.0"  stroke="#C7BDF0" stroke-width="88" stroke-linecap="round" stroke-opacity="0.66"/>
+                <path d="M 131.0 303.9 A 138 120 0 0 1 131.0 96.1"  stroke="#F3DCC4" stroke-width="88" stroke-linecap="round" stroke-opacity="0.78"/>
+
+                <!-- each word rides its own segment; the inner text
+                     counter-rotates so it never tilts -->
+                <g class="lc-lab">
+                  <g transform="translate(200 80)"><text class="lc-up" text-anchor="middle" dy="0.34em">Learn</text></g>
+                  <g transform="translate(338 200)"><text class="lc-up" text-anchor="middle" dy="0.34em">Apply</text></g>
+                  <g transform="translate(200 320)"><text class="lc-up" text-anchor="middle" dy="0.34em">Reflect</text></g>
+                  <g transform="translate(62 200)"><text class="lc-up" text-anchor="middle" dy="0.34em">Refine</text></g>
+                </g>
               </g>
             </g>
-
-            <!-- stationary: one hairline registration ellipse on the
-                 band's inner edge, then the four labels -->
-            <!-- a circle, not an ellipse: the band rotates and this does not, so
-                 only a circle at the always-clear inner radius (b - sw/2 = 76)
-                 stays in the negative space at every angle -->
-            <circle cx="200" cy="200" r="72" stroke="#2E2A27" stroke-opacity="0.12" stroke-width="1"/>
-            <g class="lc-lab">
-              <text x="200" y="75"  text-anchor="middle">Learn</text>
-              <text x="329" y="204" text-anchor="middle">Apply</text>
-              <text x="200" y="333" text-anchor="middle">Reflect</text>
-              <text x="71"  y="204" text-anchor="middle">Refine</text>
-            </g>
           </svg>
+        </div>
         </div>
 
         <p class="co-login">Already enrolled? <a href="https://learn.amberfugedi.com" rel="noopener">Student login</a></p>

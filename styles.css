@@ -2901,7 +2901,14 @@ a.bld-item .bld-item-arrow {
 .lc { width: 100%; height: auto; display: block; }
 
 /* labels ride inside the band, so they are charcoal rather than muted:
-   they sit on colour, not on cream */
+   they sit on colour, not on cream. They orbit with the ribbon and
+   counter-rotate at the same 40s so they stay upright the whole way. */
+.lc-up {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lc-counter 40s linear infinite;
+}
+@keyframes lc-counter { to { transform: rotate(-360deg); } }
 .lc-lab text {
   font-family: var(--font-body);
   font-weight: 600;
@@ -2943,7 +2950,7 @@ a.bld-item .bld-item-arrow {
   .page-courses .co-login  { grid-column: 1; grid-row: 2; align-self: start; margin: 20px 0 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lc-spin, .lc-float { animation: none; }
+  .lc-spin, .lc-float, .lc-up { animation: none; }
 }
 
 /* ================= Course page (2026-08) =================

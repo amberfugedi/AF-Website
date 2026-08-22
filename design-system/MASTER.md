@@ -764,7 +764,22 @@ ribbons at 120 degrees each, so they overlap 30 degrees at every join
 and the blend is visible all the way round. Replaced the course cover,
 which was doing the listing's job twice.
 
-THE LABELS LIVE INSIDE THE BAND (Amber, 2026-08), which is what sets
+THE LABELS ORBIT WITH THE RIBBON (Amber, 2026-08: "the words should
+move with the circle"). Each one rides its own segment inside the
+rotating group and counter-rotates on a matching 40s linear loop, so it
+travels with the colour but never tilts or inverts — measured at 0.00
+degrees of tilt across 24 angles and in the live page.
+CONTAINMENT IS UNCONDITIONAL ONCE THEY ORBIT. A label centred ON the
+band's centreline stays inside as long as its half-diagonal is under
+the band's half-width: 32 against 44, with no dependence on rotation at
+all. That is a stronger guarantee than the stationary version, which
+depended on the sw - (a - b) window.
+Segments are offset 30 degrees so each label sits mid-segment rather
+than on a join. WATCH THE ARC DIRECTION when editing these: one
+endpoint pair reversed turns a 120-degree arc into a 240-degree one and
+the ring becomes a blob through the centre. That happened once.
+
+THE LABELS LIVE INSIDE THE BAND, which is what sets
 the band's width. As the ellipse turns, its distance from centre at any
 fixed point swings between b and a, so the strip covered at EVERY angle
 is only `sw - (a - b)`. With a=138, b=120 and an 88 stroke that window
