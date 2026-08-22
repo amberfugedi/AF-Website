@@ -755,65 +755,34 @@ renders as a permanently open panel over the hero on Courses and on this
 page. Deliberate — it shows the visitor where they are — but it reads as
 a stuck menu. Flagged to Amber.
 
-### Courses hero: the learning loop (2026-08)
+### Courses hero: the learning cycle (2026-08)
 
-The Courses counterpart to the Expertise hero graphic, and the same
-language: translucent overlapping shapes, hairline registration marks,
-the brand pastels, nothing illustrative. One oval built from four
-ribbons at 120 degrees each, so they overlap 30 degrees at every join
-and the blend is visible all the way round. Replaced the course cover,
-which was doing the listing's job twice.
+A hairline ring with four quiet colour arcs behind it, four fixed
+numbered labels, and ONE marker crawling a lap every 26 seconds, plus
+an almost invisible 9s breath on the ring. Nothing else moves.
 
-THE LABELS ORBIT WITH THE RIBBON (Amber, 2026-08: "the words should
-move with the circle"). Each one rides its own segment inside the
-rotating group and counter-rotates on a matching 40s linear loop, so it
-travels with the colour but never tilts or inverts — measured at 0.00
-degrees of tilt across 24 angles and in the live page.
-CONTAINMENT IS UNCONDITIONAL ONCE THEY ORBIT. A label centred ON the
-band's centreline stays inside as long as its half-diagonal is under
-the band's half-width: 32 against 44, with no dependence on rotation at
-all. That is a stronger guarantee than the stationary version, which
-depended on the sw - (a - b) window.
-Segments are offset 30 degrees so each label sits mid-segment rather
-than on a join. WATCH THE ARC DIRECTION when editing these: one
-endpoint pair reversed turns a 120-degree arc into a 240-degree one and
-the ring becomes a blob through the centre. That happened once.
+THREE VERSIONS WERE BUILT AND TWO WERE WRONG, and the reasons are worth
+keeping. First: an 88px band with the labels inside it — a soft donut,
+and round caps on a stroke that thick turned the overlaps into amoebas.
+Second: the labels made to orbit with the ribbon, at Amber's request.
+That one taught the real lesson — WHEN THE LABELS MOVE, THE SEQUENCE
+STOPS READING. Learn, Apply, Reflect, Refine only appear in order for a
+moment every 40 seconds, and the order is the entire content of a cycle
+diagram. Labels stay put.
 
-THE LABELS LIVE INSIDE THE BAND, which is what sets
-the band's width. As the ellipse turns, its distance from centre at any
-fixed point swings between b and a, so the strip covered at EVERY angle
-is only `sw - (a - b)`. With a=138, b=120 and an 88 stroke that window
-is 70 units — what a horizontal "REFINE" needs with padding. Narrow the
-band or stretch the oval and the labels start sliding off the colour.
-Verified by checking all four label boxes against the band at 24
-angles: tightest margin 9.6 units, never outside.
-The centre is EMPTY. "Learn by doing" was cut because the h1 already
-says "Courses for people doing the actual work" — the graphic was
-restating the headline 400px away. The registration mark is a CIRCLE at
-the always-clear inner radius, not an ellipse: a stationary ellipse gets
-cut across by the rotating band.
+BOTH FINAL CANDIDATES CARRIED A NAMED RISK: a ring with a travelling
+dot can read as a loading spinner, a horizontal four-segment track as a
+business-process diagram. The ring wins because it can be executed out
+of its trap — a spinner is fast, uniform, and IS the moving part, while
+here the colour and the numbered labels are the graphic and the marker
+is only position. A stepped marker on a horizontal bar is a progress
+bar and the stepping is itself the idiom.
 
-ONLY THE RIBBONS MOVE. Labels, centre text, rules and dots sit outside
-the animated groups. Two nested groups, because one element cannot run
-a rotate animation and a translate animation on the same transform
-property: `.lc-float` carries a 2.5px 6s float, `.lc-spin` inside it
-carries a 40s linear rotation.
-
-CONTAINMENT IS GEOMETRIC, NOT EYEBALLED. A rotated ellipse never
-reaches further from its centre than max(a, b), so with a=132 and a 32
-stroke the ribbon stays inside 148 units at any angle; the nearest
-label sits at 166. Verified by freezing the rotation at 24 angles and
-checking the group's box against the SVG's — never outside. The centre
-text has to fit the 82-unit radius that stays clear at every angle,
-which is why "Learn by doing." is two lines.
-
-ROW SIZING, NOT SPANNING, PUTS THE LOGIN LINE BACK. `.co-login` had to
-become a sibling of `.head-copy` so it can follow the graphic on a
-phone (Amber: graphic after the lede, before the student login). On
-desktop that put it in row 2, and with `grid-template-rows: auto auto`
-the spanning graphic pushed its extra height into both rows and
-stranded the link at the bottom of the hero. `min-content auto` sizes
-row 1 to the copy instead.
+`offset-path` IS WHAT MOVES THE MARKER. An earlier mockup animated
+`offset-distance` with no `offset-path` declared, which does exactly
+nothing — the dot sat still through the whole review and nobody could
+have told from a screenshot. Verify travelling elements by sampling
+position over time, not by looking at a frame.
 
 ## Courses page (2026-07, rebuilt as a library)
 

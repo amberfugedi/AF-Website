@@ -2900,39 +2900,39 @@ a.bld-item .bld-item-arrow {
 .co-cycle > .lc { max-height: none; }
 .lc { width: 100%; height: auto; display: block; }
 
-/* labels ride inside the band, so they are charcoal rather than muted:
-   they sit on colour, not on cream. They orbit with the ribbon and
-   counter-rotate at the same 40s so they stay upright the whole way. */
-.lc-up {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: lc-counter 40s linear infinite;
-}
-@keyframes lc-counter { to { transform: rotate(-360deg); } }
+/* labels sit outside the ring and never move, so 01-04 always reads */
 .lc-lab text {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 1.1px;
+  font-size: 13px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   fill: var(--ink);
-  fill-opacity: 0.82;
+  fill-opacity: 0.8;
 }
+.lc-n { fill: var(--coral-deep); }
 
-/* Two nested groups because one element cannot run a rotate animation
-   and a translate animation on the same transform property. */
-.lc-spin {
+/* the marker travels the ring. offset-path is what actually moves it —
+   animating offset-distance alone does nothing. */
+.lc-mark {
+  offset-path: path("M 200 80 A 138 120 0 0 1 200 320 A 138 120 0 0 1 200 80");
+  offset-rotate: 0deg;
+  offset-distance: 0%;
+  animation: lc-run 26s linear infinite;
+}
+@keyframes lc-run { to { offset-distance: 100%; } }
+
+/* an almost invisible breath, the only other motion on the graphic */
+.lc-band {
   transform-box: view-box;
   transform-origin: 200px 200px;
-  animation: lc-spin 40s linear infinite;
+  animation: lc-breathe 9s ease-in-out infinite;
 }
-.lc-float {
-  transform-box: view-box;
-  transform-origin: 200px 200px;
-  animation: lc-float 6s ease-in-out infinite;
+@keyframes lc-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.012); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-mark, .lc-band { animation: none; }
 }
-@keyframes lc-spin  { to { transform: rotate(360deg); } }
-@keyframes lc-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
 
 @media (max-width: 900px) {
   /* the login line follows the graphic on a phone, so the reading

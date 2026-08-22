@@ -132,17 +132,14 @@
           <h1 class="h1-long">Courses for people doing the <span class="tab-em tab-butter">actual work.</span></h1>
           <p class="section-lede">Practical, self-paced learning to help you make clearer decisions, strengthen your marketing and build systems that fit your business.</p>
         </div>
-        <!-- Learning loop. The labels now ORBIT WITH the ribbon
-             (Amber, 2026-08) rather than sitting still while colour
-             slides underneath, so each word stays locked to its own
-             segment. They counter-rotate inside the spinning group at
-             the same 40s so they never tilt or invert.
-             CONTAINMENT IS UNCONDITIONAL NOW: each label is centred ON
-             the band's centreline, so it stays inside as long as its
-             half-diagonal is under the band's half-width — 32 against
-             44, at every angle, with no dependence on rotation.
-             Segments are offset 30 degrees so each cardinal point sits
-             mid-segment instead of on a join. -->
+        <!-- Learning cycle. A hairline ring with four quiet colour
+             arcs behind it, fixed numbered labels so the sequence
+             always reads, and ONE marker crawling a lap every 26s.
+             The colour and the order are the graphic; the marker is
+             only position. That is what keeps it off the spinner read:
+             a spinner is fast, uniform, and IS the moving part.
+             The marker rides an offset-path — animating offset-distance
+             without declaring offset-path does nothing at all. -->
         <div class="hero-visual co-cycle">
           <svg class="lc" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="lc-title" fill="none">
             <title id="lc-title">Learn, apply, reflect and refine through practical work.</title>
@@ -152,29 +149,23 @@
                 <feColorMatrix type="saturate" values="0"/>
               </filter>
             </defs>
-
             <rect x="0" y="0" width="400" height="400" filter="url(#lc-paper)" opacity="0.045"/>
 
-            <!-- stationary registration: a circle, because a stationary
-                 ellipse gets cut across by the rotating band -->
-            <circle cx="200" cy="200" r="72" stroke="#2E2A27" stroke-opacity="0.12" stroke-width="1"/>
+            <g class="lc-band">
+              <path d="M 80.5 140 A 138 120 0 0 1 319.5 140"  stroke="#F2DC9C" stroke-width="26" stroke-linecap="round" stroke-opacity="0.58"/>
+              <path d="M 269 96.1 A 138 120 0 0 1 269 303.9"  stroke="#F6BBD3" stroke-width="26" stroke-linecap="round" stroke-opacity="0.52"/>
+              <path d="M 319.5 260 A 138 120 0 0 1 80.5 260"  stroke="#C7BDF0" stroke-width="26" stroke-linecap="round" stroke-opacity="0.54"/>
+              <path d="M 131 303.9 A 138 120 0 0 1 131 96.1"  stroke="#F3DCC4" stroke-width="26" stroke-linecap="round" stroke-opacity="0.64"/>
+              <ellipse cx="200" cy="200" rx="138" ry="120" stroke="#2E2A27" stroke-opacity="0.15" stroke-width="1"/>
+            </g>
 
-            <g class="lc-float">
-              <g class="lc-spin">
-                <path d="M 80.5 140.0 A 138 120 0 0 1 319.5 140.0" stroke="#F2DC9C" stroke-width="88" stroke-linecap="round" stroke-opacity="0.72"/>
-                <path d="M 269.0 96.1 A 138 120 0 0 1 269.0 303.9"  stroke="#F6BBD3" stroke-width="88" stroke-linecap="round" stroke-opacity="0.64"/>
-                <path d="M 319.5 260.0 A 138 120 0 0 1 80.5 260.0"  stroke="#C7BDF0" stroke-width="88" stroke-linecap="round" stroke-opacity="0.66"/>
-                <path d="M 131.0 303.9 A 138 120 0 0 1 131.0 96.1"  stroke="#F3DCC4" stroke-width="88" stroke-linecap="round" stroke-opacity="0.78"/>
+            <circle class="lc-mark" r="5.5" fill="#B8354A"/>
 
-                <!-- each word rides its own segment; the inner text
-                     counter-rotates so it never tilts -->
-                <g class="lc-lab">
-                  <g transform="translate(200 80)"><text class="lc-up" text-anchor="middle" dy="0.34em">Learn</text></g>
-                  <g transform="translate(338 200)"><text class="lc-up" text-anchor="middle" dy="0.34em">Apply</text></g>
-                  <g transform="translate(200 320)"><text class="lc-up" text-anchor="middle" dy="0.34em">Reflect</text></g>
-                  <g transform="translate(62 200)"><text class="lc-up" text-anchor="middle" dy="0.34em">Refine</text></g>
-                </g>
-              </g>
+            <g class="lc-lab">
+              <text x="200" y="42"  text-anchor="middle"><tspan class="lc-n">01</tspan> Learn</text>
+              <text x="392" y="204" text-anchor="end"><tspan class="lc-n">02</tspan> Apply</text>
+              <text x="200" y="368" text-anchor="middle"><tspan class="lc-n">03</tspan> Reflect</text>
+              <text x="8"   y="204" text-anchor="start"><tspan class="lc-n">04</tspan> Refine</text>
             </g>
           </svg>
         </div>
