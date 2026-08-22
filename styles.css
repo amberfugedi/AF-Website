@@ -2953,6 +2953,9 @@ a.bld-item .bld-item-arrow {
   .lc-spin, .lc-float, .lc-up { animation: none; }
 }
 
+/* 404: the snapped hairline under the headline */
+.nf-break { display: block; margin: 22px 0 20px; max-width: 320px; width: 100%; height: auto; }
+
 /* ================= Course page (2026-08) =================
    Same frame as the other interior pages: editorial hero, section
    headline left and body right, one banner, hairline lists. Nothing
