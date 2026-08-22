@@ -764,6 +764,20 @@ ribbons at 120 degrees each, so they overlap 30 degrees at every join
 and the blend is visible all the way round. Replaced the course cover,
 which was doing the listing's job twice.
 
+THE LABELS LIVE INSIDE THE BAND (Amber, 2026-08), which is what sets
+the band's width. As the ellipse turns, its distance from centre at any
+fixed point swings between b and a, so the strip covered at EVERY angle
+is only `sw - (a - b)`. With a=138, b=120 and an 88 stroke that window
+is 70 units — what a horizontal "REFINE" needs with padding. Narrow the
+band or stretch the oval and the labels start sliding off the colour.
+Verified by checking all four label boxes against the band at 24
+angles: tightest margin 9.6 units, never outside.
+The centre is EMPTY. "Learn by doing" was cut because the h1 already
+says "Courses for people doing the actual work" — the graphic was
+restating the headline 400px away. The registration mark is a CIRCLE at
+the always-clear inner radius, not an ellipse: a stationary ellipse gets
+cut across by the rotating band.
+
 ONLY THE RIBBONS MOVE. Labels, centre text, rules and dots sit outside
 the animated groups. Two nested groups, because one element cannot run
 a rotate animation and a translate animation on the same transform

@@ -132,16 +132,18 @@
           <h1 class="h1-long">Courses for people doing the <span class="tab-em tab-butter">actual work.</span></h1>
           <p class="section-lede">Practical, self-paced learning to help you make clearer decisions, strengthen your marketing and build systems that fit your business.</p>
         </div>
-        <!-- Learning loop: the Courses counterpart to the Expertise
-             hero graphic. One oval built from four overlapping
-             translucent ribbons. ONLY the ribbons move — labels, rules
-             and dots are outside the animated groups and stay put.
-             CONTAINMENT IS GEOMETRIC, NOT EYEBALLED: a rotated ellipse
-             never reaches further than max(a, b) from its centre, so
-             with a=132 and a 32 stroke the ribbon stays inside 148
-             units at every angle. The nearest label sits at 166. -->
+        <!-- Learning loop. The four stage labels sit INSIDE the band
+             and never move; only the ribbons turn underneath them.
+             THE BAND WIDTH IS DERIVED, NOT CHOSEN. As the ellipse
+             rotates, the band's distance from centre at any fixed point
+             swings between b and a, so the strip that is covered at
+             EVERY angle is only sw - (a - b). With a=138, b=120 and an
+             88 stroke that window is 70 units, which is what a
+             horizontal "REFINE" needs with padding. Narrow the band or
+             stretch the oval and the labels start sliding off the
+             colour. Outer extent stays 182 against a 200 half-box. -->
         <div class="hero-visual co-cycle">
-          <svg class="lc" viewBox="0 0 440 400" width="440" height="400" role="img" aria-labelledby="lc-title" fill="none">
+          <svg class="lc" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="lc-title" fill="none">
             <title id="lc-title">Learn, apply, reflect and refine through practical work.</title>
             <defs>
               <filter id="lc-paper" x="0" y="0" width="100%" height="100%">
@@ -150,42 +152,29 @@
               </filter>
             </defs>
 
-            <!-- paper grain, static and barely there -->
-            <rect x="0" y="0" width="440" height="400" filter="url(#lc-paper)" opacity="0.045"/>
-
-            <!-- registration: centre rules and cardinal ticks -->
-            <g stroke="#2E2A27" stroke-opacity="0.16" stroke-width="1">
-              <path d="M220 22 L220 60 M220 340 L220 378"/>
-              <path d="M28 200 L66 200 M374 200 L412 200"/>
-            </g>
-            <g fill="#2E2A27" fill-opacity="0.3">
-              <circle cx="220" cy="66" r="2"/>
-              <circle cx="220" cy="334" r="2"/>
-              <circle cx="72" cy="200" r="2"/>
-              <circle cx="368" cy="200" r="2"/>
-            </g>
+            <rect x="0" y="0" width="400" height="400" filter="url(#lc-paper)" opacity="0.045"/>
 
             <!-- the only thing that moves -->
             <g class="lc-float">
               <g class="lc-spin">
-                <path d="M 185.8 105.3 A 132 98 0 0 1 347.5 225.4" stroke="#F2DC9C" stroke-width="32" stroke-linecap="round" stroke-opacity="0.72"/>
-                <path d="M 347.5 174.6 A 132 98 0 0 1 185.8 294.7" stroke="#F6BBD3" stroke-width="32" stroke-linecap="round" stroke-opacity="0.66"/>
-                <path d="M 254.2 294.7 A 132 98 0 0 1 92.5 174.6" stroke="#C7BDF0" stroke-width="32" stroke-linecap="round" stroke-opacity="0.68"/>
-                <path d="M 92.5 225.4 A 132 98 0 0 1 254.2 105.3" stroke="#F3DCC4" stroke-width="32" stroke-linecap="round" stroke-opacity="0.78"/>
+                <path d="M 164.3 84.1 A 138 120 0 0 1 333.3 231.1" stroke="#F2DC9C" stroke-width="88" stroke-linecap="round" stroke-opacity="0.72"/>
+                <path d="M 333.3 168.9 A 138 120 0 0 1 164.3 315.9" stroke="#F6BBD3" stroke-width="88" stroke-linecap="round" stroke-opacity="0.64"/>
+                <path d="M 235.7 315.9 A 138 120 0 0 1 66.7 168.9" stroke="#C7BDF0" stroke-width="88" stroke-linecap="round" stroke-opacity="0.66"/>
+                <path d="M 66.7 231.1 A 138 120 0 0 1 235.7 84.1" stroke="#F3DCC4" stroke-width="88" stroke-linecap="round" stroke-opacity="0.78"/>
               </g>
             </g>
 
-            <!-- centre: fits inside the 82-unit radius that stays clear
-                 whatever angle the ribbon is at -->
-            <text class="lc-mid" x="220" y="193" text-anchor="middle">Learn by</text>
-            <text class="lc-mid" x="220" y="227" text-anchor="middle">doing.</text>
-
-            <!-- stage labels, stationary -->
+            <!-- stationary: one hairline registration ellipse on the
+                 band's inner edge, then the four labels -->
+            <!-- a circle, not an ellipse: the band rotates and this does not, so
+                 only a circle at the always-clear inner radius (b - sw/2 = 76)
+                 stays in the negative space at every angle -->
+            <circle cx="200" cy="200" r="72" stroke="#2E2A27" stroke-opacity="0.12" stroke-width="1"/>
             <g class="lc-lab">
-              <text x="220" y="30" text-anchor="middle"><tspan class="lc-n">01</tspan> Learn</text>
-              <text x="430" y="196" text-anchor="end"><tspan class="lc-n">02</tspan> Apply</text>
-              <text x="220" y="380" text-anchor="middle"><tspan class="lc-n">03</tspan> Reflect</text>
-              <text x="10" y="196" text-anchor="start"><tspan class="lc-n">04</tspan> Refine</text>
+              <text x="200" y="75"  text-anchor="middle">Learn</text>
+              <text x="329" y="204" text-anchor="middle">Apply</text>
+              <text x="200" y="333" text-anchor="middle">Reflect</text>
+              <text x="71"  y="204" text-anchor="middle">Refine</text>
             </g>
           </svg>
         </div>

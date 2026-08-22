@@ -2900,37 +2900,32 @@ a.bld-item .bld-item-arrow {
 .co-cycle > .lc { max-height: none; }
 .lc { width: 100%; height: auto; display: block; }
 
-.lc-mid {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 34px;
-  letter-spacing: -0.5px;
-  fill: var(--ink);
-}
+/* labels ride inside the band, so they are charcoal rather than muted:
+   they sit on colour, not on cream */
 .lc-lab text {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 17px;
-  letter-spacing: 1.4px;
+  font-size: 12px;
+  letter-spacing: 1.1px;
   text-transform: uppercase;
-  fill: var(--muted);
+  fill: var(--ink);
+  fill-opacity: 0.82;
 }
-.lc-n { fill: var(--coral-deep); }
 
 /* Two nested groups because one element cannot run a rotate animation
    and a translate animation on the same transform property. */
 .lc-spin {
   transform-box: view-box;
-  transform-origin: 220px 200px;
+  transform-origin: 200px 200px;
   animation: lc-spin 40s linear infinite;
 }
 .lc-float {
   transform-box: view-box;
-  transform-origin: 220px 200px;
+  transform-origin: 200px 200px;
   animation: lc-float 6s ease-in-out infinite;
 }
 @keyframes lc-spin  { to { transform: rotate(360deg); } }
-@keyframes lc-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2.5px); } }
+@keyframes lc-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
 
 @media (max-width: 900px) {
   /* the login line follows the graphic on a phone, so the reading
