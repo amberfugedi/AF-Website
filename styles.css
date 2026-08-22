@@ -2662,12 +2662,27 @@ a.bld-item .bld-item-arrow {
    than six decisions. Every stroke clears 4.5:1 on its own tint AND on
    cream — the pale coral needed #AE2F44 rather than --coral-deep,
    which measured 4.40:1 on it. */
-.ch-strategy   .ch-mark { background: #FBEDBF; }
-.ch-demand     .ch-mark { background: #FCE4C4; }
-.ch-brand      .ch-mark { background: #FFD9CC; }
-.ch-ops        .ch-mark { background: #FBD5E4; }
-.ch-ai         .ch-mark { background: #EDD7EF; }
-.ch-leadership .ch-mark { background: #DAD4F5; }
+/* CARRIED FROM THE HERO (Amber, 2026-08: "should the icon colors in
+   the hero carry throughout the actual section?"). They did not before:
+   the same six areas were colour-coded one way in the graphic and
+   another way in the rows, so Strategy was rose above and amber below.
+   The tints are her badge fills straight out of the SVG. The strokes
+   are her badge strokes darkened to text grade — hue held, lightness
+   dropped — because every one of her six sits between 2.80:1 and
+   4.67:1, fine for large decorative art and under the site's floor for
+   a mark beside a heading.
+   TWO WERE ALSO SEPARATED. Her palette is three near-pairs rather than
+   six colours: strategy 345 / leadership 341, brand 251 / workflows
+   260, demand 42 / ops 19. Spread around a big composition that reads
+   as deliberate; stacked as six rows, two of them look like a mistake.
+   Leadership moved to plum (325) and workflows to a bluer violet (265),
+   which takes the smallest gap between any two hues to 14 degrees. */
+.ch-strategy   .ch-mark { background: #FDE9ED; }
+.ch-demand     .ch-mark { background: #FBF0D8; }
+.ch-brand      .ch-mark { background: #EDE8FB; }
+.ch-ops        .ch-mark { background: #FDE7DA; }
+.ch-ai         .ch-mark { background: #EFE8FC; }
+.ch-leadership .ch-mark { background: #FBE7F0; }
 .ch-problem .ch-word { margin-bottom: 10px; }
 
 /* ---- "What this can include" ----
