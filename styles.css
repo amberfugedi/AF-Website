@@ -3559,6 +3559,12 @@ a.bld-item .bld-item-arrow {
   transition: background-size 0.2s var(--ease);
 }
 .more-list a::after { content: " \2197"; }
+/* Rows for engagements with no artifact to open: the name reads at the
+   same weight as a linked one, in ink rather than coral so it doesn't
+   promise a click. The scope line does the work the lightbox does on
+   the website rows. */
+.more-name { display: block; font-weight: 600; color: var(--ink); }
+.more-scope { display: block; margin-top: 4px; font-size: var(--fs-small); line-height: 1.45; color: var(--muted); }
 .more-list a:hover { background-size: 100% 2px; }
 @media (max-width: 760px) {
   .more-sites { margin-top: 34px; }
