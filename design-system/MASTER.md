@@ -733,6 +733,18 @@ readings of her three stage names and are marked `{{ADJUST}}` for her
 confirmation, along with the eight module titles, the price and the
 launch date.
 
+ROOT-RELATIVE PATHS ARE NOT OPTIONAL HERE, AND THIS SHIPPED BROKEN
+ONCE. The page lives at a NESTED url, `/courses/build-your-marketing-
+foundation`, so a relative `styles.css` resolves to
+`/courses/styles.css` and 404s. It went live with relative paths and
+rendered as unstyled Times New Roman with blue underlined links — no
+CSS, no JS, and every nav href pointing into a `/courses/` directory
+that does not exist. All 35 internal references are root-relative now,
+the same rule the shared footer comment already states for 404.html.
+ANY future page served from a nested path must do the same, and the
+check is not "does it look right locally" — a flat local server hides
+the bug completely. Serve it at the nested path and watch for 404s.
+
 NO NEW DEVICES. Editorial hero variant A, headline-left/body-right
 sections, one quote banner, hairline lists, the existing capture form.
 The cover is the same real-text block as the Courses card, not a raster.
