@@ -1580,7 +1580,11 @@ a.bld-item .bld-item-arrow {
    left into the copy at the same time. Nav and footer stay at 1120. */
 .page-about main .wrap { max-width: 1200px; }
 .page-about .hero-split-portrait {
-  grid-template-columns: minmax(0, 64fr) minmax(0, 36fr);
+  /* 64/36 capped the visual column at ~394px, so raising the portrait's
+     max-width alone did nothing. 61/39 gives it room to grow left; the
+     column stays right-anchored via .hero-visual's margin-left:auto, so
+     the right edge does not move. */
+  grid-template-columns: minmax(0, 61fr) minmax(0, 39fr);
 }
 /* The portrait is pinned to the container's right edge, so widening the
    wrap alone pushes it further from the copy. Growing it is what closes
@@ -1589,9 +1593,11 @@ a.bld-item .bld-item-arrow {
    crop is the ceiling here — every extra 10px of width costs 12.5px of
    head height, and the head is already at the top of the six-page
    range. Taken to 380 at Amber's request (2026-08) so the portrait
-   holds its side of the hero against the headline: +12%, and +50px of
-   head height with it. */
-.page-about .hero-visual.about-shot { max-width: 380px; }
+   holds its side of the hero against the headline, then to 422 (+11%)
+   with the crop opened from 4/5 to 8/9 — 422 x 9/8 is 475, the same
+   height 380 x 5/4 gave, so the extra width costs no head height at
+   all. It grows leftward only. */
+.page-about .hero-visual.about-shot { max-width: 422px; }
 /* The shared hero lede caps at 46ch, which was measured against a
    446px copy column. Against 722px it left the paragraph looking like
    a narrow inset under a full-width headline.
@@ -3849,8 +3855,12 @@ a.bld-item .bld-item-arrow {
   display: block;
 }
 .about-portrait {
-  aspect-ratio: 4 / 5;
-  border-radius: 58% 42% 46% 54% / 45% 52% 48% 55%;
+  /* 8/9, not 4/5: a fuller oval, and the ratio that holds the rendered
+     height steady while the width grows. */
+  aspect-ratio: 8 / 9;
+  /* Softened toward round — each opposite pair still sums to exactly
+     100% so the curve stays continuous with no flat spots. */
+  border-radius: 55% 45% 47% 53% / 47% 52% 48% 53%;
   overflow: hidden;
   position: relative;
   background:
@@ -3873,7 +3883,7 @@ a.bld-item .bld-item-arrow {
   position: absolute;
   inset: -14px -10px 10px 14px;
   border: 2px solid var(--coral);
-  border-radius: 54% 46% 50% 50% / 48% 50% 46% 56%;
+  border-radius: 53% 47% 50% 50% / 48% 51% 49% 52%;
   transform: rotate(-3deg);
   pointer-events: none;
   opacity: 0.55;
