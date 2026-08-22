@@ -674,6 +674,11 @@ body.page-sub .aura { --aura-base: 0.45; }
   }
   .nav-links > li.nav-secondary > a:hover { color: var(--coral-deep); }
   .nav-note { display: block; margin-top: 4px; }
+  /* .nav-secondary normally carries margin-top:auto and pins this
+     bottom group. While the Student login item is pulled, the note
+     takes that job — and hands it back automatically when the item
+     returns, so restoring the markup needs no CSS change. */
+  .nav-links:not(:has(.nav-secondary)) .nav-note { margin-top: auto; }
   .nav-note span {
     font-family: var(--font-display);
     font-size: 0.9rem;
@@ -3458,10 +3463,15 @@ a.bld-item .bld-item-arrow {
   max-height: 100dvh;
   background: rgba(26, 23, 20, 0.92);
   overflow: visible;
-  display: grid;
   place-items: center;
   color: var(--bg);
 }
+/* A bare `display: grid` here overrode the UA's
+   `dialog:not([open]) { display: none }`, so the CLOSED dialog painted
+   its full-viewport scrim over the Work page (found in review, Aug
+   2026). The display value has to be gated on [open]. */
+.lightbox:not([open]) { display: none; }
+.lightbox[open] { display: grid; }
 .lightbox::backdrop { background: rgba(26, 23, 20, 0.92); }
 /* fit-content so the frame wraps the asset: with a portrait piece a
    fixed width parked the arrows at the far edges of the screen */
@@ -4155,8 +4165,31 @@ footer {
   margin-top: clamp(40px, 4.5vw, 66px);
   padding-top: 22px;
   border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
 }
 .footer-bar p { margin: 0; }
+.footer-legal a { color: var(--muted); text-decoration: none; }
+.footer-legal a:hover { color: var(--coral-deep); text-decoration: underline; }
+
+/* ---- Legal pages ----
+   Long-form reading and nothing else: one column at reading measure,
+   with the h2s doing all the structural work. No cards, no rules. */
+.legal { max-width: 68ch; }
+.legal h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-intro);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 38px 0 10px;
+}
+.legal h2:first-of-type { margin-top: 6px; }
+.legal p { color: var(--body); margin-bottom: 14px; max-width: none; }
+.legal p:last-child { margin-bottom: 0; }
+.legal-date { color: var(--muted); font-size: var(--fs-small); margin-bottom: 6px; }
+.legal a { color: var(--coral-deep); }
 
 @media (max-width: 900px) {
   .footer-top { grid-template-columns: 1fr; gap: 40px; }

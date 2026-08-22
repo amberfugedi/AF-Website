@@ -8,15 +8,16 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="robots" content="noindex">
 
-  <title>Page not found — Amber Fugedi</title>
-  <meta name="description" content="This link is old, or the page moved when the site was rebuilt. Head back to the homepage, or find marketing expertise, services and courses instead.">
-
-  <!-- Serve this file for 404s at the host level:
-       Apache:  ErrorDocument 404 /404.html
-       Nginx:   error_page 404 /404.html;
-       Netlify/Vercel/GitHub Pages: picked up automatically. -->
+  <title>Privacy — Amber Fugedi</title>
+  <meta name="description" content="What this site collects, what happens to it, and how to have it removed. Two forms, no cookies, no advertising trackers.">
+  <link rel="canonical" href="https://www.amberfugedi.com/privacy">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.amberfugedi.com/privacy">
+  <meta property="og:title" content="Privacy — Amber Fugedi">
+  <meta property="og:description" content="What this site collects, what happens to it, and how to have it removed. Two forms, no cookies, no advertising trackers.">
+  <meta property="og:image" content="https://www.amberfugedi.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,15 +26,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
   </noscript>
   <link rel="stylesheet" href="/styles.css">
-  <style>
-    /* Short page: pin the footer to the bottom of the viewport;
-       the head sits at the standard offset like every other page */
-    body{min-height:100svh;display:flex;flex-direction:column}
-    main{flex:1}
-  </style>
   <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
-<body class="page-sub">
+<body class="page-sub page-legal">
 
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="aura" aria-hidden="true">
@@ -71,28 +66,49 @@
   <!-- ============ /SHARED NAV ============ -->
 
   <main id="main">
-    <header class="page-head" style="padding-bottom: 40px;">
+    <header class="page-head">
       <div class="wrap">
-        <h1>You found the&#160;one problem I can actually solve.</h1>
-
-        <!-- A hairline that has actually snapped: the two halves sit on
-             different baselines so it reads as broken rather than
-             dashed, and the coral dot marks where. Same registration
-             language as the Expertise and Courses graphics. -->
-        <svg class="nf-break" viewBox="0 0 320 18" width="320" height="18" fill="none" aria-hidden="true">
-          <path d="M0 6 L128 6" stroke="#2E2A27" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M192 12 L320 12" stroke="#2E2A27" stroke-opacity="0.2" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="160" cy="9" r="3.5" fill="#B8354A"/>
-        </svg>
-
-        <p class="section-lede">The link is old, or the page moved when the site was rebuilt. Everything else is still here.</p>
+        <h1>Privacy.</h1>
+        <p class="section-lede">Two forms collect anything at all, the site sets no cookies of its own, and nothing here is sold or passed on for anyone else&#8217;s marketing.</p>
       </div>
     </header>
     <section style="padding-top: 0;">
       <div class="wrap">
-        <div class="cta-row">
-          <a class="btn btn-primary btn-arrow" href="/">Back to home</a>
-          <a class="btn btn-outline" href="/expertise">Where I help</a>
+        <div class="legal">
+          <p class="legal-date">Last updated 22 August 2026.</p>
+
+          <h2>What this site collects</h2>
+          <p>Two forms, and nothing else. The contact form on the About page asks for your name, your email address, what you are working on, and optionally what brought you here. The course updates form asks for an email address only. Both are handled by Netlify Forms, which stores the submissions so I can read them.</p>
+          <p>The site sets no cookies of its own, runs no advertising trackers, and does not store anything in your browser.</p>
+
+          <h2>What happens automatically</h2>
+          <p>The site is hosted by Netlify, which keeps standard server logs including IP addresses, for security and to keep the site running. Fonts are loaded from Google Fonts, so displaying a page makes a request to Google that reveals your IP address to them. If you would rather avoid that, most browsers can be set to block third-party font requests.</p>
+          <!-- {{ADJUST}} When analytics is added, name the tool here, say
+               what it measures, and state whether it uses cookies. -->
+
+          <h2>What I do with it</h2>
+          <p>I use what you send to reply to you. If you ask for course updates, I use your email address to tell you when a course is ready. I do not sell it, rent it, or pass it to anyone for their own marketing.</p>
+
+          <h2>Who else can see it</h2>
+          <p>Netlify, as the host and form processor. Google, insofar as loading fonts reveals your IP address. Nobody else, unless the law requires it.</p>
+
+          <h2>How long it is kept</h2>
+          <p>Contact form submissions are kept while a conversation is live and for a reasonable period afterwards, in case you get back in touch. Course update addresses are kept until you ask to come off the list.</p>
+          <!-- {{ADJUST}} If you want a firm retention window, say so here
+               and hold to it. A stated period you do not honour is worse
+               than a general one. -->
+
+          <h2>What you can ask for</h2>
+          <p>Email <a href="mailto:amberfugedi@gmail.com">amberfugedi@gmail.com</a> and I will tell you what I hold about you, correct it, or delete it. No particular form of words is needed. If you are on the course updates list, asking to come off it is enough.</p>
+
+          <h2>Children</h2>
+          <p>This site is for people running or working in businesses. It is not directed at children and I do not knowingly collect anything from them.</p>
+
+          <h2>Changes</h2>
+          <p>If this changes, the date at the top changes with it.</p>
+
+          <h2>Getting in touch</h2>
+          <p>Questions about any of this go to <a href="mailto:amberfugedi@gmail.com">amberfugedi@gmail.com</a>.</p>
         </div>
       </div>
     </section>

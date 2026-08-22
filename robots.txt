@@ -4,4 +4,4 @@ Allow: /
 # Design mockups: real URLs for review, never part of the site
 Disallow: /mockups/
 
-Sitemap: https://amberfugedi.com/sitemap.xml
+Sitemap: https://www.amberfugedi.com/sitemap.xml

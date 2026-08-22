@@ -6,9 +6,60 @@
 /CLAUDE.md          /404.html  404!
 /design-system/*    /404.html  404!
 /plans/*            /404.html  404!
+/artifacts/*        /404.html  404!
+/mockups/*          /404.html  404!
 
-/how-i-work.html   /my-approach.html  301
-/capabilities.html  /expertise.html  301
-/work.html         /projects.html   301
-/courses  /courses.html  200
+# ---- One URL per page -------------------------------------------------
+# Canonical form is https://www.amberfugedi.com/<clean>. The .html twins
+# are real files, so these need the force flag or the file wins and both
+# versions stay reachable.
+/index.html                          /                                        301!
+/expertise.html                      /expertise                               301!
+/projects.html                       /projects                                301!
+/my-approach.html                    /my-approach                             301!
+/services.html                       /services                                301!
+/courses.html                        /courses                                 301!
+/about.html                          /about                                   301!
+/privacy.html                        /privacy                                 301!
+/terms.html                          /terms                                   301!
+/course-marketing-foundation.html    /courses/build-your-marketing-foundation  301!
+
+# ---- WordPress URLs still in the index --------------------------------
+# One-to-one to the closest equivalent, not a blanket redirect to home.
+# Both slash forms are listed rather than relying on normalisation: on a
+# migration, a miss here is a 404 on a page Google already ranks.
+/portfolio                           /projects        301
+/portfolio/                          /projects        301
+/social-media-marketing-portfolio    /projects        301
+/social-media-marketing-portfolio/   /projects        301
+/website-development                 /projects        301
+/website-development/                /projects        301
+/recommendations                     /about           301
+/recommendations/                    /about           301
+/contact                             /about#contact   301
+/contact/                            /about#contact   301
+/strategy-development                /expertise       301
+/strategy-development/               /expertise       301
+/content-marketing                   /expertise       301
+/content-marketing/                  /expertise       301
+/lead-generation-services            /expertise       301
+/lead-generation-services/           /expertise       301
+/sales-enablement-services           /expertise       301
+/sales-enablement-services/          /expertise       301
+/website-development-and-design      /expertise       301
+/website-development-and-design/     /expertise       301
+/privacy-policy-2                    /privacy         301
+/privacy-policy-2/                   /privacy         301
+/terms-and-conditions                /terms           301
+/terms-and-conditions/               /terms           301
+
+# ---- Earlier renames on this site -------------------------------------
+/how-i-work.html     /my-approach   301!
+/capabilities.html   /expertise     301!
+/work.html           /projects      301!
+
+# ---- Clean paths that need an explicit target -------------------------
+/courses                                  /courses.html                      200
 /courses/build-your-marketing-foundation  /course-marketing-foundation.html  200
+/privacy                                  /privacy.html                      200
+/terms                                    /terms.html                        200
