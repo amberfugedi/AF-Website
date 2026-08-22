@@ -1224,6 +1224,9 @@ section { padding: 104px 0; }
 }
 
 .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+/* The lede carries the site's 56px bottom margin, which is the gap
+   before a section, not before a button that belongs to the copy. */
+.co-cta { margin-top: -22px; }
 
 /* Transition band: many industries, one goal — a quiet bridge
    between the problem statement and the work. Static by design. */

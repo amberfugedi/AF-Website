@@ -403,10 +403,13 @@
 
     dropBtn.addEventListener("click", function () { setDrop(!isOpen()); });
 
-    /* If the page you are on lives inside Shop, the group opens itself
-       so the mobile menu can show you where you are — otherwise the
-       current-page marker is hidden behind a collapsed row. */
-    if (dropMenu.querySelector("[aria-current='page']")) setDrop(true);
+    /* If the page you are on lives inside Shop, MARK the group rather
+       than opening it. Opening it rendered a permanently expanded panel
+       over the Courses hero, with aria-expanded="true" before anyone had
+       touched it (found in review, Aug 2026). .nav-drop-btn.is-current
+       already carries the active-section treatment at both sizes — a
+       coral underline on desktop, ink and weight in the mobile menu. */
+    if (dropMenu.querySelector("[aria-current='page']")) dropBtn.classList.add("is-current");
 
     if (finePointer) {
       drop.addEventListener("mouseenter", function () { setDrop(true); });

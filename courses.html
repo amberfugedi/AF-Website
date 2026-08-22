@@ -51,9 +51,9 @@
         "@type": "Person",
         "@id": "https://www.amberfugedi.com/#amber",
         "name": "Amber Fugedi",
-        "jobTitle": "Marketing Consultant",
+        "jobTitle": ["VP of Growth Marketing & Enablement", "Marketing Consultant"],
         "url": "https://www.amberfugedi.com/",
-        "worksFor": { "@id": "https://www.amberfugedi.com/#service" }
+        "worksFor": { "@type": "Organization", "name": "PERQ" }
       },
       {
         "@type": "ProfessionalService",
@@ -125,12 +125,17 @@
 
     <!-- ============ 1. Hero ============
          Text-led, like every other page head on the site. No eyebrow,
-         no collage, no full-width CTA before the courses are shown. -->
+         no collage. One button, added Aug 2026: with the course not yet
+         open, the only action on the page sat at the very bottom, so an
+         interested reader had to scroll the whole page to find it. -->
     <header class="page-head">
       <div class="wrap hero-split">
         <div class="head-copy">
           <h1 class="h1-long">Courses for people doing the <span class="tab-em tab-butter">actual work.</span></h1>
           <p class="section-lede">Practical, self-paced learning to help you make clearer decisions, strengthen your marketing and build systems that fit your business.</p>
+          <div class="cta-row co-cta">
+            <a class="btn btn-primary btn-arrow" href="#updates">Notify me when it opens</a>
+          </div>
         </div>
         <!-- Learning cycle. A hairline ring with four quiet colour
              arcs behind it, fixed numbered labels so the sequence
@@ -255,6 +260,7 @@
           </form>
           <p class="field-error" id="co-email-error"></p>
           <p class="form-status" id="capture-status" role="status" aria-live="polite"></p>
+          <p class="form-note">One note when the course is ready, and nothing else.</p>
         </div>
       </div>
     </section>

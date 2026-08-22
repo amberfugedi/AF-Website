@@ -51,9 +51,9 @@
         "@type": "Person",
         "@id": "https://www.amberfugedi.com/#amber",
         "name": "Amber Fugedi",
-        "jobTitle": "Marketing Consultant",
+        "jobTitle": ["VP of Growth Marketing & Enablement", "Marketing Consultant"],
         "url": "https://www.amberfugedi.com/",
-        "worksFor": { "@id": "https://www.amberfugedi.com/#service" }
+        "worksFor": { "@type": "Organization", "name": "PERQ" }
       },
       {
         "@type": "ProfessionalService",
@@ -192,11 +192,13 @@
           <p class="tier">Self-serve</p>
           <p class="who">For people and teams that want to build the capability internally.</p>
           <!-- {{ADJUST}}: add pricing and launch date when set -->
-          <p>The first courses are in production now; join the list and you'll hear first.</p>
+          <p>The first course is in production now; join the list and you'll hear first.</p>
           <div class="email-capture reveal" id="updates">
-            <label class="capture-label" for="capture-email">Get course and marketing updates</label>
-            <!-- Wire this to your email platform (Mailchimp, ConvertKit, etc.):
-                 replace the JS handler with a real form action. -->
+            <label class="capture-label" for="capture-email">Get course updates</label>
+            <!-- Same Netlify form as the course page (name="course-updates"),
+                 so it has to carry the same promise. The course page says
+                 one note and nothing else; this said "course and marketing
+                 updates", which the same list cannot honour both ways. -->
             <form class="capture-row" id="capture-form" name="course-updates" method="POST" data-netlify="true" novalidate>
               <input type="hidden" name="form-name" value="course-updates">
               <input type="email" id="capture-email" name="email" placeholder="you@company.com" aria-describedby="capture-email-error" required>
@@ -204,6 +206,7 @@
             </form>
             <p class="field-error" id="capture-email-error"></p>
             <p class="form-status" id="capture-status" role="status" aria-live="polite"></p>
+            <p class="form-note">One note when the course is ready, and nothing else.</p>
           </div>
         </aside>
       </div>
