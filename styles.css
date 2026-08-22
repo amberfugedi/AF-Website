@@ -1602,6 +1602,35 @@ a.bld-item .bld-item-arrow {
    height 380 x 5/4 gave, so the extra width costs no head height at
    all. It grows leftward only. */
 .page-about .hero-visual.about-shot { max-width: 422px; }
+
+/* About's hero mark is the one long phrase on the site. .tab-em is an
+   inline-block, so once it stops fitting on a line the box grows two
+   lines tall and both pseudo-tabs stretch into a single solid banner.
+   Measured with real Newsreader, "leader and consultant." fits down to
+   about 430px and banners below it.
+   So below 480 this one mark switches to an inline background with
+   box-decoration-break: clone, which breaks into a separate mark per
+   line the way a highlighter would. It loses the 0.9deg tilt, which is
+   sub-pixel at phone sizes, and nothing else: this h1 sits outside a
+   .reveal, so the staggered tab entrance never applied to it. Every
+   other tab on the site keeps the pseudo-element treatment at every
+   width. */
+@media (max-width: 480px) {
+  .page-about .head-copy .tab-em {
+    display: inline;
+    padding: 0 0.14em;
+    background-image:
+      linear-gradient(var(--tab-front), var(--tab-front)),
+      linear-gradient(var(--tab-back), var(--tab-back));
+    background-repeat: no-repeat;
+    background-size: 100% 0.74em, 100% 0.74em;
+    background-position: 0 0.17em, 0.10em 0.25em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .page-about .head-copy .tab-em::before,
+  .page-about .head-copy .tab-em::after { content: none; }
+}
 /* .tab-em is an inline-block, so a highlighted phrase that stops
    fitting on one line does NOT break into two marks — the box grows
    two lines tall and both pseudo-tabs stretch across the whole thing,
