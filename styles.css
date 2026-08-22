@@ -2687,7 +2687,11 @@ a.bld-item .bld-item-arrow {
   font-family: var(--font-body);
   font-size: var(--fs-small);
   font-weight: 600;
-  color: var(--muted);
+  /* lighter than --muted so the control sits under the copy rather than
+     beside it (Amber, 2026-08: "a light gray that's subtle"). #767065 is
+     the lightest step that still clears 4.5:1 on cream — 4.69:1. Any
+     lighter and an interactive control drops below the floor. */
+  color: #767065;
   transition: color 0.2s var(--ease);
 }
 .ch-toggle:hover,
@@ -4449,18 +4453,18 @@ footer {
   .hw-quote-under { margin-top: 34px; padding-bottom: 20px; }
   .hw-notebook { padding: 22px 20px 20px; }
   .hw-check { padding: 20px 20px 16px; rotate: -0.5deg; }
-  /* Three across (Amber, 2026-08). At 390 each column is ~104px, and
-     the 28px ring indent would leave 76px of text — six lines on the
-     longest label. The ring moves above the label instead, which keeps
-     the site's one bullet language and buys the full column width. */
+  /* Stacked on phones (Amber, 2026-08). Three across worked at 390 with
+     the ring above each label, but it read as a grid of fragments; one
+     column puts the ring back beside the text where the rest of the
+     site keeps it, and the list is short enough to carry the height. */
   .hw-do {
     grid-auto-flow: row;
     grid-template-rows: none;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px 14px;
+    grid-template-columns: 1fr;
+    gap: 0;
   }
-  .hw-do li { padding: 22px 0 0; }
-  .hw-do li::before { top: 0; }
+  .hw-do li { padding: 9px 0 9px 28px; }
+  .hw-do li::before { top: 0.92em; }
   .hw-doing { margin-top: 40px; }
   .hw-body .hw-kicker { margin-top: 28px; padding-top: 18px; max-width: none; }
   .nb-list li { grid-template-columns: 26px minmax(0, 1fr); gap: 10px; padding: 13px 0; }
