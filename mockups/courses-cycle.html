@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Courses hero graphic — directions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+<style>
+  body { background: var(--bg); }
+  .mk { max-width: 1100px; margin: 0 auto; padding: 0 24px 90px; }
+  .mk-label { font-family: var(--font-body); font-size: 0.8125rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral-deep); margin: 72px 0 6px; }
+  .mk-note { font-size: var(--fs-small); color: var(--muted); max-width: 68ch; margin: 0 0 26px; }
+  .mk-stage { display: grid; place-items: center; min-height: 420px; }
+  .mk-stage svg { width: 380px; height: auto; display: block; }
+
+  .g-lab { font-family: var(--font-body); font-size: 12px; font-weight: 600;
+           letter-spacing: 1.1px; text-transform: uppercase; fill: var(--ink); fill-opacity: .8; }
+  .g-num { font-family: var(--font-body); font-size: 11px; font-weight: 600;
+           letter-spacing: .08em; fill: var(--coral-deep); }
+  .g-hair { stroke: #2E2A27; stroke-opacity: .16; stroke-width: 1; fill: none; }
+
+  /* A — thin track, one travelling marker */
+  .a-mark { animation: a-run 26s linear infinite; }
+  @keyframes a-run { to { motion-offset: 100%; offset-distance: 100%; } }
+  .a-band { animation: a-breathe 9s ease-in-out infinite; transform-box: view-box; transform-origin: 200px 200px; }
+  @keyframes a-breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.012); } }
+
+  /* B — spiral, drawn once then held */
+  .b-path { stroke-dasharray: 1300; stroke-dashoffset: 1300; animation: b-draw 3.4s cubic-bezier(.22,1,.36,1) .2s forwards; }
+  @keyframes b-draw { to { stroke-dashoffset: 0; } }
+  .b-dot { opacity: 0; animation: b-in .5s var(--ease) forwards; }
+  @keyframes b-in { to { opacity: 1; } }
+
+  /* C — sheets, each drifting on its own slow loop */
+  .c-s1 { animation: c-d1 13s ease-in-out infinite; }
+  .c-s2 { animation: c-d2 16s ease-in-out infinite; }
+  .c-s3 { animation: c-d3 11s ease-in-out infinite; }
+  .c-s4 { animation: c-d4 15s ease-in-out infinite; }
+  @keyframes c-d1 { 0%,100% { translate: 0 0; } 50% { translate: 3px -3px; } }
+  @keyframes c-d2 { 0%,100% { translate: 0 0; } 50% { translate: -3px 2px; } }
+  @keyframes c-d3 { 0%,100% { translate: 0 0; } 50% { translate: 2px 3px; } }
+  @keyframes c-d4 { 0%,100% { translate: 0 0; } 50% { translate: -2px -3px; } }
+
+  /* D — linear track, marker runs and returns */
+  .d-mark { animation: d-run 14s cubic-bezier(.65,0,.35,1) infinite; }
+  @keyframes d-run {
+    0%   { transform: translateX(0); }
+    22%  { transform: translateX(0); }
+    30%  { transform: translateX(96px); }
+    47%  { transform: translateX(96px); }
+    55%  { transform: translateX(192px); }
+    72%  { transform: translateX(192px); }
+    80%  { transform: translateX(288px); }
+    97%  { transform: translateX(288px); }
+    100% { transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body class="page-sub">
+<main class="mk">
+
+  <p class="mk-label">What is not working now</p>
+  <p class="mk-note">Three things. The band is 88px on a 400 box, which reads as a soft donut rather than anything architectural. Round caps on a stroke that thick turn the overlaps into amoeba shapes. And because the labels orbit, you never see Learn, Apply, Reflect, Refine in order — the sequence, which is the entire point, is only legible for a moment every 40 seconds.</p>
+
+  <!-- ================= A ================= -->
+  <p class="mk-label">A — thin track, one travelling marker</p>
+  <p class="mk-note">The ring goes back to a hairline and the colour becomes four quiet arc tints behind it. Labels stay put, so the order always reads. The only motion is a single dot completing a lap every 26 seconds, plus an almost invisible breath in the ring. Precise and architectural; the movement is a cue, not the subject.</p>
+  <div class="mk-stage">
+    <svg viewBox="0 0 400 400" role="img" aria-label="Learn, apply, reflect and refine through practical work." fill="none">
+      <g class="a-band">
+        <path d="M 80.5 140 A 138 120 0 0 1 319.5 140" stroke="#F2DC9C" stroke-width="26" stroke-linecap="round" stroke-opacity=".55"/>
+        <path d="M 269 96.1 A 138 120 0 0 1 269 303.9" stroke="#F6BBD3" stroke-width="26" stroke-linecap="round" stroke-opacity=".5"/>
+        <path d="M 319.5 260 A 138 120 0 0 1 80.5 260" stroke="#C7BDF0" stroke-width="26" stroke-linecap="round" stroke-opacity=".52"/>
+        <path d="M 131 303.9 A 138 120 0 0 1 131 96.1" stroke="#F3DCC4" stroke-width="26" stroke-linecap="round" stroke-opacity=".62"/>
+        <ellipse class="g-hair" cx="200" cy="200" rx="138" ry="120"/>
+      </g>
+      <circle class="a-mark" cx="200" cy="80" r="5.5" fill="#B8354A"/>
+      <g class="g-lab" text-anchor="middle">
+        <text x="200" y="42"><tspan class="g-num">01</tspan> Learn</text>
+        <text x="200" y="368"><tspan class="g-num">03</tspan> Reflect</text>
+      </g>
+      <g class="g-lab">
+        <text x="392" y="204" text-anchor="end"><tspan class="g-num">02</tspan> Apply</text>
+        <text x="8" y="204" text-anchor="start"><tspan class="g-num">04</tspan> Refine</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ================= B ================= -->
+  <p class="mk-label">B — a spiral, not a loop</p>
+  <p class="mk-note">A circle says you end where you started. A spiral says you come back to the same four questions further out than last time, which is the actual argument for a cycle and the thing "Again, better" was reaching for. It draws itself once on load and then holds — no perpetual motion at all.</p>
+  <div class="mk-stage">
+    <svg viewBox="-70 0 540 400" role="img" aria-label="Learn, apply, reflect and refine through practical work." fill="none" style="width:400px">
+      <path class="b-path" d="M 200.0 179.0 L 201.4 178.6 L 202.9 178.2 L 204.5 177.9 L 206.0 177.7 L 207.6 177.7 L 209.2 177.7 L 210.9 177.8 L 212.6 178.0 L 214.2 178.3 L 215.9 178.7 L 217.6 179.2 L 219.3 179.8 L 220.9 180.5 L 222.5 181.3 L 224.1 182.3 L 225.7 183.3 L 227.2 184.5 L 228.7 185.7 L 230.1 187.0 L 231.5 188.5 L 232.8 190.0 L 234.0 191.6 L 235.1 193.4 L 236.1 195.2 L 237.1 197.0 L 237.9 199.0 L 238.7 201.0 L 239.3 203.1 L 239.8 205.2 L 240.2 207.4 L 240.5 209.7 L 240.7 211.9 L 240.7 214.3 L 240.6 216.6 L 240.4 218.9 L 240.0 221.3 L 239.5 223.6 L 238.8 226.0 L 238.0 228.3 L 237.1 230.6 L 236.0 232.9 L 234.8 235.1 L 233.5 237.3 L 232.0 239.4 L 230.4 241.5 L 228.6 243.4 L 226.8 245.3 L 224.8 247.1 L 222.7 248.9 L 220.5 250.5 L 218.1 251.9 L 215.7 253.3 L 213.2 254.6 L 210.6 255.7 L 207.9 256.6 L 205.1 257.5 L 202.2 258.1 L 199.4 258.7 L 196.4 259.0 L 193.4 259.2 L 190.4 259.2 L 187.4 259.1 L 184.3 258.8 L 181.2 258.3 L 178.2 257.7 L 175.2 256.8 L 172.1 255.8 L 169.2 254.6 L 166.2 253.3 L 163.4 251.7 L 160.6 250.0 L 157.9 248.2 L 155.2 246.1 L 152.7 244.0 L 150.2 241.6 L 147.9 239.1 L 145.7 236.5 L 143.7 233.7 L 141.8 230.8 L 140.0 227.7 L 138.4 224.6 L 137.0 221.3 L 135.7 218.0 L 134.6 214.5 L 133.7 211.0 L 133.0 207.4 L 132.5 203.8 L 132.2 200.1 L 132.1 196.3 L 132.2 192.6 L 132.5 188.8 L 133.0 185.0 L 133.8 181.2 L 134.7 177.5 L 135.9 173.8 L 137.3 170.1 L 138.8 166.5 L 140.6 163.0 L 142.6 159.5 L 144.8 156.1 L 147.2 152.9 L 149.8 149.7 L 152.6 146.7 L 155.6 143.8 L 158.7 141.1 L 162.0 138.5 L 165.4 136.2 L 169.0 133.9 L 172.8 131.9 L 176.7 130.1 L 180.6 128.5 L 184.7 127.1 L 188.9 125.9 L 193.2 124.9 L 197.6 124.2 L 202.0 123.7 L 206.4 123.5 L 210.9 123.4 L 215.4 123.7 L 219.9 124.2 L 224.4 124.9 L 228.9 125.9 L 233.3 127.2 L 237.7 128.7 L 242.1 130.4 L 246.3 132.4 L 250.5 134.7 L 254.5 137.1 L 258.4 139.8 L 262.2 142.8 L 265.9 145.9 L 269.4 149.3 L 272.7 152.9 L 275.8 156.6 L 278.7 160.6 L 281.5 164.7 L 284.0 169.0 L 286.2 173.5 L 288.3 178.1 L 290.1 182.8 L 291.6 187.6 L 292.9 192.6 L 293.9 197.6 L 294.6 202.7 L 295.1 207.9 L 295.3 213.1 L 295.2 218.3 L 294.8 223.6 L 294.1 228.8 L 293.1 234.0 L 291.9 239.2 L 290.3 244.3 L 288.5 249.4 L 286.3 254.4 L 283.9 259.3 L 281.2 264.0 L 278.3 268.6 L 275.0 273.1 L 271.6 277.4 L 267.8 281.6 L 263.9 285.5 L 259.7 289.3 L 255.3 292.8 L 250.6 296.1 L 245.8 299.1 L 240.8 301.9 L 235.7 304.4 L 230.3 306.7 L 224.9 308.7 L 219.3 310.3 L 213.6 311.7 L 207.8 312.7 L 202.0 313.5 L 196.1 313.9 L 190.1 314.0 L 184.1 313.8 L 178.1 313.2 L 172.2 312.3 L 166.2 311.1 L 160.3 309.6 L 154.5 307.7 L 148.8 305.5 L 143.2 303.0 L 137.7 300.2 L 132.3 297.0 L 127.1 293.6 L 122.1 289.8 L 117.2 285.8 L 112.6 281.5 L 108.2 276.9 L 104.0 272.1 L 100.1 267.0 L 96.5 261.7 L 93.1 256.2 L 90.1 250.5 L 87.3 244.7 L 84.8 238.6 L 82.7 232.4 L 80.9 226.1 L 79.5 219.6 L 78.4 213.1 L 77.7 206.5 L 77.3 199.8 L 77.3 193.1 L 77.6 186.4 L 78.4 179.7 L 79.5 173.0 L 80.9 166.3 L 82.8 159.7 L 85.0 153.2 L 87.5 146.8 L 90.4 140.6 L 93.7 134.4 L 97.3 128.5 L 101.3 122.7 L 105.5 117.1 L 110.1 111.8 L 115.0 106.7 L 120.2 101.8 L 125.6 97.3 L 131.3 93.0 L 137.3 89.0 L 143.5 85.3 L 149.9 82.0 L 156.5 79.0 L 163.3 76.3 L 170.2 74.1 L 177.3 72.2 L 184.5 70.7 L 191.8 69.6 L 199.2 68.8 L 206.6 68.5 L 214.1 68.6 L 221.5 69.1 L 229.0 70.0 L 236.4 71.3 L 243.8 73.0 L 251.0 75.2 L 258.2 77.7 L 265.3 80.6 L 272.2 83.9 L 278.9 87.7 L 285.5 91.7 L 291.8 96.2 L 297.9 101.0 L 303.8 106.1 L 309.3 111.6 L 314.6 117.4 L 319.6 123.5 L 324.3 129.9 L 328.6 136.5 L 332.6 143.4 L 336.2 150.5 L 339.4 157.8 L 342.2 165.4 L 344.6 173.0 L 346.6 180.9 L 348.2 188.8 L 349.3 196.9 L 350.0 205.0"
+        stroke="#C7BDF0" stroke-width="15" stroke-linecap="round" stroke-opacity=".55"/>
+      <g class="b-dot" style="animation-delay:2.0s">
+        <circle cx="295" cy="204" r="4.5" fill="#B8354A"/>
+        <text class="g-lab" x="308" y="208"><tspan class="g-num">01</tspan> Learn</text>
+      </g>
+      <g class="b-dot" style="animation-delay:2.4s">
+        <circle cx="179" cy="313" r="4.5" fill="#B8354A"/>
+        <text class="g-lab" x="179" y="336" text-anchor="middle"><tspan class="g-num">02</tspan> Apply</text>
+      </g>
+      <g class="b-dot" style="animation-delay:2.8s">
+        <circle cx="83" cy="158" r="4.5" fill="#B8354A"/>
+        <text class="g-lab" x="70" y="162" text-anchor="end"><tspan class="g-num">03</tspan> Reflect</text>
+      </g>
+      <g class="b-dot" style="animation-delay:3.2s">
+        <circle cx="278" cy="87" r="4.5" fill="#B8354A"/>
+        <text class="g-lab" x="291" y="91"><tspan class="g-num">04</tspan> Refine</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ================= C ================= -->
+  <p class="mk-label">C — four sheets in a cycle</p>
+  <p class="mk-note">The literal sibling of the Expertise hero: the same hand-cut tinted sheets, arranged as a cycle with a hairline path running between them. Nothing rotates; each sheet drifts a few pixels on its own slow loop, exactly like the Expertise sheets. Strongest family resemblance of the four.</p>
+  <div class="mk-stage">
+    <svg viewBox="0 0 400 400" role="img" aria-label="Learn, apply, reflect and refine through practical work." fill="none">
+      <path class="g-hair" d="M 200 108 C 268 112 292 152 292 200 C 292 250 264 292 200 292 C 138 292 108 250 108 200 C 108 152 136 112 200 108" stroke-dasharray="5 7"/>
+      <g class="c-s1">
+        <path d="M 138 44 L 262 40 L 266 100 L 142 104 Z" fill="#F2DC9C" fill-opacity=".72"/>
+        <path d="M 138 44 L 262 40 L 266 100 L 142 104 Z" stroke="#2E2A27" stroke-opacity=".18"/>
+        <text class="g-lab" x="202" y="78" text-anchor="middle"><tspan class="g-num">01</tspan> Learn</text>
+      </g>
+      <g class="c-s2">
+        <path d="M 292 138 L 366 140 L 364 200 L 290 198 Z" fill="#F6BBD3" fill-opacity=".7"/>
+        <path d="M 292 138 L 366 140 L 364 200 L 290 198 Z" stroke="#2E2A27" stroke-opacity=".18"/>
+        <text class="g-lab" x="328" y="174" text-anchor="middle"><tspan class="g-num">02</tspan> Apply</text>
+      </g>
+      <g class="c-s3">
+        <path d="M 140 300 L 264 296 L 268 356 L 144 360 Z" fill="#C7BDF0" fill-opacity=".68"/>
+        <path d="M 140 300 L 264 296 L 268 356 L 144 360 Z" stroke="#2E2A27" stroke-opacity=".18"/>
+        <text class="g-lab" x="204" y="334" text-anchor="middle"><tspan class="g-num">03</tspan> Reflect</text>
+      </g>
+      <g class="c-s4">
+        <path d="M 34 200 L 108 198 L 110 258 L 36 260 Z" fill="#F3DCC4" fill-opacity=".78"/>
+        <path d="M 34 200 L 108 198 L 110 258 L 36 260 Z" stroke="#2E2A27" stroke-opacity=".18"/>
+        <text class="g-lab" x="72" y="234" text-anchor="middle"><tspan class="g-num">04</tspan> Refine</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ================= D ================= -->
+  <p class="mk-label">D — a track that runs and returns</p>
+  <p class="mk-note">Reads left to right, so the order is unmissable — the one thing a ring can never do. The return curve underneath carries the repeat. A marker steps through the four stages and loops back every fourteen seconds. Least decorative, clearest.</p>
+  <div class="mk-stage">
+    <svg viewBox="0 0 400 260" role="img" aria-label="Learn, apply, reflect and refine through practical work." fill="none" style="width:380px">
+      <path d="M 40 92 L 136 92" stroke="#F2DC9C" stroke-width="22" stroke-linecap="round" stroke-opacity=".62"/>
+      <path d="M 136 92 L 232 92" stroke="#F6BBD3" stroke-width="22" stroke-linecap="round" stroke-opacity=".58"/>
+      <path d="M 232 92 L 328 92" stroke="#C7BDF0" stroke-width="22" stroke-linecap="round" stroke-opacity=".6"/>
+      <path d="M 328 92 L 364 92" stroke="#F3DCC4" stroke-width="22" stroke-linecap="round" stroke-opacity=".7"/>
+      <path class="g-hair" d="M 364 92 C 392 92 392 176 340 176 L 64 176 C 24 176 24 110 40 96" stroke-dasharray="5 7"/>
+      <g class="g-lab" text-anchor="middle">
+        <text x="40" y="58"><tspan class="g-num">01</tspan> Learn</text>
+        <text x="136" y="58"><tspan class="g-num">02</tspan> Apply</text>
+        <text x="232" y="58"><tspan class="g-num">03</tspan> Reflect</text>
+        <text x="328" y="58"><tspan class="g-num">04</tspan> Refine</text>
+      </g>
+      <circle class="d-mark" cx="40" cy="92" r="6" fill="#B8354A"/>
+      <text class="g-lab" x="202" y="206" text-anchor="middle" fill-opacity=".55">and again</text>
+    </svg>
+  </div>
+
+</main>
+</body>
+</html>
