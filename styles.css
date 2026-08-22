@@ -1596,9 +1596,10 @@ a.bld-item .bld-item-arrow {
    446px copy column. Against 722px it left the paragraph looking like
    a narrow inset under a full-width headline.
    The one deliberate exception to "all running text reads at body"
-   (Amber, 2026-07): under the site's longest h1 the lede disappeared,
-   so it steps to the next rung of the ladder and to body ink. 52ch
-   rather than 56 because the measure has to hold at the larger size. */
+   (Amber, 2026-07): this lede carries the whole positioning under the
+   page's display h1, so it steps to the next rung of the ladder and to
+   body ink. 52ch rather than 56 because the measure has to hold at the
+   larger size. Desktop only — see the 900px block below. */
 .page-about .hero-split .head-copy .section-lede {
   max-width: 52ch;
   font-size: var(--fs-intro);
@@ -1639,9 +1640,10 @@ a.bld-item .bld-item-arrow {
      ran 809px on a phone, past the 760 cap. The portrait gives way
      first — the face still reads at 190px. */
   .page-about .hero-visual.about-shot { max-width: 190px; }
-  /* 1.75rem put the h1 at 28px against 30px section titles: the page's
-     most important heading was its smallest. 2.125rem clears them. */
-  .page-about .head-copy h1.h1-long { font-size: 2.125rem; }
+  /* The h1-long override that used to sit here is gone with the long
+     headline it was written for. The short h1 now takes the shared
+     40->64 display grade, which clears the 30px section titles on its
+     own. */
 }
 @media (max-width: 400px) {
   /* raising the h1 to clear the section titles cost ~65px of head, and
@@ -4885,7 +4887,8 @@ footer {
 /* ============ Type system (see MASTER.md) ============
    One responsive scale across every page. Deliberate exceptions:
    the home hero h1 (3-line rule), the home problem h2 (mobile
-   visibility rule), the long about h1 (.h1-long -> h2 size), and
+   visibility rule), long page-head h1s (.h1-long -> h2 size, used by
+   Expertise, Courses and the course page), and
    metric/metadata micro-type (proof chips, feat stats, tags-as-
    labels, case-column labels). */
 body { font-size: var(--fs-body); line-height: 1.55; }
