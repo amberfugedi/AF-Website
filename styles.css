@@ -2275,7 +2275,7 @@ a.bld-item .bld-item-arrow {
 
 .sp-head { margin-bottom: clamp(30px, 4vw, 46px); }
 .sp-head .section-title { margin-bottom: 12px; }
-.sp-head p { color: var(--muted); font-size: var(--fs-body); max-width: 56ch; margin: 0; }
+.sp-head p { color: var(--muted); font-size: var(--fs-body); max-width: 68ch; margin: 0; }
 
 /* ---- Two-by-two card grid. Equal heights: every card reserves the height
    of its tallest face, so opening a card never shifts the layout. ---- */
@@ -2568,7 +2568,7 @@ a.bld-item .bld-item-arrow {
    body ink, not coral 600 — as the loudest element it was the first
    thing the eye landed on, ahead of the name (Amber, July 2026). The
    metrics and the full story wait for the expanded view. */
-.case-impact { color: var(--body); margin-bottom: 0; max-width: 62ch; }
+.case-impact { color: var(--body); margin-bottom: 0; max-width: 68ch; }
 /* The impact line previews at the top of a closed case and MOVES to
    its proper place after Approach once the case opens (Amber, July
    2026), so the open card reads challenge, approach, impact in order.
@@ -3072,7 +3072,7 @@ a.bld-item .bld-item-arrow {
   margin-bottom: 6px;
 }
 .cs-inc dd { margin: 0; font-family: var(--font-display); color: var(--ink); letter-spacing: -0.015em; }
-.cs-note { color: var(--muted); max-width: 62ch; margin: 26px 0 0; }
+.cs-note { color: var(--muted); max-width: 68ch; margin: 26px 0 0; }
 
 .cs-notify {
   display: grid;
@@ -3152,14 +3152,17 @@ a.bld-item .bld-item-arrow {
 .fl-key .fl-n { color: var(--coral-deep); }
 .fl-key .fl-ring { border-color: rgba(184, 53, 74, 0.5); background: rgba(251, 213, 228, 0.42); }
 .fl-key .fl-cap { color: var(--ink); }
-/* full page width, not the 64ch reading measure (Amber, 2026-08). The
-   paragraph is short enough that it lands on two lines rather than one
-   very long one. */
-/* .fl-body.hw-body p, not .fl-body p: `.hw-body p` in the type layer
-   is the same specificity and lands later in the file, so it was still
-   holding the 64ch cap. */
+/* The block runs full width; the paragraphs inside it keep the 68ch
+   body measure like every other paragraph on the site. Uncapping them
+   was tried (Amber, 2026-08) on the reasoning that the copy was short
+   enough to land on two lines instead of one long one — but measured,
+   those two lines ran 126 characters each, which is the thing the
+   measure exists to prevent. At 68ch it is four lines of 63.
+   .fl-body.hw-body p, not .fl-body p: `.hw-body p` in the type layer
+   is the same specificity and lands later in the file, so a single
+   class would lose on source order. */
 .fl-body { max-width: none; margin-top: clamp(34px, 4vw, 54px); }
-.fl-body.hw-body p { max-width: none; }
+.fl-body.hw-body p { max-width: 68ch; }
 @media (max-width: 860px) {
   .fl { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
   .fl-step:not(:last-child)::after,
@@ -3234,7 +3237,7 @@ a.bld-item .bld-item-arrow {
    "why should I believe any of this", so the number outranks the
    description rather than matching it. No marks, no colour coding, no
    metric badges, and no vertical rules. --- */
-.ev-intro { max-width: 62ch; margin-bottom: clamp(26px, 2.8vw, 38px); }
+.ev-intro { max-width: 68ch; margin-bottom: clamp(26px, 2.8vw, 38px); }
 .ev-intro .section-title { margin-bottom: 14px; }
 .ev-intro p { color: var(--muted); margin-bottom: 18px; }
 .ev-intro .section-foot-link { margin-top: 0; }
@@ -3944,7 +3947,7 @@ a.bld-item .bld-item-arrow {
 .xp-company { margin-bottom: 6px; }
 .xp-role { font-weight: 600; color: var(--ink); margin-bottom: 2px; }
 .xp-years { color: var(--muted); margin-bottom: 14px; }
-.xp-desc { color: var(--body); max-width: 60ch; }
+.xp-desc { color: var(--body); max-width: 68ch; }
 .xp-proof {
   list-style: none;
   margin: 18px 0 0;
@@ -4227,6 +4230,10 @@ footer {
 /* ---- Legal pages ----
    Long-form reading and nothing else: one column at reading measure,
    with the h2s doing all the structural work. No cards, no rules. */
+/* 68ch is THE body measure: every paragraph of running body copy in a
+   wide column uses it (see .xp-desc, .case-impact, .ev-intro,
+   .cs-note, .sp-head p, .hw-body p, .hw-people-copy, .hw-principles p).
+   Narrower caps elsewhere are role-specific, not prose. */
 .legal { max-width: 68ch; }
 .legal h2 {
   font-family: var(--font-display);
@@ -4550,9 +4557,10 @@ footer {
    quieter than it so the page top stays restrained. */
 .hw-stanza { margin: 14px 0 0; max-width: 480px; color: var(--muted); }
 
-/* Body prose blocks. Measure caps at ~64 characters so the sections
-   read as columns of an article, never as full-width slabs. */
-.hw-body p { max-width: 64ch; margin-bottom: 18px; }
+/* Body prose blocks. Measure caps at 68 characters — the one measure
+   every body paragraph on the site uses, so the sections read as
+   columns of an article, never as full-width slabs. */
+.hw-body p { max-width: 68ch; margin-bottom: 18px; }
 .hw-body > :last-child { margin-bottom: 0; }
 
 /* Pull quotes: short coral rule, then the line in the display face at
@@ -4836,7 +4844,7 @@ footer {
    than a narrow copy rail beside one tall stack. Same hairlines,
    same marks, roughly half the height. */
 .hw-people { display: block; }
-.hw-people-copy { max-width: 64ch; }
+.hw-people-copy { max-width: 68ch; }
 .hw-people-copy p { color: var(--muted); margin-bottom: 18px; }
 .hw-people-copy p:last-child { margin-bottom: 0; }
 
@@ -4880,7 +4888,7 @@ footer {
   margin-bottom: 8px;
   transition: color 0.25s var(--ease);
 }
-.hw-principles p { color: var(--muted); margin-bottom: 0; max-width: 56ch; }
+.hw-principles p { color: var(--muted); margin-bottom: 0; max-width: 68ch; }
 /* understated on purpose: the title deepens, the mark steps 3px, the
    rule brightens. Colour and a 3px nudge only — the UI-response tier
    the rest of the site already uses, not a new motion device. */
