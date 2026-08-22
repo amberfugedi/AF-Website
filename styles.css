@@ -2892,6 +2892,65 @@ a.bld-item .bld-item-arrow {
 .lead-mark { display: block; margin-bottom: 12px; }
 .lead-mark .glyph { width: 24px; height: 24px; margin: 0; }
 
+/* ================= Courses hero: the learning loop =================
+   The Courses counterpart to the Expertise hero graphic. Same
+   language: translucent overlapping shapes, hairline registration
+   marks, the brand pastels, nothing illustrative. */
+.co-cycle { max-width: 380px; }
+.co-cycle > .lc { max-height: none; }
+.lc { width: 100%; height: auto; display: block; }
+
+.lc-mid {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 34px;
+  letter-spacing: -0.5px;
+  fill: var(--ink);
+}
+.lc-lab text {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  fill: var(--muted);
+}
+.lc-n { fill: var(--coral-deep); }
+
+/* Two nested groups because one element cannot run a rotate animation
+   and a translate animation on the same transform property. */
+.lc-spin {
+  transform-box: view-box;
+  transform-origin: 220px 200px;
+  animation: lc-spin 40s linear infinite;
+}
+.lc-float {
+  transform-box: view-box;
+  transform-origin: 220px 200px;
+  animation: lc-float 6s ease-in-out infinite;
+}
+@keyframes lc-spin  { to { transform: rotate(360deg); } }
+@keyframes lc-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2.5px); } }
+
+@media (max-width: 900px) {
+  /* the login line follows the graphic on a phone, so the reading
+     order is headline, lede, cycle, then student login */
+  .co-cycle { max-width: 270px; margin: 0 auto; }
+}
+@media (min-width: 901px) {
+  /* on desktop it goes back beside the copy, login under the lede */
+  /* row 1 is min-content so it sizes to the COPY, not the graphic.
+     With `auto auto` the spanning graphic pushed its extra height into
+     both rows and stranded the login line at the bottom of the hero. */
+  .page-courses .hero-split { grid-template-rows: min-content auto; align-items: start; }
+  .page-courses .head-copy { grid-column: 1; grid-row: 1; }
+  .page-courses .co-cycle  { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  .page-courses .co-login  { grid-column: 1; grid-row: 2; align-self: start; margin: 20px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lc-spin, .lc-float { animation: none; }
+}
+
 /* ================= Course page (2026-08) =================
    Same frame as the other interior pages: editorial hero, section
    headline left and body right, one banner, hairline lists. Nothing

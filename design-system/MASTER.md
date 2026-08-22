@@ -755,6 +755,37 @@ renders as a permanently open panel over the hero on Courses and on this
 page. Deliberate — it shows the visitor where they are — but it reads as
 a stuck menu. Flagged to Amber.
 
+### Courses hero: the learning loop (2026-08)
+
+The Courses counterpart to the Expertise hero graphic, and the same
+language: translucent overlapping shapes, hairline registration marks,
+the brand pastels, nothing illustrative. One oval built from four
+ribbons at 120 degrees each, so they overlap 30 degrees at every join
+and the blend is visible all the way round. Replaced the course cover,
+which was doing the listing's job twice.
+
+ONLY THE RIBBONS MOVE. Labels, centre text, rules and dots sit outside
+the animated groups. Two nested groups, because one element cannot run
+a rotate animation and a translate animation on the same transform
+property: `.lc-float` carries a 2.5px 6s float, `.lc-spin` inside it
+carries a 40s linear rotation.
+
+CONTAINMENT IS GEOMETRIC, NOT EYEBALLED. A rotated ellipse never
+reaches further from its centre than max(a, b), so with a=132 and a 32
+stroke the ribbon stays inside 148 units at any angle; the nearest
+label sits at 166. Verified by freezing the rotation at 24 angles and
+checking the group's box against the SVG's — never outside. The centre
+text has to fit the 82-unit radius that stays clear at every angle,
+which is why "Learn by doing." is two lines.
+
+ROW SIZING, NOT SPANNING, PUTS THE LOGIN LINE BACK. `.co-login` had to
+become a sibling of `.head-copy` so it can follow the graphic on a
+phone (Amber: graphic after the lede, before the student login). On
+desktop that put it in row 2, and with `grid-template-rows: auto auto`
+the spanning graphic pushed its extra height into both rows and
+stranded the link at the bottom of the hero. `min-content auto` sizes
+row 1 to the copy instead.
+
 ## Courses page (2026-07, rebuilt as a library)
 
 `courses.html`, `/courses` via `_redirects`. Reached from the nav's

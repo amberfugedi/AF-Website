@@ -83,7 +83,7 @@
   </script>
   <noscript><style>.reveal{opacity:1;transform:none}.glyph .stroke{stroke-dashoffset:0}.glyph .fill{opacity:1}.squiggle{transform:none}.reveal .tab-em::before,.reveal .tab-em::after{opacity:1;transform:none}</style></noscript>
 </head>
-<body class="page-sub">
+<body class="page-sub page-courses">
 
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="aura" aria-hidden="true">
@@ -131,23 +131,66 @@
         <div class="head-copy">
           <h1 class="h1-long">Courses for people doing the <span class="tab-em tab-butter">actual work.</span></h1>
           <p class="section-lede">Practical, self-paced learning to help you make clearer decisions, strengthen your marketing and build systems that fit your business.</p>
-          <p class="co-login">Already enrolled? <a href="https://learn.amberfugedi.com" rel="noopener">Student login</a></p>
         </div>
-        <!-- The course cover at hero scale. Not the sales card: the
-             listing below does that job. -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="crs-thumb crs-thumb-hero">
-            <p class="ct-title">Build your<br>marketing foundation</p>
-            <div class="ct-system">
-              <div class="ct-track">
-                <span class="ct-seg ct-found"></span>
-                <span class="ct-seg ct-chosen"></span>
-                <span class="ct-seg ct-remembered"></span>
-              </div>
-              <ul class="ct-stages"><li>get found</li><li>get chosen</li><li>be remembered</li></ul>
-            </div>
-          </div>
+        <!-- Learning loop: the Courses counterpart to the Expertise
+             hero graphic. One oval built from four overlapping
+             translucent ribbons. ONLY the ribbons move — labels, rules
+             and dots are outside the animated groups and stay put.
+             CONTAINMENT IS GEOMETRIC, NOT EYEBALLED: a rotated ellipse
+             never reaches further than max(a, b) from its centre, so
+             with a=132 and a 32 stroke the ribbon stays inside 148
+             units at every angle. The nearest label sits at 166. -->
+        <div class="hero-visual co-cycle">
+          <svg class="lc" viewBox="0 0 440 400" width="440" height="400" role="img" aria-labelledby="lc-title" fill="none">
+            <title id="lc-title">Learn, apply, reflect and refine through practical work.</title>
+            <defs>
+              <filter id="lc-paper" x="0" y="0" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/>
+                <feColorMatrix type="saturate" values="0"/>
+              </filter>
+            </defs>
+
+            <!-- paper grain, static and barely there -->
+            <rect x="0" y="0" width="440" height="400" filter="url(#lc-paper)" opacity="0.045"/>
+
+            <!-- registration: centre rules and cardinal ticks -->
+            <g stroke="#2E2A27" stroke-opacity="0.16" stroke-width="1">
+              <path d="M220 22 L220 60 M220 340 L220 378"/>
+              <path d="M28 200 L66 200 M374 200 L412 200"/>
+            </g>
+            <g fill="#2E2A27" fill-opacity="0.3">
+              <circle cx="220" cy="66" r="2"/>
+              <circle cx="220" cy="334" r="2"/>
+              <circle cx="72" cy="200" r="2"/>
+              <circle cx="368" cy="200" r="2"/>
+            </g>
+
+            <!-- the only thing that moves -->
+            <g class="lc-float">
+              <g class="lc-spin">
+                <path d="M 185.8 105.3 A 132 98 0 0 1 347.5 225.4" stroke="#F2DC9C" stroke-width="32" stroke-linecap="round" stroke-opacity="0.72"/>
+                <path d="M 347.5 174.6 A 132 98 0 0 1 185.8 294.7" stroke="#F6BBD3" stroke-width="32" stroke-linecap="round" stroke-opacity="0.66"/>
+                <path d="M 254.2 294.7 A 132 98 0 0 1 92.5 174.6" stroke="#C7BDF0" stroke-width="32" stroke-linecap="round" stroke-opacity="0.68"/>
+                <path d="M 92.5 225.4 A 132 98 0 0 1 254.2 105.3" stroke="#F3DCC4" stroke-width="32" stroke-linecap="round" stroke-opacity="0.78"/>
+              </g>
+            </g>
+
+            <!-- centre: fits inside the 82-unit radius that stays clear
+                 whatever angle the ribbon is at -->
+            <text class="lc-mid" x="220" y="193" text-anchor="middle">Learn by</text>
+            <text class="lc-mid" x="220" y="227" text-anchor="middle">doing.</text>
+
+            <!-- stage labels, stationary -->
+            <g class="lc-lab">
+              <text x="220" y="30" text-anchor="middle"><tspan class="lc-n">01</tspan> Learn</text>
+              <text x="430" y="196" text-anchor="end"><tspan class="lc-n">02</tspan> Apply</text>
+              <text x="220" y="380" text-anchor="middle"><tspan class="lc-n">03</tspan> Reflect</text>
+              <text x="10" y="196" text-anchor="start"><tspan class="lc-n">04</tspan> Refine</text>
+            </g>
+          </svg>
         </div>
+
+        <p class="co-login">Already enrolled? <a href="https://learn.amberfugedi.com" rel="noopener">Student login</a></p>
       </div>
     </header>
 
