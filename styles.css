@@ -1594,11 +1594,7 @@ a.bld-item .bld-item-arrow {
    wide at 390. Re-state the collapse here, after them. */
 @media (max-width: 900px) {
   .page-about .hero-split-portrait { grid-template-columns: 1fr; gap: 26px; }
-  .page-about .hero-visual.about-shot { max-width: 240px; }
   .page-about .hero-split .head-copy .section-lede { max-width: none; }
-}
-@media (max-width: 560px) {
-  .page-about .hero-visual.about-shot { max-width: 190px; }
 }
 .hero-visual .about-portrait { width: 100%; }
 .hero-visual .about-portrait img { object-position: 50% 22%; }
@@ -1616,7 +1612,20 @@ a.bld-item .bld-item-arrow {
      ran 809px on a phone, past the 760 cap. The portrait gives way
      first — the face still reads at 190px. */
   .page-about .hero-visual.about-shot { max-width: 190px; }
-  .page-about .head-copy h1.h1-long { font-size: 1.75rem; }
+  /* 1.75rem put the h1 at 28px against 30px section titles: the page's
+     most important heading was its smallest. 2.125rem clears them. */
+  .page-about .head-copy h1.h1-long { font-size: 2.125rem; }
+}
+@media (max-width: 400px) {
+  /* raising the h1 to clear the section titles cost ~65px of head, and
+     at 360 that pushed past the 760 cap. The portrait gives way first,
+     the same call as July: the face still reads at 158px. */
+  .page-about .hero-visual.about-shot { max-width: 158px; }
+}
+@media (max-width: 375px) {
+  /* 360 still ran 777 against the 760 cap; the last 17px come off the
+     portrait rather than the headline. */
+  .page-about .hero-visual.about-shot { max-width: 136px; }
 }
 
 /* ---- Expertise head: copy left, layered expertise map right ----
@@ -4844,7 +4853,8 @@ footer p,
 .crs-status, .cs-inc dt { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .cs-list li, .cs-stages p, .cs-note { font-size: var(--fs-body); line-height: 1.55; }
 .cs-stage-n, .cs-inc dd { font-size: var(--fs-intro); line-height: 1.3; }
-.cs-notify h2 { font-size: var(--fs-h3); line-height: 1.2; }
+/* same grade as .crs-login h2: both are panel headings, not section titles */
+.cs-notify h2 { font-size: var(--fs-intro); line-height: 1.3; }
 .cs-notify > div > p { font-size: var(--fs-body); line-height: 1.55; }
 .sec-n { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .fl-cap { font-size: var(--fs-body); line-height: 1.5; }
