@@ -2883,6 +2883,109 @@ a.bld-item .bld-item-arrow {
 .lead-mark { display: block; margin-bottom: 12px; }
 .lead-mark .glyph { width: 24px; height: 24px; margin: 0; }
 
+/* ================= Course page (2026-08) =================
+   Same frame as the other interior pages: editorial hero, section
+   headline left and body right, one banner, hairline lists. Nothing
+   here is a new device. */
+.crs-status {
+  display: inline-block;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8A6717;
+  background: #FAF0D4;
+  border-radius: 24px;
+  padding: 5px 14px;
+  margin: 0 0 18px;
+}
+.hero-visual.crs-cover { max-width: 380px; }
+.hero-visual.crs-cover > * { max-height: none; }
+
+.cs-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(28px, 3.6vw, 64px);
+  align-items: start;
+}
+.cs-split .section-title { margin-bottom: 0; }
+.cs-body > p { color: var(--body); margin-bottom: 18px; }
+.cs-body > p:last-child { margin-bottom: 0; }
+
+.cs-list { list-style: none; margin: 0; padding: 0; }
+.cs-list li {
+  position: relative;
+  padding: 11px 0 11px 28px;
+  color: var(--muted);
+}
+.cs-list li + li { border-top: 1px solid var(--line); }
+.cs-list li::before {
+  content: "";
+  position: absolute; left: 0; top: 1.05em;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: rgba(255, 111, 97, 0.28);
+  border: 2px solid var(--coral-deep);
+  box-sizing: border-box;
+}
+
+.cs-stages { list-style: none; margin: 0; padding: 0; counter-reset: st; }
+.cs-stages li { padding: 16px 0 18px; }
+.cs-stages li + li { border-top: 1px solid var(--line); }
+.cs-stage-n {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.cs-stages p { color: var(--muted); margin: 0; }
+
+.cs-inc {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 clamp(20px, 2.6vw, 40px);
+  margin: 26px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.cs-inc > div + div { border-left: 1px solid var(--line); padding-left: clamp(20px, 2.6vw, 40px); }
+.cs-inc dt {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.cs-inc dd { margin: 0; font-family: var(--font-display); color: var(--ink); letter-spacing: -0.015em; }
+.cs-note { color: var(--muted); max-width: 62ch; margin: 26px 0 0; }
+
+.cs-notify {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 48px);
+  align-items: center;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(26px, 3.4vw, 40px);
+}
+.cs-notify h2 { margin-bottom: 8px; }
+.cs-notify > div > p { color: var(--muted); margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .cs-split { grid-template-columns: 1fr; gap: 20px; }
+  .cs-inc { grid-template-columns: 1fr 1fr; gap: 22px clamp(18px, 3vw, 30px); }
+  .cs-inc > div:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .cs-notify { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .cs-inc { grid-template-columns: 1fr; gap: 0; }
+  .cs-inc > div + div {
+    border-left: 0; padding-left: 0;
+    border-top: 1px solid var(--line); padding-top: 14px; margin-top: 14px;
+  }
+}
+
 /* --- My Approach: the diagnostic flow (2026-08) --- */
 .fl {
   display: grid;
@@ -4738,6 +4841,11 @@ footer p,
 .ev-intro p { font-size: var(--fs-body); line-height: 1.55; }
 .tl-cat { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .fl-n { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.crs-status, .cs-inc dt { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.cs-list li, .cs-stages p, .cs-note { font-size: var(--fs-body); line-height: 1.55; }
+.cs-stage-n, .cs-inc dd { font-size: var(--fs-intro); line-height: 1.3; }
+.cs-notify h2 { font-size: var(--fs-h3); line-height: 1.2; }
+.cs-notify > div > p { font-size: var(--fs-body); line-height: 1.55; }
 .sec-n { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .fl-cap { font-size: var(--fs-body); line-height: 1.5; }
 .tl-eg { font-size: var(--fs-small); line-height: 1.5; }

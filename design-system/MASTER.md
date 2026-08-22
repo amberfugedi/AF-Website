@@ -711,6 +711,38 @@ Button padding is 9px so the target clears 24px.
 THE FOOTER STILL SAYS COURSES, not Shop. A footer lists destinations
 and "Shop" has none.
 
+## Course page: Build Your Marketing Foundation (2026-08)
+
+`course-marketing-foundation.html`, served at
+`/courses/build-your-marketing-foundation` by a 200 rewrite in
+`_redirects`. That path had been a TEMPORARY 302 back to courses.html
+since July; the redirect is now a real page and the note is gone.
+
+THE PAGE SAYS "COMING SOON" BEFORE IT SAYS ANYTHING ELSE. The chip sits
+above the h1, and the Courses card carries the same chip. "Available
+courses" became "The first course" — one course that is not buyable yet
+does not make a list of available courses.
+
+EVERY FACT ON THE PAGE WAS ALREADY PUBLISHED: eight modules, about
+three hours, self-paced, the Marketing Foundation Map, the audience
+sentence, and the three stages (get found, get chosen, be remembered).
+The "Who it's for" bullets are drawn from the Services panel copy, which
+is hers. The three outcome lines under "What you'll be able to do" are
+the one thing on the page written rather than quoted — they are honest
+readings of her three stage names and are marked `{{ADJUST}}` for her
+confirmation, along with the eight module titles, the price and the
+launch date.
+
+NO NEW DEVICES. Editorial hero variant A, headline-left/body-right
+sections, one quote banner, hairline lists, the existing capture form.
+The cover is the same real-text block as the Courses card, not a raster.
+
+NOTE, PRE-EXISTING AND NOT INTRODUCED HERE: `main.js:402` opens the Shop
+dropdown on load whenever the current page sits inside it, so the menu
+renders as a permanently open panel over the hero on Courses and on this
+page. Deliberate — it shows the visitor where they are — but it reads as
+a stuck menu. Flagged to Amber.
+
 ## Courses page (2026-07, rebuilt as a library)
 
 `courses.html`, `/courses` via `_redirects`. Reached from the nav's
