@@ -3895,12 +3895,19 @@ a.bld-item .bld-item-arrow {
    chapter opens with a short coral tick. */
 .xp-grid {
   display: grid;
-  grid-template-columns: 380px minmax(0, 1fr);
-  /* 80px read as two separate columns rather than one spread; 60
-     holds the thesis and the chapters together without crowding. */
-  gap: 60px;
+  /* A ratio, not a fixed 380px. Against a narrowing container the fixed
+     column crept from 33% of the content box at 1600 to 39% at 1024, so
+     the two columns closed on each other exactly where there was least
+     room — which is what made them read as one block rather than two.
+     31% holds the intro's share at every width; the chapters take the
+     rest. Separation here is whitespace only: no rule, no divider. */
+  grid-template-columns: 31% minmax(0, 1fr);
+  column-gap: 64px;
+  row-gap: 40px;
   align-items: start;
 }
+/* Large desktop has the room to open the gutter properly. */
+@media (min-width: 1280px) { .xp-grid { column-gap: 80px; } }
 .xp-intro { position: sticky; top: 110px; }
 .xp-intro .section-title { margin-bottom: 20px; }
 .nowrap { white-space: nowrap; }
@@ -3973,8 +3980,12 @@ a.bld-item .bld-item-arrow {
   .xp-earlier summary { pointer-events: none; }
   .xp-chev { display: none; }
 }
-@media (max-width: 1020px) {
-  .xp-grid { grid-template-columns: 1fr; gap: 40px; }
+/* Tablet keeps both columns, on a tighter gutter. */
+@media (max-width: 1020px) { .xp-grid { column-gap: 44px; } }
+/* Below this the intro column is too narrow to hold its heading, so the
+   section stacks and the sticky behaviour is dropped with it. */
+@media (max-width: 900px) {
+  .xp-grid { grid-template-columns: 1fr; }
   .xp-intro { position: static; }
 }
 @media (max-width: 760px) {
