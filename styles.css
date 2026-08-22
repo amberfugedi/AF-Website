@@ -2922,10 +2922,32 @@ a.bld-item .bld-item-arrow {
   .fl-step:not(:last-child)::after,
   .fl-step:not(:last-child)::before { display: none; }
 }
-@media (max-width: 480px) {
-  .fl { grid-template-columns: 1fr; gap: 26px; }
-  .fl-ring { width: 68px; height: 68px; }
-  .fl-ring svg { width: 28px; height: 28px; }
+@media (max-width: 620px) {
+  /* Left-aligned and horizontal on phones (Amber, 2026-08). Centred,
+     each step was a label over a big ring over a caption — four tall
+     poster blocks stacked, out of step with the left-aligned headline
+     and copy around them. The ring moves beside the text, which reads
+     as a sequence and takes the section from ~1290px to ~470px. */
+  .fl { grid-template-columns: 1fr; gap: 0; }
+  .fl-step {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 16px;
+    align-items: center;
+    text-align: left;
+    padding: 16px 0;
+  }
+  .fl-step + .fl-step { border-top: 1px solid var(--line); }
+  .fl-n { grid-column: 2; margin-bottom: 4px; align-self: end; }
+  .fl-ring {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 56px; height: 56px;
+    margin: 0;
+    align-self: center;
+  }
+  .fl-ring svg { width: 26px; height: 26px; }
+  .fl-cap { grid-column: 2; align-self: start; }
 }
 
 /* --- 3. Tools: collapsed by default, and it stays that way. No logo
