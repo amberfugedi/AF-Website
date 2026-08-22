@@ -1,3 +1,12 @@
+# Internal docs live in the repo but are not part of the site. Without
+# these the build-step-free deploy serves them at their own URLs.
+# The trailing ! is required: a rule whose path matches a real file is
+# shadowed by that file unless the status is forced.
+/TODO.md            /404.html  404!
+/CLAUDE.md          /404.html  404!
+/design-system/*    /404.html  404!
+/plans/*            /404.html  404!
+
 /how-i-work.html   /my-approach.html  301
 /capabilities.html  /expertise.html  301
 /work.html         /projects.html   301
