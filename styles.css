@@ -1580,13 +1580,23 @@ a.bld-item .bld-item-arrow {
    nearer and gives the right side of the hero something to hold. The
    crop is the ceiling here — every extra 10px of width costs 12.5px of
    head height, and the head is already at the top of the six-page
-   range. */
-.page-about .hero-visual.about-shot { max-width: 340px; }
+   range. Taken to 380 at Amber's request (2026-08) so the portrait
+   holds its side of the hero against the headline: +12%, and +50px of
+   head height with it. */
+.page-about .hero-visual.about-shot { max-width: 380px; }
 /* The shared hero lede caps at 46ch, which was measured against a
    446px copy column. Against 722px it left the paragraph looking like
-   a narrow inset under a full-width headline. 56ch keeps it inside the
-   56-62ch reading measure the site uses everywhere else. */
-.page-about .hero-split .head-copy .section-lede { max-width: 56ch; }
+   a narrow inset under a full-width headline.
+   The one deliberate exception to "all running text reads at body"
+   (Amber, 2026-07): under the site's longest h1 the lede disappeared,
+   so it steps to the next rung of the ladder and to body ink. 52ch
+   rather than 56 because the measure has to hold at the larger size. */
+.page-about .hero-split .head-copy .section-lede {
+  max-width: 52ch;
+  font-size: var(--fs-intro);
+  line-height: 1.6;
+  color: var(--body);
+}
 /* MUST STAY AFTER the .page-about rules above. The shared collapse at
    900px is `.hero-split-portrait` (0,2,0); the page-scoped rules are
    also (0,2,0), so source order decides and the page rules would have
@@ -1594,7 +1604,16 @@ a.bld-item .bld-item-arrow {
    wide at 390. Re-state the collapse here, after them. */
 @media (max-width: 900px) {
   .page-about .hero-split-portrait { grid-template-columns: 1fr; gap: 26px; }
-  .page-about .hero-split .head-copy .section-lede { max-width: none; }
+  /* The lede steps up only where it had to: under the 50px desktop h1.
+     Once the hero stacks, the h1 is 34px and body scale holds its own
+     against it — and the head is already at its height ceiling here,
+     so the extra rung would have cost 50px it does not have. The
+     darker ink stays at every width. */
+  .page-about .hero-split .head-copy .section-lede {
+    max-width: none;
+    font-size: var(--fs-body);
+    line-height: 1.55;
+  }
 }
 .hero-visual .about-portrait { width: 100%; }
 .hero-visual .about-portrait img { object-position: 50% 22%; }
@@ -3863,8 +3882,10 @@ a.bld-item .bld-item-arrow {
    chapter opens with a short coral tick. */
 .xp-grid {
   display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
-  gap: 80px;
+  grid-template-columns: 380px minmax(0, 1fr);
+  /* 80px read as two separate columns rather than one spread; 60
+     holds the thesis and the chapters together without crowding. */
+  gap: 60px;
   align-items: start;
 }
 .xp-intro { position: sticky; top: 110px; }
