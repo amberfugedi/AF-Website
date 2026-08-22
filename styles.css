@@ -18,7 +18,7 @@
   --bg-raised: #FFFFFF;
   --ink: #2E2A27;          /* headings + body — 13.3:1 on cream */
   --body: #3E3833;         /* ~11:1 */
-  --muted: #5C544B;        /* secondary text — ~7:1, no pale grays */
+  --muted: #524B43;        /* secondary text — 8.2:1 on cream, 6.7:1 against the deepest part of the lavender aura */
   --coral: #FF6F61;        /* fills/buttons only — NOT for text on cream */
   --coral-deep: #B8354A;   /* coral used AS text — 5.5:1 on cream */
   --blush: #FBD5E4;
@@ -991,14 +991,18 @@ body.page-sub .aura { --aura-base: 0.45; }
 }
 /* Both tabs are trimmed toward cap-height and baseline so the
    highlight reads as part of the type, not a pill pasted over it. */
+/* Trimmed further toward cap-height and baseline (Amber, 2026-08): on
+   a 64px h1 the band spanned the whole line and read as a solid label
+   rather than a marked phrase. Colour is unchanged — the weight came
+   from the band's height, not its tone. */
 .tab-em::before { /* back tab: deeper tone at ~68% alpha, small offset */
-  inset: 0.18em -0.08em -0.06em 0.12em;
+  inset: 0.24em -0.08em 0.0em 0.12em;
   background: var(--tab-back);
   border-radius: 0.08em 0.13em 0.07em 0.11em / 0.1em 0.15em 0.09em 0.13em;
   transform: rotate(var(--trb));
 }
 .tab-em::after { /* front tab: sits directly behind the phrase */
-  inset: 0.1em 0 0.04em 0;
+  inset: 0.17em 0 0.10em 0;
   background: var(--tab-front);
   border-radius: 0.11em 0.08em 0.13em 0.09em / 0.14em 0.1em 0.13em 0.11em;
   transform: rotate(var(--trf));
@@ -1911,6 +1915,9 @@ a.bld-item .bld-item-arrow {
    and flattened the bridge under it from 78 to 26. It was already
    inside the band; put it back. */
 .hero-band + section { padding-top: 52px; }
+/* About only: the experience section butted straight onto the hero, so
+   the two read as one block. 20px lets the hero register first. */
+.page-about .page-head + section { padding-top: 20px; }
 
 .page-head-tight { padding-bottom: 0; }
 .page-head-tight + section { padding-top: 24px; }
