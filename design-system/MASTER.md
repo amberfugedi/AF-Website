@@ -876,7 +876,34 @@ exist and two CTAs point at it (the card title and the View course
 button). `_redirects` 302s it back to `/courses.html` so nothing 404s,
 marked TEMPORARY. `learn.amberfugedi.com` is not live yet either.
 
-## SEO baseline (2026-07 audit — keep every page inside these)
+## SEO baseline (2026-07, re-audited 2026-08 across nine pages)
+
+2026-08 RE-AUDIT. Nine pages checked against every rule below, plus
+alt text, heading order, SVG labelling, link text, internal links and
+fragment targets. FOUR REAL FAILURES, all fixed:
+- og:description and twitter:description were 90-100 characters on My
+  Approach, Services and About. The `<meta name="description">` on
+  those pages was in band, so the drift was invisible unless you
+  checked the social tags separately. They are 141-146 now.
+- The 404 description was 118, two under the floor. Now 145.
+- Sitemap lastmod was stale on five entries. Stamped — and only on the
+  five whose files actually changed; Home and Work still read
+  2026-07-28 because they genuinely have not.
+- The pretty course URL was added to the sitemap when that page shipped.
+
+TWO THINGS THAT LOOK LIKE FAILURES AND ARE NOT, so nobody "fixes" them
+again: the Projects lightbox `<img>` has no width/height because it is
+built by JS and sized by whichever image opens, and it carries an empty
+alt from creation which is replaced on open. And an audit that checks
+`aria-hidden` on the `<svg>` itself reports 25 false positives — every
+decorative graphic on the site inherits it from an ancestor. Walk the
+ancestors.
+
+Verified clean: 110 unique internal links all resolve, no broken
+fragment targets, one h1 per page, no heading-level skips on any page,
+every `<img>` carries alt, titles and descriptions all unique.
+
+### The rules (keep every page inside these)
 
 Verified across all seven pages. When a page is added or a headline
 changes, re-check these, because they drift silently.
