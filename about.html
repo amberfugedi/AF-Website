@@ -349,8 +349,14 @@
 
         </div>
 
-        <!-- Wire this to a form backend (Formspree, Netlify Forms, Basin, etc.)
-             by setting a real action + method="POST" and removing the JS handler. -->
+        <!-- Already wired to Netlify Forms: data-netlify, a hidden
+             form-name matching the form's name, and the bot-field
+             honeypot below. main.js posts it over fetch so the page
+             doesn't navigate away, and the payload carries form-name
+             because an AJAX submit gets no build-time injection.
+             Nothing further is needed in the markup — submissions only
+             start landing once form detection is switched on in the
+             Netlify dashboard and the site is redeployed after that. -->
         <form class="contact-form reveal" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
           <input type="hidden" name="form-name" value="contact">
           <p class="hp-field" aria-hidden="true"><label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
