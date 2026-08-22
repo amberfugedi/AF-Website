@@ -121,50 +121,265 @@
           <p class="section-lede">My expertise sits across marketing strategy, execution, operations, and team development. That means I can zoom out to identify the real problem, then get close enough to help fix it.</p>
         </div>
 
-        <!-- Abstract visual: six tinted sheets, hand-cut rather than
-             ruled, overlapping in a loose cluster (Amber, 2026-08: a
-             "quiet, abstract editorial composition rather than a
-             literal table of contents"). Compact labels only, no
-             numbers, no sequence, no full-width bands. Coral is absent
-             on purpose: it belongs to interaction, not to categories.
-             Transparency rides on fill-opacity / stroke-opacity, never
-             on `opacity` — `fill-fade` animates `opacity` to 1 and
-             would flatten every sheet. -->
-        <aside class="hero-visual xp-visual reveal" aria-hidden="true">
-          <svg class="glyph" viewBox="0 0 420 296" width="420" height="296" fill="none" stroke-linejoin="round">
+        <!-- Amber's own graphic, inlined rather than <img> so the
+             groups stay addressable: cluster_* for the central circles,
+             one group per expertise area, plus orbits, sparkles,
+             dotGrids and atmosphere. IDs are hers; do not rename them.
+             TWO THINGS WERE CHANGED IN THE FILE, both necessary:
+             the viewBox was 1600x1000 while the artwork runs to x=1635,
+             so "+ DIGITAL" was clipped off the right edge; and the
+             labels were 24px on a 1600 canvas, which renders at ~8px
+             once the graphic sits in a hero column. They are 30px now
+             with the second line of each pair pushed down 9px to keep
+             the pairs from touching. -->
+        <aside class="hero-visual xp-visual reveal">
+          <span id="xph-title" class="visually-hidden">Six areas of expertise overlapping: strategy and planning, demand generation, brand and digital, marketing and sales operations, workflows and AI, leadership and enablement.</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="xph" role="img" aria-labelledby="xph-title" viewBox="58 104 1620 884" preserveAspectRatio="xMidYMid meet" fill="none">
+            <defs>
+              <filter id="blur80" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="80"/>
+              </filter>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#BFAFA3" flood-opacity="0.12"/>
+              </filter>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="16" result="b"/>
+                <feMerge>
+                  <feMergeNode in="b"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <style>
+                .label { font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 30px; letter-spacing: 2.6px; font-weight: 600; fill: #2F2B28; }
+                .subtle { fill: #6D665F; }
+                .connector { fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
+                .badgeStroke { stroke-width: 2.5; }
+                .tinyDot { opacity: .65; }
+                .orbit { fill: none; stroke-width: 2; opacity: .4; }
+              </style>
+            </defs>
 
-            <!-- Strategy + planning — butter -->
-            <path class="fill" d="M10,34 L200,26 L204,88 L14,96 Z" fill="#FBEDBF" fill-opacity="0.72" style="--fd:0.30s"/>
-            <path class="stroke" pathLength="100" d="M10,34 L200,26 L204,88 L14,96 Z" stroke="#2E2A27" stroke-opacity="0.20" stroke-width="1" style="--d:0.05s"/>
-            <text class="fill" x="28" y="66" font-family="Manrope, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.9" fill="#2E2A27" fill-opacity="0.84" style="--fd:0.42s">STRATEGY + PLANNING</text>
+            <!-- transparent background with soft atmosphere -->
+            <g id="atmosphere">
+              <ellipse cx="770" cy="490" rx="420" ry="280" fill="#F8EDE6" opacity="0.45" filter="url(#blur80)"/>
+              <ellipse cx="720" cy="470" rx="240" ry="210" fill="#F6DDE5" opacity="0.55" filter="url(#blur80)"/>
+              <ellipse cx="940" cy="430" rx="260" ry="220" fill="#FBEDC7" opacity="0.55" filter="url(#blur80)"/>
+              <ellipse cx="950" cy="610" rx="260" ry="220" fill="#E6DFF8" opacity="0.6" filter="url(#blur80)"/>
+              <ellipse cx="690" cy="675" rx="210" ry="170" fill="#F6E7D6" opacity="0.45" filter="url(#blur80)"/>
+            </g>
 
-            <!-- Demand generation — blush, dropped well below its
-                 left-hand neighbour so the pair does not read as a row -->
-            <path class="fill" d="M198,52 L368,58 L364,118 L194,111 Z" fill="#FBD5E4" fill-opacity="0.74" style="--fd:0.38s"/>
-            <path class="stroke" pathLength="100" d="M198,52 L368,58 L364,118 L194,111 Z" stroke="#2E2A27" stroke-opacity="0.20" stroke-width="1" style="--d:0.14s"/>
-            <text class="fill" x="212" y="89" font-family="Manrope, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.9" fill="#2E2A27" fill-opacity="0.84" style="--fd:0.50s">DEMAND GENERATION</text>
+            <!-- decorative dots -->
+            <g id="dotGrids" opacity="0.65">
+              <g transform="translate(460 390)">
+                <g fill="#D7B36B" opacity="0.7">
+          <circle cx="0" cy="0" r="2"/>
+                  <circle cx="20" cy="0" r="2"/>
+                  <circle cx="40" cy="0" r="2"/>
+                  <circle cx="60" cy="0" r="2"/>
+                  <circle cx="80" cy="0" r="2"/>
+                  <circle cx="100" cy="0" r="2"/>
+                  <circle cx="0" cy="20" r="2"/>
+                  <circle cx="20" cy="20" r="2"/>
+                  <circle cx="40" cy="20" r="2"/>
+                  <circle cx="60" cy="20" r="2"/>
+                  <circle cx="80" cy="20" r="2"/>
+                  <circle cx="100" cy="20" r="2"/>
+                  <circle cx="0" cy="40" r="2"/>
+                  <circle cx="20" cy="40" r="2"/>
+                  <circle cx="40" cy="40" r="2"/>
+                  <circle cx="60" cy="40" r="2"/>
+                  <circle cx="80" cy="40" r="2"/>
+                  <circle cx="100" cy="40" r="2"/>
+                  <circle cx="0" cy="60" r="2"/>
+                  <circle cx="20" cy="60" r="2"/>
+                  <circle cx="40" cy="60" r="2"/>
+                  <circle cx="60" cy="60" r="2"/>
+                  <circle cx="80" cy="60" r="2"/>
+                  <circle cx="100" cy="60" r="2"/>
+                  <circle cx="0" cy="80" r="2"/>
+                  <circle cx="20" cy="80" r="2"/>
+                  <circle cx="40" cy="80" r="2"/>
+                  <circle cx="60" cy="80" r="2"/>
+                  <circle cx="80" cy="80" r="2"/>
+                  <circle cx="100" cy="80" r="2"/>
+            </g>
+          </g>
+          <g transform="translate(1180 700)">
+            <g fill="#E6A9B7" opacity="0.55">
+          <circle cx="0" cy="0" r="2"/>
+                  <circle cx="20" cy="0" r="2"/>
+                  <circle cx="40" cy="0" r="2"/>
+                  <circle cx="60" cy="0" r="2"/>
+                  <circle cx="80" cy="0" r="2"/>
+                  <circle cx="100" cy="0" r="2"/>
+                  <circle cx="0" cy="20" r="2"/>
+                  <circle cx="20" cy="20" r="2"/>
+                  <circle cx="40" cy="20" r="2"/>
+                  <circle cx="60" cy="20" r="2"/>
+                  <circle cx="80" cy="20" r="2"/>
+                  <circle cx="100" cy="20" r="2"/>
+                  <circle cx="0" cy="40" r="2"/>
+                  <circle cx="20" cy="40" r="2"/>
+                  <circle cx="40" cy="40" r="2"/>
+                  <circle cx="60" cy="40" r="2"/>
+                  <circle cx="80" cy="40" r="2"/>
+                  <circle cx="100" cy="40" r="2"/>
+                  <circle cx="0" cy="60" r="2"/>
+                  <circle cx="20" cy="60" r="2"/>
+                  <circle cx="40" cy="60" r="2"/>
+                  <circle cx="60" cy="60" r="2"/>
+                  <circle cx="80" cy="60" r="2"/>
+                  <circle cx="100" cy="60" r="2"/>
+                  <circle cx="0" cy="80" r="2"/>
+                  <circle cx="20" cy="80" r="2"/>
+                  <circle cx="40" cy="80" r="2"/>
+                  <circle cx="60" cy="80" r="2"/>
+                  <circle cx="80" cy="80" r="2"/>
+                  <circle cx="100" cy="80" r="2"/>
+                </g>
+              </g>
+            </g>
 
-            <!-- Brand + digital — lavender -->
-            <path class="fill" d="M38,90 L208,97 L205,157 L35,150 Z" fill="#DAD4F5" fill-opacity="0.70" style="--fd:0.46s"/>
-            <path class="stroke" pathLength="100" d="M38,90 L208,97 L205,157 L35,150 Z" stroke="#2E2A27" stroke-opacity="0.20" stroke-width="1" style="--d:0.23s"/>
-            <text class="fill" x="54" y="128" font-family="Manrope, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.9" fill="#2E2A27" fill-opacity="0.84" style="--fd:0.58s">BRAND + DIGITAL</text>
+            <!-- orbit lines -->
+            <g id="orbits" opacity="0.65">
+              <ellipse class="orbit" cx="860" cy="520" rx="380" ry="170" stroke="#E3CCAA"/>
+              <ellipse class="orbit" cx="925" cy="555" rx="315" ry="155" stroke="#DDD0F5"/>
+              <path class="orbit" stroke="#F1C879" d="M514 711C635 805 779 807 915 701C1077 577 1052 345 1230 238"/>
+              <path class="orbit" stroke="#F1A8B4" stroke-dasharray="8 8" d="M792 238C701 312 689 442 752 540C813 637 922 648 1037 625C1190 593 1278 447 1190 344"/>
+              <path class="orbit" stroke="#DCCBF0" stroke-dasharray="6 10" d="M772 863C820 867 846 843 856 806C869 757 845 719 815 705"/>
+            </g>
 
-            <!-- Marketing + sales ops — cream, the one sheet that reads
-                 by its edge rather than its tint -->
-            <path class="fill" d="M196,128 L404,120 L408,182 L200,190 Z" fill="#FFFDFA" fill-opacity="0.88" style="--fd:0.54s"/>
-            <path class="stroke" pathLength="100" d="M196,128 L404,120 L408,182 L200,190 Z" stroke="#2E2A27" stroke-opacity="0.26" stroke-width="1" style="--d:0.32s"/>
-            <text class="fill" x="214" y="159" font-family="Manrope, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.9" fill="#2E2A27" fill-opacity="0.84" style="--fd:0.66s">MARKETING + SALES OPS</text>
+            <!-- central cluster -->
+            <g id="cluster" filter="url(#softShadow)">
+              <circle id="cluster_strategy" cx="720" cy="450" r="170" fill="#F7CFCB" fill-opacity="0.55" stroke="#E8A9A2" stroke-width="1.5"/>
+              <circle id="cluster_demand" cx="930" cy="415" r="175" fill="#F8EDBD" fill-opacity="0.52" stroke="#E9CF78" stroke-width="1.5"/>
+              <circle id="cluster_leadership" cx="700" cy="640" r="190" fill="#F3E6D7" fill-opacity="0.60" stroke="#E1C4A4" stroke-width="1.5"/>
+              <circle id="cluster_brand" cx="1020" cy="612" r="180" fill="#DDD5F4" fill-opacity="0.62" stroke="#B8A8ED" stroke-width="1.5"/>
+              <circle id="cluster_workflows" cx="820" cy="735" r="165" fill="#EBDCF1" fill-opacity="0.6" stroke="#C7B2D3" stroke-width="1.5"/>
+              <circle id="cluster_ops" cx="850" cy="620" r="165" fill="#F5BFB7" fill-opacity="0.46" stroke="#E59C8F" stroke-width="1.5"/>
+            </g>
 
-            <!-- Workflows + AI — peach -->
-            <path class="fill" d="M14,166 L190,159 L193,219 L17,226 Z" fill="#FCE4C4" fill-opacity="0.72" style="--fd:0.62s"/>
-            <path class="stroke" pathLength="100" d="M14,166 L190,159 L193,219 L17,226 Z" stroke="#2E2A27" stroke-opacity="0.20" stroke-width="1" style="--d:0.41s"/>
-            <text class="fill" x="32" y="197" font-family="Manrope, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.9" fill="#2E2A27" fill-opacity="0.84" style="--fd:0.74s">WORKFLOWS + AI</text>
+            <!-- small accent stars and dots -->
+            <g id="sparkles">
+              <circle class="tinyDot" cx="912" cy="313" r="9" fill="#D09B39"/>
+              <circle class="tinyDot" cx="1303" cy="473" r="10" fill="#F28C84"/>
+              <circle class="tinyDot" cx="501" cy="536" r="8" fill="#E4B963"/>
+              <circle class="tinyDot" cx="433" cy="800" r="9" fill="#F29DAE"/>
+              <circle class="tinyDot" cx="965" cy="885" r="6" fill="#C8B2F0"/>
+              <path d="M774 184l12 26 26 12-26 12-12 26-12-26-26-12 26-12 12-26z" fill="#F7D8E0" opacity="0.95"/>
+              <path d="M663 775l10 20 20 10-20 10-10 20-10-20-20-10 20-10 10-20z" fill="#FFF8F1" opacity="0.95"/>
+              <path d="M1181 847l9 18 18 9-18 9-9 18-9-18-18-9 18-9 9-18z" fill="#F6B0A6" opacity="0.8"/>
+            </g>
 
-            <!-- Leadership + enablement — blush, the widest sheet -->
-            <path class="fill" d="M176,200 L394,209 L390,270 L172,261 Z" fill="#F6DEEA" fill-opacity="0.76" style="--fd:0.70s"/>
-            <path class="stroke" pathLength="100" d="M176,200 L394,209 L390,270 L172,261 Z" stroke="#2E2A27" stroke-opacity="0.20" stroke-width="1" style="--d:0.50s"/>
-            <text class="fill" x="190" y="239" font-family="Manrope, system-ui, sans-serif" font-size="10" font-weight="600" letter-spacing="0.9" fill="#2E2A27" fill-opacity="0.84" style="--fd:0.82s">LEADERSHIP + ENABLEMENT</text>
+            <!-- reusable badge icons drawn manually -->
+            <g id="strategy_planning" data-area="strategy">
+            <rect class="xph-hit" x="68" y="98" width="538" height="309" rx="20"/>
+              <path class="connector xph-conn" stroke="#A25C6E" d="M255 230H360C405 230 435 240 463 262C499 290 537 348 585 386"/>
+              <circle cx="585" cy="386" r="7" fill="#A25C6E"/>
+              <g id="strategy_badge" transform="translate(140 170)">
+                <circle cx="0" cy="0" r="58" fill="#FEF7F8" filter="url(#glow)"/>
+                <circle cx="0" cy="0" r="42" fill="#FDE9ED" stroke="#A25C6E" class="badgeStroke"/>
+                <g stroke="#A25C6E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                  <path d="M-10 18L14 -18"/>
+                  <path d="M-17 2l9 22 22-9 11-24-24 11-18 0z"/>
+                  <circle cx="14" cy="-18" r="4.5" fill="#FDE9ED"/>
+                </g>
+              </g>
+              <text class="label" x="255" y="177">STRATEGY</text>
+              <text class="label" x="255" y="219">+ PLANNING</text>
+            </g>
 
+            <g id="demand_generation" data-area="demand">
+            <rect class="xph-hit" x="940" y="98" width="616" height="305" rx="20"/>
+              <path class="connector xph-conn" stroke="#B8891F" d="M1310 219C1225 220 1143 231 1078 273C1027 307 989 345 961 382"/>
+              <circle cx="961" cy="382" r="7" fill="#B8891F"/>
+              <g id="demand_badge" transform="translate(1270 170)">
+                <circle cx="0" cy="0" r="58" fill="#FFF9EE" filter="url(#glow)"/>
+                <circle cx="0" cy="0" r="42" fill="#FBF0D8" stroke="#B8891F" class="badgeStroke"/>
+                <g stroke="#B8891F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                  <path d="M-12 3h15l16-13v26L3 3H-12z"/>
+                  <path d="M37 -4c4 3 4 15 0 18"/>
+                  <circle cx="37" cy="-4" r="1.8" fill="#B8891F"/>
+                </g>
+              </g>
+              <text class="label" x="1360" y="177">DEMAND</text>
+              <text class="label" x="1360" y="219">GENERATION</text>
+            </g>
+
+            <g id="brand_digital" data-area="brand">
+            <rect class="xph-hit" x="1030" y="468" width="619" height="222" rx="20"/>
+              <path class="connector xph-conn" stroke="#6756C5" d="M1308 593c-56 17-94 36-135 60-38 23-79 26-116 21"/>
+              <circle cx="1051" cy="621" r="7" fill="#6756C5"/>
+              <g id="brand_badge" transform="translate(1425 540)">
+                <circle cx="0" cy="0" r="58" fill="#FBF9FF" filter="url(#glow)"/>
+                <circle cx="0" cy="0" r="42" fill="#EDE8FB" stroke="#7C69D1" class="badgeStroke"/>
+                <g stroke="#7C69D1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                  <rect x="-21" y="-13" width="34" height="24" rx="2.5"/>
+                  <path d="M-8 18h22"/>
+                  <path d="M3 11v7"/>
+                  <rect x="16" y="-5" width="14" height="24" rx="2.5"/>
+                </g>
+              </g>
+              <text class="label" x="1498" y="519">BRAND</text>
+              <text class="label" x="1498" y="561">+ DIGITAL</text>
+            </g>
+
+            <g id="marketing_sales_ops" data-area="ops">
+            <rect class="xph-hit" x="888" y="678" width="630" height="287" rx="20"/>
+              <path class="connector xph-conn" stroke="#E37D68" d="M1292 888h-61c-59 0-112-17-145-49-18-17-36-42-53-80"/>
+              <circle cx="909" cy="699" r="7" fill="#E37D68"/>
+              <g id="ops_badge" transform="translate(1238 893)">
+                <circle cx="0" cy="0" r="58" fill="#FFF8F3" filter="url(#glow)"/>
+                <circle cx="0" cy="0" r="42" fill="#FDE7DA" stroke="#C67955" class="badgeStroke"/>
+                <g stroke="#C67955" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                  <path d="M-18 17v-16h10v16z"/>
+                  <path d="M-1 17v-26h10v26z"/>
+                  <path d="M16 17v-36h10v36z"/>
+                </g>
+              </g>
+              <text class="label" x="1320" y="865">MARKETING</text>
+              <text class="label" x="1320" y="907">+ SALES OPS</text>
+            </g>
+
+            <g id="workflows_ai" data-area="workflows">
+            <rect class="xph-hit" x="136" y="769" width="610" height="225" rx="20"/>
+              <path class="connector xph-conn" stroke="#8F63E5" d="M260 952H394c48 0 105-16 140-52 23-23 44-48 63-72"/>
+              <circle cx="725" cy="790" r="7" fill="#8F63E5"/>
+              <g id="workflow_badge" transform="translate(208 922)">
+                <circle cx="0" cy="0" r="58" fill="#FCFBFF" filter="url(#glow)"/>
+                <circle cx="0" cy="0" r="42" fill="#EEE9FB" stroke="#8F63E5" class="badgeStroke"/>
+                <g stroke="#8F63E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                  <path d="M0 -22v12"/>
+                  <path d="M0 10v12"/>
+                  <path d="M-22 0h12"/>
+                  <path d="M10 0h12"/>
+                  <path d="M-10 -10L10 10"/>
+                  <path d="M10 -10L-10 10"/>
+                </g>
+              </g>
+              <text class="label" x="302" y="900">WORKFLOWS</text>
+              <text class="label" x="302" y="942">+ AI</text>
+            </g>
+
+            <g id="leadership_enablement" data-area="leadership">
+            <rect class="xph-hit" x="53" y="468" width="568" height="144" rx="20"/>
+              <path class="connector xph-conn" stroke="#B46C83" d="M210 593h120c76 0 135-4 190-22 35-11 63-25 79-36"/>
+              <circle cx="600" cy="555" r="7" fill="#B46C83"/>
+              <g id="leadership_badge" transform="translate(125 540)">
+                <circle cx="0" cy="0" r="58" fill="#FFF7F8" filter="url(#glow)"/>
+                <circle cx="0" cy="0" r="42" fill="#FDEAED" stroke="#B46C83" class="badgeStroke"/>
+                <g stroke="#B46C83" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                  <circle cx="0" cy="-12" r="8"/>
+                  <circle cx="-17" cy="-4" r="7"/>
+                  <circle cx="17" cy="-4" r="7"/>
+                  <path d="M-16 17c2-12 12-18 16-18s14 6 16 18"/>
+                  <path d="M-29 18c1-9 8-14 12-15"/>
+                  <path d="M29 18c-1-9-8-14-12-15"/>
+                </g>
+              </g>
+              <text class="label" x="210" y="533">LEADERSHIP</text>
+              <text class="label" x="210" y="575">+ ENABLEMENT</text>
+            </g>
           </svg>
         </aside>
       </div>
@@ -505,6 +720,27 @@
     </div>
   </footer>
   <!-- ============ /SHARED FOOTER ============ -->
+
+  <script>
+  /* ---- Expertise hero graphic: hover focus ----
+     A data attribute rather than :has(), which lost its own specificity
+     duel and dimmed every circle at once. Pointer only: no focus ring
+     work here because the graphic is decorative and every label is
+     repeated as a real heading in "Where I help" below. */
+  (function () {
+    var svg = document.querySelector('.xph');
+    if (!svg || !window.matchMedia('(hover: hover)').matches) return;
+    svg.querySelectorAll('[data-area]').forEach(function (g) {
+      g.addEventListener('pointerenter', function () {
+        svg.setAttribute('data-focus', g.getAttribute('data-area'));
+      });
+      g.addEventListener('pointerleave', function () {
+        svg.removeAttribute('data-focus');
+      });
+    });
+    svg.addEventListener('pointerleave', function () { svg.removeAttribute('data-focus'); });
+  }());
+  </script>
 
   <script>
   /* ---- Where I help: one capability list open at a time ---- */

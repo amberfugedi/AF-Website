@@ -1488,6 +1488,52 @@ full-size files they linked to are still live on Projects.
 
 ## Interior hero system (2026-08)
 
+### Expertise hero: Amber's SVG, inlined (2026-08)
+
+Her file, not a rebuild. Inlined rather than `<img>` so the groups stay
+addressable: `cluster_strategy` / `_demand` / `_brand` / `_ops` /
+`_workflows` / `_leadership`, one group per area, plus `orbits`,
+`sparkles`, `dotGrids`, `atmosphere`. THE IDS ARE HERS — do not rename.
+
+TWO THINGS IN THE SUPPLIED FILE HAD TO CHANGE:
+- The viewBox was `0 0 1600 1000` while the artwork runs to x=1665, so
+  "+ DIGITAL" was clipped off the right edge. Now `58 104 1620 884`.
+- Labels were 24px on a 1600 canvas. In a hero column that renders at
+  about 8px, so they are 30px now (11.3px on screen at 1440), with the
+  second line of each two-line pair pushed down 9px. Font swapped from
+  Arial to the Manrope stack.
+
+PHONES ARE THE HONEST LIMIT. At 390 the graphic gets ~342px for a 1620
+unit canvas, so labels land near 6px. Enlarging them is worse, not
+better: at 40px they run past the viewBox and get cropped, and the brief
+says never crop a label. They stay small; the six areas are spelled out
+in full in "Where I help" directly below. A readable phone version needs
+a different arrangement, not a CSS change.
+
+THREE SPECIFICITY BUGS, ALL CAUGHT BY MEASURING, NONE VISIBLE IN THE CSS:
+- The entrance stagger used a separate `> *` delay rule. `animation:` is
+  a shorthand that resets `animation-delay` to 0, and `> text` outscores
+  `> *`, so all six areas arrived at once and ahead of the orbits. The
+  delay now rides in the same rule via a `--xd` custom property.
+- Hover emphasis `[data-focus="demand"] #cluster_demand` (1,2,0) lost to
+  the dim rule `[data-focus] #cluster circle` (1,2,1) — an element
+  selector outweighed it, so every circle dimmed and none came forward.
+  Fixed by adding `#cluster` to the emphasis selector: two IDs wins.
+- `:has()` was the first approach for hover and is now gone. It set the
+  outward nudge correctly and lost the fill-opacity duel silently.
+  Hover is a `data-focus` attribute set by ~15 lines of vanilla JS.
+
+HIT TARGETS. The area groups are stroke and text only, so hovering
+"the group" meant hovering the glyph outlines. Each group carries a
+transparent `.xph-hit` rect covering its label and badge.
+
+ORDER AND TIMING, measured: cluster 0-0.7s, orbits from 0.7s, connectors
+draw 0.7-1.35s, labels 1.0-1.6s, sparkles last. Ambient drift is 2-4px
+per circle on independent 9.5-14s loops. Under
+`prefers-reduced-motion` everything is at final state with no animation
+and no transitions.
+
+
 ### The head -> first section joint (2026-08)
 
 Amber, 2026-08 on About: "spacing needs to be fixed still" — roughly

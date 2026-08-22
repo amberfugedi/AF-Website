@@ -1685,18 +1685,160 @@ a.bld-item .bld-item-arrow {
    trade she asked for. */
 .page-expertise main .wrap { max-width: 1200px; }
 
-/* ---- Expertise hero: six overlapping sheets ----
-   Lives in .hero-visual (not .head-art), so needs its own width rule
-   and its own --d/--fd timing hooks to match the head-art draw-on. */
-.xp-visual .glyph { width: 100%; height: auto; margin: 0; opacity: 0.92; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ================= Expertise hero graphic =================
+   Amber's SVG, inlined. Sizing first: the artwork is 1596 units wide,
+   so at a 560px column its 30px labels land near 10.5px. The visual
+   takes as much of the row as the copy can spare — 44/56 — and the
+   336px height cap that the other heroes use is lifted here, because
+   this graphic is wide rather than tall. */
+.page-expertise .hero-split { grid-template-columns: minmax(0, 44fr) minmax(0, 56fr); }
+.xp-visual { max-width: 660px; }
+.xp-visual > .xph { max-height: none; }
+.xph { width: 100%; height: auto; display: block; }
+
+/* ---- entrance ----
+   Cluster, then orbits, then the connectors draw outward, then the
+   labels, then the small stuff. Roughly 1.5s end to end. */
+.xph #cluster circle {
+  opacity: 0;
+  transform: scale(0.96);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.reveal.in-view .xph #cluster circle {
+  animation: xph-pop 0.7s var(--ease) forwards;
+}
+.reveal.in-view .xph #cluster circle:nth-child(2) { animation-delay: 0.06s; }
+.reveal.in-view .xph #cluster circle:nth-child(3) { animation-delay: 0.12s; }
+.reveal.in-view .xph #cluster circle:nth-child(4) { animation-delay: 0.18s; }
+.reveal.in-view .xph #cluster circle:nth-child(5) { animation-delay: 0.24s; }
+.reveal.in-view .xph #cluster circle:nth-child(6) { animation-delay: 0.30s; }
+@keyframes xph-pop { to { opacity: 1; transform: scale(1); } }
+
+.xph #orbits, .xph #atmosphere { opacity: 0; }
+.reveal.in-view .xph #atmosphere { animation: xph-fade 0.8s var(--ease) 0.05s forwards; }
+.reveal.in-view .xph #orbits     { animation: xph-fade-65 0.7s var(--ease) 0.34s forwards; }
+@keyframes xph-fade    { to { opacity: 1; } }
+@keyframes xph-fade-65 { to { opacity: 0.65; } }
+
+.xph .xph-conn { stroke-dasharray: 1400; stroke-dashoffset: 1400; }
+.reveal.in-view .xph .xph-conn { animation: xph-draw 0.85s var(--ease) 0.5s forwards; }
+@keyframes xph-draw { to { stroke-dashoffset: 0; } }
+
+/* the badge + label pairs, staggered so the six do not arrive together.
+   The delay MUST ride in the same rule as the shorthand: `animation:`
+   resets animation-delay to 0, and a `> *` selector scores lower than
+   `> text`, so a separate delay rule silently lost and all six arrived
+   at once, ahead of the orbits. */
+.xph [data-area] > g,
+.xph [data-area] > text,
+.xph [data-area] > circle { opacity: 0; }
+.reveal.in-view .xph [data-area] > g,
+.reveal.in-view .xph [data-area] > text,
+.reveal.in-view .xph [data-area] > circle {
+  animation: xph-fade 0.55s var(--ease) var(--xd) forwards;
+}
+.xph #strategy_planning     { --xd: 0.78s; }
+.xph #demand_generation     { --xd: 0.86s; }
+.xph #brand_digital         { --xd: 0.94s; }
+.xph #marketing_sales_ops   { --xd: 1.02s; }
+.xph #workflows_ai          { --xd: 1.10s; }
+.xph #leadership_enablement { --xd: 1.18s; }
+/* the connector inside each group draws rather than fades */
+.reveal.in-view .xph .xph-conn { opacity: 0.9; animation: xph-draw 0.85s var(--ease) 0.5s forwards; }
+
+.xph #sparkles, .xph #dotGrids { opacity: 0; }
+.reveal.in-view .xph #sparkles { animation: xph-fade 0.7s var(--ease) 1.3s forwards; }
+.reveal.in-view .xph #dotGrids { animation: xph-fade-65 0.7s var(--ease) 1.4s forwards; }
+
+/* ---- ambient: 2-5px of independent drift, 9-14s, nothing else ---- */
+.reveal.in-view .xph #cluster_strategy   { animation: xph-pop 0.7s var(--ease) forwards, xph-d1 11s var(--ease) 1.6s infinite; }
+.reveal.in-view .xph #cluster_demand     { animation: xph-pop 0.7s var(--ease) 0.06s forwards, xph-d2 13s var(--ease) 1.9s infinite; }
+.reveal.in-view .xph #cluster_leadership { animation: xph-pop 0.7s var(--ease) 0.12s forwards, xph-d3 9.5s var(--ease) 1.7s infinite; }
+.reveal.in-view .xph #cluster_brand      { animation: xph-pop 0.7s var(--ease) 0.18s forwards, xph-d4 12.5s var(--ease) 2.1s infinite; }
+.reveal.in-view .xph #cluster_workflows  { animation: xph-pop 0.7s var(--ease) 0.24s forwards, xph-d2 14s var(--ease) 1.5s infinite; }
+.reveal.in-view .xph #cluster_ops        { animation: xph-pop 0.7s var(--ease) 0.30s forwards, xph-d3 10.5s var(--ease) 2.3s infinite; }
+@keyframes xph-d1 { 0%,100% { translate: 0 0; } 50% { translate: 3px -4px; } }
+@keyframes xph-d2 { 0%,100% { translate: 0 0; } 50% { translate: -4px 3px; } }
+@keyframes xph-d3 { 0%,100% { translate: 0 0; } 50% { translate: 2px 4px; } }
+@keyframes xph-d4 { 0%,100% { translate: 0 0; } 50% { translate: -3px -3px; } }
+
+/* ---- hover: emphasise one area, barely dim the rest ----
+   Driven by a data attribute rather than :has(). The :has() version
+   worked for the outward nudge but lost the fill-opacity duel with its
+   own dim rule, so every circle dimmed and none came forward. A hit
+   rect per group also gives the label and badge a real target: the
+   groups are stroke-and-text only, so without it the hover area was
+   the glyph outlines themselves. */
+.xph [data-area] { transition: opacity 0.25s var(--ease), translate 0.25s var(--ease); }
+.xph #cluster circle { transition: fill-opacity 0.3s var(--ease), stroke-opacity 0.3s var(--ease); }
+.xph .xph-hit { fill: transparent; cursor: default; }
+
+.xph[data-focus] #cluster circle { fill-opacity: 0.3; }
+.xph[data-focus="strategy"] #cluster #cluster_strategy   { fill-opacity: 0.78; }
+.xph[data-focus="demand"] #cluster #cluster_demand     { fill-opacity: 0.78; }
+.xph[data-focus="brand"] #cluster #cluster_brand      { fill-opacity: 0.82; }
+.xph[data-focus="ops"] #cluster #cluster_ops        { fill-opacity: 0.72; }
+.xph[data-focus="workflows"] #cluster #cluster_workflows  { fill-opacity: 0.82; }
+.xph[data-focus="leadership"] #cluster #cluster_leadership { fill-opacity: 0.82; }
+.xph[data-focus] [data-area]  { opacity: 0.62; }
+.xph[data-focus="strategy"]   #strategy_planning     { opacity: 1; translate: -4px -3px; }
+.xph[data-focus="demand"]     #demand_generation     { opacity: 1; translate:  4px -3px; }
+.xph[data-focus="brand"]      #brand_digital         { opacity: 1; translate:  5px 0; }
+.xph[data-focus="ops"]        #marketing_sales_ops   { opacity: 1; translate:  4px  3px; }
+.xph[data-focus="workflows"]  #workflows_ai          { opacity: 1; translate: -4px  3px; }
+.xph[data-focus="leadership"] #leadership_enablement { opacity: 1; translate: -5px 0; }
+/* the matching connector firms up */
+.xph[data-focus="strategy"]   #strategy_planning .connector,
+.xph[data-focus="demand"]     #demand_generation .connector,
+.xph[data-focus="brand"]      #brand_digital .connector,
+.xph[data-focus="ops"]        #marketing_sales_ops .connector,
+.xph[data-focus="workflows"]  #workflows_ai .connector,
+.xph[data-focus="leadership"] #leadership_enablement .connector { opacity: 1; stroke-width: 3.4; }
+
+@media (max-width: 900px) {
+  .page-expertise .hero-split { grid-template-columns: 1fr; }
+  .xp-visual { max-width: none; }
+}
+/* PHONES ARE THE HONEST LIMIT OF THIS GRAPHIC. The artwork is 1620
+   units wide and a phone gives it ~342px, so the 30px labels render at
+   about 6px. Enlarging them was tried and is worse: at 40px they run
+   past the viewBox and get cropped, and the brief says never crop a
+   label. The labels stay small here and the six areas are spelled out
+   in full in "Where I help" immediately below. Making them readable on
+   a phone needs a different arrangement, not a CSS change. */
+@media (max-width: 480px) {
+  /* the labels must stay readable, so the decoration goes first */
+  .xph #dotGrids { display: none; }
+}
+/* No drift, no draw-on, no hover motion. The graphic simply arrives. */
+@media (prefers-reduced-motion: reduce) {
+  .xph #cluster circle,
+  .xph #orbits, .xph #atmosphere, .xph #sparkles, .xph #dotGrids,
+  .xph #strategy_planning > *, .xph #demand_generation > *, .xph #brand_digital > *,
+  .xph #marketing_sales_ops > *, .xph #workflows_ai > *, .xph #leadership_enablement > * {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+  .xph #orbits, .xph #dotGrids { opacity: 0.65; }
+  .xph .xph-conn { stroke-dashoffset: 0; }
+  .xph #strategy_planning, .xph #demand_generation, .xph #brand_digital,
+  .xph #marketing_sales_ops, .xph #workflows_ai, .xph #leadership_enablement,
+  .xph #cluster circle { transition: none; }
+}
 /* The 420-wide viewBox renders around 476px on a desktop head and only
    ~342px on a phone, so the 10px labels fall to about 8px there. Step
    them up in viewBox units, and buy the width back out of the tracking
    rather than the sheets. Measured ceiling: at 12px/0.9 four of the six
    labels run past their own sheet, so 11.5/0.45 is the fit. */
-@media (max-width: 760px) {
-  .xp-visual .glyph text { font-size: 11.5px; letter-spacing: 0.45px; }
-}
+
 .reveal.in-view .xp-visual .glyph .stroke { animation-duration: 1.5s; animation-delay: var(--d, 0s); }
 .reveal.in-view .xp-visual .glyph .fill   { animation-delay: var(--fd, 0.5s); }
 
