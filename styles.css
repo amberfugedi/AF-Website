@@ -1602,18 +1602,17 @@ a.bld-item .bld-item-arrow {
    height 380 x 5/4 gave, so the extra width costs no head height at
    all. It grows leftward only. */
 .page-about .hero-visual.about-shot { max-width: 422px; }
-/* .tab-em is an inline-block, so a highlighted phrase that no longer
-   fits on one line does not break into two marks — the box grows two
-   lines tall and both pseudo-tabs stretch over the whole thing, which
-   renders as a solid pink banner. "leader and consultant." is the
-   longest tab on the site and it stopped fitting below 390px, where
-   --fs-h1 is pinned to its 40px floor.
-   Capping the About h1 at 9.9vw lets it keep shrinking below that
-   floor so the phrase always holds one line: 37px at 375, 32px at 320.
-   Above ~430 --fs-h1 is the smaller of the two and nothing changes.
-   NOTE: this is tied to the length of that phrase. Lengthen the
-   highlighted words and re-check the narrow widths. */
-.page-about .head-copy h1 { font-size: min(var(--fs-h1), 9.9vw); }
+/* .tab-em is an inline-block, so a highlighted phrase that stops
+   fitting on one line does NOT break into two marks — the box grows
+   two lines tall and both pseudo-tabs stretch across the whole thing,
+   which renders as a solid banner. The guard is phrase length, not
+   font size: shrinking the h1 was tried and does not help, because the
+   headline rewraps and the phrase still cannot fit.
+   Keep highlighted phrases to roughly one or two words. Measured with
+   the real Newsreader at 320-430px: "leader and consultant." banners
+   at every width up to 402; "and consultant." and "consultant." hold
+   one line everywhere. Every other tab on the site is already short
+   enough. */
 /* The shared hero lede caps at 46ch, which was measured against a
    446px copy column. Against 722px it left the paragraph looking like
    a narrow inset under a full-width headline.

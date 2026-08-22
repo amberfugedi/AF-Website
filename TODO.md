@@ -119,6 +119,22 @@ work only you can do.
 
 ## 5. Decided, recorded so it is not re-litigated
 
+- **Test with the real fonts loaded** (2026-08-22). Headless renders had
+  been blocking fonts.googleapis.com, so Chromium substituted a serif
+  with narrower metrics than Newsreader. A highlight that measured safe
+  down to 375px actually broke at 402px on a real phone. Google Fonts
+  CSS is reachable from the dev environment; fetch the woff/ttf once and
+  serve them through a Playwright route rather than aborting the request.
+
+- **Keep .tab-em phrases to one or two words** (2026-08-22). It is an
+  inline-block, so a phrase that stops fitting does not split into two
+  marks — the box grows two lines tall and the pseudo-tabs stretch into
+  one solid banner. Measured with real Newsreader: 22 characters banners
+  at every width up to 402px; 15 and under hold one line down to 320.
+  Counting getClientRects() does NOT detect this — an inline-block
+  always reports one rect. Compare the tab's height to the line-height.
+
+
 - **All asset and internal references are root-relative** (2026-08-22).
   Relative paths resolve correctly from a one-level clean URL but break
   from any trailing-slash form, which is what once shipped the course
