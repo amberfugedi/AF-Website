@@ -2677,12 +2677,22 @@ a.bld-item .bld-item-arrow {
    as deliberate; stacked as six rows, two of them look like a mistake.
    Leadership moved to plum (325) and workflows to a bluer violet (265),
    which takes the smallest gap between any two hues to 14 degrees. */
-.ch-strategy   .ch-mark { background: #FDE9ED; }
-.ch-demand     .ch-mark { background: #FBF0D8; }
-.ch-brand      .ch-mark { background: #EDE8FB; }
-.ch-ops        .ch-mark { background: #FDE7DA; }
-.ch-ai         .ch-mark { background: #EFE8FC; }
-.ch-leadership .ch-mark { background: #FBE7F0; }
+/* TINTS SPLIT BY VALUE, NOT JUST HUE (Amber, 2026-08: "the purple and
+   pink look too close"). Taking her badge fills verbatim put brand and
+   workflows 3 RGB points apart and strategy and leadership 7 — the
+   circle is the largest colour area in a mark, so separating the
+   strokes alone changed nothing. The palette has no cool hues, so six
+   hues cannot spread evenly: 20, 44, 244, 284, 322, 350 leaves a
+   200-degree hole where blues and greens would be. Lightness carries
+   the rest of the work — the paler of each close pair stays pale and
+   the other steps down. Smallest gap between any two tints is now 19
+   RGB points, up from 3. */
+.ch-strategy   .ch-mark { background: #FCEBEE; }
+.ch-demand     .ch-mark { background: #FAF0D4; }
+.ch-brand      .ch-mark { background: #E0DEFA; }
+.ch-ops        .ch-mark { background: #FCE8DE; }
+.ch-ai         .ch-mark { background: #E9CFF2; }
+.ch-leadership .ch-mark { background: #F5D4E9; }
 .ch-problem .ch-word { margin-bottom: 10px; }
 
 /* ---- "What this can include" ----
