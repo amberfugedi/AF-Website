@@ -64,7 +64,15 @@ Year ranges may use dashes (en dashes, not em dashes).
 | (tab butter) | `#FBEDBF` / `#F2DC9C` | Butter tab pair (fill only, headline tabs) | ink text on top |
 
 **Offer color coding (used on every page the offers appear):**
-Courses = peach · Workflow & AI Guidance = lavender · Consulting = blush.
+Courses = peach · Workflow & AI Guidance = lavender · Consulting = blush ·
+Fractional marketing leadership = blush, one step lighter (2026-08).
+Fractional was added as a fourth offer on Services. The palette defines
+exactly three pastels, so rather than invent a fourth hue it shares
+Consulting's: the two are the ways of working with Amber directly,
+separated by shape (project vs retained) rather than by kind. Its aside
+sits at 55% blush and its section wash at 0.18 so the two adjacent
+sections stay tellable apart. If a genuine fourth pastel is ever added,
+this is the first thing to revisit.
 (CSS class names still say "automations"; only visible copy renamed.)
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is

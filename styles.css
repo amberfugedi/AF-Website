@@ -779,6 +779,9 @@ body.page-sub .aura { --aura-base: 0.45; }
 .offer-section.offer-courses .glyph     { color: var(--courses-deep); }
 .offer-section.offer-automations .glyph { color: var(--automations-deep); }
 .offer-section.offer-consulting .glyph  { color: var(--consulting-deep); }
+/* Fractional shares Consulting's tone: the palette defines three
+   pastels, one per offer, and a fourth would be a brand change. */
+.offer-section.offer-fractional .glyph  { color: var(--consulting-deep); }
 
 /* Offer card art: layered composition (blob + enlarged mark + accents) */
 .card-art { margin-bottom: 18px; }
@@ -2218,6 +2221,7 @@ a.bld-item .bld-item-arrow {
 .anchor-nav a.nav-courses.active     { color: var(--courses-deep);     background: var(--peach); }
 .anchor-nav a.nav-automations.active { color: var(--automations-deep); background: var(--lavender); }
 .anchor-nav a.nav-consulting.active  { color: var(--consulting-deep);  background: var(--blush); }
+.anchor-nav a.nav-fractional.active  { color: var(--consulting-deep);  background: var(--blush); }
 /* Work: each section's tab takes its own color as you scroll */
 .anchor-nav a.nav-lead.active  { color: var(--coral-deep);      background: rgba(255, 111, 97, 0.18); }
 .anchor-nav a.nav-grow.active  { color: var(--consulting-deep); background: var(--blush); }
@@ -2228,6 +2232,11 @@ a.bld-item .bld-item-arrow {
 .offer-section.offer-courses     { background: linear-gradient(180deg, rgba(252,228,196,0.28), transparent 75%); }
 .offer-section.offer-automations { background: linear-gradient(180deg, rgba(218,212,245,0.28), transparent 75%); }
 .offer-section.offer-consulting  { background: linear-gradient(180deg, rgba(251,213,228,0.28), transparent 75%); }
+/* Fractional deliberately shares Consulting's blush: they are the two
+   ways of working with Amber directly, separated by shape rather than
+   by kind. The palette also defines exactly three pastels, so a fourth
+   hue would be a brand change rather than a page change. */
+.offer-section.offer-fractional  { background: linear-gradient(180deg, rgba(251,213,228,0.18), transparent 70%); }
 .offer-section + .offer-section { border-top: 1px solid var(--line); }
 
 .offer-grid {
@@ -2295,12 +2304,17 @@ a.bld-item .bld-item-arrow {
 .offer-section.offer-courses .offer-points li::before     { background: var(--peach);    border-color: var(--courses-deep); }
 .offer-section.offer-automations .offer-points li::before { background: var(--lavender); border-color: var(--automations-deep); }
 .offer-section.offer-consulting .offer-points li::before  { background: var(--blush);    border-color: var(--consulting-deep); }
+.offer-section.offer-fractional .offer-points li::before  { background: var(--blush);    border-color: var(--consulting-deep); }
 .offer-section.offer-courses .offer-aside     { background: var(--peach); }
 .offer-section.offer-automations .offer-aside { background: var(--lavender); }
 .offer-section.offer-consulting .offer-aside  { background: var(--blush); }
+/* One step lighter than Consulting's aside so the two adjacent blush
+   sections are still tellable apart at a glance. */
+.offer-section.offer-fractional .offer-aside  { background: rgba(251, 213, 228, 0.55); }
 .offer-section.offer-courses .offer-aside .tier     { color: var(--courses-deep); }
 .offer-section.offer-automations .offer-aside .tier { color: var(--automations-deep); }
 .offer-section.offer-consulting .offer-aside .tier  { color: var(--consulting-deep); }
+.offer-section.offer-fractional .offer-aside .tier  { color: var(--consulting-deep); }
 
 /* ============ Services — What sounds like you? ============ */
 .sp-section {
