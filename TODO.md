@@ -21,17 +21,19 @@ comment; the Courses section is recoverable from git.
       bottom pin falls back to `.nav-note` via `:has()` and hands back
       automatically when `.nav-secondary` returns.
 
-### Contact forms — the code is done, the step is in Netlify
-Both forms are fully wired and verified end to end; the payload is
-exactly what Netlify expects.
-
-- [ ] **Enable form detection.** Project configuration → Forms → Form
-      detection → Enable. Off by default since August 2024, which is
-      why the forms look wired but nothing arrives.
-- [ ] **Redeploy after enabling** — it does not retroactively scan the
-      last build.
-- [ ] **Add an email notification** to amberfugedi@gmail.com. Netlify
-      does not email on submission by default.
+### Contact forms
+- [x] Form detection enabled in Netlify (2026-08-22).
+- [x] Redeployed after enabling, so the build was scanned.
+- [ ] **Add an email notification** to amberfugedi@gmail.com. Forms →
+      Form notifications → Add notification → Email notification.
+      Netlify does not email on submission by default, so until this is
+      set the entries collect silently in the Forms tab.
+- [ ] **Confirm both forms registered.** The Forms tab should list two:
+      `contact` and `course-updates`. The three course-updates forms on
+      Courses, Services and the course page share one name on purpose,
+      so they land in a single list.
+- [ ] **Send one real test** through the contact form and check it
+      arrives, since nothing here can reach the live domain.
 
 ### Search migration
 Redirects, canonicals and the sitemap are done. The rest is dashboard
