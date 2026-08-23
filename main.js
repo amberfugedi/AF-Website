@@ -347,6 +347,17 @@
     lb.addEventListener("close", function () { document.documentElement.style.overflow = ""; });
   }
 
+  /* ---------- Course page: mobile purchase bar ----------
+     Revealed once the hero's own buy block has scrolled out of view,
+     so the page never shows two identical CTAs at the same time. */
+  var stickyBar = document.getElementById("crs-sticky");
+  var heroBuy = document.querySelector(".page-course .head-copy .buy");
+  if (stickyBar && heroBuy && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      stickyBar.classList.toggle("show", !entries[0].isIntersecting);
+    }, { rootMargin: "0px 0px -40px 0px" }).observe(heroBuy);
+  }
+
   /* ---------- Nav: scrolled state + mobile toggle ---------- */
   var nav = document.querySelector(".site-nav");
   var onScroll = function () {

@@ -3141,6 +3141,187 @@ a.bld-item .bld-item-arrow {
 }
 .cs-inc dd { margin: 0; font-family: var(--font-display); color: var(--ink); letter-spacing: -0.015em; }
 .cs-note { color: var(--muted); max-width: 68ch; margin: 26px 0 0; }
+
+/* ============ Course sales page (2026-08) ============
+   The page sells rather than collects addresses. Everything below is
+   built from the site's existing vocabulary: hairlines, the coral CTA,
+   the offer tints. No new devices. */
+
+/* Hero: course facts, then price and buy */
+.crs-facts {
+  list-style: none; margin: 24px 0 0; padding: 18px 0 0;
+  border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 8px 26px;
+  color: var(--muted);
+}
+.crs-facts li { position: relative; padding-left: 16px; }
+.crs-facts li::before {
+  content: ""; position: absolute; left: 0; top: 0.62em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--coral);
+}
+.buy { margin-top: 26px; }
+.buy-price { color: var(--muted); margin: 0 0 16px; }
+.buy-amount {
+  font-family: var(--font-display); color: var(--ink);
+  letter-spacing: -0.02em; margin-right: 10px;
+}
+.buy-alt { align-self: center; }
+
+/* Foundation Plan preview. Representation, not a screenshot: it shows
+   only real course outputs and says so in its own caption. */
+.fm-preview {
+  max-width: 400px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 20px 16px;
+  box-shadow: var(--shadow-soft);
+}
+.fm-cap {
+  font-size: var(--fs-small); font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 12px;
+}
+.fm-rows { list-style: none; margin: 0; padding: 0; }
+.fm-rows li {
+  display: grid; grid-template-columns: 26px minmax(0,1fr) auto;
+  gap: 10px; align-items: baseline;
+  padding: 8px 0; border-top: 1px solid var(--line);
+}
+.fm-n { color: var(--muted); font-weight: 600; }
+.fm-f { color: var(--ink); }
+.fm-p { font-weight: 600; letter-spacing: 0.02em; }
+.fm-hi  { color: var(--coral-deep); }
+.fm-med { color: var(--automations-deep); }
+.fm-low { color: var(--muted); }
+.fm-plan { margin-top: 14px; padding-top: 12px; border-top: 2px solid var(--ink); display: grid; gap: 7px; }
+.fm-plan > div { display: flex; gap: 12px; align-items: baseline; }
+.fm-k {
+  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  min-width: 48px;
+}
+.fm-k1 { color: var(--coral-deep); }
+.fm-k2 { color: var(--body); }
+.fm-k3 { color: var(--muted); }
+.fm-v { color: var(--ink); }
+.fm-note { color: var(--muted); margin: 12px 0 0; }
+
+/* Map section: three steps beside the three tiers */
+.fm-grid {
+  display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,0.95fr);
+  gap: clamp(30px, 4.5vw, 70px); margin-top: clamp(26px, 3vw, 40px);
+  align-items: start;
+}
+.fm-steps { list-style: none; margin: 0; padding: 0; }
+.fm-steps li {
+  display: grid; grid-template-columns: 40px minmax(0,1fr); gap: 18px;
+  padding: 18px 0; border-top: 1px solid var(--line);
+}
+.fm-steps li:first-child { border-top: 0; padding-top: 0; }
+.fm-sn {
+  font-family: var(--font-display); color: var(--coral-deep);
+  line-height: 1; letter-spacing: -0.02em;
+}
+.fm-steps h3 { font-family: var(--font-display); color: var(--ink); margin-bottom: 5px; letter-spacing: -0.015em; }
+.fm-steps p { color: var(--muted); margin: 0; }
+.fm-tiers { display: grid; gap: 0; }
+.fm-tiers > div { padding: 15px 0; border-top: 1px solid var(--line); }
+.fm-tiers > div:first-child { border-top: 0; padding-top: 0; }
+.fm-tiers p { color: var(--muted); margin: 0; }
+.ct-k { display: block; margin-bottom: 4px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.ct-first .ct-k { color: var(--coral-deep); }
+.ct-next  .ct-k { color: var(--body); }
+.ct-later .ct-k { color: var(--muted); }
+
+/* Who it's for: the exclusion */
+.cs-not { color: var(--muted); margin: 20px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
+
+/* Before / after. Two lists, not two slabs. */
+.ba { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(26px, 4vw, 60px); margin-top: 26px; }
+.ba-k { font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px; }
+.ba-before .ba-k { color: var(--muted); }
+.ba-after .ba-k { color: var(--coral-deep); }
+.ba-col ul { list-style: none; margin: 0; padding: 0; }
+.ba-col li { padding: 11px 0; border-top: 1px solid var(--line); color: var(--body); }
+.ba-before li { color: var(--muted); }
+
+/* Teacher */
+.teach-grid { display: grid; grid-template-columns: minmax(0,0.42fr) minmax(0,1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+.teach-photo { width: 100%; height: auto; border-radius: 12px; display: block; }
+.teach-cta { margin-top: 24px; align-items: center; }
+
+/* Purchase box */
+.buy-wrap { background: linear-gradient(180deg, rgba(251,213,228,0.22), transparent 70%); }
+.buy-box {
+  background: var(--bg-raised); border: 1px solid var(--line);
+  border-radius: 16px; padding: clamp(28px, 4vw, 46px);
+  box-shadow: var(--shadow-soft); max-width: 760px;
+}
+.buy-box h2 { margin-bottom: 14px; }
+.buy-price-lg { margin-bottom: 22px; }
+.buy-list { list-style: none; margin: 0 0 26px; padding: 0; }
+.buy-list li { padding: 10px 0 10px 28px; border-top: 1px solid var(--line); position: relative; color: var(--body); }
+.buy-list li::before {
+  content: ""; position: absolute; left: 2px; top: 1.05em;
+  width: 11px; height: 6px; border-left: 2px solid var(--coral-deep);
+  border-bottom: 2px solid var(--coral-deep); transform: rotate(-45deg);
+}
+.buy-note { color: var(--muted); margin: 16px 0 0; }
+.buy-price-band { justify-content: center; margin: 0 0 22px; color: #E8DECB; }
+.cta-band .buy-amount { color: var(--bg); }
+
+/* FAQ */
+.faq { margin-top: 24px; max-width: 74ch; }
+.faq-q { border-top: 1px solid var(--line); }
+.faq-q:last-child { border-bottom: 1px solid var(--line); }
+.faq-q summary {
+  list-style: none; cursor: pointer; padding: 18px 34px 18px 0;
+  position: relative; font-weight: 600; color: var(--ink);
+  transition: color 0.2s var(--ease);
+}
+.faq-q summary::-webkit-details-marker { display: none; }
+.faq-q summary:hover { color: var(--coral-deep); }
+.faq-q summary:focus-visible { outline: 3px solid var(--coral-deep); outline-offset: 3px; border-radius: 3px; }
+.faq-s { position: absolute; right: 4px; top: 50%; width: 12px; height: 12px; margin-top: -8px; }
+.faq-s::before, .faq-s::after {
+  content: ""; position: absolute; background: var(--coral-deep);
+  transition: transform 0.22s var(--ease);
+}
+.faq-s::before { left: 0; top: 5px; width: 12px; height: 2px; }
+.faq-s::after { left: 5px; top: 0; width: 2px; height: 12px; }
+.faq-q[open] .faq-s::after { transform: scaleY(0); }
+.faq-q p { color: var(--muted); margin: 0 0 18px; max-width: 68ch; }
+
+/* Mobile sticky purchase bar. Appears once the hero buy has scrolled
+   away, so it never duplicates a visible button. */
+.crs-sticky {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
+  display: none;
+  align-items: center; justify-content: space-between; gap: 14px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(253, 249, 245, 0.96);
+  border-top: 1px solid var(--line);
+  transform: translateY(102%);
+  transition: transform 0.28s var(--ease);
+}
+.crs-sticky.show { transform: translateY(0); }
+.crs-sticky .cs-name { font-weight: 600; color: var(--ink); line-height: 1.2; }
+.crs-sticky .cs-cost { color: var(--muted); }
+.crs-sticky .btn { padding: 11px 18px; white-space: nowrap; }
+@media (max-width: 760px) {
+  .crs-sticky { display: flex; }
+  /* the bar must never sit on top of the last thing on the page */
+  body.page-course footer { padding-bottom: 92px; }
+}
+
+@media (max-width: 900px) {
+  .fm-grid { grid-template-columns: 1fr; gap: 30px; }
+  .teach-grid { grid-template-columns: 1fr; gap: 24px; }
+  .teach-photo { max-width: 260px; }
+}
+@media (max-width: 700px) {
+  .ba { grid-template-columns: 1fr; gap: 26px; }
+  .fm-preview { max-width: none; }
+}
 /* Price gets its own line above the details grid rather than a fifth
    cell in it: on a sales page it is the fact people look for, and a
    cramped grid cell buries it. */
@@ -5226,6 +5407,11 @@ footer p,
 .cl-n { font-size: var(--fs-small); }
 .cs-pull { font-size: var(--fs-intro); line-height: 1.35; }
 .cs-amount { font-size: var(--fs-h2); line-height: 1; }
+.buy-amount { font-size: var(--fs-h2); line-height: 1; }
+.fm-sn { font-size: var(--fs-h3); }
+.fm-steps h3 { font-size: var(--fs-intro); line-height: 1.25; }
+.crs-facts li, .fm-note, .fm-cap, .fm-k, .ct-k, .ba-k, .crs-sticky .cs-cost { font-size: var(--fs-small); line-height: 1.45; }
+.fm-rows li, .fm-plan > div, .cs-not, .ba-col li, .buy-list li, .faq-q summary, .faq-q p, .buy-price, .fm-steps p, .fm-tiers p, .crs-sticky .cs-name { font-size: var(--fs-body); line-height: 1.55; }
 .ct-title { font-size: clamp(1.5rem, 1.15rem + 1.6vw, 1.95rem); }
 .ct-stages li { font-size: clamp(0.72rem, 0.66rem + 0.28vw, 0.8rem); }
 @media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }

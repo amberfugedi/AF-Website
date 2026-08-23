@@ -56,13 +56,24 @@ work only you can do.
 
 ## 2. Waiting on Amber
 
-- [ ] **Course page: launch date.** Structure, length, outcomes and
-      price ($297) are all set; only the date remains.
-- [ ] **Add the schema.org Offer at launch.** The price is in visible
-      copy but deliberately not in structured data — an Offer tells
-      search engines the course can be bought, and it cannot be yet.
-      Add `offers` to the Course node when checkout opens, alongside
-      the purchase and refund terms `/terms` is waiting on.
+### Course launch — blocking
+
+- [ ] **COURSE_CHECKOUT_URL.** The sales page is live but every buy
+      button points at the literal string `COURSE_CHECKOUT_URL`. Six
+      places on `course-marketing-foundation.html`: the nav CTA, the
+      hero button, the teacher-section button, the purchase box, the
+      final CTA band, and the mobile sticky bar. One find-and-replace
+      once the checkout exists.
+- [ ] **Refund policy.** `/terms` still says no course is on sale and
+      no refund terms exist, so the FAQ has no refund question. Write
+      the purchase, access and refund terms, then add the question.
+- [ ] **schema.org Offer.** Still deliberately absent: an Offer tells
+      search engines the course is buyable. Add `offers` with price
+      297, USD and availability to the Course node when checkout opens.
+- [ ] **Real Foundation Map screenshots.** The hero preview is an
+      honest static representation built only from confirmed outputs,
+      and it says "Example plan" on its face. Swap in real captures of
+      the tool when they exist.
 - [ ] **`{{ADJUST}}` markers in `services.html`.**
 - [ ] **Tools dropped when the list collapsed to four groups** —
       DocuSign, Microsoft Office, PR Newswire, Business Wire, plus the
