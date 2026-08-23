@@ -1600,11 +1600,25 @@ Three changes, and one rule reversed:
   made knowingly, because six rows of pure type read as a table.
 - SIX TINTS, NONE REPEATED ("icon colors shouldn't repeat"). A first
   pass rotated three pastels twice; she rejected it. The six are a ramp
-  through the warm family the site already owns — butter, peach, coral,
-  blush, orchid, lavender — so it reads as one palette rotating rather
+  through the family the site owns — butter, blush, orchid, lavender,
+  sage and a pale coral — so it reads as one palette rotating rather
   than six decisions. Every stroke clears 4.5:1 on its own tint AND on
   cream; the pale coral needed #AE2F44, because --coral-deep measured
   4.40:1 on it.
+  MARKETING + SALES OPS WENT GREEN (2026-08). Measured, its peach was
+  the most crowded tint on the page: RGB distance 19 from Strategy and
+  20 from Demand generation, three warm tints inside a 55 degree arc.
+  It now uses #D7F4CF with stroke #387826, hue 107 to match the site's
+  sage. The hero graphic followed: badge fill #D4F4CB, badge stroke and
+  connector #4A9F32 / #4AAF2F.
+  Those greens were derived by MATCHING CONTRAST RATIO, not HSL
+  lightness. Green carries far more luminance than orange at the same
+  L, so a straight hue swap produced a stroke at 3.08:1 on its own
+  tint. Solving for contrast instead landed 4.57:1, against the peach
+  original's 4.58:1. Do the same for any future recolour.
+  Both ops icons were redrawn at the same time: the bar chart read as
+  analytics, and the site already has analytics glyphs. It is now a
+  routed flow through a panel, a process running inside a system.
 - PROGRESSIVE DISCLOSURE. Only the capability list hides, behind a
   quiet "+ What this can include" / "− Hide details". The situation,
   the contribution and the proof link stay visible, so the scan pattern
