@@ -3141,6 +3141,16 @@ a.bld-item .bld-item-arrow {
 }
 .cs-inc dd { margin: 0; font-family: var(--font-display); color: var(--ink); letter-spacing: -0.015em; }
 .cs-note { color: var(--muted); max-width: 68ch; margin: 26px 0 0; }
+/* Price gets its own line above the details grid rather than a fifth
+   cell in it: on a sales page it is the fact people look for, and a
+   cramped grid cell buries it. */
+.cs-price { color: var(--muted); margin: 22px 0 0; }
+.cs-amount {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-right: 10px;
+}
 
 /* ---- Course page: the curriculum architecture (2026-08) ----
    Seven foundations grouped into the three layers the cover graphic
@@ -5215,6 +5225,7 @@ footer p,
 .cl-t, .cs-map li { font-size: var(--fs-body); line-height: 1.55; }
 .cl-n { font-size: var(--fs-small); }
 .cs-pull { font-size: var(--fs-intro); line-height: 1.35; }
+.cs-amount { font-size: var(--fs-h2); line-height: 1; }
 .ct-title { font-size: clamp(1.5rem, 1.15rem + 1.6vw, 1.95rem); }
 .ct-stages li { font-size: clamp(0.72rem, 0.66rem + 0.28vw, 0.8rem); }
 @media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }

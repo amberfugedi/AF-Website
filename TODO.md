@@ -56,9 +56,13 @@ work only you can do.
 
 ## 2. Waiting on Amber
 
-- [ ] **Course page: price and launch date.** The module structure,
-      length and outcomes were all answered by Amber's copy on
-      2026-08-22, so only these two remain.
+- [ ] **Course page: launch date.** Structure, length, outcomes and
+      price ($297) are all set; only the date remains.
+- [ ] **Add the schema.org Offer at launch.** The price is in visible
+      copy but deliberately not in structured data — an Offer tells
+      search engines the course can be bought, and it cannot be yet.
+      Add `offers` to the Course node when checkout opens, alongside
+      the purchase and refund terms `/terms` is waiting on.
 - [ ] **`{{ADJUST}}` markers in `services.html`.**
 - [ ] **Tools dropped when the list collapsed to four groups** —
       DocuSign, Microsoft Office, PR Newswire, Business Wire, plus the
