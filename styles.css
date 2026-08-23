@@ -1245,9 +1245,11 @@ section { padding: 104px 0; }
 }
 
 .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
-/* The lede carries the site's 56px bottom margin, which is the gap
-   before a section, not before a button that belongs to the copy. */
-.co-cta { margin-top: -22px; }
+/* The hero lede is zeroed by `.hero-split .head-copy .section-lede`,
+   so this needs a real top margin. It previously carried -22px, written
+   for the 56px margin the lede does NOT have in a hero, and the button
+   sat on top of the last line of copy at every width. */
+.co-cta { margin-top: 28px; }
 
 /* Transition band: many industries, one goal — a quiet bridge
    between the problem statement and the work. Static by design. */
