@@ -2210,6 +2210,7 @@ a.bld-item .bld-item-arrow {
 }
 .anchor-nav ul::-webkit-scrollbar { display: none; }
 .anchor-nav a { white-space: nowrap; }
+.an-short { display: none; }
 .anchor-nav a {
   display: inline-block;
   font-size: 0.875rem;
@@ -5270,14 +5271,24 @@ footer p,
    and 383 against 272 at 320, so no padding or type step recovers it.
    Below 470 the strip wraps to two rows instead. Nothing hidden, no
    swipe required. */
+/* Amber: the tabs stay on ONE row on a phone. Four of them at the
+   desktop settings need 399px against 345 available at 393, so three
+   things give at once: the longest label drops to "Workflow", the type
+   steps to 13px, and padding and gap tighten. Measured slack after
+   that: 11px at 360, 26 at 375, 44 at 393. It stays sticky, because
+   one row is only ~57px and the 22% chrome problem was the second row.
+   Vertical padding is unchanged so the touch target holds. */
 @media (max-width: 470px) {
+  .anchor-nav ul { flex-wrap: nowrap; gap: 4px; }
+  .anchor-nav a { font-size: 0.8125rem; padding: 13px 5px; }
+  .an-full { display: none; }
+  .an-short { display: inline; }
+}
+/* Below ~349 no legible setting fits four, so it wraps rather than
+   hiding one off the edge. */
+@media (max-width: 348px) {
   .anchor-nav ul { flex-wrap: wrap; overflow-x: visible; row-gap: 4px; }
-  /* and it stops sticking. Two rows plus the main bar is 185px of
-     permanent chrome, 22% of an 844px phone viewport. The strip shows
-     all four once, near the top, then scrolls away — on a phone people
-     read the offers in order anyway, so the jump-between convenience is
-     worth less than the screen it was costing. */
-  .anchor-nav { position: static; padding: 10px 0; }
+  .anchor-nav { position: static; }
 }
 
 
