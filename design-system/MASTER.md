@@ -66,16 +66,27 @@ Year ranges may use dashes (en dashes, not em dashes).
 **Offer color coding (used on every page the offers appear):**
 Courses = peach · Workflow & AI Guidance = lavender · Consulting = blush ·
 Fractional marketing leadership = sage (2026-08).
-Sage `#D2E4DC` with `--fractional-deep` `#39664B` is the fourth pastel,
+Sage `#CDEEDD` with `--fractional-deep` `#2F6F4F` is the fourth pastel,
 added when Fractional became its own offer on Services. It first
 borrowed Consulting's blush to avoid a palette change, but the two
 sections sit next to each other and read as one, so it earned a colour.
-Sage is the only cool-green in the set: RGB distance 64 from blush, 66
-from peach, 49 from lavender. A soft blue was tried and rejected at
+Sage is the only cool-green in the set: RGB distance 78 from blush, 82
+from peach, 63 from lavender. A soft blue was tried and rejected at
 distance 25 from lavender, the same too-close mistake as the purple and
-pink icon tints in July. The pastel is fill-only; `--fractional-deep`
-is 6.31:1 on cream and 5.0:1 on sage. NOTE: sage is an offer colour
-only, not an aura cloud — the aura stays blush/peach/lavender.
+pink icon tints in July.
+SATURATION IS THE THING TO CHECK on any future pastel. The first sage
+was `#D2E4DC` at S25%, which sat correctly on hue but read as a grey
+beside blush S83%, peach S90% and lavender S62%. `#CDEEDD` is S49%, in
+family, and lands at L87% against the others' 88-91%. The pastel is
+fill-only; `--fractional-deep` is 5.71:1 on cream and 4.81:1 on sage.
+
+Sage appears in three places, not one: the Fractional offer section and
+anchor-nav chip on Services, the `q-sage` quote monograms on Home and
+About, and `.aura-blob-4`. That fourth aura cloud is a teal note at
+`rgba(127,207,194,0.32)`, roughly a third of the other cores' alpha and
+the smallest footprint of the four, sitting bottom-right. It exists so
+the green reads as part of the atmosphere rather than a colour that
+only shows up on one section. Keep it the quietest cloud.
 (CSS class names still say "automations"; only visible copy renamed.)
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is
