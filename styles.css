@@ -5262,6 +5262,23 @@ footer p,
 @media (max-width: 380px) {
   .anchor-nav a { padding: 13px 8px; }
 }
+/* Four tabs since Fractional was added (2026-08). The strip is
+   nowrap + overflow-x:auto with the scrollbar hidden, which was fine
+   at three: at four the last tab sits off the right edge on a phone
+   with nothing to say it is there — it reads as missing rather than
+   scrollable. Measured, four need 399px against 345 available at 393,
+   and 383 against 272 at 320, so no padding or type step recovers it.
+   Below 470 the strip wraps to two rows instead. Nothing hidden, no
+   swipe required. */
+@media (max-width: 470px) {
+  .anchor-nav ul { flex-wrap: wrap; overflow-x: visible; row-gap: 4px; }
+  /* and it stops sticking. Two rows plus the main bar is 185px of
+     permanent chrome, 22% of an 844px phone viewport. The strip shows
+     all four once, near the top, then scrolls away — on a phone people
+     read the offers in order anyway, so the jump-between convenience is
+     worth less than the screen it was costing. */
+  .anchor-nav { position: static; padding: 10px 0; }
+}
 
 
 /* ============ TABLET NAV STEP-DOWN ============
