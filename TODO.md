@@ -56,10 +56,9 @@ work only you can do.
 
 ## 2. Waiting on Amber
 
-- [ ] **Course page `{{ADJUST}}` markers** — eight module titles, price,
-      launch date, and confirmation of the three outcome lines under
-      "What you'll be able to do". Those outcome lines are the only
-      copy on that page written rather than quoted.
+- [ ] **Course page: price and launch date.** The module structure,
+      length and outcomes were all answered by Amber's copy on
+      2026-08-22, so only these two remain.
 - [ ] **`{{ADJUST}}` markers in `services.html`.**
 - [ ] **Tools dropped when the list collapsed to four groups** —
       DocuSign, Microsoft Office, PR Newswire, Business Wire, plus the

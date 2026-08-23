@@ -3142,6 +3142,84 @@ a.bld-item .bld-item-arrow {
 .cs-inc dd { margin: 0; font-family: var(--font-display); color: var(--ink); letter-spacing: -0.015em; }
 .cs-note { color: var(--muted); max-width: 68ch; margin: 26px 0 0; }
 
+/* ---- Course page: the curriculum architecture (2026-08) ----
+   Seven foundations grouped into the three layers the cover graphic
+   already names. Each layer carries the cover's own colour, so the
+   artwork and the curriculum describe the same thing rather than two
+   parallel systems. No cards: a coloured rule and hairline rows, the
+   same vocabulary the Expertise chapters and the About timeline use. */
+.cl-layer {
+  border-left: 3px solid var(--line);
+  padding-left: clamp(18px, 2.4vw, 28px);
+  margin-top: clamp(30px, 3.4vw, 44px);
+}
+.cl-found      { border-left-color: #E8846B; }
+.cl-chosen     { border-left-color: #A99BE0; }
+.cl-remembered { border-left-color: #E4B569; }
+.cl-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+.cl-name { font-family: var(--font-display); color: var(--ink); letter-spacing: -0.015em; margin: 0; }
+.cl-found      .cl-name { color: #B8354A; }
+.cl-chosen     .cl-name { color: var(--automations-deep); }
+.cl-remembered .cl-name { color: var(--courses-deep); }
+.cl-role { color: var(--muted); margin: 0; }
+.cl-f {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 200px) minmax(0, 1fr);
+  gap: 4px 18px;
+  align-items: baseline;
+  padding: 15px 0;
+  border-top: 1px solid var(--line);
+}
+.cl-n { font-weight: 700; color: var(--coral-deep); letter-spacing: 0.04em; }
+.cl-t { font-weight: 600; color: var(--ink); }
+.cl-d { color: var(--muted); margin: 0; }
+
+/* The pull line inside a body column: one step up, ink, no quote marks
+   — it is the argument, not a quotation. */
+.cs-pull {
+  color: var(--ink);
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+  margin: 22px 0 22px;
+  max-width: 30ch;
+}
+
+/* Foundation Map: numbered, because the three steps happen in order. */
+.cs-map { list-style: none; margin: 22px 0 0; padding: 0; counter-reset: cm; }
+.cs-map li {
+  counter-increment: cm;
+  position: relative;
+  padding: 14px 0 14px 34px;
+  border-top: 1px solid var(--line);
+  color: var(--body);
+}
+.cs-map li::before {
+  content: counter(cm);
+  position: absolute; left: 0; top: 14px;
+  font-weight: 700; color: var(--coral-deep); letter-spacing: 0.04em;
+}
+.cs-map strong { color: var(--ink); font-weight: 600; }
+
+/* First / next / later: a priority ramp, so the key steps down in
+   weight the way the priority does. */
+.cs-tiers { list-style: none; margin: 24px 0 0; padding: 0; }
+.cs-tiers li { padding: 15px 0; border-top: 1px solid var(--line); }
+.cs-tiers p { color: var(--muted); margin: 0; }
+.ct-k {
+  display: block; margin-bottom: 4px;
+  font-size: var(--fs-small); font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.ct-first .ct-k { color: var(--coral-deep); }
+.ct-next  .ct-k { color: var(--body); }
+.ct-later .ct-k { color: var(--muted); }
+
+@media (max-width: 700px) {
+  .cl-f { grid-template-columns: 30px minmax(0, 1fr); }
+  .cl-f .cl-d { grid-column: 2; }
+  .cs-pull { max-width: none; }
+}
+
 .cs-notify {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -5132,6 +5210,11 @@ footer p,
 .crs-body h3, .crs-login h2 { font-size: var(--fs-intro); line-height: 1.3; }
 .crs-topics li, .crs-meta dt { font-size: var(--fs-eyebrow); letter-spacing: 0.08em; }
 .crs-meta dd, .co-login, .crs-login p { font-size: var(--fs-small); line-height: 1.5; }
+.cl-name { font-size: var(--fs-h3); line-height: 1.2; }
+.cl-role, .cl-d, .cs-tiers p { font-size: var(--fs-small); line-height: 1.5; }
+.cl-t, .cs-map li { font-size: var(--fs-body); line-height: 1.55; }
+.cl-n { font-size: var(--fs-small); }
+.cs-pull { font-size: var(--fs-intro); line-height: 1.35; }
 .ct-title { font-size: clamp(1.5rem, 1.15rem + 1.6vw, 1.95rem); }
 .ct-stages li { font-size: clamp(0.72rem, 0.66rem + 0.28vw, 0.8rem); }
 @media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }
