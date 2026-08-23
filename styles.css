@@ -2210,7 +2210,6 @@ a.bld-item .bld-item-arrow {
 }
 .anchor-nav ul::-webkit-scrollbar { display: none; }
 .anchor-nav a { white-space: nowrap; }
-.an-short { display: none; }
 .anchor-nav a {
   display: inline-block;
   font-size: 0.875rem;
@@ -5271,24 +5270,22 @@ footer p,
    and 383 against 272 at 320, so no padding or type step recovers it.
    Below 470 the strip wraps to two rows instead. Nothing hidden, no
    swipe required. */
-/* Amber: the tabs stay on ONE row on a phone. Four of them at the
-   desktop settings need 399px against 345 available at 393, so three
-   things give at once: the longest label drops to "Workflow", the type
-   steps to 13px, and padding and gap tighten. Measured slack after
-   that: 11px at 360, 26 at 375, 44 at 393. It stays sticky, because
-   one row is only ~57px and the 22% chrome problem was the second row.
-   Vertical padding is unchanged so the touch target holds. */
+/* Amber: the tabs stay on ONE row on a phone, at smaller type, and a
+   little overflow is fine (2026-08). Four tabs at the full labels need
+   399px against 345 available at 393, so the type steps to 12.5px and
+   padding and gap tighten. That fits from about 366 up; below it the
+   last tab runs slightly past the edge and the strip scrolls.
+   The right-edge fade is the part that matters: without it a clipped
+   tab reads as missing rather than scrollable, which is exactly how
+   this was first reported. */
 @media (max-width: 470px) {
-  .anchor-nav ul { flex-wrap: nowrap; gap: 4px; }
-  .anchor-nav a { font-size: 0.8125rem; padding: 13px 5px; }
-  .an-full { display: none; }
-  .an-short { display: inline; }
-}
-/* Below ~349 no legible setting fits four, so it wraps rather than
-   hiding one off the edge. */
-@media (max-width: 348px) {
-  .anchor-nav ul { flex-wrap: wrap; overflow-x: visible; row-gap: 4px; }
-  .anchor-nav { position: static; }
+  .anchor-nav ul {
+    flex-wrap: nowrap;
+    gap: 4px;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
+  }
+  .anchor-nav a { font-size: 0.78125rem; padding: 13px 5px; }
 }
 
 
