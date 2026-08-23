@@ -65,14 +65,17 @@ Year ranges may use dashes (en dashes, not em dashes).
 
 **Offer color coding (used on every page the offers appear):**
 Courses = peach · Workflow & AI Guidance = lavender · Consulting = blush ·
-Fractional marketing leadership = blush, one step lighter (2026-08).
-Fractional was added as a fourth offer on Services. The palette defines
-exactly three pastels, so rather than invent a fourth hue it shares
-Consulting's: the two are the ways of working with Amber directly,
-separated by shape (project vs retained) rather than by kind. Its aside
-sits at 55% blush and its section wash at 0.18 so the two adjacent
-sections stay tellable apart. If a genuine fourth pastel is ever added,
-this is the first thing to revisit.
+Fractional marketing leadership = sage (2026-08).
+Sage `#D2E4DC` with `--fractional-deep` `#39664B` is the fourth pastel,
+added when Fractional became its own offer on Services. It first
+borrowed Consulting's blush to avoid a palette change, but the two
+sections sit next to each other and read as one, so it earned a colour.
+Sage is the only cool-green in the set: RGB distance 64 from blush, 66
+from peach, 49 from lavender. A soft blue was tried and rejected at
+distance 25 from lavender, the same too-close mistake as the purple and
+pink icon tints in July. The pastel is fill-only; `--fractional-deep`
+is 6.31:1 on cream and 5.0:1 on sage. NOTE: sage is an offer colour
+only, not an aura cloud — the aura stays blush/peach/lavender.
 (CSS class names still say "automations"; only visible copy renamed.)
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is
