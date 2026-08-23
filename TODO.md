@@ -32,8 +32,6 @@ exactly what Netlify expects.
       last build.
 - [ ] **Add an email notification** to amberfugedi@gmail.com. Netlify
       does not email on submission by default.
-- [ ] **Add a honeypot to the three `course-updates` forms.** Only the
-      contact form has one.
 
 ### Search migration
 Redirects, canonicals and the sitemap are done. The rest is dashboard
@@ -56,24 +54,31 @@ work only you can do.
 
 ## 2. Waiting on Amber
 
-### Course launch — blocking
+### Course launch
 
-- [ ] **COURSE_CHECKOUT_URL.** The sales page is live but every buy
-      button points at the literal string `COURSE_CHECKOUT_URL`. Six
-      places on `course-marketing-foundation.html`: the nav CTA, the
-      hero button, the teacher-section button, the purchase box, the
-      final CTA band, and the mobile sticky bar. One find-and-replace
-      once the checkout exists.
+The page is built as a sales page but still says Coming soon, because
+there is no checkout. When one exists, the switch is small and these
+four things go together:
+
+- [ ] **Checkout URL.** Swap the four `#notify` buttons on
+      `course-marketing-foundation.html` (hero, teacher section, final
+      band, mobile sticky bar) for the real checkout, change their
+      labels to "Start the course", change the nav CTA on that page
+      only, and drop the Coming soon chip plus the notify form and its
+      FAQ entry. Then do the same on `courses.html` (status chip, hero
+      CTA) and `services.html` (self-serve aside).
 - [ ] **Refund policy.** `/terms` still says no course is on sale and
       no refund terms exist, so the FAQ has no refund question. Write
-      the purchase, access and refund terms, then add the question.
-- [ ] **schema.org Offer.** Still deliberately absent: an Offer tells
-      search engines the course is buyable. Add `offers` with price
-      297, USD and availability to the Course node when checkout opens.
+      purchase, access and refund terms, then add the question.
+- [ ] **schema.org Offer.** Deliberately absent: an Offer tells search
+      engines the course is buyable. Add `offers` with price 297, USD
+      and availability when checkout opens.
 - [ ] **Real Foundation Map screenshots.** The hero preview is an
       honest static representation built only from confirmed outputs,
-      and it says "Example plan" on its face. Swap in real captures of
-      the tool when they exist.
+      and it says "Example plan" on its face. Swap in real captures
+      when they exist.
+- [ ] **Launch date.** Still unset; the FAQ says so rather than
+      inventing one.
 - [ ] **`{{ADJUST}}` markers in `services.html`.**
 - [ ] **Tools dropped when the list collapsed to four groups** —
       DocuSign, Microsoft Office, PR Newswire, Business Wire, plus the

@@ -197,7 +197,7 @@
          of workbook pages. -->
     <section aria-labelledby="available-title">
       <div class="wrap">
-        <h2 class="section-title reveal" id="available-title">Available now</h2>
+        <h2 class="section-title reveal" id="available-title">The first course</h2>
 
         <ul class="crs-grid">
           <li class="crs-card reveal">
@@ -223,6 +223,7 @@
             </div>
 
             <div class="crs-body">
+              <p class="crs-status">Coming soon</p>
               <h3><a href="/courses/build-your-marketing-foundation">Build Your Marketing Foundation</a></h3>
               <p>For established service businesses with paying clients and no clear marketing priority order. Diagnose seven foundations and leave with a plan for what to build first, next, and later.</p>
               <dl class="crs-meta">
@@ -254,15 +255,16 @@
           </ul>
         </div>
         <div class="email-capture reveal" id="updates">
-          <label class="capture-label" for="co-email">Get updates on future courses</label>
-          <form class="capture-row" id="capture-form" name="course-updates" method="POST" data-netlify="true" novalidate>
+          <label class="capture-label" for="co-email">Get course updates</label>
+          <form class="capture-row" id="capture-form" name="course-updates" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
             <input type="hidden" name="form-name" value="course-updates">
+            <p class="hp-field" aria-hidden="true"><label>Don&#8217;t fill this out if you&#8217;re human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
             <input type="email" id="co-email" name="email" placeholder="you@company.com" aria-describedby="co-email-error" required>
             <button class="btn btn-primary" type="submit">Subscribe</button>
           </form>
           <p class="field-error" id="co-email-error"></p>
           <p class="form-status" id="capture-status" role="status" aria-live="polite"></p>
-          <p class="form-note">One note when a new course is ready, and nothing else.</p>
+          <p class="form-note">One note when the course is ready, and nothing else.</p>
         </div>
       </div>
     </section>

@@ -3266,6 +3266,7 @@ a.bld-item .bld-item-arrow {
   border-bottom: 2px solid var(--coral-deep); transform: rotate(-45deg);
 }
 .buy-note { color: var(--muted); margin: 16px 0 0; }
+.buy-when { color: var(--muted); margin: -14px 0 22px; }
 .buy-price-band { justify-content: center; margin: 0 0 22px; color: #E8DECB; }
 .cta-band .buy-amount { color: var(--bg); }
 
@@ -5411,7 +5412,7 @@ footer p,
 .fm-sn { font-size: var(--fs-h3); }
 .fm-steps h3 { font-size: var(--fs-intro); line-height: 1.25; }
 .crs-facts li, .fm-note, .fm-cap, .fm-k, .ct-k, .ba-k, .crs-sticky .cs-cost { font-size: var(--fs-small); line-height: 1.45; }
-.fm-rows li, .fm-plan > div, .cs-not, .ba-col li, .buy-list li, .faq-q summary, .faq-q p, .buy-price, .fm-steps p, .fm-tiers p, .crs-sticky .cs-name { font-size: var(--fs-body); line-height: 1.55; }
+.fm-rows li, .fm-plan > div, .cs-not, .ba-col li, .buy-list li, .faq-q summary, .faq-q p, .buy-price, .buy-when, .fm-steps p, .fm-tiers p, .crs-sticky .cs-name { font-size: var(--fs-body); line-height: 1.55; }
 .ct-title { font-size: clamp(1.5rem, 1.15rem + 1.6vw, 1.95rem); }
 .ct-stages li { font-size: clamp(0.72rem, 0.66rem + 0.28vw, 0.8rem); }
 @media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }

@@ -117,8 +117,7 @@
         <li><a href="/about">About</a></li>
         <!-- Student login pulled 2026-08-22: learn.amberfugedi.com returns 502. Restore per TODO.md. -->
         <li class="nav-note" aria-hidden="true"><span>Have something in mind?</span></li>
-        <!-- This page sells: the nav CTA is the purchase, not the enquiry. -->
-        <li><a class="nav-cta" href="COURSE_CHECKOUT_URL">Start the course</a></li>
+        <li><a class="nav-cta" href="/about#contact">Let's talk</a></li>
       </ul>
     </div>
   </nav>
@@ -133,6 +132,7 @@
     <header class="page-head">
       <div class="wrap hero-split">
         <div class="head-copy">
+          <p class="crs-status reveal">Coming soon</p>
           <h1 class="h1-long">Build your marketing <span class="tab-em tab-butter">foundation.</span></h1>
           <p class="section-lede">For established service businesses with paying clients and no clear marketing priority order. Diagnose what your business actually needs and leave with a plan for what to build first, next, and later.</p>
 
@@ -144,9 +144,9 @@
           </ul>
 
           <div class="buy reveal">
-            <p class="buy-price"><span class="buy-amount">$297</span> One payment</p>
+            <p class="buy-price"><span class="buy-amount">$297</span> One payment, when it opens</p>
             <div class="cta-row">
-              <a class="btn btn-primary btn-arrow" href="COURSE_CHECKOUT_URL">Start the course</a>
+              <a class="btn btn-primary btn-arrow" href="#notify">Get course updates</a>
               <a class="arrow-link buy-alt" href="#map">See what you&#8217;ll build</a>
             </div>
           </div>
@@ -342,7 +342,7 @@
           <p>I built this course around a pattern I kept seeing. Businesses were not short on ideas or effort. They were missing a way to decide what deserved their attention.</p>
           <p>This is the thinking I come back to every time, made into something you can work through for your own business.</p>
           <div class="cta-row teach-cta">
-            <a class="btn btn-primary btn-arrow" href="COURSE_CHECKOUT_URL">Start the course</a>
+            <a class="btn btn-primary btn-arrow" href="#notify">Get course updates</a>
             <a class="arrow-link" href="/about">More about me</a>
           </div>
         </div>
@@ -355,6 +355,7 @@
         <div class="buy-box reveal">
           <h2 id="buy-title">Build the plan your marketing has been missing.</h2>
           <p class="buy-price buy-price-lg"><span class="buy-amount">$297</span> One payment. The course is yours to keep.</p>
+          <p class="buy-when">It is not open yet. Join the list and you will hear first.</p>
           <ul class="buy-list">
             <li>Eight self-paced modules</li>
             <li>About three hours of teaching</li>
@@ -364,7 +365,18 @@
             <li>A completed first, next and later Foundation Plan</li>
             <li>Continued access to the course</li>
           </ul>
-          <div class="cta-row"><a class="btn btn-primary btn-arrow" href="COURSE_CHECKOUT_URL">Start the course</a></div>
+          <div class="email-capture" id="notify">
+            <label class="capture-label" for="cs-email">Get course updates</label>
+            <form class="capture-row" id="capture-form" name="course-updates" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+              <input type="hidden" name="form-name" value="course-updates">
+              <p class="hp-field" aria-hidden="true"><label>Don&#8217;t fill this out if you&#8217;re human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+              <input type="email" id="cs-email" name="email" placeholder="you@company.com" aria-describedby="cs-email-error" required>
+              <button class="btn btn-primary" type="submit">Notify me</button>
+            </form>
+            <p class="field-error" id="cs-email-error"></p>
+            <p class="form-status" id="capture-status" role="status" aria-live="polite"></p>
+            <p class="form-note">One note when the course is ready, and nothing else.</p>
+          </div>
           <p class="buy-note">Built to be used, not just watched.</p>
         </div>
       </div>
@@ -379,6 +391,10 @@
       <div class="wrap">
         <h2 class="section-title reveal" id="faq-title">Questions</h2>
         <div class="faq reveal">
+          <details class="faq-q">
+            <summary>When does it open?<span class="faq-s" aria-hidden="true"></span></summary>
+            <p>It is still in production and does not have a public date yet. Join the list above and you will get one note when it is ready.</p>
+          </details>
           <details class="faq-q">
             <summary>Who is this course for?<span class="faq-s" aria-hidden="true"></span></summary>
             <p>Build Your Marketing Foundation is designed for established service businesses with paying clients. It is especially useful for owners or small teams whose marketing has grown through referrals, reputation, and individual effort rather than an intentional system.</p>
@@ -417,8 +433,8 @@
         <div class="cta-band reveal">
           <h2>You do not need more marketing ideas. You need a clear place <span class="tab-em tab-butter">to start.</span></h2>
           <p>Build the foundation underneath your marketing and leave with a plan shaped around how your business actually works.</p>
-          <p class="buy-price buy-price-band"><span class="buy-amount">$297</span> One payment</p>
-          <div class="cta-actions"><a class="btn btn-primary btn-arrow" href="COURSE_CHECKOUT_URL">Start the course</a></div>
+          <p class="buy-price buy-price-band"><span class="buy-amount">$297</span> One payment, when it opens</p>
+          <div class="cta-actions"><a class="btn btn-primary btn-arrow" href="#notify">Get course updates</a></div>
         </div>
       </div>
     </section>
@@ -481,9 +497,9 @@
   <div class="crs-sticky" id="crs-sticky">
     <div>
       <p class="cs-name">Build your foundation</p>
-      <p class="cs-cost">$297 &middot; One payment</p>
+      <p class="cs-cost">Coming soon &middot; $297</p>
     </div>
-    <a class="btn btn-primary" href="COURSE_CHECKOUT_URL">Start course</a>
+    <a class="btn btn-primary" href="#notify">Get updates</a>
   </div>
 
   <script src="/main.js" defer></script>
