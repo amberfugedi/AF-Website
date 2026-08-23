@@ -66,27 +66,39 @@ Year ranges may use dashes (en dashes, not em dashes).
 **Offer color coding (used on every page the offers appear):**
 Courses = peach · Workflow & AI Guidance = lavender · Consulting = blush ·
 Fractional marketing leadership = sage (2026-08).
-Sage `#CDEEDD` with `--fractional-deep` `#2F6F4F` is the fourth pastel,
-added when Fractional became its own offer on Services. It first
-borrowed Consulting's blush to avoid a palette change, but the two
-sections sit next to each other and read as one, so it earned a colour.
-Sage is the only cool-green in the set: RGB distance 78 from blush, 82
-from peach, 63 from lavender. A soft blue was tried and rejected at
-distance 25 from lavender, the same too-close mistake as the purple and
-pink icon tints in July.
-SATURATION IS THE THING TO CHECK on any future pastel. The first sage
-was `#D2E4DC` at S25%, which sat correctly on hue but read as a grey
-beside blush S83%, peach S90% and lavender S62%. `#CDEEDD` is S49%, in
-family, and lands at L87% against the others' 88-91%. The pastel is
-fill-only; `--fractional-deep` is 5.71:1 on cream and 4.81:1 on sage.
+Sage `#D9EFD3` with `--fractional-deep` `#2E7529` is the fourth pastel,
+added when Fractional became its own offer on Services.
+
+It took three passes and each failure is worth keeping:
+- `#D2E4DC` at S25% sat correctly on hue but read as a grey beside
+  blush S83%, peach S90% and lavender S62%.
+- `#CDEEDD` fixed the saturation but sat at hue 149, inside the
+  150-170 mint band. Mint is cool and blue-leaning and fought the warm
+  cream/peach base.
+- `#D9EFD3` is hue 107, S47%, L88%. Warm-leaning green, 43 degrees
+  clear of mint, in family on saturation and lightness.
+
+A BLUE WAS CONSIDERED AND REJECTED. At any pale tint a blue lands
+beside lavender: RGB distance 29 at hue 210, against 62 for this green.
+They are indistinguishable as small chips, which is exactly what breaks
+in a chart legend or a course worksheet. Green also leaves the larger
+remaining gap (107 to 251) for a blue or teal FIFTH colour later;
+taking blue first would have crowded lavender and still left green
+needed.
+
+**Recipe for any future pastel** (courses, worksheets, charts):
+- Pastel: S 45-65%, L 86-91%
+- Deep partner: S 38-55%, L 31-47%, and at least 4.5:1 on cream
+- At least 55 degrees of hue separation from every existing pastel
+- At least RGB distance 60 from every existing pastel
+Current hues: peach 34, sage 107, lavender 251, blush 336.
 
 Sage appears in three places, not one: the Fractional offer section and
 anchor-nav chip on Services, the `q-sage` quote monograms on Home and
-About, and `.aura-blob-4`. That fourth aura cloud is a teal note at
-`rgba(127,207,194,0.32)`, roughly a third of the other cores' alpha and
-the smallest footprint of the four, sitting bottom-right. It exists so
-the green reads as part of the atmosphere rather than a colour that
-only shows up on one section. Keep it the quietest cloud.
+About, and `.aura-blob-4`. That fourth aura cloud is
+`rgba(158,205,148,0.30)`, roughly a third of the other cores' alpha and
+the smallest footprint of the four, sitting bottom-right. Keep it the
+quietest cloud.
 (CSS class names still say "automations"; only visible copy renamed.)
 Applied as kicker chips, bullet rings, aside fills, anchor-nav active
 states, card hover borders. Pastels are fills; their `-deep` partner is

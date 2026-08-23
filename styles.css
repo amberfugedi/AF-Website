@@ -24,12 +24,12 @@
   --blush: #FBD5E4;
   --peach: #FCE4C4;
   --lavender: #DAD4F5;
-  --sage: #CDEEDD;         /* fourth pastel (2026-08). S49% puts it in family with lavender S62%;
-                              the first pass at S25% read as grey-green beside three vivid pastels */
+  --sage: #D9EFD3;         /* fourth pastel (2026-08). hue 107, off the mint axis at 150-170.
+                              Two earlier passes failed: S25% read as grey, and hue 149-170 read as mint */
   --courses-deep: #8A5A14;
   --automations-deep: #574AA6;
   --consulting-deep: #A63563;
-  --fractional-deep: #2F6F4F;  /* 5.71:1 on cream, 4.81:1 on sage */
+  --fractional-deep: #2E7529;  /* 5.43:1 on cream, 4.67:1 on sage */
   --line: rgba(46, 42, 39, 0.12);
   --shadow-soft: 0 14px 40px -18px rgba(46, 42, 39, 0.18);
   --radius: 24px;
@@ -199,8 +199,8 @@ body[data-aura-stage="3"] .aura-blob {
     rgba(172, 158, 232, 0.92), rgba(218, 212, 245, 0.0) 60%);
   animation: aura-orbit-c 14s linear infinite;
 }
-/* The fourth cloud, added with sage (Amber, 2026-08): a teal note so
-   the green reads as part of the atmosphere rather than a colour that
+/* The fourth cloud, added with sage (Amber, 2026-08): a warm green note so
+   it reads as part of the atmosphere rather than a colour that
    only exists on one Services section. Deliberately the quietest of
    the four — a third of the core alpha and the smallest footprint, so
    it tints the lower right without becoming a fourth focal point. */
@@ -209,7 +209,7 @@ body[data-aura-stage="3"] .aura-blob {
   min-width: 300px; min-height: 300px;
   bottom: -14%; right: 6%;
   background: radial-gradient(circle at 50% 50%,
-    rgba(127, 207, 194, 0.32), rgba(205, 238, 221, 0.0) 62%);
+    rgba(158, 205, 148, 0.30), rgba(217, 239, 211, 0.0) 62%);
   animation: aura-orbit-c 19s linear infinite reverse;
 }
 /* Left cloud of the wing pair: wanders, gathers toward center at 30%,
