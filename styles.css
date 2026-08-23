@@ -5272,20 +5272,22 @@ footer p,
    swipe required. */
 /* Amber: the tabs stay on ONE row on a phone, at smaller type, and a
    little overflow is fine (2026-08). Four tabs at the full labels need
-   399px against 345 available at 393, so the type steps to 12.5px and
-   padding and gap tighten. That fits from about 366 up; below it the
-   last tab runs slightly past the edge and the strip scrolls.
+   399px against 345 available at 393, so the type steps to 12.5px.
+   Gap 8 and padding 6 give 20px of visual separation between labels
+   (Amber asked for slightly more air than the 14px it started at).
+   That fits from about 385 up; below it the last tab runs past the
+   edge and the strip scrolls.
    The right-edge fade is the part that matters: without it a clipped
    tab reads as missing rather than scrollable, which is exactly how
    this was first reported. */
 @media (max-width: 470px) {
   .anchor-nav ul {
     flex-wrap: nowrap;
-    gap: 4px;
+    gap: 8px;
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
     mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
   }
-  .anchor-nav a { font-size: 0.78125rem; padding: 13px 5px; }
+  .anchor-nav a { font-size: 0.78125rem; padding: 13px 6px; }
 }
 
 
