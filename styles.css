@@ -2508,6 +2508,30 @@ a.bld-item .bld-item-arrow {
   .sp-open::before { transition: none; }
 }
 
+/* All four cards the same height while the board is closed.
+   Two things do it, and both are needed:
+
+   1. `.sp-s` reserves its second line. Measured with the real fonts at
+      861 through 1920, the ONLY natural difference between the four
+      fronts is card 02's one-line subtitle — every title runs two
+      lines at every width. Reserving the line makes them equal by
+      content, so nothing shifts when a panel opens.
+   2. The stretch is the guarantee if that copy ever changes. It is
+      scoped off the moment a card is open, because stretching an open
+      card's neighbour to match it is exactly the ~200px of empty space
+      that was taken out of these cards earlier.
+
+   Kept in its own min-width block rather than added to the base rule:
+   `:not(:has(.sp-card.open))` scores three classes, so a plain
+   `.sp-grid` override inside the max-width block below would lose. */
+@media (min-width: 861px) {
+  .sp-s { min-height: calc(2 * 1.55em); }
+  .sp-grid:not(:has(.sp-card.open)) {
+    align-items: stretch;
+    grid-auto-rows: 1fr;
+  }
+}
+
 @media (max-width: 860px) {
   /* Stack one card per row. The panel opens UNDER the front, same as
      desktop — the old rule hid `.sp-front` when open, which was correct
