@@ -127,16 +127,27 @@
           <h1>Different ways to <span class="tab-em tab-butter">work together.</span></h1>
           <p class="section-lede">Some businesses need to build their marketing foundation. Others need practical training, guidance on where AI fits, or an experienced partner in the work. The right approach depends on what you're trying to achieve.</p>
         </div>
-        <!-- Engagement depth, left to right. Four marks sitting on one
-             through-line, growing upward and getting more wired into the
-             system beside them: a book you work through alone, a project
-             with defined edges, a node partly connected into a business,
-             then a node fully inside one. The coral dot is the constant
-             — it is the same person in all four, just further in.
-             Colour follows the site's offer coding: peach, blush, sage,
-             lavender, each with its text-safe deep token. -->
+        <!-- Engagement depth, left to right. One icon family, not four
+             marks: every icon fills the same 58x50 cell, every outline is
+             1.8, every structural hairline is 1.4 at 0.28, every system
+             node is r3.6 and every coral node is r5, and each icon carries
+             exactly one pastel fill. Nothing gets bigger as you move right
+             — the involvement shows in the links instead, which is the only
+             honest way to draw it: In-house is not the better service, it
+             is the deeper one.
+
+             Fractional and In-house are deliberately the same drawing. Same
+             system box, same three seats, same faint triangle between them.
+             The coral node sits ON the boundary in one and at the centre of
+             it in the other, and the third link is dotted in one and solid
+             in the other. That pair carries the whole idea.
+
+             The line rises 12px across the full width. That is enough to
+             read as a direction rather than a shelf, and small enough that
+             the level label baseline still looks deliberate: the gap under
+             each icon grows by about 3px a step. -->
         <div class="head-art svc-vis reveal">
-          <svg class="glyph svc-hero" viewBox="0 0 480 210" width="480" height="210"
+          <svg class="glyph svc-hero" viewBox="0 28 480 136" width="480" height="136"
                role="img"
                aria-label="Four ways of working together, left to right, each one further inside the business than the last: Courses, Projects, Fractional, In-house."
                fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -144,128 +155,109 @@
               <style>
                 .sh-l { font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
                         font-size: 15px; font-weight: 600; letter-spacing: 0.3px; fill: #524B43; }
+                .sh-o   { stroke-width: 1.8; }
+                .sh-h   { stroke-width: 1.4; stroke-opacity: 0.28; }
+                .sh-sys { stroke-width: 1.4; stroke-opacity: 0.4; }
               </style>
-              <!-- Materialises out of the left gutter, gains weight as the
-                   modes deepen, dissolves again at the right edge. Fading
-                   to zero by offset 1 matters: the head clips the overflow,
-                   so a line still at 40% there ends on a hard cut. -->
-              <linearGradient id="sh-line" gradientUnits="userSpaceOnUse" x1="-16" y1="0" x2="486" y2="0">
+              <!-- Fades to nothing at both ends: the head clips the overflow,
+                   so a line still carrying weight at the edge ends on a cut. -->
+              <linearGradient id="sh-line" gradientUnits="userSpaceOnUse" x1="-12" y1="0" x2="492" y2="0">
                 <stop offset="0"    stop-color="#2E2A27" stop-opacity="0"/>
-                <stop offset="0.08" stop-color="#2E2A27" stop-opacity="0.12"/>
-                <stop offset="0.55" stop-color="#2E2A27" stop-opacity="0.26"/>
-                <stop offset="0.86" stop-color="#2E2A27" stop-opacity="0.38"/>
+                <stop offset="0.06" stop-color="#2E2A27" stop-opacity="0.1"/>
+                <stop offset="0.5"  stop-color="#2E2A27" stop-opacity="0.24"/>
+                <stop offset="0.9"  stop-color="#2E2A27" stop-opacity="0.36"/>
                 <stop offset="1"    stop-color="#2E2A27" stop-opacity="0"/>
               </linearGradient>
-              <linearGradient id="sh-book" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0" stop-color="#FCE4C4" stop-opacity="0.35"/>
-                <stop offset="1" stop-color="#FCE4C4"/>
-              </linearGradient>
-              <!-- Body behind the fractional cluster without drawing a
-                   boundary around it. A stroked ring would read as a wall,
-                   which is the opposite of the point. -->
-              <radialGradient id="sh-sage" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0"    stop-color="#D9EFD3" stop-opacity="0.72"/>
-                <stop offset="0.62" stop-color="#D9EFD3" stop-opacity="0.34"/>
-                <stop offset="1"    stop-color="#D9EFD3" stop-opacity="0"/>
-              </radialGradient>
             </defs>
 
-            <!-- The through-line every mode sits on -->
-            <path class="stroke" pathLength="100" d="M -16,148 L 486,148"
+            <!-- The path the four sit on. Each cell rests on it at its right
+                 edge and clears it by 1.2px at its left, identically for all
+                 four, so the rise never cuts into a corner. -->
+            <path class="stroke" pathLength="100" d="M -12,116 L 492,104"
                   stroke="url(#sh-line)" stroke-width="1.5" style="--d:0s"/>
 
-            <!-- ---- 1. Courses: an open book. Nothing connects to it. ---- -->
-            <g>
-              <g class="fill" style="--fd:0.5s">
-                <path d="M 59,120 C 50,114 41,112 33,112 L 33,140 C 41,140 50,142 59,148 C 68,142 77,140 85,140 L 85,112 C 77,112 68,114 59,120 Z"
-                      fill="url(#sh-book)" fill-opacity="0.72"/>
+            <!-- ---- 1. Courses: an open spread. Same rounded cell as the
+                 other three, notched at the top and split by a spine, which
+                 is what separates a book from a divided box. ---- -->
+            <g stroke="#8A5A14">
+              <g class="fill" style="--fd:0.46s">
+                <path d="M 40,57.6 L 54,57.6 L 60,63.6 L 66,57.6 L 80,57.6 A 10 10 0 0 1 90,67.6 L 90,103.6 A 10 10 0 0 1 80,113.6 L 40,113.6 A 10 10 0 0 1 30,103.6 L 30,67.6 A 10 10 0 0 1 40,57.6 Z" fill="#FCE4C4" fill-opacity="0.5"/>
               </g>
-              <path class="stroke" pathLength="100" d="M 59,120 C 50,114 41,112 33,112 L 33,140 C 41,140 50,142 59,148"
-                    stroke="#8A5A14" stroke-width="1.8" style="--d:0.25s"/>
-              <path class="stroke" pathLength="100" d="M 59,120 C 68,114 77,112 85,112 L 85,140 C 77,140 68,142 59,148"
-                    stroke="#8A5A14" stroke-width="1.8" style="--d:0.25s"/>
-              <path class="stroke" pathLength="100" d="M 59,120 L 59,148"
-                    stroke="#8A5A14" stroke-width="1.8" stroke-opacity="0.45" style="--d:0.38s"/>
+              <path class="stroke sh-o" pathLength="100" d="M 40,57.6 L 54,57.6 L 60,63.6 L 66,57.6 L 80,57.6 A 10 10 0 0 1 90,67.6 L 90,103.6 A 10 10 0 0 1 80,113.6 L 40,113.6 A 10 10 0 0 1 30,103.6 L 30,67.6 A 10 10 0 0 1 40,57.6 Z" style="--d:0.2s"/>
+              <path class="stroke" pathLength="100" d="M 60,63.6 L 60,113.6"
+                    stroke-width="1.8" stroke-opacity="0.45" style="--d:0.3s"/>
+              <g class="fill sh-h" style="--fd:0.58s">
+                <path d="M 39,76 L 54,76"/>
+                <path d="M 66,76 L 81,76"/>
+                <path d="M 39,100 L 54,100"/>
+                <path d="M 66,100 L 81,100"/>
+              </g>
+              <circle class="fill" cx="60" cy="87.6" r="5.8" fill="#FF6F61" stroke="none" style="--fd:0.64s"/>
+            </g>
+
+            <!-- ---- 2. Projects: a defined piece of work. Corner marks set
+                 the scope; the business is not enclosed by them. ---- -->
+            <g stroke="#A63563">
               <g class="fill" style="--fd:0.7s">
-                <path d="M 42,126 L 53,128" stroke="#8A5A14" stroke-width="1.4" stroke-opacity="0.38"/>
-                <path d="M 76,126 L 65,128" stroke="#8A5A14" stroke-width="1.4" stroke-opacity="0.38"/>
+                <rect x="163" y="69.7" width="34" height="26" rx="7" fill="#FBD5E4" fill-opacity="0.85"/>
               </g>
-              <circle class="fill" cx="59" cy="148" r="3.6" fill="#FF6F61" style="--fd:0.62s"/>
+              <path class="stroke sh-o" pathLength="100" d="M 150,66.7 L 150,61.7 A 7 7 0 0 1 157,54.7 L 162,54.7"   style="--d:0.4s"/>
+              <path class="stroke sh-o" pathLength="100" d="M 198,54.7 L 203,54.7 A 7 7 0 0 1 210,61.7 L 210,66.7"   style="--d:0.44s"/>
+              <path class="stroke sh-o" pathLength="100" d="M 210,98.7 L 210,103.7 A 7 7 0 0 1 203,110.7 L 198,110.7" style="--d:0.48s"/>
+              <path class="stroke sh-o" pathLength="100" d="M 162,110.7 L 157,110.7 A 7 7 0 0 1 150,103.7 L 150,98.7" style="--d:0.52s"/>
+              <rect class="stroke sh-o" pathLength="100" x="163" y="69.7" width="34" height="26" rx="7" style="--d:0.58s"/>
+              <circle class="fill" cx="180" cy="82.7" r="5.8" fill="#FF6F61" stroke="none" style="--fd:0.8s"/>
             </g>
 
-            <!-- ---- 2. Projects: one defined piece of work. Brackets rather
-                 than a closed shape — the scope has edges, the business is
-                 not enclosed by them. ---- -->
-            <g>
-              <g class="fill" style="--fd:0.68s">
-                <rect x="157" y="108" width="34" height="28" rx="5" fill="#FBD5E4" fill-opacity="0.85"/>
+            <!-- ---- 3. Fractional: on the boundary. Two links live, one
+                 still dotted. Same cell, same three seats, same faint
+                 triangle as In-house — the pair is one drawing twice. ---- -->
+            <g stroke="#2E7529">
+              <g class="fill" style="--fd:0.82s">
+                <rect x="273" y="51.8" width="60" height="56" rx="12" fill="#D9EFD3" fill-opacity="0.42"/>
               </g>
-              <path class="stroke" pathLength="100" d="M 154,96 L 143,96 L 143,148"
-                    stroke="#A63563" stroke-width="1.8" style="--d:0.45s"/>
-              <path class="stroke" pathLength="100" d="M 194,96 L 205,96 L 205,148"
-                    stroke="#A63563" stroke-width="1.8" style="--d:0.5s"/>
-              <rect class="stroke" pathLength="100" x="157" y="108" width="34" height="28" rx="5"
-                    stroke="#A63563" stroke-width="1.7" style="--d:0.58s"/>
-              <circle class="fill" cx="174" cy="122" r="4.2" fill="#FF6F61" style="--fd:0.82s"/>
+              <rect class="stroke sh-sys" pathLength="100" x="273" y="51.8" width="60" height="56" rx="12" style="--d:0.66s"/>
+              <g class="fill sh-h" style="--fd:0.96s">
+                <path d="M 286,63.8 L 320,63.8 L 303,96.8 Z"/>
+              </g>
+              <path class="stroke sh-o" pathLength="100" d="M 273,79.8 L 286,63.8" style="--d:0.76s"/>
+              <path class="stroke sh-o" pathLength="100" d="M 273,79.8 L 303,96.8" style="--d:0.8s"/>
+              <g class="fill" style="--fd:1s">
+                <path d="M 273,79.8 L 320,63.8" stroke-width="1.5" stroke-opacity="0.34" stroke-dasharray="3 4.5"/>
+                <circle cx="286" cy="63.8" r="4.2" fill="#2E7529" stroke="none"/>
+                <circle cx="303" cy="96.8" r="4.2" fill="#2E7529" stroke="none"/>
+                <circle cx="320" cy="63.8" r="4.2" fill="#2E7529" stroke="none" fill-opacity="0.4"/>
+              </g>
+              <circle class="fill" cx="273" cy="79.8" r="5.8" fill="#FF6F61" stroke="none" style="--fd:1.04s"/>
             </g>
 
-            <!-- ---- 3. Fractional: in among the business, not enclosed by
-                 it. Two of its people sit on the line with her, three links
-                 are live, two are still dotted, and the ring the business
-                 makes between its own people is left open on one side. ---- -->
-            <g>
-              <g class="fill" style="--fd:0.86s">
-                <circle cx="292" cy="118" r="50" fill="url(#sh-sage)"/>
+            <!-- ---- 4. In-house: the same drawing, from the middle. Every
+                 link solid. ---- -->
+            <g stroke="#574AA6">
+              <g class="fill" style="--fd:1.04s">
+                <rect x="390" y="49" width="60" height="56" rx="12" fill="#DAD4F5" fill-opacity="0.42"/>
               </g>
-              <g class="fill" style="--fd:1.02s">
-                <path d="M 292,80 L 259,108 L 272,148"
-                      stroke="#2E7529" stroke-width="1.4" stroke-opacity="0.3"/>
+              <rect class="stroke sh-sys" pathLength="100" x="390" y="49" width="60" height="56" rx="12" style="--d:0.86s"/>
+              <g class="fill sh-h" style="--fd:1.18s">
+                <path d="M 403,61 L 437,61 L 420,94 Z"/>
               </g>
-              <path class="stroke" pathLength="100" d="M 292,118 L 292,80"  stroke="#2E7529" stroke-width="1.8" style="--d:0.7s"/>
-              <path class="stroke" pathLength="100" d="M 292,118 L 259,108" stroke="#2E7529" stroke-width="1.8" style="--d:0.75s"/>
-              <path class="stroke" pathLength="100" d="M 292,118 L 272,148" stroke="#2E7529" stroke-width="1.8" style="--d:0.8s"/>
-              <g class="fill" style="--fd:1.02s">
-                <path d="M 292,118 L 312,148" stroke="#2E7529" stroke-width="1.5" stroke-opacity="0.34" stroke-dasharray="3 4.5"/>
-                <path d="M 292,118 L 325,108" stroke="#2E7529" stroke-width="1.5" stroke-opacity="0.34" stroke-dasharray="3 4.5"/>
-                <circle cx="292" cy="80"  r="3.6" fill="#2E7529"/>
-                <circle cx="259" cy="108" r="3.6" fill="#2E7529"/>
-                <circle cx="272" cy="148" r="3.6" fill="#2E7529"/>
-                <circle cx="312" cy="148" r="3.6" fill="#2E7529" fill-opacity="0.34"/>
-                <circle cx="325" cy="108" r="3.6" fill="#2E7529" fill-opacity="0.34"/>
+              <path class="stroke sh-o" pathLength="100" d="M 420,77 L 403,61" style="--d:0.94s"/>
+              <path class="stroke sh-o" pathLength="100" d="M 420,77 L 437,61" style="--d:0.98s"/>
+              <path class="stroke sh-o" pathLength="100" d="M 420,77 L 420,94" style="--d:1.02s"/>
+              <g class="fill" style="--fd:1.22s">
+                <circle cx="403" cy="61" r="4.2" fill="#574AA6" stroke="none"/>
+                <circle cx="437" cy="61" r="4.2" fill="#574AA6" stroke="none"/>
+                <circle cx="420" cy="94" r="4.2" fill="#574AA6" stroke="none"/>
               </g>
-              <circle class="fill" cx="292" cy="118" r="5.2" fill="#FF6F61" style="--fd:1.06s"/>
+              <circle class="fill" cx="420" cy="77" r="5.8" fill="#FF6F61" stroke="none" style="--fd:1.28s"/>
             </g>
 
-            <!-- ---- 4. In-house: inside the boundary, every link live.
-                 Three seats, not four: four spokes from a centre draw an X,
-                 which every interface on earth reads as "close". ---- -->
-            <g>
-              <g class="fill" style="--fd:1.14s">
-                <rect x="370" y="58" width="90" height="90" rx="18" fill="#DAD4F5" fill-opacity="0.45"/>
-              </g>
-              <rect class="stroke" pathLength="100" x="370" y="58" width="90" height="90" rx="18"
-                    stroke="#574AA6" stroke-width="1.8" style="--d:0.9s"/>
-              <g class="fill" style="--fd:1.3s">
-                <path d="M 394,80 L 439,95 L 411,130 Z"
-                      stroke="#574AA6" stroke-width="1.4" stroke-opacity="0.3"/>
-              </g>
-              <path class="stroke" pathLength="100" d="M 415,102 L 394,80"  stroke="#574AA6" stroke-width="1.7" style="--d:1.06s"/>
-              <path class="stroke" pathLength="100" d="M 415,102 L 439,95"  stroke="#574AA6" stroke-width="1.7" style="--d:1.1s"/>
-              <path class="stroke" pathLength="100" d="M 415,102 L 411,130" stroke="#574AA6" stroke-width="1.7" style="--d:1.14s"/>
-              <g class="fill" style="--fd:1.34s">
-                <circle cx="394" cy="80"  r="3.8" fill="#574AA6"/>
-                <circle cx="439" cy="95"  r="3.8" fill="#574AA6"/>
-                <circle cx="411" cy="130" r="3.8" fill="#574AA6"/>
-              </g>
-              <circle class="fill" cx="415" cy="102" r="5.6" fill="#FF6F61" style="--fd:1.4s"/>
-            </g>
-
-            <!-- ---- Labels ---- -->
+            <!-- ---- Labels: one level baseline, four equal 120px cells ---- -->
             <g class="sh-l" text-anchor="middle">
-              <text class="fill" x="59"  y="184" style="--fd:0.72s">Courses</text>
-              <text class="fill" x="174" y="184" style="--fd:0.88s">Projects</text>
-              <text class="fill" x="292" y="184" style="--fd:1.04s">Fractional</text>
-              <text class="fill" x="415" y="184" style="--fd:1.2s">In-house</text>
+              <text class="fill" x="60"  y="150" style="--fd:0.72s">Courses</text>
+              <text class="fill" x="180" y="150" style="--fd:0.86s">Projects</text>
+              <text class="fill" x="300" y="150" style="--fd:1s">Fractional</text>
+              <text class="fill" x="420" y="150" style="--fd:1.14s">In-house</text>
             </g>
           </svg>
         </div>
