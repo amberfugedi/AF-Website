@@ -22,6 +22,7 @@
 /about.html                          /about                                   301!
 /privacy.html                        /privacy                                 301!
 /terms.html                          /terms                                   301!
+/thank-you.html                      /thank-you                               301!
 /course-marketing-foundation.html    /courses/build-your-marketing-foundation  301!
 
 # ---- WordPress URLs still in the index --------------------------------
@@ -63,3 +64,4 @@
 /courses/build-your-marketing-foundation  /course-marketing-foundation.html  200
 /privacy                                  /privacy.html                      200
 /terms                                    /terms.html                        200
+/thank-you                                /thank-you.html                    200

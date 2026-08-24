@@ -62,6 +62,17 @@ The page is built as a sales page but still says Coming soon, because
 there is no checkout. When one exists, the switch is small and these
 four things go together:
 
+- [x] **Thank-you page built** (2026-08-24). `/thank-you`, noindex,
+      not in the sitemap, reachable only by the Stripe redirect. Both
+      "Start the course" buttons point at `{{COURSE_ACCESS_URL}}` and
+      go nowhere until that value exists.
+- [ ] **Course access URL.** Replace the two `{{COURSE_ACCESS_URL}}`
+      markers in `thank-you.html`. Blocked on the same 502 as the
+      student login above: there is no working course URL to send a
+      buyer to.
+- [ ] **Point Stripe at the thank-you page.** In the payment link,
+      After payment → Redirect customers to a page →
+      `https://www.amberfugedi.com/thank-you`.
 - [ ] **Checkout URL.** Swap the four `#notify` buttons on
       `course-marketing-foundation.html` (hero, teacher section, final
       band, mobile sticky bar) for the real checkout, change their

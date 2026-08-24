@@ -3269,6 +3269,53 @@ a.bld-item .bld-item-arrow {
 }
 .buy-note { color: var(--muted); margin: 16px 0 0; }
 .buy-when { color: var(--muted); margin: -14px 0 22px; }
+
+/* ---- Thank-you page (2026-08) ----
+   Post-purchase. Celebratory in Amber's register: the aura and the
+   butter mark do the lift, the copy stays calm and tells them exactly
+   what to do first. */
+.ty-head { padding-bottom: clamp(30px, 4vw, 52px); }
+.ty-eyebrow {
+  font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--coral-deep); margin-bottom: 16px;
+}
+.page-thanks .page-head .section-lede { max-width: 52ch; }
+.ty-cta { margin-top: 30px; }
+.ty-receipt { color: var(--muted); margin: 18px 0 0; }
+
+.ty-steps { list-style: none; margin: clamp(26px, 3vw, 38px) 0 0; padding: 0; max-width: 74ch; }
+.ty-steps li {
+  display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px;
+  padding: 20px 0; border-top: 1px solid var(--line);
+}
+.ty-n {
+  font-family: var(--font-display); color: var(--coral-deep);
+  line-height: 1; letter-spacing: -0.02em;
+}
+.ty-steps h3 {
+  font-family: var(--font-display); color: var(--ink);
+  letter-spacing: -0.015em; margin-bottom: 6px;
+}
+.ty-steps p { color: var(--muted); margin: 0; }
+
+/* Closes the numbered list with the same hairline the list items use,
+   rather than a side rule the rest of the site never draws. */
+.ty-tip {
+  border-top: 1px solid var(--line);
+  padding-top: 24px; max-width: 74ch;   /* rule lines up with the list above */
+}
+.ty-tip p:last-child { max-width: 68ch; }
+.ty-tip-k {
+  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--coral-deep); margin-bottom: 6px;
+}
+.ty-tip p:last-child { color: var(--muted); margin: 0; }
+.ty-help { color: var(--muted); margin: 40px 0 0; text-align: center; }
+.ty-help a { color: var(--coral-deep); }
+
+@media (max-width: 620px) {
+  .ty-steps li { grid-template-columns: 34px minmax(0, 1fr); gap: 14px; }
+}
 .buy-price-band { justify-content: center; margin: 0 0 22px; color: #E8DECB; }
 .cta-band .buy-amount { color: var(--bg); }
 
@@ -5411,6 +5458,10 @@ footer p,
 .cs-pull { font-size: var(--fs-intro); line-height: 1.35; }
 .cs-amount { font-size: var(--fs-h2); line-height: 1; }
 .buy-amount { font-size: var(--fs-h2); line-height: 1; }
+.ty-n { font-size: var(--fs-h3); }
+.ty-steps h3 { font-size: var(--fs-intro); line-height: 1.25; }
+.ty-eyebrow, .ty-tip-k { font-size: var(--fs-small); line-height: 1.4; }
+.ty-steps p, .ty-receipt, .ty-tip p, .ty-help { font-size: var(--fs-body); line-height: 1.55; }
 .fm-sn { font-size: var(--fs-h3); }
 .fm-steps h3 { font-size: var(--fs-intro); line-height: 1.25; }
 .crs-facts li, .fm-note, .fm-cap, .fm-k, .ct-k, .ba-k, .crs-sticky .cs-cost { font-size: var(--fs-small); line-height: 1.45; }
