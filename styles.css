@@ -2448,17 +2448,18 @@ a.bld-item .bld-item-arrow {
 }
 .sp-card:hover { border-color: rgba(46, 42, 39, 0.22); }
 .sp-card.open  { border-color: rgba(46, 42, 39, 0.22); }
-/* Restrained tonal variation — one family, four temperatures. These
-   were written but never applied to any card, so every card rendered
-   plain white. They earn their keep on HOVER and while open (Amber,
-   2026-08: "on hover ... slight background tint"): at rest the board
-   is calm and the four situations read as equals; the tint is the
-   card answering you. */
-.sp-card { background: var(--bg-raised); }
-.sp-tint-peach:hover,    .sp-tint-peach.open    { background: linear-gradient(rgba(252,228,196,.26), rgba(252,228,196,.26)) var(--bg-raised); }
-.sp-tint-lavender:hover, .sp-tint-lavender.open { background: linear-gradient(rgba(218,212,245,.24), rgba(218,212,245,.24)) var(--bg-raised); }
-.sp-tint-butter:hover,   .sp-tint-butter.open   { background: linear-gradient(rgba(251,237,191,.30), rgba(251,237,191,.30)) var(--bg-raised); }
-.sp-tint-blush:hover,    .sp-tint-blush.open    { background: linear-gradient(rgba(251,213,228,.22), rgba(251,213,228,.22)) var(--bg-raised); }
+/* One tint, not four. Each card used to answer in its own pastel, which
+   looked like the offer colour-coding used everywhere else on this page
+   and coded nothing: card 01 sends you to Courses but tinted butter,
+   while Courses is peach; card 04 sends you to the contact form and
+   tinted peach, which is Courses. Two of the four matched by accident.
+   A code that is right half the time is worse than no code, and these
+   are four equal situations rather than four services. Butter is the
+   site's emphasis colour — the highlight behind the headlines — so it is
+   what "this is the one you are pointing at" already means here. */
+.sp-card:hover, .sp-card.open {
+  background: linear-gradient(rgba(251, 237, 191, 0.3), rgba(251, 237, 191, 0.3)) var(--bg-raised);
+}
 
 .sp-face { min-width: 0; }
 
