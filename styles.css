@@ -5622,7 +5622,11 @@ footer p,
 }
 
 .btn { font-size: 1.0625rem; }
-.nav-links a { font-size: 1rem; }
+/* The Shop dropdown is a <button>, so it never inherited the nav's size
+   and sat at 0.925rem while its six siblings were raised to 1rem here —
+   14.8px against 16px in the primary nav. The phone rule further down
+   already lists both; this one had not been updated to match. */
+.nav-links a, .nav-drop-btn { font-size: 1rem; }
 .arrow-link { font-size: 1rem; } /* interactive text sits in the 16-17px slot */
 
 /* Inline conversion prompt: one quiet line at the decision moment
