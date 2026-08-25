@@ -3355,6 +3355,10 @@ a.bld-item .bld-item-arrow {
   border-radius: 16px; padding: clamp(28px, 4vw, 46px);
   box-shadow: var(--shadow-soft); max-width: 760px;
 }
+/* This h2 carried no size rule at all and fell through to the browser
+   default — 1.5em of the inherited 17px, so 25.5px, against 39 for every
+   other section heading on the site. It has .section-title now; this rule
+   only adjusts its spacing inside the card. */
 .buy-box h2 { margin-bottom: 14px; }
 .buy-price-lg { margin-bottom: 22px; }
 .buy-list { list-style: none; margin: 0 0 26px; padding: 0; }
