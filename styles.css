@@ -1399,7 +1399,7 @@ a.bld-item .bld-item-arrow {
    inner svg or they silently do nothing. */
 .head-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(280px, 32vw, 400px);
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 35vw, 440px);
   gap: 40px;
   /* copy starts at the top so its h1 lands on the same line as every
      other page's; only the art centres against the row */
@@ -1417,7 +1417,13 @@ a.bld-item .bld-item-arrow {
 .head-art.reveal.in-view .glyph .fill { animation-delay: var(--fd, 0.6s); }
 /* The composition runs past the wrap into the gutter so a node and a
    line dissolve off the page edge; the head clips the overflow. */
-.page-head-art { overflow: hidden; }
+.page-head-art {
+  overflow: hidden;
+  /* The art column is taller than the copy, so the shared head padding
+     left ~78px of slack under it. Measured against Expertise (472px head)
+     and My Approach (448px); this brings Services into the same range. */
+  padding-bottom: 24px;
+}
 @media (min-width: 1021px) {
   .head-art .glyph { transform: translateX(clamp(0px, (100vw - 1060px) / 6, 58px)); }
 }
@@ -1441,11 +1447,11 @@ a.bld-item .bld-item-arrow {
   /* Under the copy rather than squeezed beside it, and narrower than the
      old wide strip needed — this composition is portrait. */
   .head-grid { grid-template-columns: 1fr; gap: 30px; }
-  .head-grid .head-art { align-self: start; width: 100%; max-width: 340px; margin: 0; }
+  .head-grid .head-art { align-self: start; width: 100%; max-width: 380px; margin: 0; }
   .head-art .glyph { opacity: 0.92; }
 }
 @media (max-width: 760px) {
-  .head-grid .head-art { max-width: 268px; }
+  .head-grid .head-art { max-width: 292px; }
 }
 /* Phone: single-column, no art column */
 @media (max-width: 760px) {
@@ -1988,6 +1994,12 @@ a.bld-item .bld-item-arrow {
   --af-blush:    #FBD5E4;
   --af-butter:   #FBEDBF;
   --af-sand:     #EFE1CE;
+  /* Each pastel gets a deeper partner for its linework. A single charcoal
+     outline over four different washes reads grey and flattens them. */
+  --af-lavender-line: #8E82C8;
+  --af-blush-line:    #D98BA8;
+  --af-butter-line:   #D7B36B;
+  --af-sand-line:     #BFA07A;
   overflow: visible;
   opacity: 1;   /* overrides the .head-art fade — this art is the page's main image */
 }
