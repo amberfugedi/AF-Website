@@ -125,11 +125,15 @@ cards.
 - TYPE SCALE (2026-07, tokens in :root, fluid 390px -> 1440px;
   applied site-wide by the "Type system" layer at the end of
   styles.css — change sizes THERE, not per section):
-  h1 40/64 (lh 1.05/1.03, ls -0.025/-0.03em; ONE display size on
-  every page including the home hero — amended twice from the
-  spec's 48/72 at Amber's consistency calls: 72 broke the hero's
-  3-line rule, 48 made sub-pages outweigh home on phones) ·
-  long-display (`.h1-long`) 36/50 · h2 28/40, stepped down TWICE —
+  h1 40/50 (lh 1.1, ls -0.025em; ONE display size on every page
+  including the home hero — amended three times. The spec was 48/72;
+  72 broke the hero's 3-line rule and 48 made sub-pages outweigh home
+  on phones, giving 40/64; then 2026-08 (Amber: "let's just update the
+  desktop h1s all to 50, it's weird to have some at 64"). `.h1-long`
+  IS GONE with that change — it existed because 64 was a wall for long
+  headlines, which split the site into two page-title sizes for no
+  reason a reader could see. Line-height and tracking are the looser
+  pair .h1-long used, since at 50 every h1 runs two or three lines) · h2 28/40, stepped down TWICE —
   first from the spec's 36/50 to 30/44, then to 28/40 in 2026-08
   (Amber: "I think the H2s may be too large"). 44 did not actually
   satisfy the ladder rule it was chosen for: measured at 1440 it
@@ -1210,9 +1214,15 @@ heading, a card title, or the brand. Verified ladder at 1440:
 64 h1 > 44 h2 > 38 h2-long > 34.9 quote > 30 h3 > 28 breadth >
 25 brand > 21 intro. Re-verified 2026-08 after the h2 step-down:
 64 h1 > 50 h1-long > 40 h2 > 35 h2-long > 34.9 quote > 30 h3 >
-28 breadth > 25 brand > 21 intro. The quote grade and h2-long now
-sit 0.1px apart — harmless because they never appear together,
-but the next change to either should separate them.
+28 breadth > 25 brand > 21 intro. Re-verified again after the h1
+was unified at 50: 50 h1 > 40 h2 > 35 h2-long > 34.9 quote > 30 h3
+> 28 breadth > 25 brand > 21 intro. Two things to watch. The quote
+grade and h2-long sit 0.1px apart — harmless because they never
+appear together, but separate them at the next change to either.
+And the whole ladder below 17px is crowded: a sweep of nine pages
+found seventeen distinct grades in use, six of them between 14.8
+and 17px. Body 17 / small 15 / eyebrow 13 are the real ones;
+anything landing between them is a one-off worth folding in.
 
 ## Section rhythm (2026-07 spacing audit — two values, site-wide)
 

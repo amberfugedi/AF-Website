@@ -39,7 +39,7 @@
   /* Type scale (2026-07): one fluid system, 390px -> 1440px.
      mobile / desktop: h1 48/72, h2 36/50, h3 24/30, intro 19/21,
      body 17/18, small 14/15, eyebrow 12/13. */
-  --fs-h1: clamp(2.5rem, 1.943rem + 2.2857vw, 4rem); /* 40 -> 64: ONE display size on every page, hero included */
+  --fs-h1: clamp(2.5rem, 2.2679rem + 0.9524vw, 3.125rem); /* 40 -> 50: ONE display size, and now genuinely one — .h1-long is gone */
   --fs-h2: clamp(1.75rem, 1.5119rem + 1.0476vw, 2.5rem); /* 28 -> 40: clears the long-display h1 by 10px, not 6 */
   --fs-h3: clamp(1.5rem, 1.361rem + 0.5714vw, 1.875rem);
   --fs-intro: clamp(1.1875rem, 1.141rem + 0.1905vw, 1.3125rem);
@@ -5396,8 +5396,7 @@ footer {
 /* ============ Type system (see MASTER.md) ============
    One responsive scale across every page. Deliberate exceptions:
    the home hero h1 (3-line rule), the home problem h2 (mobile
-   visibility rule), long page-head h1s (.h1-long -> h2 size, used by
-   Expertise, Courses and the course page), and
+   visibility rule), and
    metric/metadata micro-type (proof chips, feat stats, tags-as-
    labels, case-column labels). */
 body { font-size: var(--fs-body); line-height: 1.55; }
@@ -5405,15 +5404,15 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .page-head h1,
 .hero h1 {
   font-size: var(--fs-h1);
-  line-height: 1.03;
-  letter-spacing: -0.03em;
+  /* 1.03/-0.03em were tuned for the 64px display. At 50 every h1 runs two
+     or three lines, so it takes the looser pair .h1-long used. */
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
-.page-head h1.h1-long {
-  /* long-display slot: 36 -> 50, between the display and h2 grades */
-  font-size: clamp(2.25rem, 1.925rem + 1.3333vw, 3.125rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-}
+/* .h1-long is GONE (Amber, 2026-08: "let's just update the desktop h1s
+   all to 50, it's weird to have some at 64"). It existed because 64 was
+   a wall for long headlines, which split the site into two page-title
+   sizes for no reason a reader could see. One grade now: 40/50. */
 .section-title,
 .case h2,
 .offer-section h2,
