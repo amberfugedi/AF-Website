@@ -1062,6 +1062,35 @@ coral-deep border where there is no section accent.
 If a new list needs a marker it takes this one. If it genuinely will
 not work, change it everywhere or not at all.
 
+## Expertise hero graphic — colour assignment (2026-08)
+
+Six areas, and the palette has five hue families, so two areas must
+share one. Rule: the two that share are the FARTHEST APART in the
+composition, and no two neighbours ever share a family. Measured
+centre-to-centre, the closest pairs are workflows/ops at 119px,
+leadership/ops at 151 and leadership/workflows at 153 — those must be
+maximally different. The farthest is strategy/brand at 340, so the pink
+family is the one that doubles.
+
+  strategy + planning    rose    #F7CFCB / deep #A25C6E   direction
+  demand generation      butter  #F8EDBD / deep #B8891F   attention
+  leadership + enablement sand   #F3E6D7 / deep #8F6236   people
+  marketing + sales ops  sage    #D9EFD3 / deep #4A9F32   systems
+  workflows + AI         lavender #DDD5F4 / deep #8F63E5  technology
+  brand + digital        pink    #F6CFE3 / deep #A83E71   expression
+
+Each badge ring matches its own circle — that is the whole point of the
+badge, and two of them did not. Ops had a green badge over a salmon
+circle; leadership had a rose badge over a sand circle. Brand and
+workflows were both purple and 235px apart, which is what made two
+different capabilities read as one thing (Amber: "the purposes are on
+top of each other").
+
+Fill opacities are tuned for EQUAL PERCEIVED WEIGHT, not equal number:
+(1 - relative luminance) x opacity, held between 0.107 and 0.172. They
+were 0.082 to 0.183, so density was doing distinguishing work that hue
+should do. Recompute this if any fill changes.
+
 ## Accessibility floor (hard requirements)
 
 - All text ≥4.5:1 on its actual background (see token table).
