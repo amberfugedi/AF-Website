@@ -122,6 +122,24 @@ cards.
   never italicize whole headings.
 - Body: **Manrope** (400–800) — body copy, nav, buttons, labels,
   kickers. Metrics/stat numbers: Manrope 800 (`.feat-stat`).
+- TYPE SCALE at a glance (mobile 390 / desktop 1440, measured, not
+  nominal — h2 and h2-long were 0.7px short of their stated caps until
+  2026-08 because the clamp slopes were rounded; both hit exactly now):
+
+      h1                  40 / 50
+      h2                  28 / 40
+      h2-long             24 / 35
+      h3                  24 / 30
+      intro / card title  19 / 21
+      body                16 / 17
+      small               14 / 15
+      eyebrow             12 / 13
+
+  Desktop steps: 1.25 h1>h2, 1.14 h2>h2-long, 1.17 h2-long>h3,
+  1.43 h3>intro, 1.24 intro>body, 1.13 body>small, 1.15 small>eyebrow.
+  The bottom four are all under 1.2, which is where two sizes stop
+  reading as different — see the note on the crowded sub-17px band.
+
 - TYPE SCALE (2026-07, tokens in :root, fluid 390px -> 1440px;
   applied site-wide by the "Type system" layer at the end of
   styles.css — change sizes THERE, not per section):
