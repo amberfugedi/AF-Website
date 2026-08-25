@@ -40,7 +40,7 @@
      mobile / desktop: h1 48/72, h2 36/50, h3 24/30, intro 19/21,
      body 17/18, small 14/15, eyebrow 12/13. */
   --fs-h1: clamp(2.5rem, 1.943rem + 2.2857vw, 4rem); /* 40 -> 64: ONE display size on every page, hero included */
-  --fs-h2: clamp(1.875rem, 1.55rem + 1.3333vw, 2.75rem); /* 30 -> 44: a clear step below the 40/64 display */
+  --fs-h2: clamp(1.75rem, 1.5119rem + 1.0476vw, 2.5rem); /* 28 -> 40: clears the long-display h1 by 10px, not 6 */
   --fs-h3: clamp(1.5rem, 1.361rem + 0.5714vw, 1.875rem);
   --fs-intro: clamp(1.1875rem, 1.141rem + 0.1905vw, 1.3125rem);
   --fs-body: clamp(1rem, 0.977rem + 0.0952vw, 1.0625rem); /* 16 -> 17: body never outranks the hero deck */
@@ -5430,12 +5430,19 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    exactly once, here. Worse, the fix was only applied to that one h2,
    so the page's most important section title was 34 while "Tools I've
    worked in" and "See the expertise in action." sat at 44 below it.
-   The ladder concern it answered was already solved upstream: h2 was
-   stepped down from 50 to 44 precisely so it clears every h1 including
-   the long-display pages. 50 > 44 is the sanctioned step. */
+   The ladder concern it answered was NOT solved by that step, though,
+   and this is the second time it has come back (Amber, 2026-08: "I
+   think the H2s may be too large"). Measured at 1440: h1 64, h1-long
+   50, h2 44 — so on Expertise, Courses and the course page the section
+   titles sat 6px under the page title while every other page had a 20
+   to 26px step. h2 is now 40, which gives those pages 10px and the
+   rest 24, and h2-long follows it down from 38 to 35 so it stays a
+   grade below rather than 2px below. Fixed on the scale, not with a
+   one-off grade for a single heading — that was the part that was
+   wrong in July, not the instinct. */
 /* Long conversational headlines (10+ words) step down one grade so
    they read as sentences, not walls — same pattern as .h1-long. */
-.h2-long { font-size: clamp(1.625rem, 1.346rem + 1.1429vw, 2.375rem); line-height: 1.18; } /* 26 -> 38, below h2 */
+.h2-long { font-size: clamp(1.5rem, 1.2857rem + 0.9524vw, 2.1875rem); line-height: 1.18; } /* 24 -> 35, below h2 */
 
 /* Card titles read at the intro grade — the h3 display slot was a
    heading trapped in a card (Amber, 2026-07). h3 token stays

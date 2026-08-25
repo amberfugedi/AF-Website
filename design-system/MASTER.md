@@ -129,10 +129,18 @@ cards.
   every page including the home hero — amended twice from the
   spec's 48/72 at Amber's consistency calls: 72 broke the hero's
   3-line rule, 48 made sub-pages outweigh home on phones) ·
-  long-display (`.h1-long`) 36/50 · h2 30/44, stepped down from
-  the spec's 36/50 so H2s sit clearly below EVERY h1 including the
-  long-display pages (Amber's ladder rule: each level visibly
-  smaller than the one above) · h2-long 26/38 (lh
+  long-display (`.h1-long`) 36/50 · h2 28/40, stepped down TWICE —
+  first from the spec's 36/50 to 30/44, then to 28/40 in 2026-08
+  (Amber: "I think the H2s may be too large"). 44 did not actually
+  satisfy the ladder rule it was chosen for: measured at 1440 it
+  left only 6px between the long-display h1 (50) and the section
+  titles beneath it on Expertise, Courses and the course page,
+  while every other page had 20 to 26. At 40 those pages get 10px
+  and the rest 24. Do NOT fix this per-heading — a one-off 34px
+  grade for "Where I help" was tried in July and rejected as
+  off-brand; the scale is the place to change it ·
+  h2-long 24/35, following h2 down so it stays a grade below
+  rather than 2px below (lh
   1.1/1.09, -0.02em) · h3 24/30 (lh 1.2, -0.015em; structural subheads only — CARD
   TITLES read at the intro grade 19/21, the h3 slot overwhelmed
   card bodies) · intro 19/21
@@ -1200,7 +1208,11 @@ between h2 and h3) and the margin note, which is the site's only
 serif-ITALIC paragraph — everything else serif is still a
 heading, a card title, or the brand. Verified ladder at 1440:
 64 h1 > 44 h2 > 38 h2-long > 34.9 quote > 30 h3 > 28 breadth >
-25 brand > 21 intro.
+25 brand > 21 intro. Re-verified 2026-08 after the h2 step-down:
+64 h1 > 50 h1-long > 40 h2 > 35 h2-long > 34.9 quote > 30 h3 >
+28 breadth > 25 brand > 21 intro. The quote grade and h2-long now
+sit 0.1px apart — harmless because they never appear together,
+but the next change to either should separate them.
 
 ## Section rhythm (2026-07 spacing audit — two values, site-wide)
 
