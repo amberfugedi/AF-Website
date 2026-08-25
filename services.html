@@ -147,76 +147,72 @@
              the level label baseline still looks deliberate: the gap under
              each icon grows by about 3px a step. -->
         <div class="head-art svc-vis reveal">
-          <svg class="glyph svc-hero" viewBox="0 40 480 120" width="480" height="120"
+          <svg class="glyph svc-hero" viewBox="0 20 480 134" width="480" height="134"
                role="img"
-               aria-label="Four ways of working together. A circle for the business and a coral circle for Amber, shown apart, touching, overlapping, then one inside the other: Courses, Projects, Fractional, In-house."
-               fill="none" stroke-linecap="round">
+               aria-label="One line for your business, running left to right, and a coral line for Amber that comes closer to it across the four ways of working. At Courses it stays separate. At Projects it joins for a defined stretch. At Fractional it runs close alongside for longer. At In-house it merges into the business line and continues with it."
+               fill="none" stroke-linecap="round" stroke-linejoin="round">
             <defs>
               <style>
                 .sh-l { font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
                         font-size: 15px; font-weight: 600; letter-spacing: 0.3px; fill: #524B43; }
               </style>
-              <clipPath id="clip0"><circle cx="41.5" cy="90.73" r="24"/></clipPath>
-              <clipPath id="clip1"><circle cx="167.0" cy="87.74" r="24"/></clipPath>
-              <clipPath id="clip2"><circle cx="293.5" cy="84.73" r="24"/></clipPath>
-              <clipPath id="clip3"><circle cx="420" cy="81.71" r="24"/></clipPath>
               <linearGradient id="sh-line" gradientUnits="userSpaceOnUse" x1="-12" y1="0" x2="492" y2="0">
                 <stop offset="0"    stop-color="#2E2A27" stop-opacity="0"/>
-                <stop offset="0.08" stop-color="#2E2A27" stop-opacity="0.1"/>
-                <stop offset="0.5"  stop-color="#2E2A27" stop-opacity="0.2"/>
-                <stop offset="0.9"  stop-color="#2E2A27" stop-opacity="0.3"/>
-                <stop offset="1"    stop-color="#2E2A27" stop-opacity="0"/>
+                <stop offset="0.08" stop-color="#2E2A27" stop-opacity="0.16"/>
+                <stop offset="0.75" stop-color="#2E2A27" stop-opacity="0.3"/>
+                <stop offset="1"    stop-color="#2E2A27" stop-opacity="0.3"/>
+              </linearGradient>
+              <linearGradient id="sh-arrive" gradientUnits="userSpaceOnUse" x1="368" y1="0" x2="414" y2="0">
+                <stop offset="0" stop-color="#FF6F61" stop-opacity="0"/>
+                <stop offset="0.45" stop-color="#FF6F61" stop-opacity="0.9"/>
+                <stop offset="1" stop-color="#FF6F61" stop-opacity="1"/>
+              </linearGradient>
+              <linearGradient id="sh-merge" gradientUnits="userSpaceOnUse" x1="414" y1="0" x2="492" y2="0">
+                <stop offset="0" stop-color="#FF6F61" stop-opacity="1"/>
+                <stop offset="0.68" stop-color="#FF6F61" stop-opacity="0.85"/>
+                <stop offset="1" stop-color="#FF6F61" stop-opacity="0"/>
               </linearGradient>
             </defs>
 
-            <path class="stroke" pathLength="100" d="M -12,116 L 492,104"
-                  stroke="url(#sh-line)" stroke-width="1.4" style="--d:0s"/>
+            <!-- The business, going along -->
+            <path class="stroke" pathLength="100" d="M -12,104.0 L 492,90.0"
+                  stroke="url(#sh-line)" stroke-width="1.8" style="--d:0s"/>
 
-            <!-- Courses -->
-            <g>
-              <circle class="fill" cx="41.5" cy="90.73" r="24" fill="#FCE4C4" fill-opacity="0.55" style="--fd:0.50s"/>
-              <circle class="stroke" pathLength="100" cx="41.5" cy="90.73" r="24" stroke="#8A5A14" stroke-width="1.5" stroke-opacity="0.38" style="--d:0.18s"/>
-              <g class="fill" clip-path="url(#clip0)" style="--fd:0.58s">
-                <circle cx="89.5" cy="90.73" r="13" fill="#FF6F61" fill-opacity="0.18"/>
-              </g>
-              <circle class="stroke" pathLength="100" cx="89.5" cy="90.73" r="13" stroke="#FF6F61" stroke-width="2.2" style="--d:0.30s"/>
+            <!-- Courses: the material passes over. It never joins the line;
+                 one thread comes down, and the work stays yours. -->
+            <g class="fill" style="--fd:0.55s">
+              <path d="M 28,32.89 L 92,31.11" stroke="#FF6F61" stroke-width="3" stroke-dasharray="1.8 8.5"/>
+              <path d="M 92,35.11 C 102,54.83 90,81.17 78,96.5" stroke="#FF6F61" stroke-width="1.8" stroke-opacity="0.42" stroke-dasharray="1.8 6"/>
+              <circle cx="76" cy="101.56" r="4" fill="#FF6F61"/>
             </g>
 
-            <!-- Projects -->
-            <g>
-              <circle class="fill" cx="167.0" cy="87.74" r="24" fill="#FBD5E4" fill-opacity="0.55" style="--fd:0.69s"/>
-              <circle class="stroke" pathLength="100" cx="167.0" cy="87.74" r="24" stroke="#A63563" stroke-width="1.5" stroke-opacity="0.38" style="--d:0.37s"/>
-              <g class="fill" clip-path="url(#clip1)" style="--fd:0.77s">
-                <circle cx="204.0" cy="87.74" r="13" fill="#FF6F61" fill-opacity="0.18"/>
-              </g>
-              <circle class="stroke" pathLength="100" cx="204.0" cy="87.74" r="13" stroke="#FF6F61" stroke-width="2.2" style="--d:0.49s"/>
+            <!-- Projects: in at one end, out at the other -->
+            <path class="stroke" pathLength="100" d="M 146,99.61 C 160.3,99.61 157.7,48.89 172,48.89 L 188,48.44 C 202.3,48.44 199.7,97.72 214,97.72" stroke="#FF6F61" stroke-width="3" style="--d:0.55s"/>
+            <g class="fill" style="--fd:1.05s">
+              <circle cx="146" cy="99.61" r="4" fill="#FF6F61"/>
+              <circle cx="214" cy="97.72" r="4" fill="#FF6F61"/>
             </g>
 
-            <!-- Fractional -->
-            <g>
-              <circle class="fill" cx="293.5" cy="84.73" r="24" fill="#D9EFD3" fill-opacity="0.55" style="--fd:0.88s"/>
-              <circle class="stroke" pathLength="100" cx="293.5" cy="84.73" r="24" stroke="#2E7529" stroke-width="1.5" stroke-opacity="0.38" style="--d:0.56s"/>
-              <g class="fill" clip-path="url(#clip2)" style="--fd:0.96s">
-                <circle cx="317.5" cy="84.73" r="13" fill="#FF6F61" fill-opacity="0.18"/>
-              </g>
-              <circle class="stroke" pathLength="100" cx="317.5" cy="84.73" r="13" stroke="#FF6F61" stroke-width="2.2" style="--d:0.68s"/>
+            <!-- Fractional: closer to the line, and for longer -->
+            <path class="stroke" pathLength="100" d="M 238,97.06 C 255.6,97.06 252.4,76.17 270,76.17 L 330,74.5 C 347.6,74.5 344.4,93.61 362,93.61" stroke="#FF6F61" stroke-width="3" style="--d:0.95s"/>
+            <g class="fill" style="--fd:1.45s">
+              <circle cx="238" cy="97.06" r="4" fill="#FF6F61"/>
+              <circle cx="362" cy="93.61" r="4" fill="#FF6F61"/>
             </g>
 
-            <!-- In-house -->
-            <g>
-              <circle class="fill" cx="420" cy="81.71" r="24" fill="#DAD4F5" fill-opacity="0.55" style="--fd:1.07s"/>
-              <circle class="stroke" pathLength="100" cx="420" cy="81.71" r="24" stroke="#574AA6" stroke-width="1.5" stroke-opacity="0.38" style="--d:0.75s"/>
-              <g class="fill" clip-path="url(#clip3)" style="--fd:1.15s">
-                <circle cx="420" cy="81.71" r="13" fill="#FF6F61" fill-opacity="0.18"/>
-              </g>
-              <circle class="stroke" pathLength="100" cx="420" cy="81.71" r="13" stroke="#FF6F61" stroke-width="2.2" style="--d:0.87s"/>
+            <!-- In-house: joins, and does not leave -->
+            <path class="stroke" pathLength="100" d="M 368,73.44 L 388,72.89 C 402,72.5 400,92.28 414,92.17" stroke="url(#sh-arrive)" stroke-width="3" style="--d:1.35s"/>
+            <path class="stroke" pathLength="100" d="M 414,92.17 L 492,90.0"
+                  stroke="url(#sh-merge)" stroke-width="3.6" style="--d:1.7s"/>
+            <g class="fill" style="--fd:1.95s">
+              <circle cx="414" cy="92.17" r="4" fill="#FF6F61"/>
             </g>
 
             <g class="sh-l" text-anchor="middle">
-              <text class="fill" x="60" y="146" style="--fd:0.66s">Courses</text>
-              <text class="fill" x="180" y="146" style="--fd:0.85s">Projects</text>
-              <text class="fill" x="300" y="146" style="--fd:1.04s">Fractional</text>
-              <text class="fill" x="420" y="146" style="--fd:1.23s">In-house</text>
+              <text class="fill" x="60"  y="144" style="--fd:0.7s">Courses</text>
+              <text class="fill" x="180" y="144" style="--fd:1.1s">Projects</text>
+              <text class="fill" x="300" y="144" style="--fd:1.5s">Fractional</text>
+              <text class="fill" x="420" y="144" style="--fd:1.9s">In-house</text>
             </g>
           </svg>
         </div>
