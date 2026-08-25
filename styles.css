@@ -1399,7 +1399,7 @@ a.bld-item .bld-item-arrow {
    inner svg or they silently do nothing. */
 .head-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(300px, 36vw, 452px);
+  grid-template-columns: minmax(0, 1fr) clamp(280px, 32vw, 400px);
   gap: 40px;
   /* copy starts at the top so its h1 lands on the same line as every
      other page's; only the art centres against the row */
@@ -1438,9 +1438,14 @@ a.bld-item .bld-item-arrow {
    copy instead, where the composition is horizontal anyway and the labels
    come back up to ~16px at full opacity. */
 @media (max-width: 1120px) {
-  .head-grid { grid-template-columns: 1fr; gap: 34px; }
-  .head-grid .head-art { align-self: start; width: 100%; max-width: 560px; margin: 0; }
+  /* Under the copy rather than squeezed beside it, and narrower than the
+     old wide strip needed — this composition is portrait. */
+  .head-grid { grid-template-columns: 1fr; gap: 30px; }
+  .head-grid .head-art { align-self: start; width: 100%; max-width: 340px; margin: 0; }
   .head-art .glyph { opacity: 0.92; }
+}
+@media (max-width: 760px) {
+  .head-grid .head-art { max-width: 268px; }
 }
 /* Phone: single-column, no art column */
 @media (max-width: 760px) {
@@ -1971,29 +1976,44 @@ a.bld-item .bld-item-arrow {
    Hide on mobile — the anchor nav below already lists the sections. */
 .svc-vis { align-self: center; }
 
-/* ---- Services hero graphic: engagement depth (2026-08) ----
-   Reuses the existing draw-on rather than adding a device: every mark
-   is `.stroke` / `.fill` like the rest of the site's line art, so the
-   `prefers-reduced-motion` rules already in place cover it.
+/* ---- Services hero graphic: layered support (2026-08) ----
+   Four translucent planes with a thread through them and one coral point
+   where they meet. Every colour is a custom property here, so the whole
+   graphic re-tints from these six values and nothing is hard-coded in the
+   markup. */
+.svc-hero {
+  --af-ink:      #2E2A27;
+  --af-coral:    #FF6F61;
+  --af-lavender: #DAD4F5;
+  --af-blush:    #FBD5E4;
+  --af-butter:   #FBEDBF;
+  --af-sand:     #EFE1CE;
+  overflow: visible;
+  opacity: 1;   /* overrides the .head-art fade — this art is the page's main image */
+}
 
-   The specificity has to be this long. `.reveal.in-view .glyph
-   .stroke:nth-of-type(2)` up at the top of the file scores 0,5,0 and
-   would otherwise pin the second stroke inside each group to a 0.3s
-   delay no matter what `--d` says. Naming `.glyph.svc-hero` gets this
-   to 0,6,0 so the per-element timing actually wins outright rather than
-   on a source-order tie. */
-.head-art.reveal.in-view .glyph.svc-hero .stroke {
-  animation-duration: 1.4s;
-  animation-delay: var(--d, 0s);
+/* Long, offset, and small enough to be felt rather than seen: 3-4px of
+   drift over 17-23s, no two planes in step, so the stack never pulses
+   together. Transform only — nothing here triggers layout. */
+@keyframes af-drift  { 0%, 100% { transform: translateY(0) }  50% { transform: translateY(-4px) } }
+@keyframes af-drift2 { 0%, 100% { transform: translateY(0) }  50% { transform: translateY(3px) } }
+@keyframes af-halo   { 0%, 100% { opacity: .28; transform: scale(1) } 50% { opacity: .5; transform: scale(1.13) } }
+@keyframes af-crawl  { to { stroke-dashoffset: -44 } }
+
+.af-l1 { animation: af-drift  19s ease-in-out infinite; }
+.af-l2 { animation: af-drift2 23s ease-in-out -6s infinite; }
+.af-l3 { animation: af-drift  21s ease-in-out -11s infinite; }
+.af-l4 { animation: af-drift2 17s ease-in-out -3s infinite; }
+.af-halo { transform-box: fill-box; transform-origin: center; animation: af-halo 5.5s ease-in-out infinite; }
+.af-thread-dash { stroke-dasharray: 2 9; animation: af-crawl 26s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .af-l1, .af-l2, .af-l3, .af-l4, .af-halo, .af-thread-dash { animation: none; }
+  .af-halo { opacity: .34; }
 }
-.head-art.reveal.in-view .glyph.svc-hero .fill {
-  animation-delay: var(--fd, 0.5s);
-}
-/* Translucency lives in fill-opacity / stroke-opacity on these, never
-   in `opacity`: the fade-in animation lands on `opacity: 1` and would
-   wipe out any value set there. */
-.svc-hero .fill { opacity: 0; }
-@media (max-width: 760px) { .svc-vis { display: none; } }
+/* The hero art used to be dropped on phones because it was a wide strip
+   of labelled marks. The layered composition is portrait and carries no
+   text, so it stays — see the max-width rule up in the head-grid block. */
 
 /* HEAD -> FIRST SECTION. Amber asked for 60-90px at this joint in July
    2026, when the Expertise head "was leaving a large empty field under
