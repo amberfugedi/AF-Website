@@ -29,9 +29,11 @@ comment; the Courses section is recoverable from git.
       Netlify does not email on submission by default, so until this is
       set the entries collect silently in the Forms tab.
 - [ ] **Confirm both forms registered.** The Forms tab should list two:
-      `contact` and `course-updates`. The three course-updates forms on
-      Courses, Services and the course page share one name on purpose,
-      so they land in a single list.
+      `contact` and `course-updates`. There are now TWO course-updates
+      forms, on Courses and the course page, sharing one name on purpose
+      so they land in a single list. The third was on Services and went
+      with the Courses section when that page moved to services only
+      (2026-08).
 - [ ] **Send one real test** through the contact form and check it
       arrives, since nothing here can reach the live domain.
 
@@ -79,7 +81,8 @@ four things go together:
       labels to "Start the course", change the nav CTA on that page
       only, and drop the Coming soon chip plus the notify form and its
       FAQ entry. Then do the same on `courses.html` (status chip, hero
-      CTA) and `services.html` (self-serve aside).
+      CTA). `services.html` no longer needs a pass — its Courses section
+      was replaced by Mentorship and internships in 2026-08.
 - [ ] **Refund policy.** `/terms` still says no course is on sale and
       no refund terms exist, so the FAQ has no refund question. Write
       purchase, access and refund terms, then add the question.
