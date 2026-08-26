@@ -5630,9 +5630,17 @@ footer p,
 .btn { font-size: 1.0625rem; }
 /* The Shop dropdown is a <button>, so it never inherited the nav's size
    and sat at 0.925rem while its six siblings were raised to 1rem here —
-   14.8px against 16px in the primary nav. The phone rule further down
-   already lists both; this one had not been updated to match. */
-.nav-links a, .nav-drop-btn { font-size: 1rem; }
+   14.8px against 16px in the primary nav.
+
+   MUST STAY INSIDE THIS MEDIA QUERY. `.nav-drop-btn` here and
+   `.nav-drop-btn` in the mobile menu block are both 0,1,0, and this
+   file is the later of the two, so unscoped it reaches into the open
+   phone menu and pins Shop at 16px while its neighbours sit at 25.6.
+   The links escape that because the mobile rule is `.nav-links > li > a`
+   at 0,1,2 — the button had no such protection. */
+@media (min-width: 761px) {
+  .nav-links a, .nav-drop-btn { font-size: 1rem; }
+}
 .arrow-link { font-size: 1rem; } /* interactive text sits in the 16-17px slot */
 
 /* Inline conversion prompt: one quiet line at the decision moment
