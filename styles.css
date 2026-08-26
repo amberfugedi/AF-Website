@@ -2515,7 +2515,10 @@ a.bld-item .bld-item-arrow {
 }
 .sp-t {
   font-weight: 700;
-  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+  /* Card title, so it reads at the intro grade like every other card
+     title on the site (MASTER: the h3 slot overwhelmed card bodies).
+     It had its own 17->19 clamp, one notch low. */
+  font-size: var(--fs-intro);
   line-height: 1.35;
   color: var(--ink);
   max-width: 26ch;

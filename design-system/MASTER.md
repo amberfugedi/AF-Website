@@ -130,10 +130,31 @@ cards.
       h2                  28 / 40
       h2-long             24 / 35
       h3                  24 / 30
+      brand wordmark      22 / 25
       intro / card title  19 / 21
       body                16 / 17
+      interactive         15.2 / 16   nav links, nav CTA, arrow links
       small               14 / 15
       eyebrow             12 / 13
+
+  AUDITED 2026-08 across twelve pages at 390 and 1440, every element
+  that renders its own text, tolerance 0.6px. Result: the site matches.
+  Four families sit off the ladder and all four are deliberate —
+
+    proof chips   .proof-stat 39.2 / 24.3 / 19.8 and .proof-label 12.8
+                  step down across the three stacked home cards on
+                  purpose. Micro-type, already sanctioned below.
+    .ct-title     31.2 / 24.6, inside an aria-hidden thumbnail. It is
+                  artwork, not content type, so the ladder does not
+                  apply — same status as text inside an SVG.
+    mobile menu   25.6px links in the full-screen nav. Tap targets.
+    .ch-sign      15.75px, the "+" glyph at 1.05em of its own label.
+                  Optical sizing of a symbol.
+
+  One real drift was found and fixed: .sp-t, the Services situation-card
+  titles, carried a private 17->19 clamp when card titles read at the
+  intro grade. Re-run the audit after any type change; it is cheap and
+  it caught two things eyeballing had missed.
 
   Desktop steps: 1.25 h1>h2, 1.14 h2>h2-long, 1.17 h2-long>h3,
   1.43 h3>intro, 1.24 intro>body, 1.13 body>small, 1.15 small>eyebrow.
