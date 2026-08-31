@@ -5616,8 +5616,35 @@ footer p,
    reads as a pulled-out note — the family is what separates it from the
    sans copy beside it, not the size. */
 .nb-list span { font-size: var(--fs-body); line-height: 1.45; }
+
+/* Principles variant of the notebook: a label and a sentence instead of a
+   number and a line. Same hairlines and rhythm as .nb-list so the two
+   boxes on this page still read as one device. */
+.nb-princ { list-style: none; margin: 0; padding: 0; }
+.nb-princ li {
+  padding: 15px 0;
+  border-top: 1px solid rgba(46, 42, 39, 0.1);
+}
+.nb-princ li:first-child { border-top: 0; padding-top: 2px; }
+.nb-princ li:last-child { padding-bottom: 2px; }
+.np-k {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--coral-deep);
+  margin-bottom: 7px;
+}
+.nb-princ li > span + span {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.45;
+}
 .lead p { font-size: var(--fs-small); line-height: 1.5; }
+.nb-princ li > span + span { font-size: var(--fs-body); }
 .nb-label,
+.np-k,
 .nb-list li::before { font-size: var(--fs-eyebrow); }
 .hw-quote p { font-size: clamp(1.55rem, 1.316rem + 0.96vw, 2.25rem); line-height: 1.28; }
 .hw-principles h3 { font-size: var(--fs-intro); line-height: 1.3; }
