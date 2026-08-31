@@ -3626,7 +3626,7 @@ a.bld-item .bld-item-arrow {
 
 .dx-list {
   list-style: none;
-  margin: clamp(4px, 0.8vw, 10px) 0 0;
+  margin: clamp(4px, 0.8vw, 10px) auto 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3634,6 +3634,10 @@ a.bld-item .bld-item-arrow {
      leave a void under every short one */
   align-items: start;
   gap: clamp(18px, 2vw, 28px) clamp(20px, 2.4vw, 38px);
+  /* capped so short two-line labels don't spread across the full text
+     measure — at 1072px-wide columns each cause had ~330px to itself
+     and the whole grid read as sparse and unbalanced, not radiating */
+  max-width: 720px;
 }
 /* the stagger — three offsets so no two columns share a baseline and the
    row cannot be read left to right. Small: at 26px it stopped reading as
