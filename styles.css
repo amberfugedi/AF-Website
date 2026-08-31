@@ -5609,8 +5609,13 @@ footer p,
 .hw-do li { font-size: var(--fs-small); line-height: 1.45; }
 .hw-body .hw-kicker { font-size: var(--fs-h3); line-height: 1.3; }
 .hw-note p { line-height: 1.45; }
-.nb-list span,
 .lead h3 { font-size: var(--fs-intro); }
+/* The findings sit at the body grade, not intro. They were 21px, which
+   made every item run three lines and left the box 138px taller than the
+   paragraphs it annotates; at 17 that gap is 41. Serif at body size still
+   reads as a pulled-out note — the family is what separates it from the
+   sans copy beside it, not the size. */
+.nb-list span { font-size: var(--fs-body); line-height: 1.45; }
 .lead p { font-size: var(--fs-small); line-height: 1.5; }
 .nb-label,
 .nb-list li::before { font-size: var(--fs-eyebrow); }
