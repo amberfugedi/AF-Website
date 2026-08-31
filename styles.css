@@ -3598,99 +3598,102 @@ a.bld-item .bld-item-arrow {
   }
 }
 
-/* --- My Approach: the diagnostic flow (2026-08) --- */
-.fl {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(16px, 2vw, 30px);
-  margin: clamp(26px, 3vw, 38px) 0 0;
-  list-style: none;
-  padding: 0;
-}
-.fl-step { position: relative; text-align: center; }
-/* the connector rides on the step, so it never becomes a grid item
-   that has to be hidden once the row stacks */
-.fl-step:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  top: 62px;
-  left: calc(50% + 46px);
-  right: calc(-50% + 46px);
-  height: 1px;
-  background: var(--line);
-}
-.fl-step:not(:last-child)::before {
-  content: "";
-  position: absolute;
-  top: 58px;
-  right: calc(-50% + 46px);
-  width: 6px; height: 6px;
-  border-top: 1px solid rgba(46, 42, 39, 0.28);
-  border-right: 1px solid rgba(46, 42, 39, 0.28);
-  transform: rotate(45deg);
-  z-index: 1;
-}
-.fl-n {
+/* --- My Approach: what looks like the problem (2026-08) ---
+   Replaced .fl, a four-step flow. The brief was to stop implying both an
+   order and an answer, so there is deliberately no numbering, no arrow
+   between causes, and no connector from the anchor to any single one.
+   The causes are staggered rather than aligned: a clean row of three
+   reads as stage one, two, three no matter what the labels say. */
+.dx { margin: clamp(28px, 3.4vw, 44px) 0 0; }
+.dx-anchor { text-align: center; }
+.dx-k {
   display: block;
-  font-weight: 600;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--coral-deep);
+  margin-bottom: 12px;
 }
-.fl-ring {
-  width: 84px; height: 84px; border-radius: 50%;
-  margin: 0 auto 18px;
-  display: grid; place-items: center;
-  border: 1.5px solid var(--line);
+.dx-lead {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+  margin: 0 auto;
 }
-.fl-ring svg { width: 34px; height: 34px; display: block; }
-.fl-cap { color: var(--body); margin: 0; }
-.fl-key .fl-n { color: var(--coral-deep); }
-.fl-key .fl-ring { border-color: rgba(184, 53, 74, 0.5); background: rgba(251, 213, 228, 0.42); }
-.fl-key .fl-cap { color: var(--ink); }
-/* The block runs full width; the paragraphs inside it keep the 68ch
-   body measure like every other paragraph on the site. Uncapping them
-   was tried (Amber, 2026-08) on the reasoning that the copy was short
-   enough to land on two lines instead of one long one — but measured,
-   those two lines ran 126 characters each, which is the thing the
-   measure exists to prevent. At 68ch it is four lines of 63.
-   .fl-body.hw-body p, not .fl-body p: `.hw-body p` in the type layer
-   is the same specificity and lands later in the file, so a single
-   class would lose on source order. */
-.fl-body { max-width: none; margin-top: clamp(34px, 4vw, 54px); }
-.fl-body.hw-body p { max-width: 68ch; }
+.dx-fan { display: block; margin: 10px auto 0; }
+
+.dx-list {
+  list-style: none;
+  margin: clamp(4px, 0.8vw, 10px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* start, not stretch: stretched rows size to their tallest item and
+     leave a void under every short one */
+  align-items: start;
+  gap: clamp(18px, 2vw, 28px) clamp(20px, 2.4vw, 38px);
+}
+/* the stagger — three offsets so no two columns share a baseline and the
+   row cannot be read left to right. Small: at 26px it stopped reading as
+   a deliberate offset and started reading as a gap. */
+.dx-list li:nth-child(3n+1) { margin-top: 0; }
+.dx-list li:nth-child(3n+2) { margin-top: 16px; }
+.dx-list li:nth-child(3n+3) { margin-top: 8px; }
+.dx-list li { padding-top: 14px; border-top: 1px solid var(--line); }
+.dx-t {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+/* three accents cycling, so no cause outranks another */
+.dx-list li:nth-child(3n+1) .dx-t { color: var(--coral-deep); }
+.dx-list li:nth-child(3n+2) .dx-t { color: var(--automations-deep); }
+.dx-list li:nth-child(3n+3) .dx-t { color: var(--courses-deep); }
+.dx-c {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--body);
+  line-height: 1.42;
+}
+/* the open door, quieter than the five named ones */
+.dx-else .dx-t { color: var(--muted); }
+.dx-else { border-top-style: dashed; }
+
+/* .fl-body carried this block's top margin and went with the old flow
+   rules; the closing line ran straight into the paragraph below. The
+   spacing lives on .dx now so it cannot be orphaned again. */
+.dx + .hw-body { margin-top: clamp(34px, 4vw, 54px); }
+.hw-body.fl-body { max-width: none; }
+.hw-body.fl-body p { max-width: 68ch; }
+
+.dx-close {
+  font-family: var(--font-display);
+  color: var(--ink);
+  text-align: center;
+  margin: clamp(30px, 3.4vw, 46px) auto 0;
+  max-width: 34ch;
+  line-height: 1.32;
+}
+
 @media (max-width: 860px) {
-  .fl { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
-  .fl-step:not(:last-child)::after,
-  .fl-step:not(:last-child)::before { display: none; }
+  .dx-list { grid-template-columns: 1fr 1fr; }
+  .dx-list li:nth-child(3n+1),
+  .dx-list li:nth-child(3n+2),
+  .dx-list li:nth-child(3n+3) { margin-top: 0; }
+  .dx-list li:nth-child(2n) { margin-top: 20px; }
 }
-@media (max-width: 620px) {
-  /* Left-aligned and horizontal on phones (Amber, 2026-08). Centred,
-     each step was a label over a big ring over a caption — four tall
-     poster blocks stacked, out of step with the left-aligned headline
-     and copy around them. The ring moves beside the text, which reads
-     as a sequence and takes the section from ~1290px to ~470px. */
-  .fl { grid-template-columns: 1fr; gap: 0; }
-  .fl-step {
-    display: grid;
-    grid-template-columns: 56px minmax(0, 1fr);
-    gap: 16px;
-    align-items: center;
-    text-align: left;
-    padding: 16px 0;
-  }
-  .fl-step + .fl-step { border-top: 1px solid var(--line); }
-  .fl-n { grid-column: 2; margin-bottom: 4px; align-self: end; }
-  .fl-ring {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    width: 56px; height: 56px;
-    margin: 0;
-    align-self: center;
-  }
-  .fl-ring svg { width: 26px; height: 26px; }
-  .fl-cap { grid-column: 2; align-self: start; }
+@media (max-width: 560px) {
+  /* one column, no stagger — offsets on a single column just read as
+     inconsistent spacing. The fan goes too; it needs width to fan. */
+  .dx-list { grid-template-columns: 1fr; gap: 0; }
+  .dx-list li,
+  .dx-list li:nth-child(2n) { margin-top: 0; padding: 14px 0; }
+  .dx-fan { display: none; }
+  .dx-lead, .dx-close { max-width: none; }
 }
 
 /* --- 3. Tools: collapsed by default, and it stays that way. No logo
@@ -5546,7 +5549,10 @@ footer p,
 .ev-metric-label { font-size: var(--fs-small); line-height: 1.4; }
 .ev-intro p { font-size: var(--fs-body); line-height: 1.55; }
 .tl-cat { font-size: var(--fs-eyebrow); line-height: 1.4; }
-.fl-n { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.dx-k, .dx-t { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.dx-lead { font-size: var(--fs-h3); }
+.dx-c { font-size: var(--fs-body); }
+.dx-close { font-size: var(--fs-intro); }
 .crs-status, .cs-inc dt { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .cs-list li, .cs-stages p, .cs-note { font-size: var(--fs-body); line-height: 1.55; }
 .cs-stage-n, .cs-inc dd { font-size: var(--fs-intro); line-height: 1.3; }
@@ -5554,7 +5560,6 @@ footer p,
 .cs-notify h2 { font-size: var(--fs-intro); line-height: 1.3; }
 .cs-notify > div > p { font-size: var(--fs-body); line-height: 1.55; }
 .sec-n { font-size: var(--fs-eyebrow); line-height: 1.4; }
-.fl-cap { font-size: var(--fs-body); line-height: 1.5; }
 .tl-eg { font-size: var(--fs-small); line-height: 1.5; }
 .plat-list dt, .plat-list dd { font-size: var(--fs-small); line-height: 1.5; }
 .pr-head { font-size: var(--fs-h3); line-height: 1.2; }
