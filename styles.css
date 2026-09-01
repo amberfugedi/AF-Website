@@ -4617,6 +4617,10 @@ a.bld-item .bld-item-arrow {
 }
 .ab-cred li:nth-child(2n) { border-top-color: rgba(150, 138, 214, 0.5); }
 .ab-cred-fig {
+  /* Two lines reserved so the notes below share a baseline. Below 1440
+     "B2B and service businesses" wraps and the other three notes floated
+     up under their single-line figures, which read as a ragged row. */
+  min-height: 2.4em;
   display: block;
   font-family: var(--font-display);
   color: var(--coral-deep);

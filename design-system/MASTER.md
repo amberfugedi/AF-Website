@@ -1836,6 +1836,47 @@ is also a `.page-head`, so the new rule caught My Approach and
 flattened its bridge from 78 to 26; `.hero-band + section` is restated
 straight after to put it back.
 
+### About design audit (2026-09)
+
+Measured, not eyeballed. Most of what looked like defects were the
+system working, and recording that is the point — the same four things
+will look wrong to the next person who audits this page.
+
+NOT BUGS, verified:
+- The first section renders `padding-top: 0`. That is the site-wide
+  `.page-head + section { padding-top: 0 }` rule; the head's own 80px
+  bottom padding carries that seam.
+- `.arrow-link` renders 16px here and 15.2px looks "expected" from its
+  `0.95rem` base. The type layer deliberately overrides it to `1rem`
+  ("interactive text sits in the 16-17px slot") and it measures 16px on
+  About, My Approach and Expertise alike.
+- The head-to-first-h2 seam varies wildly by page (About 152px, My
+  Approach 397px, Expertise 46px) because each head has different
+  content under the copy. There is no constant to violate here.
+- A `fullPage` screenshot of this page is NOT evidence. The aura layer
+  breaks Playwright's stitching and blanks whole sections; hiding the
+  fixed nav does not fix it. Audit by section captures.
+
+FIXED: `.ab-cred` note alignment. Below 1440 "B2B and service
+businesses" wraps to two lines while the other three figures do not,
+so their notes floated up and the row of supporting lines read ragged.
+`.ab-cred-fig` now reserves two lines (`min-height: 2.4em`, its
+line-height is 1.2), so the notes share a baseline at every width.
+Grid rows already equalised the item heights; it was the内 content
+alignment that was off.
+
+KNOWN AND ACCEPTED: section 01's `.hw-split` runs a 223px column gap
+(prose 441px against the 218px beats aside). That is the imbalance
+class this file keeps flagging, but it sits between the 185px that was
+accepted on My Approach section 03 and the 487px that was rebuilt, and
+the aside's coral rule terminates it cleanly rather than trailing off.
+Left alone deliberately; revisit if that section grows.
+
+Also verified: 34 distinct text styles, zero contrast failures; zero
+horizontal overflow at 320 / 375 / 430 / 768 / 900 / 1024 / 1280 /
+1440 / 1920; every `.ab-*` and `.xp-reveal*` class in the stylesheet
+is used in the markup (no dead CSS left behind by the rebuild).
+
 ### About: the personal layer (2026-09, second pass)
 
 Amber asked for a stronger personal layer, and reversed one of the
