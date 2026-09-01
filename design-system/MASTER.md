@@ -1836,6 +1836,53 @@ is also a `.page-head`, so the new rule caught My Approach and
 flattened its bridge from 78 to 26; `.hero-band + section` is restated
 straight after to put it back.
 
+### About: restoring the mockup's editorial qualities (2026-09)
+
+Amber's note after the previous pass: the content structure was right
+but the page had become "a generic About page with alternating
+background colors." She supplied the approved mockup. This pass was
+design only — copy and section order untouched, testimonials and the
+timeline untouched and verified.
+
+FOUR ANNOTATION MARKS, and no more. A hand-drawn lavender underline
+(a data-URI SVG, so the stroke can wobble and still wrap with the
+text), a small coral asterisk, an oversized quote mark, and a dot
+connector. Budget is 1-2 per section: the personality is meant to
+register before the decoration does.
+
+COMPOSITIONS ARE NOW ASYMMETRIC, which was the actual complaint. Every
+section had drifted to the same near-even two columns. Now: 60/40 for
+How I think and How I lead, 70/30 with a margin note for the strategy
+section, three columns for the beliefs, a single narrow measure for the
+reflective section, and 60/40 again for Outside the work.
+
+BACKGROUNDS: the page ran cream/white/cream/white down its whole
+length. Only the testimonials keep a band now. Separation comes from
+spacing, rules and composition. This also dropped the detector from 17
+findings to 14 — three pre-existing ones lived in the removed bands.
+
+THE LAVENDER UNDERLINE IS AN AGREED EXCEPTION to the tab system.
+`.tab-em` is blush and butter only (peach and lavender were retired in
+July 2026), and a lavender h1 highlight was declined once on those
+grounds. Amber asked twice and supplied a mockup showing it, so About
+now runs the underline as a separate device: `.ab-uline` is not a tab,
+it is an annotation, and the page still carries exactly one `.tab-em`
+("touch the work.", butter). Do not generalise the underline to other
+pages without deciding what it means there.
+
+TWO BUGS FOUND BY MEASURING:
+- `.ab-pull` carried `max-width: 15ch`, sized for a wide column. Inside
+  a 40% column it wrapped the pullout into a ten-character tower six
+  lines deep. The cap is 34ch now and the pull-line clamp came down
+  from 2.6rem to 2.15rem.
+- `.ab-ast` used `--coral`, which MASTER reserves for fills and
+  buttons. It measured 2.60:1 as text on cream. Now `--coral-deep`.
+  Decorative marks still have to be visible.
+
+Page 8,246px to 7,959px. 38 text styles with zero contrast failures,
+zero banned phrases, zero em dashes, no overflow 320-1920, every
+asymmetric split collapsing to one column at 900.
+
 ### About editorial pass (2026-09, Amber's scoped brief)
 
 "NOT a full rebuild." Everything above the testimonials plus the short

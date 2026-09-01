@@ -4504,6 +4504,141 @@ a.bld-item .bld-item-arrow {
    credentials section — the degrees moved into the timeline disclosure
    as plain rows. */
 
+/* ============ About: editorial annotations (2026-09) ============
+   Amber's mockup direction. Four marks total, no more: a hand-drawn
+   lavender underline, a small coral asterisk, an oversized quote mark,
+   and a dot connector. Budget is 1-2 marks per section — the point is
+   that the personality registers before the decoration does. */
+
+/* Tiny editorial numerals on the beliefs — eyebrow grade, not the
+   section-numeral scale that made the page read as a process. */
+.ab-n {
+  display: block;
+  color: var(--coral-deep);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+/* The honesty line is supporting copy, not a third statement. */
+.ab-honest { margin-top: clamp(28px, 3vw, 40px); }
+.ab-honest p { color: var(--muted); max-width: 52ch; }
+
+/* Hand-drawn underline. A data-URI SVG rather than a border so the
+   stroke can wobble; it sits under the text baseline and wraps with it. */
+.ab-uline {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 8.4 C 34 4.2, 68 9.6, 102 6.2 C 136 3.1, 168 8.8, 198 5.4' fill='none' stroke='%238579C9' stroke-width='2.4' stroke-linecap='round' opacity='0.62'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.42em;
+  padding-bottom: 0.22em;
+}
+/* The h1 mark is coral text over the lavender line, per the mockup. */
+.ab-uline-coral { color: var(--coral-deep); }
+
+/* Tiny coral asterisk. Decorative, so it stays out of the a11y tree. */
+.ab-ast {
+  display: inline-block;
+  /* coral-deep, not coral: --coral is fill-only per MASTER and measured
+     2.60:1 as text on cream. Decorative marks still have to be seen. */
+  color: var(--coral-deep);
+  line-height: 1;
+  transform: translateY(-0.06em);
+}
+
+/* Oversized opening quote mark for the two big pullouts. */
+.ab-qmark {
+  display: block;
+  font-family: var(--font-display);
+  color: rgba(133, 121, 201, 0.55);
+  line-height: 0.7;
+  margin-bottom: 6px;
+}
+
+/* Dot connector down the three examples in How I think: one continuous
+   rule with a dot per item, drawn from the list rather than added as
+   markup. */
+.ab-dots { list-style: none; margin: 0; padding: 0 0 0 26px; position: relative; }
+.ab-dots::before {
+  content: "";
+  position: absolute;
+  left: 4px; top: 0.55em; bottom: 0.7em;
+  width: 1px;
+  background: rgba(133, 121, 201, 0.34);
+}
+.ab-dots li { position: relative; }
+.ab-dots li + li { margin-top: 18px; }
+.ab-dots li::before {
+  content: "";
+  position: absolute;
+  left: -26px; top: 0.5em;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: rgba(133, 121, 201, 0.85);
+}
+
+/* A pullout, used twice: How I think and the two payoff statements.
+   Serif at display scale over a short coral rule. */
+/* No character cap: these live in a 35-40% column already, and a 15ch
+   cap on top of that wrapped the quote into a 10-character tower. */
+.ab-pull { max-width: 34ch; }
+.ab-pull-line {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.16;
+  margin: 0;
+  text-wrap: pretty;
+}
+.ab-pull-note { color: var(--muted); margin-top: 20px; }
+.ab-pull-note + .ab-pull-note { margin-top: 12px; }
+
+/* Margin note: the small annotation that balances an asymmetric
+   composition without becoming a second column of copy. */
+.ab-note {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--muted);
+  max-width: 22ch;
+  padding-left: 18px;
+  border-left: 2px solid rgba(255, 111, 97, 0.34);
+}
+
+/* Asymmetric splits. 60/40 and 70/30 rather than the even-ish grids the
+   live page had drifted to — the brief's core note was that everything
+   had become the same two columns. */
+.ab-6040 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  column-gap: clamp(44px, 6vw, 96px);
+  row-gap: 40px;
+  align-items: start;
+  margin-top: clamp(28px, 3.2vw, 42px);
+}
+.ab-7030 {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+  column-gap: clamp(44px, 6vw, 96px);
+  row-gap: 34px;
+  align-items: start;
+  margin-top: clamp(26px, 3vw, 38px);
+}
+@media (max-width: 900px) {
+  .ab-6040, .ab-7030 { grid-template-columns: 1fr; }
+}
+
+/* A reflective section: narrower measure, more air, and the closing
+   thought set larger so the section lands rather than trails off. */
+.ab-quiet { max-width: 60ch; margin-top: clamp(28px, 3.2vw, 40px); }
+.ab-quiet-open { font-family: var(--font-display); color: var(--ink); line-height: 1.34; letter-spacing: -0.01em; }
+.ab-quiet-close {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  max-width: 30ch;
+  margin-top: clamp(30px, 3.4vw, 44px);
+}
+
 /* Section eyebrows (2026-09). These replace nothing — About never had
    .sec-n numerals — they are wayfinding for a page that is now eight
    parts of one story. Coral-deep at eyebrow grade, so they sit clearly
@@ -5694,6 +5829,15 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.5; }
 .ab-eyebrow { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.ab-n { font-size: var(--fs-eyebrow); line-height: 1.2; }
+.ab-pull-line { font-size: clamp(1.45rem, 1.19rem + 1.08vw, 2.15rem); }
+.ab-pull-note { font-size: var(--fs-body); line-height: 1.5; }
+.ab-qmark { font-size: clamp(2.6rem, 2rem + 2.4vw, 4rem); }
+.ab-ast { font-size: var(--fs-intro); }
+.ab-note { font-size: var(--fs-body); line-height: 1.5; }
+.ab-dots li { font-size: var(--fs-body); line-height: 1.55; color: var(--body); }
+.ab-quiet-open { font-size: var(--fs-h3); }
+.ab-quiet-close { font-size: clamp(1.4rem, 1.16rem + 0.98vw, 1.95rem); }
 .ab-payoff-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }
 .ab-lead { font-size: var(--fs-h3); line-height: 1.28; }
