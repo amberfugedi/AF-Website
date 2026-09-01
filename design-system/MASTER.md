@@ -1905,6 +1905,23 @@ lines was the most résumé-shaped block on the page. The degrees are
 facts the JSON-LD `alumniOf` claims, so they moved into the timeline
 disclosure as plain rows rather than being dropped.
 
+A FOURTH BELIEF WAS ADDED 2026-09, after the rebuild shipped (Amber: "a
+core belief for me is collaboration and my idea is not the only idea").
+The original three thoughts were all about rigour and execution — test
+the opinion, build it, lighten it — so "What I keep coming back to"
+read as someone who arrives, diagnoses and decides. "My idea is not the
+only idea." sits second, where it pairs with "Facts over feelings"
+(distrust the assumption, then distrust your own certainty) before the
+section turns to execution. Her phrase became the title verbatim.
+THE WORD "COLLABORATION" DOES NOT APPEAR ON THE PAGE. Her brief rules
+out stating qualities as traits — the same instruction that removed
+"strong interpersonal skills" and "sound judgment" — so the belief is
+shown through what she actually does with it (wanting to be argued
+with, crediting someone else's objection). Wording deliberately avoids
+My Approach's "Challenge ideas, not people / assumptions questioned,
+including mine": same belief, different words, which is the line this
+site draws between consistency and copy-paste.
+
 THREE DEVICES, NOT THREE INVENTIONS.
 - `.ab-beats` — a run of short parallel sentences behind a coral
   rule, used FOUR times ("give me a website problem…", "sometimes
