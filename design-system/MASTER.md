@@ -2086,6 +2086,48 @@ stays as the site spells it rather than her brief's "Scan-Optics".
   a left-ruled block on a lavender band with a tape graphic, which
   would have undone the standardisation she asked for an hour earlier.
 
+### Section 02 diagnostic diagram, rebuilt twice more (2026-09)
+
+Amber's brief: stop implying both an order and a single answer. The
+four-step flow (above) was replaced with one anchor sentence ("what
+looks like the problem") and six possible causes — no numbering, no
+arrows, no connector from the anchor to any one cause, staggered
+rather than aligned so the row cannot be read left to right.
+
+Two live-feedback rounds after it shipped, both worth keeping:
+
+- **"What does that random icon do" / "not aligned... white
+  background... not on brand."** The first build drew a hand-curved
+  "fan" of lines under the anchor and colour-cycled the six causes
+  coral/lavender/gold. That broke two rules at once: the custom
+  graphics language is precise geometric abstraction, explicitly "not
+  doodles" — and colour on this site is only supposed to code two
+  defined sets (offers, expertise chapters); cycling colour across six
+  unrelated causes invented an unearned third set. Fixed by giving
+  every cause the site's ONE bullet marker (the open ring) instead —
+  coral/coral-deep since there is no section accent here to code
+  against, same logic as the hands-on list further down this page —
+  and by dropping the icon entirely (shown beside an arc-ripple and an
+  orbital-dot alternative; the anchor line plus the staggered cluster
+  already read as "one thing branching into several" without one).
+- **The alignment complaint was literal, not just a vibe.** The list
+  sat in left-aligned grid columns under a centered anchor, so its
+  visual mass leaned left of the anchor's own centerline even though
+  the list's outer box was correctly centered — a geometrically
+  centered container isn't perceptually centered when the content
+  inside is left-aligned and only fills part of its width. Fixed by
+  centering each item's bullet and text under itself, so the whole
+  cluster hangs from the anchor rather than sitting in columns that
+  merely happen to share its midpoint.
+
+Mockups were reviewed IN THE LIVE PAGE, not as isolated component
+slides — the first round of options was three white cards stacked with
+black pill labels, stripped of nav/aura/cream context, and read as
+generic wireframes regardless of which icon was on them. Rendering the
+same three options inside real copies of `my-approach.html` (real
+nav, real cream page background, real neighbouring sections) surfaced
+the "on brand" problem the isolated slides hid.
+
 
 RENAMED IN FULL, not just relabelled: `how-i-work.html` became
 `my-approach.html` with `/how-i-work.html /my-approach.html 301` at

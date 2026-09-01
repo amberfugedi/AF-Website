@@ -3603,7 +3603,25 @@ a.bld-item .bld-item-arrow {
    order and an answer, so there is deliberately no numbering, no arrow
    between causes, and no connector from the anchor to any single one.
    The causes are staggered rather than aligned: a clean row of three
-   reads as stage one, two, three no matter what the labels say. */
+   reads as stage one, two, three no matter what the labels say.
+
+   2026-09: rebuilt twice more from live feedback. First pass drew a
+   hand-curved "fan" under the anchor and colour-cycled the six causes
+   coral/lavender/gold — two MASTER.md rules broken at once: the custom
+   graphics language is precise geometric abstraction, "not doodles",
+   and colour is only supposed to code two defined sets (offers,
+   expertise chapters) — this invented an unearned third. Fixed the
+   colour by giving every cause the site's one real bullet marker (the
+   open ring, borrowed from the hands-on list further down this same
+   page, coral because there is no section accent here to code
+   against), but the list stayed left-aligned in its grid columns under
+   a centered anchor, so the whole block visually leaned off its own
+   centerline ("none of these are aligned"). This version centers every
+   item under its own bullet so the cluster hangs from the anchor, and
+   drops the icon entirely — chosen over an arc ripple and an orbital
+   dot ring shown alongside it; the anchor line plus the staggered,
+   centered cluster already read as "one thing branching into several"
+   without anything drawn under the lead. */
 .dx { margin: clamp(28px, 3.4vw, 44px) 0 0; }
 .dx-anchor { text-align: center; }
 .dx-k {
@@ -3622,11 +3640,11 @@ a.bld-item .bld-item-arrow {
   max-width: 22ch;
   margin: 0 auto;
 }
-.dx-fan { display: block; margin: 10px auto 0; }
+.dx-space { height: clamp(22px, 3vw, 34px); }
 
 .dx-list {
   list-style: none;
-  margin: clamp(4px, 0.8vw, 10px) auto 0;
+  margin: 0 auto;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3634,10 +3652,11 @@ a.bld-item .bld-item-arrow {
      leave a void under every short one */
   align-items: start;
   gap: clamp(18px, 2vw, 28px) clamp(20px, 2.4vw, 38px);
-  /* capped so short two-line labels don't spread across the full text
-     measure — at 1072px-wide columns each cause had ~330px to itself
-     and the whole grid read as sparse and unbalanced, not radiating */
-  max-width: 720px;
+  /* capped so short labels don't spread across the full text measure,
+     and centered text so the cluster sits on the anchor's centerline
+     rather than leaning into its own left-aligned columns */
+  max-width: 640px;
+  text-align: center;
 }
 /* the stagger — three offsets so no two columns share a baseline and the
    row cannot be read left to right. Small: at 26px it stopped reading as
@@ -3645,27 +3664,40 @@ a.bld-item .bld-item-arrow {
 .dx-list li:nth-child(3n+1) { margin-top: 0; }
 .dx-list li:nth-child(3n+2) { margin-top: 16px; }
 .dx-list li:nth-child(3n+3) { margin-top: 8px; }
-.dx-list li { padding-top: 14px; border-top: 1px solid var(--line); }
+/* the site's one bullet language — open ring, pale fill inside a deep
+   2px border — centered above each item. Coral/coral-deep because
+   there is no section accent to code against here, same reasoning as
+   the hands-on list below. No hairline beside it: "two stacks of
+   rules read as noise where the rings alone read as a list" already
+   settled that below on this page. */
+.dx-dot {
+  display: block;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 111, 97, 0.28);
+  border: 2px solid var(--coral-deep);
+  box-sizing: border-box;
+  margin: 0 auto 9px;
+}
 .dx-t {
   display: block;
   text-transform: uppercase;
   letter-spacing: 0.09em;
   font-weight: 600;
+  color: var(--ink);
   margin-bottom: 7px;
 }
-/* three accents cycling, so no cause outranks another */
-.dx-list li:nth-child(3n+1) .dx-t { color: var(--coral-deep); }
-.dx-list li:nth-child(3n+2) .dx-t { color: var(--automations-deep); }
-.dx-list li:nth-child(3n+3) .dx-t { color: var(--courses-deep); }
 .dx-c {
   display: block;
   font-family: var(--font-display);
   color: var(--body);
   line-height: 1.42;
+  max-width: 20ch;
+  margin: 0 auto;
 }
 /* the open door, quieter than the five named ones */
+.dx-else .dx-dot { background: transparent; border-color: var(--line); }
 .dx-else .dx-t { color: var(--muted); }
-.dx-else { border-top-style: dashed; }
 
 /* .fl-body carried this block's top margin and went with the old flow
    rules; the closing line ran straight into the paragraph below. The
@@ -3692,11 +3724,10 @@ a.bld-item .bld-item-arrow {
 }
 @media (max-width: 560px) {
   /* one column, no stagger — offsets on a single column just read as
-     inconsistent spacing. The fan goes too; it needs width to fan. */
+     inconsistent spacing. */
   .dx-list { grid-template-columns: 1fr; gap: 0; }
   .dx-list li,
   .dx-list li:nth-child(2n) { margin-top: 0; padding: 14px 0; }
-  .dx-fan { display: none; }
   .dx-lead, .dx-close { max-width: none; }
 }
 
