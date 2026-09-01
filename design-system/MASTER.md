@@ -1836,6 +1836,35 @@ is also a `.page-head`, so the new rule caught My Approach and
 flattened its bridge from 78 to 26; `.hero-band + section` is restated
 straight after to put it back.
 
+### One belief, three pages, three formulations (2026-09)
+
+Amber's sharpest positioning claim — most marketing advice is tactics
+handed over by someone who never looked at your business — was written
+down in exactly one place: `course-marketing-foundation.html`
+("Diagnosis before tactics" / "most marketing advice hands you tactics
+before it knows anything about your business"). That page sits behind
+a Coming soon chip with no checkout, so the argument was reachable
+only by clicking into a product nobody can buy. "Foundation" appeared
+ZERO times on home, About and My Approach.
+
+It now runs in three places, deliberately in three different
+sentences — the working demonstration of the rule this file keeps
+restating, that a shared BELIEF is consistency and a shared SENTENCE
+is copy-paste:
+- Home, problem section: "Most marketing advice was written for a
+  business that isn't yours." One sentence dropped into the existing
+  lede between the overwhelm and what she does about it. No new
+  component, no third tab, and it happens to balance the column
+  against the bottleneck art (263px against 255px).
+- About, first belief: "Most of the advice isn't about you." Three
+  paragraphs, because a beliefs section is where a point of view gets
+  room.
+- The course page: unchanged. It is the product built on the belief,
+  so it keeps the sales framing.
+Verified with a script that strips markup and compares sentence sets:
+zero shared sentences between any pair of the four main pages, the
+footer aside.
+
 ### De-duplicating My Approach against the new About (2026-09)
 
 The About rebuild moved three ideas onto that page in full — facts over
