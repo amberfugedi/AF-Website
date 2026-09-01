@@ -196,50 +196,41 @@
         <p class="sec-n reveal" aria-hidden="true">02</p>
         <h2 class="section-title h2-long reveal" id="beyond-title">I solve business problems, not just marketing problems.</h2>
 
-        <!-- 2026-09: matched to the .hw-split pattern sections 01 and 03
-             already use on this page (copy left, aside right) — this
-             section was the one exception, left over from when the
-             graphic was a full-width four-step flow (Amber, 2026-08).
-             It's been rebuilt more times since than that original
-             full-width call anticipated; putting it beside the copy
-             like its siblings is more consistent than special-casing it. -->
-        <div class="hw-split hw-split-wide-aside">
-          <div class="hw-body reveal">
-            <p>Marketing rarely succeeds or fails on its own. The issue is often somewhere between sales, operations, customer experience, and how the work actually gets done. So I look past the obvious symptom to find the change that will actually move the business.</p>
-            <p>Marketing is where I started, and it is rarely where the work ends.</p>
-          </div>
+        <div class="hw-body reveal">
+          <p>Marketing rarely succeeds or fails on its own. The issue is often somewhere between sales, operations, customer experience, and how the work actually gets done. So I look past the obvious symptom to find the change that will actually move the business.</p>
+          <p>Marketing is where I started, and it is rarely where the work ends.</p>
+        </div>
 
-          <!-- Replaced the four-step flow (Amber, 2026-08): that version ran
-               symptom, look deeper, sales handoff, fix the handoff, and
-               read as both "the answer is usually sales" and "there is a
-               four-step method". This says the opposite: one visible
-               symptom, several possible causes, no order between them
-               and no claim about which it is — so no numbers, no arrows,
-               nothing connecting the causes to each other.
+        <!-- Replaced the four-step flow (Amber, 2026-08): that version ran
+             symptom, look deeper, sales handoff, fix the handoff, and
+             read as both "the answer is usually sales" and "there is a
+             four-step method". This says the opposite: one visible
+             symptom, several possible causes, no order between them and
+             no claim about which it is — so no numbers, no arrows,
+             nothing connecting the causes to each other.
 
-               2026-09, fifth pass (Amber: "feels overwhelming"): reuses
-               .hw-notebook wholesale, same as the asides in sections 01
-               and 03, instead of being its own bespoke card — and the
-               list itself now matches .nb-princ's single-column,
-               border-top-only rhythm rather than the ring-bulleted 2x3
-               grid that came before. No anchor line, no closing line:
-               both repeated what the body copy already says. main.js
-               still cycles a "spotlight" through the six causes on a
-               loop, colour only (border/text, nothing moves), so no
-               single cause visually settles as the answer — see
-               ".dx-cycling" in styles.css and the matching block in
-               main.js for the reduced-motion and WCAG 2.2.2 handling. -->
-          <aside class="hw-notebook dx reveal" data-delay="1" aria-label="Possible causes">
-            <span class="nb-label">What looks like the problem</span>
-            <ul class="dx-list">
-              <li><span class="dx-t">Positioning</span><span class="dx-c">The market doesn&#8217;t understand why you&#8217;re different.</span></li>
-              <li><span class="dx-t">Demand</span><span class="dx-c">The right people aren&#8217;t finding you.</span></li>
-              <li><span class="dx-t">Conversion</span><span class="dx-c">Interest isn&#8217;t turning into action.</span></li>
-              <li><span class="dx-t">Sales</span><span class="dx-c">Leads aren&#8217;t progressing after the handoff.</span></li>
-              <li><span class="dx-t">Operations</span><span class="dx-c">Something in the customer experience or delivery is getting in the way.</span></li>
-              <li><span class="dx-t">Or something else</span><span class="dx-c">The symptom doesn&#8217;t fit the usual buckets.</span></li>
-            </ul>
-          </aside>
+             2026-09, seventh pass: a full-width row under the copy on
+             the .lead-grid pattern (section 05), not an aside. Six items
+             with a label and a description is the shape section 05
+             carries, not the shape .hw-notebook carries — the asides in
+             sections 01 and 03 hold three or four short lines. Forcing
+             it into an aside is what produced the column-height gap that
+             two prior passes tried to tune away; full width has no
+             second column to balance against, so the gap cannot exist.
+             main.js sweeps a highlight across the six once when the row
+             scrolls in, then leaves every cause at full contrast — see
+             ".dx-sweeping" in styles.css and the matching block in
+             main.js for the reduced-motion handling. -->
+        <div class="dx reveal">
+          <span class="nb-label">What looks like the problem</span>
+          <ul class="dx-list">
+            <li><span class="dx-t">Positioning</span><span class="dx-c">The market doesn&#8217;t understand why you&#8217;re different.</span></li>
+            <li><span class="dx-t">Demand</span><span class="dx-c">The right people aren&#8217;t finding you.</span></li>
+            <li><span class="dx-t">Conversion</span><span class="dx-c">Interest isn&#8217;t turning into action.</span></li>
+            <li><span class="dx-t">Sales</span><span class="dx-c">Leads aren&#8217;t progressing after the handoff.</span></li>
+            <li><span class="dx-t">Operations</span><span class="dx-c">Something in the customer experience or delivery is getting in the way.</span></li>
+            <li><span class="dx-t">Or something else</span><span class="dx-c">The symptom doesn&#8217;t fit the usual buckets.</span></li>
+          </ul>
         </div>
       </div>
     </section>

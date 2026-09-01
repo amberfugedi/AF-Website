@@ -3606,92 +3606,67 @@ a.bld-item .bld-item-arrow {
    then a hairline 2x3 grid with an inline ring bullet) are documented
    in MASTER.md — both are superseded, not layered on top of.
 
-   2026-09, fifth pass (Amber: "feels overwhelming"). Moving it beside
-   the copy in .hw-split (previous commit) put six two-line cause cards
-   into a ~450-550px column, which is much denser than anything else
-   .hw-split carries — sections 01 and 03 hold 3-4 short items in a
-   .hw-notebook card. So .dx now reuses .hw-notebook wholesale (same
-   card, same alignment trick, same .nb-label eyebrow) instead of being
-   its own bespoke container, and the list drops the ring bullet and
-   two-column grid for the same single-column, border-top-only rhythm
-   as .nb-princ in section 03's aside — no bullet needed there either;
-   the bold caps label is marker enough. The anchor's lead sentence and
-   the closing line are gone too: both restated what the body copy
-   already says ("the issue is often somewhere between..." / "I look
-   past the obvious symptom..."), and a notebook aside on this page
-   only ever carries a label plus its list, nothing before or after. */
-/* Two columns, not .nb-princ's single one: single-column ran the card
-   to 636px against the body copy's 150px (2026-09 length audit, Amber:
-   "is there too much copy/spacing") — 487px of dead air beside two
-   short paragraphs, far past section 01 (58px) and 03 (185px), the
-   page's other two .hw-split pairs. Two columns roughly halves it. */
+   2026-09, seventh pass: a FULL-WIDTH ROW under the copy, on the
+   .lead-grid pattern from section 05 — not an aside. Three passes were
+   spent trying to make six label-plus-description items behave as an
+   aside (its own card, then .hw-notebook, then column-ratio tuning),
+   and the recurring symptom was always the same: the aside ran 200-490px
+   taller than the two paragraphs beside it. The page already sorts this
+   by item count — .hw-notebook asides (sections 01, 03) hold three or
+   four short lines; .lead-grid (section 05) holds six with a label, a
+   description and a hairline, which is exactly this content. Full width
+   has no second column to balance against, so that gap cannot exist.
+   The pause control went with the loop: main.js now sweeps the
+   highlight across the six ONCE on scroll-in and leaves every cause at
+   full contrast, which is under the 5s WCAG 2.2.2 threshold and needs
+   no mechanism — same shape as motion budget item 10, the
+   course-assembly strip ("runs once — never loops"). */
+.dx { margin-top: clamp(46px, 5vw, 72px); }
 .dx-list {
   list-style: none;
-  margin: 0;
+  margin: 20px 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px 44px;
 }
 .dx-list li {
-  padding: 15px 0;
-  border-top: 1px solid rgba(46, 42, 39, 0.1);
-  transition: border-color 0.45s ease;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  transition: border-color 0.4s ease;
 }
-.dx-list li:nth-child(-n+2) { border-top: 0; padding-top: 2px; }
 .dx-t {
   display: block;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 600;
   color: var(--ink);
-  margin-bottom: 6px;
-  transition: color 0.45s ease;
+  margin-bottom: 7px;
+  transition: color 0.4s ease;
 }
 .dx-c {
   display: block;
   font-family: var(--font-display);
-  color: var(--body);
-  line-height: 1.42;
-  transition: color 0.45s ease;
-}
-
-/* Idle/spotlight states — only live once JS has confirmed motion is
-   allowed and started the cycle (see main.js). Colour only, so it
-   never triggers layout. */
-.dx-list.dx-cycling .dx-t,
-.dx-list.dx-cycling .dx-c { color: var(--muted); }
-.dx-list.dx-cycling li.is-spot { border-top-color: var(--coral-deep); }
-.dx-list.dx-cycling li.is-spot .dx-t { color: var(--coral-deep); }
-.dx-list.dx-cycling li.is-spot .dx-c { color: var(--ink); }
-
-/* Visible pause control (WCAG 2.2.2), same treatment as the quote
-   marquee's — hover/focus-within pauses the cycle too, but that's not
-   a mechanism on touch. JS shows it only once cycling actually starts. */
-.dx-toggle {
-  display: none;
-  margin: 0 0 16px auto;
-  font-family: var(--font-body);
-  font-size: var(--fs-small);
-  font-weight: 600;
   color: var(--muted);
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 5px 14px;
-  cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+  line-height: 1.45;
+  transition: color 0.4s ease;
 }
-.dx-toggle.is-active { display: block; }
-.dx-toggle:hover { color: var(--ink); border-color: rgba(46, 42, 39, 0.3); }
 
-@media (max-width: 760px) {
-  /* Same threshold .hw-do collapses at, same reasoning: two columns
-     inside a phone-width card gets each cause under 150px to work
-     with, and the list is short enough to carry the extra height. */
-  .dx-list { grid-template-columns: 1fr; gap: 0; }
-  .dx-list li:nth-child(-n+2) { border-top: 1px solid rgba(46, 42, 39, 0.1); padding-top: 15px; }
-  .dx-list li:first-child { border-top: 0; padding-top: 2px; }
+/* Sweep states — added by JS only when motion is allowed, and removed
+   again when the sweep finishes so the resting state is every cause at
+   full contrast. Colour only, so it never triggers layout. */
+.dx-list.dx-sweeping .dx-t { color: var(--muted); }
+.dx-list.dx-sweeping li.is-spot { border-top-color: var(--coral-deep); }
+.dx-list.dx-sweeping li.is-spot .dx-t { color: var(--coral-deep); }
+.dx-list.dx-sweeping li.is-spot .dx-c { color: var(--ink); }
+
+/* Column counts follow .lead-grid exactly — same content shape, same
+   breakpoints, so the two full-width rows on this page stay in step. */
+@media (max-width: 1020px) {
+  .dx-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 40px; }
+}
+@media (max-width: 430px) {
+  .dx-list { grid-template-columns: 1fr; gap: 26px; }
 }
 
 /* --- 3. Tools: collapsed by default, and it stays that way. No logo
@@ -5146,12 +5121,6 @@ footer {
   margin-top: 34px;
 }
 .hw-split-even { grid-template-columns: minmax(0, 1fr) minmax(0, 0.66fr); }
-/* Inverted from the default: the aside gets the wider column. Built
-   for section 02's causes card, which carries six items against two
-   short paragraphs — the default ratio (copy wider than aside) forced
-   narrower text inside the card, which meant more wrapped lines and a
-   taller card than the content needed. */
-.hw-split-wide-aside { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.1fr); }
 /* Reversed rows put the artifact first on desktop and keep the copy
    first in the source order, so reading order never depends on CSS.
    The tracks swap with it: the copy always gets the wider column. */

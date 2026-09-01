@@ -639,64 +639,45 @@
     }
   }
 
-  /* ---------- My Approach: "what looks like the problem" spotlight ----------
-     Cycles emphasis across the six possible causes so no single one
-     ever reads as the answer — colour only (border/background/text),
-     nothing moves. Only runs while the section is on screen, pauses on
-     hover/focus-within, and gets the same WCAG 2.2.2 visible pause
-     control as the quote marquee since it's a continuous, auto-updating
-     loop. Reduced motion: .dx-cycling is never added, so every cause
-     just sits at full contrast — the correct static reading. */
+  /* ---------- My Approach: "what looks like the problem" sweep ----------
+     A highlight travels across the six possible causes once, when the
+     row scrolls in, then clears — leaving every cause at full contrast.
+     The point is that attention passes over all six without settling on
+     one, and the resting state says the same thing statically.
+
+     ONCE, not a loop (2026-09). The looping version needed a visible
+     pause button to satisfy WCAG 2.2.2, and that button ended up the
+     loudest element in the block. Six steps at 600ms is 3.6s, under the
+     5s threshold, so no mechanism is required — the same shape as the
+     course-assembly strip on Services. Colour only; nothing moves.
+     Reduced motion: .dx-sweeping is never added and no timer starts, so
+     the row renders in its resting state from the first paint. */
   var dxList = document.querySelector(".dx-list");
   if (dxList && !reducedMotion && "IntersectionObserver" in window) {
     var dxItems = Array.prototype.slice.call(dxList.children);
-    var dxIndex = 0;
-    var dxTimer = null;
-    var dxHoverPaused = false;
-    var dxUserPaused = false;
+    dxList.classList.add("dx-sweeping");
 
-    var dxAdvance = function () {
-      dxItems.forEach(function (li) { li.classList.remove("is-spot"); });
-      dxItems[dxIndex].classList.add("is-spot");
-      dxIndex = (dxIndex + 1) % dxItems.length;
-    };
-    var dxStart = function () {
-      if (dxTimer) return;
-      dxAdvance();
-      dxTimer = setInterval(function () {
-        if (!dxHoverPaused && !dxUserPaused) dxAdvance();
-      }, 2200);
-    };
-    var dxStop = function () {
-      clearInterval(dxTimer);
-      dxTimer = null;
-    };
-
-    dxList.classList.add("dx-cycling");
-
-    var dxObserver = new IntersectionObserver(function (entries) {
+    var dxObserver = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) dxStart(); else dxStop();
+        if (!entry.isIntersecting) return;
+        obs.unobserve(entry.target);
+        var i = 0;
+        var step = function () {
+          dxItems.forEach(function (li) { li.classList.remove("is-spot"); });
+          if (i >= dxItems.length) {
+            /* Drop the class rather than leaving one lit: the resting
+               state is all six equal, which is the actual argument. */
+            dxList.classList.remove("dx-sweeping");
+            return;
+          }
+          dxItems[i].classList.add("is-spot");
+          i++;
+          setTimeout(step, 600);
+        };
+        step();
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.3 });
     dxObserver.observe(dxList);
-
-    dxList.addEventListener("mouseenter", function () { dxHoverPaused = true; });
-    dxList.addEventListener("mouseleave", function () { dxHoverPaused = false; });
-    dxList.addEventListener("focusin", function () { dxHoverPaused = true; });
-    dxList.addEventListener("focusout", function () { dxHoverPaused = false; });
-
-    var dxToggle = document.createElement("button");
-    dxToggle.type = "button";
-    dxToggle.className = "dx-toggle is-active";
-    dxToggle.textContent = "Pause";
-    dxToggle.setAttribute("aria-pressed", "false");
-    dxToggle.addEventListener("click", function () {
-      dxUserPaused = !dxUserPaused;
-      dxToggle.textContent = dxUserPaused ? "Play" : "Pause";
-      dxToggle.setAttribute("aria-pressed", String(dxUserPaused));
-    });
-    dxList.parentNode.insertBefore(dxToggle, dxList);
   }
 
   /* ---------- Quote marquee: visible pause control ----------

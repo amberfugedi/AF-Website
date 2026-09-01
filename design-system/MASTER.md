@@ -580,22 +580,28 @@ tile as an in-page graphic.
    MembersFirst employee period isn't listed as a job). Named
    clients in the chapter: Robert James Restoration (2017),
    MembersFirst CT FCU (client since 2018).
-13. **Diagnostic spotlight (My Approach, section 02, 2026-09):**
-   the six possible causes under "what looks like the problem" take
-   turns at full contrast — one at a time, on a continuous loop,
-   colour only (border-top and text; nothing moves or resizes).
-   The point is that no cause should ever visually settle as the
-   answer. 2200ms dwell per item, 450ms `ease` colour transitions
-   (this is the "hover / colour change" case in the easing table,
-   not a UI-response animation, so it sits outside the 300ms UI
-   cap). Runs only while `.dx-list` is on screen (IntersectionObserver
-   starts/stops the interval) and pauses on hover/focus-within.
-   WCAG 2.2.2 (continuous auto-updating content past 5s needs a
-   pause mechanism): gets the same visible toggle as the quote
-   marquee, shown only once JS actually starts the cycle. Reduced
-   motion: the JS never adds `.dx-cycling`, so every cause just sits
-   at full contrast — a correct static reading with no muted/dimmed
-   items to explain.
+13. **Diagnostic sweep (My Approach, section 02, 2026-09):** a
+   highlight travels once across the six possible causes under "what
+   looks like the problem" when the row scrolls in, then clears,
+   leaving every cause at full contrast. Colour only (border-top and
+   text; nothing moves or resizes). Attention passes over all six
+   without settling on one, and the resting state says the same thing
+   statically. 600ms per step, 400ms `ease` colour transitions (the
+   "hover / colour change" case in the easing table, not a
+   UI-response animation, so outside the 300ms UI cap).
+   ONCE, NEVER A LOOP — and that is the accessibility design, not a
+   detail. The first version cycled continuously, which put it over
+   WCAG 2.2.2's 5s threshold for auto-updating content and therefore
+   required a visible pause control; the button ended up the loudest
+   element in the block (Amber: "what if we remove the pause
+   button"). Six steps at 600ms is 3.6s, under the threshold, so no
+   mechanism is needed and no button exists — the same shape as item
+   10, the course-assembly strip. If anyone lengthens the dwell,
+   check the total against 5s before shipping. Reduced
+   motion: the JS never adds `.dx-sweeping` and no timer starts, so
+   the row renders in its resting state from the first paint — every
+   cause at full contrast, a correct static reading with no
+   muted/dimmed items to explain.
 
 Interaction timing (per review-animations STANDARDS.md, installed
 in `.claude/skills/`): press feedback 160ms, hover transforms and
@@ -2246,6 +2252,41 @@ Two changes, additive:
   for the audit rather than the reader.
 Verified sections 01 and 03 are untouched (still 58px / 185px) — the
 new modifier class only applies where the HTML adds it.
+
+**Seventh revision, and the one that resolved it: it was never an
+aside.** (Amber: "what if we remove the pause button and improving the
+design/layout.. or maybe this is a row below this text?") Both
+instincts were right, and the second one names the actual mistake.
+THE PAGE SORTS THIS CONTENT BY ITEM COUNT, and section 02 was filed
+under the wrong one:
+- `.hw-notebook` in `.hw-split` (sections 01, 03) — three or four
+  short lines, one sentence each, no per-item label.
+- `.lead-grid` (section 05) — six items, each with a label, a
+  description and a top hairline, full width under the copy.
+Section 02's content is `.lead-grid`'s shape exactly, and had been
+since the causes gained descriptions. Three consecutive revisions
+(bespoke card, then `.hw-notebook`, then column-ratio tuning) were all
+attempts to make an aside hold six labelled items, and each one left
+the same symptom behind: an aside 200-490px taller than the copy
+beside it. Full width has no second column to balance against, so the
+gap cannot exist — the fix was structural, not dimensional. Section 02
+went 931px (tallest content section on the page, on 121 words) to
+765px on the same copy, and now sits between sections 01 and 05
+instead of being the outlier.
+`.dx-list` follows `.lead-grid`'s column counts and breakpoints
+exactly (3 / 2 at 1020 / 1 at 430) so the page's two full-width rows
+stay in step. `.hw-split-wide-aside`, added one revision earlier for
+the ratio tuning, was deleted with it — dead the moment the aside
+went.
+The pause button went the same way, and for a related reason: it only
+ever existed to make a continuous loop legal (WCAG 2.2.2). Making the
+sweep run once, in 3.6s, removed the requirement rather than the
+compliance — see motion budget item 13.
+LESSON WORTH KEEPING: three revisions treated a recurring measurement
+(aside much taller than copy) as a spacing problem to tune. It was a
+classification problem — the component was in the wrong family. When
+the same symptom survives two different fixes, stop adjusting the
+values and check whether the thing belongs where it is.
 
 
 RENAMED IN FULL, not just relabelled: `how-i-work.html` became
