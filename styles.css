@@ -5365,6 +5365,10 @@ footer {
    hairlines went with the second column — two stacks of rules read
    as noise where the rings alone read as a list. */
 .hw-doing { margin-top: clamp(48px, 5vw, 76px); }
+/* Inside section 03's copy column (2026-09) it sits under a single short
+   paragraph rather than a full section, so it needs a normal paragraph
+   gap, not a section-sized one. */
+.hw-copy-col .hw-doing { margin-top: clamp(30px, 3.4vw, 44px); }
 .hw-do {
   list-style: none;
   margin: 18px 0 0;

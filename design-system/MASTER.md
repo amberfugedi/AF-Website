@@ -1836,6 +1836,50 @@ is also a `.page-head`, so the new rule caught My Approach and
 flattened its bridge from 78 to 26; `.hero-band + section` is restated
 straight after to put it back.
 
+### De-duplicating My Approach against the new About (2026-09)
+
+The About rebuild moved three ideas onto that page in full — facts over
+feelings, strategy only matters if it gets built, make the work lighter
+— and My Approach section 03 was already carrying all three in
+compressed form. Flagged to Amber; she left the call here.
+
+WHAT COLLIDED, measured rather than eyeballed (a script that strips
+markup and compares sentence sets found the prose overlap was
+near-verbatim, not just thematic):
+- `.nb-label` "What I keep coming back to" was word for word About's
+  new section heading.
+- "A recommendation that never meets a real constraint tends to stay
+  on the page" appeared on both, identically.
+- The extra-approvals / duplicated-documents run appeared on both.
+- The h2 "Strategy only matters if it gets built." is also About's
+  second thought title.
+
+THE FIX, and the rule behind it: **the page with room to make the
+argument keeps it; the other page keeps what only it has.** About has
+a section per idea; My Approach has one compressed section. So My
+Approach dropped the sentences About now owns, kept the half About
+does not say, and its aside was relabelled "What I work from" — two
+pages cannot share a label. The h2 STAYS on both: with the supporting
+prose now different, a repeated line reads as a refrain she believes
+rather than a paste, and it is section 03's spine on that page.
+NOTHING AMBER AUTHORED WAS DELETED — the three `.nb-princ` principles
+she wrote and tightened earlier in the session are untouched; only the
+label above them changed.
+
+The trim then opened the hole this file keeps warning about: a ~80px
+copy column against a 360px card, the same imbalance section 02 was
+rebuilt to fix. `.hw-doing` moved INSIDE the copy column
+(`.hw-copy-col`) so the split has two children again and the columns
+land 21px apart at 1440 — the tightest pair on the page. Section 03
+went 902px to 670px; the page went 6,194px to 5,796px.
+Verbatim overlap between the two pages is now zero sentences (the only
+shared string left is the footer, which is supposed to be shared).
+The `.hw-do` lists still overlap — My Approach's six items are a
+subset of About's nine — and that was left alone deliberately: a list
+of work types repeating across two pages reads as consistency, and the
+framing differs ("Things I end up doing" vs "That tends to mean I end
+up doing things like").
+
 ### About rebuilt as a conversation (2026-09, Amber's brief)
 
 "Feel like someone is sitting down with Amber and getting to know her,
