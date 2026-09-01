@@ -322,7 +322,8 @@ circles, smooth trajectories; fine 2px strokes in the offer's
 `-deep` hex paired with one gradient-filled form (pastel → deep)
 per mark. Stroked elements carry `pathLength="100"` and draw in on
 reveal; filled forms use class `fill` and fade in after. Current
-set: tapered coral gradient swash under the hero accent word,
+set: tapered coral gradient swash under the hero accent word (and,
+since 2026-09, under About's four level-one statements),
 three offer marks (growth arcs / orbital system / trajectory
 curve), the bottleneck mark (home problem section: four colored threads
 — many possible directions — enter scattered from the left, weigh
@@ -1844,10 +1845,8 @@ background colors." She supplied the approved mockup. This pass was
 design only — copy and section order untouched, testimonials and the
 timeline untouched and verified.
 
-FOUR ANNOTATION MARKS, and no more. A hand-drawn lavender underline
-(a data-URI SVG, so the stroke can wobble and still wrap with the
-text), a small coral asterisk, an oversized quote mark, and a dot
-connector. Budget is 1-2 per section: the personality is meant to
+FOUR ANNOTATION MARKS, and no more. A hand-drawn underline, a small
+coral asterisk, an oversized quote mark, and a dot connector. Budget is 1-2 per section: the personality is meant to
 register before the decoration does.
 
 COMPOSITIONS ARE NOW ASYMMETRIC, which was the actual complaint. Every
@@ -1861,14 +1860,14 @@ length. Only the testimonials keep a band now. Separation comes from
 spacing, rules and composition. This also dropped the detector from 17
 findings to 14 — three pre-existing ones lived in the removed bands.
 
-THE LAVENDER UNDERLINE IS AN AGREED EXCEPTION to the tab system.
-`.tab-em` is blush and butter only (peach and lavender were retired in
-July 2026), and a lavender h1 highlight was declined once on those
-grounds. Amber asked twice and supplied a mockup showing it, so About
-now runs the underline as a separate device: `.ab-uline` is not a tab,
-it is an annotation, and the page still carries exactly one `.tab-em`
-("touch the work.", butter). Do not generalise the underline to other
-pages without deciding what it means there.
+THE UNDERLINE IS AN ANNOTATION, NOT A TAB. `.tab-em` is blush and
+butter only (peach and lavender were retired in July 2026), and a
+lavender h1 highlight was declined once on those grounds. Amber asked
+twice and supplied a mockup showing an underline, so About runs
+`.ab-uline` as a separate device; the page still carries exactly one
+`.tab-em` ("touch the work.", butter). Its first colour was wrong and
+was corrected the same day — see the next entry. Do not generalise the
+underline to other pages without deciding what it means there.
 
 TWO BUGS FOUND BY MEASURING:
 - `.ab-pull` carried `max-width: 15ch`, sized for a wide column. Inside
@@ -1882,6 +1881,49 @@ TWO BUGS FOUND BY MEASURING:
 Page 8,246px to 7,959px. 38 text styles with zero contrast failures,
 zero banned phrases, zero em dashes, no overflow 320-1920, every
 asymmetric split collapsing to one column at 900.
+
+### The underline was already in the design system (2026-09)
+
+Amber, one line: "Use the on brand colors and underlines." She was
+right on both counts, and the second half is the more useful lesson.
+
+WRONG COLOUR. `.ab-uline` was drawn in `#8579C9`, which is not a token.
+It sits between `--lavender` (#DAD4F5, a fill) and `--automations-deep`
+(#574AA6, that fill's text partner) and belongs to neither. It reached
+About because `#8579C9` already appears on My Approach, in the
+`.hw-principles` hairlines and the `.pr-mark` SVGs — so it looked
+precedented. It is not; it is an undocumented third lavender that
+predates this pass, still live on My Approach, and left there rather
+than changed on a page nobody asked about. Worth cleaning up.
+
+WRONG DEVICE, which is the real point. The site already owns a
+hand-drawn underline: the tapered coral-gradient swash under the
+homepage h1 accent word, catalogued in the Marks section above. Rather
+than reach for it, this pass invented a second underline — an even
+2.4px stroke with a wobble — and gave it a colour to match. `.ab-uline`
+now carries the homepage swash's own path and gradient (`--coral`
+#FF6F61 to `--coral-deep` #B8354A) as a background image so it wraps
+with the text. Coral text over a coral swash is exactly the homepage h1
+treatment, so About's h1 and the homepage h1 are now the same device.
+The remaining lavender marks (quote mark, dot connector) moved to
+`--automations-deep` at 0.5/0.3/0.75 alpha, written as literal rgba to
+match the rest of the sheet rather than the `color-mix()` this pass
+briefly introduced and nothing else uses.
+
+FIVE MARKS BECAME FOUR. The swash is hero-weight — it stops meaning
+anything if every heading has one. It now sits on the four statements
+Amber herself ranked level one: the h1, "the problem underneath the
+problem," "more capable than when we started," and "leave things better
+than I found them." The Level-2 pullout ("making it better") and the
+"isn't really marketing" headline lost theirs.
+
+WRAPPING. A background swash draws once per line fragment, so a marked
+phrase that wraps gets two. Measured 320-1920: fine everywhere it
+happens — "more" at the end of one line and "capable" at the start of
+the next reads like real annotation. The one bad case was the h1 at
+320-390, where "the" wrapped alone and compressed the taper into a
+stray dash; "the " is now outside the mark, so the h1 swash is always
+one fragment. Detector holds at 14, unchanged.
 
 ### About editorial pass (2026-09, Amber's scoped brief)
 

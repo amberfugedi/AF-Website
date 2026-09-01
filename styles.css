@@ -4505,9 +4505,10 @@ a.bld-item .bld-item-arrow {
    as plain rows. */
 
 /* ============ About: editorial annotations (2026-09) ============
-   Amber's mockup direction. Four marks total, no more: a hand-drawn
-   lavender underline, a small coral asterisk, an oversized quote mark,
-   and a dot connector. Budget is 1-2 marks per section — the point is
+   Amber's mockup direction. Four marks total, no more: the site's own
+   coral swash, a small coral asterisk, an oversized quote mark, and a
+   dot connector. Colours are tokens only — --coral/--coral-deep for the
+   swash and asterisk, --automations-deep for the lavender marks. Budget is 1-2 marks per section — the point is
    that the personality registers before the decoration does. */
 
 /* Tiny editorial numerals on the beliefs — eyebrow grade, not the
@@ -4523,16 +4524,25 @@ a.bld-item .bld-item-arrow {
 .ab-honest { margin-top: clamp(28px, 3vw, 40px); }
 .ab-honest p { color: var(--muted); max-width: 52ch; }
 
-/* Hand-drawn underline. A data-URI SVG rather than a border so the
-   stroke can wobble; it sits under the text baseline and wraps with it. */
+/* THE SITE'S OWN SWASH, not a new underline. The first version invented
+   a lavender wobble in #8579C9 — a colour that is not a token at all,
+   sitting between --lavender and --automations-deep. The brand already
+   has a hand-drawn underline: the tapered coral-gradient swash under the
+   homepage h1 accent word (--coral to --coral-deep, a filled taper
+   rather than an even stroke). Same path, same gradient, as a
+   background so it wraps with the text.
+   Used on the FOUR level-one statements only, which is Amber's own
+   hierarchy: the h1, the How I think pullout, the leadership quote and
+   the closing payoff. Not on section headlines — this is a hero-weight
+   mark and it stops meaning anything if every heading carries one. */
 .ab-uline {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 8.4 C 34 4.2, 68 9.6, 102 6.2 C 136 3.1, 168 8.8, 198 5.4' fill='none' stroke='%238579C9' stroke-width='2.4' stroke-linecap='round' opacity='0.62'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 22' preserveAspectRatio='none'><defs><linearGradient id='s' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23FF6F61'/><stop offset='1' stop-color='%23B8354A'/></linearGradient></defs><path d='M6 14 C 60 6, 150 5, 254 9 C 200 10.5, 100 14.5, 6 17.5 Z' fill='url(%23s)'/></svg>");
   background-repeat: no-repeat;
   background-position: 0 100%;
-  background-size: 100% 0.42em;
-  padding-bottom: 0.22em;
+  background-size: 100% 0.26em;
+  padding-bottom: 0.16em;
 }
-/* The h1 mark is coral text over the lavender line, per the mockup. */
+/* Coral text over the coral swash is exactly the homepage h1 treatment. */
 .ab-uline-coral { color: var(--coral-deep); }
 
 /* Tiny coral asterisk. Decorative, so it stays out of the a11y tree. */
@@ -4549,7 +4559,8 @@ a.bld-item .bld-item-arrow {
 .ab-qmark {
   display: block;
   font-family: var(--font-display);
-  color: rgba(133, 121, 201, 0.55);
+  /* --automations-deep #574AA6, the palette's lavender text partner. */
+  color: rgba(87, 74, 166, 0.5);
   line-height: 0.7;
   margin-bottom: 6px;
 }
@@ -4563,7 +4574,7 @@ a.bld-item .bld-item-arrow {
   position: absolute;
   left: 4px; top: 0.55em; bottom: 0.7em;
   width: 1px;
-  background: rgba(133, 121, 201, 0.34);
+  background: rgba(87, 74, 166, 0.3);
 }
 .ab-dots li { position: relative; }
 .ab-dots li + li { margin-top: 18px; }
@@ -4573,7 +4584,7 @@ a.bld-item .bld-item-arrow {
   left: -26px; top: 0.5em;
   width: 9px; height: 9px;
   border-radius: 50%;
-  background: rgba(133, 121, 201, 0.85);
+  background: rgba(87, 74, 166, 0.75);
 }
 
 /* A pullout, used twice: How I think and the two payoff statements.
