@@ -3611,8 +3611,16 @@ a.bld-item .bld-item-arrow {
    nothing moves or resizes, so no single cause visually settles as the
    answer. `.dx-cycling` is added by JS only when motion is allowed —
    without it (no JS, or prefers-reduced-motion) every item just sits at
-   full contrast, which is a correct static reading on its own. */
-.dx { margin: clamp(28px, 3.4vw, 44px) 0 0; }
+   full contrast, which is a correct static reading on its own.
+
+   2026-09, fourth pass: moved into .hw-split beside the body copy,
+   matching sections 01 and 03 on this same page — this section was the
+   one left full-width, a holdover from when it was a four-step flow
+   (2026-08) that never got revisited across three rebuilds of the
+   graphic itself. No margin of its own: .hw-split's align-items:start
+   plus its own margin-top handle the spacing, and .dx has no padding
+   to offset against the way the hw-notebook aside's card does. */
+.dx { margin: 0; }
 .dx-anchor { text-align: center; }
 .dx-k {
   display: block;
@@ -3715,13 +3723,6 @@ a.bld-item .bld-item-arrow {
 }
 .dx-toggle.is-active { display: block; }
 .dx-toggle:hover { color: var(--ink); border-color: rgba(46, 42, 39, 0.3); }
-
-/* .fl-body carried this block's top margin and went with the old flow
-   rules; the closing line ran straight into the paragraph below. The
-   spacing lives on .dx now so it cannot be orphaned again. */
-.dx + .hw-body { margin-top: clamp(34px, 4vw, 54px); }
-.hw-body.fl-body { max-width: none; }
-.hw-body.fl-body p { max-width: 68ch; }
 
 .dx-close {
   font-family: var(--font-display);

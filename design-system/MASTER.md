@@ -2167,6 +2167,29 @@ column below that; the earlier version collapsed to one column at
 560px, which would have flattened the exact width the reference
 proved worked.
 
+**Fourth revision: moved into `.hw-split` beside the copy** (Amber:
+"shouldn't this be on the right of the text... how did it end up
+stacked"). Sections 01 and 03 on this same page already pair
+`.hw-body` with an aside (`.hw-notebook`) via `.hw-split` — copy left,
+aside right, stacks below 860px. Section 02 was the one exception,
+carried over from the 2026-08 decision to run the original four-step
+flow at FULL PAGE WIDTH; that call was never revisited across three
+later rebuilds of the graphic itself, so it just stayed full-width by
+inertia rather than intent. `.dx` takes the aside slot now — sec-n and
+the h2 stay full-width above the split, same as 01 and 03, so only the
+body paragraphs and the graphic go side by side. `.dx` carries no
+margin of its own (removed the leftover `clamp(28px,3.4vw,44px)` top
+margin from when it followed the heading directly): `.hw-split`'s own
+`align-items: start` plus its margin-top handle the spacing, and
+unlike the hw-notebook aside's padded card, `.dx` has no padding to
+offset against. Stacking order changed as a side effect: DOM order is
+now body-copy-first, graphic-second (matching how 01 and 03 order
+their own split children), so on phones the graphic now follows the
+paragraphs instead of sitting between the heading and them. Consistent
+with the rest of the page rather than the graphic's own prior
+"show-then-tell" ordering, which is the more defensible tie-breaker
+once the two disagree.
+
 
 RENAMED IN FULL, not just relabelled: `how-i-work.html` became
 `my-approach.html` with `/how-i-work.html /my-approach.html 301` at
