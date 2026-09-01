@@ -1836,6 +1836,42 @@ is also a `.page-head`, so the new rule caught My Approach and
 flattened its bridge from 78 to 26; `.hero-band + section` is restated
 straight after to put it back.
 
+### About: the personal layer (2026-09, second pass)
+
+Amber asked for a stronger personal layer, and reversed one of the
+calls from the pass before it. Worth recording, because the reversal
+was right and the original objection was too broad:
+- "LEAVE THINGS BETTER THAN I FOUND THEM" IS NOW IN. It had been cut
+  as a bumper sticker. The objection was to the phrase standing alone,
+  not the value, and she supplied the version that answers it: the
+  line, then what it actually means (a team, a business, a process,
+  someone early in their career, the people around her, herself), then
+  "I am not always going to get all of that right." That admission is
+  what keeps it off a mission statement. It sits in `.ab-lead`, the
+  same standalone-line device section 01 uses, so it gets air without
+  a card. LESSON: when a line reads generic, check whether the fix is
+  cutting it or making it specific. This one wanted specificity.
+- THE WHY-QUESTIONS MATERIAL lives in the personal section, not in
+  section 01, because the personal half is the point of it: she asks
+  it of herself as readily as in a meeting. Phrased "most of my
+  questions are really me trying to understand why" to stay clear of
+  My Approach's section heading, "I ask a lot of questions."
+- HEALTH IS GROUNDING, NOT A HOBBY LIST. Fitness, movement, yoga and
+  "my own head" run in one sentence with "I'm ambitious, but I don't
+  think burnout is a personality trait." Mental health is stated
+  matter-of-factly and never clinically.
+- THE BURNOUT POINT STAYS PERSONAL. She noted it is also where she can
+  help businesses, which is true, but "Make the work lighter" already
+  argues that three sections up, and spelling out the link would turn
+  a personal detail into a marketing lesson — the failure mode her own
+  brief names. The reader can join them.
+
+Page came out 8,949px against the 8,859px it started this arc at, so
+the personal layer was effectively free. Rendered-copy check (not
+source, which catches quoted instructions in comments): zero banned
+phrases and zero em dashes. The only "innovative" on the page is the
+actual name of her MBA.
+
 ### About refinement pass: another 10-15% of Amber (2026-09)
 
 Her brief: "do NOT redesign... the goal is to add another 10-15% of
