@@ -4570,23 +4570,57 @@ a.bld-item .bld-item-arrow {
    and lavender, the same two-colour alternation .lead-grid uses — no
    third hairline colour was invented, since the gold in the palette is
    a fill and its deep partner reads brown on cream outside peach. */
-.ab-think {
-  margin-top: clamp(36px, 4.2vw, 56px);
-  padding-top: 26px;
-  border-top: 1px solid rgba(255, 111, 97, 0.42);
+/* THREE COLUMNS, not three stacked rows (2026-09, Amber's reference).
+   Each belief was a full-width row with its title in the margin, which
+   ran the section to 1,048px for about 200 words. Side by side they are
+   scannable and the section stops being a third of the page.
+   The counter follows .nb-list's device exactly — coral, leading zero —
+   which already numbers a NON-SEQUENTIAL set (the "what I'm listening
+   for" findings on My Approach). So numbering here does not imply an
+   order any more than that one does, and it does not collide with
+   .sec-n, the chapter numerals, which About does not use.
+   Dividers are vertical rules between columns rather than the coral and
+   lavender hairlines the stacked version used: at this width a coloured
+   rule per column would read as three colour-coded categories, which is
+   the one thing colour is not allowed to do here. */
+.ab-think-grid {
   display: grid;
-  grid-template-columns: 33% minmax(0, 1fr);
-  column-gap: clamp(40px, 5vw, 72px);
-  row-gap: 14px;
-  align-items: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 3vw, 46px);
+  margin-top: clamp(34px, 4vw, 52px);
+  counter-reset: think;
 }
-.ab-think:nth-of-type(2n) { border-top-color: rgba(150, 138, 214, 0.5); }
+/* A hairline ABOVE each column, not a vertical rule between them. Two
+   reasons. It is the site's existing divider idiom (.lead-grid and
+   .dx-list both rule their items on top), and the vertical version
+   tripped Impeccable's cramped-padding rule three times regardless of
+   how much padding sat against it — 24px, 60px and 90px all still
+   flagged, so the heuristic is reading the counter's generated content
+   as flush against the boundary rather than measuring real inset. The
+   top rule scores clean at the same baseline. */
+.ab-think { padding-top: 18px; border-top: 1px solid var(--line); }
+.ab-think::before {
+  counter-increment: think;
+  content: counter(think, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-display);
+  color: var(--coral-deep);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+@media (max-width: 900px) {
+  .ab-think-grid { grid-template-columns: 1fr; gap: clamp(30px, 5vw, 40px); }
+  .ab-think { padding-top: 22px; }
+}
 .ab-think h3 {
   font-family: var(--font-display);
   color: var(--ink);
   letter-spacing: -0.015em;
   line-height: 1.22;
-  margin: 0;
+  /* The row layout got this gap from the grid's row-gap. In columns
+     there is no row between the title and its first paragraph, so the
+     title carries it. */
+  margin: 0 0 12px;
   text-wrap: pretty;
 }
 /* The paragraphs sit in ONE grid item, not one per row: as separate
@@ -4594,10 +4628,7 @@ a.bld-item .bld-item-arrow {
    paragraph and opened a ~60px hole before the next one. */
 .ab-think-body p { color: var(--body); max-width: 62ch; margin: 0; }
 .ab-think-body p + p { margin-top: 14px; }
-@media (max-width: 900px) {
-  .ab-think { grid-template-columns: 1fr; row-gap: 0; }
-  .ab-think h3 { margin-bottom: 14px; }
-}
+
 
 /* Credibility points: a figure and one line on a hairline. Deliberately
    not a stat strip — no boxes, no oversized numerals, and half the
@@ -5637,7 +5668,8 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .ab-tags { font-size: var(--fs-body); line-height: 1.5; }
 .ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }
 .ab-lead { font-size: var(--fs-h3); line-height: 1.28; }
-.ab-think h3 { font-size: var(--fs-h3); }
+.ab-think::before { font-size: var(--fs-h3); }
+.ab-think h3 { font-size: var(--fs-intro); line-height: 1.25; }
 .ab-think-body p { font-size: var(--fs-body); line-height: 1.55; }
 .ab-cred-fig { font-size: var(--fs-intro); }
 .ab-cred-note { font-size: var(--fs-small); line-height: 1.45; }
