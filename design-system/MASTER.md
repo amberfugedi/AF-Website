@@ -1836,6 +1836,67 @@ is also a `.page-head`, so the new rule caught My Approach and
 flattened its bridge from 78 to 26; `.hero-band + section` is restated
 straight after to put it back.
 
+### About refinement pass: another 10-15% of Amber (2026-09)
+
+Her brief: "do NOT redesign... the goal is to add another 10-15% of
+Amber herself", and do not make the page longer. It came out SHORTER
+(8,859px to 8,523px) because the additions were paid for by cuts.
+
+- BELIEFS BACK TO THREE. It had grown to five across two rounds and
+  become a third of the page. Facts over feelings / Strategy only
+  matters if it gets built / Make the work lighter stay. Neither cut
+  idea was lost: collaboration moved into the leadership paragraph
+  ("I'd much rather help someone become confident enough to challenge
+  me than build a team that waits for me to have every answer"), and
+  the bad-advice belief already runs on the homepage problem section
+  and the course page.
+- THE TRANSITION BAND BECAME A SECTION. "What keeps me interested
+  isn't really marketing." plus one cascade, no explanatory copy —
+  the page's emotional centre, sitting exactly on the professional /
+  personal seam. The old bridge line ("good leadership should make
+  people better...") went with it: the expanded leadership paragraph
+  now says the same thing, so the band had become a restatement.
+  It takes `band-white`, which is also what keeps the band rhythm from
+  breaking after the testimonials move.
+- TESTIMONIALS MOVED BELOW THE PERSONAL SECTIONS (her call: "the
+  reader should first meet Amber, then show them that other people
+  experience her the same way"). The quotes are largely about
+  mentoring and how she is to work with, so they now read as proof of
+  the two sections above them. `#recommendations` is unchanged —
+  Services links to it and `_redirects` maps the old WordPress
+  `/recommendations` there. Band order was re-alternated afterwards:
+  the move had left three plain sections in a row and two white bands
+  touching, which would have merged into one long white block.
+- "OUTSIDE THE MARKETING" IS NOW ACTUALLY PERSONAL. It had been a
+  list of professional curiosities (psychology, technology, design),
+  which is a second interests slide, not a personal section. Now:
+  never one hobby at a time, far too many side hustles, two days
+  bothered by one sentence, yoga and the gym, a dog bookending both
+  ends.
+
+WHAT WAS LEFT OUT ON PURPOSE, and flagged rather than quietly
+dropped. She also asked for self-awareness, growth, and "leaving the
+world better than I found it".
+- "Leaving the world better than I found it" is a bumper sticker
+  sitting three sections below the specific version she already has:
+  "leave knowing more than they did when they started", "more capable
+  and confident, not more dependent on me". The generic line would
+  have weakened the specific one.
+- Self-awareness and growth as STATED traits break the rule her own
+  earlier brief set when it removed "strong interpersonal skills" and
+  "sound judgment": demonstrate, do not claim. The page demonstrates
+  both (she says which parts of a plan turn out untrue, she wants to
+  be argued with, she only took health seriously once she noticed).
+- Mental health is in, but as "looking after my head is part of that,
+  not a separate project" rather than "mental health is important",
+  which states a value instead of showing one.
+
+Verified: three beliefs, one h1, no horizontal overflow at 393/768/
+1440, the timeline summary is keyboard-focusable and opens on Enter at
+every width with zero `.reveal` elements stranded, the marquee's clone
+set stays `aria-hidden` + `inert`, and the consulting date reads 2017
+in both the credibility point and the timeline chapter.
+
 ### One belief, three pages, three formulations (2026-09)
 
 Amber's sharpest positioning claim — most marketing advice is tactics
