@@ -2213,6 +2213,40 @@ bounded shape instead of a column of independent hairline blocks.
 This is the version to extend, not the fourth — the fourth's `.hw-split`
 placement call stands, but its `.dx`-specific card/list CSS is gone.
 
+**Sixth revision: "is there too much copy/spacing"** (Amber, a length
+audit, measured rather than eyeballed). Page-level numbers checked out
+— 816-862 words in `<main>` (well under the 1,240 the 2026-07 length
+audit trimmed to), section padding measured at exactly 104/104 desktop
+and 52/52 on bridges everywhere, matching the documented rhythm. But
+per-section column balance inside `.hw-split` did not: `.hw-body`
+height vs. its aside's height across the three pairs on this page —
+section 01 (ask-title) 58px apart, section 03 (build-title) 185px,
+section 02 (beyond-title) **487px**. The fifth revision's single-column
+list, in a card sized by 6 items against 2 short paragraphs, left
+roughly half the section as dead air under the copy.
+Two changes, additive:
+- `.dx-list` went back to two columns (still inside the same
+  `.hw-notebook` card, still no ring bullet, still the same spotlight
+  mechanics — only the grid changed). Rows fill left-to-right so the
+  pairing matches the earlier 2x3 version (Positioning/Demand,
+  Conversion/Sales, Operations/Or-something-else). This alone only
+  closed the gap to 354px — grid rows size to their tallest cell, and
+  with most rows containing at least one 2-3 line item, height did not
+  simply halve.
+- `.hw-split-wide-aside`, a new modifier only this section uses:
+  `0.85fr : 1.1fr` instead of the default `1fr : 0.8fr` — the aside
+  gets MORE width than the body, inverted from every other `.hw-split`
+  on the site, because this is the one pair where the aside carries
+  more content than the copy beside it. Narrower text was wrapping
+  more, which was actively working against the height fix. Widening
+  it let more causes sit on one line and closed the gap to 233px —
+  in line with section 03's 185px, not matching it exactly, and that
+  was judged close enough against six real sentences of content: the
+  alternative was trimming copy to hit a number, which is optimizing
+  for the audit rather than the reader.
+Verified sections 01 and 03 are untouched (still 58px / 185px) — the
+new modifier class only applies where the HTML adds it.
+
 
 RENAMED IN FULL, not just relabelled: `how-i-work.html` became
 `my-approach.html` with `/how-i-work.html /my-approach.html 301` at

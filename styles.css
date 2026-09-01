@@ -3620,18 +3620,25 @@ a.bld-item .bld-item-arrow {
    already says ("the issue is often somewhere between..." / "I look
    past the obvious symptom..."), and a notebook aside on this page
    only ever carries a label plus its list, nothing before or after. */
+/* Two columns, not .nb-princ's single one: single-column ran the card
+   to 636px against the body copy's 150px (2026-09 length audit, Amber:
+   "is there too much copy/spacing") — 487px of dead air beside two
+   short paragraphs, far past section 01 (58px) and 03 (185px), the
+   page's other two .hw-split pairs. Two columns roughly halves it. */
 .dx-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
 }
 .dx-list li {
   padding: 15px 0;
   border-top: 1px solid rgba(46, 42, 39, 0.1);
   transition: border-color 0.45s ease;
 }
-.dx-list li:first-child { border-top: 0; padding-top: 2px; }
-.dx-list li:last-child { padding-bottom: 2px; }
+.dx-list li:nth-child(-n+2) { border-top: 0; padding-top: 2px; }
 .dx-t {
   display: block;
   text-transform: uppercase;
@@ -3677,6 +3684,15 @@ a.bld-item .bld-item-arrow {
 }
 .dx-toggle.is-active { display: block; }
 .dx-toggle:hover { color: var(--ink); border-color: rgba(46, 42, 39, 0.3); }
+
+@media (max-width: 760px) {
+  /* Same threshold .hw-do collapses at, same reasoning: two columns
+     inside a phone-width card gets each cause under 150px to work
+     with, and the list is short enough to carry the extra height. */
+  .dx-list { grid-template-columns: 1fr; gap: 0; }
+  .dx-list li:nth-child(-n+2) { border-top: 1px solid rgba(46, 42, 39, 0.1); padding-top: 15px; }
+  .dx-list li:first-child { border-top: 0; padding-top: 2px; }
+}
 
 /* --- 3. Tools: collapsed by default, and it stays that way. No logo
    wall — it would read more junior and more software-focused than she
@@ -5130,6 +5146,12 @@ footer {
   margin-top: 34px;
 }
 .hw-split-even { grid-template-columns: minmax(0, 1fr) minmax(0, 0.66fr); }
+/* Inverted from the default: the aside gets the wider column. Built
+   for section 02's causes card, which carries six items against two
+   short paragraphs — the default ratio (copy wider than aside) forced
+   narrower text inside the card, which meant more wrapped lines and a
+   taller card than the content needed. */
+.hw-split-wide-aside { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.1fr); }
 /* Reversed rows put the artifact first on desktop and keep the copy
    first in the source order, so reading order never depends on CSS.
    The tracks swap with it: the copy always gets the wider column. */
