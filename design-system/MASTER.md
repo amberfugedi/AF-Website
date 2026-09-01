@@ -583,7 +583,7 @@ tile as an in-page graphic.
 13. **Diagnostic spotlight (My Approach, section 02, 2026-09):**
    the six possible causes under "what looks like the problem" take
    turns at full contrast — one at a time, on a continuous loop,
-   colour only (border/background/text; nothing moves or resizes).
+   colour only (border-top and text; nothing moves or resizes).
    The point is that no cause should ever visually settle as the
    answer. 2200ms dwell per item, 450ms `ease` colour transitions
    (this is the "hover / colour change" case in the easing table,
@@ -2189,6 +2189,29 @@ paragraphs instead of sitting between the heading and them. Consistent
 with the rest of the page rather than the graphic's own prior
 "show-then-tell" ordering, which is the more defensible tie-breaker
 once the two disagree.
+
+**Fifth revision: "feels overwhelming"** (Amber, immediately after the
+fourth). The placement was right — she confirmed it — the execution
+inside that column wasn't: six two-line cause cards in a ring-bulleted
+2x3 grid is much denser than anything else `.hw-split` carries.
+Sections 01 and 03 hold 3-4 short items in a `.hw-notebook` card; this
+was carrying six, each with its own label AND a description, inside a
+bare unbounded column with hairlines running down the page rather than
+a contained card. Fixed by making `.dx` an actual `.hw-notebook`
+instead of its own bespoke container — same card, same background,
+same `-34px` alignment trick, same `.nb-label` eyebrow — and by
+switching the list to `.nb-princ`'s single-column, border-top-only
+rhythm (no ring bullet: the bold caps label is marker enough, and
+`.nb-princ` already sets that precedent on this exact page). The
+anchor's lead sentence and the closing line both came out too — each
+restated something the body copy beside it already says, and a
+notebook aside on this page has never carried more than a label plus
+its list. Net effect: same six causes, same spotlight animation, about
+half the visual furniture per item (no separate icon row, no
+underline, no second typographic register for the label) and a single
+bounded shape instead of a column of independent hairline blocks.
+This is the version to extend, not the fourth — the fourth's `.hw-split`
+placement call stands, but its `.dx`-specific card/list CSS is gone.
 
 
 RENAMED IN FULL, not just relabelled: `how-i-work.html` became

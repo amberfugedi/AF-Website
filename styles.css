@@ -3602,143 +3602,81 @@ a.bld-item .bld-item-arrow {
    Replaced .fl, a four-step flow. The brief was to stop implying both an
    order and an answer, so there is deliberately no numbering, no arrow
    between causes, and no connector from the anchor to any single one.
+   Two earlier rebuilds (a fan-of-lines icon with colour-cycled causes,
+   then a hairline 2x3 grid with an inline ring bullet) are documented
+   in MASTER.md — both are superseded, not layered on top of.
 
-   2026-09, third pass (Amber supplied a reference): a 2x3 grid with a
-   hairline above each cause and the site's one bullet marker (open
-   ring) inline with the label — two earlier passes are documented in
-   MASTER.md. main.js cycles a "spotlight" through the six causes on a
-   loop; every changed property is colour only (border/background/text),
-   nothing moves or resizes, so no single cause visually settles as the
-   answer. `.dx-cycling` is added by JS only when motion is allowed —
-   without it (no JS, or prefers-reduced-motion) every item just sits at
-   full contrast, which is a correct static reading on its own.
-
-   2026-09, fourth pass: moved into .hw-split beside the body copy,
-   matching sections 01 and 03 on this same page — this section was the
-   one left full-width, a holdover from when it was a four-step flow
-   (2026-08) that never got revisited across three rebuilds of the
-   graphic itself. No margin of its own: .hw-split's align-items:start
-   plus its own margin-top handle the spacing, and .dx has no padding
-   to offset against the way the hw-notebook aside's card does. */
-.dx { margin: 0; }
-.dx-anchor { text-align: center; }
-.dx-k {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  color: var(--coral-deep);
-  margin-bottom: 12px;
-}
-.dx-lead {
-  font-family: var(--font-display);
-  color: var(--ink);
-  line-height: 1.28;
-  letter-spacing: -0.015em;
-  max-width: 22ch;
-  margin: 0 auto;
-}
-
+   2026-09, fifth pass (Amber: "feels overwhelming"). Moving it beside
+   the copy in .hw-split (previous commit) put six two-line cause cards
+   into a ~450-550px column, which is much denser than anything else
+   .hw-split carries — sections 01 and 03 hold 3-4 short items in a
+   .hw-notebook card. So .dx now reuses .hw-notebook wholesale (same
+   card, same alignment trick, same .nb-label eyebrow) instead of being
+   its own bespoke container, and the list drops the ring bullet and
+   two-column grid for the same single-column, border-top-only rhythm
+   as .nb-princ in section 03's aside — no bullet needed there either;
+   the bold caps label is marker enough. The anchor's lead sentence and
+   the closing line are gone too: both restated what the body copy
+   already says ("the issue is often somewhere between..." / "I look
+   past the obvious symptom..."), and a notebook aside on this page
+   only ever carries a label plus its list, nothing before or after. */
 .dx-list {
   list-style: none;
-  margin: clamp(26px, 3.2vw, 40px) auto 0;
+  margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 clamp(28px, 4vw, 56px);
-  max-width: 680px;
-  text-align: left;
 }
 .dx-list li {
-  border-top: 1px solid var(--line);
-  padding: 18px 0;
+  padding: 15px 0;
+  border-top: 1px solid rgba(46, 42, 39, 0.1);
   transition: border-color 0.45s ease;
 }
-/* the site's one bullet language — open ring, pale fill inside a deep
-   2px border — inline with the label so an underline can sit under
-   just the two of them, not the full row width. Coral/coral-deep
-   because there is no section accent to code against here, same
-   reasoning as the hands-on list further down this page. */
-.dx-h {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding-bottom: 6px;
-  margin-bottom: 8px;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.45s ease;
-}
-.dx-dot {
-  flex: none;
-  width: 13px; height: 13px;
-  border-radius: 50%;
-  background: rgba(255, 111, 97, 0.28);
-  border: 2px solid var(--coral-deep);
-  box-sizing: border-box;
-  margin-top: 0.24em;
-  transition: background-color 0.45s ease, border-color 0.45s ease;
-}
+.dx-list li:first-child { border-top: 0; padding-top: 2px; }
+.dx-list li:last-child { padding-bottom: 2px; }
 .dx-t {
+  display: block;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   font-weight: 600;
   color: var(--ink);
+  margin-bottom: 6px;
+  transition: color 0.45s ease;
 }
 .dx-c {
   display: block;
   font-family: var(--font-display);
   color: var(--body);
   line-height: 1.42;
-  max-width: 30ch;
+  transition: color 0.45s ease;
 }
 
 /* Idle/spotlight states — only live once JS has confirmed motion is
-   allowed and started the cycle (see main.js). Everything here is a
-   colour swap, nothing else, so it never triggers layout. */
+   allowed and started the cycle (see main.js). Colour only, so it
+   never triggers layout. */
 .dx-list.dx-cycling .dx-t,
-.dx-list.dx-cycling .dx-c { color: var(--muted); transition: color 0.45s ease; }
-.dx-list.dx-cycling .dx-dot { background: transparent; border-color: var(--line); }
+.dx-list.dx-cycling .dx-c { color: var(--muted); }
 .dx-list.dx-cycling li.is-spot { border-top-color: var(--coral-deep); }
-.dx-list.dx-cycling li.is-spot .dx-h { border-bottom-color: var(--coral-deep); }
-.dx-list.dx-cycling li.is-spot .dx-dot { background: var(--coral-deep); border-color: var(--coral-deep); }
-.dx-list.dx-cycling li.is-spot .dx-t { color: var(--ink); }
-.dx-list.dx-cycling li.is-spot .dx-c { color: var(--body); }
+.dx-list.dx-cycling li.is-spot .dx-t { color: var(--coral-deep); }
+.dx-list.dx-cycling li.is-spot .dx-c { color: var(--ink); }
 
 /* Visible pause control (WCAG 2.2.2), same treatment as the quote
    marquee's — hover/focus-within pauses the cycle too, but that's not
    a mechanism on touch. JS shows it only once cycling actually starts. */
 .dx-toggle {
   display: none;
-  margin: clamp(26px, 3.2vw, 40px) auto 0 0;
+  margin: 0 0 16px auto;
   font-family: var(--font-body);
-  font-size: var(--fs-eyebrow);
+  font-size: var(--fs-small);
   font-weight: 600;
   color: var(--muted);
   background: var(--bg-raised);
   border: 1px solid var(--line);
   border-radius: 20px;
-  padding: 7px 16px;
+  padding: 5px 14px;
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s;
 }
 .dx-toggle.is-active { display: block; }
 .dx-toggle:hover { color: var(--ink); border-color: rgba(46, 42, 39, 0.3); }
-
-.dx-close {
-  font-family: var(--font-display);
-  color: var(--ink);
-  text-align: center;
-  margin: clamp(30px, 3.4vw, 46px) auto 0;
-  max-width: 34ch;
-  line-height: 1.32;
-}
-
-@media (max-width: 360px) {
-  /* one column at the very narrowest phones only — the reference this
-     is built from runs two columns down to 375px comfortably */
-  .dx-list { grid-template-columns: 1fr; }
-  .dx-lead, .dx-close { max-width: none; }
-}
 
 /* --- 3. Tools: collapsed by default, and it stays that way. No logo
    wall — it would read more junior and more software-focused than she
@@ -5593,10 +5531,8 @@ footer p,
 .ev-metric-label { font-size: var(--fs-small); line-height: 1.4; }
 .ev-intro p { font-size: var(--fs-body); line-height: 1.55; }
 .tl-cat { font-size: var(--fs-eyebrow); line-height: 1.4; }
-.dx-k, .dx-t { font-size: var(--fs-eyebrow); line-height: 1.4; }
-.dx-lead { font-size: var(--fs-h3); }
+.dx-t { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .dx-c { font-size: var(--fs-body); }
-.dx-close { font-size: var(--fs-intro); }
 .crs-status, .cs-inc dt { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .cs-list li, .cs-stages p, .cs-note { font-size: var(--fs-body); line-height: 1.55; }
 .cs-stage-n, .cs-inc dd { font-size: var(--fs-intro); line-height: 1.3; }
