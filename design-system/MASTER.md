@@ -580,6 +580,22 @@ tile as an in-page graphic.
    MembersFirst employee period isn't listed as a job). Named
    clients in the chapter: Robert James Restoration (2017),
    MembersFirst CT FCU (client since 2018).
+13. **Diagnostic spotlight (My Approach, section 02, 2026-09):**
+   the six possible causes under "what looks like the problem" take
+   turns at full contrast — one at a time, on a continuous loop,
+   colour only (border/background/text; nothing moves or resizes).
+   The point is that no cause should ever visually settle as the
+   answer. 2200ms dwell per item, 450ms `ease` colour transitions
+   (this is the "hover / colour change" case in the easing table,
+   not a UI-response animation, so it sits outside the 300ms UI
+   cap). Runs only while `.dx-list` is on screen (IntersectionObserver
+   starts/stops the interval) and pauses on hover/focus-within.
+   WCAG 2.2.2 (continuous auto-updating content past 5s needs a
+   pause mechanism): gets the same visible toggle as the quote
+   marquee, shown only once JS actually starts the cycle. Reduced
+   motion: the JS never adds `.dx-cycling`, so every cause just sits
+   at full contrast — a correct static reading with no muted/dimmed
+   items to explain.
 
 Interaction timing (per review-animations STANDARDS.md, installed
 in `.claude/skills/`): press feedback 160ms, hover transforms and
@@ -2086,7 +2102,7 @@ stays as the site spells it rather than her brief's "Scan-Optics".
   a left-ruled block on a lavender band with a tape graphic, which
   would have undone the standardisation she asked for an hour earlier.
 
-### Section 02 diagnostic diagram, rebuilt twice more (2026-09)
+### Section 02 diagnostic diagram, rebuilt three times more (2026-09)
 
 Amber's brief: stop implying both an order and a single answer. The
 four-step flow (above) was replaced with one anchor sentence ("what
@@ -2127,6 +2143,29 @@ generic wireframes regardless of which icon was on them. Rendering the
 same three options inside real copies of `my-approach.html` (real
 nav, real cream page background, real neighbouring sections) surfaced
 the "on brand" problem the isolated slides hid.
+
+**Third revision: Amber supplied a reference screenshot** of a 2x3
+grid, hairline above each cause, the site's bullet marker inline with
+the label — plus a spotlight that visibly moves and highlights one
+cause at a time, "suggesting it could be any of these." This
+supersedes the centered/no-icon version above rather than sitting
+beside it: back to left-aligned columns (now with a hairline per item,
+which the earlier version didn't have — the hairline is itself a
+strong enough alignment cue that left-aligned text under a centered
+anchor no longer reads as drifting the way it did with no rule and a
+centered icon competing above it), two columns instead of three, and
+a body line added to "or something else" ("the symptom doesn't fit
+the usual buckets") so all six causes carry equal visual weight —
+the earlier "quieter, no body text" treatment for that item existed
+specifically to de-emphasise it in a STATIC list, and that reasoning
+inverts once every cause including this one takes an equal turn in
+the spotlight.
+Motion budget item 13 (above) documents the animation itself.
+Column breakpoint: two columns hold to 361px (this is where the
+reference itself was captured — a standard modern phone width), one
+column below that; the earlier version collapsed to one column at
+560px, which would have flattened the exact width the reference
+proved worked.
 
 
 RENAMED IN FULL, not just relabelled: `how-i-work.html` became

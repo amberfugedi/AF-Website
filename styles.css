@@ -3602,26 +3602,16 @@ a.bld-item .bld-item-arrow {
    Replaced .fl, a four-step flow. The brief was to stop implying both an
    order and an answer, so there is deliberately no numbering, no arrow
    between causes, and no connector from the anchor to any single one.
-   The causes are staggered rather than aligned: a clean row of three
-   reads as stage one, two, three no matter what the labels say.
 
-   2026-09: rebuilt twice more from live feedback. First pass drew a
-   hand-curved "fan" under the anchor and colour-cycled the six causes
-   coral/lavender/gold — two MASTER.md rules broken at once: the custom
-   graphics language is precise geometric abstraction, "not doodles",
-   and colour is only supposed to code two defined sets (offers,
-   expertise chapters) — this invented an unearned third. Fixed the
-   colour by giving every cause the site's one real bullet marker (the
-   open ring, borrowed from the hands-on list further down this same
-   page, coral because there is no section accent here to code
-   against), but the list stayed left-aligned in its grid columns under
-   a centered anchor, so the whole block visually leaned off its own
-   centerline ("none of these are aligned"). This version centers every
-   item under its own bullet so the cluster hangs from the anchor, and
-   drops the icon entirely — chosen over an arc ripple and an orbital
-   dot ring shown alongside it; the anchor line plus the staggered,
-   centered cluster already read as "one thing branching into several"
-   without anything drawn under the lead. */
+   2026-09, third pass (Amber supplied a reference): a 2x3 grid with a
+   hairline above each cause and the site's one bullet marker (open
+   ring) inline with the label — two earlier passes are documented in
+   MASTER.md. main.js cycles a "spotlight" through the six causes on a
+   loop; every changed property is colour only (border/background/text),
+   nothing moves or resizes, so no single cause visually settles as the
+   answer. `.dx-cycling` is added by JS only when motion is allowed —
+   without it (no JS, or prefers-reduced-motion) every item just sits at
+   full contrast, which is a correct static reading on its own. */
 .dx { margin: clamp(28px, 3.4vw, 44px) 0 0; }
 .dx-anchor { text-align: center; }
 .dx-k {
@@ -3640,64 +3630,91 @@ a.bld-item .bld-item-arrow {
   max-width: 22ch;
   margin: 0 auto;
 }
-.dx-space { height: clamp(22px, 3vw, 34px); }
 
 .dx-list {
   list-style: none;
-  margin: 0 auto;
+  margin: clamp(26px, 3.2vw, 40px) auto 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  /* start, not stretch: stretched rows size to their tallest item and
-     leave a void under every short one */
-  align-items: start;
-  gap: clamp(18px, 2vw, 28px) clamp(20px, 2.4vw, 38px);
-  /* capped so short labels don't spread across the full text measure,
-     and centered text so the cluster sits on the anchor's centerline
-     rather than leaning into its own left-aligned columns */
-  max-width: 640px;
-  text-align: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(28px, 4vw, 56px);
+  max-width: 680px;
+  text-align: left;
 }
-/* the stagger — three offsets so no two columns share a baseline and the
-   row cannot be read left to right. Small: at 26px it stopped reading as
-   a deliberate offset and started reading as a gap. */
-.dx-list li:nth-child(3n+1) { margin-top: 0; }
-.dx-list li:nth-child(3n+2) { margin-top: 16px; }
-.dx-list li:nth-child(3n+3) { margin-top: 8px; }
+.dx-list li {
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+  transition: border-color 0.45s ease;
+}
 /* the site's one bullet language — open ring, pale fill inside a deep
-   2px border — centered above each item. Coral/coral-deep because
-   there is no section accent to code against here, same reasoning as
-   the hands-on list below. No hairline beside it: "two stacks of
-   rules read as noise where the rings alone read as a list" already
-   settled that below on this page. */
+   2px border — inline with the label so an underline can sit under
+   just the two of them, not the full row width. Coral/coral-deep
+   because there is no section accent to code against here, same
+   reasoning as the hands-on list further down this page. */
+.dx-h {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.45s ease;
+}
 .dx-dot {
-  display: block;
+  flex: none;
   width: 13px; height: 13px;
   border-radius: 50%;
   background: rgba(255, 111, 97, 0.28);
   border: 2px solid var(--coral-deep);
   box-sizing: border-box;
-  margin: 0 auto 9px;
+  margin-top: 0.24em;
+  transition: background-color 0.45s ease, border-color 0.45s ease;
 }
 .dx-t {
-  display: block;
   text-transform: uppercase;
   letter-spacing: 0.09em;
   font-weight: 600;
   color: var(--ink);
-  margin-bottom: 7px;
 }
 .dx-c {
   display: block;
   font-family: var(--font-display);
   color: var(--body);
   line-height: 1.42;
-  max-width: 20ch;
-  margin: 0 auto;
+  max-width: 30ch;
 }
-/* the open door, quieter than the five named ones */
-.dx-else .dx-dot { background: transparent; border-color: var(--line); }
-.dx-else .dx-t { color: var(--muted); }
+
+/* Idle/spotlight states — only live once JS has confirmed motion is
+   allowed and started the cycle (see main.js). Everything here is a
+   colour swap, nothing else, so it never triggers layout. */
+.dx-list.dx-cycling .dx-t,
+.dx-list.dx-cycling .dx-c { color: var(--muted); transition: color 0.45s ease; }
+.dx-list.dx-cycling .dx-dot { background: transparent; border-color: var(--line); }
+.dx-list.dx-cycling li.is-spot { border-top-color: var(--coral-deep); }
+.dx-list.dx-cycling li.is-spot .dx-h { border-bottom-color: var(--coral-deep); }
+.dx-list.dx-cycling li.is-spot .dx-dot { background: var(--coral-deep); border-color: var(--coral-deep); }
+.dx-list.dx-cycling li.is-spot .dx-t { color: var(--ink); }
+.dx-list.dx-cycling li.is-spot .dx-c { color: var(--body); }
+
+/* Visible pause control (WCAG 2.2.2), same treatment as the quote
+   marquee's — hover/focus-within pauses the cycle too, but that's not
+   a mechanism on touch. JS shows it only once cycling actually starts. */
+.dx-toggle {
+  display: none;
+  margin: clamp(26px, 3.2vw, 40px) auto 0 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.dx-toggle.is-active { display: block; }
+.dx-toggle:hover { color: var(--ink); border-color: rgba(46, 42, 39, 0.3); }
 
 /* .fl-body carried this block's top margin and went with the old flow
    rules; the closing line ran straight into the paragraph below. The
@@ -3715,19 +3732,10 @@ a.bld-item .bld-item-arrow {
   line-height: 1.32;
 }
 
-@media (max-width: 860px) {
-  .dx-list { grid-template-columns: 1fr 1fr; }
-  .dx-list li:nth-child(3n+1),
-  .dx-list li:nth-child(3n+2),
-  .dx-list li:nth-child(3n+3) { margin-top: 0; }
-  .dx-list li:nth-child(2n) { margin-top: 20px; }
-}
-@media (max-width: 560px) {
-  /* one column, no stagger — offsets on a single column just read as
-     inconsistent spacing. */
-  .dx-list { grid-template-columns: 1fr; gap: 0; }
-  .dx-list li,
-  .dx-list li:nth-child(2n) { margin-top: 0; padding: 14px 0; }
+@media (max-width: 360px) {
+  /* one column at the very narrowest phones only — the reference this
+     is built from runs two columns down to 375px comfortably */
+  .dx-list { grid-template-columns: 1fr; }
   .dx-lead, .dx-close { max-width: none; }
 }
 
