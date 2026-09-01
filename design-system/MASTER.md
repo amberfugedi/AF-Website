@@ -354,14 +354,18 @@ on cream surfaces plus the one dark CTA band (ink text on butter
 holds 12:1 there); a pastel tab on the old coral band fought the
 gradient and was removed 2026-07. Current placements — exactly
 nine phrases: "what to build." (blush, home problem), "different
-needs." (blush, work h1), "actually needs." (blush, about h1 —
-needs sit on the question side), "work together." (butter,
-services h1), "marketing experience." (butter, expertise h1),
-"practice." (butter, expertise CTA), "businesses." (butter, how
-i work h1 — the collaboration side), "a lot of questions."
-(blush, how i work section 2 — literally the open-question
-side), and "comes next." (butter, dark CTA bands + about
-contact) —
+needs." (blush, work h1), "the marketing box." (blush, about h1 —
+the box is the constraint, so it sits on the tension side; this
+replaced "leader and consultant." in the 2026-09 About rebuild),
+"touch the work." (butter, about section 03 — getting into the
+work with the team is the collaboration side; About needed a
+second tab once its contact heading lost "comes next."),
+"work together." (butter, services h1), "marketing experience."
+(butter, expertise h1), "practice." (butter, expertise CTA),
+"businesses." (butter, how i work h1 — the collaboration side),
+"a lot of questions." (blush, how i work section 2 — literally
+the open-question side), and "comes next." (butter, dark CTA
+bands) —
 every page-top carries emphasis (home via the coral italic em)
 and every page runs exactly two tabs; 404 stays plain,
 A THIRD tab on expertise ("work together." in blush on the core
@@ -1831,6 +1835,89 @@ before the tight rules or Expertise loses its opt-in. And `.hero-band`
 is also a `.page-head`, so the new rule caught My Approach and
 flattened its bridge from 78 to 26; `.hero-band + section` is restated
 straight after to put it back.
+
+### About rebuilt as a conversation (2026-09, Amber's brief)
+
+"Feel like someone is sitting down with Amber and getting to know her,
+rather than reading a résumé." The page was four blocks — hero,
+timeline, quotes, credentials — and the timeline WAS the page: it ran
+second, at full height, and was how a reader met her. Now it runs
+last, inside a disclosure, and eight narrative sections carry the
+introduction. Copy is Amber's, supplied verbatim; it is exempt from
+the stop-slop mechanical pass under the usual rule.
+
+ORDER: hero, the problem underneath the problem, what I keep coming
+back to, strategy person who still touches the work, the people part,
+bridge, recommendations, outside the marketing, the short version,
+the timeline, contact. The recommendations keep `id="recommendations"`
+(Services links to it and `_redirects` maps the old WordPress
+`/recommendations` there) and now sit right after the mentoring
+section, where a quote calling her "one of the best mentors I have
+ever learned from" is doing the section's own work.
+
+WHAT WAS RETIRED. The `.edu-grid` / `.edu-card` card trio and its
+"Credentials behind the practice" section: three cards holding six
+lines was the most résumé-shaped block on the page. The degrees are
+facts the JSON-LD `alumniOf` claims, so they moved into the timeline
+disclosure as plain rows rather than being dropped.
+
+THREE DEVICES, NOT THREE INVENTIONS.
+- `.ab-beats` — a run of short parallel sentences behind a coral
+  rule, used FOUR times ("give me a website problem…", "sometimes
+  that answer is…", "I still like rewriting the headline…",
+  "sometimes that is a campaign…"). Every one is the same rhetorical
+  shape, so it takes the same treatment; four bespoke treatments
+  would have been four inventions for one idea. No bullets and no
+  numbers — none of the four is a sequence, and the open ring stays
+  reserved for lists that are.
+- `.ab-think` — the three thoughts, as full-width rows with the title
+  in the margin. Not three columns: each carries three or four short
+  paragraphs, which is more than a third of the measure holds.
+- `.ab-cred` — figure plus one line on a hairline. Amber: "do not
+  overdo stats or turn this into a KPI dashboard", so no boxes, no
+  oversized numerals, and half the figures are words. Figures read
+  `--coral-deep`, the site's one stat colour.
+
+COMPOSITION WAS THE FIRST BUILD'S BUG. Every section came out as a
+single left-hugging column, which left ~700px of nothing down the
+right of the 1200px About wrap and ran the page to 8,545px. Fixed with
+`.ab-split` (33% / 1fr, `.xp-grid`'s ratio without the sticky) for the
+prose-heavy sections and `.hw-split` for section 01's prose-plus-aside.
+Page came down to ~8,040px and every section uses its width.
+SECOND BUG, same pass: `.ab-think` had each paragraph as its own grid
+row, so a title that wrapped to two lines made row one taller than its
+paragraph and opened a ~60px hole before the next. The paragraphs sit
+in one `.ab-think-body` item now.
+THIRD, the specificity trap this file keeps recording: `.hw-do-tall`
+(nine items over five rows, so the list stays two columns) is written
+`.hw-do.hw-do-tall` at BOTH widths. `.hw-do`'s own rules sit ~600
+lines later, so a single-class version lost the desktop rows on source
+order — and a (0,2,0) desktop rule alone would then have beaten the
+760px phone reset and left five rows on a phone.
+
+THE TIMELINE IS UNCHANGED — same chapters, coral ticks, proof points,
+PERQ case-study link and earlier-experience rows. What changed is
+where it sits and that it opens from a native `<details>`, so the
+whole record stays in the DOM and crawlable while closed and the
+keyboard gets the toggle for free. `.xp-grid` drops to one column
+inside it (`.xp-grid-solo`): its narrow first column existed to hold
+the section heading and lede, and both now sit outside the disclosure.
+Verified on open: zero `.reveal` elements stranded at opacity 0 (the
+`toggle` listener in the reveal safety sweep already covered this) and
+the three inner rows still open on desktop via the existing
+`.xp-earlier` JS.
+
+FACT CORRECTION SHIPPED AGAINST THE BRIEF. The brief's credibility
+point read "Consulting since 2019"; it ships as 2017. Timeline canon
+below says consulting began with Robert James Restoration in 2017, and
+Amber moved that date herself in July 2026 precisely because 2019 left
+an apparent 2018 gap. Shipping 2019 would have contradicted the
+timeline three sections down the same page.
+
+Measured after: 1,434 words, ~8,040px at 1440, one h1, no horizontal
+overflow at 393-1440, every new text style at or above AA (lowest is
+`.xp-reveal` summary at 5.50:1), all 44 `.reveal` elements visible
+under both reduced motion and no-JS.
 
 ### About head rebalanced (2026-08, Amber: "the h1 looks squished on desktop, the container can be bigger and the picture can be moved")
 

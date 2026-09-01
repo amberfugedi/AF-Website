@@ -4491,20 +4491,201 @@ a.bld-item .bld-item-arrow {
   .xp-note { margin: -4px 0 14px 112px; }
 }
 
-.edu-grid {
+/* ============ About: the conversational rebuild (2026-09) ============
+   Amber's brief: "feel like someone is sitting down with Amber and
+   getting to know her, rather than reading a résumé." The page went
+   from four blocks (hero, timeline, quotes, credentials) to a narrative
+   that runs hero -> how she thinks -> what she keeps coming back to ->
+   what she is like to work with -> mentoring -> quotes -> outside the
+   work -> the short version -> the timeline, last and inside a
+   disclosure. NOTHING HERE IS A CARD except the quotes that already
+   were: rhythm comes from hairlines, measure changes and the two
+   devices below. The .edu-grid/.edu-card card trio was retired with the
+   credentials section — the degrees moved into the timeline disclosure
+   as plain rows. */
+
+/* The four informal terms under the hero lede. Display italic at body
+   scale so they read as an aside in her voice; set as a title stack
+   (caps, weight, separators) they read corporate, which the brief
+   explicitly ruled out. */
+.ab-tags {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* HEADING IN THE MARGIN, prose beside it. Every narrative section was
+   a single left-hugging column at first, which left ~700px of nothing
+   down the right of a 1200px wrap and ran the page to 8,545px. This is
+   .xp-grid's ratio without the sticky, so the sections that are mostly
+   prose (mentoring, outside the work, the short version) use their
+   width and read as composition rather than a wall. */
+.ab-split {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: 33% minmax(0, 1fr);
+  column-gap: clamp(40px, 5vw, 72px);
+  row-gap: 22px;
+  align-items: start;
 }
-@media (max-width: 860px) { .edu-grid { grid-template-columns: 1fr; } }
-.edu-card {
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 26px 24px;
+.ab-split > .section-title { margin-bottom: 0; }
+@media (max-width: 900px) { .ab-split { grid-template-columns: 1fr; } }
+
+/* A run of short parallel sentences, lifted out of the prose behind a
+   coral rule. Used four times on this page — every one is the same
+   rhetorical shape (a cascade of parallel statements), so it takes the
+   same treatment every time rather than four separate inventions. No
+   bullets, no numbers: none of the four is a sequence, and the ring
+   bullet is reserved for lists that are. */
+.ab-beats {
+  margin: clamp(28px, 3.2vw, 42px) 0;
+  padding-left: clamp(20px, 2.4vw, 30px);
+  border-left: 2px solid rgba(255, 111, 97, 0.3);
+  max-width: 60ch;
 }
-.edu-card h3 { font-size: 1.02rem; margin-bottom: 6px; }
-.edu-card p { font-size: 0.9rem; color: var(--muted); }
+.ab-beats p {
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0;
+  text-wrap: pretty;
+}
+.ab-beats p + p { margin-top: 13px; }
+/* In the aside column of a .hw-split it starts level with the prose. */
+.ab-beats-aside { margin-top: 5px; }
+
+/* One sentence, alone, in the display face — the payoff line after a
+   cascade. Short measure on purpose so it never reads as a paragraph. */
+.ab-lead {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  max-width: 24ch;
+  margin: clamp(32px, 3.8vw, 48px) 0;
+}
+
+/* The three thoughts. Full-width rows on hairlines rather than three
+   columns: each carries three or four short paragraphs, which is more
+   than a third of the measure reads comfortably, and the three titles
+   are the lines Amber wanted standing alone. Hairlines alternate coral
+   and lavender, the same two-colour alternation .lead-grid uses — no
+   third hairline colour was invented, since the gold in the palette is
+   a fill and its deep partner reads brown on cream outside peach. */
+.ab-think {
+  margin-top: clamp(36px, 4.2vw, 56px);
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 111, 97, 0.42);
+  display: grid;
+  grid-template-columns: 33% minmax(0, 1fr);
+  column-gap: clamp(40px, 5vw, 72px);
+  row-gap: 14px;
+  align-items: start;
+}
+.ab-think:nth-of-type(2n) { border-top-color: rgba(150, 138, 214, 0.5); }
+.ab-think h3 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.22;
+  margin: 0;
+  text-wrap: pretty;
+}
+/* The paragraphs sit in ONE grid item, not one per row: as separate
+   rows, a title that wrapped to two lines made row 1 taller than its
+   paragraph and opened a ~60px hole before the next one. */
+.ab-think-body p { color: var(--body); max-width: 62ch; margin: 0; }
+.ab-think-body p + p { margin-top: 14px; }
+@media (max-width: 900px) {
+  .ab-think { grid-template-columns: 1fr; row-gap: 0; }
+  .ab-think h3 { margin-bottom: 14px; }
+}
+
+/* Credibility points: a figure and one line on a hairline. Deliberately
+   not a stat strip — no boxes, no oversized numerals, and half the
+   figures are words rather than numbers. Figures read coral-deep, the
+   site's one stat colour. */
+.ab-cred {
+  list-style: none;
+  margin: clamp(36px, 4.2vw, 54px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px 40px;
+}
+.ab-cred li {
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 111, 97, 0.42);
+}
+.ab-cred li:nth-child(2n) { border-top-color: rgba(150, 138, 214, 0.5); }
+.ab-cred-fig {
+  display: block;
+  font-family: var(--font-display);
+  color: var(--coral-deep);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.ab-cred-note { display: block; color: var(--muted); }
+@media (max-width: 1020px) {
+  .ab-cred { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 34px; }
+  .ab-cred li:nth-child(2n) { border-top-color: rgba(255, 111, 97, 0.42); }
+  .ab-cred li:nth-child(4n+2),
+  .ab-cred li:nth-child(4n+3) { border-top-color: rgba(150, 138, 214, 0.5); }
+}
+
+/* The timeline disclosure. Native <details>, so the whole record stays
+   in the DOM and crawlable while closed, and the keyboard gets the
+   toggle for free. Hairline top and bottom rather than a button: it is
+   a seam in the page, not an action. */
+.xp-reveal {
+  margin-top: clamp(30px, 3.4vw, 44px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.xp-reveal > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 2px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--coral-deep);
+  transition: color 0.2s var(--ease);
+}
+.xp-reveal > summary::-webkit-details-marker { display: none; }
+.xp-reveal > summary:hover { color: var(--ink); }
+.xp-reveal-chev {
+  width: 9px; height: 9px;
+  border-right: 1.7px solid currentColor;
+  border-bottom: 1.7px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s var(--ease);
+}
+.xp-reveal[open] > summary .xp-reveal-chev { transform: rotate(225deg) translateY(-1px); }
+.xp-reveal-body { padding: 8px 0 40px; }
+/* One column inside the disclosure: .xp-grid's narrow first column
+   existed to hold the section heading and its lede, and both now sit
+   outside the disclosure. .xp-desc keeps its own 68ch cap, so nothing
+   sprawls. */
+.xp-grid-solo { grid-template-columns: minmax(0, 1fr); }
+
+.xp-edu { margin-top: 40px; padding-top: 26px; border-top: 1px solid rgba(46, 42, 39, 0.1); }
+.xp-edu ul { list-style: none; margin: 0; padding: 0; }
+.xp-edu li { padding: 8px 0; color: var(--muted); }
+.xp-edu li strong { color: var(--ink); font-weight: 600; }
+
+/* Nine items, so five rows fills two columns instead of the three the
+   base .hw-do makes of them (Amber, July 2026: "compact two-column
+   list" — at three, half the items wrap).
+   BOTH RULES ARE (0,2,0) ON PURPOSE. .hw-do's own rules sit ~600 lines
+   later in the file, so a single-class .hw-do-tall loses the base
+   grid-template-rows on source order, and a (0,2,0) desktop rule alone
+   would then beat the 760px phone reset and leave five rows on a
+   phone. Doubling the class on both sides settles it at every width. */
+.hw-do.hw-do-tall { grid-template-rows: repeat(5, auto); }
+@media (max-width: 760px) {
+  .hw-do.hw-do-tall { grid-template-rows: none; }
+}
 
 /* ============ Contact ============ */
 .contact-grid {
@@ -5436,8 +5617,7 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    heading trapped in a card (Amber, 2026-07). h3 token stays
    reserved for structural subheads. */
 .card h3,
-.cap-card h3,
-.edu-card h3 {
+.cap-card h3 {
   font-size: var(--fs-intro);
   line-height: 1.3;
   letter-spacing: -0.015em;
@@ -5445,6 +5625,16 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 /* Career chapters are structural subheads, not card titles */
 .xp-company { font-size: var(--fs-h3); line-height: 1.2; letter-spacing: -0.015em; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
+/* About (2026-09) */
+.ab-tags { font-size: var(--fs-body); line-height: 1.5; }
+.ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }
+.ab-lead { font-size: var(--fs-h3); line-height: 1.28; }
+.ab-think h3 { font-size: var(--fs-h3); }
+.ab-think-body p { font-size: var(--fs-body); line-height: 1.55; }
+.ab-cred-fig { font-size: var(--fs-intro); }
+.ab-cred-note { font-size: var(--fs-small); line-height: 1.45; }
+.xp-reveal > summary { font-size: var(--fs-body); }
+.xp-edu li { font-size: var(--fs-body); line-height: 1.5; }
 
 /* ALL running text reads at body — one paragraph size site-wide,
    ledes and band statements included (Amber, 2026-07: "it should
@@ -5484,7 +5674,6 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .xp-note,
 .xp-areas,
 .xp-proof li,
-.edu-card p,
 .contact-form label,
 .cb-step span,
 footer p,
