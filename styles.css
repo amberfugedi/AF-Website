@@ -4504,6 +4504,43 @@ a.bld-item .bld-item-arrow {
    credentials section — the degrees moved into the timeline disclosure
    as plain rows. */
 
+/* Section eyebrows (2026-09). These replace nothing — About never had
+   .sec-n numerals — they are wayfinding for a page that is now eight
+   parts of one story. Coral-deep at eyebrow grade, so they sit clearly
+   under the headline rather than competing with it. NOTE the July 2026
+   rule that retired section eyebrows site-wide: that was aimed at
+   eyebrows which RESTATE their heading ("HOW I WORK WITH PEOPLE" over
+   "The people side of the work"). These label a different thing from
+   the headline underneath them, which is the case the rule allows. */
+.ab-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--coral-deep);
+  margin-bottom: 12px;
+}
+
+/* Outside the work: story on one side, the payoff line on the other.
+   The prose column runs roughly three times the payoff's height, so the
+   payoff is sticky rather than top-aligned — otherwise this is the
+   column-void this file keeps recording. Sticky is .xp-intro's device. */
+.ab-outside {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+  column-gap: clamp(40px, 5vw, 80px);
+  row-gap: 34px;
+  align-items: start;
+  margin-top: clamp(30px, 3.4vw, 44px);
+}
+.ab-payoff { position: sticky; top: 120px; }
+.ab-payoff .ab-lead { margin: 0 0 18px; max-width: 15ch; }
+.ab-payoff-note { color: var(--muted); max-width: 34ch; }
+.ab-payoff-note + .ab-payoff-note { margin-top: 12px; }
+@media (max-width: 900px) {
+  .ab-outside { grid-template-columns: 1fr; }
+  .ab-payoff { position: static; }
+}
+
 /* The four informal terms under the hero lede. Display italic at body
    scale so they read as an aside in her voice; set as a title stack
    (caps, weight, separators) they read corporate, which the brief
@@ -4587,8 +4624,7 @@ a.bld-item .bld-item-arrow {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(28px, 3vw, 46px);
-  margin-top: clamp(34px, 4vw, 52px);
-  counter-reset: think;
+  margin-top: clamp(30px, 3.4vw, 44px);
 }
 /* A hairline ABOVE each column, not a vertical rule between them. Two
    reasons. It is the site's existing divider idiom (.lead-grid and
@@ -4599,15 +4635,6 @@ a.bld-item .bld-item-arrow {
    as flush against the boundary rather than measuring real inset. The
    top rule scores clean at the same baseline. */
 .ab-think { padding-top: 18px; border-top: 1px solid var(--line); }
-.ab-think::before {
-  counter-increment: think;
-  content: counter(think, decimal-leading-zero);
-  display: block;
-  font-family: var(--font-display);
-  color: var(--coral-deep);
-  line-height: 1;
-  margin-bottom: 14px;
-}
 @media (max-width: 900px) {
   .ab-think-grid { grid-template-columns: 1fr; gap: clamp(30px, 5vw, 40px); }
   .ab-think { padding-top: 22px; }
@@ -5666,9 +5693,10 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.5; }
+.ab-eyebrow { font-size: var(--fs-eyebrow); line-height: 1.4; }
+.ab-payoff-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }
 .ab-lead { font-size: var(--fs-h3); line-height: 1.28; }
-.ab-think::before { font-size: var(--fs-h3); }
 .ab-think h3 { font-size: var(--fs-intro); line-height: 1.25; }
 .ab-think-body p { font-size: var(--fs-body); line-height: 1.55; }
 .ab-cred-fig { font-size: var(--fs-intro); }

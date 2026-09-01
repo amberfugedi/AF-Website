@@ -1836,6 +1836,57 @@ is also a `.page-head`, so the new rule caught My Approach and
 flattened its bridge from 78 to 26; `.hero-band + section` is restated
 straight after to put it back.
 
+### About editorial pass (2026-09, Amber's scoped brief)
+
+"NOT a full rebuild." Everything above the testimonials plus the short
+version was reworked; the testimonials, the timeline disclosure, the
+header, the footer and the contact form were named as untouchable and
+were verified untouched afterwards (5 real quote cards plus 5 clones,
+3 timeline chapters, the disclosure, both anchors).
+
+- SECTION EYEBROWS RETURN, on this page only: How I think / What I
+  believe / How I lead / What keeps me interested / Outside the work.
+  The July 2026 rule that retired eyebrows site-wide was aimed at ones
+  that RESTATE their heading ("HOW I WORK WITH PEOPLE" over "The people
+  side of the work"). These label a different thing from the headline
+  under them, which is the case that rule allows. Coral-deep at eyebrow
+  grade.
+- THE 01/02/03 NUMERALS CAME BACK OUT, one round after going in. Amber:
+  they made the page read as a process, which is My Approach's job. The
+  hairline and the title carry the columns instead.
+- "THINGS I END UP DOING" DELETED. Nine service lines answering "what
+  can Amber sell me" on a page that should answer "who is Amber". It
+  belongs on Services and Expertise, where it already is.
+- THE HONESTY POINT is a single line at the end of How I think, not a
+  section: "I want you to understand why I am recommending it. I'll
+  tell you what I think you need, and I'll tell you when I don't think
+  you need something." Shown as how she arrives at a recommendation
+  rather than claimed as a virtue, and no agency is named.
+- `.hw-quote` REVIVED. TODO.md listed it under dead CSS with zero
+  instances since 2026-07; it was written for exactly this and now
+  carries "I want people to leave more capable than when we started."
+  Reuse beat inventing a second pull-quote component.
+- OUTSIDE THE WORK is story-left, payoff-right, and the payoff is
+  STICKY (`.ab-payoff`, `.xp-intro`'s device). The prose column runs
+  about three times its height, so top-aligned it would be the column
+  void this file keeps recording.
+- EDUCATION moved out of the timeline disclosure into the credibility
+  row as one grouped point. Sociology stays visible: it is the degree
+  that explains the interest in people, behaviour and systems.
+
+TWO THINGS DECLINED, both flagged to her rather than done quietly:
+- A LAVENDER underline on the h1. The tab system is two colours only
+  (blush = tension, butter = possibility); peach and lavender variants
+  were retired in July 2026. The h1 keeps its blush tab.
+- The h2 keeps its butter tab on "touch the work." even though the
+  brief's copy for that heading is plain, because dropping it would
+  leave the page with one tab against the two-per-page rule.
+
+Result: 8,852px to 8,198px, 1,756 words to 1,480. 37 text styles with
+zero contrast failures, zero banned phrases and zero em dashes in the
+rendered copy, zero horizontal overflow 320-1920, detector at its 17
+baseline.
+
 ### About design audit (2026-09)
 
 Measured, not eyeballed. Most of what looked like defects were the
