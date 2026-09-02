@@ -2089,8 +2089,13 @@ the longest is 785px of text at 21px Newsreader, plus 32px for the rule
 and its inset, so the block needs 817. 84ch gives 871 with headroom for
 font fallback. All five hold one line from 900px up; below that they
 wrap, which is unavoidable — there is not that much page.
-`.ab-quiet-close` stays narrow at 38ch so the section still lands on a
-short statement.
+`.ab-quiet-close` went 38 -> 44ch (646 -> 748px), which takes it from
+three lines to two. ONE line is not available: at 30px the sentence
+needs 1308px and the shell holds 1152. Two lines are reached anywhere
+above 700px, so the width was chosen on how the break balances —
+measured the last line's fill at eight widths, and 748 leaves it about
+three quarters full where the parent's own 913 leaves it half and reads
+ragged.
 
 THE MIDDLE BELIEF WAS 46px NARROWER THAN ITS NEIGHBOURS. Amber asked
 whether the beliefs body was the right size; it was — 17px, --fs-body,
