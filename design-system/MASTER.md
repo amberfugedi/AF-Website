@@ -2020,6 +2020,43 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### One hand across the whole page (2026-09, doodle pass two)
+
+Amber pointed at How I think as the correct instance and asked for the
+same logic everywhere: one doodle per section, smaller, closer to the
+heading, same coral line, margin notes rather than illustrations.
+
+ONE COLOUR. The lavender wave and spark are coral now. Lavender was
+right when the sheets were read as a set — her sheets use both — but on
+the page it made two systems out of one. `--lavender-mark` stays
+defined and nothing on About uses it; My Approach still carries the
+same hex unnamed.
+
+ONE PEN, SIX SIZES. Every path now carries
+`vector-effect="non-scaling-stroke"` at 2px, so stroke weight is
+identical on screen no matter what a mark is scaled to. Without it a
+38px spark drawn in a 60-unit viewBox and a 92px arrow drawn in a
+100-unit one come out at 1.3px and 2.8px — the same drawing in two
+different pens, which is exactly the inconsistency she was pointing at.
+Sizes still vary (37-92px) so the page does not read as an icon set.
+
+CLOSER. Marks sat 26-38px under their headline, adrift in the margin.
+They sit at 18px now, measured, which reads as annotation on the
+heading rather than decoration in the space below it.
+
+SEVEN MARKS, one per section, every section covered:
+hero asterisk (inline on the kicker) · How I think loop-arrow · What I
+believe spiral, under the section heading and NOT on the three columns ·
+Strategy the tiny dash, the smallest mark on the page, since the butter
+tab already carries that section · How I lead wave, quote side left
+clean · What keeps me interested spark · Outside the work heart.
+Testimonials, The short version and the timeline stay clean.
+
+Mobile is unchanged: every margin mark is display:none below 900, so a
+phone sees one mark, the kicker asterisk. Measured 7 at 901+, 1 below.
+
+Detector holds at 14. No overflow 320-1920.
+
 ### About's doodle vocabulary, from Amber's asset sheets (2026-09)
 
 Amber supplied two sheets of hand-drawn marks — underlines, marker

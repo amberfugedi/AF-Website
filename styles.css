@@ -4588,17 +4588,28 @@ a.bld-item .bld-item-arrow {
    free and the closed motion budget gains nothing. */
 .ab-dd {
   display: block;
+  /* ONE COLOUR for the whole family. The lavender wave and spark were
+     right for Amber's sheets read as a set, but on the page they made
+     two systems out of one — her follow-up asked for one consistent
+     coral line. --lavender-mark stays defined; nothing on About uses it
+     now. */
   color: var(--coral-deep);
-  opacity: 0.75;
-  margin-top: clamp(26px, 3vw, 38px);
+  opacity: 0.72;
+  /* Close enough to the headline to read as an annotation on it. They
+     sat 26-38px down before, which put them adrift in the margin. */
+  margin-top: clamp(12px, 1.4vw, 18px);
 }
 .ab-dd .glyph { width: 100%; height: auto; margin: 0; }
-/* Scale varies a little per mark so the page does not read as a set of
-   icons at one size. */
-.ab-dd-arrow { max-width: clamp(88px, 7.6vw, 116px); }
-.ab-dd-wave  { max-width: clamp(84px, 7.2vw, 108px); color: var(--lavender-mark); }
-.ab-dd-spark { max-width: clamp(38px, 3.4vw, 50px);  color: var(--lavender-mark); }
-.ab-dd-heart { max-width: clamp(42px, 3.8vw, 56px); }
+/* Scale varies a little so the page does not read as a set of icons at
+   one size; stroke weight does not, because every path carries
+   vector-effect: non-scaling-stroke at 2px. That is what keeps a 38px
+   spark and a 92px arrow looking like the same pen. */
+.ab-dd-arrow  { max-width: clamp(76px, 6.4vw, 92px); }
+.ab-dd-wave   { max-width: clamp(68px, 5.8vw, 82px); }
+.ab-dd-spiral { max-width: clamp(42px, 3.6vw, 52px); }
+.ab-dd-spark  { max-width: clamp(30px, 2.6vw, 38px); }
+.ab-dd-heart  { max-width: clamp(34px, 3vw, 44px); }
+.ab-dd-dash   { max-width: clamp(40px, 3.4vw, 50px); }
 
 /* The hero's kicker asterisk is inline, not a margin mark. */
 .ab-dd-ast {
