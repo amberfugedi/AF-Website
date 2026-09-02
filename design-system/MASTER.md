@@ -2029,6 +2029,38 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### Two measure bugs in the beliefs and the quiet section (2026-09)
+
+WHAT KEEPS ME INTERESTED was capped at 60ch, which measured 622px inside
+a 1200px shell — half the page empty to its right, reading as a mistake
+rather than as a deliberate narrow measure. 78ch now: 809px, 56
+characters a line, still inside the comfortable range. `.ab-beats` 60 ->
+64ch and `.ab-quiet-close` 30 -> 38ch so the block holds together.
+
+THE MIDDLE BELIEF WAS 46px NARROWER THAN ITS NEIGHBOURS. Amber asked
+whether the beliefs body was the right size; it was — 17px, --fs-body,
+the same as every other paragraph on the page. The problem was the
+measure, and underneath it a real bug: the column dividers were built as
+per-column padding, so the middle column carried an inset on BOTH sides
+while the outer two carried one each. 255px against 301px, which is what
+pushed "Strategy only matters if it gets built." onto a third line.
+A gutter divides evenly by construction, so `column-gap: 64px` replaces
+the padding and the painted rules move to positions computed from the
+gap — `calc((100% - 128px) / 3 + 32px)` and its partner — rather than
+33.3%/66.7%, which were only correct while the gap was zero. All three
+columns now measure identically at every width.
+
+AND THE DIVIDERS WERE PAINTING OVER THE STACKED LAYOUT. Their media query
+was min-width 761 while `.ab-think-grid` only becomes three columns at
+901, so between those two widths the page drew two vertical rules down
+the middle of a single stacked column. Both are 901 now. When a rule is
+scoped to a layout, scope it to the SAME breakpoint that creates the
+layout.
+
+`.ab-think-body p` keeps a 66ch cap. It never binds in the three-up
+(columns run 262-352px) and catches the stacked layout, which was
+running an 852px measure at 900px wide, about 101 characters a line.
+
 ### About type and section audit (2026-09, Amber: "I see some differences")
 
 Rendered every section at 1440 and read back rhythm, eyebrow size, h2

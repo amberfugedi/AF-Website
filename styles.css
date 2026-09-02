@@ -4645,22 +4645,28 @@ a.bld-item .bld-item-arrow {
    this page tripped the detector's cramped-padding, which fires when a
    child sits flush against a visible boundary. The fix is the padding,
    not the rule: half the gutter lives inside the border. */
-@media (min-width: 761px) {
-  .ab-think-grid { column-gap: 0; }
-  .ab-think-grid > .ab-think + .ab-think { padding-left: clamp(30px, 3.2vw, 54px); }
-  .ab-think-grid > .ab-think { padding-right: clamp(30px, 3.2vw, 54px); }
-  .ab-think-grid > .ab-think:last-child { padding-right: 0; }
-  /* The rules are painted on the GRID, not as borders on the columns.
-     A bordered column is the shape the detector's cramped-padding rule
-     looks for and it fires however much padding sits beside it — this
-     page has lost three vertical dividers to that already. A background
-     gradient is the same 1px line and belongs to no child. */
+/* 901, matching the breakpoint where .ab-think-grid actually becomes
+   three columns. It was 761, which painted two vertical rules straight
+   down the middle of the stacked layout between 761 and 900. */
+@media (min-width: 901px) {
+  /* A REAL GUTTER, NOT PER-COLUMN PADDING. Padding gave the middle
+     column two insets and the outer two one each, so its content ran
+     255px against their 301px — the middle belief was 46px narrower
+     than its neighbours and broke its headline onto a third line.
+     A gap divides evenly by construction. */
+  .ab-think-grid { column-gap: 64px; }
+  /* The rules are painted on the GRID, not as borders on the columns:
+     a bordered column is the shape the detector's cramped-padding rule
+     looks for, and it fires however much padding sits beside it. With
+     a real gutter the boundaries are no longer at 33.3%/66.7%, so the
+     positions are computed from the gap. */
   .ab-think-grid {
     background-image:
       linear-gradient(var(--line), var(--line)),
       linear-gradient(var(--line), var(--line));
     background-size: 1px 100%, 1px 100%;
-    background-position: 33.333% 0, 66.667% 0;
+    background-position: calc((100% - 128px) / 3 + 32px) 0,
+                         calc((100% - 128px) / 3 * 2 + 96px) 0;
     background-repeat: no-repeat;
   }
 }
@@ -4878,14 +4884,18 @@ a.bld-item .bld-item-arrow {
 
 /* A reflective section: narrower measure, more air, and the closing
    thought set larger so the section lands rather than trails off. */
-.ab-quiet { max-width: 60ch; margin-top: clamp(28px, 3.2vw, 40px); }
+/* WIDENED 2026-09 (Amber). At 60ch this sat at 622px inside a 1200px
+   shell — half the page empty to its right, which read as a mistake
+   rather than as a deliberate narrow measure. 78ch is still inside the
+   comfortable reading range and uses the room the section has. */
+.ab-quiet { max-width: 78ch; margin-top: clamp(28px, 3.2vw, 40px); }
 .ab-quiet-open { font-family: var(--font-display); color: var(--ink); line-height: 1.34; letter-spacing: -0.01em; }
 .ab-quiet-close {
   font-family: var(--font-display);
   color: var(--ink);
   line-height: 1.3;
   letter-spacing: -0.015em;
-  max-width: 30ch;
+  max-width: 38ch;
   margin-top: clamp(30px, 3.4vw, 44px);
 }
 
@@ -4956,7 +4966,7 @@ a.bld-item .bld-item-arrow {
   margin: clamp(28px, 3.2vw, 42px) 0;
   padding-left: clamp(20px, 2.4vw, 30px);
   border-left: 2px solid rgba(255, 111, 97, 0.3);
-  max-width: 60ch;
+  max-width: 64ch;
 }
 .ab-beats p {
   font-family: var(--font-display);
@@ -5038,7 +5048,10 @@ a.bld-item .bld-item-arrow {
 /* The paragraphs sit in ONE grid item, not one per row: as separate
    rows, a title that wrapped to two lines made row 1 taller than its
    paragraph and opened a ~60px hole before the next one. */
-.ab-think-body p { color: var(--body); max-width: 34ch; margin: 0; }
+/* 66ch never binds in the three-up (the columns are 262-352px, well
+   under it) and catches the stacked layout, which otherwise runs a
+   852px measure at 900px wide — about 101 characters a line. */
+.ab-think-body p { color: var(--body); max-width: 66ch; margin: 0; }
 .ab-think-body p + p { margin-top: 16px; }
 
 
