@@ -1981,6 +1981,45 @@ flat colour fields on a 390px column.
 Detector holds at 14. No overflow 320-1920. How I think's column
 imbalance 23px, beliefs grid 0px.
 
+### About's hero rejoins the interior hero system (2026-09)
+
+Amber: the hero isn't on brand with the rest of the site. Measured
+across all six page heads, and it was two things, both already ruled on
+here.
+
+NO PAPER TAB. Every other page opens with one — butter on Expertise, My
+Approach, Services and Courses, blush on Projects — and MASTER's
+page-head rule says why: eyebrows are retired sitewide, "the headline
+leads and the paper tab carries the emphasis." About's h1 was running a
+coral swash on coral text instead, and the swash is the HOMEPAGE h1's
+device. The h1 now carries `.tab-em .tab-blush` on "the marketing box."
+Blush is the right half of the pair on its own terms — blush is tension,
+and that line is the page's tension — and it closes the standing census
+gap: About had one tab where every other page has two. It is now one
+blush and one butter, the same pair as Home, My Approach and Projects.
+
+This also woke up CSS that had been sitting dormant since the About
+rebuild. The below-480 treatment written for the old head tab — inline
+background with box-decoration-break: clone, so a phrase too long for
+one line breaks into a mark per line instead of stretching both pseudo
+tabs into a solid banner — had lost its element when the swash replaced
+the tab. Measured 320-1920: one line at every width from 430 up, two
+clean marks at 320-390, no banner anywhere.
+
+THE HEAD JOINT WAS BACK TO 184px, the exact number the 2026-08 pass
+fixed. That was self-inflicted, same day: the section-transition air
+added for Amber's layout brief put a rhythm unit on the head joint,
+which has its own documented value (60-90px, July 2026) and is not a
+section transition. `.ab-air` is off the head joint now — 80px at
+desktop, inside spec — and stays on the in-page transition it was meant
+for. Joints across the site: expertise 24 · services 35 · about 80 ·
+courses 82 · projects 94 · my-approach 157.
+
+The swash now appears twice on About, on the two payoff statements in
+the lower half, which is where an editorial mark earns its place.
+
+Detector holds at 14. No overflow 320-1920.
+
 ### Underlay boxes, added and reverted the same day (2026-09)
 
 Amber asked for the underlay boxes from her mockup — a white block on a

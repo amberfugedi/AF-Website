@@ -4548,10 +4548,12 @@ a.bld-item .bld-item-arrow {
    homepage h1 accent word (--coral to --coral-deep, a filled taper
    rather than an even stroke). Same path, same gradient, as a
    background so it wraps with the text.
-   Used on the FOUR level-one statements only, which is Amber's own
-   hierarchy: the h1, the How I think pullout, the leadership quote and
-   the closing payoff. Not on section headlines — this is a hero-weight
-   mark and it stops meaning anything if every heading carries one. */
+   Used on the two payoff statements in the lower half of the page —
+   the leadership quote and the closing line — and nowhere else. It was
+   briefly on the h1 too, which was the wrong device for a page head:
+   every other page on the site opens with a paper tab, and MASTER's
+   page-head rule is explicit that "the headline leads and the paper
+   tab carries the emphasis." The swash belongs to the HOMEPAGE h1. */
 .ab-uline {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 22' preserveAspectRatio='none'><defs><linearGradient id='s' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23FF6F61'/><stop offset='1' stop-color='%23B8354A'/></linearGradient></defs><path d='M6 14 C 60 6, 150 5, 254 9 C 200 10.5, 100 14.5, 6 17.5 Z' fill='url(%23s)'/></svg>");
   background-repeat: no-repeat;
@@ -4559,8 +4561,6 @@ a.bld-item .bld-item-arrow {
   background-size: 100% 0.26em;
   padding-bottom: 0.16em;
 }
-/* Coral text over the coral swash is exactly the homepage h1 treatment. */
-.ab-uline-coral { color: var(--coral-deep); }
 
 /* SECTION TRANSITIONS. About was the only interior page whose sections
    butted straight into each other: 104 bottom + 104 top = 208px. My
@@ -4569,6 +4569,9 @@ a.bld-item .bld-item-arrow {
    pass adds no copy, so About takes the spacing alone — one extra
    rhythm unit on the two transitions Amber named, landing on the same
    312px the rest of the site already uses. */
+   Not on the head joint: that one has its own documented value
+   (60-90px, July 2026), and putting a rhythm unit there pushed it back
+   to the 184px it measured before that fix. */
 .ab-air { margin-top: clamp(48px, 7.2vw, 104px); }
 
 /* NO PANELS ON ABOUT. The beliefs and the pullouts spent one revision
