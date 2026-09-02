@@ -4617,6 +4617,16 @@ a.bld-item .bld-item-arrow {
   background-repeat: no-repeat;
 }
 
+/* .h2-long IS A NARROW-WIDTH DEVICE ON ABOUT. Measured line counts with
+   and without it, 320-1920: below 900 it earns its keep — without it
+   "underneath the problem" gains a line at 390 and 768, "touch the
+   work" at 768, "isn't really marketing" at 320. From 900 up it changes
+   NOTHING, and all it does there is leave the page with section
+   headlines at two sizes, 35 and 40. So it stands down at 901. */
+@media (min-width: 901px) {
+  .page-about .section-title.h2-long { font-size: var(--fs-h2); }
+}
+
 /* SECTION HAIRLINES. The mockup rules every section off from the next
    with a full-width line; About was separating with whitespace alone.
    The line is the site's own --line at 12%, the same weight the
@@ -6067,7 +6077,7 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .xp-company { font-size: var(--fs-h3); line-height: 1.2; letter-spacing: -0.015em; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
-.ab-tags { font-size: var(--fs-body); line-height: 1.5; }
+.ab-tags { font-size: var(--fs-body); line-height: 1.55; }
 /* LEVEL 3. The pull quotes, and the two statements that open and close
    What keeps me interested, used to measure 34 / 30 / 31px against a
    35px .h2-long — four serif sizes inside five pixels of each other,
@@ -6079,8 +6089,8 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .ab-pull-line,
 .ab-quiet-open,
 .ab-quiet-close { font-size: clamp(1.3rem, 1rem + 1.23vw, 1.875rem); }
-.ab-pull-note { font-size: var(--fs-body); line-height: 1.5; }
-.ab-note { font-size: var(--fs-body); line-height: 1.5; }
+.ab-pull-note { font-size: var(--fs-body); line-height: 1.55; }
+.ab-note { font-size: var(--fs-body); line-height: 1.55; }
 .ab-dots li { font-size: var(--fs-body); line-height: 1.55; color: var(--body); }
 .ab-payoff-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }

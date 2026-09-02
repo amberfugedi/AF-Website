@@ -2029,6 +2029,46 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### About type and section audit (2026-09, Amber: "I see some differences")
+
+Rendered every section at 1440 and read back rhythm, eyebrow size, h2
+size, body size and leading. Three real inconsistencies, two of them
+mine from the same day.
+
+EYEBROWS AT 17px INSTEAD OF 13. How I lead and Outside the work only.
+When the heading moved out of its margin column it landed INSIDE
+`.hw-body`, and `.hw-body p` (0,1,1) outranks `.eyebrow` (0,1,0), so
+those two eyebrows were being set as body copy — wrong size, wrong
+tracking. Fixed structurally rather than with a specificity patch: the
+eyebrow and headline now sit in a plain wrapper with `.hw-body` nested
+under them, which is what How I think already did.
+
+`.h2-long` WAS SPLITTING THE HEADLINES 35/40 FOR NOTHING. Measured line
+counts with and without it across 320-1920: below 900 it earns its keep
+(without it "underneath the problem" gains a line at 390 and 768, "touch
+the work" at 768, "isn't really marketing" at 320), and from 900 up it
+changes NOTHING — all it did there was leave the page with section
+headlines at two sizes. It now stands down above 900 on About. One h2
+size per breakpoint from 901 up.
+
+SUPPORTING COPY LEADING 1.5 vs BODY 1.55. `.ab-tags`, `.ab-note` and
+`.ab-pull-note` sat half a hundredth apart from body copy — invisible,
+and one more number to keep straight. All 1.55 now. Note the trap: a
+new unified rule did nothing, because those three are set again in the
+responsive block near the end of the sheet at equal specificity and
+later source order. Fixed at source. That is the FOURTH rule this page
+has lost to that pattern.
+
+CLEAN AFTER: eyebrows all 13px, section h2s all one size, body 1.55
+everywhere except the beliefs at 1.70 (Amber's ask) and `.ab-beats` at
+1.42 (display text, different role), rhythm 104/104 on every section but
+the first, which takes 0 because the hero provides that gap.
+
+STILL DIFFERENT, ON PURPOSE OR PENDING: the strategy section is the only
+narrative section without an eyebrow — adding one is new copy, so it is
+Amber's call. Testimonials and the timeline carry no hairline because
+they are protected.
+
 ### The beliefs stop looking like a report (2026-09)
 
 Amber: all three columns were running number -> headline -> paragraphs,
