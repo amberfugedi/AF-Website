@@ -4604,15 +4604,15 @@ a.bld-item .bld-item-arrow {
 .ab-rule { border-top: 1px solid var(--line); }
 
 /* HEADLINE UNDERLINE. The mockup's most repeated device — a short drawn
-   stroke under the section headline, not under a phrase inside it. It
-   sits on the four margin-heading sections; the beliefs and strategy
-   headings are full-width and a 40% stroke under a full-width headline
-   reads as an accident rather than a mark. */
-.ab-sec-head .section-title::after {
+   stroke under the section headline, not under a phrase inside it. */
+/* Keyed off the eyebrow now that the heading is not in its own column —
+   which is exactly the five sections that carry one. 26% because the
+   headline is roughly twice as wide in this layout. */
+.eyebrow + .section-title::after {
   content: "";
   display: block;
-  width: 52%;
-  min-width: 96px;
+  width: 26%;
+  min-width: 108px;
   height: 9px;
   margin-top: clamp(12px, 1.3vw, 17px);
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8' fill='none'><path d='M2 5.8 C 16 2.5, 38 2.1, 58 4.3' stroke='%23B8354A' stroke-width='2' stroke-linecap='round'/></svg>");
@@ -4664,37 +4664,65 @@ a.bld-item .bld-item-arrow {
 .ab-mk-spark { width: 0.62em; transform: translateY(0.02em); margin-left: 0.2em; }
 .ab-mk-heart { width: 0.7em;  transform: translateY(0.06em); margin-left: 0.22em; }
 
-/* HEADING IN THE MARGIN. The structural signature of Amber's mockup:
-   the eyebrow and the headline sit in a narrow left column and the
-   content runs beside them, rather than the headline spanning the full
-   width with everything stacked underneath. This is not a new device —
-   .ab-split already does it in The short version, and .hw-split does it
-   three times on My Approach. It is applied to the four sections that
-   have both an eyebrow and a split body; the beliefs keep a full-width
-   heading because their three columns need the room. */
-.ab-sec {
-  display: grid;
-  grid-template-columns: minmax(0, 30%) minmax(0, 1fr);
-  column-gap: clamp(40px, 4.4vw, 72px);
-  align-items: start;
-}
-.ab-sec-head .section-title { margin-bottom: 0; }
-/* The body columns already split inside their own grid, so the ratio
-   there tightens: a 60/40 inside 73% of the page would leave the aside
-   at 28% and stand the pull quotes on end. */
-.ab-sec-body > .ab-6040 { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
-/* The mockup rules the pullout off from the body with a hairline rather
-   than whitespace alone. --line at 12% would be a border; this is the
-   lavender the aura already puts behind the page, at a weight that
-   reads as a fold in the paper. */
+/* TWO COLUMNS, HEADING INSIDE THE LEFT ONE. The margin-heading version
+   gave the eyebrow and headline their own 30% column; Amber's newer
+   mockup stacks them at the top of the left column and splits the
+   section roughly in half instead. Fewer columns, more room for the
+   copy, and the headline sits directly above the material it
+   introduces. */
+.ab-6040 { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
+
 @media (min-width: 901px) {
-  .ab-sec-body > .ab-6040 > .ab-pull {
-    border-left: 1px solid rgba(87, 74, 166, 0.16);
-    padding-left: clamp(28px, 3vw, 46px);
+  /* The divider runs the full section height in the mockup, so the
+     aside stretches rather than centring on its own content. */
+  .ab-6040 > .ab-pull {
+    align-self: stretch;
+    border-left: 1px solid var(--line);
+    padding-left: clamp(30px, 3.4vw, 58px);
   }
 }
-@media (max-width: 900px) {
-  .ab-sec { grid-template-columns: 1fr; row-gap: clamp(20px, 3vw, 30px); }
+
+/* The site's own accent: .hero h1 em is italic --coral-deep, and this
+   is that device one level down. */
+.page-about .section-title em { font-style: italic; color: var(--coral-deep); }
+
+/* The connector down the three examples is back, in the mockup and at
+   Amber's request. It was pulled once for implying a sequence; at 22%
+   coral it reads as a tie between them rather than an order. */
+.ab-dots { position: relative; }
+.ab-dots::before {
+  content: "";
+  position: absolute;
+  left: 6px; top: 1.5em; bottom: 1.6em;
+  width: 1px;
+  background: rgba(184, 53, 74, 0.22);
+}
+/* The mockup rules the examples off from the line that follows them. */
+/* The paragraph after the examples is wrapped in .hw-body, so the
+   adjacent-sibling target is that wrapper, not a bare <p>. */
+.ab-dots + .hw-body {
+  margin-top: clamp(26px, 3vw, 40px);
+  padding-top: clamp(26px, 3vw, 40px);
+  /* Painted, not a border. cramped-padding reads the padding an element
+     DECLARES, and .hw-body declares none of its own, so a real border
+     here fires the rule however much padding sits under it. */
+  background-image: linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+/* And underlines the pull quote as a whole rather than a phrase in it. */
+.ab-pull-line::after {
+  content: "";
+  display: block;
+  width: 76%;
+  min-width: 140px;
+  height: 9px;
+  margin-top: clamp(14px, 1.5vw, 20px);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8' fill='none'><path d='M2 5.8 C 16 2.5, 38 2.1, 58 4.3' stroke='%23B8354A' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 /* SECTION TRANSITIONS. About was the only interior page whose sections
@@ -4727,7 +4755,6 @@ a.bld-item .bld-item-arrow {
      and tracks down its column already, and a centred grid item is only
      as tall as its content, so centring would leave sticky nothing to
      travel in. */
-  .ab-6040 > .ab-pull:not(.ab-payoff) { align-self: center; }
 }
 
 /* The three examples in How I think use THE site bullet: a 13px open

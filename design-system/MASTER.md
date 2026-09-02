@@ -2020,6 +2020,48 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### About: two columns, heading inside the left one (2026-09)
+
+Amber's newest mockup of How I think, with "use the correct colors /
+brand guidelines but this format is much better." The format is adopted;
+the mockup's lavender and its different nav are not.
+
+THE HEADING CAME OUT OF THE MARGIN. The previous mockup put the eyebrow
+and headline in their own 30% column; this one stacks them at the top of
+the left column and splits the section roughly in half. `.ab-sec` is
+gone. Fewer columns, more room for the copy, and the headline sits
+directly above the material it introduces. `.ab-6040` is 1.12/1 now and
+the aside stretches, so the divider runs the section's full height as
+the mockup has it.
+
+FIVE FORMAT DETAILS, all in brand colour:
+- an italic accent in the headline. Not a new device: `.hero h1 em` is
+  italic --coral-deep on the homepage, and this is that one level down.
+- the drawn underline under the headline keys off the eyebrow now
+  rather than the margin column, which is exactly the five sections
+  that have one. 26%, since the headline is about twice as wide here.
+- the connector down the three examples is back, at 22% coral. It was
+  pulled once for implying a sequence; at that weight it reads as a tie
+  rather than an order.
+- a rule between the examples and the line that follows them.
+- the pull quote is underlined as a whole, not on a phrase inside it.
+
+TWO BUGS, BOTH MINE, BOTH WORTH THE NOTE:
+- The first unwrap used a non-greedy `<div class="ab-sec-body">(.*?)</div>`
+  to lift the heading out. Non-greedy stops at the FIRST `</div>`, so it
+  captured a fragment and the aside ended up nested inside the left
+  column — the section rendered as one column and the pull quote fell to
+  body size. Redone with a depth-counting matcher. Do not parse nested
+  markup with a lazy regex.
+- Patching a rule by string surgery left a stray `}`. Every rule after
+  it silently stopped applying — the pull-quote underline computed
+  `content: none` while looking perfectly correct in the file. THE BRACE
+  COUNT WAS BALANCED, 1748/1748, because an extra close matched an extra
+  open elsewhere. A balanced count does not prove correct structure;
+  check that a rule you just wrote actually computes.
+
+Detector holds at 14. No overflow 320-1920.
+
 ### About: the mockup's structural furniture (2026-09)
 
 Amber, pointing at the mockup again: "more aligned with this layout."
