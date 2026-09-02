@@ -28,6 +28,12 @@
                               Two earlier passes failed: S25% read as grey, and hue 149-170 read as mint */
   --courses-deep: #8A5A14;
   --automations-deep: #574AA6;
+  /* The lavender Amber's doodle sheets are drawn in. It was already in
+     the sheet as a bare hex, in My Approach's .hw-principles hairlines
+     and .pr-mark, so this names a value the site was already using
+     rather than adding a colour. Decorative strokes only — for lavender
+     TEXT the partner is still --automations-deep. */
+  --lavender-mark: #8579C9;
   --consulting-deep: #A63563;
   --fractional-deep: #2E7529;  /* 5.43:1 on cream, 4.67:1 on sage */
   --line: rgba(46, 42, 39, 0.12);
@@ -4562,28 +4568,55 @@ a.bld-item .bld-item-arrow {
   padding-bottom: 0.16em;
 }
 
-/* ABOUT'S SPOT MARKS — a documented exception, Amber 2026-09. The site
-   rule is "No cards. No icons." and the graphics voice is precise
-   geometric abstraction, not doodles. About is the personal page and
-   her mockup asked for illustration three times, so it gets ONE mark
-   per eyebrowed section: five, not the mockup's ten, and none of the
-   three belief icons in pastel squares — those are small cards and the
-   rule against cards stands.
-   They are .glyph, the site's own mark component, so they inherit the
-   draw-in on reveal and the reduced-motion override for free and add
-   no new motion. Stroke is currentColor at --coral-deep; the one
-   filled form in each is coral at 28%, the same value as the site's
-   open-ring bullet. No lavender: the accent stays coral on About, so
-   the page does not open a third colour code. */
-.ab-mark {
+/* ABOUT'S DOODLE VOCABULARY — Amber's own asset sheets, 2026-09, and a
+   documented exception to "Hand-authored inline SVG only ... the voice
+   is PRECISE GEOMETRIC ABSTRACTION, not doodles."
+   They are authored as inline SVG rather than cropped out of the PNG
+   sheets: the sheets are raster on white, so every mark would carry a
+   white box onto cream unless keyed out, and they could not take
+   currentColor, the draw-in, or the reduced-motion override. The SHAPES
+   are hers, traced — the loop of the arrow, the four-point spark with
+   concave sides, the open heart, the loose wave. Nothing invented.
+
+   SEVEN MARKS ON THE PAGE, one per section at most, and three sections
+   get none because they already carry emphasis: What I believe has its
+   three short dashes, Strategy has the butter tab, and the hero has the
+   blush tab. The testimonials, The short version and the timeline stay
+   clean, as briefed.
+
+   They ride .glyph, so the draw-in and the reduced-motion override come
+   free and the closed motion budget gains nothing. */
+.ab-dd {
   display: block;
   color: var(--coral-deep);
+  opacity: 0.75;
   margin-top: clamp(26px, 3vw, 38px);
 }
-.ab-mark .glyph { width: clamp(72px, 6.4vw, 96px); height: auto; margin: 0; }
+.ab-dd .glyph { width: 100%; height: auto; margin: 0; }
+/* Scale varies a little per mark so the page does not read as a set of
+   icons at one size. */
+.ab-dd-arrow { max-width: clamp(88px, 7.6vw, 116px); }
+.ab-dd-wave  { max-width: clamp(84px, 7.2vw, 108px); color: var(--lavender-mark); }
+.ab-dd-spark { max-width: clamp(38px, 3.4vw, 50px);  color: var(--lavender-mark); }
+.ab-dd-heart { max-width: clamp(42px, 3.8vw, 56px); }
+
+/* The hero's kicker asterisk is inline, not a margin mark. */
+.ab-dd-ast {
+  display: inline-block;
+  width: 0.78em;
+  margin: 0 0.32em 0 0;
+  color: var(--coral-deep);
+  opacity: 0.8;
+  transform: translateY(0.04em);
+}
+.ab-dd-ast .glyph { width: 100%; height: auto; margin: 0; }
+
 @media (max-width: 900px) {
-  .ab-mark { margin-top: clamp(18px, 3vw, 26px); }
-  .ab-mark .glyph { width: 60px; }
+  /* Stacked, the margin marks sit between the headline and the body and
+     buy height without adding meaning. Amber's brief: on mobile keep
+     only the strongest accent per section — that is the underline, the
+     tab and the dash, all of which are attached to type. */
+  .ab-dd:not(.ab-dd-ast) { display: none; }
 }
 
 /* HEADING IN THE MARGIN. The structural signature of Amber's mockup:

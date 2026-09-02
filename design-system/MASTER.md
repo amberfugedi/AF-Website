@@ -2020,6 +2020,56 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### About's doodle vocabulary, from Amber's asset sheets (2026-09)
+
+Amber supplied two sheets of hand-drawn marks — underlines, marker
+strokes, brackets, looping arrows, sparks, question marks, hearts — and
+a placement brief: sparing, intentional, 1-2 per section, in margins and
+beside headings, never behind or overlapping copy, never as dividers.
+This replaces the five conceptual spot marks from earlier the same day.
+Those were mine, and her brief opens "do not redraw or invent."
+
+TRACED, NOT CROPPED, and that is the one deviation worth recording. The
+sheets are raster on white. Cropped marks would carry a white box onto
+cream unless keyed out, could not take currentColor, and would miss the
+draw-in and the reduced-motion override. So the SHAPES are hers, traced
+as inline SVG — the loop of the arrow, the four-point spark with
+concave sides, the open heart, the loose wave, the six-armed asterisk.
+Nothing invented, and the sheets stay the source.
+
+SEVEN MARKS, and three sections deliberately get none:
+- Hero: the blush paper tab is the "soft highlight" the brief asks for,
+  plus one coral asterisk on the kicker. Two elements, her stated cap.
+  The tab stays — it is the site's page-head device, restored one
+  commit ago precisely because the hero was off-brand without it.
+- How I think: the looping arrow, in the margin under the headline.
+- What I believe: NOTHING NEW. Brief says "use very little here"; the
+  three short coral dashes over the principles already are the "short
+  underline" it offers.
+- Strategy: NOTHING NEW. The butter tab under "touch the work." is
+  already the highlight the brief asks for.
+- How I lead: the lavender wave. The swash under "more capable" stays.
+- What keeps me interested: the lavender four-point spark, alone.
+- Outside the work: the coral heart. The swash under "better than I
+  found them." stays.
+- Testimonials, The short version, the timeline: clean, as briefed.
+
+LAVENDER IS BACK, and only here. `--lavender-mark: #8579C9` is now a
+token. It is not a new colour — the sheet already carried that exact
+hex, unnamed, in My Approach's .hw-principles hairlines and .pr-mark.
+Decorative strokes only; lavender TEXT is still --automations-deep. This
+supersedes the "keep coral" answer from earlier the same day only for
+the doodles, which Amber's brief explicitly asks to be coral AND
+lavender.
+
+MOBILE: every margin mark is display:none below 900. Stacked, they sit
+between the headline and the body and buy height without adding
+meaning. What survives on a phone is the emphasis attached to type —
+the tab, the swash, the dash, the kicker asterisk. Measured: 5 marks
+visible at 901+, 1 below.
+
+Detector holds at 14. No overflow 320-1920.
+
 ### About: the heading moves into the margin (2026-09, Amber's mockup)
 
 Amber's third mockup for this page, asking how to get more of it in.
