@@ -4590,6 +4590,60 @@ a.bld-item .bld-item-arrow {
 
    They ride .glyph, so the draw-in and the reduced-motion override come
    free and the closed motion budget gains nothing. */
+/* SECTION HAIRLINES. The mockup rules every section off from the next
+   with a full-width line; About was separating with whitespace alone.
+   The line is the site's own --line at 12%, the same weight the
+   Expertise chapters and the timeline use. Not on the testimonials or
+   the timeline: those two are protected and a rule across their top is
+   a change to how they read. */
+/* Not on the first section. Its padding-top is 0 by design — the hero
+   provides that gap, and the head joint has its own documented value —
+   so a rule there lands flush on the content. Every section after it
+   carries 104px of padding above its own content, which is the inset
+   the line needs. */
+.ab-rule { border-top: 1px solid var(--line); }
+
+/* HEADLINE UNDERLINE. The mockup's most repeated device — a short drawn
+   stroke under the section headline, not under a phrase inside it. It
+   sits on the four margin-heading sections; the beliefs and strategy
+   headings are full-width and a 40% stroke under a full-width headline
+   reads as an accident rather than a mark. */
+.ab-sec-head .section-title::after {
+  content: "";
+  display: block;
+  width: 52%;
+  min-width: 96px;
+  height: 9px;
+  margin-top: clamp(12px, 1.3vw, 17px);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8' fill='none'><path d='M2 5.8 C 16 2.5, 38 2.1, 58 4.3' stroke='%23B8354A' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* BELIEF COLUMN DIVIDERS. Three earlier attempts at a vertical rule on
+   this page tripped the detector's cramped-padding, which fires when a
+   child sits flush against a visible boundary. The fix is the padding,
+   not the rule: half the gutter lives inside the border. */
+@media (min-width: 761px) {
+  .ab-think-grid { column-gap: 0; }
+  .ab-think-grid > .ab-think + .ab-think { padding-left: clamp(30px, 3.2vw, 54px); }
+  .ab-think-grid > .ab-think { padding-right: clamp(30px, 3.2vw, 54px); }
+  .ab-think-grid > .ab-think:last-child { padding-right: 0; }
+  /* The rules are painted on the GRID, not as borders on the columns.
+     A bordered column is the shape the detector's cramped-padding rule
+     looks for and it fires however much padding sits beside it — this
+     page has lost three vertical dividers to that already. A background
+     gradient is the same 1px line and belongs to no child. */
+  .ab-think-grid {
+    background-image:
+      linear-gradient(var(--line), var(--line)),
+      linear-gradient(var(--line), var(--line));
+    background-size: 1px 100%, 1px 100%;
+    background-position: 33.333% 0, 66.667% 0;
+    background-repeat: no-repeat;
+  }
+}
+
 /* SMALL ANNOTATION MARKS, attached to type. The previous pass gave each
    section one sizeable mark standing on its own in the margin; Amber's
    note is that this reads as isolated illustration rather than as a
@@ -4703,6 +4757,27 @@ a.bld-item .bld-item-arrow {
    ones. It replaces the oversized quote glyph this section used to
    carry, and it is why the swash came off the How I think headline —
    one mark per section, not two. */
+/* The mockup marks the pull quotes rather than ruling them: an open
+   quote over the first, a coral asterisk over the two payoff lines.
+   Both replace the short stroke — one mark above, one underline inside,
+   the same as the mockup, not a third device stacked on. */
+.ab-pull-line.is-quote::before {
+  content: "\201C";
+  width: auto; height: auto;
+  background: none;
+  font-family: var(--font-display);
+  font-size: 2.4em;
+  line-height: 0.58;
+  color: var(--coral-deep);
+  opacity: 0.5;
+  margin-bottom: 0.1em;
+}
+.ab-pull-line.is-ast::before {
+  width: 19px; height: 19px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none'><path d='M16.4 3 L15.6 29 M5 9.4 L27 22.6 M27.2 9.2 L5.2 23.2' stroke='%23B8354A' stroke-width='2.4' stroke-linecap='round'/></svg>");
+  opacity: 0.78;
+  margin-bottom: clamp(12px, 1.3vw, 17px);
+}
 .ab-pull-line::before {
   content: "";
   display: block;

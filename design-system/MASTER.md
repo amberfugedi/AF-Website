@@ -2020,6 +2020,47 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### About: the mockup's structural furniture (2026-09)
+
+Amber, pointing at the mockup again: "more aligned with this layout."
+Four things it had that About did not, all structure rather than marks.
+
+SECTION HAIRLINES. The mockup rules every section off from the next;
+About was separating with whitespace alone. `.ab-rule` puts --line
+across the top of seven sections. NOT the first one — its padding-top is
+0 by design because the hero provides that gap and the head joint has
+its own documented value, so a rule there lands flush on the content,
+which the detector caught. NOT the testimonials or the timeline: both
+are protected, and a rule across their top changes how they read.
+
+HEADLINE UNDERLINES. A drawn stroke under the section headline itself,
+not under a phrase inside it — the mockup's most repeated device. On the
+four margin-heading sections at 52% of the heading width; the beliefs
+and strategy headings are full-width and a half-width stroke under a
+full-width headline reads as an accident.
+
+BELIEF COLUMN DIVIDERS, and the fourth attempt is the one that worked.
+The first three lost to the detector's cramped-padding, which fires when
+a child sits against a visible boundary and fires however much padding
+is beside it. The rules are painted on the GRID now as two 1px
+background gradients at 33.3% and 66.7%, so no child carries a border
+and there is nothing for that rule to find.
+
+PULL QUOTES ARE MARKED, NOT RULED. An open quote over the first, a coral
+asterisk over the two payoff lines, both replacing the short stroke. One
+mark above and one underline inside, as the mockup has it — a swap, not a
+third device stacked on.
+
+A DETECTOR NOTE WORTH KEEPING: cramped-padding fired 8 times on
+`.ab-rule > .wrap` even with 63px of measured padding-top, because
+`.wrap` DECLARES `padding: 0 24px` and the rule reads the declaration,
+not the computed value. Moving the border from the wrap to the section,
+which declares its own 104px, cleared all eight. When that rule fires
+against generous padding, look at what the element declares rather than
+what it computes.
+
+Detector holds at 14. No overflow 320-1920.
+
 ### Annotation, not illustration (2026-09, doodle pass three)
 
 Amber: one large mark per section reads as isolated and does not match
