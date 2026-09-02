@@ -1927,6 +1927,60 @@ the next reads like real annotation. The one bad case was the h1 at
 stray dash; "the " is now outside the mark, so the h1 swash is always
 one fragment. Detector holds at 14, unchanged.
 
+### About: hierarchy and air (2026-09, Amber's layout brief)
+
+Design only — no copy, no reordering, no new sections, testimonials and
+the timeline untouched. Amber's brief described the top of My Approach
+("I ask a lot of questions", the What I'm listening for card) as if it
+were About's; that came from an unlabelled comparison screenshot, and
+those two items were left out. My Approach was verified unchanged by
+pixel diff: 0 differing pixels across 5,809px.
+
+THE REAL FINDING WAS FOUR SERIF SIZES INSIDE FIVE PIXELS. Measured at
+1440: h2 40, .h2-long 35, .ab-pull-line 34, .ab-quiet-close 31,
+.ab-quiet-open 30. That is why the page read flat — "too many serif
+headlines are similar in scale" was exactly right. The three non-heading
+display statements are now one size, the scale's own h3 step (30px).
+The clamp is custom rather than var(--fs-h3) because --fs-h3 bottoms out
+at 24px, which is .h2-long's mobile size — using it would just move the
+collision to the phone. Ladder at 1440: 50 h1 / 40 h2 (35 long) / 30
+pull and quiet / 24 principle / 17 body / 13 eyebrow.
+
+PRINCIPLE HEADLINES went 21 to 24px, the h3 step's lower end, so they
+are the strongest thing in their column. Mobile stays 19 — the brief
+asked for "slightly", and at 390 everything else is compressed too.
+
+THE BELIEFS STOPPED BEING A TABLE. The full-width hairline over each
+column is now the site's own 26x2 coral dash, the same mark .sec-n puts
+above a section numeral on My Approach. Gutters widened (34-62px), which
+is the honest way to bring a three-up's measure down; body capped at
+34ch, leading 1.55 to 1.7, and the heading gets 44-76px before the
+columns start.
+
+ONE MARK PER SECTION. The How I think headline gave up its swash so the
+pullout could take the coral dash — the same dash as the beliefs, so the
+page repeats a device instead of collecting new ones. Two swashes remain
+on the page, on the h1 and the two later payoff statements.
+
+SECTION TRANSITIONS: About was the ONLY interior page whose sections
+butted straight into each other. Every other page separates them with a
+.bridge, which adds 52 + 52 on top of the 104/104 rhythm — a real gap of
+312px against About's 208. A bridge carries a line of copy and this pass
+adds none, so About takes the spacing alone: .ab-air adds one rhythm
+unit at the two transitions Amber named, landing on the same 312px the
+rest of the site already uses. Page 7,959px to 8,245px.
+
+AURA: `body.page-about .aura` drops to 0.3 desktop / 0.22 mobile against
+page-sub's 0.55 / 0.45. At 0.55 the wash covered the whole upper half
+evenly, which reads as a background rather than atmosphere. Sampled
+after: the ground is clean #FDF9F5 away from the blob centres. About
+carries more long-form reading than any other page and needs the
+quieter ground; the phone blobs are 88-96vw, so the same wash turns into
+flat colour fields on a 390px column.
+
+Detector holds at 14. No overflow 320-1920. How I think's column
+imbalance 23px, beliefs grid 0px.
+
 ### Underlay boxes, added and reverted the same day (2026-09)
 
 Amber asked for the underlay boxes from her mockup — a white block on a

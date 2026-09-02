@@ -281,6 +281,11 @@ body[data-aura-stage="3"] .aura-blob {
   /* Interior pages: the fainter echo washes out entirely on small
      screens — hold a little more color there. */
   body.page-sub .aura { --aura-base: 0.55; }
+/* Cream leads on About. At 0.55 the lavender/coral wash covered the
+   whole upper half evenly, which reads as a background rather than as
+   atmosphere; the page carries more long-form reading than any other,
+   so it needs the quieter ground. */
+body.page-about .aura { --aura-base: 0.3; }
   /* Stages simplify on phones: opacity and scale only — no blur or
      shape morphs on mobile GPUs. */
   body[data-aura-stage] .aura-blob {
@@ -313,6 +318,9 @@ body[data-aura-stage="3"] .aura-blob {
 
 /* Interior pages: fainter echo behind the header so text stays readable */
 body.page-sub .aura { --aura-base: 0.45; }
+  /* Phone blobs are 88-96vw, so a wash that is fine at 1440 turns into
+     large flat colour fields on a 390px column. */
+  body.page-about .aura { --aura-base: 0.22; }
 
 /* All page content sits above the aura */
 .site-nav, main, footer { position: relative; z-index: 1; }
@@ -4515,10 +4523,19 @@ a.bld-item .bld-item-arrow {
    section-numeral scale that made the page read as a process. */
 .ab-n {
   display: block;
+  position: relative;
+  padding-top: 12px;
   color: var(--coral-deep);
   font-weight: 600;
-  letter-spacing: 0.1em;
-  margin-bottom: 10px;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.ab-n::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 26px; height: 2px;
+  background: var(--coral-deep);
 }
 /* The honesty line is supporting copy, not a third statement. */
 .ab-honest { margin-top: clamp(28px, 3vw, 40px); }
@@ -4544,6 +4561,15 @@ a.bld-item .bld-item-arrow {
 }
 /* Coral text over the coral swash is exactly the homepage h1 treatment. */
 .ab-uline-coral { color: var(--coral-deep); }
+
+/* SECTION TRANSITIONS. About was the only interior page whose sections
+   butted straight into each other: 104 bottom + 104 top = 208px. My
+   Approach separates every section with a .bridge, which adds 52 + 52,
+   so its real gap is 312px. A bridge carries a line of copy and this
+   pass adds no copy, so About takes the spacing alone — one extra
+   rhythm unit on the two transitions Amber named, landing on the same
+   312px the rest of the site already uses. */
+.ab-air { margin-top: clamp(48px, 7.2vw, 104px); }
 
 /* NO PANELS ON ABOUT. The beliefs and the pullouts spent one revision
    inside white boxes on a hard-offset pastel rectangle, and that is
@@ -4588,6 +4614,18 @@ a.bld-item .bld-item-arrow {
    Serif at display scale over a short coral rule. */
 /* No character cap beyond 34ch: these live in a 35-40% column already, and a 15ch
    cap on top of that wrapped the quote into a 10-character tower. */
+/* The section's one mark: the same 26x2 coral dash the beliefs and
+   .sec-n use, so the page repeats a device instead of collecting new
+   ones. It replaces the oversized quote glyph this section used to
+   carry, and it is why the swash came off the How I think headline —
+   one mark per section, not two. */
+.ab-pull-line::before {
+  content: "";
+  display: block;
+  width: 26px; height: 2px;
+  background: var(--coral-deep);
+  margin-bottom: clamp(16px, 1.6vw, 22px);
+}
 .ab-pull-line {
   font-family: var(--font-display);
   color: var(--ink);
@@ -4758,8 +4796,11 @@ a.bld-item .bld-item-arrow {
 .ab-think-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(28px, 3vw, 46px);
-  margin-top: clamp(30px, 3.4vw, 44px);
+  /* Wider gutters narrow each column, which is the honest way to bring
+     the body measure down in a three-up. */
+  gap: clamp(34px, 3.8vw, 62px);
+  /* The heading needs to finish before the columns start. */
+  margin-top: clamp(44px, 5vw, 76px);
 }
 /* A hairline ABOVE each column, not a vertical rule between them. Two
    reasons. It is the site's existing divider idiom (.lead-grid and
@@ -4769,10 +4810,14 @@ a.bld-item .bld-item-arrow {
    flagged, so the heuristic is reading the counter's generated content
    as flush against the boundary rather than measuring real inset. The
    top rule scores clean at the same baseline. */
-.ab-think { padding-top: 18px; border-top: 1px solid var(--line); }
+/* A rule the full width of the column made three beliefs read as a
+   comparison table. The separator is the site's own 26x2 coral dash
+   now — the same mark .sec-n puts above a section numeral on My
+   Approach — so the columns are marked, not boxed off. */
+.ab-think { padding-top: 16px; }
 @media (max-width: 900px) {
   .ab-think-grid { grid-template-columns: 1fr; gap: clamp(30px, 5vw, 40px); }
-  .ab-think { padding-top: 22px; }
+  .ab-think { padding-top: 16px; }
 }
 .ab-think h3 {
   font-family: var(--font-display);
@@ -4788,8 +4833,8 @@ a.bld-item .bld-item-arrow {
 /* The paragraphs sit in ONE grid item, not one per row: as separate
    rows, a title that wrapped to two lines made row 1 taller than its
    paragraph and opened a ~60px hole before the next one. */
-.ab-think-body p { color: var(--body); max-width: 62ch; margin: 0; }
-.ab-think-body p + p { margin-top: 14px; }
+.ab-think-body p { color: var(--body); max-width: 34ch; margin: 0; }
+.ab-think-body p + p { margin-top: 16px; }
 
 
 /* Credibility points: a figure and one line on a hairline. Deliberately
@@ -5829,17 +5874,28 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.5; }
 .ab-n { font-size: var(--fs-eyebrow); line-height: 1.2; }
-.ab-pull-line { font-size: clamp(1.45rem, 1.19rem + 1.08vw, 2.15rem); }
+/* LEVEL 3. The pull quotes, and the two statements that open and close
+   What keeps me interested, used to measure 34 / 30 / 31px against a
+   35px .h2-long — four serif sizes inside five pixels of each other,
+   which is why the page read as flat. They are one size now, and it is
+   the scale's own h3 step (30px desktop). The clamp is custom rather
+   than var(--fs-h3) because --fs-h3 bottoms out at 24px, which is
+   exactly .h2-long's mobile size — the collision would just move to
+   the phone. 20.8px at 390 keeps the gap open at both ends. */
+.ab-pull-line,
+.ab-quiet-open,
+.ab-quiet-close { font-size: clamp(1.3rem, 1rem + 1.23vw, 1.875rem); }
 .ab-pull-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-dots li { font-size: var(--fs-body); line-height: 1.55; color: var(--body); }
-.ab-quiet-open { font-size: var(--fs-h3); }
-.ab-quiet-close { font-size: clamp(1.4rem, 1.16rem + 0.98vw, 1.95rem); }
 .ab-payoff-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }
 .ab-lead { font-size: var(--fs-h3); line-height: 1.28; }
-.ab-think h3 { font-size: var(--fs-intro); line-height: 1.25; }
-.ab-think-body p { font-size: var(--fs-body); line-height: 1.55; }
+/* The strongest element in each belief column, so it steps up off the
+   intro size (21px) to 24px — the h3 step's lower end, still a scale
+   value. */
+.ab-think h3 { font-size: clamp(1.1875rem, 1.06rem + 0.53vw, 1.5rem); line-height: 1.28; }
+.ab-think-body p { font-size: var(--fs-body); line-height: 1.7; }
 .ab-cred-fig { font-size: var(--fs-intro); }
 .ab-cred-note { font-size: var(--fs-small); line-height: 1.45; }
 .xp-reveal > summary { font-size: var(--fs-body); }
