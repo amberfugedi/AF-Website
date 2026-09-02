@@ -2034,12 +2034,18 @@ directly above the material it introduces. `.ab-6040` is 1.12/1 now and
 the aside stretches, so the divider runs the section's full height as
 the mockup has it.
 
-FIVE FORMAT DETAILS, all in brand colour:
-- an italic accent in the headline. Not a new device: `.hero h1 em` is
-  italic --coral-deep on the homepage, and this is that one level down.
-- the drawn underline under the headline keys off the eyebrow now
-  rather than the margin column, which is exactly the five sections
-  that have one. 26%, since the headline is about twice as wide here.
+THREE FORMAT DETAILS, all in brand colour. Two more were tried the same
+day and pulled by Amber:
+- NO ITALIC IN SECTION HEADLINES. An italic coral em was added on the
+  strength of `.hero h1 em`, which does exist in the sheet — but the
+  only `<em>` in a headline anywhere on the site is the HOMEPAGE h1
+  ("needs.", the one that carries the swash). Expertise, My Approach,
+  Services, Projects and Courses have none. A CSS rule existing is not
+  the same as the site using a device; check the markup, not the sheet.
+- NO DRAWN STROKE UNDER SECTION HEADLINES. It read as a mark floating
+  under the headline attached to nothing. `.eyebrow + .section-title::after`
+  is gone; the underline that stays is the one under the pull quote,
+  which sits against the type it belongs to.
 - the connector down the three examples is back, at 22% coral. It was
   pulled once for implying a sequence; at that weight it reads as a tie
   rather than an order.

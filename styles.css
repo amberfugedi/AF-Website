@@ -4603,22 +4603,6 @@ a.bld-item .bld-item-arrow {
    the line needs. */
 .ab-rule { border-top: 1px solid var(--line); }
 
-/* HEADLINE UNDERLINE. The mockup's most repeated device — a short drawn
-   stroke under the section headline, not under a phrase inside it. */
-/* Keyed off the eyebrow now that the heading is not in its own column —
-   which is exactly the five sections that carry one. 26% because the
-   headline is roughly twice as wide in this layout. */
-.eyebrow + .section-title::after {
-  content: "";
-  display: block;
-  width: 26%;
-  min-width: 108px;
-  height: 9px;
-  margin-top: clamp(12px, 1.3vw, 17px);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8' fill='none'><path d='M2 5.8 C 16 2.5, 38 2.1, 58 4.3' stroke='%23B8354A' stroke-width='2' stroke-linecap='round'/></svg>");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
 
 /* BELIEF COLUMN DIVIDERS. Three earlier attempts at a vertical rule on
    this page tripped the detector's cramped-padding, which fires when a
@@ -4681,10 +4665,6 @@ a.bld-item .bld-item-arrow {
     padding-left: clamp(30px, 3.4vw, 58px);
   }
 }
-
-/* The site's own accent: .hero h1 em is italic --coral-deep, and this
-   is that device one level down. */
-.page-about .section-title em { font-style: italic; color: var(--coral-deep); }
 
 /* The connector down the three examples is back, in the mockup and at
    Amber's request. It was pulled once for implying a sequence; at 22%
