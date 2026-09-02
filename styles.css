@@ -4719,28 +4719,32 @@ a.bld-item .bld-item-arrow {
 /* The connector down the three examples is back, in the mockup and at
    Amber's request. It was pulled once for implying a sequence; at 22%
    coral it reads as a tie between them rather than an order. */
+/* Drawn per item rather than down the whole list. As one line on the
+   <ul> it ran to a fixed `bottom: 1.6em`, which landed part-way through
+   the last bullet's second line and read as unfinished. Each item now
+   carries the segment to the NEXT ring: consecutive items differ in top
+   by exactly one item height (they have padding, no margin), so
+   `height: 100%` from one ring centre lands on the next one, and the
+   last item draws nothing. */
 .ab-dots { position: relative; }
-.ab-dots::before {
+.ab-dots li:not(:last-child)::after {
   content: "";
   position: absolute;
-  left: 6px; top: 1.5em; bottom: 1.6em;
+  left: 6px;
+  top: calc(0.92em + 6.5px);
+  height: 100%;
   width: 1px;
   background: rgba(184, 53, 74, 0.22);
 }
 /* The mockup rules the examples off from the line that follows them. */
 /* The paragraph after the examples is wrapped in .hw-body, so the
    adjacent-sibling target is that wrapper, not a bare <p>. */
-.ab-dots + .hw-body {
-  margin-top: clamp(26px, 3vw, 40px);
-  padding-top: clamp(26px, 3vw, 40px);
-  /* Painted, not a border. cramped-padding reads the padding an element
-     DECLARES, and .hw-body declares none of its own, so a real border
-     here fires the rule however much padding sits under it. */
-  background-image: linear-gradient(var(--line), var(--line));
-  background-size: 100% 1px;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-}
+/* No rule here. The section was carrying four line devices — the
+   connector, this rule, the column divider and the underline under the
+   pull quote — and this was the one doing least: it separated the
+   transparency line from the examples it belongs to, and left it
+   sitting alone under a floating hairline. Space does the job. */
+.ab-dots + .hw-body { margin-top: clamp(34px, 3.8vw, 52px); }
 
 /* And underlines the pull quote as a whole rather than a phrase in it. */
 .ab-pull-line::after {

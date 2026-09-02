@@ -2029,6 +2029,36 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### Cleaning the lines out of How I think (2026-09)
+
+Amber asked whether the transparency line should be a quote banner, and
+for the lines in this section to be cleaned up. The section was carrying
+four line devices: the bullet connector, a hairline over the
+transparency line, the column divider, and the underline under the pull
+quote.
+
+THE CONNECTOR WAS ENDING IN MID-AIR. Drawn as one line down the `<ul>`
+with `bottom: 1.6em`, it stopped part-way through the last bullet's
+second line — the inset is a guess about how tall the last item is, and
+it is wrong whenever that item wraps. It is drawn per item now:
+`li:not(:last-child)::after` with `height: 100%` from the ring centre.
+Consecutive items differ in top by exactly one item height (padding, no
+margin), so each segment lands on the next ring and the last item draws
+nothing. Measured at 390, 900 and 1440: the connector ends 0px from the
+last ring centre, on both lists.
+
+THE HAIRLINE OVER THE TRANSPARENCY LINE IS GONE. It was doing least of
+the four — separating that line from the examples it belongs to, and
+leaving it stranded under a floating rule. Space carries it now,
+34-52px.
+
+NO QUOTE BANNER, and this is a recommendation rather than a change. The
+section already has its display moment on the right; a second one in the
+left column gives it two focal points, which is the thing Amber's own
+layout brief said to avoid ("one dominant visual idea per section"). The
+line is a working norm, not a headline. If it should be louder, the move
+is weight or colour on the same body size, not a second quote.
+
 ### The belief headlines were 9px out of line (2026-09)
 
 The star over the middle belief is 15px tall, the dashes over the other
