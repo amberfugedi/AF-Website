@@ -1845,10 +1845,10 @@ background colors." She supplied the approved mockup. This pass was
 design only — copy and section order untouched, testimonials and the
 timeline untouched and verified.
 
-FOUR ANNOTATION MARKS, and no more. A hand-drawn underline, a small
-coral asterisk, an oversized quote mark, and a dot connector. The
-underlay box came later — see below — and is a layout device, not a
-fifth mark. Budget is 1-2 per section: the personality is meant to
+ANNOTATION MARKS: the pass added four — a hand-drawn underline, a
+coral asterisk, an oversized quote mark, a dot connector — and two of
+them (asterisk, quote mark) were removed later the same day for having
+no counterpart anywhere else on the site. See the revert entry below. Budget is 1-2 per section: the personality is meant to
 register before the decoration does.
 
 COMPOSITIONS ARE NOW ASYMMETRIC, which was the actual complaint. Every
@@ -1927,60 +1927,49 @@ the next reads like real annotation. The one bad case was the h1 at
 stray dash; "the " is now outside the mark, so the h1 swash is always
 one fragment. Detector holds at 14, unchanged.
 
-### Underlay boxes (2026-09)
+### Underlay boxes, added and reverted the same day (2026-09)
 
-Amber: "And we do the underlay boxes" — the last device from her
-mockup. A white paper block on a soft pastel rectangle offset down and
-to the right. `.ab-box`, applied to the page's two repeating callout
-families and nowhere else: the three belief cards and the three pullout
-asides. Six boxes, one treatment each.
+Amber asked for the underlay boxes from her mockup — a white block on a
+soft pastel rectangle offset down and right — and they shipped on the
+three beliefs and the three pullouts. Her next note was that the page
+was not on brand like the rest of the site. She was right, and the
+reasons were already written down here.
 
-ONE TONE, EVERY BOX. `--lavender` at 55%. MASTER caps colour coding at
-two sets (offers, expertise chapters) and an underlay is depth, not a
-category — a second tone would read as a distinction that does not
-exist.
+TWO RULES THE BOXES BROKE, both hers:
+- "No cards. No icons." (July 2026). It appears in five places in
+  styles.css. Every interior page separates content with a coloured
+  rule and hairline rows — the Expertise chapters, the About timeline,
+  .hw-principles, .nb-princ. About was the only page with a card grid.
+- Shape & depth: "Shadows: --shadow-soft on hover lift only. No
+  permanent heavy shadows." A hard-edged 14px offset shadow on six
+  elements is precisely what that forbids.
 
-IT IS A BOX-SHADOW, NOT TWO PSEUDO-ELEMENTS. The first build used
-`::before` for the underlay and `::after` for the paper, with children
-lifted on `z-index: 1`. It cost two bugs and bought nothing that
-`box-shadow: 14px 14px 0 0` does not:
+The boxes are gone. Separation is the hairline, the measure and the
+composition again, and the panel-bearing element count is back to 10 —
+all of them the protected testimonial quote cards.
 
-- `.ab-payoff` turns `position: static` below 900px, and that rule sits
-  later in the sheet at equal specificity, so it won. An unpositioned
-  `.ab-box` sends both absolute pseudos to the nearest positioned
-  ancestor, and the white paper covered the entire page — the aura, the
-  cream, everything. It survived two rounds of looking at screenshots
-  because #FFFFFF over #FDF9F5 is invisible to the eye. It took
-  sampling four pixels to see it. SAMPLE THE PIXELS.
-- The detector reads a background-bearing pseudo at inset 0 as a child
-  flush against its container edge and fired `cramped-padding` on all
-  three beliefs.
+ABOUT HAD GROWN A PARALLEL DESIGN SYSTEM, which is the larger finding
+and the reason the page read as foreign. It carried 28 .ab-* classes
+that existed on no other page. Audited against the site and mapped back
+where a counterpart already existed:
+- `.ab-eyebrow` was a duplicate of the site's `.eyebrow` with different
+  tracking and margin. Deleted; About uses `.eyebrow`.
+- `.ab-dots` drew a filled lavender dot on a vertical connector rule.
+  MASTER allows exactly ONE bullet language and it is the 13px open
+  coral ring (`.hw-do`). The dots are now that ring, and the connector
+  is gone — it implied a sequence those three examples do not have.
+- `.ab-qmark`, an oversized lavender quote glyph, and `.ab-ast`, a
+  coral asterisk: invented here, present nowhere else on the site,
+  removed. The swash carries the emphasis.
 
-PADDING IS FLAT 32px, NOT A CLAMP. The detector's `cramped-padding`
-threshold for these type sizes sits between 30 and 32 — bisected — and
-it renders somewhere just above 900px wide, where a vw-based clamp
-lands near its minimum and fires. Below 900 the padding drops to 24:
-the boxes go full width there, and 32 each side would cut the measure
-at 320 to 216px, about 27 characters.
+A STANDING GAP, not fixed because it changes approved copy: every other
+page carries exactly two `.tab-em` — one blush, one butter. About has
+one, the butter tab on "touch the work." Placing a blush tab means
+choosing which line of Amber's copy carries the page's tension, which
+is her call.
 
-THREE MEASURED FIXES:
-- `.ab-pull`'s `max-width: 34ch` was sized for bare text in the column.
-  Inside a box the padding pulls the measure in a second time; the
-  quote grew two lines and How I think went from 96px of column
-  imbalance to 246px. The box fills the column now and the padding sets
-  the measure. Back to 160px.
-- A box makes imbalance visible in a way bare text did not — the old
-  asides just faded out, a box hangs. The two non-sticky pulls centre
-  against their column, which splits the leftover height instead of
-  dumping it on one side. `.ab-payoff` is excluded: it is sticky and
-  tracks down its column already, and centring would freeze it, since a
-  centred grid item is only as tall as its content.
-- `.ab-think` carried its own `padding-top` and top hairline from the
-  unboxed layout, later in the sheet at equal specificity. A box does
-  not need a rule across its top.
-
-Detector holds at 14. No overflow 320-1920, beliefs grid at 0px
-imbalance, boxes verified by pixel sample at 390 and 1440.
+Detector holds at 14. How I think's column imbalance came out at 15px,
+the best it has measured.
 
 ### About editorial pass (2026-09, Amber's scoped brief)
 

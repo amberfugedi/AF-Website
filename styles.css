@@ -4545,121 +4545,49 @@ a.bld-item .bld-item-arrow {
 /* Coral text over the coral swash is exactly the homepage h1 treatment. */
 .ab-uline-coral { color: var(--coral-deep); }
 
-/* UNDERLAY BOXES. A soft pastel rectangle offset behind a white paper
-   block — the depth cue in Amber's mockup.
-   Built as a hard-edged box-shadow, which is the whole device: no blur,
-   full offset, the pastel at 55%. The first version used two pseudos
-   (::before the underlay, ::after the paper) and cost two bugs for
-   nothing. One: .ab-payoff turns position:static below 900px, later in
-   the sheet at equal specificity, and an unpositioned box sent both
-   absolute pseudos to the nearest positioned ancestor — the white paper
-   covered the entire page, invisibly, because #FFFFFF over #FDF9F5
-   looks like nothing until you sample the pixels. Two: the detector
-   reads a background-bearing pseudo at inset 0 as a child flush against
-   its container edge and fired cramped-padding on all three beliefs. A
-   shadow has neither problem.
-   ONE TONE for every box on the page. The site already codes colour
-   twice (offers, expertise chapters) and MASTER caps it there — an
-   underlay is depth, not a category, so a second tone would read as a
-   distinction that does not exist. */
-.ab-box {
-  position: relative;
-  /* Flat, not a clamp. The detector's cramped-padding threshold for
-     this card's type sizes sits between 30px and 32px — bisected, not
-     guessed — and it renders somewhere just above 900px wide, where a
-     vw-based clamp lands near its minimum and fires. 32 clears it. */
-  padding: 32px;
-  border-radius: var(--radius);
-  background: var(--bg-raised);
-  /* --lavender at 55%, offset down and to the right so the underlay
-     reads as a sheet beneath rather than a glow around. */
-  box-shadow: 14px 14px 0 0 rgba(218, 212, 245, 0.55);
-}
+/* NO PANELS ON ABOUT. The beliefs and the pullouts spent one revision
+   inside white boxes on a hard-offset pastel rectangle, and that is
+   what took the page off brand. Two rules, both Amber's, both already
+   in the system: "No cards. No icons." (July 2026, and it is repeated
+   in five places in this sheet), and Shape & depth — "Shadows:
+   --shadow-soft on hover lift only. No permanent heavy shadows."
+   Separation on this page comes from the hairline, the measure and the
+   composition, the same as every other page. */
 
-/* Inside a box the 34ch cap is doing the wrong job. It was sized for
-   bare text in the column; with 30px of padding either side it pulls
-   the measure in twice and the quote grows two lines, which is what
-   pushed the How I think split from 96px of column imbalance to 246px.
-   The box fills the column and the padding sets the measure. */
-.ab-pull.ab-box { max-width: none; }
+/* The pullouts sit in the narrow column and set their own measure. */
+.ab-pull { max-width: 34ch; }
 
-/* A box makes column imbalance visible in a way bare text did not: the
-   old asides just faded out, a box hangs. Centring the aside against
-   its column splits the leftover height to both sides instead of
-   dumping it on one, which is the difference between 352px of empty
-   column under the Outside payoff and 176px above and below it. Only
-   while the split is a split — at 900 they stack. */
 @media (min-width: 901px) {
-  /* Not .ab-payoff: it is position:sticky and tracks down its column as
-     you scroll, which already answers the imbalance and answers it
-     better. Centring it would freeze it — a centred grid item is only
-     as tall as its content, so sticky has nothing to travel in. */
-  .ab-6040 > .ab-pull.ab-box:not(.ab-payoff) { align-self: center; }
+  /* Centring splits the leftover column height to both sides instead of
+     dumping it under the aside. Not .ab-payoff: it is position:sticky
+     and tracks down its column already, and a centred grid item is only
+     as tall as its content, so centring would leave sticky nothing to
+     travel in. */
+  .ab-6040 > .ab-pull:not(.ab-payoff) { align-self: center; }
 }
 
-@media (max-width: 900px) {
-  /* Smaller offset once the boxes are full width: 14px on the right
-     eats into the shell gutter, which is 20px at 320. */
-  .ab-box { box-shadow: 10px 10px 0 0 rgba(218, 212, 245, 0.55); }
-  /* 32px each side at 320 would cut the measure to 216px, about 27
-     characters. The detector's own guidance is 12-16px minimum, so 24
-     is well inside it at the width where the box is full-bleed. */
-  .ab-box, .ab-box.ab-think { padding: 24px; }
-
-}
-
-/* .ab-think brings its own padding-top and top hairline from the
-   unboxed layout, later in the sheet and equal specificity. A box does
-   not need a rule across its top, and the padding has to be even. */
-.ab-box.ab-think { padding-top: 32px; border-top: 0; }
-
-/* Tiny coral asterisk. Decorative, so it stays out of the a11y tree. */
-.ab-ast {
-  display: inline-block;
-  /* coral-deep, not coral: --coral is fill-only per MASTER and measured
-     2.60:1 as text on cream. Decorative marks still have to be seen. */
-  color: var(--coral-deep);
-  line-height: 1;
-  transform: translateY(-0.06em);
-}
-
-/* Oversized opening quote mark for the two big pullouts. */
-.ab-qmark {
-  display: block;
-  font-family: var(--font-display);
-  /* --automations-deep #574AA6, the palette's lavender text partner. */
-  color: rgba(87, 74, 166, 0.5);
-  line-height: 0.7;
-  margin-bottom: 6px;
-}
-
-/* Dot connector down the three examples in How I think: one continuous
-   rule with a dot per item, drawn from the list rather than added as
-   markup. */
-.ab-dots { list-style: none; margin: 0; padding: 0 0 0 26px; position: relative; }
-.ab-dots::before {
-  content: "";
-  position: absolute;
-  left: 4px; top: 0.55em; bottom: 0.7em;
-  width: 1px;
-  background: rgba(87, 74, 166, 0.3);
-}
-.ab-dots li { position: relative; }
-.ab-dots li + li { margin-top: 18px; }
+/* The three examples in How I think use THE site bullet: a 13px open
+   coral ring, coral at 28% inside a 2px --coral-deep edge, identical to
+   .hw-do on My Approach. It was briefly a filled lavender dot on a
+   vertical connector rule, which was a second bullet language on a site
+   whose MASTER allows exactly one, and a connector implies sequence
+   these three do not have. */
+.ab-dots { list-style: none; margin: 0; padding: 0; }
+.ab-dots li { position: relative; padding: 11px 0 11px 28px; color: var(--body); }
 .ab-dots li::before {
   content: "";
   position: absolute;
-  left: -26px; top: 0.5em;
-  width: 9px; height: 9px;
+  left: 0; top: 0.92em;
+  width: 13px; height: 13px;
   border-radius: 50%;
-  background: rgba(87, 74, 166, 0.75);
+  background: rgba(255, 111, 97, 0.28);
+  border: 2px solid var(--coral-deep);
 }
 
 /* A pullout, used twice: How I think and the two payoff statements.
    Serif at display scale over a short coral rule. */
-/* No character cap: these live in a 35-40% column already, and a 15ch
+/* No character cap beyond 34ch: these live in a 35-40% column already, and a 15ch
    cap on top of that wrapped the quote into a 10-character tower. */
-.ab-pull { max-width: 34ch; }
 .ab-pull-line {
   font-family: var(--font-display);
   color: var(--ink);
@@ -4726,13 +4654,6 @@ a.bld-item .bld-item-arrow {
    eyebrows which RESTATE their heading ("HOW I WORK WITH PEOPLE" over
    "The people side of the work"). These label a different thing from
    the headline underneath them, which is the case the rule allows. */
-.ab-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  color: var(--coral-deep);
-  margin-bottom: 12px;
-}
 
 /* Outside the work: story on one side, the payoff line on the other.
    The prose column runs roughly three times the payoff's height, so the
@@ -5907,12 +5828,9 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.5; }
-.ab-eyebrow { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .ab-n { font-size: var(--fs-eyebrow); line-height: 1.2; }
 .ab-pull-line { font-size: clamp(1.45rem, 1.19rem + 1.08vw, 2.15rem); }
 .ab-pull-note { font-size: var(--fs-body); line-height: 1.5; }
-.ab-qmark { font-size: clamp(2.6rem, 2rem + 2.4vw, 4rem); }
-.ab-ast { font-size: var(--fs-intro); }
 .ab-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-dots li { font-size: var(--fs-body); line-height: 1.55; color: var(--body); }
 .ab-quiet-open { font-size: var(--fs-h3); }
