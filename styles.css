@@ -4525,28 +4525,6 @@ a.bld-item .bld-item-arrow {
    swash and asterisk, --automations-deep for the lavender marks. Budget is 1-2 marks per section — the point is
    that the personality registers before the decoration does. */
 
-/* Tiny editorial numerals on the beliefs — eyebrow grade, not the
-   section-numeral scale that made the page read as a process. */
-.ab-n {
-  display: block;
-  position: relative;
-  padding-top: 12px;
-  color: var(--coral-deep);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  margin-bottom: 12px;
-}
-/* Drawn, not ruled. A 26x2 block was the right size and the wrong hand
-   once the rest of the page went hand-drawn. */
-.ab-n::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 30px; height: 8px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8' fill='none'><path d='M2 5.8 C 16 2.5, 38 2.1, 58 4.3' stroke='%23B8354A' stroke-width='2' stroke-linecap='round'/></svg>");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
 /* The honesty line is supporting copy, not a third statement. */
 .ab-honest { margin-top: clamp(28px, 3vw, 40px); }
 .ab-honest p { color: var(--muted); max-width: 52ch; }
@@ -4590,6 +4568,44 @@ a.bld-item .bld-item-arrow {
 
    They ride .glyph, so the draw-in and the reduced-motion override come
    free and the closed motion budget gains nothing. */
+/* THE BELIEFS ARE IDENTIFIED BY THEIR HEADLINES. They used to run
+   number -> headline -> paragraphs in all three columns, which reads
+   like a report rather than like the rest of this page (Amber,
+   2026-09). The numerals are gone; a small hand mark sits above each
+   headline in their place. Outer two take the dash, the middle takes
+   the star — it is the bridge between the analytical side and the
+   hands-on side, and this is the quietest way to say so. */
+.ab-pm {
+  display: block;
+  color: var(--coral-deep);
+  opacity: 0.72;
+  width: 30px;
+  margin-bottom: 14px;
+}
+.ab-pm svg { display: block; width: 100%; height: auto; }
+.ab-pm-star { width: 15px; margin-bottom: 12px; }
+
+/* The middle headline carries a little more weight. One step, not a
+   different treatment — the column must not turn into a card. */
+/* .ab-think.ab-think-key, not .ab-think-key: the responsive block near
+   the end of the sheet sets .ab-think h3 at the same specificity and
+   later source order, so one class does not win. */
+.ab-think.ab-think-key h3 { font-size: clamp(1.28rem, 1.12rem + 0.62vw, 1.62rem); }
+
+/* Amber: "that last line could even be visually pulled out a little."
+   Display face at the pull-quote's own size, over a hairline. */
+.ab-think-out {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-top: clamp(18px, 2vw, 26px);
+  padding-top: clamp(16px, 1.8vw, 22px);
+  background-image: linear-gradient(var(--line), var(--line));
+  background-size: 100% 1px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
 /* SECTION HAIRLINES. The mockup rules every section off from the next
    with a full-width line; About was separating with whitespace alone.
    The line is the site's own --line at 12%, the same weight the
@@ -6041,7 +6057,6 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.5; }
-.ab-n { font-size: var(--fs-eyebrow); line-height: 1.2; }
 /* LEVEL 3. The pull quotes, and the two statements that open and close
    What keeps me interested, used to measure 34 / 30 / 31px against a
    35px .h2-long — four serif sizes inside five pixels of each other,
@@ -6064,6 +6079,7 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    value. */
 .ab-think h3 { font-size: clamp(1.1875rem, 1.06rem + 0.53vw, 1.5rem); line-height: 1.28; }
 .ab-think-body p { font-size: var(--fs-body); line-height: 1.7; }
+.ab-think-out { font-size: clamp(1.15rem, 1.05rem + 0.42vw, 1.4rem); line-height: 1.34; }
 .ab-cred-fig { font-size: var(--fs-intro); }
 .ab-cred-note { font-size: var(--fs-small); line-height: 1.45; }
 .xp-reveal > summary { font-size: var(--fs-body); }

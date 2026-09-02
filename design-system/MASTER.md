@@ -2020,6 +2020,37 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### The beliefs stop looking like a report (2026-09)
+
+Amber: all three columns were running number -> headline -> paragraphs,
+which scans well and reads corporate against the rest of the page.
+
+NO NUMERALS. Each belief is identified by its headline alone, over a
+small hand mark: the dash on the outer two, the four-point star on the
+middle one. That star is the whole of the "make the middle slightly more
+prominent" ask, plus one type step on its headline (24 -> 26px). No
+card, no second treatment — the moment a column gets its own box the
+section is a comparison table again.
+
+COPY IS AMBER'S, shortened by her: "actual words" -> "words", "do not
+match" -> "don't match", and the AI sentences come off the end of the
+third belief so the columns balance. Measured after: all three columns
+at 426px, dead level.
+
+THE LAST LINE IS PULLED OUT. "I'm always looking for some version of:
+can this be simpler?" is display face at 1.4rem over a hairline —
+Amber's suggestion, and it gives the third column the same kind of
+landing the first two get from their closing sentences.
+
+SPECIFICITY, AGAIN: `.ab-think-key h3` did nothing. The responsive block
+near the end of the sheet sets `.ab-think h3` at the same specificity
+(0,1,1) and later source order, so one class cannot win. `.ab-think.ab-think-key h3`
+does. Third time this page has lost a rule to that pattern — when a
+declaration has no visible effect, check for a same-specificity rule
+further down before changing the value.
+
+Detector holds at 14.
+
 ### About: two columns, heading inside the left one (2026-09)
 
 Amber's newest mockup of How I think, with "use the correct colors /
