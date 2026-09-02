@@ -6476,3 +6476,23 @@ footer p,
   .nav-cta { padding-left: 11px; padding-right: 11px; }
   .brand { font-size: 1.25rem; }
 }
+
+/* ============ About: caps released once the columns are gone =========
+   These sit at the END of the sheet on purpose. Both properties are set
+   again in the responsive blocks above at equal specificity, so an
+   override written earlier does nothing — the fifth time this page has
+   lost a rule that way. Source order is the only thing that decides it.
+
+   The strategy margin note wore `max-width: 22ch`, cut for a 30% desktop
+   column, and kept it once the page stacked: 199px of the 342px a phone
+   has. The credentials list held two columns of 119px at 320, which ran
+   the education entry to NINE lines. Neither cap means anything without
+   the column it was cut for. */
+@media (max-width: 900px) {
+  .ab-note { max-width: none; }
+}
+/* 640, not 560: two columns only once each one clears about 280px.
+   At 561 they were 240px and the education entry still ran four lines. */
+@media (max-width: 640px) {
+  .ab-cred { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}

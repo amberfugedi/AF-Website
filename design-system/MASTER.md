@@ -2029,6 +2029,34 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### Desktop caps left on when the columns went away (2026-09)
+
+Amber, from a phone: "we waste so much space." Measured every text block
+at 390 against the 342px a phone actually has, and two were wearing a
+measure cut for a desktop column they no longer sit in.
+
+`.ab-note`, the strategy margin note, carried `max-width: 22ch` — right
+for a 30% column at 1440, and still 199px of 342 once the page stacked.
+Released below 900; it keeps the cap at desktop, where it IS a margin
+note. Five lines to three on a phone.
+
+`.ab-cred` held two columns down to 320, which is 119px each, and ran
+the education entry to NINE lines. One column below 640 — two columns
+only once each clears about 280px. Nine lines to four at 320, six to
+three at 390.
+
+BOTH OVERRIDES LIVE AT THE END OF THE SHEET, and that is deliberate.
+Written next to the rest of the About CSS they did nothing: both
+properties are set again in the responsive blocks further down at equal
+specificity, so source order decides, and earlier loses. That is the
+FIFTH rule on this page to go that way — `.hw-do-tall`, `.ab-think-key`,
+the note leading, `.h2-long`, and now these. When a declaration has no
+effect, look below it before changing the value.
+
+The timeline's proof chips also measure narrow at 390 but they are
+inline chips sizing to their own text, in a protected section. Left
+alone.
+
 ### Cleaning the lines out of How I think (2026-09)
 
 Amber asked whether the transparency line should be a quote banner, and
