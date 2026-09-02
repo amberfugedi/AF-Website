@@ -2046,12 +2046,41 @@ it, which is why it did not trip the cramped-padding rule that killed
 the last three attempts at a vertical divider on this page. How I
 think's column imbalance came out at 3px.
 
-NOT BUILT, PENDING A DECISION — the mockup also carries about ten
+DECIDED AND BUILT — Amber, 2026-09, on both questions put to her:
+About becomes a documented exception for illustration, and the accent
+stays coral. So the page now carries ONE spot mark per eyebrowed
+section — five: How I think, What I believe, How I lead, What keeps me
+interested, Outside the work — not the mockup's ten, and none of the
+three belief icons, which sit in rounded pastel squares and are small
+cards. The rule against cards stands.
+
+They are `.glyph`, the site's own mark component, so they inherit the
+draw-in on reveal and the reduced-motion override and add no new
+motion to a closed budget. Stroke is currentColor at --coral-deep; the
+one filled form in each is coral at 28%, the same value as the site's
+open-ring bullet, so the marks and the bullets speak the same language.
+No lavender anywhere: the accent stays coral, so About does not open a
+third colour code.
+
+Subjects are conceptual rather than literal — the surface line with the
+real thing traced underneath it, a line that returns to where it
+started, two rings on one trajectory with one further along, several
+inputs resolving into a single clear line, one growing stem. That keeps
+faith with the graphics voice ("smooth trajectories", "orbital
+circles") while giving Amber the warmth she asked for three times. What
+was NOT adopted from the mockup: the mug, the vase of flowers and the
+puzzle piece, which are the literal clip-art end of it.
+
+STILL NOT BUILT — the mockup also carries about ten
 line-art spot illustrations (a heart, a puzzle piece, an arrow, two
 figures on a path, a starburst, a vase and mug, three icons in The
 short version), lavender as the section accent in place of coral-deep,
 an oversized quote mark, coral asterisks and lavender hand-drawn
-underlines. Three of those cross rules already written down:
+underlines. The illustration and colour questions are settled above. The rest of
+the mockup's marks — an oversized quote mark, coral asterisks, lavender
+hand-drawn underlines — are still out. They cross no rule and can come
+back if Amber wants them; they were removed for having no counterpart
+elsewhere. For the record, the rules the mockup crossed were:
 - "No cards. No icons." — Amber, July 2026, repeated in five places in
   styles.css. The three belief icons also sit in rounded pastel squares,
   which are small cards.

@@ -4562,6 +4562,30 @@ a.bld-item .bld-item-arrow {
   padding-bottom: 0.16em;
 }
 
+/* ABOUT'S SPOT MARKS — a documented exception, Amber 2026-09. The site
+   rule is "No cards. No icons." and the graphics voice is precise
+   geometric abstraction, not doodles. About is the personal page and
+   her mockup asked for illustration three times, so it gets ONE mark
+   per eyebrowed section: five, not the mockup's ten, and none of the
+   three belief icons in pastel squares — those are small cards and the
+   rule against cards stands.
+   They are .glyph, the site's own mark component, so they inherit the
+   draw-in on reveal and the reduced-motion override for free and add
+   no new motion. Stroke is currentColor at --coral-deep; the one
+   filled form in each is coral at 28%, the same value as the site's
+   open-ring bullet. No lavender: the accent stays coral on About, so
+   the page does not open a third colour code. */
+.ab-mark {
+  display: block;
+  color: var(--coral-deep);
+  margin-top: clamp(26px, 3vw, 38px);
+}
+.ab-mark .glyph { width: clamp(72px, 6.4vw, 96px); height: auto; margin: 0; }
+@media (max-width: 900px) {
+  .ab-mark { margin-top: clamp(18px, 3vw, 26px); }
+  .ab-mark .glyph { width: 60px; }
+}
+
 /* HEADING IN THE MARGIN. The structural signature of Amber's mockup:
    the eyebrow and the headline sit in a narrow left column and the
    content runs beside them, rather than the headline spanning the full
