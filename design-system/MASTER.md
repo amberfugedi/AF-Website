@@ -2051,9 +2051,16 @@ tabular read — which is what this section was rebuilt to get away from.
 
 WHAT KEEPS ME INTERESTED was capped at 60ch, which measured 622px inside
 a 1200px shell — half the page empty to its right, reading as a mistake
-rather than as a deliberate narrow measure. 78ch now: 809px, 56
-characters a line, still inside the comfortable range. `.ab-beats` 60 ->
-64ch and `.ab-quiet-close` 30 -> 38ch so the block holds together.
+rather than as a deliberate narrow measure. Widened twice the same day:
+78ch first, then 88ch (912px) once Amber asked for every beat on ONE
+LINE. `.ab-beats` is 84ch, and that number is measured rather than
+chosen — set each beat to white-space:nowrap and read its width back:
+the longest is 785px of text at 21px Newsreader, plus 32px for the rule
+and its inset, so the block needs 817. 84ch gives 871 with headroom for
+font fallback. All five hold one line from 900px up; below that they
+wrap, which is unavoidable — there is not that much page.
+`.ab-quiet-close` stays narrow at 38ch so the section still lands on a
+short statement.
 
 THE MIDDLE BELIEF WAS 46px NARROWER THAN ITS NEIGHBOURS. Amber asked
 whether the beliefs body was the right size; it was — 17px, --fs-body,

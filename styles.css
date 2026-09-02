@@ -4895,7 +4895,8 @@ a.bld-item .bld-item-arrow {
    shell — half the page empty to its right, which read as a mistake
    rather than as a deliberate narrow measure. 78ch is still inside the
    comfortable reading range and uses the room the section has. */
-.ab-quiet { max-width: 78ch; margin-top: clamp(28px, 3.2vw, 40px); }
+/* 88ch so .ab-beats inside it can hold its longest line. */
+.ab-quiet { max-width: 88ch; margin-top: clamp(28px, 3.2vw, 40px); }
 .ab-quiet-open { font-family: var(--font-display); color: var(--ink); line-height: 1.34; letter-spacing: -0.01em; }
 .ab-quiet-close {
   font-family: var(--font-display);
@@ -4973,7 +4974,13 @@ a.bld-item .bld-item-arrow {
   margin: clamp(28px, 3.2vw, 42px) 0;
   padding-left: clamp(20px, 2.4vw, 30px);
   border-left: 2px solid rgba(255, 111, 97, 0.3);
-  max-width: 64ch;
+  /* SIZED TO THE LONGEST BEAT, not to a reading measure. Amber wants
+     each of these on one line; measured with real Newsreader at 21px
+     the longest runs 785px of text, and the rule plus its inset costs
+     32px, so the block needs 817. 84ch gives 871 and leaves headroom
+     for font fallback. They still wrap below about 1150px wide, which
+     is unavoidable — there is not that much page. */
+  max-width: 84ch;
 }
 .ab-beats p {
   font-family: var(--font-display);
