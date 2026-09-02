@@ -2029,6 +2029,24 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### The belief headlines were 9px out of line (2026-09)
+
+The star over the middle belief is 15px tall, the dashes over the other
+two are 4px. Laid out as plain blocks with their own margins, that put
+the middle headline 9px below its neighbours — measured, not eyeballed:
+h3 tops at +34 / +43 / +34 inside their columns.
+
+`.ab-pm` is a fixed 16px band now, as tall as the tallest mark, with the
+mark centred in it. All three headlines start at +44 at every width from
+320 up. The mark can change without moving the type, which matters here
+because the mark differs by column on purpose.
+
+The BODY starts still differ (+87 / +122 / +87) because the middle
+headline runs two lines. That is the headline being longer and a step
+larger, not a bug; reserving two lines on every h3 would align the
+bodies too, at the cost of a gap under the one-line headlines and a more
+tabular read — which is what this section was rebuilt to get away from.
+
 ### Two measure bugs in the beliefs and the quiet section (2026-09)
 
 WHAT KEEPS ME INTERESTED was capped at 60ch, which measured 622px inside

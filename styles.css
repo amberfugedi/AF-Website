@@ -4587,14 +4587,21 @@ a.bld-item .bld-item-arrow {
    the star — it is the bridge between the analytical side and the
    hands-on side, and this is the quietest way to say so. */
 .ab-pm {
-  display: block;
+  /* A FIXED BAND, so the three headlines start on the same line. The
+     marks are different heights — the dash is 4px, the star 15 — and
+     laid out as plain blocks that pushed the middle headline 9px below
+     its neighbours. The band is as tall as the tallest mark and each
+     one centres in it, so the mark can change without moving the type. */
+  display: flex;
+  align-items: center;
+  height: 16px;
   color: var(--coral-deep);
   opacity: 0.72;
   width: 30px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .ab-pm svg { display: block; width: 100%; height: auto; }
-.ab-pm-star { width: 15px; margin-bottom: 12px; }
+.ab-pm-star { width: 15px; }
 
 /* The middle headline carries a little more weight. One step, not a
    different treatment — the column must not turn into a card. */
