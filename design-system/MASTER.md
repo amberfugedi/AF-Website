@@ -2020,6 +2020,55 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### About: the heading moves into the margin (2026-09, Amber's mockup)
+
+Amber's third mockup for this page, asking how to get more of it in.
+Audited it against the system and it splits three ways: structure that
+the site already owns, marks that need a documented exception, and an
+illustration language that contradicts a standing rule of hers. Only
+the first is built.
+
+BUILT — THE MOCKUP'S STRUCTURAL SIGNATURE. Every section in her mockup
+puts the eyebrow and headline in a narrow left column with the content
+running beside them, instead of a full-width headline with everything
+stacked underneath. That device is already here: `.ab-split` does it in
+The short version, `.hw-split` three times on My Approach. `.ab-sec`
+(30% / 1fr) now does it for the four sections that have an eyebrow and
+a split body — How I think, How I lead, What keeps me interested,
+Outside the work. The beliefs keep a full-width heading; their three
+columns need the room.
+
+Two things had to move with it. The 60/40 inside those bodies tightened
+to 1.35/1, because a 60/40 inside 70% of the page leaves the aside at
+28% and stands the pull quotes on end. And the pullouts took the
+mockup's vertical hairline — lavender at 16%, with real padding beside
+it, which is why it did not trip the cramped-padding rule that killed
+the last three attempts at a vertical divider on this page. How I
+think's column imbalance came out at 3px.
+
+NOT BUILT, PENDING A DECISION — the mockup also carries about ten
+line-art spot illustrations (a heart, a puzzle piece, an arrow, two
+figures on a path, a starburst, a vase and mug, three icons in The
+short version), lavender as the section accent in place of coral-deep,
+an oversized quote mark, coral asterisks and lavender hand-drawn
+underlines. Three of those cross rules already written down:
+- "No cards. No icons." — Amber, July 2026, repeated in five places in
+  styles.css. The three belief icons also sit in rounded pastel squares,
+  which are small cards.
+- Custom graphics language: "PRECISE GEOMETRIC ABSTRACTION, not
+  doodles." A mug, flowers in a vase and a puzzle piece are doodles.
+- Colour coding is capped at two sets. Lavender as About's accent is a
+  third, and `--lavender` is fill-only, so text would need
+  `--automations-deep`.
+The quote mark, asterisks and underlines cross no rule — they were
+removed for having no counterpart elsewhere, and can come back as a
+documented About device. This is Amber's call, not a refusal: the
+recommendation is to make About an explicit exception with a defined,
+limited mark set rather than either scattering doodles or holding the
+line on a rule she may have moved past.
+
+Detector holds at 14. No overflow 320-1920.
+
 ### Underlay boxes, added and reverted the same day (2026-09)
 
 Amber asked for the underlay boxes from her mockup — a white block on a

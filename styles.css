@@ -4562,6 +4562,39 @@ a.bld-item .bld-item-arrow {
   padding-bottom: 0.16em;
 }
 
+/* HEADING IN THE MARGIN. The structural signature of Amber's mockup:
+   the eyebrow and the headline sit in a narrow left column and the
+   content runs beside them, rather than the headline spanning the full
+   width with everything stacked underneath. This is not a new device —
+   .ab-split already does it in The short version, and .hw-split does it
+   three times on My Approach. It is applied to the four sections that
+   have both an eyebrow and a split body; the beliefs keep a full-width
+   heading because their three columns need the room. */
+.ab-sec {
+  display: grid;
+  grid-template-columns: minmax(0, 30%) minmax(0, 1fr);
+  column-gap: clamp(40px, 4.4vw, 72px);
+  align-items: start;
+}
+.ab-sec-head .section-title { margin-bottom: 0; }
+/* The body columns already split inside their own grid, so the ratio
+   there tightens: a 60/40 inside 73% of the page would leave the aside
+   at 28% and stand the pull quotes on end. */
+.ab-sec-body > .ab-6040 { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
+/* The mockup rules the pullout off from the body with a hairline rather
+   than whitespace alone. --line at 12% would be a border; this is the
+   lavender the aura already puts behind the page, at a weight that
+   reads as a fold in the paper. */
+@media (min-width: 901px) {
+  .ab-sec-body > .ab-6040 > .ab-pull {
+    border-left: 1px solid rgba(87, 74, 166, 0.16);
+    padding-left: clamp(28px, 3vw, 46px);
+  }
+}
+@media (max-width: 900px) {
+  .ab-sec { grid-template-columns: 1fr; row-gap: clamp(20px, 3vw, 30px); }
+}
+
 /* SECTION TRANSITIONS. About was the only interior page whose sections
    butted straight into each other: 104 bottom + 104 top = 208px. My
    Approach separates every section with a .bridge, which adds 52 + 52,
