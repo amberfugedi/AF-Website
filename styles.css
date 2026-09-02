@@ -4536,12 +4536,16 @@ a.bld-item .bld-item-arrow {
   letter-spacing: 0.08em;
   margin-bottom: 12px;
 }
+/* Drawn, not ruled. A 26x2 block was the right size and the wrong hand
+   once the rest of the page went hand-drawn. */
 .ab-n::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
-  width: 26px; height: 2px;
-  background: var(--coral-deep);
+  width: 30px; height: 8px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8' fill='none'><path d='M2 5.8 C 16 2.5, 38 2.1, 58 4.3' stroke='%23B8354A' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 /* The honesty line is supporting copy, not a third statement. */
 .ab-honest { margin-top: clamp(28px, 3vw, 40px); }
@@ -4586,49 +4590,25 @@ a.bld-item .bld-item-arrow {
 
    They ride .glyph, so the draw-in and the reduced-motion override come
    free and the closed motion budget gains nothing. */
-.ab-dd {
-  display: block;
-  /* ONE COLOUR for the whole family. The lavender wave and spark were
-     right for Amber's sheets read as a set, but on the page they made
-     two systems out of one — her follow-up asked for one consistent
-     coral line. --lavender-mark stays defined; nothing on About uses it
-     now. */
+/* SMALL ANNOTATION MARKS, attached to type. The previous pass gave each
+   section one sizeable mark standing on its own in the margin; Amber's
+   note is that this reads as isolated illustration rather than as a
+   hand annotating the page. So the marks are inline now, sized in em so
+   they scale with whatever they sit beside, and every one of them is
+   anchored to a specific piece of copy — a question mark on the bullet
+   that is a question, a spark on the line about something clicking, a
+   heart on the list of things worth leaving better. Nothing floats. */
+.ab-mk {
+  display: inline-block;
   color: var(--coral-deep);
   opacity: 0.72;
-  /* Close enough to the headline to read as an annotation on it. They
-     sat 26-38px down before, which put them adrift in the margin. */
-  margin-top: clamp(12px, 1.4vw, 18px);
+  line-height: 1;
 }
-.ab-dd .glyph { width: 100%; height: auto; margin: 0; }
-/* Scale varies a little so the page does not read as a set of icons at
-   one size; stroke weight does not, because every path carries
-   vector-effect: non-scaling-stroke at 2px. That is what keeps a 38px
-   spark and a 92px arrow looking like the same pen. */
-.ab-dd-arrow  { max-width: clamp(76px, 6.4vw, 92px); }
-.ab-dd-wave   { max-width: clamp(68px, 5.8vw, 82px); }
-.ab-dd-spiral { max-width: clamp(42px, 3.6vw, 52px); }
-.ab-dd-spark  { max-width: clamp(30px, 2.6vw, 38px); }
-.ab-dd-heart  { max-width: clamp(34px, 3vw, 44px); }
-.ab-dd-dash   { max-width: clamp(40px, 3.4vw, 50px); }
-
-/* The hero's kicker asterisk is inline, not a margin mark. */
-.ab-dd-ast {
-  display: inline-block;
-  width: 0.78em;
-  margin: 0 0.32em 0 0;
-  color: var(--coral-deep);
-  opacity: 0.8;
-  transform: translateY(0.04em);
-}
-.ab-dd-ast .glyph { width: 100%; height: auto; margin: 0; }
-
-@media (max-width: 900px) {
-  /* Stacked, the margin marks sit between the headline and the body and
-     buy height without adding meaning. Amber's brief: on mobile keep
-     only the strongest accent per section — that is the underline, the
-     tab and the dash, all of which are attached to type. */
-  .ab-dd:not(.ab-dd-ast) { display: none; }
-}
+.ab-mk svg { display: block; width: 100%; height: auto; }
+.ab-mk-ast   { width: 0.74em; transform: translateY(0.02em); margin-right: 0.14em; }
+.ab-mk-q     { width: 0.44em; transform: translateY(0.1em);  margin-left: 0.16em; }
+.ab-mk-spark { width: 0.62em; transform: translateY(0.02em); margin-left: 0.2em; }
+.ab-mk-heart { width: 0.7em;  transform: translateY(0.06em); margin-left: 0.22em; }
 
 /* HEADING IN THE MARGIN. The structural signature of Amber's mockup:
    the eyebrow and the headline sit in a narrow left column and the
@@ -4726,9 +4706,11 @@ a.bld-item .bld-item-arrow {
 .ab-pull-line::before {
   content: "";
   display: block;
-  width: 26px; height: 2px;
-  background: var(--coral-deep);
-  margin-bottom: clamp(16px, 1.6vw, 22px);
+  width: 34px; height: 9px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8' fill='none'><path d='M2 5.8 C 16 2.5, 38 2.1, 58 4.3' stroke='%23B8354A' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-bottom: clamp(14px, 1.5vw, 20px);
 }
 .ab-pull-line {
   font-family: var(--font-display);

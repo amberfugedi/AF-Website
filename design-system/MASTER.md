@@ -2020,6 +2020,38 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### Annotation, not illustration (2026-09, doodle pass three)
+
+Amber: one large mark per section reads as isolated and does not match
+the mockups. The marks are inline now, small, sized in em, and every one
+is anchored to a specific piece of copy. Nothing stands on its own in
+empty margin.
+
+WHAT EACH ONE IS ATTACHED TO, which is the whole discipline here:
+- the kicker asterisk, hero
+- a question mark closing the bullet that IS a question ("...wonder why
+  everyone is still doing it")
+- an asterisk opening the Strategy margin note
+- a spark after "finally makes sense" — the line about something
+  clicking
+- a heart after "A team. A business. Someone's career. Myself."
+Plus the two rules that were already attached to type and have now been
+redrawn in the same hand: the stroke over each principle numeral and
+the stroke over each pull quote were 26x2 blocks, the right size and
+the wrong hand once everything around them was drawn. They are
+data-URI SVG with the same slight curve now.
+
+Marks per section: hero 1 · How I think 2 · What I believe 3 · Strategy
+1 · How I lead 2 · What keeps me interested 1 · Outside the work 3.
+Testimonials, The short version and the timeline stay clean.
+
+NO MOBILE HIDE RULE ANY MORE. The old margin marks were hidden below
+900 because stacked they bought height without meaning. Inline marks
+scale with the type they sit in and cost no layout, so they stay at
+every width.
+
+Detector holds at 14. No overflow 320-1920.
+
 ### One hand across the whole page (2026-09, doodle pass two)
 
 Amber pointed at How I think as the correct instance and asked for the
