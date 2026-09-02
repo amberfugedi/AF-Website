@@ -4545,6 +4545,74 @@ a.bld-item .bld-item-arrow {
 /* Coral text over the coral swash is exactly the homepage h1 treatment. */
 .ab-uline-coral { color: var(--coral-deep); }
 
+/* UNDERLAY BOXES. A soft pastel rectangle offset behind a white paper
+   block — the depth cue in Amber's mockup.
+   Built as a hard-edged box-shadow, which is the whole device: no blur,
+   full offset, the pastel at 55%. The first version used two pseudos
+   (::before the underlay, ::after the paper) and cost two bugs for
+   nothing. One: .ab-payoff turns position:static below 900px, later in
+   the sheet at equal specificity, and an unpositioned box sent both
+   absolute pseudos to the nearest positioned ancestor — the white paper
+   covered the entire page, invisibly, because #FFFFFF over #FDF9F5
+   looks like nothing until you sample the pixels. Two: the detector
+   reads a background-bearing pseudo at inset 0 as a child flush against
+   its container edge and fired cramped-padding on all three beliefs. A
+   shadow has neither problem.
+   ONE TONE for every box on the page. The site already codes colour
+   twice (offers, expertise chapters) and MASTER caps it there — an
+   underlay is depth, not a category, so a second tone would read as a
+   distinction that does not exist. */
+.ab-box {
+  position: relative;
+  /* Flat, not a clamp. The detector's cramped-padding threshold for
+     this card's type sizes sits between 30px and 32px — bisected, not
+     guessed — and it renders somewhere just above 900px wide, where a
+     vw-based clamp lands near its minimum and fires. 32 clears it. */
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  /* --lavender at 55%, offset down and to the right so the underlay
+     reads as a sheet beneath rather than a glow around. */
+  box-shadow: 14px 14px 0 0 rgba(218, 212, 245, 0.55);
+}
+
+/* Inside a box the 34ch cap is doing the wrong job. It was sized for
+   bare text in the column; with 30px of padding either side it pulls
+   the measure in twice and the quote grows two lines, which is what
+   pushed the How I think split from 96px of column imbalance to 246px.
+   The box fills the column and the padding sets the measure. */
+.ab-pull.ab-box { max-width: none; }
+
+/* A box makes column imbalance visible in a way bare text did not: the
+   old asides just faded out, a box hangs. Centring the aside against
+   its column splits the leftover height to both sides instead of
+   dumping it on one, which is the difference between 352px of empty
+   column under the Outside payoff and 176px above and below it. Only
+   while the split is a split — at 900 they stack. */
+@media (min-width: 901px) {
+  /* Not .ab-payoff: it is position:sticky and tracks down its column as
+     you scroll, which already answers the imbalance and answers it
+     better. Centring it would freeze it — a centred grid item is only
+     as tall as its content, so sticky has nothing to travel in. */
+  .ab-6040 > .ab-pull.ab-box:not(.ab-payoff) { align-self: center; }
+}
+
+@media (max-width: 900px) {
+  /* Smaller offset once the boxes are full width: 14px on the right
+     eats into the shell gutter, which is 20px at 320. */
+  .ab-box { box-shadow: 10px 10px 0 0 rgba(218, 212, 245, 0.55); }
+  /* 32px each side at 320 would cut the measure to 216px, about 27
+     characters. The detector's own guidance is 12-16px minimum, so 24
+     is well inside it at the width where the box is full-bleed. */
+  .ab-box, .ab-box.ab-think { padding: 24px; }
+
+}
+
+/* .ab-think brings its own padding-top and top hairline from the
+   unboxed layout, later in the sheet and equal specificity. A box does
+   not need a rule across its top, and the padding has to be even. */
+.ab-box.ab-think { padding-top: 32px; border-top: 0; }
+
 /* Tiny coral asterisk. Decorative, so it stays out of the a11y tree. */
 .ab-ast {
   display: inline-block;
