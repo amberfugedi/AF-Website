@@ -1345,7 +1345,16 @@ before shipping spacing changes):
   seams (this was skewing two seams by 20-22px).
 - SANCTIONED variance: hero -> problem on home is
   viewport-proportional (the hero keeps min-height 72dvh air) —
-  ~217px at 900px viewport height; do not pin it.
+  ~217px at 900px viewport height. CAPPED 2026-09 at
+  `min(72dvh, 660px)`, Amber overriding the earlier "do not pin it".
+  The reason: above 900px the proof chips leave the flow for the
+  right-hand column, so the hero's content collapses from 599px on a
+  phone (where they stack) to 289px, while the box stays tied to the
+  viewport. Measured gap at rest before the cap: 233px at an 800px
+  window, 305 at 900, 377 at 1000, 463 at 1120, 521 at 1200. After:
+  800 and 900 unchanged, everything taller holds at 317. The parallax
+  keeps its full 92.4px of drift either way (phone 52.8px), so the
+  July 2026 collision bug stays fixed.
 
 ## Projects page framing (renamed from Work, 2026-07)
 

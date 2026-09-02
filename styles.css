@@ -1227,9 +1227,20 @@ section { padding: 104px 0; }
 .reveal.settled { transition-delay: 0s !important; }
 
 /* ============ Hero (home) ============ */
+/* CAPPED, 2026-09. 72dvh was sanctioned as viewport-proportional air
+   and MASTER said not to pin it; Amber overrode that after seeing the
+   seam on a tall window. WHY IT NEEDED CAPPING: above 900px the proof
+   chips move out of the flow into the right-hand column, so the hero's
+   content collapses from 599px (phone, where they stack) to 289px
+   while the box stays tied to the viewport. Short content in a tall
+   box, and the taller the screen the worse — 305px of gap at a 900px
+   window, 521px at 1200px.
+   660px leaves 800 and 900px windows exactly as they were and stops
+   the growth above that. The parallax keeps its full 92px of drift
+   room either way, so the July 2026 bug stays fixed. */
 .hero {
-  min-height: 72vh;
-  min-height: 72dvh;
+  min-height: min(72vh, 660px);
+  min-height: min(72dvh, 660px);
   display: flex;
   align-items: flex-start;
   /* fixed top offset: the hero headline starts 95px under the nav,
