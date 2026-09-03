@@ -4537,29 +4537,7 @@ a.bld-item .bld-item-arrow {
    that the personality registers before the decoration does. */
 
 /* The honesty line is supporting copy, not a third statement. */
-.ab-honest { margin-top: clamp(28px, 3vw, 40px); }
-.ab-honest p { color: var(--muted); max-width: 52ch; }
 
-/* THE SITE'S OWN SWASH, not a new underline. The first version invented
-   a lavender wobble in #8579C9 — a colour that is not a token at all,
-   sitting between --lavender and --automations-deep. The brand already
-   has a hand-drawn underline: the tapered coral-gradient swash under the
-   homepage h1 accent word (--coral to --coral-deep, a filled taper
-   rather than an even stroke). Same path, same gradient, as a
-   background so it wraps with the text.
-   Used on the two payoff statements in the lower half of the page —
-   the leadership quote and the closing line — and nowhere else. It was
-   briefly on the h1 too, which was the wrong device for a page head:
-   every other page on the site opens with a paper tab, and MASTER's
-   page-head rule is explicit that "the headline leads and the paper
-   tab carries the emphasis." The swash belongs to the HOMEPAGE h1. */
-.ab-uline {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 22' preserveAspectRatio='none'><defs><linearGradient id='s' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23FF6F61'/><stop offset='1' stop-color='%23B8354A'/></linearGradient></defs><path d='M6 14 C 60 6, 150 5, 254 9 C 200 10.5, 100 14.5, 6 17.5 Z' fill='url(%23s)'/></svg>");
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  background-size: 100% 0.26em;
-  padding-bottom: 0.16em;
-}
 
 /* ABOUT'S DOODLE VOCABULARY — Amber's own asset sheets, 2026-09, and a
    documented exception to "Hand-authored inline SVG only ... the voice
@@ -4612,17 +4590,6 @@ a.bld-item .bld-item-arrow {
 
 /* Amber: "that last line could even be visually pulled out a little."
    Display face at the pull-quote's own size, over a hairline. */
-.ab-think-out {
-  font-family: var(--font-display);
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  margin-top: clamp(18px, 2vw, 26px);
-  padding-top: clamp(16px, 1.8vw, 22px);
-  background-image: linear-gradient(var(--line), var(--line));
-  background-size: 100% 1px;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-}
 
 /* .h2-long IS A NARROW-WIDTH DEVICE ON ABOUT. Measured line counts with
    and without it, 320-1920: below 900 it earns its keep — without it
@@ -4633,6 +4600,12 @@ a.bld-item .bld-item-arrow {
 @media (min-width: 901px) {
   .page-about .section-title.h2-long { font-size: var(--fs-h2); }
 }
+
+/* The prose between the beats and the closing line. Body copy, so it
+   sits below both in the ladder and lets the two display statements
+   bracket the section. */
+.ab-quiet-body { margin-top: clamp(26px, 3vw, 38px); }
+.ab-quiet-body p + p { margin-top: 16px; }
 
 /* SECTION HAIRLINES. The mockup rules every section off from the next
    with a full-width line; About was separating with whitespace alone.
@@ -4726,16 +4699,6 @@ a.bld-item .bld-item-arrow {
    by exactly one item height (they have padding, no margin), so
    `height: 100%` from one ring centre lands on the next one, and the
    last item draws nothing. */
-.ab-dots { position: relative; }
-.ab-dots li:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: calc(0.92em + 6.5px);
-  height: 100%;
-  width: 1px;
-  background: rgba(184, 53, 74, 0.22);
-}
 /* The mockup rules the examples off from the line that follows them. */
 /* The paragraph after the examples is wrapped in .hw-body, so the
    adjacent-sibling target is that wrapper, not a bare <p>. */
@@ -4744,7 +4707,6 @@ a.bld-item .bld-item-arrow {
    pull quote — and this was the one doing least: it separated the
    transparency line from the examples it belongs to, and left it
    sitting alone under a floating hairline. Space does the job. */
-.ab-dots + .hw-body { margin-top: clamp(34px, 3.8vw, 52px); }
 
 /* And underlines the pull quote as a whole rather than a phrase in it. */
 .ab-pull-line::after {
@@ -4797,17 +4759,6 @@ a.bld-item .bld-item-arrow {
    vertical connector rule, which was a second bullet language on a site
    whose MASTER allows exactly one, and a connector implies sequence
    these three do not have. */
-.ab-dots { list-style: none; margin: 0; padding: 0; }
-.ab-dots li { position: relative; padding: 11px 0 11px 28px; color: var(--body); }
-.ab-dots li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0.92em;
-  width: 13px; height: 13px;
-  border-radius: 50%;
-  background: rgba(255, 111, 97, 0.28);
-  border: 2px solid var(--coral-deep);
-}
 
 /* A pullout, used twice: How I think and the two payoff statements.
    Serif at display scale over a short coral rule. */
@@ -4861,14 +4812,6 @@ a.bld-item .bld-item-arrow {
 
 /* Margin note: the small annotation that balances an asymmetric
    composition without becoming a second column of copy. */
-.ab-note {
-  font-family: var(--font-display);
-  font-style: italic;
-  color: var(--muted);
-  max-width: 22ch;
-  padding-left: 18px;
-  border-left: 2px solid rgba(255, 111, 97, 0.34);
-}
 
 /* Asymmetric splits. 60/40 and 70/30 rather than the even-ish grids the
    live page had drifted to — the brief's core note was that everything
@@ -4881,16 +4824,8 @@ a.bld-item .bld-item-arrow {
   align-items: start;
   margin-top: clamp(28px, 3.2vw, 42px);
 }
-.ab-7030 {
-  display: grid;
-  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
-  column-gap: clamp(44px, 6vw, 96px);
-  row-gap: 34px;
-  align-items: start;
-  margin-top: clamp(26px, 3vw, 38px);
-}
 @media (max-width: 900px) {
-  .ab-6040, .ab-7030 { grid-template-columns: 1fr; }
+  .ab-6040 { grid-template-columns: 1fr; }
 }
 
 /* A reflective section: narrower measure, more air, and the closing
@@ -6127,8 +6062,6 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .ab-quiet-open,
 .ab-quiet-close { font-size: clamp(1.3rem, 1rem + 1.23vw, 1.875rem); }
 .ab-pull-note { font-size: var(--fs-body); line-height: 1.55; }
-.ab-note { font-size: var(--fs-body); line-height: 1.55; }
-.ab-dots li { font-size: var(--fs-body); line-height: 1.55; color: var(--body); }
 .ab-payoff-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }
 .ab-lead { font-size: var(--fs-h3); line-height: 1.28; }
@@ -6137,7 +6070,6 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    value. */
 .ab-think h3 { font-size: clamp(1.1875rem, 1.06rem + 0.53vw, 1.5rem); line-height: 1.28; }
 .ab-think-body p { font-size: var(--fs-body); line-height: 1.7; }
-.ab-think-out { font-size: clamp(1.15rem, 1.05rem + 0.42vw, 1.4rem); line-height: 1.34; }
 .ab-cred-fig { font-size: var(--fs-intro); }
 .ab-cred-note { font-size: var(--fs-small); line-height: 1.45; }
 .xp-reveal > summary { font-size: var(--fs-body); }
@@ -6489,7 +6421,6 @@ footer p,
    the education entry to NINE lines. Neither cap means anything without
    the column it was cut for. */
 @media (max-width: 900px) {
-  .ab-note { max-width: none; }
 }
 /* 640, not 560: two columns only once each one clears about 280px.
    At 561 they were 240px and the education entry still ran four lines. */

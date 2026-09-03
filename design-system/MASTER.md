@@ -2029,6 +2029,68 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### About rewritten to separate it from My Approach (2026-09, Amber's brief)
+
+Her framing, which is the useful part to keep: ABOUT is who she is, what
+shaped her, what she cares about and what she is like to work with. MY
+APPROACH is how she diagnoses, prioritises and executes. The page had
+drifted into being a second My Approach.
+
+THE STRATEGY SECTION IS GONE. "I'm a strategy person who still wants to
+touch the work." — landing pages, CRM, twelve-step workflows — was the
+clearest overlap, and it also restated belief 02. Amber's fallback line
+survives as one sentence in How I think: "I like strategy. I just don't
+want to get so far away from the work that I stop knowing whether it
+actually works."
+
+THE BELIEFS ARE ONE LINE EACH now. Three paragraphs apiece was teaching
+the method, which is the other page's job. These state a point of view;
+the method lives elsewhere.
+
+WHAT KEEPS ME INTERESTED GAINED ITS CREATIVE HALF — the blank-page
+moment, an idea becoming a campaign or a tool. Without it the section
+argued that she likes analysis, which is half the answer to why she is
+still doing this after a decade.
+
+OUTSIDE THE WORK IS NOW THE LONGEST SECTION ON THE PAGE and reads as one
+continuous story rather than a list of traits: ideas and side hustles,
+making things, learning for its own sake, growth, caring deeply, health
+and burnout, travel and food and dogs, and the line underneath all of
+it. The payoff pulls out beside it.
+
+WHAT CAME OUT THAT WAS NOT IN HER BRIEF, all flagged rather than dropped
+quietly:
+- the pull-quote notes under "I like figuring out what is actually going
+  on" ("sometimes that answer is a campaign...") — more examples, which
+  the brief rules out for this section
+- the four prose paragraphs opening The short version, which were a
+  capability list; the brief asks for resume shorthand only
+- the third How I think example ("show me a process everyone hates"),
+  merged away by her own copy
+
+"Business, people, behavior, and systems." IS BACK under Education. It
+came off this morning at her request and the brief puts it back as the
+supporting line — noting it here so the next removal is deliberate.
+
+TWO DEVICE CONSEQUENCES:
+- the butter tab lived on "touch the work." and left with the section,
+  which would have put About back to one tab against every other page's
+  two. It moved to "isn't really marketing." — butter is possibility,
+  and that headline is the page's turn.
+- `.ab-uline` is retired. Both pull quotes carried an inline swash AND
+  the whole-quote underline added last week, so a wrapping quote drew
+  three coral marks stacked. The whole-quote rule uses the same
+  hand-drawn stroke, so the mark language is unchanged.
+- `.ab-dots`, `.ab-note`, `.ab-honest`, `.ab-think-out` and `.ab-7030`
+  are removed from the sheet: 15 rules, all orphaned by the rewrite and
+  all About-only.
+
+Protected sections verified byte-identical: testimonials (5,704 chars)
+and the timeline (5,519). Meta description brought in sync — it was
+still listing demand gen, CRM and go-to-market, which is now the other
+pages' content. Page 8,324px to 7,225px at 1440. Detector holds at 14,
+no overflow 320-1920.
+
 ### Desktop caps left on when the columns went away (2026-09)
 
 Amber, from a phone: "we waste so much space." Measured every text block
