@@ -2055,8 +2055,18 @@ still doing this after a decade.
 OUTSIDE THE WORK IS NOW THE LONGEST SECTION ON THE PAGE and reads as one
 continuous story rather than a list of traits: ideas and side hustles,
 making things, learning for its own sake, growth, caring deeply, health
-and burnout, travel and food and dogs, and the line underneath all of
-it. The payoff pulls out beside it.
+and burnout, travel and food and dogs, and a closing paragraph. The
+payoff pulls out beside it.
+
+ITS LAST PARAGRAPH WAS REWRITTEN THE SAME DAY. "Underneath all of it, I
+think I'm someone who wants to keep learning, keep creating, keep
+investing in people, and leave things a little better than I found them"
+said what the pull quote beside it says, in weaker words — the reader
+met the same idea twice in a row. It is now "I think a lot of that comes
+down to what I choose to invest in: the things I'm learning, the ideas
+I'm building, the people I care about, and the kind of person I'm trying
+to become", which hands off to the payoff instead of pre-empting it. The
+ending reads interests, then what she invests in, then the statement.
 
 WHAT CAME OUT THAT WAS NOT IN HER BRIEF, all flagged rather than dropped
 quietly:
