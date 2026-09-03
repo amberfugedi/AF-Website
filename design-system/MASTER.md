@@ -2029,6 +2029,59 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### About gains its two story sections (2026-09, Amber's brief)
+
+The page explained how Amber works and never said how she got here. Two
+new sections at the top, both story rather than method, and the hero
+descriptor swaps "Always asking why" for "Teacher" — the courses were
+not represented anywhere in the hero.
+
+HOW I GOT HERE is the PATTERN behind the career, not the chronology; the
+timeline at the foot of the page owns dates and roles. Its eyebrow is
+"How I got here" against the timeline's "Curious how I got here?" —
+both Amber's wording, both named in the same brief, so the echo is
+deliberate. 136 words against a 120-160 target.
+
+WHY I STARTED DOING THIS ON MY OWN is the advice-quality argument and
+the closest this site comes to a critique. The brief is explicit that it
+must not read as an attack on agencies, so the subject is always the
+business on the receiving end and whether it can evaluate what it is
+being sold. Built on devices already here: the "post more / send more
+emails" run is `.ab-beats`, the alternatives are the site's one bullet.
+208 words against 150-200.
+
+`.ab-dots` IS BACK. It was deleted when the last list left the page;
+this section needs it, and it returns as the same rule — the 13px open
+coral ring with the connector drawn per item.
+
+WORD COUNTS against her targets: origin 136 (120-160) OK · own 208
+(150-200) · how 115 (70-100) · believe 39 · lead 98 (100-130) · keeps
+125 (100-140) OK · outside 365 (250-300). Two are over and both for a
+reason worth keeping: How I think carries the "I like strategy, I just
+don't want to get so far away from the work" line she has now asked to
+preserve twice — without it the section is 89 words, inside the target.
+Outside the work is her own supplied copy, sentence for sentence; the
+overage is the brief's word target disagreeing with the brief's copy,
+and the copy wins.
+
+DETECTOR 14 -> 16, and the delta is worth stating rather than hiding.
+Removed one: `.ab-beats` was bordered, and cramped-padding fires on any
+wrapper with a visible boundary however much padding sits beside it, so
+the coral rule is painted now like the section rules and the belief
+dividers. Added three: two `tight-leading` from the two NEW pull quotes
+at line-height 1.16, and one `all-caps-body` from the 33-character
+eyebrow "Why I started doing this on my own", which is her wording.
+The leading was tested at 1.3 and rejected on sight — at 30px the quote
+stops reading as a quote and starts reading as large body copy. The rule
+is calibrated for body text; these are display.
+
+Head joint measured before and after at 172px from the copy column and
+122px from the portrait — IDENTICAL, so nothing regressed there. It is
+over MASTER's documented 60-90 and predates this pass.
+
+Protected sections verified byte-identical again. Page 7,362 to 9,520px
+at 1440. No overflow 320-1920.
+
 ### About refinement pass: audited, one change (2026-09)
 
 A second brief arrived covering copy rhythm, redundancy and visual

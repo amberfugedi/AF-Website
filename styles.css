@@ -4608,6 +4608,36 @@ a.bld-item .bld-item-arrow {
 .ab-quiet-body p + p { margin-top: 16px; }
 
 
+/* THE SITE'S ONE BULLET, restored 2026-09 for the alternatives list in
+   "Why I started doing this on my own". Removed when the last list left
+   the page; this is the same rule it had — a 13px open coral ring,
+   coral at 28% inside a --coral-deep edge, identical to .hw-do on My
+   Approach — with the connector drawn per item so it always ends on the
+   last ring rather than at a guessed inset. */
+.ab-dots { list-style: none; margin: 0; padding: 0; position: relative; }
+.ab-dots li { position: relative; padding: 11px 0 11px 28px; color: var(--body); }
+.ab-dots li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.92em;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 111, 97, 0.28);
+  border: 2px solid var(--coral-deep);
+}
+.ab-dots li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: calc(0.92em + 6.5px);
+  height: 100%;
+  width: 1px;
+  background: rgba(184, 53, 74, 0.22);
+}
+/* The list sits between two prose blocks in that section. */
+.hw-body + .ab-dots { margin-top: clamp(18px, 2vw, 26px); }
+.ab-dots + .hw-body { margin-top: clamp(26px, 3vw, 40px); }
+
 /* SECTION HAIRLINES. The mockup rules every section off from the next
    with a full-width line; About was separating with whitespace alone.
    The line is the site's own --line at 12%, the same weight the
@@ -4919,7 +4949,14 @@ a.bld-item .bld-item-arrow {
 .ab-beats {
   margin: clamp(28px, 3.2vw, 42px) 0;
   padding-left: clamp(20px, 2.4vw, 30px);
-  border-left: 2px solid rgba(255, 111, 97, 0.3);
+  /* Painted, not a border. cramped-padding fires on a wrapper with a
+     visible boundary and text-bearing children whatever padding sits
+     beside it — the same trap the section rules and the belief dividers
+     hit. A background belongs to no child. */
+  background-image: linear-gradient(rgba(255, 111, 97, 0.3), rgba(255, 111, 97, 0.3));
+  background-size: 2px 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
   /* SIZED TO THE LONGEST BEAT, not to a reading measure. Amber wants
      each of these on one line; measured with real Newsreader at 21px
      the longest runs 785px of text, and the rule plus its inset costs
@@ -6071,6 +6108,7 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    value. */
 .ab-think h3 { font-size: clamp(1.1875rem, 1.06rem + 0.53vw, 1.5rem); line-height: 1.28; }
 .ab-think-body p { font-size: var(--fs-body); line-height: 1.7; }
+.ab-dots li { font-size: var(--fs-body); line-height: 1.55; }
 .ab-cred-fig { font-size: var(--fs-intro); }
 .ab-cred-note { font-size: var(--fs-small); line-height: 1.45; }
 .xp-reveal > summary { font-size: var(--fs-body); }
