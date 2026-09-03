@@ -4607,6 +4607,7 @@ a.bld-item .bld-item-arrow {
 .ab-quiet-body { margin-top: clamp(26px, 3vw, 38px); }
 .ab-quiet-body p + p { margin-top: 16px; }
 
+
 /* SECTION HAIRLINES. The mockup rules every section off from the next
    with a full-width line; About was separating with whitespace alone.
    The line is the site's own --line at 12%, the same weight the
@@ -6426,4 +6427,23 @@ footer p,
    At 561 they were 240px and the education entry still ran four lines. */
 @media (max-width: 640px) {
   .ab-cred { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}
+
+/* A LINE THAT STANDS UP WITHOUT BECOMING A QUOTE. Amber asked for three
+   lines to carry more weight; two are already pull quotes, and this one
+   sits mid-paragraph in the personal story. Display face at intro size
+   with air either side — above the 17px body, below the 30px pull
+   quotes, so the ladder still reads and the section gains no second
+   focal point. No new mark: the brief says typography and whitespace.
+   `.hw-body p.ab-stand`, not `.ab-stand`: .hw-body p sets font-size and
+   margins at (0,1,1), so one class loses on both counts. Sixth rule on
+   this page to need that. */
+.hw-body p.ab-stand {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  font-size: var(--fs-intro);
+  line-height: 1.45;
+  margin-top: clamp(28px, 3.2vw, 40px);
+  margin-bottom: clamp(28px, 3.2vw, 40px);
 }

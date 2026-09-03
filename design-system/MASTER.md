@@ -2029,6 +2029,46 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### About refinement pass: audited, one change (2026-09)
+
+A second brief arrived covering copy rhythm, redundancy and visual
+emphasis. Audited every point against the page rather than assuming, and
+almost all of it had landed in the rewrite an hour earlier: flow, How I
+think's length, the three one-line beliefs, the mentoring section, What
+keeps me interested, the personal story, the closing block, the compact
+short version. Two things were genuinely outstanding.
+
+THE BURNOUT LINE NOW STANDS UP. "I'm ambitious, but I don't think
+burnout is a personality trait" was buried mid-paragraph. It is its own
+line: display face at intro size (21px at 1440, 19 on a phone) with
+40px of air either side. Above the 17px body, below the 30px pull
+quotes, so the three lines Amber wanted emphasised now sit at two
+levels rather than three sizes competing. No new mark — the brief says
+typography and whitespace. The other two lines she named were already
+pull quotes with the mark and underline.
+
+THE REDUNDANCY AUDIT WAS RUN, NOT ASSUMED. Sentence-set comparison
+against My Approach (Jaccard on normalised word sets, threshold 0.34,
+82 About sentences against 61). Everything that scored was shared nav
+and footer chrome except ONE real hit at 1.0: "Strategy only matters if
+it gets built." is About's belief 02 AND My Approach's section 03
+heading, word for word. Amber's brief names that belief verbatim as one
+to keep, so About keeps it and the duplication is flagged rather than
+resolved — it is a decision about which page owns the line, not a
+cleanup. Nothing else crossed the threshold; the two near-misses (0.42,
+0.36) were incidental word overlap.
+
+MOBILE SCAN, MEASURED AT 390: no paragraph runs past six lines, most are
+two to four. Outside the work is 15 paragraphs and 52 lines, the longest
+on the page and deliberately so — it is the section that does the job
+nothing else on the site does.
+
+SIXTH SPECIFICITY LOSS. `.ab-stand` set font-size and margins and did
+nothing: `.hw-body p` declares both at (0,1,1). `.hw-body p.ab-stand`,
+at the end of the sheet. This page has now lost six rules to the same
+pattern and it is worth a structural pass on the sheet rather than
+another patch.
+
 ### About rewritten to separate it from My Approach (2026-09, Amber's brief)
 
 Her framing, which is the useful part to keep: ABOUT is who she is, what
