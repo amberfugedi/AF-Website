@@ -2040,7 +2040,22 @@ HOW I GOT HERE is the PATTERN behind the career, not the chronology; the
 timeline at the foot of the page owns dates and roles. Its eyebrow is
 "How I got here" against the timeline's "Curious how I got here?" —
 both Amber's wording, both named in the same brief, so the echo is
-deliberate. 136 words against a 120-160 target.
+deliberate.
+
+REWRITTEN THE SAME DAY with Amber's own version, which is better than
+the direction it replaced because it is specific: she got the internship
+without realising she had applied for a marketing internship. The
+first draft argued that the career had a through-line; hers shows the
+accident and lets the through-line emerge. Headline changed with it,
+"I didn't have a perfectly mapped-out plan" to "Marketing was a little
+bit of an accident."
+
+Its closing line — "what started somewhat accidentally turned into a
+career I've spent more than a decade continuing to make my own" — sits
+in the aside rather than at the foot of the prose, which is where How I
+lead and Outside the work put theirs. 193 words against a 120-160
+target: her copy, and the copy wins over the number, same call as
+Outside the work.
 
 WHY I STARTED DOING THIS ON MY OWN is the advice-quality argument and
 the closest this site comes to a critique. The brief is explicit that it
