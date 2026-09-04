@@ -2562,7 +2562,7 @@ a.bld-item .bld-item-arrow {
 
 /* ============ Services — What sounds like you? ============ */
 .sp-section {
-  padding: clamp(60px, 8vw, 100px) 0;
+  padding: clamp(72px, 8vw, 104px) 0;
   border-top: 1px solid var(--line);
   /* A very gentle wash — lavender + peach at low opacity signals this is
      a crossroads for all of the services. */
@@ -2992,7 +2992,7 @@ a.bld-item .bld-item-arrow {
 /* The first content section carries the same 104px joint every other
    page opens with. It was 24px, which read as part of the hero rather
    than a new section (Amber, Sept 2026: "this feels super crammed"). */
-section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px); }
+section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px); }
 .chapters { margin-top: 34px; }
 /* THREE-PART ROW (Amber, July 2026): the name, then the problem and
    its capabilities, then the contribution and its proof link. Every
@@ -6256,7 +6256,7 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    than var(--fs-h3) because --fs-h3 bottoms out at 24px, which is
    exactly .h2-long's mobile size — the collision would just move to
    the phone. 20.8px at 390 keeps the gap open at both ends. */
-.ab-pull-line { font-size: clamp(1.3rem, 1rem + 1.23vw, 1.875rem); }
+.ab-pull-line { font-size: var(--fs-h3); }
 .ab-pull-note { font-size: var(--fs-body); line-height: 1.55; }
 .ab-payoff-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }
@@ -6963,7 +6963,7 @@ footer p,
    section measured 717px, second only to the hero, which is not what
    "a small but important clarification" looks like — it read as an
    eleventh service section. Reduced padding is the whole difference. */
-.svc-aside { padding-top: clamp(56px, 6vw, 76px); padding-bottom: clamp(56px, 6vw, 76px); }
+.svc-aside { padding-top: clamp(44px, 4.45vw, 64px); padding-bottom: clamp(44px, 4.45vw, 64px); }
 
 /* THE LEADERSHIP ASIDE. Quiet dashes, deliberately not the coral ring:
    the ring belongs to the recognition and fit lists, and a third ringed
@@ -7108,7 +7108,7 @@ footer p,
 /* Body copy, not a display pull-line (Amber, Sept 2026): normal size,
    full width, same voice as the paragraphs above it. */
 .ab-quiet-close { color: var(--body); max-width: none; margin-top: 16px; }
-.ab-quiet-open { font-size: clamp(1.3rem, 1rem + 1.23vw, 1.875rem); }
+.ab-quiet-open { font-size: var(--fs-h3); }
 .ab-quiet-close { font-size: var(--fs-body); line-height: 1.55; }
 /* The prose between the beats and the closing line. Body copy, so it
    sits below both in the ladder and lets the two display statements
@@ -7841,7 +7841,7 @@ footer p,
    hairlines that used to sit in those gaps are gone too (Amber, Sept
    2026), so space alone separates the sections now, which is what About
    did before `.ab-rule` was introduced. */
-.page-about main > section { padding-top: clamp(44px, 4.4vw, 64px); padding-bottom: clamp(44px, 4.4vw, 64px); }
+.page-about main > section { padding-top: clamp(44px, 4.45vw, 64px); padding-bottom: clamp(44px, 4.45vw, 64px); }
 .page-about main > section:first-of-type { padding-top: 0; }
 
 /* ============================================================

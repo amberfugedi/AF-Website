@@ -33,7 +33,8 @@ labels, UI. A switch between them must be doing work.
 
 ### The scale
 
-One fluid system, 390px → 1440px. Nothing sizes itself outside it.
+One fluid system, 390px → 1440px. Nothing sizes itself outside it,
+with five documented exceptions listed under the scale.
 
 | Token | 390 → 1440 | Role |
 |---|---|---|
@@ -45,9 +46,21 @@ One fluid system, 390px → 1440px. Nothing sizes itself outside it.
 | `--fs-small` | 14 → 15 | Supporting copy under a card title, captions, meta. |
 | `--fs-eyebrow` | 12 → 13 | Uppercase labels, tags, footer heads. |
 
-`.h2-long` is the one sanctioned exception: a section title whose text
-is long enough that 40px wraps badly. It is still an `h2` and still
-`--font-display`.
+**The five sanctioned exceptions**, and there are no others. Re-measure
+after any type change rather than trusting the stylesheet: 72 font-size
+declarations in `styles.css` name a raw value, and almost all of them
+are overridden by the type layer at the end of the sheet. Only what
+RENDERS counts.
+
+| Exception | Sizes | Why |
+|---|---|---|
+| `.h2-long` | 35 / 29.3 | A section title too long for 40px. Still an `h2`, still display face. |
+| Home proof chips | 39.2 / 24.3 / 19.8 stat, 12.8 label | The three stacked cards step down on purpose. Micro-type. |
+| `.ct-title` | 31.2 / 24.6 | Inside an `aria-hidden` thumbnail. Artwork, not content type. |
+| Mobile menu links | 25.6 | Tap targets in the full-screen nav. |
+| `.ch-sign` | 15.75 | A "+" glyph at 1.05em of its own label. Optical sizing of a symbol. |
+
+Text inside an SVG is artwork and sits outside the ladder too.
 
 ### Line heights
 
@@ -165,17 +178,37 @@ it. This has now been hit three times.
 
 ### Section rhythm
 
-Four steps. Every full-width section takes one.
+Five steps. Every full-width section takes one.
 
-| Step | Padding (top = bottom) | Use |
+| Step | Padding at 1440 | Use |
 |---|---|---|
-| Seam | 52px | `.bridge` — a transition band, not a section. |
-| Compact | `clamp(44px, 4.4vw, 64px)` | Long narrative runs (About). |
-| Standard | `clamp(72px, 8vw, 104px)` | The default. |
-| Generous | `clamp(84px, 9vw, 128px)` | Openers and closers that carry weight. |
+| Seam | 52 / 52 | `.bridge` — a transition band, not a section. |
+| Compact | 64 / 64 | Long narrative runs (About), closing asides. `clamp(44px, 4.45vw, 64px)`. |
+| Standard | 104 / 104 | The default. `section { padding: 104px 0 }`. |
+| Generous | 128 / 128 | Openers and closers that carry weight. |
+| Page head | 138 top | Every `header.page-head`. 13 of 16 pages. |
 
-Section joints land at 60–90px of visual gap. A section's own padding is
-the gap — never add a margin between sections.
+Sections carry NO margin — the padding is the whole rhythm. Two adjacent
+sections therefore make a joint of both paddings added: **208px between
+two standard sections**, 128 between two compact, 104 across a seam. A
+page's first section trims its top to 0 because the page head already
+paid for that space.
+
+Two documented tightenings, both deliberate: Expertise pairs
+`.tools-section` and `.showcase` at 64 each for a 128 joint, because
+those two sections are one argument; and the section directly under a
+sticky anchor bar opens at 74 rather than 104.
+
+Measured at 1440 / 900 / 390 across all sixteen pages. The base section
+is a FIXED 104 with a mobile step to 48 at 760 — not a clamp — so a
+change to the standard step means editing `section { padding }` and its
+mobile override together.
+
+CHECK THE ARITHMETIC ON ANY vw CLAMP. Two steps were quietly missing
+their own maximum: the compact step ran `4.4vw`, which is 63.36 at
+1440, and the Expertise chapters ran `7vw`, which is 100.8. Both looked
+right in the sheet and neither reached the number it declared. If a
+clamp names 104 as its max, the vw term has to hit 104 at 1440.
 
 ### Inside a section
 

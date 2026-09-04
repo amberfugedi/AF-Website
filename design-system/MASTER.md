@@ -5744,3 +5744,50 @@ not as an oversight.
 STILL OPEN, Amber's call: the Expertise chapter marks remain the third
 icon language — pictorial, part-filled, on saturated tiles, against 42
 thin-line marks and 8 composed brand marks everywhere else.
+
+### Section rhythm and the last type outlier (2026-09)
+
+Measured at 1440 / 900 / 390 across all sixteen pages — closing the gap
+in the earlier audit, which only ran at 1440.
+
+TYPE HELD UP BETTER THAN THE SHEET SUGGESTS. `styles.css` carries 72
+font-size declarations naming a raw value, which reads like drift, and
+almost none of them bite: the type layer at the end of the sheet
+overrides nearly all of them. What actually RENDERS off the ladder is
+six sizes at 1440, five at 900 and four at 390 — and every one is one of
+the five documented exceptions (`.h2-long`, the home proof chips,
+`.ct-title`, the mobile menu, `.ch-sign`) or text inside an SVG.
+
+Exactly ONE undocumented outlier existed, added after the 2026-08 audit:
+`.ab-pull-line` and `.ab-quiet-open` carried their own clamp that landed
+at 20.8px on mobile against an h3 of 24. Both take `--fs-h3` now. At
+1440 nothing changes — their clamp already resolved to 30 there.
+
+**Only measure what renders.** Counting raw values in the sheet would
+have sent me chasing 72 phantom problems.
+
+SECTION RHYTHM: twenty distinct padding pairs at 1440 sounds like chaos
+and is not. 53 sections sit at 104/104, 16 at the 52 seam, 11 are
+first-in-page with the top trimmed, 10 at the compact step, and 13 of 16
+page heads open on 138. Four rules were genuinely loose:
+
+    Expertise chapters   100.8 -> 104   a 7vw clamp that never reached its max
+    Services .sp-section 100   -> 104   four pixels off for no reason
+    .svc-aside           76    -> 64    a fifth step; it is a closing aside, so compact
+    compact step         63.36 -> 64    4.4vw never reached 64 either
+
+TWO CLAMPS WERE MISSING THEIR OWN MAXIMUM and both looked right in the
+sheet: `7vw` is 100.8 at 1440, `4.4vw` is 63.36. If a clamp names 104,
+the vw term has to hit 104 at 1440. Worth checking every vw clamp in the
+sheet the next time someone is in there.
+
+KEPT, DELIBERATE: Expertise pairs `.tools-section` and `.showcase` at 64
+each for a 128 joint, because those two sections are one argument; and
+the section under a sticky anchor bar opens at 74 rather than 104, which
+Amber asked for.
+
+DIGITAL-SYSTEM.md was WRONG on two counts and is corrected. It called
+the rhythm four steps — the page head at 138 is a fifth, on 13 of 16
+pages. And it said section joints land at 60–90px, which is not what
+adjacent sections do: they carry no margin, so the joint is both
+paddings added. Two standard sections make **208px**, not 90.
