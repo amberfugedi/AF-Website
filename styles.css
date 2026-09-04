@@ -814,7 +814,7 @@ body.page-sub .aura { --aura-base: 0.45; }
     color: var(--ink);
     text-align: center;
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--fs-small);
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -985,7 +985,7 @@ body.page-sub .aura { --aura-base: 0.45; }
 }
 .pc-lavender { --tilt: -1.6deg; margin: 0; padding: 27px 33px; }
 .pc-lavender .proof-stat { font-size: 2.45rem; }
-.pc-lavender .proof-label { font-size: 0.95rem; }
+.pc-lavender .proof-label { font-size: var(--fs-small); }
 .pc-peach    { --tilt: 1.1deg;  margin: 7px 0 0 14%; }
 .pc-peach .proof-stat { font-size: 1.52rem; }
 .pc-peach .proof-label { font-size: 0.9rem; }
@@ -1041,10 +1041,10 @@ body.page-sub .aura { --aura-base: 0.45; }
   .proof-chip:hover { transform: rotate(var(--tilt, 0deg)); }
   /* Fixed stat column: the widest stat (Scanoptics) sets it, so all
      three labels start at the same point. */
-  .proof-chip .proof-stat { font-size: 0.95rem; white-space: nowrap; min-width: 7.6em; }
+  .proof-chip .proof-stat { font-size: var(--fs-small); white-space: nowrap; min-width: 7.6em; }
   .proof-chip .proof-label { font-size: 0.8rem; margin-top: 0; white-space: nowrap; }
   .pc-lavender { --tilt: -0.6deg; margin: 0; background: rgba(218, 212, 245, 0.32); border-color: rgba(87, 74, 166, 0.12); }
-  .pc-lavender .proof-stat { font-size: 0.95rem; min-width: 7.6em; }
+  .pc-lavender .proof-stat { font-size: var(--fs-small); min-width: 7.6em; }
   .pc-lavender .proof-label { font-size: 0.8rem; }
   .pc-peach    { --tilt: 0.5deg;  margin: 0; background: rgba(252, 228, 196, 0.36); border-color: rgba(138, 90, 20, 0.11); }
   .pc-blush    { --tilt: -0.4deg; margin: 0; background: rgba(251, 213, 228, 0.34); border-color: rgba(166, 53, 99, 0.11); }
@@ -2251,7 +2251,7 @@ a.bld-item .bld-item-arrow {
 .arrow-link {
   margin-top: auto;
   align-self: flex-start;
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: var(--coral-deep);
   text-decoration: none;
@@ -2374,14 +2374,14 @@ a.bld-item .bld-item-arrow {
      audit). Any serif weight outside 400/500/600 must either change or
      be added to the Google request first. */
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
   flex-shrink: 0;
 }
 .q-peach .monogram    { background: var(--peach);    color: var(--courses-deep); }
 .q-lavender .monogram { background: var(--lavender); color: var(--automations-deep); }
 .q-blush .monogram    { background: var(--blush);    color: var(--consulting-deep); }
 .q-sage .monogram     { background: var(--sage);     color: var(--fractional-deep); }
-.quote-foot .who-name { font-weight: 600; color: var(--ink); font-size: 0.95rem; line-height: 1.3; }
+.quote-foot .who-name { font-weight: 600; color: var(--ink); font-size: var(--fs-small); line-height: 1.3; }
 .quote-foot .who-role { color: var(--muted); font-size: 0.85rem; }
 
 /* ============ Services page ============ */
@@ -2919,7 +2919,7 @@ a.bld-item .bld-item-arrow {
   padding-top: 14px;
   border-top: 2px solid var(--peach);
 }
-.case-col p { font-size: 0.95rem; color: var(--body); }
+.case-col p { font-size: var(--fs-small); color: var(--body); }
 /* All three column rules stay peach. The Impact rule used to run
    coral: side by side that read as emphasis, but stacked on a phone
    it just looked like one divider was the wrong colour (Amber,
@@ -3488,6 +3488,9 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .teach-grid,
 .pf-split { display: grid; grid-template-columns: minmax(0,0.42fr) minmax(0,1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
 .pf-split { margin-bottom: clamp(30px, 3.6vw, 46px); }
+/* copy first, photo right — for sections whose copy carries bullets or a
+   CTA and would otherwise leave the right half empty */
+.pf-split-r { grid-template-columns: minmax(0,1fr) minmax(0,0.42fr); margin-bottom: 0; }
 .teach-photo,
 .pf-photo { width: 100%; height: auto; border-radius: 12px; display: block; }
 .teach-cta { margin-top: 24px; align-items: center; }
@@ -3612,6 +3615,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
   .fm-grid { grid-template-columns: 1fr; gap: 30px; }
   .teach-grid,
   .pf-split { grid-template-columns: 1fr; gap: 24px; }
+  .pf-split-r { grid-template-columns: 1fr; }
   .teach-photo,
   .pf-photo { max-width: 260px; }
 }
@@ -5269,7 +5273,7 @@ input[aria-invalid="true"], textarea[aria-invalid="true"] { border-color: var(--
   font-weight: 600;
   color: var(--coral-deep);
   min-height: 1.4em;
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
 }
 
 /* ============ Pre-footer CTA band ============ */
@@ -5339,7 +5343,10 @@ footer {
 .footer-brand p { max-width: 32ch; margin: 16px 0 0; }
 .footer-cols {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* sized to what each column actually holds: "Mentorship and advisory"
+     needs 173px and amberfugedi@gmail.com needs 176px, while Shop holds a
+     single link. Equal columns broke the email across two lines. */
+  grid-template-columns: 0.75fr 1.15fr 0.6fr 1.2fr;
   gap: 32px clamp(16px, 2vw, 30px);
 }
 .footer-head {
@@ -5352,7 +5359,6 @@ footer {
 .footer-col ul { list-style: none; margin: 0; padding: 0; }
 .footer-col li + li { margin-top: 10px; }
 .footer-col a {
-  overflow-wrap: anywhere;   /* amberfugedi@gmail.com in a 124px column at 320 */
   color: var(--muted);
   text-decoration: none;
   font-weight: 500;
@@ -5418,6 +5424,8 @@ footer {
   /* Two columns, so "Start a conversation" is never squeezed into a
      third of a phone. The last group takes the second row. */
   .footer-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 24px; }
+  /* only once the columns are narrow enough to need it */
+  .footer-col a { overflow-wrap: anywhere; }
 }
 /* The nav hides the wordmark under 350px; the footer has the room. */
 @media (max-width: 350px) { .footer-brand .brand-name { display: inline; } }
@@ -6133,14 +6141,15 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 /* Career chapters are structural subheads, not card titles */
 .xp-company { font-size: var(--fs-h3); line-height: 1.2; letter-spacing: -0.015em; }
 .hiw-intro { font-size: var(--fs-intro); line-height: 1.5; }
-.hiw-stages h3 { font-size: var(--fs-intro); }
+.hiw-stages h3 { font-size: var(--fs-body); }
 .hiw-stages p { font-size: var(--fs-small); line-height: 1.55; }
 .aow-card h3 { font-size: var(--fs-eyebrow); }
 .aow-note { font-size: var(--fs-body); line-height: 1.5; }
 .aow-card > ul > li { font-size: var(--fs-small); line-height: 1.45; }
 .fitp-list li { font-size: var(--fs-body); line-height: 1.5; }
 .fitp-label { font-size: var(--fs-eyebrow); }
-.fitp-not p:last-child { font-size: var(--fs-intro); line-height: 1.5; }
+.fitp-not p:last-child { font-size: var(--fs-body); line-height: 1.5; }
+.oc-note { font-size: var(--fs-body); line-height: 1.4; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.55; }
@@ -6373,7 +6382,7 @@ footer p,
 @media (min-width: 761px) {
   .nav-links a, .nav-drop-btn { font-size: 1rem; }
 }
-.arrow-link { font-size: 1rem; } /* interactive text sits in the 16-17px slot */
+.arrow-link { font-size: var(--fs-small); } /* interactive text sits in the 16-17px slot */
 
 /* Inline conversion prompt: one quiet line at the decision moment
    on long proof pages (work, capabilities). Editorial, not a pill. */
@@ -7326,7 +7335,8 @@ footer p,
    after firing (plays once), and never starts under
    prefers-reduced-motion. Only two things are added — the rule draws
    from 0 to full width, and the icon follows it in. */
-.hiw { padding-top: clamp(72px, 8vw, 110px); padding-bottom: clamp(72px, 8vw, 110px); }
+/* the site section rhythm is 104; .fitp is the one deliberate step up */
+.hiw { padding-top: clamp(72px, 8vw, 104px); padding-bottom: clamp(72px, 8vw, 104px); }
 .hiw-head { max-width: 62ch; }
 .hiw-head .section-title { margin-bottom: 14px; }
 .hiw-intro { color: var(--body); max-width: 56ch; margin-bottom: 0; }
@@ -7357,7 +7367,9 @@ footer p,
   margin-bottom: 8px;
   text-wrap: pretty;
 }
-.hiw-stages p { color: var(--muted); margin-bottom: 0; text-wrap: pretty; }
+/* no text-wrap here: it held every line ~54px short of the rule above,
+   so the copy read narrower than its own column */
+.hiw-stages p { color: var(--muted); margin-bottom: 0; }
 /* one- and two-line stage headings otherwise start their copy at
    different heights across the row */
 @media (min-width: 981px) {
@@ -7495,7 +7507,7 @@ footer p,
   border-radius: var(--radius);
   padding: clamp(30px, 4.2vw, 64px);
 }
-.fitp-panel .section-title { margin-bottom: clamp(26px, 3vw, 38px); }
+.fitp-panel .section-title { font-size: var(--fs-h3); margin-bottom: clamp(26px, 3vw, 38px); }
 
 .fitp-list {
   list-style: none;
@@ -7562,4 +7574,75 @@ footer p,
   .hiw-stages > li,
   .hiw-stages > li .hiw-ico { transition: none; }
   .hiw-stages > li .hiw-ico { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   OUTSIDE OF WORK — the About collage (2026-09)
+   ============================================================
+   Amber's reference was a standalone file in Georgia/Arial with a
+   scattered absolute-positioned overlap across an 800px column. This
+   column is 426px, so the photos sit in a tidy 2x2 and get their
+   character from small rotations and the taped corners rather than
+   from overlap that would crowd at this width.
+
+   The white frame is a THIRD photo treatment, after the organic blob
+   (Amber's portraits) and the plain rectangle (work artifacts). It is
+   deliberate and scoped to this one block: a personal collage is
+   neither a portrait nor a work artifact, and About is already the
+   page MASTER allows an explicit, limited exception on.
+
+   The handwritten note is Newsreader italic. The reference asked for
+   Segoe Print / Bradley Hand, which the site does not load and would
+   have been a fourth font. */
+.ab-outside { display: flex; flex-direction: column; }
+/* the payoff sits at the foot of the column, under the collage */
+.ab-outside .ab-payoff-block { margin-top: auto; padding-top: clamp(30px, 3.4vw, 46px); }
+
+.oc {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(10px, 1.2vw, 16px);
+  padding: 6px 4px;
+}
+.oc-ph {
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 7px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 10px 26px rgba(61, 46, 40, 0.11);
+}
+.oc-ph img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; }
+/* small, uneven rotations — a pinned-up set, not a grid of thumbnails */
+.oc-1 { transform: rotate(-2.4deg); }
+.oc-2 { transform: rotate(1.8deg); }
+.oc-3 { transform: rotate(1.4deg); }
+.oc-4 { transform: rotate(-1.6deg); }
+
+.oc-tape {
+  position: absolute;
+  width: 58px;
+  height: 19px;
+  background: rgba(225, 212, 196, 0.62);
+  z-index: 3;
+  pointer-events: none;
+}
+.oc-t1 { left: 44%; top: -2px; transform: rotate(-7deg); }
+.oc-t2 { right: 6%; top: 47%; transform: rotate(6deg); }
+
+.oc-note {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--muted);
+  margin: clamp(16px, 1.8vw, 22px) 0 0;
+  transform: rotate(-1.6deg);
+  transform-origin: left center;
+}
+
+@media (max-width: 900px) {
+  .ab-outside .ab-payoff-block { margin-top: clamp(30px, 4vw, 44px); padding-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oc-ph, .oc-tape, .oc-note { transform: none; }
 }

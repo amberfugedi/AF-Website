@@ -5124,3 +5124,54 @@ plus the 2px accent rule `.sp-open::before` already drew; hover keeps
 only the border and headline shift.
 
 Detector 208 against 223 at HEAD.
+
+## Service page polish, and a warning about the detector (2026-09)
+
+TYPE. A full audit of every text-bearing element on the four service
+pages found two off-scale values, both legacy and both site-wide:
+`.arrow-link` at `1rem` (16px, between the scale's 15 and 17) and nine
+declarations at `0.95rem`. Both are `--fs-small` now, and the service
+pages carry ZERO off-scale sizes. The fit panel's heading dropped from
+`--fs-h2` to `--fs-h3`: 40px inside a bordered panel with 60px of its
+own padding read oversized. The not-a-fit line went from `--fs-intro`
+to `--fs-body`, since it had been larger than the signals above it.
+`.hiw-stages h3` went `--fs-intro` to `--fs-body`, and `text-wrap:
+pretty` came off its copy — it was holding every line ~54px short of
+the rule above it, so the text read narrower than its own column.
+
+RHYTHM. Four different section paddings were in play: 52 (bands), 76
+(asides), 104 (the site standard) and 110. The 110 was `.hiw` and 6px
+adrift for no reason; it is 104 now. "Some of it is just being in the
+room" was on `.svc-aside` at 76 despite being a full content section,
+and is on 104. The ladder is 52 / 76 / 104 / 128, with 128 the one
+deliberate step up for the fit panel.
+
+FOOTER. Four equal columns starved Services (173px needed, 176 given)
+and Get in touch (176 needed, 176 given, so amberfugedi@gmail.com broke
+mid-word) while Shop, holding one link, wasted 117px. Columns are
+0.75 / 1.15 / 0.6 / 1.2fr now. `overflow-wrap: anywhere` is scoped to
+the stacked layout; at desktop it was splitting the address.
+
+THE DETECTOR IS NOT REPRODUCIBLE ACROSS RUNS. The same unchanged HEAD
+snapshot scored 223 early in the session and 249 an hour later, with
+per-page rules moving 12 -> 16 and cramped-padding 43 -> 54. Never
+compare against a stored number: run the baseline and the candidate
+back to back and compare those. Measured that way, this pass is +24
+`cramped-padding` (all the documented decorative-child artifact, real
+insets 39-61px) and -11 `low-contrast`.
+
+## Outside of work (2026-09)
+
+A white-framed 2x2 collage in the right column of About's "outside the
+marketing of it all", with the "leave things better" payoff pinned to
+the foot of the same column. Amber's reference scattered four photos
+with absolute positioning across an 800px column; this column is 426px,
+so they sit in a grid and take their character from small rotations and
+two taped corners instead of overlap that would crowd.
+
+The white frame is a THIRD photo treatment after the organic blob
+(portraits) and the plain rectangle (work artifacts). Deliberate, and
+scoped to this block: a personal collage is neither, and About is the
+page this file already allows an explicit limited exception on. The
+handwritten note is Newsreader italic — the reference wanted Segoe
+Print / Bradley Hand, which would have been a fourth font.
