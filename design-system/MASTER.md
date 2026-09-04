@@ -4756,3 +4756,78 @@ THE CHECK, for anyone touching tabs again: sweep `height / line-height`
 on every `.tab-em` at 320, 360 and 375 as well as the common widths, and
 treat a wrap as acceptable only where the computed
 `box-decoration-break` is `clone`. Word count proves nothing.
+
+
+================================================================================
+2026-09-04 · THE SERVICES ECOSYSTEM PASS
+================================================================================
+
+Five pages, one job each. Services orients and routes; the four detail
+pages hold the depth.
+
+SERVICES IS NOW A ROUTING PAGE: 1,278 words to 369, and 4 sections where
+it had 8. The four `.offer-section` blocks each carried a paragraph, six
+capability bullets and an aside with tier, audience and availability —
+a second and worse copy of four pages that now exist. They collapse into
+one `.sv-cards` grid: name, one positioning sentence, three examples,
+one link. The bridge band went with them because the grid's lede does
+its job. The hero, the selector component and the closing CTA are
+preserved verbatim.
+
+THE WHOLE CARD IS THE TARGET, with ONE link stretched over it by a
+pseudo element. Not a link on the title as well: two links to the same
+place is a second tab stop reading the same destination twice, and the
+CTA label ("See how fractional leadership works") is the better
+accessible name because it says what the page is. `position: relative`
+on the card is what the stretch resolves against, and the focus ring
+goes on the card via `:focus-within` — outlining the small CTA text
+would hide where you are.
+HIT-TESTING THIS IS EASY TO GET WRONG. Two runs reported the cards dead
+before the test was right: `elementFromPoint` takes VIEWPORT
+coordinates, the cards sit below the fold, and `html` has
+`scroll-behavior: smooth`, so a `scrollIntoView` followed immediately by
+`getBoundingClientRect` reads a rect mid-animation. Scroll with
+`behavior: 'instant'`, wait, then test all four corners.
+
+THE SELECTOR KEEPS ITS MECHANIC AND LOSES ITS DETOURS. Its four back
+panels each carried four labelled blocks and pointed at Courses, My
+Approach and Expertise — none of which is where those people should go.
+Two blocks now, and all four situations route to the matching service.
+The four situations were rewritten to map one-to-one onto the four
+offers; the previous set did not, and forcing them would have misrouted
+people.
+
+WORKFLOW AND AI GAINED THE OTHER TWO THIRDS OF ITS OFFER. It argued the
+process case well and left BUILD and ENABLE implicit. Capabilities are
+now workflow improvement / AI and automation builds / team enablement /
+adoption and rollout; the process runs six steps because enablement and
+refinement were the two that were missing; and one new section carries
+both building and enablement, not two, because they are one movement in
+practice and the brief asks to keep the site tighter. Training here is a
+service and says so, with Courses named as the separate thing.
+"Built, not theorised." is gone — British spelling and off-brand.
+
+ROBERT JAMES MOVED TO FRACTIONAL, which is what it is: nine years as the
+marketing function for a business with nobody in-house. It replaced
+Scan-Optics there, which is a demand generation rebuild and better
+consulting proof. Consulting now shows TWO cases rather than three,
+because there is no third genuinely project-shaped engagement on the
+site and two honest ones beat three where one misdescribes an ongoing
+relationship. `.svc-proof-2` exists for that.
+
+MENTORSHIP GAINED THE ADVISORY HALF: a recognition line and a fit line
+for owners making marketing calls with nobody senior nearby, plus a
+second testimonial from someone she actually mentored.
+
+MEASURED: services 3,525px at 1440 against fractional 7,928, consulting
+7,096, workflow 8,627 and mentorship 5,833. Workflow is now the longest,
+which is right — it covers three capabilities where the others cover
+one. No horizontal overflow on any of the five at six widths. Every
+internal link on the site resolves 200 except `{{COURSE_ACCESS_URL}}`,
+which is a deliberate placeholder. All six Projects anchors and both
+About anchors exist. No banned words. No em dashes in visible copy on
+any page. The only exact duplicate sentences across the five are the
+cross-link rows, which are a routing component and are meant to repeat.
+Detector: services 29 to 22, consulting 19 to 18, workflow 19 to 25 —
+that rise is entirely the hairline-gradient false positive, verified
+again at 5.50:1 against real painted pixels.

@@ -132,7 +132,7 @@
 
   <main id="main">
 
-    <header class="page-head page-head-art">
+<header class="page-head page-head-art">
       <div class="wrap head-grid">
         <div class="head-copy">
           <h1>Different ways to work together.</h1>
@@ -221,277 +221,164 @@
       </div>
     </header>
 
-    <!-- Sticky anchor nav -->
-    <nav class="anchor-nav" aria-label="Services on this page">
+    <!-- ============ Ways to work together ============
+         WAS FOUR FULL OFFER SECTIONS. Each carried a paragraph, six
+         capability bullets and an aside with tier, audience and
+         availability — all of which now lives on the dedicated page, so
+         this was a second and worse copy of four pages that exist.
+         The page's job is orientation and routing: name, one positioning
+         sentence, three examples, one link. The glyphs come across
+         unchanged so each offer keeps its colour code.
+         ONE LINK PER CARD, stretched over the whole card by a pseudo
+         element. Not a link on the title as well: two links to the same
+         place is a second tab stop that reads the same destination
+         twice, and the CTA label is the better accessible name because
+         it says what the page is. -->
+    <section class="svc-rule" aria-labelledby="ways-title">
       <div class="wrap">
-        <ul>
-          <li><a class="nav-consulting" href="#consulting">Consulting</a></li>
-          <li><a class="nav-fractional" href="#fractional">Fractional</a></li>
-          <li><a class="nav-automations" href="#automations">Workflow &amp; AI</a></li>
-          <li><a class="nav-mentorship" href="#mentorship">Mentorship</a></li>
+        <h2 class="section-title reveal" id="ways-title">Ways to work together</h2>
+        <p class="section-lede reveal">The right support depends on what the business is trying to achieve. Four arrangements, and the difference between them is mostly how much of the work I take on.</p>
+
+        <ul class="sv-cards">
+        <li class="sv-card offer-fractional reveal">
+          <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round"><defs><linearGradient id="gs-f" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#D9EFD3" stop-opacity="0.3"/><stop offset="1" stop-color="#D9EFD3"/></linearGradient></defs><circle class="fill" cx="36" cy="38" r="20" fill="url(#gs-f)" stroke="none"/><circle class="stroke" pathLength="100" cx="36" cy="38" r="22" stroke="#2E7529" stroke-width="1.6" stroke-opacity="0.38"/><path class="stroke" pathLength="100" d="M36 16 A 22 22 0 0 1 47 57" stroke="#2E7529" stroke-width="4.4"/><circle class="fill" cx="36" cy="16" r="3.2" fill="#2E7529" stroke="none"/><circle class="fill" cx="47" cy="57" r="2.6" fill="#2E7529" stroke="none" opacity="0.55"/></svg>
+          <h3>Fractional leadership</h3>
+          <p class="sv-pos">I step into the business and help lead the marketing function.</p>
+          <ul class="sv-points">
+          <li>Direction, priorities and planning</li>
+          <li>Ownership, operating rhythm and team development</li>
+          <li>Budget, agencies, systems and reporting</li>
+          </ul>
+          <a class="arrow-link sv-go" href="/services/fractional-leadership">See how fractional leadership works</a>
+        </li>
+        <li class="sv-card offer-consulting reveal" data-delay="1">
+          <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="gs-s" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FBD5E4" stop-opacity="0.25"/><stop offset="1" stop-color="#FBD5E4"/></linearGradient></defs><path class="fill" d="M10 60 C 30 58, 46 48, 61 21 L61 60 Z" fill="url(#gs-s)" stroke="none"/><path class="stroke" pathLength="100" d="M10 60 C 30 58, 46 48, 61 21" stroke="#A63563" stroke-width="2.2"/><path class="stroke" pathLength="100" d="M54.5 21.5 L61.5 18.5 L60.5 26" stroke="#A63563" stroke-width="2.2" fill="none"/><circle class="fill" cx="10" cy="60" r="3" fill="#A63563" stroke="none"/></svg>
+          <h3>Consulting</h3>
+          <p class="sv-pos">We take one defined marketing problem and work out what&#8217;s actually causing it.</p>
+          <ul class="sv-points">
+          <li>Positioning, messaging and marketing strategy</li>
+          <li>Demand generation, campaigns and websites</li>
+          <li>Audits, plans and the build that follows</li>
+          </ul>
+          <a class="arrow-link sv-go" href="/services/consulting">Explore consulting</a>
+        </li>
+        <li class="sv-card offer-automations reveal" data-delay="2">
+          <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round"><defs><linearGradient id="ga-s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DAD4F5"/><stop offset="1" stop-color="#574AA6"/></linearGradient></defs><circle class="fill" cx="36" cy="36" r="11" fill="url(#ga-s)" stroke="none"/><circle class="stroke" pathLength="100" cx="36" cy="36" r="26" stroke="#574AA6" stroke-width="2"/><circle class="stroke" pathLength="100" cx="36" cy="36" r="18.5" stroke="#574AA6" stroke-width="1.6" opacity="0.45"/><circle class="fill" cx="58.5" cy="23" r="3.2" fill="#574AA6" stroke="none"/><circle class="fill" cx="13.5" cy="49" r="3.2" fill="#574AA6" stroke="none" opacity="0.7"/><circle class="fill" cx="36" cy="62" r="2.4" fill="#574AA6" stroke="none" opacity="0.45"/></svg>
+          <h3>Workflow and AI</h3>
+          <p class="sv-pos">We make the work itself better, then build automation or AI where it genuinely helps.</p>
+          <ul class="sv-points">
+          <li>Mapping the work and removing what isn&#8217;t earning its place</li>
+          <li>Building practical AI tools and automations</li>
+          <li>Training the team so it still gets used later</li>
+          </ul>
+          <a class="arrow-link sv-go" href="/services/workflow-ai">Explore workflow and AI</a>
+        </li>
+        <li class="sv-card offer-mentorship reveal" data-delay="2">
+          <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round"><defs><linearGradient id="gm-s" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FCE4C4"/><stop offset="1" stop-color="#F2A93B"/></linearGradient></defs><circle class="stroke" pathLength="100" cx="27" cy="30" r="16" stroke="#8A5A14" stroke-width="2"/><circle class="fill" cx="47" cy="45" r="12" fill="url(#gm-s)" stroke="none"/><circle class="stroke" pathLength="100" cx="47" cy="45" r="12" stroke="#8A5A14" stroke-width="2"/><circle class="fill" cx="27" cy="30" r="3.4" fill="#8A5A14" stroke="none"/></svg>
+          <h3>Mentorship and advisory</h3>
+          <p class="sv-pos">You get an experienced marketer to think with, and to be challenged by.</p>
+          <ul class="sv-points">
+          <li>Leadership, prioritization and executive conversations</li>
+          <li>Feedback on real campaigns, plans and decisions</li>
+          <li>For marketers, marketing leaders and business owners</li>
+          </ul>
+          <a class="arrow-link sv-go" href="/services/mentorship-advisory">Explore mentorship and advisory</a>
+        </li>
         </ul>
       </div>
-    </nav>
-
-    <!-- ============ Consulting ============ -->
-    <section class="offer-section offer-consulting" id="consulting" aria-labelledby="consulting-title">
-      <div class="wrap offer-grid">
-        <div class="reveal">
-          <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="gs-s" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FBD5E4" stop-opacity="0.25"/><stop offset="1" stop-color="#FBD5E4"/></linearGradient></defs><path class="fill" d="M10 60 C 30 58, 46 48, 61 21 L61 60 Z" fill="url(#gs-s)" stroke="none"/><path class="stroke" pathLength="100" d="M10 60 C 30 58, 46 48, 61 21" stroke="#A63563" stroke-width="2.2"/><path class="stroke" pathLength="100" d="M54.5 21.5 L61.5 18.5 L60.5 26" stroke="#A63563" stroke-width="2.2" fill="none"/><circle class="fill" cx="10" cy="60" r="3" fill="#A63563" stroke="none"/></svg>
-          <h2 id="consulting-title">Consulting</h2>
-          <p class="offer-desc">Marketing and business strategy shaped around what the company is trying to achieve. The work may involve building a marketing foundation, clarifying positioning, planning campaigns, improving demand generation, strengthening operations, developing content, or supporting execution.</p>
-          <ul class="offer-points">
-            <li>Marketing and business goals considered together</li>
-            <li>Positioning, messaging, and campaign strategy</li>
-            <li>Demand generation, content, websites, and sales enablement</li>
-            <li>Marketing operations and team workflows</li>
-            <li>Practical AI guidance when it supports the goal</li>
-            <li>Hands-on support where needed</li>
-          </ul>
-          <p class="section-foot-link"><a class="arrow-link" href="/services/consulting">How consulting works</a></p>
-        </div>
-        <aside class="offer-aside reveal" data-delay="1">
-          <p class="tier">By application</p>
-          <p class="who">For businesses that want experienced strategic support that can adapt to what the work requires.</p>
-          <p>A small number of engagements at a time. Tell me what you are trying to accomplish and we can see whether the engagement is a fit.</p>
-          <a class="btn btn-primary" href="/about?topic=consulting#contact">Apply to work together</a>
-        </aside>
-      </div>
     </section>
 
-    <!-- ============ Fractional ============
-         The fourth offer, added Aug 2026. Shares Consulting's blush:
-         MASTER.md defines exactly three pastels (blush / peach /
-         lavender), one per offer, so a fourth colour would be a
-         palette change rather than a page change. Flagged to Amber. -->
-    <section class="offer-section offer-fractional" id="fractional" aria-labelledby="fractional-title">
-      <div class="wrap offer-grid">
-        <div class="reveal">
-          <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round"><defs><linearGradient id="gs-f" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#D9EFD3" stop-opacity="0.3"/><stop offset="1" stop-color="#D9EFD3"/></linearGradient></defs><circle class="fill" cx="36" cy="38" r="20" fill="url(#gs-f)" stroke="none"/><circle class="stroke" pathLength="100" cx="36" cy="38" r="22" stroke="#2E7529" stroke-width="1.6" stroke-opacity="0.38"/><path class="stroke" pathLength="100" d="M36 16 A 22 22 0 0 1 47 57" stroke="#2E7529" stroke-width="4.4"/><circle class="fill" cx="36" cy="16" r="3.2" fill="#2E7529" stroke="none"/><circle class="fill" cx="47" cy="57" r="2.6" fill="#2E7529" stroke="none" opacity="0.55"/></svg>
-          <h2 id="fractional-title">Fractional marketing leadership</h2>
-          <p class="offer-desc">Senior marketing leadership on a retained basis, for businesses that need a marketing leader&#8217;s judgment without hiring one full time. I work inside the business rather than alongside it: setting the direction, running the plan, and staying close enough to the work that it keeps moving.</p>
-          <ul class="offer-points">
-            <li>Direction and planning owned end to end, not handed over as a deck</li>
-            <li>Campaigns, demand generation, and paid media run against the plan</li>
-            <li>Website, content, and member or customer communications kept current</li>
-            <li>Reporting and systems the team can run without me</li>
-            <li>A steady presence rather than a one-off project</li>
-          </ul>
-          <div class="section-foot-link foot-links">
-            <a class="arrow-link" href="/services/fractional-leadership">How fractional leadership works</a>
-            <a class="arrow-link foot-secondary" href="/projects#membersfirst">See eight years of it in one place</a>
-          </div>
-        </div>
-        <aside class="offer-aside reveal" data-delay="1">
-          <p class="tier">Retained</p>
-          <p class="who">For businesses that need a marketing leader on an ongoing basis, without a full-time hire.</p>
-          <p>A small number of retained engagements at a time. Tell me what the business is trying to achieve and we can see whether an ongoing arrangement is the right shape.</p>
-          <a class="btn btn-primary" href="/about?topic=fractional#contact">Ask about availability</a>
-        </aside>
-      </div>
-    </section>
-
-
-    <!-- ============ Transition band ============ -->
-    <section class="bridge" aria-label="Transition">
-      <div class="wrap">
-        <p class="bridge-line reveal">The right support depends on what the business is trying to achieve.</p>
-      </div>
-    </section>
-
-    <!-- ============ Automations ============ -->
-    <section class="offer-section offer-automations" id="automations" aria-labelledby="automations-title">
-      <div class="wrap offer-grid">
-        <div class="reveal">
-          <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round"><defs><linearGradient id="ga-s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DAD4F5"/><stop offset="1" stop-color="#574AA6"/></linearGradient></defs><circle class="fill" cx="36" cy="36" r="11" fill="url(#ga-s)" stroke="none"/><circle class="stroke" pathLength="100" cx="36" cy="36" r="26" stroke="#574AA6" stroke-width="2"/><circle class="stroke" pathLength="100" cx="36" cy="36" r="18.5" stroke="#574AA6" stroke-width="1.6" opacity="0.45"/><circle class="fill" cx="58.5" cy="23" r="3.2" fill="#574AA6" stroke="none"/><circle class="fill" cx="13.5" cy="49" r="3.2" fill="#574AA6" stroke="none" opacity="0.7"/><circle class="fill" cx="36" cy="62" r="2.4" fill="#574AA6" stroke="none" opacity="0.45"/></svg>
-          <h2 id="automations-title">Workflow &amp; AI Guidance</h2>
-          <p class="offer-desc">AI can be useful, but only when it supports a real business need. I review your goals, processes, and day-to-day work to identify where AI, a better tool, or a clearer workflow could improve the way the work gets done. The goal is to make a thoughtful decision about what is worth changing.</p>
-          <ul class="offer-points">
-            <li>Review goals, workflows, and current challenges</li>
-            <li>Identify practical AI opportunities tied to business goals</li>
-            <li>Find unnecessary friction and repetitive work</li>
-            <li>Improve the process before adding more tools</li>
-            <li>Create a realistic testing or implementation plan</li>
-            <li>Recommend automation only when it is the right solution</li>
-          </ul>
-          <div class="section-foot-link foot-links">
-            <a class="arrow-link" href="/services/workflow-ai">How workflow and AI work</a>
-            <a class="arrow-link foot-secondary" href="/projects#builds">See how the approach works</a>
-          </div>
-        </div>
-        <aside class="offer-aside reveal" data-delay="1">
-          <p class="tier">Advisory</p>
-          <p class="who">For teams that suspect there’s a smarter way to work and want a clear-eyed read before buying anything.</p>
-          <!-- {{ADJUST}}: add typical engagement range when set -->
-          <p>Scoped engagements with concrete recommendations. When a build makes sense, we scope that too.</p>
-          <a class="btn btn-primary" href="/about?topic=ai-advisory#contact">Start the conversation</a>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ============ Mentorship and internships ============
-         Replaces Courses here (Amber, 2026-08: "we can remove courses
-         from the services tab, it's a listed product"). The course has
-         its own page and sits in the Shop menu, the footer and the
-         first situation card, so nothing is orphaned by taking it out
-         of the services list — and the tab count stays at four, which
-         the phone anchor nav needs.
-
-         Named "and advisory" rather than "and internships" or
-         "business coaching" (Amber, 2026-08). Coaching would have sat in
-         the same slot as Consulting for a reader scanning four services,
-         and the word appears once on this whole site — describing an AI
-         feature in a fitness app. Advisory is already in her vocabulary
-         six times over, and it covers the owner who wants an opinion
-         where mentorship alone reads junior. Internships stay as a
-         bullet: they are a different transaction, with nobody paying
-         for them.
-
-         It inherits the peach slot Courses vacated. The two belong to
-         the same warm family on purpose: both are someone learning to
-         do the work themselves. Courses keeps peach on the homepage
-         card and its own pages. -->
-    <section class="offer-section offer-mentorship" id="mentorship" aria-labelledby="mentorship-title">
-      <div class="wrap offer-grid">
-        <div class="reveal">
-          <svg class="glyph" viewBox="0 0 72 72" width="64" height="64" aria-hidden="true" fill="none" stroke-linecap="round"><defs><linearGradient id="gm-s" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FCE4C4"/><stop offset="1" stop-color="#F2A93B"/></linearGradient></defs><circle class="stroke" pathLength="100" cx="27" cy="30" r="16" stroke="#8A5A14" stroke-width="2"/><circle class="fill" cx="47" cy="45" r="12" fill="url(#gm-s)" stroke="none"/><circle class="stroke" pathLength="100" cx="47" cy="45" r="12" stroke="#8A5A14" stroke-width="2"/><circle class="fill" cx="27" cy="30" r="3.4" fill="#8A5A14" stroke="none"/></svg>
-          <h2 id="mentorship-title">Mentorship and advisory</h2>
-          <p class="offer-desc">One-to-one mentoring for marketers growing into a bigger role, and advice for owners making marketing decisions without another experienced person nearby. Where a client engagement has room for it, internships that put someone early in their career on real work rather than shadowing.</p>
-          <ul class="offer-points">
-            <li>Practical guidance and honest perspective from someone who has done the work</li>
-            <li>Priorities, strategy, team challenges, executive communication, or the work itself</li>
-            <li>A single working session when there is one decision to get right</li>
-            <li>A short engagement when it is a stretch of work rather than a moment</li>
-            <li>Monthly advisory when you want someone to stay across it</li>
-            <li>Internships arranged inside client work, when a project has room for one</li>
-          </ul>
-          <div class="section-foot-link foot-links">
-            <a class="arrow-link" href="/services/mentorship-advisory">How mentorship works</a>
-            <a class="arrow-link foot-secondary" href="/about#recommendations">Read what people who have worked with me say</a>
-          </div>
-        </div>
-        <aside class="offer-aside reveal" data-delay="1">
-          <p class="tier">One to one</p>
-          <p class="who">For marketers growing into a bigger role, and for small business owners who want an experienced opinion.</p>
-          <p>Priced per session or per month depending on which of those three shapes fits, and agreed before anything starts. Internships depend on a client engagement having room for one. Tell me what you are working through and I will say plainly whether I can help.</p>
-          <a class="btn btn-primary" href="/about?topic=mentoring#contact">Ask about mentoring</a>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ============ Choose your starting point ============ -->
+    <!-- ============ What sounds like you? ============
+         KEPT, because it lets someone start from their situation rather
+         than from the name of a service. Condensed: the back panels each
+         carried four labelled blocks and pointed at Courses, My Approach
+         and Expertise, which is not where any of these people should be
+         going. Two short blocks now, and every one routes to the service
+         page that matches it. -->
     <section class="sp-section" aria-labelledby="sp-title">
       <div class="wrap">
         <div class="sp-head reveal">
           <h2 id="sp-title" class="section-title">What sounds <span class="tab-em tab-blush">like you?</span></h2>
-          <p>Choose the situation closest to yours. I&rsquo;ll show you where I&rsquo;d start and what working together could look like.</p>
+          <p>Start from the situation rather than the service. I&#8217;ll show you where I&#8217;d begin.</p>
         </div>
-
         <div class="sp-grid">
-
-          <!-- 01 — Building from the ground up -->
           <article class="sp-card reveal">
             <div class="sp-face sp-front">
               <button type="button" class="sp-open" id="sp-b-0" aria-expanded="false" aria-controls="sp-p-0">
                 <span class="sp-n">01</span>
-                <span class="sp-t">I&rsquo;m building marketing from the ground up</span>
-                <span class="sp-s">The business is established. The marketing foundation is not.</span>
+                <span class="sp-t">My team is busy and I&#8217;m still in every decision</span>
+                <span class="sp-s">There are marketers. What&#8217;s missing is someone leading the function.</span>
                 <span class="sp-cue">See how I help <span aria-hidden="true">&rarr;</span></span>
               </button>
             </div>
             <div class="sp-face sp-back" id="sp-p-0" role="region" aria-labelledby="sp-b-0">
-              <p class="sp-k">What may be happening</p>
-              <p>The business may have grown through referrals, reputation, relationships, or the owner&rsquo;s effort without ever building a clear marketing function. Now you need to understand what matters, what to build first, what support to hire, and what can wait.</p>
+              <p class="sp-k">What&#8217;s usually happening</p>
+              <p>The work gets done, but priorities move constantly, ownership is unclear, and most decisions still come back to you. Adding another person rarely fixes that on its own.</p>
               <p class="sp-k">How I help</p>
-              <p>I help define the audience, positioning, message, priorities, and practical marketing foundation the business actually needs. Then we decide what can be handled internally, what should be outsourced, and what does not need to be done yet.</p>
-              <p class="sp-k">Best place to start</p>
-              <p>Build Your Marketing Foundation or a focused strategy engagement.</p>
-              <p class="sp-k">This may look like</p>
-              <p class="sp-may">Course support &middot; Marketing foundation consulting &middot; Focused strategy work</p>
-              <p class="sp-cta"><a class="arrow-link" href="/courses">Explore the course</a></p>
+              <p>I take on the leadership: direction, priorities, accountability, budget and reporting, close enough to the work to know whether any of it is landing.</p>
+              <p class="sp-cta"><a class="arrow-link" href="/services/fractional-leadership">Fractional leadership</a></p>
               <button type="button" class="sp-close">Close<span aria-hidden="true">&nbsp;&times;</span></button>
             </div>
           </article>
-
-          <!-- 02 — Carrying too much -->
           <article class="sp-card reveal" data-delay="1">
             <div class="sp-face sp-front">
               <button type="button" class="sp-open" id="sp-b-1" aria-expanded="false" aria-controls="sp-p-1">
                 <span class="sp-n">02</span>
-                <span class="sp-t">I&rsquo;m carrying too much of the marketing</span>
-                <span class="sp-s">Too much of the work still depends on one person.</span>
+                <span class="sp-t">We have one problem we can&#8217;t get past</span>
+                <span class="sp-s">Something specific isn&#8217;t working and opinions differ on why.</span>
                 <span class="sp-cue">See how I help <span aria-hidden="true">&rarr;</span></span>
               </button>
             </div>
             <div class="sp-face sp-back" id="sp-p-1" role="region" aria-labelledby="sp-b-1">
-              <p class="sp-k">What may be happening</p>
-              <p>Marketing lives in your head, your calendar, and a collection of disconnected tools, freelancers, responsibilities, and unfinished ideas. Things are getting done, but the work is difficult to maintain, delegate, or improve.</p>
+              <p class="sp-k">What&#8217;s usually happening</p>
+              <p>There&#8217;s usually no shortage of ideas about what to do next. What&#8217;s missing is agreement about which problem is being solved.</p>
               <p class="sp-k">How I help</p>
-              <p>I clarify what matters most, simplify the work, create more useful systems, and reduce how much of the marketing function depends on one person.</p>
-              <p class="sp-k">Best place to start</p>
-              <p>Focused consulting, workflow and AI advisory, or hands-on marketing systems work.</p>
-              <p class="sp-k">This may look like</p>
-              <p class="sp-may">Project-based consulting &middot; Fractional support &middot; Workflow improvement</p>
-              <p class="sp-cta"><a class="arrow-link" href="/my-approach">See how I work</a></p>
+              <p>We define it properly, find what&#8217;s really causing it, and build the answer. I stay close while the team puts it in place.</p>
+              <p class="sp-cta"><a class="arrow-link" href="/services/consulting">Consulting</a></p>
               <button type="button" class="sp-close">Close<span aria-hidden="true">&nbsp;&times;</span></button>
             </div>
           </article>
-
-          <!-- 03 — Not producing results -->
-          <article class="sp-card reveal">
+          <article class="sp-card reveal" data-delay="2">
             <div class="sp-face sp-front">
               <button type="button" class="sp-open" id="sp-b-2" aria-expanded="false" aria-controls="sp-p-2">
                 <span class="sp-n">03</span>
-                <span class="sp-t">Marketing is happening, but it isn&rsquo;t producing the results we need</span>
-                <span class="sp-s">There is activity and investment, but not enough meaningful growth.</span>
+                <span class="sp-t">Too much of the week goes on repetitive work</span>
+                <span class="sp-s">The process has collected steps nobody has revisited.</span>
                 <span class="sp-cue">See how I help <span aria-hidden="true">&rarr;</span></span>
               </button>
             </div>
             <div class="sp-face sp-back" id="sp-p-2" role="region" aria-labelledby="sp-b-2">
-              <p class="sp-k">What may be happening</p>
-              <p>There may be campaigns, people, tools, and budget in place, but the work is not translating into enough growth. The issue may be strategy, positioning, execution, ownership, systems, measurement, or friction between marketing and the rest of the business.</p>
+              <p class="sp-k">What&#8217;s usually happening</p>
+              <p>Reporting takes hours. The same information gets typed into three places. People are trying AI on their own with no shared approach.</p>
               <p class="sp-k">How I help</p>
-              <p>I identify where performance is breaking down, connect marketing to the broader business strategy, and help the team focus on the changes most likely to improve results. I can stay close enough to the work to help those changes get implemented.</p>
-              <p class="sp-k">Best place to start</p>
-              <p>Strategic consulting, fractional marketing leadership, demand generation work, or a cross-functional growth project.</p>
-              <p class="sp-k">This may look like</p>
-              <p class="sp-may">Fractional leadership &middot; Strategic consulting &middot; Demand generation &middot; Marketing operations</p>
-              <p class="sp-cta"><a class="arrow-link" href="/expertise">See the expertise in action</a></p>
+              <p>We simplify the work first, then build the automations and AI tools that earn their place, and train the team so they still get used a month later.</p>
+              <p class="sp-cta"><a class="arrow-link" href="/services/workflow-ai">Workflow and AI</a></p>
               <button type="button" class="sp-close">Close<span aria-hidden="true">&nbsp;&times;</span></button>
             </div>
           </article>
-
-          <!-- 04 — Someone to think with -->
-          <article class="sp-card reveal" data-delay="1">
+          <article class="sp-card reveal" data-delay="2">
             <div class="sp-face sp-front">
               <button type="button" class="sp-open" id="sp-b-3" aria-expanded="false" aria-controls="sp-p-3">
                 <span class="sp-n">04</span>
-                <span class="sp-t">I need senior marketing thinking, not another agency</span>
-                <span class="sp-s">I need perspective, direction, or an experienced person in the room.</span>
+                <span class="sp-t">I need to think a decision through with someone</span>
+                <span class="sp-s">You want perspective, not someone taking the work over.</span>
                 <span class="sp-cue">See how I help <span aria-hidden="true">&rarr;</span></span>
               </button>
             </div>
             <div class="sp-face sp-back" id="sp-p-3" role="region" aria-labelledby="sp-b-3">
-              <p class="sp-k">What may be happening</p>
-              <p>You may be leading marketing, inheriting a function, building a team, growing into a larger role, or making difficult decisions without another experienced person nearby. That is true whether you are a marketer or a founder who oversees the marketing.</p>
+              <p class="sp-k">What&#8217;s usually happening</p>
+              <p>You might be the only marketer, new to leading one, or running the business and making marketing calls with nobody senior nearby.</p>
               <p class="sp-k">How I help</p>
-              <p>I provide practical guidance, honest perspective, and a place to work through decisions with someone experienced. We can review priorities, strategy, team challenges, executive communication, career growth, or the work itself.</p>
-              <p class="sp-k">Best place to start</p>
-              <p>One-to-one mentoring, marketing leadership advisory, or ongoing thought partnership.</p>
-              <p class="sp-k">This may look like</p>
-              <p class="sp-may">One-time working session &middot; Short mentoring engagement &middot; Monthly advisory</p>
-              <p class="sp-cta"><a class="arrow-link" href="#mentorship">See mentorship and advisory</a></p>
+              <p>We talk through the real thing. I&#8217;ll challenge it rather than agree with it, and you leave with a clearer decision or a next step.</p>
+              <p class="sp-cta"><a class="arrow-link" href="/services/mentorship-advisory">Mentorship and advisory</a></p>
               <button type="button" class="sp-close">Close<span aria-hidden="true">&nbsp;&times;</span></button>
             </div>
           </article>
-
-        </div><!-- /.sp-grid -->
-      </div><!-- /.wrap -->
+        </div>
+      </div>
     </section>
-    <!-- ============ /Choose your starting point ============ -->
 
-    <!-- ============ Pre-footer CTA ============ -->
-    <section class="cta-band-wrap" aria-label="Get in touch">
+<section class="cta-band-wrap" aria-label="Get in touch">
       <div class="wrap">
         <div class="cta-band reveal">
           <h2>Let's figure out what <span class="tab-em tab-butter">comes next.</span></h2>
