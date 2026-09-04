@@ -470,6 +470,24 @@ body.page-sub .aura { --aura-base: 0.45; }
   transition: transform 0.2s var(--ease);
 }
 .nav-drop-btn[aria-expanded="true"] .nav-caret { transform: translateY(1px) rotate(-135deg); }
+/* Same reasoning as the mobile rule, for touch at desktop widths: with
+   no hover the caret promises a panel that cannot open. The trigger
+   still navigates, and /services links every service page. */
+@media (hover: none) {
+  .nav-drop-link .nav-caret { display: none; }
+}
+/* The trigger is an <a> inside .nav-links now, so it picks up the
+   current-page underline natively on /services. .is-current still marks
+   the group from a child page — one underline either way, never both
+   (checked at rest, with the pointer parked off the nav: hovering the
+   link paints the same gradient and will lie to you about this).
+   The two states used two different marks — coral-deep gradient on
+   /services, a coral box-shadow on the child page — which put a
+   slightly different underline under the same word depending on which
+   page you were on. Links use the gradient for both. The box-shadow
+   stays for Shop, whose trigger is a button and has no gradient. */
+.nav-drop-link { text-decoration: none; }
+.nav-drop-link.is-current { background-size: 100% 2px; box-shadow: none; }
 
 .nav-drop-menu {
   position: absolute;
@@ -697,6 +715,13 @@ body.page-sub .aura { --aura-base: 0.45; }
   .nav-drop-menu::before { content: none; }
   .nav-drop-btn[aria-expanded="true"] ~ .nav-drop-menu,
   .nav-drop:focus-within .nav-drop-menu { display: block; }
+  /* A LINK-TRIGGERED GROUP HAS NO DISCLOSURE TO TAP. Tapping "Services"
+     navigates, and there is no hover on a phone, so a collapsed panel
+     here would be unreachable — the children are simply always visible,
+     indented, which is what a full-screen menu wants anyway. The caret
+     goes with it: there is nothing left for it to promise. */
+  .nav-drop:has(.nav-drop-link) .nav-drop-menu { display: block; }
+  .nav-drop-link .nav-caret { display: none; }
   .nav-links .nav-drop-menu a {
     padding-left: 18px;
     font-size: 1.3rem;

@@ -398,11 +398,12 @@
   }
 
   /* ---------- Nav dropdowns ----------
-     Two groups now: Shop and Services. Shop is a disclosure button with
-     no page behind it; Services HAS a page, so its menu leads with "All
-     services" and the parent stays reachable — turning the parent into a
-     button is the one thing that would have quietly removed /services
-     from the nav.
+     Two groups, and they are not the same shape. Shop is a disclosure
+     BUTTON: there is no /shop page, so the trigger has nowhere to go.
+     Services is a LINK to /services that reveals its children on hover
+     (Amber: "people will click the services button naturally"). Clicking
+     it navigates; it never toggles. The menu therefore lists only real
+     service pages, with no "All services" row restating the trigger.
      querySelectorAll, NOT querySelector. This block ran on the first
      .nav-drop only for as long as there was one, so adding Services in
      Sept 2026 would otherwise have shipped a caret with no click, no
@@ -433,7 +434,11 @@
       return dropBtn.getAttribute("aria-expanded") === "true";
     };
 
-    dropBtn.addEventListener("click", function () { setDrop(!isOpen()); });
+    /* A link trigger must not swallow its own click — tapping "Services"
+       goes to /services. Only the button trigger toggles. */
+    if (dropBtn.tagName !== "A") {
+      dropBtn.addEventListener("click", function () { setDrop(!isOpen()); });
+    }
 
     /* If the page you are on lives inside the group, MARK the group
        rather than opening it. Opening it rendered a permanently expanded

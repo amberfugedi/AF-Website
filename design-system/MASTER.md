@@ -4370,13 +4370,44 @@ are byte-identical to the previous commit.
 ================================================================================
 
 `/services/fractional-leadership` is now a child of Services in the nav
-and the footer. Services is a `.nav-drop`, the same component Shop uses,
-and its menu leads with "All services" → `/services`.
+and the footer. Services is a `.nav-drop`, the same component Shop uses.
 
-THAT FIRST ITEM IS NOT DECORATION. Shop is a disclosure BUTTON because
-there is no /shop page. Services has one, so converting the parent to a
-button is the single move that would have quietly deleted /services from
-the navigation. The menu carries it.
+THE TWO GROUPS ARE NOT THE SAME SHAPE, and this is the thing to keep
+straight. Shop is a disclosure BUTTON: there is no /shop page, so the
+trigger has nowhere to go. Services is a LINK to /services that reveals
+its children on hover. Clicking it navigates; it never toggles.
+
+A first pass made Services a button too and put an "All services" row at
+the top of its menu, because a button trigger leaves /services otherwise
+unreachable. Amber cut it — "people will click the services button
+naturally" — which is the better answer: make the trigger a link and the
+row is not needed. The menu now lists only real service pages. Keep it
+that way as consulting, workflows/AI and advisory arrive: the trigger is
+the link to the index, never a row inside the panel.
+
+WHAT A LINK TRIGGER COSTS, AND HOW IT IS PAID:
+- It must not swallow its own click, so `main.js` only binds the toggle
+  when `dropBtn.tagName !== "A"`.
+- On touch there is no hover and tapping navigates, so a collapsed panel
+  would be unreachable. In the mobile menu a link-triggered group shows
+  its children outright — `.nav-drop:has(.nav-drop-link) .nav-drop-menu`
+  — and the caret is hidden, there and under `@media (hover: none)`,
+  because it would otherwise promise a panel that cannot open. Touch at
+  desktop widths reaches the child through /services, one tap further.
+- `aria-expanded` on a link is valid: ARIA supports it on role=link.
+- The trigger is now an `<a>` inside `.nav-links`, so on /services it
+  takes the ordinary current-page underline with no JS. `.is-current`
+  still marks it from a child page, but those were two different marks —
+  a coral-deep gradient on /services, a coral box-shadow on the child —
+  which put a subtly different underline under the same word depending
+  on the page. `.nav-drop-link.is-current` now uses the gradient for
+  both. The box-shadow stays for Shop, a button with no gradient.
+
+MEASURING THIS: check the underline state with the pointer PARKED OFF
+THE NAV. `.nav-links a:hover` paints the same 100% gradient, so a test
+that hovered the trigger earlier — or merely left the virtual mouse
+there across a navigation — reports a current-page underline on every
+page. That is exactly what happened once here and it read as a real bug.
 
 THE BUG THIS ALMOST SHIPPED: `main.js` read
 `document.querySelector(".nav-drop")` — singular — because there had
