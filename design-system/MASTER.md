@@ -4887,3 +4887,50 @@ and every real child measures 35px in from both edges. What sits at inset
 0 is the `.sv-go::after` overlay that makes the whole card clickable — a
 transparent box with no text in it. The stretched-link pattern will always
 trip this rule. Measured, not assumed.
+
+
+================================================================================
+2026-09-04 · CONSULTING AND MENTORSHIP HERO MARKS REDRAWN
+================================================================================
+
+Amber, on a set of reference mockups: "I don't mind workflow and fractional
+but the other 2 should change", having also said the heroes should stay
+consistent with each other. Both hold, because the two statements are about
+different things: the CONCEPT changes, the LANGUAGE doesn't.
+
+The reference drew all four as flat translucent washes. Drawn that way,
+Consulting and Mentorship would have stopped matching the two marks that
+stay — Fractional's gateway and Workflow's thinning stack are fine strokes
+in the offer's own colour plus gradient-filled forms. So the new marks take
+the reference's IDEAS and the site's construction:
+  CONSULTING   two overlapping fields, one line straight through and out
+               the far side, the shared ground filled
+  MENTORSHIP   two speech bubbles with real overlap, the shared ground
+               filled
+
+WEIGHT HAD TO BE MATCHED, and only a four-up comparison showed it. On their
+own both new marks looked fine; beside Fractional and Workflow they read as
+sketches next to finished drawings. Strokes went 1.8 to 2.2, the lens fills
+went about 0.5 to 0.7, and each gained two solid terminal dots where the
+fields meet — the dot language Fractional already uses at its terminals.
+Judge a mark against its siblings, never on its own.
+
+TWO CONSTRUCTION NOTES:
+- THE LENS IS A `clipPath`, not hand-computed arcs. A circle-circle
+  intersection is two points and four sweep flags, all of which are easy to
+  get subtly and invisibly wrong; the clip is exact by construction.
+- EACH BUBBLE IS ONE PATH: an arc taken the long way round the body, then
+  two lines out to the tail tip and back. Circle plus separate tail leaves a
+  stroke straight through the join.
+- Transparency is `fill-opacity`, never `opacity`, on anything carrying
+  `.fill`. Same reveal-animation trap as everywhere else.
+
+The reference's blue and terracotta are not in the palette; these use
+`--consulting-deep` and `--courses-deep`, the colours those offers already
+carry. Colour coding stays at two sets.
+
+MEASURED: every `cs-*` and `mn-*` class in the markup has a rule, and the
+ten classes the old marks used are gone from both the CSS and the HTML. No
+overflow on any of the five service pages at six widths. Under
+`prefers-reduced-motion` all four marks draw fully: 13 and 11 nodes, none
+left invisible or undrawn. Detector unchanged at 18 and 15.

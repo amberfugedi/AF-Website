@@ -7179,12 +7179,14 @@ footer p,
    Fractional side panel lost a whole round to this.
    ============================================================ */
 
-/* ---- Consulting: a tangle resolving into one line ---- */
-.cs-blob   { fill-opacity: 0.4; }
-.cs-tangle { stroke: rgba(166, 53, 99, 0.42); stroke-width: 2; stroke-linecap: round; }
-.cs-clear  { stroke: var(--consulting-deep); stroke-width: 2.4; stroke-linecap: round; }
-.cs-turn   { fill: none; stroke: var(--consulting-deep); stroke-width: 2.4; }
-.cs-end    { fill: var(--consulting-deep); }
+/* ---- Consulting: two fields, one line through ---- */
+/* fill-opacity, not opacity: the reveal animation ends on opacity 1 with
+   forwards and outranks a declared value on anything carrying `.fill`. */
+.cs-lens { fill-opacity: 0.72; }
+.cs-ring { stroke: rgba(166, 53, 99, 0.5); stroke-width: 2.2; }
+.cs-ring-b { stroke: rgba(166, 53, 99, 0.85); }
+.cs-node { fill: var(--consulting-deep); }
+.cs-axis { stroke: var(--consulting-deep); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---- Workflow and AI: a stack of steps, two struck out ---- */
 .wf-band  { fill-opacity: 0.55; }
@@ -7193,12 +7195,11 @@ footer p,
 .wf-cross { stroke: rgba(87, 74, 166, 0.5); stroke-width: 1.6; stroke-linecap: round; }
 .wf-flow  { stroke: var(--automations-deep); stroke-width: 1.9; stroke-linecap: round; }
 
-/* ---- Mentorship: one line circling, one steady beside it ---- */
-.mn-blob   { fill-opacity: 0.32; }
-.mn-loop   { stroke: rgba(138, 90, 20, 0.55); stroke-width: 2; stroke-linecap: round; }
-.mn-steady { stroke: var(--courses-deep); stroke-width: 2.4; stroke-linecap: round; }
-.mn-a      { fill: none; stroke: var(--courses-deep); stroke-width: 2.4; }
-.mn-b      { fill: var(--courses-deep); }
+/* ---- Mentorship: two bubbles, and the ground they share ---- */
+.mn-lens { fill-opacity: 0.62; }
+.mn-bub { stroke: rgba(138, 90, 20, 0.55); stroke-width: 2.2; stroke-linejoin: round; }
+.mn-bub-b { stroke: rgba(138, 90, 20, 0.9); }
+.mn-node { fill: var(--courses-deep); }
 
 /* FIVE STEPS, and the fifth runs full width rather than sitting alone
    in a half-empty row. Same move `.hw-principles li:nth-child(5)` makes

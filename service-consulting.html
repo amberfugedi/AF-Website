@@ -150,24 +150,33 @@
           </div>
         </div>
 
-        <!-- A tangle resolving into one line, then a mark on the point
-             where it changes direction: the defined problem, found. Stroke
-             is --consulting-deep, the offer's own colour on Services. -->
+        <!-- CONSULTING MARK. Two overlapping fields with one line running
+             straight through and out the far side: the defined problem, and
+             the direction that comes out of it.
+             Drawn in the same language as the Fractional and Workflow marks
+             that stay — fine strokes in the offer's own colour plus ONE
+             gradient-filled form — rather than as the flat translucent
+             washes of the reference. Amber wanted these two changed and the
+             four heroes still reading as one set; that is the reconciliation.
+             The lens is a clipPath, not hand-computed arcs. Two circle
+             intersections and four sweep flags is a lot of arithmetic to get
+             subtly wrong, and the clip is exact by construction. -->
         <div class="head-art fl-art reveal">
-          <svg class="glyph fl-svg" viewBox="18 50 492 310" fill="none" role="img" aria-label="A tangled line resolving into a single clear path">
+          <svg class="glyph fl-svg" viewBox="18 50 492 310" fill="none" role="img" aria-label="Two overlapping fields with a line passing through and continuing beyond them">
             <defs>
-              <linearGradient id="cs-g" x1="0" y1="0" x2="0.7" y2="1">
+              <linearGradient id="cs-g" x1="0" y1="0" x2="0.6" y2="1">
                 <stop offset="0" stop-color="#FBD5E4"/>
-                <stop offset="0.55" stop-color="#DAD4F5"/>
-                <stop offset="1" stop-color="#FCE4C4"/>
+                <stop offset="1" stop-color="#A63563"/>
               </linearGradient>
+              <clipPath id="cs-clip"><circle cx="182" cy="205" r="90"/></clipPath>
             </defs>
-            <circle class="fill cs-blob" cx="146" cy="205" r="86" fill="url(#cs-g)"/>
-            <path class="stroke cs-tangle" pathLength="100" d="M56 148 C 128 96, 92 236, 168 214 C 226 197, 150 118, 214 118 C 268 118, 214 246, 276 240 C 318 236, 300 176, 340 178"/>
-            <path class="stroke cs-tangle" pathLength="100" d="M74 262 C 130 288, 190 268, 232 268 C 288 268, 300 214, 344 202"/>
-            <path class="stroke cs-clear" pathLength="100" d="M344 190 C 400 190, 428 190, 486 190"/>
-            <circle class="fill cs-turn" cx="342" cy="190" r="9"/>
-            <circle class="fill cs-end" cx="486" cy="190" r="6.5"/>
+            <circle class="fill cs-lens" cx="300" cy="205" r="78" fill="url(#cs-g)" clip-path="url(#cs-clip)"/>
+            <circle class="stroke cs-ring" pathLength="100" cx="182" cy="205" r="90"/>
+            <circle class="stroke cs-ring cs-ring-b" pathLength="100" cx="300" cy="205" r="78"/>
+            <path class="stroke cs-axis" pathLength="100" d="M42 205 H470"/>
+            <path class="stroke cs-axis" pathLength="100" d="M456 192 L474 205 L456 218"/>
+            <circle class="fill cs-node" cx="249.5" cy="145.5" r="5"/>
+            <circle class="fill cs-node" cx="249.5" cy="264.5" r="5"/>
           </svg>
         </div>
       </div>
