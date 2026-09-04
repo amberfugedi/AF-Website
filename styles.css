@@ -7357,3 +7357,21 @@ footer p,
 /* Prose after the dash list needs the same air the list gets above it;
    without this the paragraph reads as a sixth item that lost its dash. */
 .svc-room + .hw-body { margin-top: clamp(26px, 3vw, 36px); }
+
+
+/* HOMEPAGE SERVICE CARDS. Same `.sv-card` as the Services page, so the
+   two places these four appear look like the same four things. The
+   difference is the body: Services lists three examples per offer,
+   the homepage runs one sentence, because the homepage is telling a
+   story and the Services page is being compared against. */
+.sv-body {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+/* Two lede paragraphs in a row: the first is a run of situations and the
+   second is the sentence it lands on, so the 56px between them belongs
+   under the pair, not inside it. */
+.section-lede:has(+ .sv-intro-2) { margin-bottom: 16px; }

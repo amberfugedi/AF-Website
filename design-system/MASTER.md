@@ -4831,3 +4831,59 @@ cross-link rows, which are a routing component and are meant to repeat.
 Detector: services 29 to 22, consulting 19 to 18, workflow 19 to 25 —
 that rise is entirely the hairline-gradient false positive, verified
 again at 5.50:1 against real painted pixels.
+
+
+================================================================================
+2026-09-04 · HOMEPAGE, ALIGNED TO THE SERVICE ARCHITECTURE
+================================================================================
+
+Structure untouched. Hero, the problem section, Selected Work, What I
+bring, testimonials, About and the closing CTA all stay; the changes are
+copy plus one rebuilt section.
+
+"WAYS WE CAN WORK TOGETHER" IS FOUR PATHS NOW. It was Courses, Workflow
+and AI Guidance, and "Consulting and fractional leadership" as one card,
+pointing at `/services#anchor`. It is Fractional, Consulting, Workflow
+and AI, and Mentorship and advisory, each linking straight to its own
+page. Consulting and Fractional are separate offers and a shared card
+made that impossible to see.
+COURSES IS NOT A CARD, and nothing replaces it. Teaching is part of
+Amber's identity, so it stays in the hero ("teach teams to use them
+well") and in the nav under Shop; it is just not a homepage conversion
+path competing with the professional services.
+
+SAME `.sv-card` AS THE SERVICES PAGE, so the four offers look like the
+same four things in both places. The one difference is the body: Services
+lists three examples per offer because it is being compared against, the
+homepage runs one sentence because it is telling a story.
+
+THE INTRO STOPPED BEING CONCEPTUAL. "Leading, building, advising, and
+teaching are the same work from different seats" is a good line and an
+abstract one. Four concrete situations now, then "Those are different
+kinds of help, so I work a few different ways."
+
+COURSES CAME OUT OF TWO OTHER PLACES: the problem section's list of
+outputs (now "strategy, campaign, process, system, or next step") and the
+About preview's closing sentence, which now names the build and enable
+work instead. Zero mentions of "course" in `<main>`.
+
+THE FOOTER LINE CHANGED ON ALL SIXTEEN PAGES: "Marketing consulting,
+fractional leadership, and practical courses" no longer describes the
+site. It is "Marketing strategy, leadership, and practical ways to make
+the work better." Umbrella-level rather than a list of four offers plus
+courses. Verified as one distinct footer across the site afterwards.
+
+NAMING, FLAGGED NOT CHANGED: the brief writes "Workflow & AI" and
+"Mentorship & Advisory" with ampersands. The site uses "and", 44 and 39
+times respectively, across nav and footer on every page. Renaming is
+mechanical but it is sixteen files inside a homepage brief, and half-doing
+it would leave the homepage disagreeing with its own nav. Left alone and
+raised with Amber.
+
+A NEW DETECTOR FALSE POSITIVE, worth adding to the list.
+`cramped-padding` fires four times per page on `<li> "sv-card": children
+flush against border on right/left`. The cards declare 34px of padding
+and every real child measures 35px in from both edges. What sits at inset
+0 is the `.sv-go::after` overlay that makes the whole card clickable — a
+transparent box with no text in it. The stretched-link pattern will always
+trip this rule. Measured, not assumed.
