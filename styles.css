@@ -1390,7 +1390,7 @@ section { padding: 104px 0; }
 .bld-cat-head .glyph { margin-bottom: 10px; display: block; width: 56px; height: 56px; }
 /* category titles sit on the card-title grade (they were inheriting
    the browser-default h3 size, the one off-token text on the site) */
-.bld-cat-head h3 { margin-bottom: 8px; font-size: var(--fs-h3); line-height: 1.3; }
+.bld-cat-head h3 { margin-bottom: 8px; font-size: var(--fs-h3); line-height: 1.2; }
 /* small like the project descriptions: the project title dominates,
    category copy recedes to a supporting label */
 .bld-cat-head p { color: var(--muted); font-size: var(--fs-small); line-height: 1.5; }
@@ -2240,7 +2240,7 @@ a.bld-item .bld-item-arrow {
   box-shadow: var(--shadow-soft);
 }
 
-.card h3 { font-size: 1.45rem; margin-bottom: 12px; }
+.card h3 { margin-bottom: 12px; }
 .card p { font-size: 0.97rem; color: var(--body); margin-bottom: 24px; }
 .card .card-tag {
   font-size: 0.75rem;
@@ -2849,7 +2849,7 @@ a.bld-item .bld-item-arrow {
   display: block;
   margin-bottom: 8px;
 }
-.case h3 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 26px; }
+.case h3 { font-size: var(--fs-h3); line-height: 1.2; margin-bottom: 26px; }
 .case-head h3 { margin-bottom: 6px; }
 
 .case-cols {
@@ -3125,7 +3125,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .ch-word {
   font-family: var(--font-display);
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin: 0;
@@ -4720,7 +4720,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 /* .ab-think.ab-think-key, not .ab-think-key: the responsive block near
    the end of the sheet sets .ab-think h3 at the same specificity and
    later source order, so one class does not win. */
-.ab-think.ab-think-key h3 { font-size: clamp(1.28rem, 1.12rem + 0.62vw, 1.62rem); }
+.ab-think.ab-think-key h3 { font-size: var(--fs-h3); line-height: 1.2; }
 
 /* Amber: "that last line could even be visually pulled out a little."
    Display face at the pull-quote's own size, over a hairline. */
@@ -5126,7 +5126,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
   font-family: var(--font-display);
   color: var(--ink);
   letter-spacing: -0.015em;
-  line-height: 1.22;
+  line-height: 1.3;
   /* The row layout got this gap from the grid's row-gap. In columns
      there is no row between the title and its first paragraph, so the
      title carries it. */
@@ -6011,7 +6011,7 @@ footer {
 }
 .lead { padding-top: 16px; border-top: 1px solid rgba(255, 111, 97, 0.42); }
 .lead:nth-child(2n) { border-top-color: rgba(150, 138, 214, 0.5); }
-.lead h3 { margin-bottom: 7px; line-height: 1.25; }
+.lead h3 { margin-bottom: 7px; line-height: 1.3; }
 .lead p { color: var(--muted); margin: 0; }
 
 /* The connection map sits a little low against its copy so the two
@@ -6218,11 +6218,11 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .hiw-intro { font-size: var(--fs-intro); line-height: 1.5; }
 .hiw-stages h3 { font-size: var(--fs-body); }
 .hiw-stages p { font-size: var(--fs-small); line-height: 1.55; }
-.aow-card h3 { font-size: var(--fs-eyebrow); }
+.aow-card h3 { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .aow-note { font-size: var(--fs-body); line-height: 1.5; }
 .aow-card > ul > li { font-size: var(--fs-small); line-height: 1.45; }
 .fitp-list li { font-size: var(--fs-body); line-height: 1.5; }
-.fitp-label { font-size: var(--fs-eyebrow); }
+.fitp-label { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .fitp-not p:last-child { font-size: var(--fs-body); line-height: 1.5; }
 .oc-note { font-size: var(--fs-body); line-height: 1.4; }
 .wf-h { font-size: var(--fs-intro); }
@@ -6244,11 +6244,12 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .ab-pull-note { font-size: var(--fs-body); line-height: 1.55; }
 .ab-payoff-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }
-.ab-lead { font-size: var(--fs-h3); line-height: 1.28; }
-/* The strongest element in each belief column, so it steps up off the
-   intro size (21px) to 24px — the h3 step's lower end, still a scale
-   value. */
-.ab-think h3 { font-size: clamp(1.1875rem, 1.06rem + 0.53vw, 1.5rem); line-height: 1.28; }
+.ab-lead { font-size: var(--fs-h3); line-height: 1.2; }
+/* The card-title grade, like every other heading that tops a column
+   rather than a section. This used to pin the h3 clamp to its low end
+   for a 24px half-step, which was the only 24px heading on the site.
+   The middle column still steps up — it takes the real --fs-h3. */
+.ab-think h3 { font-size: var(--fs-intro); line-height: 1.3; }
 .ab-think-body p { font-size: var(--fs-body); line-height: 1.7; }
 .ab-dots li { font-size: var(--fs-body); line-height: 1.55; }
 .sv-fig { font-size: var(--fs-h3); }
@@ -6323,7 +6324,7 @@ footer p,
 /* The metric outranks the headline on purpose: this section is proof,
    not another description. */
 .ev-label { font-size: var(--fs-eyebrow); letter-spacing: 0.08em; line-height: 1.4; }
-.ev-head { font-size: var(--fs-intro); line-height: 1.25; }
+.ev-head { font-size: var(--fs-intro); line-height: 1.3; }
 .ev-story p { font-size: var(--fs-body); line-height: 1.55; }
 .ev-metric { font-size: var(--fs-h3); line-height: 1.1; }
 .ev-metric-label { font-size: var(--fs-small); line-height: 1.4; }
@@ -6345,7 +6346,7 @@ footer p,
 .pr-proof span { font-size: var(--fs-intro); line-height: 1.2; }
 .ch-line { font-size: var(--fs-intro); line-height: 1.35; }
 .work-strip a { font-size: var(--fs-intro); line-height: 1.35; }
-.diag-q { font-size: var(--fs-h3); line-height: 1.3; }
+.diag-q { font-size: var(--fs-h3); line-height: 1.2; }
 /* Courses */
 .crs-body h3, .crs-login h2 { font-size: var(--fs-intro); line-height: 1.3; }
 .crs-topics li, .crs-meta dt { font-size: var(--fs-eyebrow); letter-spacing: 0.08em; }
@@ -6358,11 +6359,11 @@ footer p,
 .cs-amount { font-size: var(--fs-h2); line-height: 1; }
 .buy-amount { font-size: var(--fs-h2); line-height: 1; }
 .ty-n { font-size: var(--fs-h3); }
-.ty-steps h3 { font-size: var(--fs-intro); line-height: 1.25; }
+.ty-steps h3 { font-size: var(--fs-intro); line-height: 1.3; }
 .ty-eyebrow, .ty-tip-k { font-size: var(--fs-small); line-height: 1.4; }
 .ty-steps p, .ty-receipt, .ty-tip p, .ty-help { font-size: var(--fs-body); line-height: 1.55; }
 .fm-sn { font-size: var(--fs-h3); }
-.fm-steps h3 { font-size: var(--fs-intro); line-height: 1.25; }
+.fm-steps h3 { font-size: var(--fs-intro); line-height: 1.3; }
 .crs-facts li, .fm-note, .fm-cap, .fm-k, .ct-k, .ba-k, .crs-sticky .cs-cost { font-size: var(--fs-small); line-height: 1.45; }
 .fm-rows li, .fm-plan > div, .cs-not, .ba-col li, .buy-list li, .faq-q summary, .faq-q p, .buy-price, .buy-when, .fm-steps p, .fm-tiers p, .crs-sticky .cs-name { font-size: var(--fs-body); line-height: 1.55; }
 .ct-title { font-size: clamp(1.5rem, 1.15rem + 1.6vw, 1.95rem); }
@@ -6526,7 +6527,7 @@ footer p,
 .more-list .case-tag,
 .offer-aside .tier,
 .email-capture .capture-label,
-.case-col h3 { letter-spacing: 0.08em; }
+.case-col h3 { letter-spacing: 0.08em; line-height: 1.4; }
 .cta-band,
 .quote-marquee { border-radius: 24px; }
 .marquee-toggle { border-radius: 24px; }

@@ -5492,3 +5492,34 @@ thin line icons; the six Expertise chapter marks are pictorial,
 semi-filled and sit on saturated pastel tiles — a speaker, a monitor, a
 group of people. That third set is the outlier, and redrawing six marks
 is a taste decision, not a conformance one. Flagged, not done.
+
+### H3 and line heights, fixed
+
+H3 went from FIFTEEN treatments to FIVE, and all five are grades rather
+than accidents:
+
+    30 / 36  / 600  Newsreader   the h3 grade
+    30 / 33.6 / 400 Newsreader   .sv-fig — a figure, not a heading
+    21 / 27.3 / 600 Newsreader   the card-title grade
+    17 / 21.08 / 600 Newsreader  .hiw-stages h3, a stage title in a 4-up
+    13 / 18.2 / 600 Manrope      the uppercase label grade
+
+One line height per grade, applied everywhere it was drifting:
+
+    --fs-h3 grade      1.2   (was 1.1, 1.2, 1.3)
+    card-title grade   1.3   (was 1.25, 1.28, 1.3)
+    label grade        1.4   (was 1.14, 1.2, 1.4)
+
+Three sizes were off the scale entirely and are gone: `.case h3` at
+30.4px (its own clamp), `.ab-think.ab-think-key h3` at 25.9px (another
+clamp), and `.ab-think h3` at 24px, which pinned the h3 clamp to its low
+end for a half-step and was the only 24px heading on the site.
+
+THE BELIEF COLUMNS ON ABOUT changed most. The middle column's "one step
+up" used to be 24 against 21 — 8%, barely visible, and off-scale. It is
+now `--fs-h3` against `--fs-intro`, which is a real step and reads the
+way the note said it should. Rendered and checked: the middle column
+carries without turning into a card.
+
+`.card h3`'s dead `1.45rem` is deleted; a later rule had been overriding
+it with `--fs-intro` the whole time.
