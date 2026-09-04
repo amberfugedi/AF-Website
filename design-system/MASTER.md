@@ -5064,3 +5064,40 @@ is the one universal principle the site no longer states anywhere.
 
 Pages after: consulting 802w, mentorship 708w, fractional 1071w,
 workflow 1175w. Detector 211 against 223 at HEAD.
+
+## Service page components, second pass (2026-09)
+
+FIT CHECK (`.fitp`). The fit section used the same background and spacing
+as its neighbours and disappeared between them. It is a contained panel
+now — white with a 5% accent tint, one hairline, `var(--radius)`, no
+shadow — with more vertical room around it. Three levels: serif
+headline, two-column signal list, then the not-a-fit statement below a
+divider at `--fs-intro`. The marker moved from a 13px thin ring to an
+8px filled dot; a checkmark would have made it read as a pricing table.
+Mentorship keeps "What this isn't" because it is stronger than the
+standard label for what that page actually says.
+
+HOW IT WORKS (`.hiw`). One component on all four pages, same heading,
+service-specific intro. Fine rule above each stage, a 24px thin-line
+icon in the page accent, serif stage heading, sans copy. No cards, no
+circles. NOTHING IS NUMBERED — fractional leadership and mentorship are
+ongoing relationships and the shared frame must not imply a four-step
+project; their intros say so instead.
+
+Its motion adds no budget line. `.reveal` already gives the fade-up,
+main.js already staggers unlabelled siblings 0.08s apart (the
+left-to-right run), unobserves after firing so it plays once, and never
+starts under prefers-reduced-motion. Only the rule draw and the icon
+follow-in are new, and both are cancelled in the reduced-motion block.
+
+REPLACED AND REMOVED: `.fhw` (the Fractional circle-and-return-loop) and
+`.p2b` (the Consulting four-disc flow), both superseded within the day.
+Consulting's "REAL INSIGHTS -> TANGIBLE PROGRESS" payoff went with
+`.p2b` and has no home in the shared component.
+
+The services.html selector no longer fills its open row with butter at
+30%, which read as "selected" rather than "expanded". Open is a 4% tint
+plus the 2px accent rule `.sp-open::before` already drew; hover keeps
+only the border and headline shift.
+
+Detector 208 against 223 at HEAD.

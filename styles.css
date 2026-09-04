@@ -2585,8 +2585,12 @@ a.bld-item .bld-item-arrow {
    are four equal situations rather than four services. Butter is the
    site's emphasis colour — the highlight behind the headlines — so it is
    what "this is the one you are pointing at" already means here. */
-.sp-card:hover, .sp-card.open {
-  background: linear-gradient(rgba(251, 237, 191, 0.3), rgba(251, 237, 191, 0.3)) var(--bg-raised);
+/* Butter at 30% filled the whole row and read as "selected" rather than
+   "expanded" (Amber, Sept 2026). Hover keeps only the border and headline
+   shift; open keeps the 2px accent rule .sp-open::before already draws,
+   plus a 4% tint so the open row stays distinguishable. */
+.sp-card.open {
+  background: linear-gradient(rgba(184, 53, 74, 0.04), rgba(184, 53, 74, 0.04)) var(--bg-raised);
 }
 
 .sp-face { min-width: 0; }
@@ -6122,18 +6126,12 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .hiw-intro { font-size: var(--fs-intro); line-height: 1.5; }
 .hiw-stages h3 { font-size: var(--fs-intro); }
 .hiw-stages p { font-size: var(--fs-small); line-height: 1.55; }
-.hiw-mark { font-size: var(--fs-eyebrow); }
 .aow-card h3 { font-size: var(--fs-eyebrow); }
 .aow-note { font-size: var(--fs-body); line-height: 1.5; }
 .aow-card > ul > li { font-size: var(--fs-small); line-height: 1.45; }
-.p2b-setup { font-size: var(--fs-intro); line-height: 1.5; }
-.p2b-flow h3 { font-size: var(--fs-intro); }
-.p2b-flow p { font-size: var(--fs-small); line-height: 1.5; }
-.p2b-k { font-size: var(--fs-eyebrow); }
-.fhw-intro { font-size: var(--fs-intro); line-height: 1.5; }
-.fhw-rhythm h3 { font-size: var(--fs-intro); }
-.fhw-rhythm p { font-size: var(--fs-small); line-height: 1.45; }
-.fhw-loop-label { font-size: var(--fs-eyebrow); }
+.fitp-list li { font-size: var(--fs-body); line-height: 1.5; }
+.fitp-label { font-size: var(--fs-eyebrow); }
+.fitp-not p:last-child { font-size: var(--fs-intro); line-height: 1.5; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.55; }
@@ -6828,21 +6826,6 @@ footer p,
 /* THE QUALIFIER. Reading measure, set apart by a coral rule rather
    than a box: the page has no cards and this is not the moment to
    introduce one. */
-.svc-nofit {
-  margin-top: clamp(44px, 5vw, 68px);
-  padding-top: 26px;
-  background-image: linear-gradient(rgba(184, 53, 74, 0.28), rgba(184, 53, 74, 0.28));
-  background-repeat: no-repeat;
-  background-size: 100% 1px;
-  background-position: 0 0;
-}
-.svc-nofit p {
-  margin: 0;
-  color: var(--muted);
-  font-size: var(--fs-body);
-  line-height: 1.55;
-  text-wrap: pretty;
-}
 
 /* CAPABILITY GROUPS. Four hairline-topped columns of labels, replacing
    eight rows of prose (Amber, 2026-09-04: the scope should read in about
@@ -7269,15 +7252,16 @@ footer p,
    `.eyebrow` and `.sec-n` are text and not decoration.
    ============================================================ */
 .page-service {
+  --svc-tint:   rgba(184, 53, 74, 0.05);
   --svc-wash:   rgba(184, 53, 74, 0.07);
   --svc-accent: var(--coral-deep);
   --svc-pastel: rgba(255, 111, 97, 0.28);
   --svc-soft:   rgba(184, 53, 74, 0.28);
 }
-.svc-c-fractional { --svc-wash: rgba(46, 117, 41, 0.09); --svc-accent: var(--fractional-deep);  --svc-pastel: #D9EFD3; --svc-soft: rgba(46, 117, 41, 0.3); }
-.svc-c-consulting { --svc-wash: rgba(166, 53, 99, 0.09); --svc-accent: var(--consulting-deep);  --svc-pastel: #FBD5E4; --svc-soft: rgba(166, 53, 99, 0.3); }
-.svc-c-workflow   { --svc-wash: rgba(87, 74, 166, 0.09); --svc-accent: var(--automations-deep); --svc-pastel: #DAD4F5; --svc-soft: rgba(87, 74, 166, 0.3); }
-.svc-c-mentorship { --svc-wash: rgba(138, 90, 20, 0.09); --svc-accent: var(--courses-deep);     --svc-pastel: #FCE4C4; --svc-soft: rgba(138, 90, 20, 0.3); }
+.svc-c-fractional { --svc-tint: rgba(46, 117, 41, 0.05); --svc-wash: rgba(46, 117, 41, 0.09); --svc-accent: var(--fractional-deep);  --svc-pastel: #D9EFD3; --svc-soft: rgba(46, 117, 41, 0.3); }
+.svc-c-consulting { --svc-tint: rgba(166, 53, 99, 0.05); --svc-wash: rgba(166, 53, 99, 0.09); --svc-accent: var(--consulting-deep);  --svc-pastel: #FBD5E4; --svc-soft: rgba(166, 53, 99, 0.3); }
+.svc-c-workflow   { --svc-tint: rgba(87, 74, 166, 0.05); --svc-wash: rgba(87, 74, 166, 0.09); --svc-accent: var(--automations-deep); --svc-pastel: #DAD4F5; --svc-soft: rgba(87, 74, 166, 0.3); }
+.svc-c-mentorship { --svc-tint: rgba(138, 90, 20, 0.05); --svc-wash: rgba(138, 90, 20, 0.09); --svc-accent: var(--courses-deep);     --svc-pastel: #FCE4C4; --svc-soft: rgba(138, 90, 20, 0.3); }
 
 /* The ring bullet, in the page's own colour rather than the site coral.
    This is the change that does most of the work: it is the mark that
@@ -7298,9 +7282,6 @@ footer p,
 /* The eyebrow is text, so it keeps the site eyebrow colour. */
 
 /* The one coloured hairline on the page */
-.page-service .svc-nofit {
-  background-image: linear-gradient(var(--svc-soft), var(--svc-soft));
-}
 
 /* CROSS-LINKS ARE THE ONE PLACE ANOTHER SERVICE'S COLOUR BELONGS, and
    only on the row that points at it. `:has()` rather than four extra
@@ -7317,29 +7298,25 @@ footer p,
 /* Editorial head: the point of view on the left, the setup beside it,
    so neither stretches to a full-width measure. */
 
-/* hairline BETWEEN principles, not a border around each */
-
-/* The payoff. Serif, larger, and the second line carries the accent —
-   the one place on the page where the service colour reads as type. */
-
-
 /* ============================================================
-   HOW IT WORKS — the engagement section (2026-09)
+   HOW IT WORKS — one component on all four service pages (2026-09)
    ============================================================
-   AUDIT before this existed: consulting and fractional ran four
-   numbered .svc-steps, workflow ran SIX of them, and mentorship used a
-   different device entirely (.svc-flow — four bare lines, no headings)
-   inside .svc-narrow. Three pages rhymed, one didn't, and none carried
-   an eyebrow or an intro.
+   Replaced Fractional's circle-and-return-loop graphic and Consulting's
+   four-disc flow; the other two were already close. Same heading on
+   every page, a fine rule above each stage, a thin-line icon in the
+   page accent, serif stage heading, sans copy. No filled cards, no
+   coloured circles — the type stays the dominant element.
 
-   One frame now: eyebrow, serif headline, short intro, stages on a
-   single row joined by a hairline. NOT cards — the rule above each
-   stage is the same connector language my-approach already uses.
+   NOTHING IS NUMBERED. Fractional leadership and mentorship are ongoing
+   relationships, and the shared frame must not claim a four-step
+   project for them; their intros say so outright instead.
 
-   .hiw-numbered vs .hiw-rhythm is the one real variation. Consulting
-   and Workflow genuinely run in order. Fractional leadership and
-   mentorship are ongoing relationships, so they take a ring marker
-   rather than 01-04, which would claim a sequence that isn't true. */
+   MOTION rides the site's existing reveal system rather than adding a
+   budget line: .reveal gives the fade-up and main.js already staggers
+   unlabelled siblings by 0.08s each (the left-to-right run), unobserves
+   after firing (plays once), and never starts under
+   prefers-reduced-motion. Only two things are added — the rule draws
+   from 0 to full width, and the icon follows it in. */
 .hiw { padding-top: clamp(72px, 8vw, 110px); padding-bottom: clamp(72px, 8vw, 110px); }
 .hiw-head { max-width: 62ch; }
 .hiw-head .section-title { margin-bottom: 14px; }
@@ -7361,18 +7338,7 @@ footer p,
   background-size: 100% 1px;
   background-position: 0 0;
 }
-.hiw-mark {
-  display: block;
-  color: var(--muted);
-  margin-bottom: 12px;
-  font-family: var(--font-body);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  line-height: 1;
-}
 /* the ring is an icon, not text, so it may carry the accent */
-.hiw-rhythm .hiw-mark { color: var(--svc-accent); }
-.hiw-rhythm .hiw-mark svg { width: 24px; height: 24px; display: block; }
 .hiw-stages h3 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -7383,6 +7349,11 @@ footer p,
   text-wrap: pretty;
 }
 .hiw-stages p { color: var(--muted); margin-bottom: 0; text-wrap: pretty; }
+/* one- and two-line stage headings otherwise start their copy at
+   different heights across the row */
+@media (min-width: 981px) {
+  .hiw-stages h3 { min-height: calc(2 * 1.24em); }
+}
 
 @media (max-width: 980px) {
   .hiw-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 4vw, 40px); }
@@ -7404,8 +7375,6 @@ footer p,
     background: var(--svc-soft);
   }
   .hiw-stages > li:last-child::before { display: none; }
-  .hiw-mark { position: absolute; left: 0; top: 0; margin: 0; }
-  .hiw-numbered .hiw-mark { left: -2px; }
   .hiw-stages > li > h3 { margin-top: 0; }
 }
 
@@ -7483,264 +7452,105 @@ footer p,
   .aow-grid { grid-template-columns: 1fr; }
 }
 
-/* ============================================================
-   FROM PROBLEM TO A BUILT SOLUTION — Consulting only (2026-09)
-   ============================================================
-   Amber supplied this as a standalone SVG mockup in Georgia/Arial with
-   its own hexes. Rebuilt natively so it inherits the real system:
-   Newsreader and Manrope, --ink/--muted/--line, the four pastel TOKENS
-   rather than the mockup's near-matches, the site's type scale, and the
-   same .wrap measure as every other section. Nothing here invents a
-   size — the disc title is --fs-intro, its copy --fs-small, the payoff
-   labels --fs-eyebrow.
-
-   NOTE: this replaces the shared .hiw component on Consulting only, so
-   Consulting's process section no longer matches the other three. That
-   was Amber's call (Sept 2026) and it is the one intentional break in
-   the service-page component system.
-
-   The four pastels are the OFFER colour code elsewhere (peach=Courses,
-   lavender=Workflow, blush=Consulting, sage=Fractional). Used here they
-   read as four stages instead — worth knowing, since MASTER caps colour
-   coding at two sets. Amber asked for these tones specifically. */
-.p2b { padding-top: clamp(72px, 8vw, 110px); padding-bottom: clamp(72px, 8vw, 110px); }
-.p2b-head { max-width: 62ch; }
-.p2b-head .section-title { margin-bottom: 14px; }
-.p2b-setup { color: var(--body); max-width: 58ch; margin-bottom: 0; }
-
-.p2b-flow {
-  list-style: none;
-  margin: clamp(48px, 5.6vw, 78px) 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(30px, 3.6vw, 54px);
-}
-.p2b-disc {
-  position: relative;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: clamp(16px, 2vw, 30px);
-}
-.p2b-disc {
-  --p2b-veil: radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.62), rgba(253, 249, 245, 0.3) 58%);
-  box-shadow: var(--shadow-soft), inset 0 -14px 28px -20px rgba(46, 42, 39, 0.3);
-}
-.p2b-blush    { background: var(--p2b-veil), var(--blush); }
-.p2b-lavender { background: var(--p2b-veil), var(--lavender); }
-.p2b-sage     { background: var(--p2b-veil), var(--sage); }
-.p2b-peach    { background: var(--p2b-veil), var(--peach); }
-
-.p2b-flow h3 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  margin-bottom: 8px;
-  text-wrap: balance;
-}
-.p2b-flow p { color: var(--muted); margin-bottom: 0; text-wrap: pretty; }
-
 /* the connector sits against the DISC, so it lands on the disc's centre
    line whatever the column width resolves to */
-.p2b-arrow {
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  transform: translateY(-50%);
-  width: clamp(24px, 2.6vw, 34px);
-  margin-right: clamp(4px, 0.5vw, 10px);
-  color: var(--ink);
-}
-.p2b-arrow svg { display: block; width: 100%; height: auto; }
 
-.p2b-payoff {
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 1.6vw, 22px);
-  margin: clamp(46px, 5.4vw, 74px) 0 0;
-  color: var(--muted);
+@media (max-width: 900px) {
+  /* the arrow only ever points at the item to its left */
 }
-.p2b-k {
+@media (max-width: 560px) {
+  /* stacked: the connector turns to point down, between the discs */
+}
+
+/* the pastels are fill-only; the icon takes the matching -deep token */
+
+/* the loop: back from the last stage to the first */
+
+/* ============================================================
+   FIT CHECK — the decision pause on each service page (2026-09)
+   ============================================================
+   It used to sit on the same background with the same spacing as its
+   neighbours and disappeared between them. It reads as a checkpoint now
+   because of the container, the spacing around it and the internal
+   hierarchy — not because the items became cards.
+
+   Three levels only: the serif headline, the two-column signal list,
+   and the not-a-fit statement below a divider. The panel is white with
+   a 5% accent tint, one hairline and no shadow. The marker moved from a
+   13px thin ring to an 8px filled dot: more visible at a glance, and
+   not a checkmark, which would make this read as a pricing table. */
+.fitp { padding-top: clamp(84px, 9vw, 128px); padding-bottom: clamp(84px, 9vw, 128px); }
+.fitp-panel {
+  background: linear-gradient(var(--svc-tint), var(--svc-tint)), var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(30px, 4.2vw, 64px);
+}
+.fitp-panel .section-title { margin-bottom: clamp(26px, 3vw, 38px); }
+
+.fitp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 22px) clamp(30px, 4vw, 62px);
+}
+.fitp-list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--body);
+  text-wrap: pretty;
+}
+.fitp-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--svc-accent);
+}
+
+.fitp-not {
+  margin-top: clamp(30px, 3.6vw, 46px);
+  padding-top: clamp(24px, 2.8vw, 34px);
+  border-top: 1px solid var(--line);
+}
+.fitp-label {
   font-family: var(--font-body);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  white-space: nowrap;
-}
-.p2b-rule {
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-  position: relative;
-  min-width: 30px;
-}
-.p2b-rule::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  width: 7px; height: 7px;
-  border-right: 1.5px solid var(--muted);
-  border-top: 1.5px solid var(--muted);
-  transform: translateY(-50%) rotate(45deg);
-}
-
-@media (max-width: 900px) {
-  .p2b-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(34px, 5vw, 54px); }
-  /* the arrow only ever points at the item to its left */
-  .p2b-stage:nth-child(3) .p2b-arrow { display: none; }
-}
-@media (max-width: 560px) {
-  .p2b-flow { grid-template-columns: 1fr; gap: 46px; }
-  .p2b-disc { aspect-ratio: auto; border-radius: 26px; padding: 30px 26px; }
-  /* stacked: the connector turns to point down, between the discs */
-  .p2b-stage:nth-child(3) .p2b-arrow { display: block; }
-  .p2b-arrow {
-    top: auto; right: auto;
-    bottom: 100%; left: 50%;
-    width: 30px;
-    margin: 0 0 12px;
-    transform: translateX(-50%) rotate(90deg);
-  }
-  .p2b-payoff { gap: 10px; margin-top: clamp(30px, 5vw, 40px); flex-wrap: wrap; }
-  .p2b-k { letter-spacing: 0.1em; }
-  .p2b-rule { min-width: 18px; }
-}
-
-/* ============================================================
-   HOW I WORK — Fractional leadership only (2026-09)
-   ============================================================
-   Amber's reference arrived as a standalone file in Georgia/Arial with
-   its own hexes and a 1400px container. Rebuilt on the real system:
-   Newsreader and Manrope, --ink/--muted/--line, the four pastel TOKENS,
-   the site type scale and the same .wrap as every other section.
-
-   The return loop is the point. Fractional leadership is an ongoing
-   embedded role, so the four stages are NOT numbered and the line runs
-   back from the last to the first — a rhythm, not a four-step project.
-
-   NOT CARRIED OVER from the reference: the handwritten "A stronger
-   function over time" note. It needed a cursive face the site does not
-   load, and it repeats what the loop label already says. */
-.fhw {
-  position: relative;
-  overflow: clip;
-  padding-top: clamp(72px, 8vw, 110px);
-  padding-bottom: clamp(72px, 8vw, 110px);
-}
-.fhw-head { max-width: 62ch; margin-bottom: clamp(44px, 5vw, 72px); }
-.fhw-head .section-title { margin-bottom: 14px; }
-.fhw-intro { color: var(--body); max-width: 58ch; margin-bottom: 0; }
-
-.fhw-stage-wrap { position: relative; padding-bottom: 104px; }
-.fhw-rhythm {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(14px, 1.8vw, 26px);
-  align-items: stretch;
-}
-.fhw-item { position: relative; min-width: 0; display: flex; }
-.fhw-card {
-  flex: 1;
-  aspect-ratio: 1 / 1.06;
-  border-radius: 999px;
-  border: 1px solid var(--fhw-line);
-  background:
-    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.66), transparent 56%),
-    linear-gradient(rgba(253, 249, 245, 0.3), rgba(253, 249, 245, 0.3)),
-    var(--fhw-soft);
-  box-shadow: var(--shadow-soft), inset 0 -14px 28px -20px rgba(46, 42, 39, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: clamp(18px, 2.2vw, 34px);
-}
-/* the pastels are fill-only; the icon takes the matching -deep token */
-.fhw-blush    { --fhw-soft: var(--blush);    --fhw-line: rgba(184, 53, 74, 0.3);  --fhw-ico: var(--coral-deep); }
-.fhw-lavender { --fhw-soft: var(--lavender); --fhw-line: rgba(87, 74, 166, 0.3);  --fhw-ico: var(--automations-deep); }
-.fhw-sage     { --fhw-soft: var(--sage);     --fhw-line: rgba(46, 117, 41, 0.32); --fhw-ico: var(--fractional-deep); }
-.fhw-peach    { --fhw-soft: var(--peach);    --fhw-line: rgba(138, 90, 20, 0.32); --fhw-ico: var(--courses-deep); }
-
-.fhw-icon { display: block; width: 36px; height: 36px; margin-bottom: 16px; color: var(--fhw-ico); }
-.fhw-icon svg { display: block; width: 100%; height: 100%; }
-.fhw-rhythm h3 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  margin: 0;
-}
-.fhw-rule { display: block; width: 30px; border-top: 1px solid var(--fhw-line); margin: 14px 0 12px; }
-.fhw-rhythm p { color: var(--muted); margin: 0; text-wrap: pretty; }
-
-.fhw-arrow {
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translate(-50%, -50%);
-  width: 22px;
   color: var(--muted);
-  z-index: 2;
+  margin-bottom: 12px;
 }
-.fhw-arrow svg { display: block; width: 100%; height: auto; }
+.fitp-not p:last-child { color: var(--ink); margin-bottom: 0; max-width: 76ch; text-wrap: pretty; }
 
-/* the loop: back from the last stage to the first */
-.fhw-loop {
-  position: absolute;
-  left: 1%; right: 1%; bottom: 34px;
-  height: 76px;
-  color: var(--fractional-deep);
-  opacity: 0.5;
-  pointer-events: none;
-}
-.fhw-loop svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.fhw-loop-label {
-  position: absolute;
-  left: 50%; bottom: 0;
-  transform: translateX(-50%);
-  margin: 0;
-  padding: 11px 26px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  white-space: nowrap;
-  font-family: var(--font-body);
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
+@media (max-width: 760px) {
+  .fitp-list { grid-template-columns: 1fr; gap: 14px; }
 }
 
-@media (max-width: 980px) {
-  .fhw-rhythm { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
-  .fhw-card { aspect-ratio: auto; min-height: 320px; border-radius: 44px; }
-  .fhw-arrow, .fhw-loop { display: none; }
-  .fhw-stage-wrap { padding-bottom: 0; }
-  .fhw-loop-label { position: static; transform: none; display: table; margin: 30px auto 0; }
+/* --- How it works: icon, and the entrance ------------------------- */
+.hiw-ico { display: block; width: 24px; height: 24px; color: var(--svc-accent); margin-bottom: 14px; }
+.hiw-ico svg { display: block; width: 100%; height: 100%; }
+
+/* the rule draws in; 10px of lift rather than the site default 28px,
+   because these are small items in a row and 28px reads as a jump */
+.hiw-stages > li.reveal { transform: translateY(10px); background-size: 0 1px; }
+.hiw-stages > li { transition: opacity 0.7s var(--ease), transform 0.7s var(--ease), background-size 0.8s var(--ease); }
+.hiw-stages > li.reveal.in-view { background-size: 100% 1px; }
+.hiw-stages > li .hiw-ico {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.5s var(--ease) 0.22s, transform 0.5s var(--ease) 0.22s;
 }
-@media (max-width: 620px) {
-  .fhw-rhythm { grid-template-columns: 1fr; gap: 16px; }
-  .fhw-card {
-    aspect-ratio: auto;
-    min-height: 0;
-    border-radius: 30px;
-    align-items: flex-start;
-    text-align: left;
-    padding: 28px 26px;
-  }
-  .fhw-icon { margin-bottom: 14px; }
-  .fhw-rule { margin: 14px 0 12px; }
+.hiw-stages > li.in-view .hiw-ico { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hiw-stages > li.reveal { transform: none; background-size: 100% 1px; }
+  .hiw-stages > li,
+  .hiw-stages > li .hiw-ico { transition: none; }
+  .hiw-stages > li .hiw-ico { opacity: 1; transform: none; }
 }
