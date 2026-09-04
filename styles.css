@@ -6130,6 +6130,10 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .p2b-flow h3 { font-size: var(--fs-intro); }
 .p2b-flow p { font-size: var(--fs-small); line-height: 1.5; }
 .p2b-k { font-size: var(--fs-eyebrow); }
+.fhw-intro { font-size: var(--fs-intro); line-height: 1.5; }
+.fhw-rhythm h3 { font-size: var(--fs-intro); }
+.fhw-rhythm p { font-size: var(--fs-small); line-height: 1.45; }
+.fhw-loop-label { font-size: var(--fs-eyebrow); }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.55; }
@@ -7523,7 +7527,10 @@ footer p,
   text-align: center;
   padding: clamp(16px, 2vw, 30px);
 }
-.p2b-disc { --p2b-veil: linear-gradient(rgba(253, 249, 245, 0.34), rgba(253, 249, 245, 0.34)); }
+.p2b-disc {
+  --p2b-veil: radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.62), rgba(253, 249, 245, 0.3) 58%);
+  box-shadow: var(--shadow-soft), inset 0 -14px 28px -20px rgba(46, 42, 39, 0.3);
+}
 .p2b-blush    { background: var(--p2b-veil), var(--blush); }
 .p2b-lavender { background: var(--p2b-veil), var(--lavender); }
 .p2b-sage     { background: var(--p2b-veil), var(--sage); }
@@ -7602,6 +7609,138 @@ footer p,
     margin: 0 0 12px;
     transform: translateX(-50%) rotate(90deg);
   }
-  .p2b-payoff { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .p2b-rule { align-self: stretch; }
+  .p2b-payoff { gap: 10px; margin-top: clamp(30px, 5vw, 40px); flex-wrap: wrap; }
+  .p2b-k { letter-spacing: 0.1em; }
+  .p2b-rule { min-width: 18px; }
+}
+
+/* ============================================================
+   HOW I WORK — Fractional leadership only (2026-09)
+   ============================================================
+   Amber's reference arrived as a standalone file in Georgia/Arial with
+   its own hexes and a 1400px container. Rebuilt on the real system:
+   Newsreader and Manrope, --ink/--muted/--line, the four pastel TOKENS,
+   the site type scale and the same .wrap as every other section.
+
+   The return loop is the point. Fractional leadership is an ongoing
+   embedded role, so the four stages are NOT numbered and the line runs
+   back from the last to the first — a rhythm, not a four-step project.
+
+   NOT CARRIED OVER from the reference: the handwritten "A stronger
+   function over time" note. It needed a cursive face the site does not
+   load, and it repeats what the loop label already says. */
+.fhw {
+  position: relative;
+  overflow: clip;
+  padding-top: clamp(72px, 8vw, 110px);
+  padding-bottom: clamp(72px, 8vw, 110px);
+}
+.fhw-head { max-width: 62ch; margin-bottom: clamp(44px, 5vw, 72px); }
+.fhw-head .section-title { margin-bottom: 14px; }
+.fhw-intro { color: var(--body); max-width: 58ch; margin-bottom: 0; }
+
+.fhw-stage-wrap { position: relative; padding-bottom: 104px; }
+.fhw-rhythm {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 26px);
+  align-items: stretch;
+}
+.fhw-item { position: relative; min-width: 0; display: flex; }
+.fhw-card {
+  flex: 1;
+  aspect-ratio: 1 / 1.06;
+  border-radius: 999px;
+  border: 1px solid var(--fhw-line);
+  background:
+    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.66), transparent 56%),
+    linear-gradient(rgba(253, 249, 245, 0.3), rgba(253, 249, 245, 0.3)),
+    var(--fhw-soft);
+  box-shadow: var(--shadow-soft), inset 0 -14px 28px -20px rgba(46, 42, 39, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(18px, 2.2vw, 34px);
+}
+/* the pastels are fill-only; the icon takes the matching -deep token */
+.fhw-blush    { --fhw-soft: var(--blush);    --fhw-line: rgba(184, 53, 74, 0.3);  --fhw-ico: var(--coral-deep); }
+.fhw-lavender { --fhw-soft: var(--lavender); --fhw-line: rgba(87, 74, 166, 0.3);  --fhw-ico: var(--automations-deep); }
+.fhw-sage     { --fhw-soft: var(--sage);     --fhw-line: rgba(46, 117, 41, 0.32); --fhw-ico: var(--fractional-deep); }
+.fhw-peach    { --fhw-soft: var(--peach);    --fhw-line: rgba(138, 90, 20, 0.32); --fhw-ico: var(--courses-deep); }
+
+.fhw-icon { display: block; width: 36px; height: 36px; margin-bottom: 16px; color: var(--fhw-ico); }
+.fhw-icon svg { display: block; width: 100%; height: 100%; }
+.fhw-rhythm h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+.fhw-rule { display: block; width: 30px; border-top: 1px solid var(--fhw-line); margin: 14px 0 12px; }
+.fhw-rhythm p { color: var(--muted); margin: 0; text-wrap: pretty; }
+
+.fhw-arrow {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  color: var(--muted);
+  z-index: 2;
+}
+.fhw-arrow svg { display: block; width: 100%; height: auto; }
+
+/* the loop: back from the last stage to the first */
+.fhw-loop {
+  position: absolute;
+  left: 1%; right: 1%; bottom: 34px;
+  height: 76px;
+  color: var(--fractional-deep);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.fhw-loop svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.fhw-loop-label {
+  position: absolute;
+  left: 50%; bottom: 0;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 11px 26px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (max-width: 980px) {
+  .fhw-rhythm { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+  .fhw-card { aspect-ratio: auto; min-height: 320px; border-radius: 44px; }
+  .fhw-arrow, .fhw-loop { display: none; }
+  .fhw-stage-wrap { padding-bottom: 0; }
+  .fhw-loop-label { position: static; transform: none; display: table; margin: 30px auto 0; }
+}
+@media (max-width: 620px) {
+  .fhw-rhythm { grid-template-columns: 1fr; gap: 16px; }
+  .fhw-card {
+    aspect-ratio: auto;
+    min-height: 0;
+    border-radius: 30px;
+    align-items: flex-start;
+    text-align: left;
+    padding: 28px 26px;
+  }
+  .fhw-icon { margin-bottom: 14px; }
+  .fhw-rule { margin: 14px 0 12px; }
 }
