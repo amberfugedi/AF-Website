@@ -5031,22 +5031,6 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
   color: var(--muted);
 }
 
-/* HEADING IN THE MARGIN, prose beside it. Every narrative section was
-   a single left-hugging column at first, which left ~700px of nothing
-   down the right of a 1200px wrap and ran the page to 8,545px. This is
-   .xp-grid's ratio without the sticky, so the sections that are mostly
-   prose (mentoring, outside the work, the short version) use their
-   width and read as composition rather than a wall. */
-.ab-split {
-  display: grid;
-  grid-template-columns: 33% minmax(0, 1fr);
-  column-gap: clamp(40px, 5vw, 72px);
-  row-gap: 22px;
-  align-items: start;
-}
-.ab-split > .section-title { margin-bottom: 0; }
-@media (max-width: 900px) { .ab-split { grid-template-columns: 1fr; } }
-
 /* A run of short parallel sentences, lifted out of the prose behind a
    coral rule. Used four times on this page — every one is the same
    rhetorical shape (a cascade of parallel statements), so it takes the
@@ -5158,40 +5142,79 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .ab-think-body p { color: var(--body); max-width: 66ch; margin: 0; }
 .ab-think-body p + p { margin-top: 16px; }
 
-/* Credibility points: a figure and one line on a hairline. Deliberately
-   not a stat strip — no boxes, no oversized numerals, and half the
-   figures are words rather than numbers. Figures read coral-deep, the
-   site's one stat colour. */
-.ab-cred {
+/* THE SHORT VERSION. Resume shorthand as four editorial columns, on
+   Amber's 2026-09 reference: a small line icon on a hairline, then a
+   serif figure, a serif descriptor and sans supporting copy. No cards,
+   no boxes, no shadows.
+
+   WHAT THE REFERENCE ASKED FOR AND DID NOT GET: a different accent per
+   column, painting the icon, the rule AND the figure. That is a third
+   colour-coded set, and one of the four accents put coral on a divider.
+   Colour coding is capped at two sets and coral means interaction. The
+   soft tinted circle survives instead and takes the four PASTELS, which
+   are fill-only and mean nothing here, so the row keeps its warmth and
+   rhythm without opening a code. Every figure stays coral-deep, which
+   is what this section already did and what MASTER calls the site's one
+   stat colour. */
+.sv-grid {
   list-style: none;
-  margin: clamp(36px, 4.2vw, 54px) 0 0;
+  margin: clamp(40px, 4.6vw, 62px) 0 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 30px 40px;
+  gap: clamp(30px, 3.4vw, 54px);
 }
-.ab-cred li {
-  padding-top: 15px;
-  border-top: 1px solid rgba(255, 111, 97, 0.42);
+.sv-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: clamp(20px, 2.2vw, 28px);
 }
-.ab-cred li:nth-child(2n) { border-top-color: rgba(150, 138, 214, 0.5); }
-.ab-cred-fig {
-  /* Two lines reserved so the notes below share a baseline. Below 1440
-     "B2B and service businesses" wraps and the other three notes floated
-     up under their single-line figures, which read as a ragged row. */
-  min-height: 2.4em;
-  display: block;
+.sv-ico {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--sv-tint);
+  color: var(--ink);
+}
+.sv-ico svg { display: block; width: 21px; height: 21px; }
+/* The rule is the column's own pastel, held well down. It is atmosphere
+   and rhythm, not structure, so it does not take --line. */
+.sv-rule { flex: 1; height: 1px; background: var(--sv-rule-c); }
+.sv-fig {
   font-family: var(--font-display);
+  font-weight: 400;
   color: var(--coral-deep);
-  line-height: 1.2;
-  margin-bottom: 8px;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
+  text-wrap: pretty;
 }
-.ab-cred-note { display: block; color: var(--muted); }
+.sv-lead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.28;
+  margin-bottom: 10px;
+  text-wrap: pretty;
+}
+.sv-copy { color: var(--muted); margin-bottom: 0; }
+/* Four columns of unequal heading length left the descriptors on four
+   different baselines. Two lines are reserved for the figure while the
+   row is genuinely a row. */
+@media (min-width: 1021px) {
+  .sv-fig { min-height: calc(2 * 1.12em); }
+  .sv-lead { min-height: calc(2 * 1.28em); }
+}
+.sv-grid > li:nth-child(1) { --sv-tint: rgba(251, 213, 228, 0.55); --sv-rule-c: rgba(251, 213, 228, 0.9); }
+.sv-grid > li:nth-child(2) { --sv-tint: rgba(218, 212, 245, 0.55); --sv-rule-c: rgba(218, 212, 245, 0.95); }
+.sv-grid > li:nth-child(3) { --sv-tint: rgba(217, 239, 211, 0.6);  --sv-rule-c: rgba(217, 239, 211, 1); }
+.sv-grid > li:nth-child(4) { --sv-tint: rgba(252, 228, 196, 0.6);  --sv-rule-c: rgba(252, 228, 196, 1); }
 @media (max-width: 1020px) {
-  .ab-cred { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 34px; }
-  .ab-cred li:nth-child(2n) { border-top-color: rgba(255, 111, 97, 0.42); }
-  .ab-cred li:nth-child(4n+2),
-  .ab-cred li:nth-child(4n+3) { border-top-color: rgba(150, 138, 214, 0.5); }
+  .sv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* The timeline disclosure. Native <details>, so the whole record stays
@@ -6228,8 +6251,9 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .ab-think h3 { font-size: clamp(1.1875rem, 1.06rem + 0.53vw, 1.5rem); line-height: 1.28; }
 .ab-think-body p { font-size: var(--fs-body); line-height: 1.7; }
 .ab-dots li { font-size: var(--fs-body); line-height: 1.55; }
-.ab-cred-fig { font-size: var(--fs-intro); }
-.ab-cred-note { font-size: var(--fs-small); line-height: 1.45; }
+.sv-fig { font-size: var(--fs-h3); }
+.sv-lead { font-size: var(--fs-body); }
+.sv-copy { font-size: var(--fs-small); line-height: 1.5; }
 .xp-reveal > summary { font-size: var(--fs-body); }
 .xp-edu li { font-size: var(--fs-body); line-height: 1.5; }
 
@@ -6577,7 +6601,7 @@ footer p,
 /* 640, not 560: two columns only once each one clears about 280px.
    At 561 they were 240px and the education entry still ran four lines. */
 @media (max-width: 640px) {
-  .ab-cred { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .sv-grid { grid-template-columns: minmax(0, 1fr); gap: 34px; }
 }
 
 /* A LINE THAT STANDS UP WITHOUT BECOMING A QUOTE. Amber asked for three

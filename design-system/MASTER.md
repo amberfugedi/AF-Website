@@ -5340,3 +5340,44 @@ that carries the aspect ratio and the offset outline stayed at full
 column width. Below 900px the outline was drawn as a full-width oval
 with a small photo floating inside it, on all four pages using the
 treatment. The cap belongs on `.pf-frame`.
+
+## "The short version." rebuilt (2026-09)
+
+Amber's reference turned the four resume-shorthand columns into an
+editorial row: a small line icon in a soft tinted circle sitting on a
+hairline, then a serif figure, a serif descriptor and sans supporting
+copy. `.ab-cred` is gone and `.sv-*` replaces it. Three tiers instead of
+two, which is what makes it read as composed rather than as a list of
+labels. Still no cards, no borders, no shadows.
+
+WHAT THE REFERENCE ASKED FOR AND DID NOT GET. It assigned a different
+accent per column and painted the icon, the rule AND the figure in it —
+coral, lavender, coral, gold. That is a third colour-coded set, and one
+of the four put coral on a divider. The tinted circle survives and takes
+the four PASTELS (blush, lavender, sage, peach), which are fill-only and
+mean nothing here, so the row keeps its warmth without opening a code.
+The rule takes the same pastel, held down. Every figure stays
+coral-deep, which is what the section already did.
+
+Icon geometry is the site's, not the reference's: 24x24 at stroke 1.5,
+matching `.hiw-ico`, rather than 32x32 at 1.8.
+
+TWO ICONS FAILED THEIR FIRST DRAFT and only rendering at 6x showed it.
+"10+ years" and "Different kinds of businesses" were both bar charts and
+sat two columns apart looking like the same mark; and the "two tracks
+with a node each" drawn for "Consulting since 2017" is a settings
+slider, unmistakably. Businesses became a circle beside a rounded
+rectangle — different kinds, different sizes — and consulting became two
+parallel arrows running the same way. RENDER SMALL MARKS LARGE BEFORE
+SHIPPING THEM; at 21px both faults were invisible.
+
+Both `.sv-fig` and `.sv-lead` reserve two lines above 1020px. Without
+it, four headings of unequal length put the descriptors and the copy on
+four different baselines and the row read ragged.
+
+The universities stay named, folded into the education column's copy.
+The page's JSON-LD claims `alumniOf` for both and this is the only
+place on the site that says so. Amber's supplied copy dropped them.
+
+`.ab-split` (heading in the margin, prose beside it) is REMOVED — this
+section was its last user.
