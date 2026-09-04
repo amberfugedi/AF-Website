@@ -156,10 +156,11 @@
              saturated note is the coral ring, and the output side drops to
              the offer's own green, so the palette resolves along with the
              lines.
-             STATIC. It reveals with the site's one-time stroke draw-in like
-             every other page's hero mark, and carries no ambient loop: the
-             motion budget in MASTER is closed and a continuous drift is a
-             new device. Raise it with Amber before adding one. -->
+             MOTION. The site's one-time stroke draw-in on reveal, plus an
+             ambient drift Amber approved 2026-09-04 — the one continuous
+             animation added to the closed motion budget since it closed.
+             Three groups at three periods so they fall out of phase; see
+             the .fl-g-* rules for why it is gated on .in-view. -->
         <div class="head-art fl-art reveal">
           <svg class="glyph fl-svg" viewBox="18 50 492 310" fill="none" role="img" aria-label="Scattered inputs passing behind an arch and emerging as three clearer paths">
             <defs>
@@ -170,39 +171,49 @@
               </linearGradient>
             </defs>
 
+            <!-- THREE DRIFT GROUPS. Grouped for the ambient motion, and the
+                 grouping also fixes the paint order it needs: inputs first so
+                 the arch covers them, outputs last. -->
+
             <!-- What the business already has -->
-            <path class="stroke fl-in" pathLength="100" d="M40 72 C 128 72, 152 134, 250 154"/>
-            <path class="stroke fl-in" pathLength="100" d="M68 128 C 142 128, 172 158, 250 172"/>
-            <path class="stroke fl-in fl-in-accent" pathLength="100" d="M34 192 C 132 198, 178 186, 250 190"/>
-            <path class="stroke fl-in" pathLength="100" d="M60 256 C 144 256, 174 228, 250 210"/>
-            <path class="stroke fl-in" pathLength="100" d="M46 328 C 140 328, 172 262, 250 228"/>
+            <g class="fl-g-in">
+              <path class="stroke fl-in" pathLength="100" d="M40 72 C 128 72, 152 134, 250 154"/>
+              <path class="stroke fl-in" pathLength="100" d="M68 128 C 142 128, 172 158, 250 172"/>
+              <path class="stroke fl-in fl-in-accent" pathLength="100" d="M34 192 C 132 198, 178 186, 250 190"/>
+              <path class="stroke fl-in" pathLength="100" d="M60 256 C 144 256, 174 228, 250 210"/>
+              <path class="stroke fl-in" pathLength="100" d="M46 328 C 140 328, 172 262, 250 228"/>
+
+              <!-- Source nodes: pastel fill, deep ring -->
+              <circle class="fill fl-n fl-n-blush"    cx="40" cy="72"  r="8"/>
+              <circle class="fill fl-n fl-n-lavender" cx="68" cy="128" r="6"/>
+              <circle class="fill fl-n fl-n-sage"     cx="34" cy="192" r="8"/>
+              <circle class="fill fl-n fl-n-peach"    cx="60" cy="256" r="7"/>
+              <circle class="fill fl-n fl-n-open"     cx="46" cy="328" r="7"/>
+
+              <!-- Activity attached to nothing -->
+              <circle class="fill fl-sig" cx="126" cy="98"  r="3.5"/>
+              <circle class="fill fl-sig" cx="142" cy="290" r="3.5"/>
+              <circle class="fill fl-sig" cx="172" cy="342" r="3.5"/>
+            </g>
 
             <!-- The gateway. Drawn after the inputs, so they run behind it. -->
-            <path class="fill fl-arch" d="M260 268 L260 170 C260 119 284 91 311 91 C338 91 362 119 362 170 L362 291 L337 277 L337 172 C337 143 327 123 311 123 C295 123 285 143 285 172 L285 282 Z" fill="url(#fl-arch)"/>
-            <path class="fill fl-arch-edge" d="M337 277 L362 291 L362 170 C362 119 338 91 311 91 L311 123 C327 123 337 143 337 172 Z"/>
-            <path class="fill fl-arch-line" d="M260 268 L260 170 C260 119 284 91 311 91 C338 91 362 119 362 170 L362 291 L337 277 L337 172 C337 143 327 123 311 123 C295 123 285 143 285 172 L285 282 Z"/>
+            <g class="fl-g-arch">
+              <path class="fill fl-arch" d="M260 268 L260 170 C260 119 284 91 311 91 C338 91 362 119 362 170 L362 291 L337 277 L337 172 C337 143 327 123 311 123 C295 123 285 143 285 172 L285 282 Z" fill="url(#fl-arch)"/>
+              <path class="fill fl-arch-edge" d="M337 277 L362 291 L362 170 C362 119 338 91 311 91 L311 123 C327 123 337 143 337 172 Z"/>
+              <path class="fill fl-arch-line" d="M260 268 L260 170 C260 119 284 91 311 91 C338 91 362 119 362 170 L362 291 L337 277 L337 172 C337 143 327 123 311 123 C295 123 285 143 285 172 L285 282 Z"/>
+            </g>
 
             <!-- Fewer paths, one colour -->
-            <path class="stroke fl-out" pathLength="100" d="M362 182 C 412 182, 430 152, 482 148"/>
-            <path class="stroke fl-out" pathLength="100" d="M362 214 C 416 214, 432 214, 488 214"/>
-            <path class="stroke fl-out" pathLength="100" d="M362 246 C 412 246, 430 274, 480 280"/>
+            <g class="fl-g-out">
+              <path class="stroke fl-out" pathLength="100" d="M362 182 C 412 182, 430 152, 482 148"/>
+              <path class="stroke fl-out" pathLength="100" d="M362 214 C 416 214, 432 214, 488 214"/>
+              <path class="stroke fl-out" pathLength="100" d="M362 246 C 412 246, 430 274, 480 280"/>
 
-            <!-- Source nodes: pastel fill, deep ring -->
-            <circle class="fill fl-n fl-n-blush"    cx="40" cy="72"  r="8"/>
-            <circle class="fill fl-n fl-n-lavender" cx="68" cy="128" r="6"/>
-            <circle class="fill fl-n fl-n-sage"     cx="34" cy="192" r="8"/>
-            <circle class="fill fl-n fl-n-peach"    cx="60" cy="256" r="7"/>
-            <circle class="fill fl-n fl-n-open"     cx="46" cy="328" r="7"/>
+              <circle class="fill fl-n-out" cx="482" cy="148" r="6.5"/>
+              <circle class="fill fl-n-out" cx="488" cy="214" r="6.5"/>
+              <circle class="fill fl-n-out" cx="480" cy="280" r="6.5"/>
+            </g>
 
-            <!-- Activity attached to nothing -->
-            <circle class="fill fl-sig" cx="126" cy="98"  r="3.5"/>
-            <circle class="fill fl-sig" cx="142" cy="290" r="3.5"/>
-            <circle class="fill fl-sig" cx="172" cy="342" r="3.5"/>
-
-            <!-- Where it comes out -->
-            <circle class="fill fl-n-out" cx="482" cy="148" r="6.5"/>
-            <circle class="fill fl-n-out" cx="488" cy="214" r="6.5"/>
-            <circle class="fill fl-n-out" cx="480" cy="280" r="6.5"/>
           </svg>
         </div>
       </div>

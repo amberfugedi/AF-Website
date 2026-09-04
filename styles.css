@@ -6556,6 +6556,61 @@ footer p,
    1120px wrap at 1440. The viewBox is 492x310, so at 440 wide it stands
    277px tall against a ~570px copy column and never drives the hero. */
 .fl-svg { max-width: 440px; }
+
+/* ---- Ambient drift (Amber, 2026-09-04) ----
+   The one continuous animation added to the closed motion budget since
+   it closed. It is on the record here because the budget is closed and
+   the next person reading this needs to know it was asked for, not
+   drifted in: 2-3px, 6-8s, no bounce, no pulse, no path redraw.
+
+   INSIDE `no-preference`, not merely disabled under `reduce`. The
+   animation is never defined for a reader who has asked for less
+   motion, so there is nothing to override and nothing to forget.
+
+   GATED ON `.in-view`. The mark draws itself in over 1.5s on reveal;
+   starting the drift at page load means the two run over each other and
+   the entrance reads unsteady. Nothing moves until the mark has landed.
+
+   THREE PERIODS, NOT ONE. 7s / 6s / 8s share no common factor inside a
+   reasonable dwell, so the groups fall out of phase and the composition
+   breathes instead of sliding as a single block. That is the whole
+   reason for grouping.
+
+   UNITS ARE viewBox UNITS. The box is 492 wide painted at 440, so 1 unit
+   is 0.894 CSS px: the 3-unit input drift lands at 2.7px and the 2-unit
+   drift at 1.8px, inside the 2-3px the brief asks for. Do not read these
+   as pixels.
+
+   translateY ONLY. No scale, no rotate, so `transform-box` and
+   `transform-origin` never enter into it — an SVG group with a scale on
+   it depends on both, and their defaults have moved before. */
+@media (prefers-reduced-motion: no-preference) {
+  .fl-art.reveal.in-view .fl-g-in {
+    animation: fl-drift-a 7s ease-in-out 1.4s infinite;
+  }
+  .fl-art.reveal.in-view .fl-g-arch {
+    animation: fl-drift-b 6s ease-in-out 1.4s infinite;
+  }
+  .fl-art.reveal.in-view .fl-g-out {
+    animation: fl-drift-c 8s ease-in-out 1.4s infinite;
+  }
+}
+/* `ease-in-out`, not `var(--ease)`. The site's easing token is an
+   entrance curve and deliberately asymmetric; on an infinite loop that
+   reads as a repeated arrival, which is the bounce the brief rules out.
+   A drift wants a symmetric ease so neither direction leads. */
+@keyframes fl-drift-a {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+@keyframes fl-drift-b {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(2px); }
+}
+@keyframes fl-drift-c {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(2px); }
+}
 /* HEAD -> FIRST SECTION. `.page-head + section` zeroes the section's own
    104px site-wide, so the whole joint is carried by the head's bottom
    padding: 80px on About and Courses, which share this structure. This

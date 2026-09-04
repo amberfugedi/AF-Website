@@ -4319,13 +4319,39 @@ value. So `opacity: 0.16` on a `class="fill"` element renders at full
 strength. Anything carrying `class="fill"` must put its transparency in
 rgba. The first side-panel fix looked like it had done nothing.
 
-NO AMBIENT DRIFT. Amber's brief asked for a 2–3px 6–8s loop "if motion
-fits the existing site". It does not: the motion budget is closed, and
-the only continuous animation on the site — the testimonial marquee — is
-already the one thing the detector flags. Precedent is the Expertise
-scroll-expand, held back for the same reason. The mark reveals with the
-site's existing one-time stroke draw-in like every other hero mark.
-Turning the loop on is a keyframe block and one class; raise it with her.
+AMBIENT DRIFT — ADDED TO THE CLOSED MOTION BUDGET, 2026-09-04.
+It was built without one and flagged, because the budget is closed and
+the only other continuous animation on the site (the testimonial
+marquee) is the one thing the detector flags. Amber asked for it
+directly the same day. That is the whole reason it is allowed: it is the
+second item admitted to the budget since it closed, and the next person
+reading this should know it was requested, not drifted in.
+
+Three groups at three periods so they fall out of phase — 7s, 6s, 8s,
+which share no common factor inside any reasonable dwell, so the
+composition breathes rather than sliding as one block. That is the only
+reason the SVG is grouped at all.
+
+FOUR THINGS THE IMPLEMENTATION TURNS ON:
+- The rules live INSIDE `@media (prefers-reduced-motion: no-preference)`,
+  not merely disabled under `reduce`. The animation is never defined for
+  a reader who asked for less motion, so there is nothing to override
+  and nothing to forget later.
+- Gated on `.in-view`, plus a 1.4s delay. The mark draws itself in over
+  1.5s; starting the drift at load runs the two over each other and the
+  entrance reads unsteady.
+- `ease-in-out`, NOT `var(--ease)`. The site's token is an entrance curve
+  and deliberately asymmetric; on an infinite loop that reads as a
+  repeated arrival, which is the bounce her brief rules out.
+- The keyframe values are viewBox UNITS, not pixels. The box is 492 wide
+  painted at 440, so one unit is 0.894 CSS px. Do not "fix" a 3 to a 3px.
+
+MEASURED LIVE, over 20s at 60ms, not read off the declarations:
+amplitude 2.68px / 1.79px / 1.79px (brief: 2–3px); cycle lengths 7.00 and
+6.98s, 6.01 and 5.99s, 8.02s (brief: 6–8s); zero of 87 samples found all
+three groups at the same offset, so the phases really do separate. With
+`.in-view` absent, computed `animation-name` is `none` on all three;
+under `reduce` it is `none` and measured travel is 0.000px.
 
 MEASURED: 440px wide at 1280+, 39.3% of the 1120px wrap, vertically
 centred against the copy (midpoint delta 0), and the head is 766px — the
