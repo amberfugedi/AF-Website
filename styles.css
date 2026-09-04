@@ -820,7 +820,7 @@ body.page-sub .aura { --aura-base: 0.45; }
     text-align: center;
     font-family: var(--font-body);
     font-size: var(--fs-small);
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
@@ -974,7 +974,7 @@ body.page-sub .aura { --aura-base: 0.45; }
 }
 .proof-chip .proof-stat {
   display: block;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.55rem;
   letter-spacing: -0.015em;
   line-height: 1.15;
@@ -2072,16 +2072,23 @@ a.bld-item .bld-item-arrow {
   .page-expertise .hero-split { grid-template-columns: 1fr; }
   .xp-visual { max-width: none; }
 }
-/* PHONES ARE THE HONEST LIMIT OF THIS GRAPHIC. The artwork is 1620
-   units wide and a phone gives it ~342px, so the 30px labels render at
-   about 6px. Enlarging them was tried and is worse: at 40px they run
-   past the viewBox and get cropped, and the brief says never crop a
-   label. The labels stay small here and the six areas are spelled out
-   in full in "Where I help" immediately below. Making them readable on
-   a phone needs a different arrangement, not a CSS change. */
-@media (max-width: 480px) {
-  /* the labels must stay readable, so the decoration goes first */
-  .xph #dotGrids { display: none; }
+/* PHONES ARE THE HONEST LIMIT OF THIS GRAPHIC, so on phones it goes.
+   The artwork is 1620 units wide and a phone gives it ~342px, which
+   renders the 30px labels at about 6px. Enlarging them is worse: at
+   40px they run past the viewBox and crop. This was left in place for
+   a while with the labels simply small, on the argument that the six
+   areas are spelled out in full in "Where I help" immediately below —
+   but that argument is the reason to HIDE it, not to keep it. Nothing
+   is lost and the head closes up.
+
+   Amber, 2026-09: "hide images or graphics on mobile where it makes
+   sense". This is the site's own precedent — `.page-service .head-art`
+   already does exactly this at the same breakpoint.
+
+   Between 760 and 900 the hero stacks and the graphic runs the full
+   column, so the labels land near 13px and it stays. */
+@media (max-width: 760px) {
+  .xp-visual { display: none; }
 }
 /* No drift, no draw-on, no hover motion. The graphic simply arrives. */
 @media (prefers-reduced-motion: reduce) {
@@ -2662,12 +2669,12 @@ a.bld-item .bld-item-arrow {
 
 .sp-n {
   font-size: var(--fs-eyebrow);
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   font-weight: 600;
   color: var(--coral-deep);
 }
 .sp-t {
-  font-weight: 700;
+  font-weight: 600;
   /* Card title, so it reads at the intro grade like every other card
      title on the site (MASTER: the h3 slot overwhelmed card bodies).
      It had its own 17->19 clamp, one notch low. */
@@ -2715,7 +2722,7 @@ a.bld-item .bld-item-arrow {
 
 .sp-k {
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   font-weight: 600;
   font-size: var(--fs-eyebrow);
   color: var(--coral-deep);
@@ -3272,7 +3279,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 13px;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   fill: var(--ink);
   fill-opacity: 0.8;
@@ -3435,7 +3442,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
   box-shadow: var(--shadow-soft);
 }
 .fm-cap {
-  font-size: var(--fs-small); font-weight: 700; letter-spacing: 0.1em;
+  font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--muted); margin: 0 0 12px;
 }
 .fm-rows { list-style: none; margin: 0; padding: 0; }
@@ -3453,7 +3460,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .fm-plan { margin-top: 14px; padding-top: 12px; border-top: 2px solid var(--ink); display: grid; gap: 7px; }
 .fm-plan > div { display: flex; gap: 12px; align-items: baseline; }
 .fm-k {
-  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
   min-width: 48px;
 }
 .fm-k1 { color: var(--coral-deep); }
@@ -3484,7 +3491,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .fm-tiers > div { padding: 15px 0; border-top: 1px solid var(--line); }
 .fm-tiers > div:first-child { border-top: 0; padding-top: 0; }
 .fm-tiers p { color: var(--muted); margin: 0; }
-.ct-k { display: block; margin-bottom: 4px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.ct-k { display: block; margin-bottom: 4px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 .ct-first .ct-k { color: var(--coral-deep); }
 .ct-next  .ct-k { color: var(--body); }
 .ct-later .ct-k { color: var(--muted); }
@@ -3494,7 +3501,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 
 /* Before / after. Two lists, not two slabs. */
 .ba { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(26px, 4vw, 60px); margin-top: 26px; }
-.ba-k { font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px; }
+.ba-k { font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px; }
 .ba-before .ba-k { color: var(--muted); }
 .ba-after .ba-k { color: var(--coral-deep); }
 .ba-col ul { list-style: none; margin: 0; padding: 0; }
@@ -3578,7 +3585,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
    what to do first. */
 .ty-head { padding-bottom: clamp(30px, 4vw, 52px); }
 .ty-eyebrow {
-  font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--coral-deep); margin-bottom: 16px;
 }
 .page-thanks .page-head .section-lede { max-width: 52ch; }
@@ -3608,7 +3615,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 }
 .ty-tip p:last-child { max-width: 68ch; }
 .ty-tip-k {
-  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--coral-deep); margin-bottom: 6px;
 }
 .ty-tip p:last-child { color: var(--muted); margin: 0; }
@@ -3718,7 +3725,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
   padding: 15px 0;
   border-top: 1px solid var(--line);
 }
-.cl-n { font-weight: 700; color: var(--coral-deep); letter-spacing: 0.04em; }
+.cl-n { font-weight: 600; color: var(--coral-deep); letter-spacing: 0.04em; }
 .cl-t { font-weight: 600; color: var(--ink); }
 .cl-d { color: var(--muted); margin: 0; }
 
@@ -3744,7 +3751,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .cs-map li::before {
   content: counter(cm);
   position: absolute; left: 0; top: 14px;
-  font-weight: 700; color: var(--coral-deep); letter-spacing: 0.04em;
+  font-weight: 600; color: var(--coral-deep); letter-spacing: 0.04em;
 }
 .cs-map strong { color: var(--ink); font-weight: 600; }
 
@@ -3755,7 +3762,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .cs-tiers p { color: var(--muted); margin: 0; }
 .ct-k {
   display: block; margin-bottom: 4px;
-  font-size: var(--fs-small); font-weight: 700;
+  font-size: var(--fs-small); font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
 }
 .ct-first .ct-k { color: var(--coral-deep); }
@@ -4632,7 +4639,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
   transform: translateY(-1px);
   flex-shrink: 0;
 }
-.xp-proof strong { color: var(--coral-deep); font-weight: 700; }
+.xp-proof strong { color: var(--coral-deep); font-weight: 600; }
 .xp-chapter .arrow-link { margin-top: 16px; display: inline-block; }
 .xp-areas { margin-top: 14px; color: var(--muted); }
 .xp-earlier { margin-top: 10px; border-top: 1px solid rgba(46, 42, 39, 0.1); padding-top: 26px; }

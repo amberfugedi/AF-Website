@@ -5598,3 +5598,34 @@ about 110 lines apart. They overlap on reporting time and automating the
 repeatable; the section adds adoption outcomes the graphic does not
 cover. Two before/after moments on one page is a content question, not a
 conformance one.
+
+### Mobile graphics, weights and tracking (2026-09)
+
+MOBILE GRAPHICS. Swept every page at 390px and measured what actually
+renders. The site was already doing the right thing almost everywhere —
+the four service hero marks, the home problem art, My Approach's map,
+About's convergence mark and the Workflow panels are all hidden or
+stacked below their breakpoints. ONE outlier: the Expertise hero, 342 x
+187px carrying 139 shapes and six labels rendering at about 6px.
+
+It is hidden below 760 now. The old comment argued for keeping it on the
+grounds that "the six areas are spelled out in full in Where I help
+immediately below" — which is the reason to hide it, not to keep it.
+Nothing is lost, the head closes up, and it matches
+`.page-service .head-art`, which already does this at the same
+breakpoint. Between 760 and 900 the hero stacks and the graphic runs the
+full column, so the labels land near 13px and it stays.
+
+The Services hero (292 x 241, 27 shapes) and the Courses cycle (270 x
+270, 7 shapes) are abstract with no text and read fine at phone size.
+They stay.
+
+WEIGHTS. 600 is the site's label and card-title weight. Twelve
+declarations used 700 for exactly that role — mostly uppercase
+micro-labels on the course and thank-you pages — and `.proof-stat` used
+800, the only 800 on the site. All now 600. The proof chip still reads
+as the loudest thing in the hero; rendered and checked.
+
+TRACKING. Two declarations dropped the leading zero (`.1em`, `.08em`)
+and the ring labels in the course cycle were tracked in px (1.2px on
+13px text, which is 0.092em). All three now read `0.1em` / `0.08em`.
