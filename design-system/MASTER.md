@@ -5249,3 +5249,32 @@ REGRESSION FIXED: `.svc-narrow .hw-body + .cta-row` was the only rule
 spacing the engagement CTAs, and those sections dropped `.svc-narrow`
 when they gained the photo split, so Fractional and Consulting had a
 0px gap under the last paragraph. The rule is un-scoped now.
+
+## Section background audit (2026-09)
+
+Audited every full-width section on twelve pages. The finding was that
+the site had only TWO section treatments, with nothing between them:
+the aura gradient (every transparent section, which is almost all of
+them) and pure white (`.band-white`, seven instances). No warm neutral
+existed, which is why the white bands read as abrupt — the jump was
+gradient to stark white and back.
+
+`.band-cream` is that middle tone: `--bg` opaque, the same hairlines as
+`.band-white`. It covers the aura so the section reads calm, and a
+white card on it finally has contrast.
+
+APPLIED TO EXACTLY TWO SECTIONS, the only two where a full-width white
+band held white cards:
+- home, "Ways we can work together" — five white cards on white
+- about, "From people I have worked with" — ten quote cards on white
+
+THE OTHER FIVE WHITE BANDS STAY WHITE, and this is the part worth not
+undoing later. On My Approach ("I solve business problems", "The people
+side of the work") and the course page ("Diagnosis before tactics",
+"What changes", "Who is teaching it") the white bands ALTERNATE with
+gradient sections and carry no cards. That alternation is the page
+rhythm. Flattening them to cream would have removed cadence rather than
+added intention, which is the opposite of what the audit was for.
+
+White cards on transparent (aura) sections were left alone throughout —
+the gradient already gives them contrast.

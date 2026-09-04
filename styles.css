@@ -2201,6 +2201,27 @@ a.bld-item .bld-item-arrow {
   border-bottom: 1px solid var(--line);
 }
 
+/* ============================================================
+   .band-cream — the missing middle tone (2026-09)
+   ============================================================
+   The site had exactly two full-width section treatments: the aura
+   gradient (every transparent section) and pure white (.band-white).
+   Nothing sat between them, which is what made the white bands read as
+   abrupt rather than intentional.
+
+   `--bg` opaque is that middle tone. It covers the aura, so the section
+   reads calm rather than tinted, and a white card on it finally has
+   contrast. Used ONLY where a full-width white band held white cards:
+   the home offer grid and the About testimonials. The five cardless
+   white bands stay white — on My Approach and the course page they
+   alternate with gradient sections, and that alternation IS the page
+   rhythm, so flattening them would remove cadence rather than add it. */
+.band-cream {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
 /* ============ Cards (offers + work teasers) ============ */
 .card-grid {
   display: grid;
@@ -7778,10 +7799,7 @@ footer p,
    Below 900px it is a single column again, as before. */
 .hw-2col p,
 .hw-wide p { max-width: none; }
-@media (min-width: 900px) {
-  .hw-2col { columns: 2; column-gap: clamp(40px, 4.5vw, 74px); }
-  .hw-2col p { break-inside: avoid; }
-}
+/* one column, full width (Amber, Sept 2026) */
 /* Emphasis inside body copy is 600 and ink, not the browser's 700:
    700 is heavier than anything else on the page. */
 .hw-body strong { font-weight: 600; color: var(--ink); }
