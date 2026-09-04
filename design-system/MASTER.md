@@ -5629,3 +5629,45 @@ as the loudest thing in the hero; rendered and checked.
 TRACKING. Two declarations dropped the leading zero (`.1em`, `.08em`)
 and the ring labels in the course cycle were tracked in px (1.2px on
 13px text, which is 0.092em). All three now read `0.1em` / `0.08em`.
+
+## The share card, replaced (2026-09)
+
+`og-image.jpg` dated from 21 August and its footer still read "Marketing
+Strategy · Courses · Consulting" — three of five offers, no fractional
+leadership, no workflow and AI, and nothing about senior in-house
+leadership. The title tag had said "Senior Marketing Leader &
+Consultant" for weeks; the card had not caught up. The `og:image:alt`
+was still "marketing consultant in Connecticut" too.
+
+`og-image-v2.jpg` — 2400x1260, 150KB, progressive. Same composition and
+the same headline, which is the homepage h1 and is current. What
+changed:
+
+- The footer reads **Leading · Consulting · Building** — the site's own
+  three pillars from the Work page. It covers the in-house half and the
+  client half in three words, which the old list did not.
+- The orbit glyph top-right is gone. That is the AUTOMATIONS OFFER MARK,
+  and it was standing in for the whole site. `brand-mark.png` sits
+  beside the wordmark instead, which is what the nav does.
+- Alt text now says senior marketing leader and consultant.
+
+A NEW FILENAME, DELIBERATELY. LinkedIn, Facebook and Slack cache an
+og:image by URL for about a week, so re-uploading over `og-image.jpg`
+would not have been fetched — which is why Amber's share preview was
+still showing the old card after the metadata had already updated. A new
+URL has nothing to serve from cache. `og-image.jpg` stays on disk;
+posts already shared point at it.
+
+`og-course-foundation.jpg` is unchanged and still accurate.
+`404.html` and `thank-you.html` carry no OG tags by design.
+
+SOURCE: `design-system/og-card-source.html`. Render at 1200x630 with
+deviceScaleFactor 2, save progressive JPEG at quality 88. The aura is
+the site's own four clouds, static, at 72% with an 84px blur — the live
+blobs are sized in vw and land on those pixel values at a 1200px
+viewport.
+
+FORCING A RE-SCRAPE, since a new file alone does not do it: LinkedIn
+Post Inspector, then the Facebook Sharing Debugger's "Scrape Again". And
+LinkedIn captures the preview WHEN THE LINK IS PASTED INTO THE COMPOSER
+— editing a published post does not refresh its card.
