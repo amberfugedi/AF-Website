@@ -4668,3 +4668,55 @@ and rendered as one solid block of blush behind both. That is the
 failure the below-480 rule already documents, and the fix is the rule
 that was already written: never on phrases longer than about four words.
 It is on "in the room." now.
+
+
+================================================================================
+2026-09-04 · THE TAB CENSUS CLOSED
+================================================================================
+
+Amber, on the mix of blush and butter blocks: keep the meaning-based rule,
+fix the pages that had the wrong number of tabs. Every content page now
+carries exactly one blush and one butter. The h1's COLOUR still varies
+page to page, because it follows what the headline says — that was stated
+when the choice was made and is not a gap.
+
+WHAT CHANGED, and why each one
+- SERVICES had three butter and no blush. "What sounds like you?" is an
+  open question, so it takes blush. "Let's figure out what comes next."
+  is locked butter by the repeat rule (it is butter on Home and Work), so
+  the h1 gave up its tab rather than the CTA. Home already ships with no
+  h1 tab, so there is precedent.
+- EXPERTISE had two butter. First attempt put blush on the CTA band's
+  "need yet?" — wrong twice over: MASTER only vouches for butter on the
+  dark band, and every other page closes on butter, which is the
+  resolution position. The tension on that page is in the h1 all along:
+  blush now sits on "getting in the way", and "growth." goes plain.
+  (For the record, ink on blush measures 10.7:1 on the dark band, so it
+  was never a contrast failure, only the wrong call.)
+- COURSES had one tab and no tension marked anywhere. Blush on "not just
+  watched.", the failure mode the page argues against.
+- THE COURSE PAGE had three. The pair belongs on the argument, so the h1
+  gave up its tab and blush "tactics." → butter "to start." carries it.
+- THANK-YOU had two butter and no tension to mark. A confirmation page
+  has none, and inventing one would be worse than carrying a single tab,
+  so it keeps "in." alone. Privacy, Terms and 404 carry none at all;
+  utility pages sit outside the rule.
+
+EVERY BLUSH TAB IS ON A LIGHT SURFACE. Checked across all sixteen files
+after the change: header, cream, band-white or sp-section. None on the
+dark CTA band.
+
+TWO BANNER BUGS FOUND BY SWEEPING, both introduced the same day on the
+new service pages:
+- Consulting's h1 tab was "what's actually in the way." — five words,
+  over the four-word rule, and it wrapped to two lines at 390 where the
+  inline-block grows and both pseudo tabs stretch into one solid block.
+  Now "in the way."
+- Mentorship's CTA tab was "trying to work through?" — four words, so
+  within the rule, and it banners anyway. Now "work through?"
+THE FOUR-WORD RULE IS NOT SUFFICIENT ON ITS OWN. Word count is a proxy;
+the real constraint is whether the phrase fits one line at 390. Sweep
+for `height / line-height > 1` on `.tab-em` rather than counting words.
+The `box-decoration-break: clone` treatment that saves About's long h1
+is scoped to `.page-about .head-copy` and rescues nothing else — verified
+again here: two clean marks at 390, no banner.
