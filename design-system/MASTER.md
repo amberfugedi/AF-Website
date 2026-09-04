@@ -5699,3 +5699,48 @@ FORCING A RE-SCRAPE, since a new file alone does not do it: LinkedIn
 Post Inspector, then the Facebook Sharing Debugger's "Scrape Again". And
 LinkedIn captures the preview WHEN THE LINK IS PASTED INTO THE COMPOSER
 — editing a published post does not refresh its card.
+
+### Icon duplicates, fixed (2026-09)
+
+Pulled every icon off the pages onto one contact sheet and compared the
+GEOMETRY, not the appearance. 56 icons, 52 distinct drawings — four
+drawings were doing two jobs, and three of the four were inside the
+Workflow & AI before/after panel:
+
+    Manual work          / Create consistent outputs      same document
+    Handoffs slow down   / Keep humans in the right places same people
+    Reports take time    / Give the team time back         same bar chart
+
+Three of five rows in a graphic whose only job is contrast, showing no
+contrast. The BEFORE side took the new mark in two of the three — the
+"after" icons were right for their idea and the friction side was the
+one drawn generically. Time back is the exception: the report IS a bar
+chart, so the gain moved instead.
+
+    Manual work              a sheet with a pen
+    Handoffs slow down       an arrow running into a wall
+    Give the team time back  a clock with a plus
+
+TWO OF THOSE THREE FAILED THEIR FIRST DRAFT AND ONLY 8x SHOWED IT. Two
+nodes joined by a broken link read as a KEY, and a clock with a small
+counter-clockwise arrow read as a clock with a stray tick on it. Both
+were redrawn to two shapes each. This is the third time a mark has
+shipped past a first draft that looked fine at 22px.
+
+THE FOURTH DUPLICATE was across pages: the Workflow & AI OFFER mark and
+the AI Tools for GTM WORK-CATEGORY mark were the same drawing —
+identical circles, only the gradient id and the family's stroke weight
+differed. The offer mark is the primary of the two (it carries a service
+on the home page and on Services), so the work mark moved: a chip, with
+a gradient core, a stroked body and short pins. Rendered beside its
+three siblings to check it does not collide with Products, which is the
+other square-ish mark in that row.
+
+ONE REPEAT LEFT, DELIBERATELY: the magnifier on Consulting's "Understand
+the problem" and Fractional's "Find the real constraints". Two service
+pages, one idea — investigate before acting. That reads as consistency,
+not as an oversight.
+
+STILL OPEN, Amber's call: the Expertise chapter marks remain the third
+icon language — pictorial, part-filled, on saturated tiles, against 42
+thin-line marks and 8 composed brand marks everywhere else.
