@@ -3491,19 +3491,35 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 /* copy first, photo right — for sections whose copy carries bullets or a
    CTA and would otherwise leave the right half empty */
 .pf-split-r { grid-template-columns: minmax(0,1fr) minmax(0,0.42fr); margin-bottom: 0; }
+/* The offset outline MASTER describes on the About blob but never drew:
+   the same organic shape, one hairline, nudged down-right so it reads as
+   a line echo behind the photograph rather than a border on it. It needs
+   a wrapper, since an <img> cannot carry a pseudo-element. */
+.pf-frame { position: relative; display: block; }
+.pf-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--svc-accent, var(--coral-deep));
+  border-radius: inherit;
+  transform: translate(11px, 11px);
+  opacity: 0.45;
+  pointer-events: none;
+}
 .teach-photo,
-.pf-photo { width: 100%; height: auto; border-radius: 12px; display: block; }
+.pf-photo { position: relative; width: 100%; height: auto; display: block; border-radius: inherit; }
+
+/* the shape lives on the wrapper so the outline can inherit it */
+.pf-split .pf-frame { aspect-ratio: 5 / 4; border-radius: 54% 46% 46% 54% / 48% 52% 48% 52%; }
+.pf-split-r .pf-frame { border-radius: 46% 54% 54% 46% / 52% 48% 52% 48%; }
+.teach-grid .pf-frame { aspect-ratio: 8 / 9; border-radius: 52% 48% 46% 54% / 47% 53% 47% 53%; }
+.pf-frame .pf-photo,
+.pf-frame .teach-photo { height: 100%; object-fit: cover; }
 /* Amber's own photographs take the organic radius (MASTER), not the
    rectangle, which is the work-artifact treatment. 5/4 rather than the
    portraits' 8/9, because these frames are landscape and 8/9 would crop
    most of the picture away. Opposite pairs sum to 100% so the curve
    stays continuous. */
-.pf-photo {
-  aspect-ratio: 5 / 4;
-  object-fit: cover;
-  border-radius: 54% 46% 46% 54% / 48% 52% 48% 52%;
-}
-.pf-split-r .pf-photo { border-radius: 46% 54% 54% 46% / 52% 48% 52% 48%; }
 .teach-cta { margin-top: 24px; align-items: center; }
 
 /* Purchase box */
@@ -6757,7 +6773,9 @@ footer p,
 .svc-narrow .hw-body { max-width: 720px; }
 /* .hw-body zeroes nothing at its end and `.wrap > :last-child` only
    reaches the row below, so the button sat on the last line. */
-.svc-narrow .hw-body + .cta-row { margin-top: clamp(28px, 3vw, 36px); }
+/* Not scoped to .svc-narrow: the engagement sections dropped that class
+   when they gained the photo split, and their CTAs lost all spacing. */
+.hw-body + .cta-row { margin-top: clamp(28px, 3vw, 36px); }
 
 /* Sections that open straight into a block get the air the 56px lede
    margin supplies elsewhere; `.section-title` alone leaves 18px and the
@@ -7521,7 +7539,7 @@ footer p,
   border-radius: var(--radius);
   padding: clamp(30px, 4.2vw, 64px);
 }
-.fitp-panel .section-title { font-size: var(--fs-h3); margin-bottom: clamp(26px, 3vw, 38px); }
+.fitp-panel .section-title { margin-bottom: clamp(26px, 3vw, 38px); }
 
 .fitp-list {
   list-style: none;

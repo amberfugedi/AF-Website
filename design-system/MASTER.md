@@ -5217,3 +5217,35 @@ file documents, compounding across a page of short prose blocks. Now
 clamp(44px, 4.4vw, 64px), so ~127px joints.
 
 Detector 249, level with HEAD measured back to back.
+
+## Every portrait on the organic radius, and the offset outline (2026-09)
+
+ALL of Amber's photographs now take the organic radius, not just the
+service ones: the course portrait was still a 12px rectangle, which was
+also off the radius scale. Work artifacts stay rectangular — that
+distinction is the point of the rule and has not moved. The one
+photograph that keeps square corners is the How I Work hero collage,
+which is a full-bleed 728x388 band rather than a portrait in a column,
+and which this file already records as the standing exception.
+
+THE OFFSET OUTLINE IS BUILT. This file described the About blob as
+having an "offset coral outline" and `.about-portrait::after` was an
+empty hook that drew nothing. It exists now on `.pf-frame`: the same
+organic shape, one hairline, nudged 11px down-right at 45% opacity, so
+it reads as a line echo behind the photograph rather than a border on
+it. It takes `--svc-accent` on a service page and `--coral-deep`
+elsewhere. It needs a wrapper, since an <img> cannot carry a
+pseudo-element, and the shape lives on that wrapper so the outline can
+inherit it. About's own portraits keep `overflow: hidden`, which would
+clip the offset, so they are unchanged.
+
+THE FIT HEADING IS BACK ON `--fs-h2`. Dropping it to `--fs-h3` made it
+the only section title on the site not at 40px, which is what still
+read wrong. Its bullets and its not-a-fit statement were already at
+`--fs-body`, identical to `.hw-body p` on the same page — measured, not
+assumed.
+
+REGRESSION FIXED: `.svc-narrow .hw-body + .cta-row` was the only rule
+spacing the engagement CTAs, and those sections dropped `.svc-narrow`
+when they gained the photo split, so Fractional and Consulting had a
+0px gap under the last paragraph. The rule is un-scoped now.
