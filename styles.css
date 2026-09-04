@@ -3531,6 +3531,12 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .teach-grid .pf-frame { aspect-ratio: 8 / 9; border-radius: 52% 48% 46% 54% / 47% 53% 47% 53%; }
 .pf-frame .pf-photo,
 .pf-frame .teach-photo { height: 100%; object-fit: cover; }
+/* This frame is an environmental shot rather than a portrait: the desk,
+   the laptop and the open notebook are what make it right for this page,
+   and a centred crop hides all three below the oval. The source is square
+   in a 5:4 frame, so there is only 20% of vertical slack — anything short
+   of a full bottom-align loses the working scene. */
+.page-service.svc-c-workflow .pf-photo { object-position: 50% 100%; }
 /* Amber's own photographs take the organic radius (MASTER), not the
    rectangle, which is the work-artifact treatment. 5/4 rather than the
    portraits' 8/9, because these frames are landscape and 8/9 would crop
@@ -3659,8 +3665,10 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
   .teach-grid,
   .pf-split { grid-template-columns: 1fr; gap: 24px; }
   .pf-split-r { grid-template-columns: 1fr; }
-  .teach-photo,
-  .pf-photo { max-width: 260px; }
+  /* Cap the frame, not the image inside it. Capping the image left the
+     offset outline drawn at the full column width while the photo stayed
+     at 260px, so the two came apart on every stacked layout. */
+  .pf-frame { max-width: 260px; }
 }
 @media (max-width: 700px) {
   .ba { grid-template-columns: 1fr; gap: 26px; }

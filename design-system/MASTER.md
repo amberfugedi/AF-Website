@@ -5314,3 +5314,29 @@ CAUTION FOR ANYONE MEASURING THIS PAGE: there are TWO `.ab-beats`
 blocks on About. `document.querySelector('.ab-beats')` returns the one
 in the earlier section, not the one in this row, which briefly looked
 like a broken grid until the probe was scoped to `.mc-split .ab-beats`.
+
+## Workflow & AI engagement photo (2026-09)
+
+Photography is EIGHT appearances. `amber-fugedi-workdesk.webp`
+(1200x1200, 105K) sits right of the copy in Workflow & AI's engagement
+section on `.pf-split.pf-split-r`, matching Fractional and Consulting.
+Mentorship & Advisory is now the only service page without one;
+`amber-fugedi-sofa.webp` is still prepared for it.
+
+Two things to know about this photo. Its backdrop is the SAME ROOM and
+the same moodboard as `amber-fugedi-desk.webp` on the course page —
+different outfit, different framing, so the "no photo twice" rule holds,
+but the setting repeats across the site. And it is an environmental
+shot, not a portrait: the desk, laptop, notebook and mug are what make
+it right for this page specifically, and a centred crop hides all of
+them under the oval. The source is square in a 5:4 frame, so there is
+only 20% of vertical slack — 64% recovered about eight pixels and
+nothing else. It takes `object-position: 50% 100%`, a full bottom
+align, which is the only setting that keeps the working scene.
+
+BUG FIXED IN PASSING: the stacked breakpoint capped the IMAGE at 260px
+(`.teach-photo, .pf-photo { max-width: 260px }`) while the `.pf-frame`
+that carries the aspect ratio and the offset outline stayed at full
+column width. Below 900px the outline was drawn as a full-width oval
+with a small photo floating inside it, on all four pages using the
+treatment. The cap belongs on `.pf-frame`.
