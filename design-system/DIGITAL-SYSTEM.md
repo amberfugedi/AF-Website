@@ -91,6 +91,21 @@ site's display weight), 600 (h3, card titles, links, buttons, labels).
 
 Always write `0.08em`, never `.08em`. Never letter-space in `px`.
 
+### Case
+
+**Sentence case for every heading, label, card title, button and nav
+item.** Capitalise the first word and nothing else.
+
+Title Case is reserved for things that genuinely carry it: proper nouns
+(PERQ, Scan-Optics, MembersFirst CT Federal Credit Union), job titles
+(VP of Growth Marketing & Enablement), named deliverables inside the
+course (Foundation Audit, Foundation Plan) and page names in the nav (My
+Approach). Everything else is sentence case, including a heading's
+second sentence, which of course capitalises its own first word.
+
+Uppercase labels — tags, eyebrows, footer heads — are set with
+`text-transform`, so their source case never shows and does not matter.
+
 ### The hierarchy ladder
 
 On any page, in this order, with no rung skipped upward:

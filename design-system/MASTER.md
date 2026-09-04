@@ -5791,3 +5791,38 @@ the rhythm four steps — the page head at 138 is a fifth, on 13 of 16
 pages. And it said section joints land at 60–90px, which is not what
 adjacent sections do: they carry no margin, so the joint is both
 paddings added. Two standard sections make **208px**, not 90.
+
+## Homepage deck rewritten, and a case audit (2026-09)
+
+Amber's three paragraphs replace the two that were there. The new deck
+leads with the decade and the range ("led growth, rebuilt marketing
+functions, developed teams, improved the systems behind the work"), then
+says plainly that she leads growth marketing IN-HOUSE while taking a
+select number of clients. That is the recruiter-and-client positioning
+stated in the deck rather than implied by the title tag. Three
+paragraphs is longer than the hero carried before; rendered at 1440 and
+390 and it balances against the proof chips.
+
+CASE AUDIT. Every h1/h2/h3 plus every card title, label and nav item
+across sixteen pages, judging only words that do NOT open a sentence.
+The site is sentence case and holds: after filtering out second
+sentences, pronouns and proper nouns, exactly THREE headings were Title
+Case, all of them the Work page's build categories:
+
+    AI Tools for GTM      -> AI tools for GTM
+    Marketing Activations -> Marketing activations
+    Courses & Resources   -> Courses & resources
+
+They sat directly under "Building what teams actually use" and beside
+"Leading marketing" and "Stepping in where growth gets stuck".
+
+NOT CHANGED, and why. `.card-tag` and `.case-tag` are `text-transform:
+uppercase`, so "Document Technology" and its twelve siblings never show
+their source case. "Foundation Audit" and "Foundation Plan" are named
+deliverables used twelve times across the course and thank-you pages.
+"VP of Growth Marketing & Enablement" is a job title. "My Approach" is a
+page name.
+
+STILL OPEN: the ampersand. "&" is in job titles and the footer line;
+"and" is in the nav and the service names. Both are current, and which
+one wins is Amber's call, not a conformance fix.
