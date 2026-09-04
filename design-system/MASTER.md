@@ -4445,3 +4445,63 @@ replace inside them. A first pass matched
 document, and those eight leading spaces are a substring of the footer's
 fourteen — so the footer's Services link was replaced by a nav dropdown
 in eleven files at once. Reverted and redone against sliced blocks.
+
+
+================================================================================
+2026-09-04 · "WHAT KEEPS ME INTERESTED" RESTORED
+================================================================================
+
+Back on About at Amber's request, in its original place: the seam between
+the professional and personal halves, directly after "How I lead". Page
+order is now hero · How I Got Here · How My View Changed · What I Grew
+Into · What I Believe · How I Lead · What Keeps Me Interested · Outside
+the Work · testimonials · The Short Version · the timeline · contact.
+
+The markup and its CSS came out of `a972359^`, not from rebuilding
+against a screenshot. `.ab-quiet`, `.ab-quiet-open`, `.ab-quiet-close`,
+`.ab-quiet-body` and `.ab-mk-spark` had been deleted with the section and
+are restored with it, at the END of the sheet — the type layer sets
+`.ab-pull-line`'s display size around line 6125 and these have to survive
+it. `.ab-mk-q` is NOT restored: it marked copy that no longer exists.
+
+TWO CHANGES FROM THE VERSION THAT WAS CUT, both because "What I grew
+into" exists now and did not then:
+1. THE BLANK-PAGE PARAGRAPH IS GONE FROM HERE. It is word for word in
+   "What I grew into" two sections up — it was moved there when this
+   section was removed. Restoring it would print the same sentence on the
+   page twice. Verified: no exact duplicate paragraph anywhere in `main`.
+2. THE HEADLINE CARRIES NO PAPER TAB. It had the butter one; when this
+   section was cut that tab moved to "the right marketing." on "How my
+   view changed" — the second time it had moved for the same reason,
+   which is recorded in that commit. Every page carries exactly two
+   `.tab-em`, one blush and one butter, so bringing it back here would
+   make three. About stays at 1 + 1. Raised with Amber rather than moved
+   a third time.
+
+STILL OVERLAPPING, AND LEFT ALONE ON PURPOSE: this section closes on
+"That combination of creativity, curiosity, technology, and real-world
+problem solving is what keeps the work interesting to me", and "What I
+grew into" closes on "But what keeps me interested is the combination of
+creativity and problem-solving…". Different words, same thought, two
+sections apart — and the second now anticipates a section title. One of
+them should probably go. Both are approved copy from different briefs,
+so it is Amber's call, not a quiet edit.
+
+THE CLOSING LINE'S MEASURE WAS WRONG AND IS NOW 52ch, NOT 44ch. The old
+rule's comment recorded the sentence as 1308px at 30px, which makes 44ch
+(748px) a two-line measure. Re-measured with the real Newsreader it runs
+1539px, so two lines needs 770 and 44ch fell 22px short — it was
+rendering three. The old figure was almost certainly taken with a
+fallback font loaded, which is the same trap `realfont.cjs` exists for.
+52ch (884px) restores the original intent: the second line fills about
+three quarters of the measure. Past 58ch it just hits the shell's 913px
+ceiling and the second line drops to half. Two lines from 760 up, four at
+390, where the measure leaves no choice.
+
+MEASURED: type ladder h1 50 › h2 40 › pull quote, quiet open and quiet
+close 30 › beats 21 › body 17 — the pull quotes are at 30, so the
+selector-list regression that this section's REMOVAL caused has not
+recurred. No horizontal overflow at 390-1920. Detector holds at 14, so
+the section costs nothing. Testimonials, the timeline, The Short Version,
+contact, How I lead, Outside the work, What I grew into, the beliefs, nav
+and footer all byte-identical.

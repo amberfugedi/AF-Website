@@ -6942,3 +6942,47 @@ footer p,
   .svc-turn,
   .svc-stand { max-width: none; }
 }
+
+
+/* ============================================================
+   "WHAT KEEPS ME INTERESTED" — restored 2026-09-04
+   ------------------------------------------------------------
+   These rules were deleted with the section and come back with it.
+   AT THE END OF THE SHEET, and deliberately: the type layer sets
+   `.ab-pull-line`'s font-size around line 6125, and the display size
+   here has to survive it. Six rules on this page have already been lost
+   to same-specificity declarations further down.
+   THE FONT-SIZE SELECTOR IS ON ONE LINE. Its previous form was a
+   three-line selector list, and the cleanup regex that removed this
+   section read only the last line of it, deleted through the closing
+   brace, merged the survivors into the next rule and dropped the pull
+   quotes from 30px to 17px. One line cannot be half-matched.
+   `.ab-mk-q` is NOT restored — it was a quote mark for copy that no
+   longer exists anywhere on the site. ============================ */
+.ab-quiet { max-width: 88ch; margin-top: clamp(28px, 3.2vw, 40px); }
+.ab-quiet-open { font-family: var(--font-display); color: var(--ink); line-height: 1.34; letter-spacing: -0.01em; }
+.ab-quiet-close {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  /* Two lines, with the second one reasonably full — one line is not
+     available and three reads as a paragraph.
+     52ch (884px), NOT the 44ch this rule carried before. That number was
+     written against a measured 1308px sentence; re-measured with the real
+     Newsreader it runs 1539px, so two lines needs 770 and 44ch (748) fell
+     22px short and wrapped to three. The old value was almost certainly
+     taken with a fallback font loaded.
+     52ch keeps the original intent: the second line fills about three
+     quarters of the measure. Anything past 58ch just hits the shell's
+     913px ceiling and the second line drops to half, which reads ragged. */
+  max-width: 52ch;
+  margin-top: clamp(30px, 3.4vw, 44px);
+}
+.ab-quiet-open, .ab-quiet-close { font-size: clamp(1.3rem, 1rem + 1.23vw, 1.875rem); }
+/* The prose between the beats and the closing line. Body copy, so it
+   sits below both in the ladder and lets the two display statements
+   bracket the section. */
+.ab-quiet-body { margin-top: clamp(26px, 3vw, 38px); }
+.ab-quiet-body p + p { margin-top: 16px; }
+.ab-mk-spark { width: 0.62em; transform: translateY(0.02em); margin-left: 0.2em; }
