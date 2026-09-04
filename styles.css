@@ -1769,20 +1769,29 @@ a.bld-item .bld-item-arrow {
    all. It grows leftward only. */
 .page-about .hero-visual.about-shot { max-width: 422px; }
 
-/* About's hero mark is the one long phrase on the site. .tab-em is an
-   inline-block, so once it stops fitting on a line the box grows two
-   lines tall and both pseudo-tabs stretch into a single solid banner.
-   Measured with real Newsreader, "leader and consultant." fits down to
-   about 430px and banners below it.
-   So below 480 this one mark switches to an inline background with
+/* WRAPPED TABS, EVERYWHERE — un-scoped from About 2026-09-04.
+   `.tab-em` is an inline-block, so once a phrase stops fitting on a line
+   the box grows two lines tall and both absolutely-positioned pseudo
+   tabs stretch across the whole of it: one solid banner instead of a
+   marked phrase.
+   This was written for About's h1 on the grounds that it was "the one
+   long phrase on the site". That stopped being true when the service
+   pages landed, and Amber caught a banner on Consulting in the wild.
+   Sweeping 13 widths x 13 pages then found SIX of them at 320, 360 and
+   375 — on "more marketing." and "fractional leadership.", which are two
+   words each. So phrase length was never the real control: a two-word
+   tab banners at 320 just as happily as a five-word one, and the
+   four-word rule polices emphasis, not wrapping.
+   Below 480 every tab now switches to an inline background with
    box-decoration-break: clone, which breaks into a separate mark per
    line the way a highlighter would. It loses the 0.9deg tilt, which is
-   sub-pixel at phone sizes, and nothing else: this h1 sits outside a
-   .reveal, so the staggered tab entrance never applied to it. Every
-   other tab on the site keeps the pseudo-element treatment at every
-   width. */
+   sub-pixel at phone sizes, and nothing else. Above 480 the
+   pseudo-element treatment stays: the tilt is visible on a 50px h1 and
+   is part of the device, and nothing banners up there.
+   --tab-front / --tab-back are set on .tab-blush and .tab-butter, so
+   both colours carry through without listing them here. */
 @media (max-width: 480px) {
-  .page-about .head-copy .tab-em {
+  .tab-em {
     display: inline;
     padding: 0 0.14em;
     background-image:
@@ -1794,8 +1803,8 @@ a.bld-item .bld-item-arrow {
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
-  .page-about .head-copy .tab-em::before,
-  .page-about .head-copy .tab-em::after { content: none; }
+  .tab-em::before,
+  .tab-em::after { content: none; }
 }
 /* .tab-em is an inline-block, so a highlighted phrase that stops
    fitting on one line does NOT break into two marks — the box grows

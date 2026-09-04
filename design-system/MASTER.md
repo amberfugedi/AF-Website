@@ -4720,3 +4720,39 @@ for `height / line-height > 1` on `.tab-em` rather than counting words.
 The `box-decoration-break: clone` treatment that saves About's long h1
 is scoped to `.page-about .head-copy` and rescues nothing else — verified
 again here: two clean marks at 390, no banner.
+
+
+================================================================================
+2026-09-04 · THE BANNER FIX, UN-SCOPED
+================================================================================
+
+Amber photographed a banner on Consulting on her phone. The phrase she
+caught had already been shortened and pushed; she was on a stale deploy.
+The screenshot was still right about the problem.
+
+SWEEPING 13 WIDTHS x 13 PAGES FOUND SIX MORE, at 320, 360 and 375 — on
+"more marketing." and "fractional leadership.", two words each, and on
+"getting in the way", which had been added that hour. So PHRASE LENGTH
+WAS NEVER THE CONTROL. A two-word tab banners at 320 as happily as a
+five-word one. The four-word rule polices emphasis, not wrapping, and
+the note from earlier the same day — "the real constraint is whether the
+phrase fits one line at 390" — was also wrong, because it only checked
+390 and up.
+
+THE CURE ALREADY EXISTED AND WAS SCOPED TO ONE PAGE. The
+`box-decoration-break: clone` block below 480 was written for About's h1
+"on the grounds that it was the one long phrase on the site". That
+stopped being true when four service pages landed. It is now on `.tab-em`
+rather than `.page-about .head-copy .tab-em`, so every tab on the site
+breaks into a mark per line the way a highlighter would.
+
+Above 480 the pseudo-element treatment stays. The 0.9deg tilt is visible
+on a 50px h1 and is part of the device, and nothing banners up there.
+`--tab-front` and `--tab-back` live on `.tab-blush` / `.tab-butter`, so
+both colours carry through with no extra rules, including on the dark
+CTA band, where ink on butter still reads correctly across two marks.
+
+THE CHECK, for anyone touching tabs again: sweep `height / line-height`
+on every `.tab-em` at 320, 360 and 375 as well as the common widths, and
+treat a wrap as acceptable only where the computed
+`box-decoration-break` is `clone`. Word count proves nothing.
