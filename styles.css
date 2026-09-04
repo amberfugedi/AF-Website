@@ -6507,7 +6507,55 @@ footer p,
 
 /* HERO. The head grid is shared; only the mark's size is ours.
    Capped so the art never outgrows the copy column beside it. */
-.svc-hero-art { max-width: 400px; }
+/* ---- Fractional leadership hero mark ----
+   Every value is a token. The nodes are the site's bullet at scale —
+   pastel fill inside a deep ring — because a bare pastel dot at 8px on
+   cream is invisible; that was checked by sampling, not by eye. Ring
+   weights sit at 2px, the same as `.hw-do li::before`.
+   The gateway is the ONE gradient-filled form, blush to lavender to
+   sage, with a `--fractional-deep` side panel giving it the sculptural
+   read and a `--line` hairline defining the silhouette. No filter: a
+   drop shadow here would be a permanent heavy shadow, and MASTER holds
+   `--shadow-soft` to hover lift only. */
+.fl-art .fl-in {
+  stroke: rgba(46, 42, 39, 0.3);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+/* The page's only saturated note, and it lands on the middle input. */
+.fl-art .fl-in-accent { stroke: rgba(184, 53, 74, 0.45); }
+.fl-art .fl-out {
+  stroke: var(--fractional-deep);
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  opacity: 0.82;
+}
+/* 0.16, not 0.34: at a third the side panel read as a solid slab and
+   the whole mark tipped into 3D, which the brief rules out. At 0.16 it
+   is a shading plane and the pastel gradient carries the form.
+   THE ALPHA IS IN THE COLOUR, NOT IN `opacity`. `.glyph .fill` reveals
+   with `fill-fade ... forwards`, whose last keyframe is `opacity: 1`,
+   and an animation in its fill-mode outranks a declared value — so the
+   first attempt at `opacity: 0.16` rendered at full strength and the
+   slab was still there. Anything with `class="fill"` has to carry its
+   transparency in rgba. */
+.fl-art .fl-arch-edge { fill: rgba(46, 117, 41, 0.16); }
+.fl-art .fl-arch-line { fill: none; stroke: rgba(46, 42, 39, 0.18); stroke-width: 1.4; }
+.fl-art .fl-n { stroke-width: 2; }
+.fl-art .fl-n-blush    { fill: var(--blush);    stroke: var(--coral-deep); }
+.fl-art .fl-n-lavender { fill: var(--lavender); stroke: var(--lavender-mark); }
+.fl-art .fl-n-sage     { fill: var(--sage);     stroke: var(--fractional-deep); }
+.fl-art .fl-n-peach    { fill: var(--peach);    stroke: rgba(46, 42, 39, 0.45); }
+/* One input arrives unresolved: a ring around nothing. */
+.fl-art .fl-n-open     { fill: none;            stroke: rgba(46, 42, 39, 0.32); }
+.fl-art .fl-sig   { fill: rgba(46, 42, 39, 0.3); }
+.fl-art .fl-n-out { fill: var(--fractional-deep); }
+/* 440, not the 400 the converging-line mark used: the head grid column
+   is already clamp(300px, 35vw, 440px), so this lets the art fill its
+   column and land at the 350-455px the brief asks for — 39% of the
+   1120px wrap at 1440. The viewBox is 492x310, so at 440 wide it stands
+   277px tall against a ~570px copy column and never drives the hero. */
+.fl-svg { max-width: 440px; }
 /* HEAD -> FIRST SECTION. `.page-head + section` zeroes the section's own
    104px site-wide, so the whole joint is carried by the head's bottom
    padding: 80px on About and Courses, which share this structure. This
@@ -6776,7 +6824,6 @@ footer p,
 /* ---- Service pages: narrow ---- */
 /* 900, matching the breakpoint the head grid stacks at. */
 @media (max-width: 900px) {
-  .svc-hero-art { max-width: 320px; }
   .svc-proof { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .svc-steps { gap: clamp(36px, 6vw, 52px) 0; }
 }

@@ -4250,3 +4250,90 @@ transitions are fewer than Services' 17 or My Approach's 35. Nav, footer,
 aura and skip link are byte-identical to `services.html`.
 `npx impeccable detect` reports 16 against Services' 25, all in
 categories Services already carries.
+
+
+================================================================================
+2026-09-04 · ABOUT — "WHAT I GREW INTO", and the Fractional hero mark
+================================================================================
+
+ABOUT: ONE NEW SECTION, NOTHING ELSE MOVED
+`WHAT I GREW INTO / I became less interested in being "the marketing
+person" and more interested in making the business work better.` sits
+between "How my view changed" and "What I believe" — the step between
+changing her mind about what good marketing is and stating what she
+believes. Order is now hero · How I Got Here · How My View Changed ·
+What I Grew Into · What I Believe · How I Lead · Outside the Work ·
+testimonials · The Short Version · the timeline · contact.
+
+IT IS THE QUIET SECTION, ON PURPOSE. Its neighbours are the two busiest
+on the page — `.ab-beats` plus `.ab-dots` plus a pull quote above,
+the three-column belief grid below. Three paragraphs on the plain 68ch
+measure and no device of its own. A second staccato block two sections
+after the first would have read as the same section continuing.
+
+The blank-page paragraph MOVED here out of "How my view changed", where
+it was the only line in that section not about the shift in judgement.
+That also brought view-changed to 156 words, inside its 140–180 target;
+it had been 218.
+
+WORD COUNTS against the brief: How I Got Here 184 (140–180), How My View
+Changed 156, What I Grew Into 102 (100–130), How I Lead 98 (100–130),
+Outside the Work 365 (250–300). The two that run over are Amber's own
+verbatim copy plus the pull-quote block; trimming her approved lines to
+hit a word count is not a thing to do quietly.
+
+NOT A SERVICES BLOCK. The brief is explicit and the temptation is real:
+"sales, operations, systems, technology, leadership" is one comma away
+from a competency grid. No capabilities list, no offers, no links.
+
+--------------------------------------------------------------------------------
+
+FRACTIONAL HERO MARK — the gateway replaces the converging lines
+Existing complexity → senior leadership → clearer direction. Five source
+nodes on the left, unevenly placed, plus three small signals attached to
+nothing; they pass BEHIND one sculptural arch and come out as three
+paths in a single colour. Fewer out than in, and the palette resolves
+along with the lines.
+
+NOT A FUNNEL. The centre is an arch with an opening, drawn in section
+with an asymmetric footing, so nothing is poured through a cone or
+routed through one person. That distinction is the whole brief: the
+marketing function already exists.
+
+NODES ARE THE SITE'S BULLET AT SCALE — pastel fill inside a deep ring,
+`.hw-do li::before` enlarged. A bare pastel dot at 8px on cream is
+invisible; that was checked by sampling, not by eye. Four pastels, none
+repeated (the Expertise rule), and a fifth node is a ring around nothing:
+one input that never resolved. The single saturated note is the coral
+ring on the middle input.
+
+THE SIDE PANEL WENT 0.34 → 0.16. At a third it read as a solid slab and
+the whole mark tipped into 3D, which the brief rules out. No `filter`
+either — a drop shadow here would be a permanent heavy shadow, and
+`--shadow-soft` is held to hover lift only.
+
+THE TRAP, AND IT IS A NEW ONE WORTH WRITING DOWN:
+`.glyph .fill` reveals with `fill-fade … forwards`, whose last keyframe
+is `opacity: 1`, and an animation in its fill-mode OUTRANKS a declared
+value. So `opacity: 0.16` on a `class="fill"` element renders at full
+strength. Anything carrying `class="fill"` must put its transparency in
+rgba. The first side-panel fix looked like it had done nothing.
+
+NO AMBIENT DRIFT. Amber's brief asked for a 2–3px 6–8s loop "if motion
+fits the existing site". It does not: the motion budget is closed, and
+the only continuous animation on the site — the testimonial marquee — is
+already the one thing the detector flags. Precedent is the Expertise
+scroll-expand, held back for the same reason. The mark reveals with the
+site's existing one-time stroke draw-in like every other hero mark.
+Turning the loop on is a keyframe block and one class; raise it with her.
+
+MEASURED: 440px wide at 1280+, 39.3% of the 1120px wrap, vertically
+centred against the copy (midpoint delta 0), and the head is 766px — the
+same height it was with the converging mark, so the illustration does not
+drive the hero. `.head-grid` stacks at 1120 site-wide, which is where the
+art moves under the copy; at 760 it caps at 292px. No horizontal overflow
+at any width. Under `prefers-reduced-motion` all 27 SVG nodes are
+animation-free and none is left invisible. `npx impeccable detect` now
+reports 13 on About (was 14) and 15 on the service page (was 16).
+Testimonials, the timeline, The Short Version, contact, nav and footer
+are byte-identical to the previous commit.

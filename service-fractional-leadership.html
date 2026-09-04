@@ -140,29 +140,69 @@
           </div>
         </div>
 
-        <!-- Scattered inputs resolving into one aligned column: team,
-             strategy, systems, budget and execution arriving at an
-             operating rhythm. Stroke is --fractional-deep, the offer's own
-             colour on the Services page, with one gradient-filled form. -->
-        <div class="head-art svc-vis reveal">
-          <svg class="glyph svc-hero-art" viewBox="0 0 320 220" fill="none" role="img" aria-label="Scattered strands resolving into a single aligned column">
+        <!-- FRACTIONAL LEADERSHIP MARK.
+             The business already has people, tools, agencies, campaigns and
+             budget — five source nodes on the left, unevenly placed, plus
+             three small signals attached to nothing. They pass behind one
+             sculptural gateway and come out the far side as three paths in
+             a single colour. Existing complexity, then senior leadership,
+             then clearer direction.
+             NOT a funnel: the centre is an arch with an opening, drawn in
+             section with an asymmetric footing, so nothing is being poured
+             through a cone or routed through one person.
+             Every colour is a token. The nodes are the site's own bullet —
+             pastel fill inside a deep ring, the `.hw-do` device at scale —
+             which is how the pastels read at 8px on cream at all. The one
+             saturated note is the coral ring, and the output side drops to
+             the offer's own green, so the palette resolves along with the
+             lines.
+             STATIC. It reveals with the site's one-time stroke draw-in like
+             every other page's hero mark, and carries no ambient loop: the
+             motion budget in MASTER is closed and a continuous drift is a
+             new device. Raise it with Amber before adding one. -->
+        <div class="head-art fl-art reveal">
+          <svg class="glyph fl-svg" viewBox="18 50 492 310" fill="none" role="img" aria-label="Scattered inputs passing behind an arch and emerging as three clearer paths">
             <defs>
-              <linearGradient id="g-frac" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#D9EFD3"/>
-                <stop offset="1" stop-color="#2E7529"/>
+              <linearGradient id="fl-arch" x1="0" y1="0" x2="0.75" y2="1">
+                <stop offset="0" stop-color="#FBD5E4"/>
+                <stop offset="0.46" stop-color="#DAD4F5"/>
+                <stop offset="1" stop-color="#D9EFD3"/>
               </linearGradient>
             </defs>
-            <rect class="fill" x="242" y="24" width="18" height="176" rx="9" fill="url(#g-frac)" opacity="0.45"/>
-            <path class="stroke" pathLength="100" d="M22 22 C 100 18, 160 34, 242 40" stroke="#2E7529" stroke-width="2" stroke-linecap="round"/>
-            <path class="stroke" pathLength="100" d="M68 62 C 128 56, 182 70, 242 76" stroke="#2E7529" stroke-width="2" stroke-linecap="round"/>
-            <path class="stroke" pathLength="100" d="M32 78 C 108 92, 172 104, 242 112" stroke="#2E7529" stroke-width="2" stroke-linecap="round"/>
-            <path class="stroke" pathLength="100" d="M76 148 C 130 156, 184 146, 242 148" stroke="#2E7529" stroke-width="2" stroke-linecap="round"/>
-            <path class="stroke" pathLength="100" d="M28 200 C 106 208, 174 192, 242 184" stroke="#2E7529" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="16" cy="22" r="5" stroke="#2E7529" stroke-width="2"/>
-            <circle cx="62" cy="62" r="5" stroke="#2E7529" stroke-width="2"/>
-            <circle cx="26" cy="78" r="5" stroke="#2E7529" stroke-width="2"/>
-            <circle cx="70" cy="148" r="5" stroke="#2E7529" stroke-width="2"/>
-            <circle cx="22" cy="200" r="5" stroke="#2E7529" stroke-width="2"/>
+
+            <!-- What the business already has -->
+            <path class="stroke fl-in" pathLength="100" d="M40 72 C 128 72, 152 134, 250 154"/>
+            <path class="stroke fl-in" pathLength="100" d="M68 128 C 142 128, 172 158, 250 172"/>
+            <path class="stroke fl-in fl-in-accent" pathLength="100" d="M34 192 C 132 198, 178 186, 250 190"/>
+            <path class="stroke fl-in" pathLength="100" d="M60 256 C 144 256, 174 228, 250 210"/>
+            <path class="stroke fl-in" pathLength="100" d="M46 328 C 140 328, 172 262, 250 228"/>
+
+            <!-- The gateway. Drawn after the inputs, so they run behind it. -->
+            <path class="fill fl-arch" d="M260 268 L260 170 C260 119 284 91 311 91 C338 91 362 119 362 170 L362 291 L337 277 L337 172 C337 143 327 123 311 123 C295 123 285 143 285 172 L285 282 Z" fill="url(#fl-arch)"/>
+            <path class="fill fl-arch-edge" d="M337 277 L362 291 L362 170 C362 119 338 91 311 91 L311 123 C327 123 337 143 337 172 Z"/>
+            <path class="fill fl-arch-line" d="M260 268 L260 170 C260 119 284 91 311 91 C338 91 362 119 362 170 L362 291 L337 277 L337 172 C337 143 327 123 311 123 C295 123 285 143 285 172 L285 282 Z"/>
+
+            <!-- Fewer paths, one colour -->
+            <path class="stroke fl-out" pathLength="100" d="M362 182 C 412 182, 430 152, 482 148"/>
+            <path class="stroke fl-out" pathLength="100" d="M362 214 C 416 214, 432 214, 488 214"/>
+            <path class="stroke fl-out" pathLength="100" d="M362 246 C 412 246, 430 274, 480 280"/>
+
+            <!-- Source nodes: pastel fill, deep ring -->
+            <circle class="fill fl-n fl-n-blush"    cx="40" cy="72"  r="8"/>
+            <circle class="fill fl-n fl-n-lavender" cx="68" cy="128" r="6"/>
+            <circle class="fill fl-n fl-n-sage"     cx="34" cy="192" r="8"/>
+            <circle class="fill fl-n fl-n-peach"    cx="60" cy="256" r="7"/>
+            <circle class="fill fl-n fl-n-open"     cx="46" cy="328" r="7"/>
+
+            <!-- Activity attached to nothing -->
+            <circle class="fill fl-sig" cx="126" cy="98"  r="3.5"/>
+            <circle class="fill fl-sig" cx="142" cy="290" r="3.5"/>
+            <circle class="fill fl-sig" cx="172" cy="342" r="3.5"/>
+
+            <!-- Where it comes out -->
+            <circle class="fill fl-n-out" cx="482" cy="148" r="6.5"/>
+            <circle class="fill fl-n-out" cx="488" cy="214" r="6.5"/>
+            <circle class="fill fl-n-out" cx="480" cy="280" r="6.5"/>
           </svg>
         </div>
       </div>
