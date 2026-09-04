@@ -426,6 +426,15 @@ evaluation band in the home problem art — fix when convenient).
 
 ## Photography
 
+UPDATE 2026-09: the course page had been reusing the sunlit portrait
+from the home teaser, which was both a fifth appearance and a second use
+of one photo — two breaches of the rule below. It has its own now
+(amber-fugedi-desk.jpg, the linen-blazer desk shot whose moodboard reads
+"Strategy Creates Impact", which sits well beside "Who's teaching it").
+Four appearances again, each photo used once. Amber supplied five new
+photographs the same day; the four not placed are held rather than
+scattered, because the count here is a deliberate cap, not an oversight.
+
 Four appearances, four DISTINCT photos: the neon studio shot
 ("good ideas start here", amber-fugedi-studio.jpg) in the About
 blob per Amber's pick, the sunlit blazer portrait
