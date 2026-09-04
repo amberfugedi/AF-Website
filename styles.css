@@ -7826,49 +7826,49 @@ footer p,
    700 is heavier than anything else on the page. */
 .hw-body strong { font-weight: 600; color: var(--ink); }
 
-/* ============================================================
-   MESSY TO CLEAR — About margin illustration (2026-09)
-   ============================================================
-   Sits right of "What keeps me interested", centred against the copy
-   block rather than the headline, so it never competes with it. No
-   text, no card, no border, no shadow — an editorial margin mark.
+/* CONVERGENCE. Different inputs settling onto one line and resolving
+   into a single clear endpoint, beside the four "it's figuring things
+   out" beats. Amber's 2026-09 reference; it replaced the messy-to-clear
+   tangle that sat here, which said the same thing in a busier way.
 
-   Colours are site tokens carried at alpha, since the reference's raw
-   hexes sat between the palette's light fills and its -deep tones:
-   coral-deep for the blush start, automations-deep for the lavender
-   tangle, courses-deep warm for the transition and gold for the end.
+   Colours are the About marks' own: blush, lavender and peach fields,
+   coral-deep and automations-deep anchors, courses-deep gold for the
+   line, the endpoint and the ring.
 
-   The draw rides the site's own `.glyph .stroke` mechanism, so the
-   cascade, the play-once and the reduced-motion cancel all come from
-   rules that already exist. Only the per-path delays are new. */
-.mc-split { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: clamp(30px, 4vw, 60px); align-items: center; margin: clamp(26px, 3vw, 38px) 0 clamp(30px, 3.4vw, 44px); }
-.mc-art { display: block; }
-.mc-art .glyph { width: 100%; height: auto; margin-bottom: 0; }
-.mc-tangle { stroke: rgba(87, 74, 166, 0.6); stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
-.mc-warm   { stroke: rgba(138, 90, 20, 0.58); stroke-width: 2.3; stroke-linecap: round; }
-.mc-ray    { stroke: rgba(138, 90, 20, 0.72); stroke-width: 2.3; stroke-linecap: round; }
-/* alpha lives in the fill, never in opacity: the fill-fade animation
-   ends at opacity 1 with `forwards` and would override it */
-.mc-start { fill: rgba(184, 53, 74, 0.42); }
-.mc-end   { fill: rgba(138, 90, 20, 0.8); }
+   ALPHA IS IN fill-opacity AND rgba(), NEVER IN opacity. `.glyph .fill`
+   animates opacity to 1 with `forwards`, so an opacity attribute on any
+   of these is overridden the moment the section enters view.
 
-/* tangle first, then the line out, then the endpoint */
-.mc-art.reveal.in-view .glyph .stroke { animation-duration: 1.1s; }
-.mc-art.reveal.in-view .glyph .stroke:nth-of-type(1) { animation-delay: 0s; }
-.mc-art.reveal.in-view .glyph .stroke:nth-of-type(2) { animation-delay: 0.2s; animation-duration: 1.7s; }
-.mc-art.reveal.in-view .glyph .stroke:nth-of-type(3) { animation-delay: 1.7s; }
-.mc-art.reveal.in-view .glyph .stroke:nth-of-type(4) { animation-delay: 2.3s; }
-.mc-art.reveal.in-view .glyph .stroke:nth-of-type(5) { animation-delay: 2.9s; }
-.mc-art.reveal.in-view .glyph .stroke:nth-of-type(6) { animation-delay: 3.05s; }
-.mc-art.reveal.in-view .glyph .stroke:nth-of-type(7) { animation-delay: 3.2s; }
-.mc-art.reveal.in-view .glyph .fill:nth-of-type(1) { animation-delay: 0.1s; }
-.mc-art.reveal.in-view .glyph .fill:nth-of-type(2) { animation-delay: 2.7s; }
+   THE RING IS A PATH, NOT A CIRCLE, on purpose: `:nth-of-type` counts by
+   tag, and the draw cascade below needs the two drawn strokes to be the
+   only two paths. */
+.cv-split { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: clamp(30px, 4vw, 60px); align-items: center; margin: clamp(26px, 3vw, 38px) 0 clamp(30px, 3.4vw, 44px); }
+.cv-art { display: block; }
+.cv-art .glyph { width: 100%; height: auto; margin-bottom: 0; }
+.cv-line { stroke: rgba(138, 90, 20, 0.62); stroke-width: 2.3; stroke-linecap: round; }
+.cv-ring { stroke: rgba(138, 90, 20, 0.55); stroke-width: 2.3; }
+.cv-a1  { fill: rgba(184, 53, 74, 0.5); }
+.cv-a2  { fill: rgba(87, 74, 166, 0.62); }
+.cv-a3  { fill: rgba(138, 90, 20, 0.62); }
+.cv-end { fill: rgba(138, 90, 20, 0.88); }
+
+/* Fields settle, the line runs through them, the anchors land in order,
+   then the endpoint and the ring close it. */
+.cv-art.reveal.in-view .glyph .fill:nth-of-type(1) { animation-delay: 0s; }
+.cv-art.reveal.in-view .glyph .fill:nth-of-type(2) { animation-delay: 0.18s; }
+.cv-art.reveal.in-view .glyph .fill:nth-of-type(3) { animation-delay: 0.36s; }
+.cv-art.reveal.in-view .glyph .stroke:nth-of-type(1) { animation-delay: 0.7s; animation-duration: 1.3s; }
+.cv-art.reveal.in-view .glyph .fill:nth-of-type(4) { animation-delay: 1.05s; }
+.cv-art.reveal.in-view .glyph .fill:nth-of-type(5) { animation-delay: 1.4s; }
+.cv-art.reveal.in-view .glyph .fill:nth-of-type(6) { animation-delay: 1.75s; }
+.cv-art.reveal.in-view .glyph .fill:nth-of-type(7) { animation-delay: 2.1s; }
+.cv-art.reveal.in-view .glyph .stroke:nth-of-type(2) { animation-delay: 2.2s; animation-duration: 1s; }
 
 @media (max-width: 1020px) {
-  .mc-split { grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr); gap: 30px; }
+  .cv-split { grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr); gap: 30px; }
 }
 @media (max-width: 760px) {
-  .mc-split { grid-template-columns: 1fr; }
-  .mc-art { display: none; }
+  .cv-split { grid-template-columns: 1fr; }
+  .cv-art { display: none; }
 }
 

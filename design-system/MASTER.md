@@ -5381,3 +5381,43 @@ place on the site that says so. Amber's supplied copy dropped them.
 
 `.ab-split` (heading in the margin, prose beside it) is REMOVED — this
 section was its last user.
+
+## Convergence replaces messy-to-clear on About (2026-09)
+
+The tangle beside "It's figuring things out" is gone. In its place,
+Amber's convergence graphic: three soft overlapping fields (blush,
+lavender, peach), one clean line running through them, three anchor
+points landing on that line, and a resolved gold endpoint inside a
+larger outlined circle. Same idea, said quietly instead of busily —
+different inputs aligning into one clear outcome. No labels, no arrows,
+no caption, which is the reference's rule and the right one.
+
+Colours are the About marks' own, unchanged: coral-deep, automations-
+deep and courses-deep for the anchors, courses-deep gold for the line,
+the endpoint and the ring.
+
+TWO INTEGRATION TRAPS, both of which would have shipped silently:
+
+1. The reference carries its alpha in `opacity` attributes. `.glyph
+   .fill` animates opacity to 1 with `forwards`, so every one of those
+   is overridden the moment the section scrolls into view — the fields
+   would have gone flat and opaque. Alpha lives in `fill-opacity` and
+   rgba() instead. This is the third time this trap has been hit; it is
+   written down twice already.
+2. The outlined circle is drawn as a PATH, not a `<circle>`. The draw
+   cascade addresses strokes with `:nth-of-type`, which counts by TAG,
+   so a stroked `<circle>` would have been counted among the seven
+   filled circles and thrown every delay off.
+
+`viewBox` is tightened to the mark's own bounds (`147 62 693 306`)
+rather than the reference's `0 0 900 430`. The reference is a
+full-width standalone with 155 units of empty space down its left side;
+in a 37% column that padding is what made the first pass read small.
+
+`.mc-*` is gone. `.cv-split` keeps the 1.7fr/1fr desktop ratio, the
+1.9fr/1fr tablet ratio, and hides the graphic below 760px.
+
+MEASURING THIS: the mark's last elements land at 2.2s. A 500ms wait
+after `in-view` screenshots a half-drawn graphic — the first render
+looked like the endpoint and ring had failed to appear at all. Wait
+past the full cascade.
