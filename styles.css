@@ -1342,7 +1342,11 @@ section { padding: 104px 0; }
 /* With the proof column, the hero spans the full wrap; copy keeps
    its comfortable measure inside the grid. */
 .hero-content.hero-grid { max-width: 1120px; }
-.hero-grid .hero-copy { max-width: 690px; }
+/* ONE container for the whole hero column — headline, deck and CTA
+   row share an edge. The deck used to carry its own 640 cap while
+   this said 690, so below ~1020 the paragraphs stopped 50px short
+   of the h1. */
+.hero-grid .hero-copy { max-width: 640px; }
 
 .hero h1 {
   font-size: var(--fs-h1); /* the shared display size — no hero exception */
@@ -1356,7 +1360,6 @@ section { padding: 104px 0; }
   color: var(--body);
   letter-spacing: -0.01em;
   line-height: 1.5;
-  max-width: 640px;
   margin-bottom: 42px;
 }
 

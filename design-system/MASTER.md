@@ -5854,3 +5854,51 @@ against 765. The asymmetry is the better of the two.
 
 The right column carries 289px of chips against 543px of copy, centred.
 That gap is the shape of an asymmetric hero, not a fault.
+
+## Hero container, and an SEO audit (2026-09)
+
+ONE CONTAINER FOR THE HERO COLUMN. Amber: the hero body text should be
+the same width as the headline. It was not, and the gap was widest
+where it mattered: `.hero-copy` capped at 690 while `.subhead` carried
+its own 640 cap, so below about 1020px the h1 ran to 690 and the
+paragraphs stopped FIFTY PIXELS short of it. At 1200-1300 the gap was
+2px. Only above 1440, where the grid column is 616 and neither cap
+binds, were they equal.
+
+The cap now sits once, on the column, at 640 — so the headline, the
+deck and the CTA row share a left and a right edge at every width from
+860 to 1920. Verified at eight widths. 640 rather than 690 because 690
+at 17px is about 81 characters, over the comfortable ceiling.
+
+### SEO audit, all sixteen pages
+
+WHAT WAS ALREADY RIGHT, and it is most of it. Sixteen unique titles, all
+under 60 characters. Sixteen unique meta descriptions, every one between
+120 and 159. Canonicals on all fourteen indexable pages; 404 and
+thank-you correctly `noindex`. Exactly one h1 per page and no heading
+level skipped, on every page. Sitemap lists the fourteen indexable URLs
+with `lastmod` and nothing stale. robots.txt points at it.
+
+ALT TEXT CAME OUT CLEAN. 46 images, every one carrying alt and every one
+carrying width and height, so nothing shifts on load. A first pass
+flagged three, and all three were the audit's fault rather than the
+site's: one `<img>` written inside an HTML COMMENT, and the two
+screenshots in the Work hero, which sit inside an `aria-hidden="true"`
+wrapper where an empty alt is correct. **Strip comments before auditing
+markup, and check the ancestor before calling an empty alt a bug.**
+
+TWO THINGS FIXED:
+
+1. **51 inline `<svg>` were neither `aria-hidden` nor labelled.** All
+   decorative. Checked first that none is the only content of a link or
+   a button — zero were — so hiding them removes nothing from the
+   accessibility tree and stops assistive tech announcing empty
+   graphics. The Expertise hero, which IS content, keeps its
+   `role="img"` and `aria-labelledby`.
+2. **Five clean URLs had no explicit rewrite.** `/courses`, `/privacy`,
+   `/terms` and `/thank-you` all had one; `/about`, `/expertise`,
+   `/my-approach`, `/projects` and `/services` did not. They work
+   because Netlify's Pretty URLs setting serves `about.html` at
+   `/about` — a host setting the repo never states, with every
+   canonical, every nav link and every sitemap entry depending on it.
+   Now explicit, in the same shape as the nine that already were.

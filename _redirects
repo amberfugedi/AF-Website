@@ -64,6 +64,11 @@
 /work.html           /projects      301!
 
 # ---- Clean paths that need an explicit target -------------------------
+/about                                    /about.html                        200
+/expertise                                /expertise.html                    200
+/my-approach                              /my-approach.html                  200
+/projects                                 /projects.html                     200
+/services                                 /services.html                     200
 /courses                                  /courses.html                      200
 /courses/build-your-marketing-foundation  /course-marketing-foundation.html  200
 /services/fractional-leadership           /service-fractional-leadership.html 200
