@@ -5985,8 +5985,12 @@ footer {
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: rgba(255, 111, 97, 0.28);
-  border: 2px solid var(--coral-deep);
+  /* The page accent, not a fixed coral. This ring was hardcoded to
+     coral-deep, so the "after" marker on the Fractional and Workflow
+     pages read consulting-pink while every other accent on those pages
+     was green and violet. */
+  background: var(--svc-pastel, rgba(255, 111, 97, 0.28));
+  border: 2px solid var(--svc-accent, var(--coral-deep));
   box-sizing: border-box;
 }
 
@@ -6230,10 +6234,10 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .fitp-label { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .fitp-not p:last-child { font-size: var(--fs-body); line-height: 1.5; }
 .oc-note { font-size: var(--fs-body); line-height: 1.4; }
-.wf-h { font-size: var(--fs-intro); }
-.wf-sub { font-size: var(--fs-small); line-height: 1.4; }
-.wf-panel li { font-size: var(--fs-small); line-height: 1.35; }
-.wf-note { font-size: var(--fs-body); line-height: 1.35; }
+.ex-h { font-size: var(--fs-intro); }
+.ex-sub { font-size: var(--fs-small); line-height: 1.4; }
+.ex-panel li { font-size: var(--fs-small); line-height: 1.35; }
+.ex-note { font-size: var(--fs-body); line-height: 1.35; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.55; }
@@ -7748,25 +7752,41 @@ footer p,
 }
 .wf-split > div > .hw-body { max-width: 720px; }
 
-.wf-panel {
+/* SOFT EXPLAINER PANEL. The site's containment device, generalised out
+   of the Workflow & AI before/after graphic: very light tint, one
+   hairline, restrained radius, no shadow, small line icons, compact
+   rows, and the page's accent used in the icon and the border rather
+   than as a fill.
+
+   Use it for a comparison, a transformation, a current-state/better-
+   state pair, grouped examples, or a small explainer module. NOT for
+   narrative copy, How it works stages, testimonials, CTAs, or About's
+   personal storytelling — see DIGITAL-SYSTEM.md.
+
+   Every accent reads --svc-* with a fallback, so the component works on
+   the pages that have no service layer. */
+.ex-panel {
   border: 1px solid var(--line);
   border-radius: 24px;
   padding: 13px 13px 14px;
 }
-.wf-from { background: rgba(46, 42, 39, 0.035); }
-.wf-to { background: var(--svc-wash); border-color: var(--svc-soft); }
+.ex-plain { background: rgba(46, 42, 39, 0.035); }
+.ex-accent {
+  background: var(--svc-wash, rgba(251, 213, 228, 0.26));
+  border-color: var(--svc-soft, rgba(184, 53, 74, 0.16));
+}
 
-.wf-h {
+.ex-h {
   font-family: var(--font-display);
   color: var(--ink);
   line-height: 1.1;
   margin: 4px 0 2px;
   text-align: center;
 }
-.wf-sub { color: var(--muted); text-align: center; margin: 0 0 11px; }
+.ex-sub { color: var(--muted); text-align: center; margin: 0 0 11px; }
 
-.wf-panel ul { list-style: none; margin: 0; padding: 0; }
-.wf-panel li {
+.ex-panel ul { list-style: none; margin: 0; padding: 0; }
+.ex-panel li {
   display: grid;
   grid-template-columns: 22px 1fr;
   gap: 10px;
@@ -7777,15 +7797,15 @@ footer p,
   border-radius: 14px;
   color: var(--ink);
 }
-.wf-panel li + li { margin-top: 6px; }
-.wf-ico { display: block; width: 22px; height: 22px; color: var(--muted); }
-.wf-to .wf-ico { color: var(--svc-accent); }
-.wf-ico svg { display: block; width: 100%; height: 100%; }
+.ex-panel li + li { margin-top: 6px; }
+.ex-ico { display: block; width: 22px; height: 22px; color: var(--muted); }
+.ex-accent .ex-ico { color: var(--svc-accent, var(--coral-deep)); }
+.ex-ico svg { display: block; width: 100%; height: 100%; }
 
-.wf-arrow { display: block; width: 26px; margin: 8px auto; color: var(--svc-accent); opacity: 0.75; }
-.wf-arrow svg { display: block; width: 100%; height: auto; }
+.ex-arrow { display: block; width: 26px; margin: 8px auto; color: var(--svc-accent, var(--coral-deep)); opacity: 0.75; }
+.ex-arrow svg { display: block; width: 100%; height: auto; }
 
-.wf-note {
+.ex-note {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -7795,8 +7815,8 @@ footer p,
   color: var(--muted);
   line-height: 1.3;
 }
-.wf-note-mark { flex: none; width: 52px; color: var(--line); margin-top: -4px; }
-.wf-note-mark svg { display: block; width: 100%; height: auto; }
+.ex-note-mark { flex: none; width: 52px; color: var(--line); margin-top: -4px; }
+.ex-note-mark svg { display: block; width: 100%; height: auto; }
 
 /* desktop only, per the brief: tablet and mobile keep the single column
    exactly as it was, with no stacked version of the graphic */

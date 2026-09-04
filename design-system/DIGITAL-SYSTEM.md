@@ -363,19 +363,48 @@ text inside the graphic, generous whitespace.
 - it adds another card or grid pattern the page does not need
 - it makes the page feel like SaaS product marketing
 
-### Soft panels
+### The soft explainer panel — `.ex-*`
 
-Very light warm or service tint, 1px border, restrained radius, no heavy
-shadow, small line icon, compact rows, generous internal padding, clear
-contrast from the parent section. The service accent appears subtly —
-in the icon and the border, not as a fill.
+The reusable component, extracted from the Workflow & AI before/after.
 
-Adapt the tint and the icon accent to the page. Keep the structure
-identical. Someone should recognise these as one family without meeting
-the same card twice.
+    .ex-panel            one panel: 1px --line, 24px radius, no shadow
+    .ex-plain            neutral tint,  rgba(46,42,39,0.035)
+    .ex-accent           page tint,     --svc-wash / --svc-soft border
+    .ex-h  .ex-sub       serif heading, sans subheading, both centred
+    .ex-panel li         a compact row: 22px icon column, 14px radius
+    .ex-ico              22px line icon; --muted, or the accent in .ex-accent
+    .ex-arrow            26px, between panels, at 0.75 opacity
+    .ex-note .ex-note-mark   the optional handwritten payoff line
 
-Use for comparisons, transformations and contained explanations. Not as
-the default treatment for content.
+Every accent reads `--svc-*` with a fallback, so it works on pages with
+no service layer.
+
+Use for a comparison, a transformation, a current-state/better-state
+pair, grouped examples, or a small explainer module — **contained,
+beside copy, at aside scale.** Adapt the tint and the icon accent to the
+page; keep the structure identical.
+
+Do NOT use it for narrative copy, How it works stages, testimonials,
+CTA sections, About's personal storytelling, or as the default treatment
+for content.
+
+### The editorial comparison — `.svc-ba`
+
+The SAME JOB at section scale, and deliberately not the same device: two
+columns of hairline rows, no box, no fill. A dash marks each "before"
+row and a ring in the page accent marks each "after".
+
+Reach for it when the comparison IS the section — full width, its own
+heading, four to five rows a side. Reach for the soft panel when the
+comparison sits beside copy as an aside. Boxing a full-width comparison
+turns two columns into two large cards and loses the page's air;
+un-boxing an aside loses the containment that made it readable next to
+prose.
+
+They belong to one family — hairlines, accent markers, restrained
+geometry, thin line marks — without being the same card twice. That is
+the whole rule: **someone should recognise them as related without
+meeting the identical component on every page.**
 
 ### Arrows
 

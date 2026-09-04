@@ -5555,3 +5555,46 @@ the three course stages. Colour coding is capped at two sets (offers,
 Expertise chapters). It is a real code carrying real meaning, so it is
 either a sanctioned third or it should collapse; not something to decide
 by conformance.
+
+### The soft explainer panel, extracted (2026-09)
+
+`.wf-*` was one page's before/after graphic. The treatment is the site's
+best containment device, so it becomes `.ex-*` and every accent reads
+`--svc-*` WITH A FALLBACK, which is what makes it usable off the service
+pages: `--svc-wash` falls back to a blush wash, `--svc-accent` to
+`--coral-deep`. `.wf-split` and `.wf-tx` stay — those are the Workflow
+page's own layout, not the component. The `.wf-band/.wf-row/.wf-cut/
+.wf-cross/.wf-flow` SVG classes on the Services hero are unrelated and
+untouched.
+
+WHAT I DID NOT DO, and why. Consulting, Fractional and Workflow already
+run a before/after — `.svc-ba`, two columns of hairline rows with no box
+— which is the same job in a different device. The obvious move was to
+put all three into `.ex-panel` and be done. That would have made the
+site's before/after into one card repeated four times, which is the
+thing Amber's brief explicitly rules out ("recognise these as part of
+the same design family without seeing the exact same card repeated
+everywhere"), and on Workflow & AI it would have put two near-identical
+panels 110 lines apart on one page.
+
+So the two are documented as ONE FAMILY AT TWO SCALES:
+
+  soft panel  — contained, beside copy, aside scale, stacked rows
+  .svc-ba     — full width, its own section heading, no box, hairlines
+
+Boxing a full-width comparison turns two columns into two large cards
+and loses the page's air. Un-boxing an aside loses the containment that
+made it readable next to prose.
+
+FIXED WHILE IN THERE: `.svc-ba-after`'s ring was hardcoded to
+`--coral-deep` with a coral fill, so the "after" marker read
+consulting-pink on the Fractional and Workflow pages while every other
+accent on those pages was green and violet. It takes `--svc-accent` and
+`--svc-pastel` now.
+
+STILL OPEN, Amber's call: Workflow & AI carries BOTH the "From this →
+To this" panel and a "What should be different" before/after section,
+about 110 lines apart. They overlap on reporting time and automating the
+repeatable; the section adds adoption outcomes the graphic does not
+cover. Two before/after moments on one page is a content question, not a
+conformance one.
