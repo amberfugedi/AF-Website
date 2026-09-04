@@ -4934,3 +4934,46 @@ ten classes the old marks used are gone from both the CSS and the HTML. No
 overflow on any of the five service pages at six widths. Under
 `prefers-reduced-motion` all four marks draw fully: 13 and 11 nodes, none
 left invisible or undrawn. Detector unchanged at 18 and 15.
+
+
+================================================================================
+2026-09-04 · FRACTIONAL AND WORKFLOW MARKS, SECOND PASS
+================================================================================
+
+Amber, reviewing the four side by side: Consulting and Mentorship are
+"basically there" and stay untouched. Two notes acted on.
+
+FRACTIONAL READ AS A FUNNEL, NOT AS LEADERSHIP. Her words: the centre felt
+"like a magnet". She was right and the reason is geometric — a rounded
+horseshoe IS a magnet, whatever it is meant to depict, and no amount of
+context around it overrides that. It is a PORTAL now: straight uprights
+under a flat lintel, square corners. Same footprint, same job, same lines
+running behind it, none of the association.
+Inputs went five to four and the loose signals three to two ("simplify the
+incoming lines a little"). The scatter still reads with fewer of them, and
+the left-hand side stops competing with the centre.
+THE GRADIENT HAD TO TURN WITH THE SHAPE. Its diagonal worked on an arch,
+where it flowed round the bend as one material; on straight uprights it
+handed the left leg to the blush stop and the right leg to the sage one,
+so the portal read as two differently coloured posts. Near-vertical now
+(x2 0.75 → 0.18). A gradient angle is not portable between forms.
+The footing stays uneven, but 6px against 14px read as a folded corner at
+this weight rather than as a hand-set foot. 4 and 8 now.
+
+WORKFLOW WENT SEVEN ROWS TO FIVE ("reduce the left-side bars by 1-2 so it
+doesn't get visually busy"). Still two struck out, so the subtraction still
+reads; the stack just stops being a wall. A side effect worth having: three
+surviving rows now feed three outputs one for one, where the old
+four-into-three routing never quite resolved.
+Removing two rows also left the composition sitting 38px high in its box,
+which only showed once the rows were gone. Shifted down to centre.
+
+JUDGE A MARK AGAINST ITS SIBLINGS. Both of these notes came out of a
+four-up comparison, not from looking at either page. The magnet reading and
+the busy stack were invisible one at a time.
+
+MEASURED: no overflow on any of the five service pages at six widths. Under
+`prefers-reduced-motion` all four marks draw fully — 27, 13, 17 and 11
+nodes, none left invisible or undrawn. Every mark class carries a rule
+except `fl-arch`, which is a label on an element whose fill is the inline
+`url(#fl-arch)` gradient. Detector unchanged at 23 and 25.
