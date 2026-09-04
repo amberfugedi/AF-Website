@@ -397,16 +397,37 @@
     });
   }
 
-  /* ---------- Shop dropdown ----------
-     "Shop" is a disclosure button, not a link: there is no /shop page.
-     Pointer and keyboard both drive it. Hover only opens it on a fine
+  /* ---------- Nav dropdowns ----------
+     Two groups now: Shop and Services. Shop is a disclosure button with
+     no page behind it; Services HAS a page, so its menu leads with "All
+     services" and the parent stays reachable — turning the parent into a
+     button is the one thing that would have quietly removed /services
+     from the nav.
+     querySelectorAll, NOT querySelector. This block ran on the first
+     .nav-drop only for as long as there was one, so adding Services in
+     Sept 2026 would otherwise have shipped a caret with no click, no
+     hover, no Escape and no arrow key — styled correctly and completely
+     inert. Nothing in the CSS would have hinted at it.
+     Pointer and keyboard both drive them. Hover only opens on a fine
      pointer, because on touch a hover-open menu swallows the first tap. */
-  var drop = document.querySelector(".nav-drop");
-  if (drop) {
+  var drops = Array.prototype.slice.call(document.querySelectorAll(".nav-drop"));
+
+  drops.forEach(function (drop) {
     var dropBtn = drop.querySelector(".nav-drop-btn");
     var dropMenu = drop.querySelector(".nav-drop-menu");
+    if (!dropBtn || !dropMenu) return;
+
     var setDrop = function (open) {
       dropBtn.setAttribute("aria-expanded", String(open));
+      /* one at a time: two panels open at once overlap on desktop and
+         make the mobile menu twice as long as the screen */
+      if (open) {
+        drops.forEach(function (other) {
+          if (other !== drop) {
+            other.querySelector(".nav-drop-btn").setAttribute("aria-expanded", "false");
+          }
+        });
+      }
     };
     var isOpen = function () {
       return dropBtn.getAttribute("aria-expanded") === "true";
@@ -414,12 +435,13 @@
 
     dropBtn.addEventListener("click", function () { setDrop(!isOpen()); });
 
-    /* If the page you are on lives inside Shop, MARK the group rather
-       than opening it. Opening it rendered a permanently expanded panel
-       over the Courses hero, with aria-expanded="true" before anyone had
-       touched it (found in review, Aug 2026). .nav-drop-btn.is-current
-       already carries the active-section treatment at both sizes — a
-       coral underline on desktop, ink and weight in the mobile menu. */
+    /* If the page you are on lives inside the group, MARK the group
+       rather than opening it. Opening it rendered a permanently expanded
+       panel over the Courses hero, with aria-expanded="true" before
+       anyone had touched it (found in review, Aug 2026).
+       .nav-drop-btn.is-current already carries the active-section
+       treatment at both sizes — a coral underline on desktop, ink and
+       weight in the mobile menu. */
     if (dropMenu.querySelector("[aria-current='page']")) dropBtn.classList.add("is-current");
 
     if (finePointer) {
@@ -447,12 +469,20 @@
         if (first) first.focus();
       }
     });
+  });
 
+  /* ONE outside-click listener for all of them, not one per group. */
+  if (drops.length) {
     document.addEventListener("click", function (e) {
-      /* the hamburger is "outside" the group, so without this guard
-         opening the mobile menu instantly closed Shop again */
+      /* the hamburger is "outside" every group, so without this guard
+         opening the mobile menu instantly closed them again */
       if (toggle && toggle.contains(e.target)) return;
-      if (isOpen() && !drop.contains(e.target)) setDrop(false);
+      drops.forEach(function (drop) {
+        var btn = drop.querySelector(".nav-drop-btn");
+        if (btn.getAttribute("aria-expanded") === "true" && !drop.contains(e.target)) {
+          btn.setAttribute("aria-expanded", "false");
+        }
+      });
     });
   }
 

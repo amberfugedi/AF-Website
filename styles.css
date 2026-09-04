@@ -502,10 +502,25 @@ body.page-sub .aura { --aura-base: 0.45; }
   padding: 9px 12px;
   border-radius: 9px;
   color: var(--body);
+  /* Menu items are labels, not prose. "Fractional leadership" wrapped to
+     two lines inside the 176px min-width and read as two entries. The
+     menu sizes to its content past that; 176 is a floor, not a width. */
+  white-space: nowrap;
   transition: background 0.18s var(--ease), color 0.18s var(--ease);
 }
 .nav-drop-menu a:hover { background: rgba(46, 42, 39, 0.045); color: var(--ink); }
 .nav-drop-menu a[aria-current="page"] { color: var(--coral-deep); font-weight: 600; }
+/* CANCEL THE TOP-LEVEL UNDERLINE INSIDE THE MENU. `.nav-links a` paints
+   the current-page rule as a background gradient and
+   `.nav-links a[aria-current="page"]` grows it to 100%; that selector
+   does not know the difference between a nav link and a menu item, so
+   the open panel drew a full-width coral rule along the bottom of its
+   current item. The dropdown's own treatment is colour and weight.
+   Courses has carried this since the Shop menu shipped — invisible only
+   because a one-line item makes the stray rule look deliberate.
+   Three classes, so it beats `.nav-links a[aria-current="page"]` on
+   specificity rather than on source order. */
+.nav-links .nav-drop-menu a[aria-current="page"] { background-size: 0 2px; }
 
 /* The tablet nav step-down lives at the END of this file, after the
    type layer: `.nav-links a { font-size: 1rem }` is set there, and a
@@ -687,6 +702,9 @@ body.page-sub .aura { --aura-base: 0.45; }
     font-size: 1.3rem;
     font-weight: 500;
     color: var(--body);
+    /* the panel is full width here and the type is larger, so a long
+       label should wrap rather than run off a 320px screen */
+    white-space: normal;
   }
 
   /* the closing group, pushed to the bottom */

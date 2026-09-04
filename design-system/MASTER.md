@@ -4363,3 +4363,54 @@ animation-free and none is left invisible. `npx impeccable detect` now
 reports 13 on About (was 14) and 15 on the service page (was 16).
 Testimonials, the timeline, The Short Version, contact, nav and footer
 are byte-identical to the previous commit.
+
+
+================================================================================
+2026-09-04 · SERVICES BECOMES A NAV GROUP
+================================================================================
+
+`/services/fractional-leadership` is now a child of Services in the nav
+and the footer. Services is a `.nav-drop`, the same component Shop uses,
+and its menu leads with "All services" → `/services`.
+
+THAT FIRST ITEM IS NOT DECORATION. Shop is a disclosure BUTTON because
+there is no /shop page. Services has one, so converting the parent to a
+button is the single move that would have quietly deleted /services from
+the navigation. The menu carries it.
+
+THE BUG THIS ALMOST SHIPPED: `main.js` read
+`document.querySelector(".nav-drop")` — singular — because there had
+only ever been one. Every rule in the stylesheet is class-based, so a
+second group renders perfectly: caret, panel, hover styles, the lot. It
+would simply never have opened. No click, no hover, no Escape, no arrow
+key, and nothing in the CSS to hint at it. Now `querySelectorAll` with a
+loop, one shared outside-click listener, and opening either group closes
+the other (two open panels overlap on desktop and double the mobile
+menu's height).
+
+A LEAK THE SECOND MENU EXPOSED: `.nav-links a[aria-current="page"]`
+grows the top-level current-page underline to `background-size: 100% 2px`
+and cannot tell a nav link from a menu item, so the open panel drew a
+full-width coral rule along the bottom of its current entry. Courses has
+carried this since the Shop menu shipped; it was invisible because a
+one-line item makes the stray rule look deliberate. "Fractional
+leadership" wrapped to two lines and the rule landed halfway down the
+panel, which is the only reason anyone saw it. Cancelled with
+`.nav-links .nav-drop-menu a[aria-current="page"] { background-size: 0 2px }`
+— three classes, so it wins on specificity rather than source order.
+Menu items also got `white-space: nowrap` (`normal` again in the mobile
+panel, which is full width with larger type).
+
+DETECTOR: `cramped-padding` on `.nav-drop-menu` now fires TWICE per page
+instead of once, so every page with a nav reads one higher. It is the
+same already-accepted finding counted per menu, not a new problem —
+the wrapper-with-a-visible-boundary false positive. Raising the panel's
+padding to 10 and 12px was tried and changes nothing, and a real popover
+needs the border, background and shadow it has. Left alone deliberately.
+
+EDITING THE SHARED CHROME: slice the `<nav>` and `<footer>` regions and
+replace inside them. A first pass matched
+`        <li><a href="/services">Services</a></li>` across the whole
+document, and those eight leading spaces are a substring of the footer's
+fourteen — so the footer's Services link was replaced by a nav dropdown
+in eleven files at once. Reverted and redone against sliced blocks.
