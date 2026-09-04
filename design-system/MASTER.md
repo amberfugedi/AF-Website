@@ -5024,3 +5024,43 @@ line of a multi-line group left `.svc-turn,` dangling before a closing
 brace TWICE — a grouped selector loses its block and the survivors merge
 into the next rule. Scan for `,` followed by `}` or a comment after any
 rule removal.
+
+## How I Think removed from the service pages (2026-09)
+
+My Approach already owns the philosophy, and the four service pages were
+repeating it. Each `.pov` section was audited idea by idea before deletion.
+
+UNIVERSAL, so removed rather than relocated: solve the right problem
+first, the brief is a symptom, look past the channel, say it early,
+question the work itself, find the real constraint, and "more isn't
+automatically better". All of these are already My Approach's territory.
+
+SERVICE-SPECIFIC, so kept as a one-line banner rather than a section:
+- Fractional — "The goal is not to make the marketing function bigger.
+  It's to make it work better."
+- Mentorship — "You don't need to turn your problem into a lesson
+  before we can talk about it."
+Consulting and Workflow keep NO callout. Consulting's every principle was
+on the universal list, and Workflow's adoption point was already carried
+by its existing "help people use it well" banner. The brief allowed for
+pages with no genuinely unique belief, and forcing one on all four would
+have rebuilt the redundancy in miniature.
+
+Workflow's "fix the process first" belief moved INTO the How it works
+setup rather than staying a section: "Automating a process nobody has
+simplified just makes the wrong thing faster." That setup previously
+repeated its own stage two verbatim ("where most of the time comes
+back"), and Consulting's setup listed the four stages that followed it.
+Both rewritten.
+
+The How it works eyebrow is gone from all four pages, and `.svc-nofit`
+spans the content width instead of stopping at 720px.
+
+STILL MISSING FROM MY APPROACH, flagged rather than added: subtraction.
+Nothing on that page says the answer is sometimes to stop doing
+something. The removed fractional section carried it ("Sometimes the
+answer is adding something. Sometimes it's stopping something.") and it
+is the one universal principle the site no longer states anywhere.
+
+Pages after: consulting 802w, mentorship 708w, fractional 1071w,
+workflow 1175w. Detector 211 against 223 at HEAD.
