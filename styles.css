@@ -3481,8 +3481,15 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .ba-before li { color: var(--muted); }
 
 /* Teacher */
-.teach-grid { display: grid; grid-template-columns: minmax(0,0.42fr) minmax(0,1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
-.teach-photo { width: 100%; height: auto; border-radius: 12px; display: block; }
+/* Photo beside copy. `.teach-grid` was the course page's; `.pf-split` is
+   the same pair used on Fractional ("being in the room") and Work
+   ("Leading marketing"), so the three share one treatment rather than
+   growing three. */
+.teach-grid,
+.pf-split { display: grid; grid-template-columns: minmax(0,0.42fr) minmax(0,1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+.pf-split { margin-bottom: clamp(30px, 3.6vw, 46px); }
+.teach-photo,
+.pf-photo { width: 100%; height: auto; border-radius: 12px; display: block; }
 .teach-cta { margin-top: 24px; align-items: center; }
 
 /* Purchase box */
@@ -3603,8 +3610,10 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 
 @media (max-width: 900px) {
   .fm-grid { grid-template-columns: 1fr; gap: 30px; }
-  .teach-grid { grid-template-columns: 1fr; gap: 24px; }
-  .teach-photo { max-width: 260px; }
+  .teach-grid,
+  .pf-split { grid-template-columns: 1fr; gap: 24px; }
+  .teach-photo,
+  .pf-photo { max-width: 260px; }
 }
 @media (max-width: 700px) {
   .ba { grid-template-columns: 1fr; gap: 26px; }

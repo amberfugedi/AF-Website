@@ -426,6 +426,20 @@ evaluation band in the home problem art — fix when convenient).
 
 ## Photography
 
+UPDATE 2026-09 (second): Amber raised the cap herself. Photography is
+SEVEN appearances now, still one photo each and still no page opening on
+one. The three additions: the linen-blazer desk shot on the course page
+(below), the moodboard shot beside Fractional's "Some of it is just
+being in the room" — the copy there is about presence, so the photo
+argues the same point — and the cafe-and-laptop shot beside Work's
+"Leading marketing", which is the recruiter-facing pillar and benefits
+from showing her at work. All three share `.pf-split`, the same
+photo-and-copy pair the course page already used, so three placements
+grew one treatment rather than three. New photographs ship as WebP
+(71-97K against 131-168K as JPEG); the structured-data headshot stays
+JPEG for crawler compatibility. `amber-fugedi-sofa.webp` is prepared but
+unplaced.
+
 UPDATE 2026-09: the course page had been reusing the sunlit portrait
 from the home teaser, which was both a fifth appearance and a second use
 of one photo — two breaches of the rule below. It has its own now
