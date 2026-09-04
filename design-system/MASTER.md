@@ -5523,3 +5523,35 @@ carries without turning into a card.
 
 `.card h3`'s dead `1.45rem` is deleted; a later rule had been overriding
 it with `--fs-intro` the whole time.
+
+### Stray colours and radius, fixed
+
+TWO ON-DARK TOKENS ADDED. The site has two dark surfaces — the CTA band
+and the course thumb — and had no token for text on either, so the sheet
+invented a light neutral every time it needed one: `#D9D2C9`, `#F7F1EB`,
+`#E8DECB` and `#CFC5CE`, four one-off greys for the same job.
+
+    --on-ink        var(--bg)                      headings on dark
+    --on-ink-muted  rgba(253, 249, 245, 0.82)      supporting copy on dark
+
+Contrast improved slightly in both places: 9.1:1 on the band and 10.7:1
+on the thumb's darkest stop, against the 8.4:1 the old value documented.
+
+Also onto tokens: `#6F675D` and `#767065` (text greys on cream) to
+`--muted`; `#8A6717` to `--courses-deep`; `#4A3F86` to
+`--automations-deep`; `#FFFDFA` to `--bg-raised`. Fourteen sites.
+
+RADIUS back on the scale — 28, 26, 20, 18, 10, 9, 6 and 5 were all in
+use. `.cta-band` and `.quote-marquee` 28 to 24; the mobile nav CTA 26 to
+24; `.marquee-toggle` 20 to 24 (it is a pill); `.proof-chip` 18 to 16;
+`.sp-card` and `.work-strip a` 10 to 14; `.nav-drop-menu a` 9 to 8;
+`.work-pair img` 6 and `.lb-stage img` 5 to 8. Focus rings are outlines,
+not elements, and the 2px career ticks are marks rather than boxes;
+both stay.
+
+STILL OPEN, Amber's call: the course page runs a THIRD colour-coded set
+— `.cl-found` coral, `.cl-chosen` lavender, `.cl-remembered` gold, for
+the three course stages. Colour coding is capped at two sets (offers,
+Expertise chapters). It is a real code carrying real meaning, so it is
+either a sanctioned third or it should collapse; not something to decide
+by conformance.
