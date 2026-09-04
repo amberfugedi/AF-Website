@@ -5826,3 +5826,31 @@ page name.
 STILL OPEN: the ampersand. "&" is in job titles and the footer line;
 "and" is in the nav and the service names. Both are current, and which
 one wins is Amber's call, not a conformance fix.
+
+### The homepage deck needed a spine (2026-09)
+
+Amber on the new three-paragraph deck: "Mobile looks great, I'm just
+not sure about desktop." Measured what changed at 1440:
+
+    copy column   616px, capped at 640
+    the deck      TEN lines of 17px body, all three paragraphs identical
+    the h1        two lines, widest line 476px
+    hero height   750px
+
+Two things were off, and only one is worth fixing.
+
+WORTH FIXING: ten lines of undifferentiated body copy under a two-line
+50px headline. The deck outweighed the thing it supports. The first
+paragraph takes the intro grade now — it is the sentence that says who
+she is, and the two under it are the evidence. Costs 15px of hero
+height and nothing else.
+
+NOT WORTH FIXING, and measured before rejecting: the copy runs 140px
+past the headline's right edge, because the h1 breaks after "marketing"
+at 476px while the copy fills 616. Capping the measure at 540 does
+align the block — and turns 10 lines into 12, making the deck a taller
+narrower wall and opening MORE empty space beside it. 818px hero
+against 765. The asymmetry is the better of the two.
+
+The right column carries 289px of chips against 543px of copy, centred.
+That gap is the shape of an asymmetric hero, not a fault.

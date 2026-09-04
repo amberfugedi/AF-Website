@@ -6290,6 +6290,9 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    15 -> 17.5 clamp overshot body at desktop and undershot the other
    heads on phones' widest siblings) */
 .hero .subhead { font-size: var(--fs-body); line-height: 1.55; }
+/* The opening line of the deck reads at the intro grade — three
+   paragraphs of flat body copy under the h1 had no spine. */
+.hero .subhead:first-of-type { font-size: var(--fs-intro); line-height: 1.5; }
 
 .card p,
 .cap-card p,
