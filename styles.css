@@ -444,7 +444,9 @@ body.page-sub .aura { --aura-base: 0.45; }
    Keyboard and pointer both drive it: hover opens on a fine pointer,
    click and Enter/Space toggle, Escape closes and returns focus, and
    focus leaving the group closes it. */
-.nav-drop { position: relative; }
+/* Two children now on Services — the link and its caret button — so the
+   group lays them out rather than relying on inline flow. */
+.nav-drop { position: relative; display: inline-flex; align-items: center; gap: 3px; }
 .nav-drop-btn {
   display: inline-flex;
   align-items: center;
@@ -469,13 +471,32 @@ body.page-sub .aura { --aura-base: 0.45; }
   transform: translateY(-2px) rotate(45deg);
   transition: transform 0.2s var(--ease);
 }
-.nav-drop-btn[aria-expanded="true"] .nav-caret { transform: translateY(1px) rotate(-135deg); }
-/* Same reasoning as the mobile rule, for touch at desktop widths: with
-   no hover the caret promises a panel that cannot open. The trigger
-   still navigates, and /services links every service page. */
-@media (hover: none) {
-  .nav-drop-link .nav-caret { display: none; }
+/* THE CARET AS ITS OWN CONTROL (Amber, 2026-09-04: click the word to go
+   to Services, click the arrow to see the pages). Two targets, two jobs.
+   It carries the aria-expanded and the aria-controls; the link beside it
+   carries neither, because a link that navigates does not expand
+   anything. Shop has no separate caret — its trigger has nowhere to go,
+   so the button IS the disclosure and keeps the caret inside it. */
+.nav-drop-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* a real target without widening the nav: the box is 22px, the hit
+     area is padded out to 34 and pulled back with negative margin */
+  width: 22px; height: 22px;
+  margin: 0 -6px 0 0;
+  padding: 6px;
+  box-sizing: content-box;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.2s;
 }
+.nav-drop-toggle:hover,
+.nav-drop-toggle[aria-expanded="true"] { color: var(--ink); }
+.nav-drop-btn[aria-expanded="true"] .nav-caret,
+.nav-drop-toggle[aria-expanded="true"] .nav-caret { transform: translateY(1px) rotate(-135deg); }
 /* The trigger is an <a> inside .nav-links now, so it picks up the
    current-page underline natively on /services. .is-current still marks
    the group from a child page — one underline either way, never both
@@ -512,6 +533,7 @@ body.page-sub .aura { --aura-base: 0.45; }
    reachable by pointer AND keyboard with scripting off. JS then adds
    the aria state, hover-open, Escape and click-outside on top. */
 .nav-drop-btn[aria-expanded="true"] ~ .nav-drop-menu,
+.nav-drop-toggle[aria-expanded="true"] ~ .nav-drop-menu,
 .nav-drop:focus-within .nav-drop-menu {
   opacity: 1; visibility: visible; transform: none;
 }
@@ -685,7 +707,6 @@ body.page-sub .aura { --aura-base: 0.45; }
   /* SHOP KEEPS ITS ROW and Courses sits under it, the way the
      reference handles a parent item: the button becomes a full-width
      row with a caret and the list opens beneath it, indented. */
-  .nav-drop { display: block; }
   .nav-drop-btn {
     display: flex;
     width: 100%;
@@ -700,9 +721,35 @@ body.page-sub .aura { --aura-base: 0.45; }
     color: var(--ink);
     border-bottom: 1px solid rgba(46, 42, 39, 0.16);
   }
-  .nav-drop-btn .nav-caret { width: 9px; height: 9px; border-width: 2px; margin-right: 4px; }
+  .nav-drop-btn .nav-caret,
+  .nav-drop-toggle .nav-caret { width: 9px; height: 9px; border-width: 2px; margin-right: 4px; }
   /* the desktop current-page underline has no place on a row */
   .nav-drop-btn.is-current { box-shadow: none; }
+  .nav-drop-link.is-current { background-size: 0 2px; }
+
+  /* SERVICES IS TWO CONTROLS ON ONE ROW: the label takes the row and
+     navigates, the caret sits at the right and opens the panel. The
+     link already carries the row's hairline from `.nav-links > li > a`;
+     the caret repeats it so the line runs unbroken to the edge instead
+     of stopping short of the arrow.
+     The caret's box is the full row height and 56px wide — a 44px
+     minimum target with room either side, on a control whose whole job
+     is being hit accurately next to a link that goes somewhere else. */
+  /* gap: 0, explicitly. The desktop group sets `gap: 3px` to separate
+     the link from its caret, and inheriting it here broke the row's
+     hairline into two segments with a 3px hole before the arrow. */
+  .nav-drop { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; }
+  .nav-links > li.nav-drop > .nav-drop-link { flex: 1; }
+  .nav-drop-toggle {
+    width: 56px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(46, 42, 39, 0.16);
+  }
+  .nav-drop-menu { flex-basis: 100%; }
   .nav-group-label { display: none; }
   .nav-drop-menu {
     position: static;
@@ -715,13 +762,10 @@ body.page-sub .aura { --aura-base: 0.45; }
   .nav-drop-menu::before { content: none; }
   .nav-drop-btn[aria-expanded="true"] ~ .nav-drop-menu,
   .nav-drop:focus-within .nav-drop-menu { display: block; }
-  /* A LINK-TRIGGERED GROUP HAS NO DISCLOSURE TO TAP. Tapping "Services"
-     navigates, and there is no hover on a phone, so a collapsed panel
-     here would be unreachable — the children are simply always visible,
-     indented, which is what a full-screen menu wants anyway. The caret
-     goes with it: there is nothing left for it to promise. */
-  .nav-drop:has(.nav-drop-link) .nav-drop-menu { display: block; }
-  .nav-drop-link .nav-caret { display: none; }
+  /* The caret is a real control now, so a link-triggered group collapses
+     like Shop does. The rule that forced these open — written when the
+     caret was inert and there was nothing to tap — is gone. */
+  .nav-drop-toggle[aria-expanded="true"] ~ .nav-drop-menu { display: block; }
   .nav-links .nav-drop-menu a {
     padding-left: 18px;
     font-size: 1.3rem;
@@ -6986,3 +7030,15 @@ footer p,
 .ab-quiet-body { margin-top: clamp(26px, 3vw, 38px); }
 .ab-quiet-body p + p { margin-top: 16px; }
 .ab-mk-spark { width: 0.62em; transform: translateY(0.02em); margin-left: 0.2em; }
+
+
+/* THE HERO MARK IS DESKTOP-ONLY (Amber, 2026-09-04: "it doesn't add
+   value" on mobile). Below 760 the head grid has already stacked it
+   under the copy and the buttons, where it is 292px of illustration
+   between the CTA and the first real section — a scroll cost with no
+   argument in it. `display: none` rather than `visibility`, so it takes
+   no space and the head closes up. 760 is the site's own mobile
+   breakpoint, not a new one. */
+@media (max-width: 760px) {
+  .page-service .head-art { display: none; }
+}

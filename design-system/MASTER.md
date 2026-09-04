@@ -4505,3 +4505,88 @@ recurred. No horizontal overflow at 390-1920. Detector holds at 14, so
 the section costs nothing. Testimonials, the timeline, The Short Version,
 contact, How I lead, Outside the work, What I grew into, the beliefs, nav
 and footer all byte-identical.
+
+
+================================================================================
+2026-09-04 · TAB COLOUR AUDIT, mobile hero, honest proof, split nav trigger
+================================================================================
+
+TAB COLOUR IS SEMANTIC, NOT POSITIONAL — asked and answered
+Amber: "Work and fractional pages h1 has pink in them, the rest have
+yellow. What's the brand guideline?" The rule (2026-07, above) is that
+blush marks the TENSION side — problems, uncertainty, open questions —
+and butter marks the POSSIBILITY side — collaboration, solutions, next
+steps. Nothing says an h1 is butter. Whichever colour lands on the h1
+follows what the h1 says.
+
+So the three blush h1s are correct, and it is three, not two:
+  "different needs."   (Work)       — names the variety, the problem
+  "more marketing."    (Fractional) — the thing that is NOT the answer
+  "the marketing box." (About)      — MASTER already records this one:
+                                      "the box is the constraint"
+And the butter h1s all name an outcome: "growth.", "approach.",
+"actual work.", "work together.", "foundation.", "in."
+
+FULL CENSUS TAKEN, and half the site has drifted from "exactly two per
+page, one of each":
+  CONFORMS (1 blush + 1 butter)  home · about · my-approach · projects ·
+                                 fractional
+  DRIFTED                        services (3 butter, no blush)
+                                 course-marketing-foundation (3 tabs)
+                                 expertise (2 butter, no blush)
+                                 thank-you (2 butter, no blush)
+                                 courses (1 tab only)
+NOT FIXED, and the reason is the one already written down here: placing a
+blush tab means choosing which line of Amber's copy carries the page's
+tension, which is her call, not a mechanical correction. Raised with her.
+
+FRACTIONAL HERO MARK IS DESKTOP-ONLY (Amber: "it doesn't add value" on
+mobile). `display: none` below 760 — the site's own mobile breakpoint,
+not a new one — so it takes no space rather than merely hiding. Below
+that the head grid had already stacked it under the copy and the
+buttons, where it was 292px of illustration between the CTA and the
+first real section. The head drops 859 → 575 at the boundary.
+
+THE PROOF SECTION WAS CLAIMING THINGS IT SHOULD NOT (Amber: "these
+listed case studies are not all fractional work"). She is right and it
+was my error: PERQ is VP of Growth Marketing, 2023–present, and
+Scan-Optics is Director of Marketing, 2021–23 — both full-time in-house
+roles, both filed under `#in-house` on Projects. Only MembersFirst is
+fractional.
+There is exactly ONE genuinely fractional case study on the site, so a
+three-up of fractional engagements does not exist; the other client work
+(Robert James, A2 Exteriors) is a brand build and ongoing small-business
+marketing, not leadership of a function. Swapping them in would have
+been weaker proof AND still not fractional.
+The fix is the framing, not the work: MembersFirst leads, and every row
+is labelled `Fractional` or `In-house`, with the lede saying outright
+that one is an engagement and two are roles she held. Having run the
+function as an employee is legitimate proof for a fractional leader —
+the page just must not imply otherwise.
+Labels are the engagement type ALONE. "Fractional · Financial services"
+is 31 characters and trips the detector's `all-caps-body` at exactly the
+threshold the long eyebrow hit; the sector moved into the lede.
+
+SERVICES: TWO CONTROLS, TWO JOBS (Amber: click the word for the page,
+click the arrow for the pages). The link carries no `aria-expanded` and
+never toggles; the caret button carries `aria-expanded` and
+`aria-controls` and never navigates. This replaces the previous
+arrangement, where a single link trigger opened on hover only — that
+worked on a mouse and left the panel unreachable on touch, which is why
+the mobile menu had been forced permanently open. Both of those
+workarounds are now deleted: the caret is a real control, so the mobile
+group collapses like Shop's.
+Shop keeps a single button trigger. It has nowhere to navigate, so its
+button IS the disclosure and the caret stays inside it. `main.js` picks
+`.nav-drop-toggle` where one exists and falls back to `.nav-drop-btn`.
+The caret is 56px wide and full row height in the mobile menu — a
+control whose entire job is being hit accurately beside a link that goes
+somewhere else deserves more than a 22px box.
+GOTCHA: the desktop group sets `gap: 3px` between link and caret, and
+the mobile row inherited it, breaking the row's hairline into two
+segments with a 3px hole before the arrow. `gap: 0` in the mobile block.
+
+MEASURING THE PANEL: read its computed visibility at 500ms, not 150ms.
+The open transition had not finished at 150 and the probe reported
+`hidden/0` on a menu that opens correctly — it read as a real bug for
+one round.

@@ -400,10 +400,12 @@
   /* ---------- Nav dropdowns ----------
      Two groups, and they are not the same shape. Shop is a disclosure
      BUTTON: there is no /shop page, so the trigger has nowhere to go.
-     Services is a LINK to /services that reveals its children on hover
-     (Amber: "people will click the services button naturally"). Clicking
-     it navigates; it never toggles. The menu therefore lists only real
-     service pages, with no "All services" row restating the trigger.
+     Services is a LINK to /services with a SEPARATE caret button beside
+     it (Amber: click the word to go to Services, click the arrow to see
+     the pages). Two targets, two jobs — the link never toggles and the
+     caret never navigates, which is the only arrangement where both are
+     unambiguous on a touchscreen. The menu therefore lists only real
+     service pages, with no "All services" row restating the link.
      querySelectorAll, NOT querySelector. This block ran on the first
      .nav-drop only for as long as there was one, so adding Services in
      Sept 2026 would otherwise have shipped a caret with no click, no
@@ -414,7 +416,10 @@
   var drops = Array.prototype.slice.call(document.querySelectorAll(".nav-drop"));
 
   drops.forEach(function (drop) {
-    var dropBtn = drop.querySelector(".nav-drop-btn");
+    /* The disclosure is the caret where there is one, and the trigger
+       itself where the group has no separate caret (Shop). */
+    var dropBtn = drop.querySelector(".nav-drop-toggle") || drop.querySelector(".nav-drop-btn");
+    var dropLink = drop.querySelector(".nav-drop-link");
     var dropMenu = drop.querySelector(".nav-drop-menu");
     if (!dropBtn || !dropMenu) return;
 
@@ -434,11 +439,7 @@
       return dropBtn.getAttribute("aria-expanded") === "true";
     };
 
-    /* A link trigger must not swallow its own click — tapping "Services"
-       goes to /services. Only the button trigger toggles. */
-    if (dropBtn.tagName !== "A") {
-      dropBtn.addEventListener("click", function () { setDrop(!isOpen()); });
-    }
+    dropBtn.addEventListener("click", function () { setDrop(!isOpen()); });
 
     /* If the page you are on lives inside the group, MARK the group
        rather than opening it. Opening it rendered a permanently expanded
@@ -447,7 +448,9 @@
        .nav-drop-btn.is-current already carries the active-section
        treatment at both sizes — a coral underline on desktop, ink and
        weight in the mobile menu. */
-    if (dropMenu.querySelector("[aria-current='page']")) dropBtn.classList.add("is-current");
+    if (dropMenu.querySelector("[aria-current='page']")) {
+      (dropLink || dropBtn).classList.add("is-current");
+    }
 
     if (finePointer) {
       drop.addEventListener("mouseenter", function () { setDrop(true); });
