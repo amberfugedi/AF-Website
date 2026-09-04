@@ -176,8 +176,9 @@
             <defs>
               <linearGradient id="fl-arch" x1="0" y1="0" x2="0.18" y2="1">
                 <stop offset="0" stop-color="#FBD5E4"/>
-                <stop offset="0.46" stop-color="#DAD4F5"/>
-                <stop offset="1" stop-color="#D9EFD3"/>
+                <stop offset="0.4" stop-color="#DAD4F5"/>
+                <stop offset="0.74" stop-color="#D9EFD3"/>
+                <stop offset="1" stop-color="#FCE4C4"/>
               </linearGradient>
             </defs>
 
@@ -214,8 +215,17 @@
                asymmetric footing, and none of the association. Drawn after
                the inputs so they still run behind it. -->
           <g class="fl-g-arch">
+            <!-- THE OPENING WAS A HOLE, so it read flat (Amber, Sept 2026).
+                 It is a lit plane now: a halo behind the doorway, the
+                 opening filled rather than cut out, a hairline around it,
+                 and a short spine from the outer edge to the inner one so
+                 the jamb has thickness. -->
+            <circle class="fill fl-halo" cx="311" cy="196" r="122"/>
             <path class="fill fl-arch" d="M262 286 L262 100 L360 100 L360 290 L336 282 L336 132 L286 132 L286 282 Z" fill="url(#fl-arch)"/>
+            <path class="fill fl-window" d="M286 132 L336 132 L336 282 L286 282 Z"/>
             <path class="fill fl-arch-edge" d="M336 282 L360 290 L360 100 L311 100 L311 132 L336 132 Z"/>
+            <path class="fill fl-arch-spine" d="M262 100 L286 132 M262 286 L286 282 M360 100 L336 132 M360 290 L336 282"/>
+            <path class="fill fl-window-line" d="M286 132 L336 132 L336 282 L286 282 Z"/>
             <path class="fill fl-arch-line" d="M262 286 L262 100 L360 100 L360 290 L336 282 L336 132 L286 132 L286 282 Z"/>
           </g>
 

@@ -5278,3 +5278,39 @@ added intention, which is the opposite of what the audit was for.
 
 White cards on transparent (aura) sections were left alone throughout —
 the gradient already gives them contrast.
+
+## No full-width white bands left (2026-09, revised)
+
+The audit above kept five cardless white bands on the grounds that
+their alternation with gradient sections was the page rhythm. Amber
+looked at the deployed My Approach page and said it still had solid
+white sections, so all five are cream now and `.band-white` is gone
+from the sheet entirely.
+
+The system that leaves: the aura gradient is the default section,
+`.band-cream` groups and separates, `.bridge` is a white veil at 45%
+for quote banners, and PURE WHITE IS NOW EXCLUSIVELY A CARD SURFACE —
+cards, quote cards, the fit panel, the workflow panels. That is a
+cleaner rule than the one the audit started with, and it matches the
+brief's own list of what white is for.
+
+`.band-cream + .bridge` collapses its doubled hairline, the mirror of
+the `.bridge + .band-white` rule that already existed and now points at
+`.band-cream`.
+
+## "What keeps me interested" restructured (2026-09)
+
+Intro line, then a row of the beats block (60%) beside the
+messy-to-clear mark (35%), then the two explaining paragraphs full
+width beneath. The graphic reads as belonging to the conceptual half
+rather than floating beside prose it has nothing to do with. Line
+weight went 1.6 to 2.3 and the alphas up, since at 25% of the section
+the earlier version was too faint to carry a column.
+
+`.ab-quiet-close` is body copy now, not a display pull-line: normal
+size, full width, same voice as the paragraphs above it.
+
+CAUTION FOR ANYONE MEASURING THIS PAGE: there are TWO `.ab-beats`
+blocks on About. `document.querySelector('.ab-beats')` returns the one
+in the earlier section, not the one in this row, which briefly looked
+like a broken grid until the probe was scoped to `.mc-split .ab-beats`.
