@@ -6921,6 +6921,113 @@ footer p,
   text-wrap: pretty;
 }
 
+/* CAPABILITY GROUPS. Four hairline-topped columns of labels, replacing
+   eight rows of prose (Amber, 2026-09-04: the scope should read in about
+   ten seconds). The scope did not shrink; the sentence under each area
+   became four noun phrases, which is what a scan takes from a paragraph
+   anyway. Reused by every service page — the groups differ, the shape
+   does not. */
+.svc-caps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(26px, 3vw, 44px);
+}
+.svc-caps > li {
+  padding-top: 20px;
+  background-image: linear-gradient(var(--line), var(--line));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 0;
+}
+/* The group name is a label, not a headline: this is a scan, and four
+   display-face headings across would compete with the section title. */
+.svc-caps > li > h3 {
+  /* Two of the four labels wrap, which dropped their lists a line below
+     the others and broke the scan the section exists for. The label
+     reserves its second line whether it uses one or not. */
+  min-height: calc(2 * 1.3em);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  margin: 0 0 14px;
+}
+.svc-caps ul { list-style: none; margin: 0; padding: 0; }
+.svc-caps ul li {
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  padding: 5px 0;
+}
+
+/* AN ASIDE KEEPS ASIDE PROPORTIONS. At the standard 104px rhythm this
+   section measured 717px, second only to the hero, which is not what
+   "a small but important clarification" looks like — it read as an
+   eleventh service section. Reduced padding is the whole difference. */
+.svc-aside { padding-top: clamp(56px, 6vw, 76px); padding-bottom: clamp(56px, 6vw, 76px); }
+
+/* THE LEADERSHIP ASIDE. Quiet dashes, deliberately not the coral ring:
+   the ring belongs to the recognition and fit lists, and a third ringed
+   list here would read as a third set of things you get rather than an
+   aside about the role. */
+.svc-room {
+  list-style: none;
+  margin: clamp(26px, 3vw, 36px) 0 0;
+  padding: 0;
+  max-width: 720px;
+}
+.svc-room li {
+  position: relative;
+  padding: 9px 0 9px 26px;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.svc-room li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.05em;
+  width: 13px;
+  height: 1px;
+  background: rgba(46, 42, 39, 0.32);
+}
+
+/* "IF THAT ISN'T QUITE IT". Three hairline rows, the situation in ink
+   and the service as a link under it. Phrased as a question someone
+   recognises rather than a service they have to decode — the four offers
+   blur together precisely because their names do. Deliberately not a
+   card grid: this is an exit, not a second Services page. */
+.svc-else {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 44px);
+}
+.svc-else li {
+  padding-top: 20px;
+  background-image: linear-gradient(var(--line), var(--line));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 0;
+}
+.svc-else p {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
 /* PROOF. Three case studies as hairline-topped rows. Same information
    the homepage shows in cards, in this page's own language. Each service
    page picks the two or three studies that argue its case. */
@@ -6967,6 +7074,9 @@ footer p,
 /* 900, matching the breakpoint the head grid stacks at. */
 @media (max-width: 900px) {
   .svc-proof { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* 2x2 rather than four across: below 900 each column is under 190px
+     and "Sales and marketing alignment" wraps to three lines. */
+  .svc-caps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .svc-steps { gap: clamp(36px, 6vw, 52px) 0; }
 }
 /* 760, matching the breakpoint the rest of the site already switches
@@ -6979,7 +7089,9 @@ footer p,
   .svc-areas,
   .svc-steps,
   .svc-ba,
-  .svc-proof { grid-template-columns: minmax(0, 1fr); }
+  .svc-proof,
+  .svc-caps,
+  .svc-else { grid-template-columns: minmax(0, 1fr); }
   .svc-signals { gap: 18px; }
   .svc-areas li:nth-child(2) { padding-top: 26px; background-image: linear-gradient(var(--line), var(--line)); }
   .svc-ba { gap: 44px; }
@@ -7042,3 +7154,97 @@ footer p,
 @media (max-width: 760px) {
   .page-service .head-art { display: none; }
 }
+
+
+/* ============================================================
+   SERVICE FAMILY: the other three pages          2026-09-04
+   ------------------------------------------------------------
+   Consulting, Workflow and AI, Mentorship and Advisory. They share
+   every `.svc-*` component with Fractional; what differs is each page's
+   hero mark, which uses that offer's own `-deep` colour from the
+   Services page. That keeps the family legible without opening a third
+   colour-coded set: the offers already are one.
+   TRANSPARENCY GOES IN `fill-opacity` OR IN rgba, NEVER IN `opacity`,
+   on anything carrying `class="fill"`. The reveal animation ends on
+   `opacity: 1` with `forwards` and outranks a declared value — the
+   Fractional side panel lost a whole round to this.
+   ============================================================ */
+
+/* ---- Consulting: a tangle resolving into one line ---- */
+.cs-blob   { fill-opacity: 0.4; }
+.cs-tangle { stroke: rgba(166, 53, 99, 0.42); stroke-width: 2; stroke-linecap: round; }
+.cs-clear  { stroke: var(--consulting-deep); stroke-width: 2.4; stroke-linecap: round; }
+.cs-turn   { fill: none; stroke: var(--consulting-deep); stroke-width: 2.4; }
+.cs-end    { fill: var(--consulting-deep); }
+
+/* ---- Workflow and AI: a stack of steps, two struck out ---- */
+.wf-band  { fill-opacity: 0.55; }
+.wf-row   { fill: none; stroke: rgba(87, 74, 166, 0.45); stroke-width: 1.6; }
+.wf-cut   { stroke: rgba(87, 74, 166, 0.22); }
+.wf-cross { stroke: rgba(87, 74, 166, 0.5); stroke-width: 1.6; stroke-linecap: round; }
+.wf-flow  { stroke: var(--automations-deep); stroke-width: 1.9; stroke-linecap: round; }
+
+/* ---- Mentorship: one line circling, one steady beside it ---- */
+.mn-blob   { fill-opacity: 0.32; }
+.mn-loop   { stroke: rgba(138, 90, 20, 0.55); stroke-width: 2; stroke-linecap: round; }
+.mn-steady { stroke: var(--courses-deep); stroke-width: 2.4; stroke-linecap: round; }
+.mn-a      { fill: none; stroke: var(--courses-deep); stroke-width: 2.4; }
+.mn-b      { fill: var(--courses-deep); }
+
+/* FIVE STEPS, and the fifth runs full width rather than sitting alone
+   in a half-empty row. Same move `.hw-principles li:nth-child(5)` makes
+   on My Approach, for the same reason. Desktop only: below 760 the grid
+   is one column and there is no orphan to fix. */
+@media (min-width: 761px) {
+  .svc-steps-5 > li:last-child { grid-column: 1 / -1; }
+  .svc-steps-5 > li:last-child p:not(.sec-n) { max-width: 68ch; }
+}
+
+/* MENTORSHIP'S SEQUENCE. Four beats on the site's coral ring with a
+   connector between them, the `.ab-dots` language from About. NOT
+   `.sec-n`: numbered steps read as a methodology, and this offer is a
+   conversation. The connector stops at the last ring rather than running
+   past it. */
+.svc-flow {
+  list-style: none;
+  margin: clamp(26px, 3vw, 38px) 0 clamp(30px, 3.4vw, 42px);
+  padding: 0;
+  max-width: 640px;
+}
+.svc-flow li {
+  position: relative;
+  padding: 0 0 22px 30px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-intro);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.svc-flow li:last-child { padding-bottom: 0; }
+.svc-flow li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 111, 97, 0.28);
+  border: 2px solid var(--coral-deep);
+  box-sizing: border-box;
+}
+.svc-flow li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: calc(0.42em + 15px);
+  height: calc(100% - 0.42em - 15px);
+  width: 1px;
+  background: rgba(184, 53, 74, 0.22);
+}
+
+/* One quote, not the carousel. The full testimonial section belongs to
+   About; lifting a single mentoring quote onto this page is the evidence
+   it needs, and running the marquee here would import a piece of
+   motion the page has no reason to carry. */
+.svc-quote { max-width: 640px; margin: clamp(28px, 3.2vw, 40px) 0 0; }

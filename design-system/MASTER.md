@@ -4590,3 +4590,81 @@ MEASURING THE PANEL: read its computed visibility at 500ms, not 150ms.
 The open transition had not finished at 150 and the probe reported
 `hidden/0` on a menu that opens correctly — it read as a real bug for
 one round.
+
+
+================================================================================
+2026-09-04 · THE SERVICE FAMILY: four pages
+================================================================================
+
+`/services/consulting`, `/services/workflow-ai` and
+`/services/mentorship-advisory` join Fractional Leadership, and the
+Fractional page was tightened at the same time.
+
+WHAT MAKES THEM A FAMILY, AND WHAT MAKES THEM DIFFERENT
+Every `.svc-*` component is shared: hero shell, recognition list,
+capability groups, white-band signature, numbered process, before and
+after, fit, engagement, proof rows, cross-links, CTA band. What differs
+per page is the hero mark, in that offer's own `-deep` colour from the
+Services page, and the interior of the signature band:
+  Fractional   prose then a payoff line
+  Consulting   the brief against the actual problem, then the payoff
+  Workflow     the five questions asked before anything is automated
+  Mentorship   a short refusal ("This isn't a course") and the payoff
+That is the whole differentiation budget. No new colours, no new
+components, and no section that exists only so a page has one.
+
+The four offers are the site's sanctioned colour code, so the marks ride
+it: `--consulting-deep`, `--fractional-deep`, `--automations-deep`,
+`--courses-deep` (mentorship shares the courses colour, as it already
+does on the Services page). Still two coded sets, not three.
+
+LENGTH IS NOT MATCHED, ON PURPOSE. At 1440: Fractional 7,883px,
+Consulting 7,158, Workflow 7,464, Mentorship 5,259. Mentorship is a
+lower-complexity offer and padding it to match would be exactly the
+filler the brief rules out. It has nine sections where the others have
+eleven or twelve.
+
+FRACTIONAL, TIGHTENED
+Eight prose rows of scope became four `.svc-caps` groups of labels. The
+scope did not shrink; the sentence under each area became four noun
+phrases, which is what a scan takes from a paragraph anyway. Recognition
+went from ten signals to eight (the AI one moved to the Workflow page,
+where it is now the opening argument; two reporting lines merged).
+Before-and-after went from six-and-seven to four matched pairs, which
+also makes the grid rows line up. Copy is down 12.7%, from 1,181 words
+to 1,031, and six em dashes are gone.
+The brief asked for 15-20%. It is 12.7% because item 5 of the same brief
+ADDS a section — the leadership aside — and cutting further would have
+taken the philosophy the brief says to keep. Said rather than fudged.
+THE ASIDE HAD TO BE MADE SMALLER THAN A SECTION. At the standard 104px
+rhythm it measured 717px, second only to the hero, which is not what "a
+small but important clarification" looks like. `.svc-aside` halves the
+padding.
+
+DETECTOR: a new false positive to know about. `.svc-else`, `.svc-proof`,
+`.svc-caps` and `.svc-areas` paint their hairlines as `linear-gradient`
+backgrounds to dodge `cramped-padding`; the trade is that the detector
+then treats that gradient as the element's fill and reports coral-deep
+links at 4.4:1 against `#e4e0dc`, which is `--line` composited over
+cream. Measured against the actual painted pixels every one of them is
+5.50:1. Verified by sampling, not asserted.
+Counts: Fractional 23, Consulting 19, Workflow 19, Mentorship 15,
+against Services' 29. The rises over the previous Fractional score are
+all in that false-positive family plus one more `nav-drop-menu` instance
+per added menu item.
+
+MEASURED: no horizontal overflow on any of the four at 320, 390, 768,
+1024, 1440 or 1920. Type ladder identical across all four (h1 50, h2 40,
+capability label 15, body 17). Exactly one blush and one butter tab per
+page. Under `prefers-reduced-motion` all four run zero keyframe
+animations, no `.reveal` is left hidden and no SVG node is left
+invisible. Nav and footer are byte-identical across all sixteen HTML
+files; titles, descriptions, canonicals and og:urls are unique and
+self-consistent on all four.
+
+A TAB THAT WRAPS BECOMES A BANNER. Mentorship's h1 first put the tab on
+"another marketer in the room." — five words, which wrapped to two lines
+and rendered as one solid block of blush behind both. That is the
+failure the below-480 rule already documents, and the fix is the rule
+that was already written: never on phrases longer than about four words.
+It is on "in the room." now.

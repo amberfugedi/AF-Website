@@ -25,6 +25,9 @@
 /thank-you.html                      /thank-you                               301!
 /course-marketing-foundation.html    /courses/build-your-marketing-foundation  301!
 /service-fractional-leadership.html  /services/fractional-leadership           301!
+/service-consulting.html           /services/consulting                        301!
+/service-workflow-ai.html          /services/workflow-ai                       301!
+/service-mentorship-advisory.html  /services/mentorship-advisory               301!
 
 # ---- WordPress URLs still in the index --------------------------------
 # One-to-one to the closest equivalent, not a blanket redirect to home.
@@ -64,6 +67,9 @@
 /courses                                  /courses.html                      200
 /courses/build-your-marketing-foundation  /course-marketing-foundation.html  200
 /services/fractional-leadership           /service-fractional-leadership.html 200
+/services/consulting                        /service-consulting.html            200
+/services/workflow-ai                       /service-workflow-ai.html           200
+/services/mentorship-advisory               /service-mentorship-advisory.html   200
 /privacy                                  /privacy.html                      200
 /terms                                    /terms.html                        200
 /thank-you                                /thank-you.html                    200
