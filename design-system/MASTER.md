@@ -5169,9 +5169,16 @@ with absolute positioning across an 800px column; this column is 426px,
 so they sit in a grid and take their character from small rotations and
 two taped corners instead of overlap that would crowd.
 
-The white frame is a THIRD photo treatment after the organic blob
-(portraits) and the plain rectangle (work artifacts). Deliberate, and
-scoped to this block: a personal collage is neither, and About is the
-page this file already allows an explicit limited exception on. The
-handwritten note is Newsreader italic — the reference wanted Segoe
+CORRECTED the same day. The first build used a white polaroid frame
+with taped corners, which was a THIRD photo treatment and carried a 3px
+corner that is not on the radius scale ("24px for cards, pills and
+bands; 14px for compact elements; 8px for the phone results strip; 50%
+circles and the two organic blobs. Nothing else."). Amber asked whether
+it should follow the About oval, and it should: this file already says
+the organic radius belongs to her own photographs, the rectangle is the
+work-artifact treatment, and About was carrying two photo languages on
+one page. Four different blobs now, each opposite pair summing to 100%
+so the curve stays continuous, so a 2x2 never reads as an avatar grid.
+The tape went with the frames — there is nothing to tape on an oval.
+The handwritten note is Newsreader italic; the reference wanted Segoe
 Print / Bradley Hand, which would have been a fourth font.

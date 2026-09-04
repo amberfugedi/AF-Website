@@ -7608,28 +7608,21 @@ footer p,
 .oc-ph {
   margin: 0;
   overflow: hidden;
-  background: #fff;
-  border: 7px solid #fff;
-  border-radius: 3px;
-  box-shadow: 0 10px 26px rgba(61, 46, 40, 0.11);
+  position: relative;
+  /* the organic radius family, per MASTER: it belongs to Amber's own
+     photographs, and About already carries two of them. A rectangular
+     frame is the work-artifact treatment, and its 3px corner was not on
+     the radius scale at all. Each opposite pair sums to 100% so the
+     curve stays continuous with no flat spots. */
+  aspect-ratio: 8 / 9;
+  background: var(--bg-raised);
 }
-.oc-ph img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; }
-/* small, uneven rotations — a pinned-up set, not a grid of thumbnails */
-.oc-1 { transform: rotate(-2.4deg); }
-.oc-2 { transform: rotate(1.8deg); }
-.oc-3 { transform: rotate(1.4deg); }
-.oc-4 { transform: rotate(-1.6deg); }
-
-.oc-tape {
-  position: absolute;
-  width: 58px;
-  height: 19px;
-  background: rgba(225, 212, 196, 0.62);
-  z-index: 3;
-  pointer-events: none;
-}
-.oc-t1 { left: 44%; top: -2px; transform: rotate(-7deg); }
-.oc-t2 { right: 6%; top: 47%; transform: rotate(6deg); }
+.oc-ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* four different blobs, so a 2x2 of them never reads as an avatar grid */
+.oc-1 { border-radius: 55% 45% 45% 55% / 47% 53% 53% 47%; transform: rotate(-2deg); }
+.oc-2 { border-radius: 44% 56% 56% 44% / 53% 46% 47% 54%; transform: rotate(1.6deg); }
+.oc-3 { border-radius: 60% 42% 40% 58% / 45% 55% 55% 45%; transform: rotate(1.2deg); }
+.oc-4 { border-radius: 48% 52% 52% 48% / 57% 44% 43% 56%; transform: rotate(-1.4deg); }
 
 .oc-note {
   font-family: var(--font-display);
@@ -7644,5 +7637,5 @@ footer p,
   .ab-outside .ab-payoff-block { margin-top: clamp(30px, 4vw, 44px); padding-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .oc-ph, .oc-tape, .oc-note { transform: none; }
+  .oc-ph, .oc-note { transform: none; }
 }
