@@ -5639,24 +5639,52 @@ leadership. The title tag had said "Senior Marketing Leader &
 Consultant" for weeks; the card had not caught up. The `og:image:alt`
 was still "marketing consultant in Connecticut" too.
 
-`og-image-v2.jpg` — 2400x1260, 150KB, progressive. Same composition and
-the same headline, which is the homepage h1 and is current. What
-changed:
+`og-image-v3.jpg` — 2400x1260, 139KB, progressive. Same headline, which
+is the homepage h1 and is current. What changed:
 
 - The footer reads **Leading · Consulting · Building** — the site's own
   three pillars from the Work page. It covers the in-house half and the
   client half in three words, which the old list did not.
-- The orbit glyph top-right is gone. That is the AUTOMATIONS OFFER MARK,
+- The orbit glyph is gone. That is the AUTOMATIONS OFFER MARK,
   and it was standing in for the whole site. `brand-mark.png` sits
   beside the wordmark instead, which is what the nav does.
 - Alt text now says senior marketing leader and consultant.
+
+- **The composition is centred, inside a safe zone.** See below.
 
 A NEW FILENAME, DELIBERATELY. LinkedIn, Facebook and Slack cache an
 og:image by URL for about a week, so re-uploading over `og-image.jpg`
 would not have been fetched — which is why Amber's share preview was
 still showing the old card after the metadata had already updated. A new
 URL has nothing to serve from cache. `og-image.jpg` stays on disk;
-posts already shared point at it.
+posts already shared point at it. (v2 existed for about an hour and was
+superseded by v3 before deploy; nothing points at it.)
+
+### THE CROP, which is what actually broke it
+
+Amber's Facebook mobile composer showed the card with the first word of
+every line cut off. The declared 1.91:1 is what LinkedIn and the
+Facebook FEED use, but **Facebook's mobile composer centre-crops to
+about 1.35:1**, and WhatsApp and iMessage go squarer still. Simulating
+the crops against the left-aligned v1/v2 reproduced her screenshot
+exactly: a 1.35:1 centre crop keeps only the middle 70% of the width,
+and type that starts 72px from the left edge is the first thing gone.
+
+The card is centred now and everything readable sits inside `.safe` —
+846 of 1200, the middle 70%. Measured, not estimated: ink spans x
+431..1975 of 2400, and both the 1.91 and 1.35 centre crops keep all of
+it.
+
+A 1:1 crop still clips about 140px each side. Surviving THAT needs a
+612px safe zone; it was built and rendered, and at that width the type
+drops to 56px over three lines and the card goes timid. 1.35 is the
+honest trade — it covers the surfaces this actually gets posted to, and
+square previews are small thumbnails where the wordmark and the aura do
+the work anyway.
+
+RULE FOR ANY FUTURE CARD: nothing that has to be read goes outside the
+middle 70%. Simulate the crops before shipping — 1.91, 1.35 and 1:1,
+centred — rather than trusting the full-size render.
 
 `og-course-foundation.jpg` is unchanged and still accurate.
 `404.html` and `thank-you.html` carry no OG tags by design.

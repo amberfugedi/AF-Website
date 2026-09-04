@@ -6,11 +6,23 @@
      deviceScaleFactor 2 to get the 2400x1260 the meta tags declare, then
      save as progressive JPEG at quality 88 (~150KB).
 
+     THE SAFE ZONE IS THE POINT OF THIS LAYOUT. 1.91:1 is what LinkedIn
+     and the Facebook feed use, but Facebook's mobile composer, WhatsApp
+     and iMessage centre-crop to something squarer, and the earlier
+     left-aligned version lost the first word of every line there.
+     Everything that has to be read lives inside `.safe` — 846 of 1200,
+     centred — which survives the 1.35:1 centre crop that broke the earlier
+     version. A 1:1 crop (WhatsApp, iMessage) still clips the widest
+     line; a card that survives THAT has to sit inside 612px, and at
+     that width the type is small and the composition goes timid. 1.35
+     is the honest trade: it covers the surfaces this actually gets
+     posted to.
+
      The brand mark is pulled from the running local server; point it at
-     /brand-mark.png or inline it as a data URI if you render this
-     standalone. The four clouds are the site's own aura, static, at 72%
-     with an 84px blur — the live blobs are sized in vw and land on
-     these pixel values at a 1200px viewport. -->
+     /brand-mark.png or inline it as a data URI to render standalone.
+     The four clouds are the site's own aura, static, at 72% with an
+     84px blur — the live blobs are sized in vw and land on these pixel
+     values at a 1200px viewport. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
@@ -25,7 +37,6 @@ body{width:1200px;height:630px;background:var(--bg);font-family:var(--font-body)
 .card{position:relative;width:1200px;height:630px;overflow:hidden;background:var(--bg)}
 .aura{position:absolute;inset:0;overflow:hidden;opacity:.72}
 .blob{position:absolute;border-radius:50%;filter:blur(84px)}
-/* the site's own four clouds, static */
 .b1{width:600px;height:600px;top:-108px;left:-96px;
     background:radial-gradient(circle at 40% 40%, rgba(246,158,199,.95), rgba(251,213,228,0) 60%)}
 .b2{width:528px;height:528px;top:-76px;right:-120px;
@@ -35,25 +46,27 @@ body{width:1200px;height:630px;background:var(--bg);font-family:var(--font-body)
 .b4{width:384px;height:384px;bottom:-88px;right:72px;
     background:radial-gradient(circle at 50% 50%, rgba(158,205,148,.30), rgba(217,239,211,0) 62%)}
 
-.inner{position:relative;height:100%;padding:64px 72px;display:flex;flex-direction:column}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{width:34px;height:34px;display:block;border-radius:8px}
+.inner{position:relative;height:100%;padding:52px 0 56px;
+  display:flex;flex-direction:column;align-items:center}
+.safe{width:846px;text-align:center}
+
+.brand{display:flex;align-items:center;justify-content:center;gap:11px}
+.brand img{width:33px;height:33px;display:block;border-radius:8px}
 .brand span{font-family:var(--font-display);font-weight:500;font-size:30px;
   letter-spacing:-0.015em;color:var(--ink)}
 .brand em{font-style:normal;color:var(--coral-deep)}
 
-.head{margin-top:auto;margin-bottom:auto;max-width:1000px}
-h1{font-family:var(--font-display);font-weight:500;font-size:72px;line-height:1.1;
+.head{margin-top:auto;margin-bottom:auto}
+h1{font-family:var(--font-display);font-weight:500;font-size:66px;line-height:1.13;
   letter-spacing:-0.02em;color:var(--ink)}
 h1 i{font-style:italic;color:var(--coral-deep);position:relative;white-space:nowrap}
-.swoosh{position:absolute;left:-1%;right:-7%;bottom:-21px;color:var(--coral-deep)}
+.swoosh{position:absolute;left:-1%;right:-2%;bottom:-15px;color:var(--coral-deep)}
 .swoosh svg{display:block;width:100%;height:auto}
 
-.foot{display:flex;align-items:baseline;justify-content:space-between}
-.pillars{font-size:24px;font-weight:500;color:var(--muted);letter-spacing:0.01em}
-.pillars b{font-weight:500}
-.dot{color:var(--muted);opacity:.55;padding:0 10px}
-.url{font-size:24px;font-weight:600;color:var(--coral-deep);letter-spacing:-0.005em}
+.pillars{font-size:23px;font-weight:500;color:var(--muted)}
+.dot{opacity:.55;padding:0 9px}
+.url{margin-top:9px;font-size:23px;font-weight:600;color:var(--coral-deep);
+  letter-spacing:-0.005em}
 </style>
 </head>
 <body>
@@ -63,20 +76,20 @@ h1 i{font-style:italic;color:var(--coral-deep);position:relative;white-space:now
     <span class="blob b3"></span><span class="blob b4"></span>
   </div>
   <div class="inner">
-    <div class="brand">
+    <div class="safe brand">
       <img src="http://127.0.0.1:8766/brand-mark.png" alt="">
       <span>Amber <em>Fugedi</em></span>
     </div>
 
-    <div class="head">
-      <h1>Building the marketing your business actually <i>needs.<span class="swoosh">
-        <svg viewBox="0 0 240 13" fill="none" aria-hidden="true">
-          <path d="M3.5 9.4C48 4.2 130 2 236.5 5.2" stroke="currentColor" stroke-width="3.4"
+    <div class="safe head">
+      <h1>Building the marketing your<br>business actually <i>needs.<span class="swoosh">
+        <svg viewBox="0 0 200 12" fill="none" aria-hidden="true">
+          <path d="M3 8.6C40 3.8 108 2 197 4.8" stroke="currentColor" stroke-width="3.1"
                 stroke-linecap="round"/>
         </svg></span></i></h1>
     </div>
 
-    <div class="foot">
+    <div class="safe">
       <p class="pillars">Leading<span class="dot">·</span>Consulting<span class="dot">·</span>Building</p>
       <p class="url">amberfugedi.com</p>
     </div>
