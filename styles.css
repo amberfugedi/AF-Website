@@ -4601,11 +4601,6 @@ a.bld-item .bld-item-arrow {
   .page-about .section-title.h2-long { font-size: var(--fs-h2); }
 }
 
-/* The prose between the beats and the closing line. Body copy, so it
-   sits below both in the ladder and lets the two display statements
-   bracket the section. */
-.ab-quiet-body { margin-top: clamp(26px, 3vw, 38px); }
-.ab-quiet-body p + p { margin-top: 16px; }
 
 
 /* THE SITE'S ONE BULLET, restored 2026-09 for the alternatives list in
@@ -4698,8 +4693,6 @@ a.bld-item .bld-item-arrow {
 }
 .ab-mk svg { display: block; width: 100%; height: auto; }
 .ab-mk-ast   { width: 0.74em; transform: translateY(0.02em); margin-right: 0.14em; }
-.ab-mk-q     { width: 0.44em; transform: translateY(0.1em);  margin-left: 0.16em; }
-.ab-mk-spark { width: 0.62em; transform: translateY(0.02em); margin-left: 0.2em; }
 .ab-mk-heart { width: 0.7em;  transform: translateY(0.06em); margin-left: 0.22em; }
 
 /* TWO COLUMNS, HEADING INSIDE THE LEFT ONE. The margin-heading version
@@ -4866,22 +4859,6 @@ a.bld-item .bld-item-arrow {
    rather than as a deliberate narrow measure. 78ch is still inside the
    comfortable reading range and uses the room the section has. */
 /* 88ch so .ab-beats inside it can hold its longest line. */
-.ab-quiet { max-width: 88ch; margin-top: clamp(28px, 3.2vw, 40px); }
-.ab-quiet-open { font-family: var(--font-display); color: var(--ink); line-height: 1.34; letter-spacing: -0.01em; }
-.ab-quiet-close {
-  font-family: var(--font-display);
-  color: var(--ink);
-  line-height: 1.3;
-  letter-spacing: -0.015em;
-  /* 44ch (748px) takes this from three lines to two. One line is not
-     available — at 30px the sentence needs 1308px and the shell holds
-     1152 — so two is the target, and the break balances best just above
-     700: at 748 the second line fills about three quarters of the
-     measure, where at the parent's full 913 it fills half and reads
-     ragged. */
-  max-width: 44ch;
-  margin-top: clamp(30px, 3.4vw, 44px);
-}
 
 /* Section eyebrows (2026-09). These replace nothing — About never had
    .sec-n numerals — they are wayfinding for a page that is now eight
@@ -6096,9 +6073,7 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    than var(--fs-h3) because --fs-h3 bottoms out at 24px, which is
    exactly .h2-long's mobile size — the collision would just move to
    the phone. 20.8px at 390 keeps the gap open at both ends. */
-.ab-pull-line,
-.ab-quiet-open,
-.ab-quiet-close { font-size: clamp(1.3rem, 1rem + 1.23vw, 1.875rem); }
+.ab-pull-line { font-size: clamp(1.3rem, 1rem + 1.23vw, 1.875rem); }
 .ab-pull-note { font-size: var(--fs-body); line-height: 1.55; }
 .ab-payoff-note { font-size: var(--fs-body); line-height: 1.5; }
 .ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }

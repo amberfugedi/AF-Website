@@ -2029,6 +2029,53 @@ the lower half, which is where an editorial mark earns its place.
 
 Detector holds at 14. No overflow 320-1920.
 
+### About becomes a story, not a method (2026-09, third brief)
+
+TWO SECTIONS REMOVED, and the removals are the point of the pass. "How I
+think" ("I usually start with the problem underneath the problem") was
+About explaining method, which is the other page's job — Amber's brief
+calls the removal "intentional and important". "What keeps me
+interested" went too, its best parts woven into the two story sections:
+the variety is now why she stayed, and the blank-page moment sits in
+How my view changed, where it belongs to a professional evolution
+rather than to a list of things she enjoys.
+
+"WHY I STARTED DOING THIS ON MY OWN" BECAME "HOW MY VIEW CHANGED", which
+is a better frame for the same material. The founder-story framing spoke
+to consulting prospects only; the new one reads to a recruiter, a hiring
+manager and a course buyer as well, and consulting and courses arrive as
+a consequence of the point of view rather than the subject of it.
+
+FINAL ORDER, nine sections: hero · how I got here · how my view changed ·
+what I believe · how I lead · outside the work · testimonials · the
+short version · the timeline.
+
+THE BUTTER TAB MOVED AGAIN, for the second time in two passes, because
+it keeps living on headlines that get cut. It is on "the right
+marketing." now — butter is possibility and that is the page's
+resolution, against the h1's blush tension. If it moves a third time,
+the lesson is to put it on a headline the page is unlikely to lose.
+
+A CLEANUP SCRIPT BROKE A RULE, worth recording. The
+remove-orphaned-selectors regex matches selector text on the same line
+as the `{`, so given
+
+    .ab-pull-line,
+    .ab-quiet-open,
+    .ab-quiet-close { font-size: ...; }
+
+it read the selector as `.ab-quiet-close` alone, judged it dead, and
+deleted from that line to the closing brace — merging the two surviving
+selectors into the NEXT rule and dropping the pull quotes from 30px to
+17px. The all-dead test was correct; the parse was not. Caught by
+reading the type ladder back (50/40/30/21/21/17/13), not by looking at
+the page. Never regex multi-line selector lists.
+
+Detector 16 -> 14 — the two `tight-leading` instances and the long
+uppercase eyebrow left with the sections that carried them. Page 9,596
+to 7,907px at 1440. No overflow 320-1920. Testimonials, the short
+version and the timeline verified byte-identical.
+
 ### About gains its two story sections (2026-09, Amber's brief)
 
 The page explained how Amber works and never said how she got here. Two
