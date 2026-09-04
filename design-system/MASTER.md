@@ -5182,3 +5182,38 @@ so the curve stays continuous, so a 2x2 never reads as an avatar grid.
 The tape went with the frames — there is nothing to tape on an oval.
 The handwritten note is Newsreader italic; the reference wanted Segoe
 Print / Bradley Hand, which would have been a fourth font.
+
+## From this / To this, and About loses its rules (2026-09)
+
+WORKFLOW & AI gains a desktop-only "From this / To this" graphic beside
+"Sometimes the answer needs to be built", 58/36 with the copy. Amber's
+reference put the two panels SIDE BY SIDE in a 760px block; this column
+is ~390px, where they would be ~175px each and "Keep humans in the
+right places" would break to four lines. They stack with the arrow
+turned down, which is what the reference's own narrow breakpoint does.
+
+Its colours are NOT the reference's. A warm-pink "from" and green "to"
+would borrow the offer code (blush = consulting, sage = fractional) for
+a third meaning. From is neutral, To carries the page violet, so the
+pair reads dull-then-accented without opening a colour set. Hidden
+below 1020px, the site's existing desktop threshold, per the brief —
+tablet and mobile keep the single column untouched, with no stacked
+version. Tuned to 699px against 698px of copy, since the brief asked
+that it not stand taller than the text beside it.
+
+SERVICE PAGE PORTRAITS take the organic radius too (Amber, Sept 2026 —
+she meant these, not the collage, though both were right). 5/4 rather
+than the portraits' 8/9, because these frames are landscape and 8/9
+would crop most of the picture away.
+
+ABOUT'S `.ab-rule` HAIRLINES ARE GONE, all eight, and the entry above
+that recorded them as deliberate is superseded. Amber: they were not
+necessary. The eyebrow labels above each heading already separate the
+sections, which is what About did before `.ab-rule` existed.
+
+ABOUT'S SECTION RHYTHM: eleven sections at 104px top and bottom put
+208px between every one of them, more than twice the 60-90px joint this
+file documents, compounding across a page of short prose blocks. Now
+clamp(44px, 4.4vw, 64px), so ~127px joints.
+
+Detector 249, level with HEAD measured back to back.

@@ -3493,6 +3493,17 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
 .pf-split-r { grid-template-columns: minmax(0,1fr) minmax(0,0.42fr); margin-bottom: 0; }
 .teach-photo,
 .pf-photo { width: 100%; height: auto; border-radius: 12px; display: block; }
+/* Amber's own photographs take the organic radius (MASTER), not the
+   rectangle, which is the work-artifact treatment. 5/4 rather than the
+   portraits' 8/9, because these frames are landscape and 8/9 would crop
+   most of the picture away. Opposite pairs sum to 100% so the curve
+   stays continuous. */
+.pf-photo {
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  border-radius: 54% 46% 46% 54% / 48% 52% 48% 52%;
+}
+.pf-split-r .pf-photo { border-radius: 46% 54% 54% 46% / 52% 48% 52% 48%; }
 .teach-cta { margin-top: 24px; align-items: center; }
 
 /* Purchase box */
@@ -4723,7 +4734,6 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(64px, 7vw, 104px)
    so a rule there lands flush on the content. Every section after it
    carries 104px of padding above its own content, which is the inset
    the line needs. */
-.ab-rule { border-top: 1px solid var(--line); }
 
 /* BELIEF COLUMN DIVIDERS. Three earlier attempts at a vertical rule on
    this page tripped the detector's cramped-padding, which fires when a
@@ -6150,6 +6160,10 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .fitp-label { font-size: var(--fs-eyebrow); }
 .fitp-not p:last-child { font-size: var(--fs-body); line-height: 1.5; }
 .oc-note { font-size: var(--fs-body); line-height: 1.4; }
+.wf-h { font-size: var(--fs-intro); }
+.wf-sub { font-size: var(--fs-small); line-height: 1.4; }
+.wf-panel li { font-size: var(--fs-small); line-height: 1.35; }
+.wf-note { font-size: var(--fs-body); line-height: 1.35; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.55; }
@@ -7639,3 +7653,96 @@ footer p,
 @media (prefers-reduced-motion: reduce) {
   .oc-ph, .oc-note { transform: none; }
 }
+
+/* ============================================================
+   FROM THIS / TO THIS — Workflow & AI only, desktop only (2026-09)
+   ============================================================
+   Amber's reference put the two panels SIDE BY SIDE in a 760px block.
+   The right column here is ~390px, where two panels would be ~175px
+   each and "Keep humans in the right places" would break to four lines.
+   They stack, with the arrow turned down — which is exactly what the
+   reference's own narrow breakpoint does, so the concept is unchanged.
+
+   Colours are NOT the reference's. Its warm-pink "from" and green "to"
+   would borrow the offer code (blush = consulting, sage = fractional)
+   for a third meaning. From is neutral, To carries the page's own
+   violet, so the pair reads dull-then-accented without opening a set.
+
+   1020px is the site's existing desktop threshold, not a new one. */
+.wf-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 76px);
+  align-items: start;
+}
+.wf-split > div > .hw-body { max-width: 720px; }
+
+.wf-panel {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 13px 13px 14px;
+}
+.wf-from { background: rgba(46, 42, 39, 0.035); }
+.wf-to { background: var(--svc-wash); border-color: var(--svc-soft); }
+
+.wf-h {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.1;
+  margin: 4px 0 2px;
+  text-align: center;
+}
+.wf-sub { color: var(--muted); text-align: center; margin: 0 0 11px; }
+
+.wf-panel ul { list-style: none; margin: 0; padding: 0; }
+.wf-panel li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 7px 12px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(46, 42, 39, 0.08);
+  border-radius: 14px;
+  color: var(--ink);
+}
+.wf-panel li + li { margin-top: 6px; }
+.wf-ico { display: block; width: 22px; height: 22px; color: var(--muted); }
+.wf-to .wf-ico { color: var(--svc-accent); }
+.wf-ico svg { display: block; width: 100%; height: 100%; }
+
+.wf-arrow { display: block; width: 26px; margin: 8px auto; color: var(--svc-accent); opacity: 0.75; }
+.wf-arrow svg { display: block; width: 100%; height: auto; }
+
+.wf-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.3;
+}
+.wf-note-mark { flex: none; width: 52px; color: var(--line); margin-top: -4px; }
+.wf-note-mark svg { display: block; width: 100%; height: auto; }
+
+/* desktop only, per the brief: tablet and mobile keep the single column
+   exactly as it was, with no stacked version of the graphic */
+@media (max-width: 1020px) {
+  .wf-split { grid-template-columns: 1fr; }
+  .wf-tx { display: none; }
+}
+
+/* ============================================================
+   ABOUT: section rhythm (2026-09)
+   ============================================================
+   Eleven sections at 104px top and bottom put 208px between every one
+   of them — more than twice the 60-90px joint documented above, and it
+   compounded across a page of short prose blocks. The `.ab-rule`
+   hairlines that used to sit in those gaps are gone too (Amber, Sept
+   2026), so space alone separates the sections now, which is what About
+   did before `.ab-rule` was introduced. */
+.page-about main > section { padding-top: clamp(44px, 4.4vw, 64px); padding-bottom: clamp(44px, 4.4vw, 64px); }
+.page-about main > section:first-of-type { padding-top: 0; }
+
