@@ -5421,3 +5421,74 @@ MEASURING THIS: the mark's last elements land at 2.2s. A 500ms wait
 after `in-view` screenshots a half-drawn graphic — the first render
 looked like the endpoint and ring had failed to appear at all. Wait
 past the full cascade.
+
+## Design system audit and standardisation (2026-09)
+
+Amber asked for a full audit before any change: type, colour, spacing,
+rhythm, containers, cards, icons, buttons, backgrounds, responsive,
+graphics. Measured with Playwright across all sixteen pages at 1440 —
+computed values, not what the sheet says — plus a static pass over
+`styles.css`. Two artefacts came out of it:
+
+- `design-system/DIGITAL-SYSTEM.md`, NEW: the normative reference.
+  Tokens, component rules and the judgement about when to reach for
+  something. This file stays the change log. Where they disagree, the
+  newer entry here wins and DIGITAL-SYSTEM.md is out of date.
+- The findings below, worked in order of how visible each one is.
+
+### What the audit found
+
+ALREADY SOUND: one serif and one sans, no third family anywhere. H1 has
+exactly ONE treatment site-wide. Every `.btn` shares one box —
+17px/600, 15/32 padding, 24px radius. `.wrap` is 1120 everywhere except
+About and Expertise at 1200, which is deliberate. Section padding is
+dominated by 104/104 (53 sections) with the documented compact and
+service variants under it.
+
+OUTLIERS, worst first:
+
+1. **H3 carried FIFTEEN distinct treatments** — 30.4, 30, 25.9, 24, 21,
+   17 and 13px, with five different line heights on the 30px ones alone
+   and two unrelated 13px sans versions. The clearest case on the site
+   of one role styled many ways.
+2. **Icon stroke weights were not a system.** Rendered weights ran 1.2
+   to 4.4 and several marks mixed three weights internally. The four
+   offer marks sat in one row at 4.4, 2.2, 2 and 2 — the Fractional arc
+   rendered at 3.2px beside three at 1.4.
+3. **Fifty colour literals outside the palette**, including six greys
+   used for TEXT (`#D9D2C9`, `#6F675D`, `#767065`, `#CFC5CE`, `#F7F1EB`,
+   `#E8DECB`) and five near-duplicate pastels on the Expertise chapter
+   tiles.
+4. **Radius drift**: 16, 10, 9, 18, 20, 26, 28 and 5px all in use
+   against a documented scale of 24 / 14 / 8 / 50% / organic.
+5. **Eighteen reading widths** in `ch`, from 24 to 88.
+6. **Twenty-nine breakpoints.**
+7. **Twenty-seven line-height values.**
+
+### Icon weights, fixed
+
+Each family now has a PRIMARY weight chosen so it renders at ~1.5px at
+the size that family actually displays at, and a SECONDARY at 72% of it
+for interior detail. Within an icon the heaviest stroke is the primary
+and everything lighter is detail; `stroke-opacity` is untouched, since
+that is the other thing separating detail from outline.
+
+    sv-card       vb72 @52px   2.1 / 1.5
+    bld-cat-head  vb72 @56px   1.9 / 1.4
+    ch-mark       vb48 @34px   2.1 / 1.5
+    lead-mark     vb24 @24px   1.5 / 1.1
+    tl-eg         vb24 @24px   1.5 / 1.1
+    wf-ico        vb32 @22px   2.2 / 1.6
+
+38 icons changed. Hero illustrations (`.fl-art`, `.problem-art`,
+`.svc-vis`, `.co-cycle`, `.xp-visual`) are deliberately NOT in this
+list: they are compositions, and weight variation inside them is
+drawing, not drift.
+
+STILL OPEN, and Amber's call rather than mine: the site runs THREE icon
+languages, not one. The offer and project marks are composed gradient
+brand marks; the workflow, How-it-works and short-version marks are
+thin line icons; the six Expertise chapter marks are pictorial,
+semi-filled and sit on saturated pastel tiles — a speaker, a monitor, a
+group of people. That third set is the outlier, and redrawing six marks
+is a taste decision, not a conformance one. Flagged, not done.
