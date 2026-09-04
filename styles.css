@@ -1380,6 +1380,12 @@ a.bld-item .bld-item-arrow {
   animation: hero-in 0.8s var(--ease) forwards;
 }
 .page-home .hero .subhead { animation-delay: 0.15s; }
+/* The hero deck is two paragraphs now (2026-09): who Amber is, then what
+   she does today. Only the last one carries the 42px gap down to the
+   buttons; the first sits close to its partner so they read as one
+   block rather than two statements. */
+.hero .subhead:not(:last-of-type) { margin-bottom: 14px; }
+.page-home .hero .subhead:last-of-type { animation-delay: 0.24s; }
 .page-home .hero .cta-row { animation-delay: 0.28s; }
 .page-home .hero .hero-proof { animation-delay: 0.42s; }
 @keyframes hero-in {

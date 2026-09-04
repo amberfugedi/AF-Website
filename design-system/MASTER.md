@@ -1356,6 +1356,41 @@ before shipping spacing changes):
   keeps its full 92.4px of drift either way (phone 52.8px), so the
   July 2026 collision bug stays fixed.
 
+## Homepage identity hierarchy (2026-09, Amber)
+
+The hero said what Amber does FOR you and never said who she is or what
+level she works at. Copy only — no layout, spacing, animation or section
+changes, and the h1, CTAs, proof chips and hero graphic are untouched.
+
+THE DECK IS TWO PARAGRAPHS NOW. Who she is, then what she does today:
+"I'm a marketing leader, strategist, and builder. More than ten years
+spent turning messy business problems into clearer marketing, stronger
+systems, and work a team can actually use." / "Today I lead growth
+marketing, advise businesses, build practical systems and tools, and
+teach what I've learned along the way." The second line does three jobs
+her brief asked for separately: it puts the current leadership role in
+the first screen, and it names the four seats — leading, building,
+advising, teaching — without a new section or four cards.
+`.hero .subhead:not(:last-of-type)` takes a 14px gap so the pair reads
+as one block; only the last keeps the 42px drop to the buttons, and the
+second gets a 0.24s entrance delay so they stagger.
+
+THE SEATS ARE NAMED ONCE MORE, in the offers lede, where the engagement
+types are introduced: "Leading, building, advising, and teaching are the
+same work from different seats." That is the sentence that explains why
+leadership, consulting and courses sit on one site, which is the
+question the homepage could not answer before.
+
+A MEASUREMENT NOTE THAT MATTERS FOR EVERY SWEEP IN THIS FILE: the
+homepage reports `documentElement.scrollWidth` 1064 against a 1024
+viewport, and it is NOT a horizontal overflow. `body` carries
+`overflow-x: hidden`, so scrollX stays 0 and nothing scrolls; the
+oversize elements are aura blobs and the quote marquee, both inside
+clipping parents. Identical before and after this change. When the
+overflow check fires, confirm with scrollX before calling it a bug.
+
+Homepage detector holds at 20.
+
 ## Projects page framing (renamed from Work, 2026-07)
 
 CASES ARE DISCLOSURES (July 2026, Amber: "the page is asking people
