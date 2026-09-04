@@ -4977,3 +4977,50 @@ MEASURED: no overflow on any of the five service pages at six widths. Under
 nodes, none left invisible or undrawn. Every mark class carries a rule
 except `fl-arch`, which is a label on an element whose fill is the inline
 `url(#fl-arch)` gradient. Detector unchanged at 23 and 25.
+
+## Three recurring service-page components (2026-09)
+
+The four service pages carried the same *sections* but not the same
+*devices*. "How it works" was four numbered `.svc-steps` on three pages,
+SIX on Workflow, and a different component entirely on Mentorship
+(`.svc-flow` — four bare lines, no headings). The point-of-view section
+was a `.band-white` slab of three stacked paragraphs on all four, and the
+scope section was a fourth four-column row. Amber: the sections were
+"visually too flat" and "designed differently from page to page".
+
+Three components now, and the thing that matters is that they stay
+DISTINCT from each other while reading as one system:
+
+- **`.pov` — How I think.** Editorial. Eyebrow, point-of-view headline
+  and setup in a two-column head, three principles separated by
+  hairlines, then a takeaway whose second line carries the accent as
+  type. This is the only place the service colour is used at display
+  size.
+- **`.hiw` — How it works.** Process. Eyebrow, headline, intro, four
+  stages on one connector. `.hiw-numbered` for Consulting and Workflow,
+  which genuinely run in order; `.hiw-rhythm` (a ring marker) for
+  Fractional and Mentorship, which are ongoing relationships — numbering
+  them would claim a Step 1 → Step 4 that isn't true of the engagement.
+- **`.aow` — Areas of work.** Scope. A 2×2 card grid, UNNUMBERED,
+  because numbers now mean sequence and these four areas run at once.
+  Warm translucent surface, one hairline border, 16px radius (matching
+  `.case`, so no new radius value enters the system), no shadow, and the
+  entire accent is a 2px rule on the top edge.
+
+Workflow's six stages fold into four without losing an idea. Every
+principle, stage and card description is the page's own copy, trimmed.
+
+DETECTOR: +10 `cramped-padding`, +3 `tight-leading`, +1 `gray-on-color`,
+all verified false positives of shapes already documented here — the
+`.aow-card` inset-0 child is the 2px decorative rule (real children
+measure 39px in against 38px declared), the `gray-on-color` "tan fill" is
+a `background-size: 100% 1px` hairline on a 183px element (the pixel
+behind the text samples `253,249,245`), and 1.16–1.20 leading is display
+type. Net across the sheet: 212 findings against 223 at HEAD.
+
+REMOVED WITH THEM: `.svc-caps`, `.svc-steps`, `.svc-steps-5`,
+`.svc-stand`, `.svc-rule`. Deleting a rule whose selector was the last
+line of a multi-line group left `.svc-turn,` dangling before a closing
+brace TWICE — a grouped selector loses its block and the survivors merge
+into the next rule. Scan for `,` followed by `}` or a comment after any
+rule removal.

@@ -211,14 +211,6 @@
     });
   }
 
-  /* ---------- Experience appendix (about) ----------
-     Earlier-experience rows sit open on desktop; the disclosure
-     toggle is a phone affordance that keeps the scroll short. */
-  var xpRows = document.querySelectorAll(".xp-earlier details");
-  if (xpRows.length && window.matchMedia("(min-width: 761px)").matches) {
-    xpRows.forEach(function (d) { d.setAttribute("open", ""); });
-  }
-
   /* ---------- Case disclosures (projects) ----------
      Desktop opens the FIRST case in each chapter so the page never
      reads as a bare list; phones start every case closed, which is the
