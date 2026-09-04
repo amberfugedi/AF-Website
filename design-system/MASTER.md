@@ -4164,3 +4164,89 @@ links out either (shop name is on the withheld list). Remaining
 rows stay plain divs until they gain a real destination — when
 one does, same pattern; never ship an arrow to a thin page.
 Mobile stacks the category header above its rows.
+
+
+================================================================================
+2026-09-04 · SERVICE DETAIL PAGES — the `.svc-*` system
+================================================================================
+
+FIRST PAGE: `/services/fractional-leadership`
+(`service-fractional-leadership.html`, `<body class="page-sub page-service">`).
+Built as the shell for the three that follow — `/services/consulting`,
+`/services/workflows-ai`, `/services/advisory-mentorship`. Nothing in the
+CSS names an offer.
+
+WHAT A SECOND SERVICE PAGE HAS TO CHANGE
+1. Title, description, canonical, og:url, og:title, og:description,
+   twitter:title, twitter:description, the `Service` node's `@id`/`url`/
+   `name`/`serviceType`/`description`, and the BreadcrumbList's third item.
+2. The eyebrow, the h1, and the two `.tab-em` spans (blush in the h1,
+   butter in the CTA band — the pair every other page uses).
+3. The hero mark: same anatomy, the offer's own `-deep` hex for the
+   strokes and its pastel for the gradient. Fractional is
+   `--fractional-deep #2E7529` over `--sage`, matching its colour code on
+   the Services page. Colour coding stays capped at two sets — the offers
+   are one of them, and these pages ride that set rather than opening a
+   third.
+4. Row counts. Ten recognition signals, eight areas, four process steps,
+   six/seven before-after rows and three proof rows are this offer's
+   numbers, not the template's.
+5. `_redirects` (both the 301 off the `.html` twin and the 200 rewrite),
+   `sitemap.xml`, and the link out of the matching `#offer` block in
+   `services.html`.
+
+THE PAGE'S OWN LANGUAGE
+Rules and rows, which is how every interior page separates content.
+`.card-grid` is real but it belongs to the homepage's work teasers; the
+proof block was built with it first, then rebuilt as `.svc-proof`
+hairline rows, because a second card grid on an interior page is the
+thing About got pulled back for. Bullets are the 13px open coral ring
+from `.hw-do`. Process numerals are `.sec-n`, unchanged from My
+Approach. Small caps are `.nb-label`.
+
+BEFORE / AFTER WITHOUT GREEN AND RED
+The two columns are separated by weight, not hue: Before runs `--muted`
+against a 13px neutral dash, After runs `--ink` against the coral ring.
+Colour coding is capped at two sets and a good/bad axis would be a third.
+
+WHY THE BLOCK SITS AT THE END OF styles.css
+Six rules on About have silently lost to same-specificity declarations
+further down the sheet. A whole new system is not worth re-running that,
+so `.svc-*` — its responsive rules included — is the last thing in the
+file.
+
+FOUR THINGS THE RENDER CAUGHT THAT THE CSS LOOKED FINE FOR
+- `.svc-narrow` / `.svc-pov` as a max-width ON `.wrap` re-centred those
+  two sections, because `.wrap` is the element carrying `margin: 0 auto`.
+  Overriding its margin-left instead pinned them to the viewport edge.
+  The cap belongs on the named children.
+- `.page-head .head-copy .section-lede:last-of-type { margin-bottom: 0 }`
+  is correct for a three-paragraph deck and wrong for everything else:
+  the other eleven page heads carry exactly one lede, so unscoped it
+  would have stripped 56px from under every head on the site. Scoped to
+  `.page-service`.
+- `.page-head + section { padding-top: 0 }` zeroes the section's own
+  104px site-wide, so the entire head→section joint is the head's bottom
+  padding. The art variant supplied 24px and the first h2 landed under
+  the buttons. `.page-service .page-head` now carries
+  `clamp(36px, 5.5vw, 80px)`, which is About's and Courses' 80/36.
+- Columns collapsed at 720 while the site's section rhythm switches at
+  760, giving the page two boundaries 40px apart. One boundary now: 760.
+
+SECTION SEAMS are painted as `linear-gradient` backgrounds, not
+`border-top` — the detector's cramped-padding fires on any child flush
+against a declared boundary and `.wrap` declares `padding: 0 24px`
+regardless of the 104px above it. Same fix as the About dividers.
+
+MEASURED
+No horizontal overflow at 320/375/390/640/720/760/761/768/900/901/1024/
+1280/1440/1920 (scrollX 0 at every width, not just `scrollWidth`).
+Type ladder at 1440: h1 50 › h2 40 › step h3 30 › `.svc-turn` 21 › area
+h3 and body 17. 111 text nodes checked for contrast, none below 4.5:1
+(lowest real value 5.50, `--coral-deep` on cream — the eyebrow and
+`.sec-n`). Under `prefers-reduced-motion` the page runs zero keyframe
+animations, every `.reveal` is opaque, and the eight residual hover
+transitions are fewer than Services' 17 or My Approach's 35. Nav, footer,
+aura and skip link are byte-identical to `services.html`.
+`npx impeccable detect` reports 16 against Services' 25, all in
+categories Services already carries.

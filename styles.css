@@ -6466,3 +6466,334 @@ footer p,
   margin-top: clamp(28px, 3.2vw, 40px);
   margin-bottom: clamp(28px, 3.2vw, 40px);
 }
+
+
+/* ============================================================
+   SERVICE PAGE SYSTEM  (.svc-*)   2026-09
+   ------------------------------------------------------------
+   The shared shell for the four service detail pages. Fractional
+   Leadership is the first; consulting, workflows/AI and advisory
+   reuse every rule here unchanged. Nothing below names an offer,
+   so the only per-page decisions are the eyebrow, the tab colour,
+   the hero mark's stroke, and how many rows each list carries.
+
+   Built from devices the site already owns: page-head-art for the
+   hero, the coral ring bullet from `.hw-do`, the hairline rows
+   from `.hw-principles`, `.sec-n` for the process numerals, and
+   `.nb-label` for the small caps. Rules and rows throughout, which
+   is how every interior page separates content — `.card-grid` is
+   real but it belongs to the homepage's work teasers, and a second
+   card grid on an interior page is the thing About was pulled back
+   for. No icons, no shadows.
+
+   Deliberately at the END of the sheet. Six rules on About lost
+   silently to same-specificity declarations further down; a new
+   system is not worth re-running that.
+   ============================================================ */
+
+/* SECTION SEAMS. A hairline between sections, painted as a
+   background gradient rather than border-top. Same reason as the
+   About dividers: the detector's cramped-padding fires when a
+   child sits flush against a declared boundary, and `.wrap`
+   declares `padding: 0 24px` regardless of the 104px above it. */
+.svc-rule {
+  background-image: linear-gradient(var(--line), var(--line));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 0;
+}
+/* A band supplies its own edges; two lines would stack. */
+.band-white + .svc-rule { background-image: none; }
+
+/* HERO. The head grid is shared; only the mark's size is ours.
+   Capped so the art never outgrows the copy column beside it. */
+.svc-hero-art { max-width: 400px; }
+/* HEAD -> FIRST SECTION. `.page-head + section` zeroes the section's own
+   104px site-wide, so the whole joint is carried by the head's bottom
+   padding: 80px on About and Courses, which share this structure. This
+   head inherited 24px from the art variant, written for a head that
+   opens onto an anchor nav — measured, not assumed, and 24px put the
+   first h2 straight under the buttons. */
+.page-service .page-head { padding-bottom: clamp(36px, 5.5vw, 80px); }
+/* Three deck paragraphs, not one: the 56px lede margin is written for
+   a single closing statement and opens gaps inside one thought, then
+   stacks with the button row for an 88px hole underneath.
+   Scoped to `.page-service`, and that matters: the other eleven page
+   heads carry exactly ONE lede each, so `:not(:last-of-type)` is inert
+   there but `:last-of-type` is not — unscoped, it would have stripped
+   56px from under every page head on the site. */
+.page-service .head-copy .section-lede:not(:last-of-type) { margin-bottom: 14px; }
+.page-service .head-copy .section-lede:last-of-type { margin-bottom: 0; }
+.page-service .head-copy .cta-row { margin-top: 32px; }
+
+/* RECOGNITION + FIT LISTS. Two columns of coral-ring rows. The
+   ring is `.hw-do`'s, restated rather than shared: that selector
+   is scoped to the Approach page and reaching into it would tie
+   two unrelated pages together. */
+.svc-signals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px clamp(36px, 4.5vw, 76px);
+}
+.svc-signals li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+.svc-signals li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.44em;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 111, 97, 0.28);
+  border: 2px solid var(--coral-deep);
+  box-sizing: border-box;
+}
+
+/* The line the list is building toward. Display face at intro
+   size — above body, below the pull quotes, the same rung About's
+   `.ab-stand` occupies, so the ladder stays one ladder. */
+.svc-turn,
+.svc-stand {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  font-size: var(--fs-intro);
+  line-height: 1.45;
+  max-width: 34ch;
+  margin: clamp(40px, 4.5vw, 60px) 0 0;
+}
+.svc-stand { margin-top: clamp(28px, 3.2vw, 40px); }
+
+/* Short intro under an h2, at reading measure. */
+.svc-intro { margin-bottom: clamp(40px, 4.5vw, 68px); }
+/* Reading measure for the two prose sections. The cap goes on the
+   CHILDREN, never on `.wrap`: `.wrap` is the thing that centres the
+   1120px column, so narrowing it re-centres the section and every
+   other section's left edge stops lining up. Overriding its margin
+   instead pins the content to the viewport edge — both were rendered
+   and both were wrong. Naming the children keeps `.svc-stand` at its
+   own 34ch, which a `> *` cap would have widened. */
+.svc-pov .section-title,
+.svc-pov .hw-body,
+.svc-narrow .section-title,
+.svc-narrow .hw-body { max-width: 720px; }
+/* .hw-body zeroes nothing at its end and `.wrap > :last-child` only
+   reaches the row below, so the button sat on the last line. */
+.svc-narrow .hw-body + .cta-row { margin-top: clamp(28px, 3vw, 36px); }
+
+/* Sections that open straight into a block get the air the 56px lede
+   margin supplies elsewhere; `.section-title` alone leaves 18px and the
+   first row collided with the heading on Fit and How I work. */
+.section-title + .svc-signals,
+.section-title + .svc-steps,
+.section-title + .svc-areas,
+.section-title + .svc-ba { margin-top: clamp(34px, 4vw, 48px); }
+
+/* THE EIGHT AREAS. Hairline rows, two across — `.hw-principles`
+   without the marker column, since a heading carries these. Top
+   row opens without a rule because the section title already
+   drew one. */
+.svc-areas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(36px, 4.5vw, 76px);
+}
+.svc-areas li {
+  padding: 26px 0;
+  background-image: linear-gradient(var(--line), var(--line));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 0;
+}
+.svc-areas li:nth-child(1),
+.svc-areas li:nth-child(2) { padding-top: 0; background-image: none; }
+.svc-areas h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+.svc-areas p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* PROCESS. Two by two, not four across: four columns of prose
+   run to eight lines each at 1120px. `.sec-n` is the site's
+   process numeral and arrives already styled. */
+.svc-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(44px, 5vw, 72px) clamp(40px, 5vw, 88px);
+}
+.svc-steps h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+.svc-steps p:not(.sec-n) {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* BEFORE / AFTER. No green and no red — the site codes colour for
+   exactly two things and this is neither. The difference is weight:
+   Before runs muted against a neutral hairline, After runs in ink
+   over the same coral ring the rest of the page uses. */
+.svc-ba {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(40px, 5vw, 80px);
+}
+.svc-ba-col ul { list-style: none; margin: 0; padding: 0; }
+.svc-ba-col li {
+  position: relative;
+  padding: 14px 0 14px 26px;
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+  background-image: linear-gradient(var(--line), var(--line));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 0;
+}
+.svc-ba-col li:first-child { padding-top: 0; background-image: none; }
+.svc-ba-before li { color: var(--muted); }
+.svc-ba-before li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.42em;
+  width: 13px;
+  height: 1px;
+  background: rgba(46, 42, 39, 0.32);
+}
+.svc-ba-before li:first-child::before { top: 0.72em; }
+.svc-ba-after li { color: var(--ink); }
+.svc-ba-after li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.14em;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 111, 97, 0.28);
+  border: 2px solid var(--coral-deep);
+  box-sizing: border-box;
+}
+.svc-ba-after li:first-child::before { top: 0.44em; }
+
+/* THE QUALIFIER. Reading measure, set apart by a coral rule rather
+   than a box: the page has no cards and this is not the moment to
+   introduce one. */
+.svc-nofit {
+  max-width: 720px;
+  margin-top: clamp(44px, 5vw, 68px);
+  padding-top: 26px;
+  background-image: linear-gradient(rgba(184, 53, 74, 0.28), rgba(184, 53, 74, 0.28));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 0;
+}
+.svc-nofit p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* PROOF. Three case studies as hairline-topped rows. Same information
+   the homepage shows in cards, in this page's own language. Each service
+   page picks the two or three studies that argue its case. */
+.svc-proof {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 3.5vw, 52px);
+}
+/* Column, so the three links land on one line however long the
+   summaries run — the card version got that from equal-height boxes. */
+.svc-proof li {
+  display: flex;
+  flex-direction: column;
+  padding-top: 22px;
+  background-image: linear-gradient(var(--line), var(--line));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 0;
+}
+.svc-proof h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+.svc-proof .nb-label { margin-bottom: 10px; }
+.svc-proof .arrow-link { align-self: flex-start; margin-top: auto; }
+/* 40px left the closing link reading as a fourth row of column one. */
+.svc-proof + .section-foot-link { margin-top: clamp(46px, 5vw, 66px); }
+.svc-proof p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* ---- Service pages: narrow ---- */
+/* 900, matching the breakpoint the head grid stacks at. */
+@media (max-width: 900px) {
+  .svc-hero-art { max-width: 320px; }
+  .svc-proof { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc-steps { gap: clamp(36px, 6vw, 52px) 0; }
+}
+/* 760, matching the breakpoint the rest of the site already switches
+   its section rhythm at. An earlier 720 gave the page two boundaries
+   40px apart: columns collapsing at one, section padding at the other.
+   Two columns still clear 300px at 761, so there is nothing to gain
+   from a second breakpoint. */
+@media (max-width: 760px) {
+  .svc-signals,
+  .svc-areas,
+  .svc-steps,
+  .svc-ba,
+  .svc-proof { grid-template-columns: minmax(0, 1fr); }
+  .svc-signals { gap: 18px; }
+  .svc-areas li:nth-child(2) { padding-top: 26px; background-image: linear-gradient(var(--line), var(--line)); }
+  .svc-ba { gap: 44px; }
+  .svc-turn,
+  .svc-stand { max-width: none; }
+}
