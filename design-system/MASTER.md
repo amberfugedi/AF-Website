@@ -5902,3 +5902,25 @@ TWO THINGS FIXED:
    `/about` — a host setting the repo never states, with every
    canonical, every nav link and every sitemap entry depending on it.
    Now explicit, in the same shape as the nine that already were.
+
+### About collage: Giants replaces the bookshop shot (2026-09)
+
+`amber-outside-giants.webp` takes the top-left blob. Cropped from a
+phone screenshot: the letterbox bars were detected and dropped, then cut
+to the collage's 8:9 from 36% down the frame so Amber and the field
+survive and the empty upper bowl does not. 900x1013, 101KB.
+
+Photography count is unchanged — this is a swap inside an existing
+placement, not a ninth appearance.
+
+`amber-outside-books.webp` is deleted rather than left unreferenced.
+It is in git history if it is ever wanted back.
+
+WORTH RECORDING: the request was "swap this pic on the about page with
+the one of me reading a book next to the sunset", and there was no
+Giants photo on the site at all — so the sentence had to mean "put this
+one IN". Two of the four collage photos are Amber with a book: the
+bookshop shot, which sits horizontally beside the sunset, and the
+poolside one, which sits directly under it. Both fit "reading a book
+next to the sunset". Asked rather than guessed; replacing the wrong one
+would have deleted a photo she wanted.
