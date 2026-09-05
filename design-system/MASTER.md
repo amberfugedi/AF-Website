@@ -5924,3 +5924,58 @@ bookshop shot, which sits horizontally beside the sunset, and the
 poolside one, which sits directly under it. Both fit "reading a book
 next to the sunset". Asked rather than guessed; replacing the wrong one
 would have deleted a photo she wanted.
+
+## About copy refinements (2026-09)
+
+Amber's brief: strengthen the personal copy, change nothing else. The
+testimonials, "The short version.", "Curious how I got here?" and the
+career timeline are untouched, and no section was added or removed —
+eleven sections before, eleven after, 96 paragraphs before and after.
+
+WHAT KEPT ME INTERESTED, SECOND HALF. Her copy replaces the two closing
+paragraphs. The workflow/technology line goes; the blank-page paragraph
+takes its place, and the close becomes "That mix of creativity,
+curiosity, technology, and solving something real".
+
+THAT CREATED A DUPLICATE AND THE FIX IS RECORDED HERE because it edited
+a section she did not ask about. The blank-page sentence was WORD FOR
+WORD in "What I grew into" two sections up — this file's own note said
+so, which is why it had been cut from here in the first place. She has
+now put it back here deliberately, so the copy in "What I grew into"
+came out rather than printing the same sentence twice on one page.
+Verified: it now appears exactly once.
+
+ONE ECHO LEFT, FLAGGED NOT FIXED. "What I grew into" still closes on
+"what keeps me interested is the combination of creativity and
+problem-solving", which is close to the new close three sections down.
+Not verbatim, and rewriting her earlier approved copy was not in the
+brief.
+
+OUTSIDE THE WORK. Fostering is gone. Reading is added to the travel/food
+line and again to the dogs line. The lifestyle paragraph splits in two
+so Connecticut and the dogs get their own beat. Everything her final
+check listed is verified present: travel, reading, two dogs,
+Connecticut, fitness/yoga/mental health, the burnout line, the invest
+transition and the whole "leave things better than I found them" block.
+
+BOLD, EIGHT PHRASES IN BODY COPY. One to two per section, and only in
+running prose:
+
+    No day was really the same.  ·  I liked the change of pace.
+    more activity does not automatically mean more progress
+    the rest of the business  ·  creativity and problem-solving
+    investing in people is one of the best uses of my time
+    the creative side of the work  ·  traveling, reading, good food
+
+SEVEN OF HER CANDIDATES WERE DELIBERATELY NOT BOLDED, because they are
+already display devices and bolding them would double the emphasis:
+"Marketing was a little bit of an accident." and "doing the right
+marketing" are h2s; "Facts over feelings.", "Strategy only matters if
+it gets built." and "Make the work lighter." are h3s; "It's figuring
+things out." is `.ab-quiet-open`; "I want people to leave more capable
+than when we started." and "I want to leave things better than I found
+them." are `.ab-pull-line`; the burnout line is `.ab-stand`. Every one
+of them already outranks body copy.
+
+The collage `aria-label` still said "browsing books" after the Giants
+swap. Fixed.
