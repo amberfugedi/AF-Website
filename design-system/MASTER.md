@@ -5979,3 +5979,43 @@ of them already outranks body copy.
 
 The collage `aria-label` still said "browsing books" after the Giants
 swap. Fixed.
+
+### One rule for section numerals (2026-09)
+
+Amber: "on the approach page one number is gray and not coral… be
+consistent throughout the page and entire site." Measured every
+standalone numeral on thirteen pages, including `::before` counters.
+TWO SEPARATE THINGS were making the site inconsistent.
+
+THE BUG. `.hw-people-copy p { color: var(--muted) }` was written for
+that section's body paragraphs, and `.sec-n` is a `<p>`, so at (0,2,1)
+it beat `.sec-n`'s own (0,1,0) and greyed the numeral. Nothing about
+that section was meant to differ. It reads
+`.hw-people-copy > p:not(.sec-n)` now. **A type selector inside a
+component will eventually catch a component that happens to use that
+tag — scope by class or exclude explicitly.**
+
+THE DELIBERATE DIFFERENCE. `.page-service .sec-n` set the numeral muted
+and put the accent on the dash beside it, with a note arguing the
+numeral is text and should stay on the site tone. Defensible, but it
+meant the site ran two numeral treatments, which is the thing Amber
+asked to end.
+
+THE RULE NOW, and it is one line: **a section numeral takes the page's
+accent** — `--coral-deep` by default, `--svc-accent` on a service page.
+The four service accents all clear AA as text (5.4:1 to 6.8:1, computed
+in the note above that rule), so colouring the numeral costs nothing.
+
+VERIFIED after the change: every live numeral family is coral-deep —
+`.sec-n` (all five on My Approach), the `ol` counter beside them,
+`.sp-n`, `.cl-n`, `.fm-sn`, `.ty-n`.
+
+TWO EXEMPTIONS, same class as SVG text. `.fm-n` is the row index inside
+the Foundation Plan preview, which is `role="img"` — a mock document,
+where a coral row number would read as site chrome rather than as part
+of the artwork. The numerals in the Courses cycle are `<tspan>` inside
+an SVG. Both stay muted.
+
+NOTED, NOT FIXED: `.page-service .sec-n` is dead — `.sec-n` appears only
+on My Approach. The rule stays as the correct forward-looking one.
+`.xm-num` and `.cs-stage-n` are dead CSS with no markup anywhere.

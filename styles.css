@@ -6109,7 +6109,10 @@ footer {
    same marks, roughly half the height. */
 .hw-people { display: block; }
 .hw-people-copy { max-width: 68ch; }
-.hw-people-copy p { color: var(--muted); margin-bottom: 18px; }
+/* :not(.sec-n) because the numeral is a <p> too, and this rule at
+   (0,2,1) was quietly beating .sec-n at (0,1,0) — the one grey
+   numeral on a page of coral ones. */
+.hw-people-copy > p:not(.sec-n) { color: var(--muted); margin-bottom: 18px; }
 .hw-people-copy p:last-child { margin-bottom: 0; }
 
 .hw-principles {
@@ -7391,9 +7394,13 @@ footer p,
 }
 .page-service .svc-flow li:not(:last-child)::after { background: var(--svc-soft); }
 
-/* Process numerals and their dash. The numeral is TEXT, so it stays on
-   the site tone; only the dash beside it carries the service colour. */
-.page-service .sec-n { color: var(--muted); }
+/* Process numerals and their dash. ONE RULE SITE-WIDE: a section
+   numeral is the page's accent — coral-deep by default, the service
+   accent here. It used to stay muted with only the dash carrying the
+   colour, which meant the site ran two numeral treatments. All four
+   service accents clear AA as text (5.4:1 to 6.8:1, computed above), so
+   colouring the numeral costs nothing. */
+.page-service .sec-n { color: var(--svc-accent); }
 .page-service .sec-n::before { background: var(--svc-accent); }
 
 /* The eyebrow is text, so it keeps the site eyebrow colour. */
