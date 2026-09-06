@@ -6019,3 +6019,53 @@ an SVG. Both stay muted.
 NOTED, NOT FIXED: `.page-service .sec-n` is dead — `.sec-n` appears only
 on My Approach. The rule stays as the correct forward-looking one.
 `.xm-num` and `.cs-stage-n` are dead CSS with no markup anywhere.
+
+## Compliance sweep (2026-09)
+
+Amber shared a viral "don't get your vibe-coded site sued" checklist.
+Audited the site against every item. NOT LEGAL ADVICE and the report
+said so — what follows is what is technically present or absent.
+
+ALREADY IN PLACE, and more of it than the checklist assumes:
+
+- Privacy policy and terms both exist and are honest. Privacy names the
+  Netlify server logs AND the fact that Google Fonts reveals the
+  visitor's IP to Google, which most sites never disclose.
+- **No cookies, no analytics, no tracking pixels, no third-party
+  embeds.** Grepped for `document.cookie`, `localStorage`,
+  `sessionStorage`, `gtag`, `dataLayer`, `fbq`, `hotjar`: zero hits.
+  The only external hosts are Google Fonts and outbound links. So NO
+  COOKIE BANNER IS REQUIRED — there is nothing to consent to — and a
+  cookie policy page would be a page about nothing. The privacy policy
+  already states it in as many words.
+- Data minimisation: the contact form takes name, email, message; the
+  two capture forms take an email address. Nothing else. Netlify
+  honeypot on all three.
+- Accessibility: 46 images all with alt and dimensions, `:focus-visible`
+  with a 2px outline, contrast documented at 5.4:1 to 13.3:1.
+- Testimonials are all attributed to named or initialled people with
+  real roles and companies. Nothing reads as fabricated.
+- No checkout is live. Every course CTA points at `#notify`, which
+  matches what terms already says: "No course is on sale yet."
+
+THE ONE REAL GAP, NOW FIXED: consent at the point of collection. The
+privacy policy said what happens to form data; nothing said so beside
+the field where it gets typed. One line on each of the three forms, each
+linking the policy.
+
+WHAT IS AMBER'S, NOT MINE:
+
+- The stats (+120%, $1.3M to $2.8M, +95%, 34% less, +47%, 115%) are
+  specific and attributed to named employers. Whether they are
+  substantiated is hers to confirm; nothing on this side can verify it.
+- Image copyright. They read as her own photographs.
+- Business details: no legal entity name, no postal address, no phone.
+  Fine for a sole proprietor site — but **CAN-SPAM requires a physical
+  postal address in commercial email**, which becomes live the moment
+  she emails the course list.
+- A refund policy must exist before checkout opens. Already marked
+  `{{ADJUST}}` in terms.
+- `{{COURSE_ACCESS_URL}}` still renders literally on thank-you.html.
+  Unreachable today (no checkout, and the page is noindex) but it would
+  be the first thing a buyer sees. Left as a placeholder per the rule in
+  CLAUDE.md rather than invented.
