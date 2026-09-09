@@ -6069,3 +6069,52 @@ WHAT IS AMBER'S, NOT MINE:
   Unreachable today (no checkout, and the page is noindex) but it would
   be the first thing a buyer sees. Left as a placeholder per the rule in
   CLAUDE.md rather than invented.
+
+---
+
+## 2026-09-09 — Instagram Story: site launch
+
+`design-system/instagram-site-launch-story.html`, rendered at exactly
+1080x1920. Sits next to `og-card-source.html`: a render source, not a
+page, so it is not in `sitemap.xml` and nothing links to it.
+
+Everything on the canvas is pulled from the site rather than restyled to
+look like it. Photos: `amber-fugedi-studio.jpg` (About hero) and
+`amber-fugedi-cafe.webp` (Consulting). Frames: `.about-portrait` with
+`.about-blob-outline`, and `.teaser-photo`. Components: both home hero
+`.proof-chip`s with their real `--tilt` values, three `.sv-card`s with
+the real service glyphs, the `.squiggle` swash held at its finished
+state, `.eyebrow`, the `.sec-n` hairline, `.aura-blob`. Service names
+use the site's own wording, so "Workflow and AI", not "Workflow & AI".
+
+Four things this cost, worth writing down:
+
+**Two photographs of Amber at similar scale read as one picture
+doubled.** Three passes failed here. studio + workdesk + sunlit was the
+worst: same shoot, same pose, same wall, three ovals in a row. studio +
+cafe side by side was no better, because the hair and the black blazer
+carry across every shot in the set. What works is one photograph doing
+the anchoring and the second at a fifth of the size, 400px away, in a
+different frame, obviously doing a different job.
+
+**A client build drags its own brand onto her launch.** `full-rjr-home`
+from the Projects hero was tried as the layered fragment. It is a real
+site asset and it was completely wrong: a foreign palette and someone
+else's headline about fire and water damage, at 670px wide, on Amber's
+announcement. Client artifacts are for the Projects page, where they are
+labelled as someone else's work.
+
+**The aura's dense core is at 40%/40% of the blob, not the centre.**
+Placed to fill the top-left corner, that core landed under the brand row
+and put the coral eyebrow at 4.37:1. Measured on the rendered pixels,
+not assumed. Now 5.00:1.
+
+**`.sv-card p` at (0,1,1) beat `.sv-t` at (0,1,0)** and silently rendered
+the card titles at the description's 15px. Second time a specificity
+accident has quietly resized brand type in this repo; the first was
+`.hw-people-copy p` greying a numeral on My Approach.
+
+Also: the site has FOUR clouds. A fifth was invented to fill the lower
+left of a 1920-tall canvas and has been removed. Impeccable went 5 -> 2
+findings; the two left are `cream-palette` and one `radial-spotlight-glow`
+on the sage cloud, which are the brand, and fire on the live site too.
