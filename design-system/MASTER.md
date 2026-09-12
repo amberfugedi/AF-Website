@@ -6118,3 +6118,64 @@ Also: the site has FOUR clouds. A fifth was invented to fill the lower
 left of a 1920-tall canvas and has been removed. Impeccable went 5 -> 2
 findings; the two left are `cream-palette` and one `radial-spotlight-glow`
 on the sage cloud, which are the brand, and fire on the live site too.
+
+---
+
+## 2026-09-12 — The brand book, and three things it caught
+
+`design-system/brand-book.html` → `amber-fugedi-brand-book.pdf`. 24 pages,
+Letter portrait, rendered with `page.pdf({ format: 'Letter',
+printBackground: true })`. It is the third file in the set and does not
+replace either of the others:
+
+    DIGITAL-SYSTEM.md   normative. What is true now.
+    MASTER.md           the change log, in order, with the reasoning.
+    brand-book.html     the presentable face, for people who will not
+                        read a stylesheet. Regenerate when tokens move.
+
+Every swatch, specimen, button, card, icon and frame in it is the real
+declaration from `styles.css`. The contrast numbers were computed from
+the hex values rather than copied from the docs, which corrected two
+stale figures: `--ink` on cream is 13.57, not 13.3, and `--ink` on
+`--coral` is 5.21, not the 5.4 the stylesheet comment claimed.
+
+**Build note: `.pb` is `flex:1` inside a fixed-height page, so content
+that does not fit is silently clipped.** Eyeballing the render will not
+find it. The render script compares every `.pb`'s `scrollHeight` to its
+`clientHeight` and fails loudly; 12 of 23 pages overflowed on the first
+pass. A later restructure also dropped a `</div>`, which put one page's
+footer inside `.pb` and left 45% of that page blank — caught by measuring
+the footer's position, not by reading the markup.
+
+### Three real defects the book surfaced
+
+**1. Five spellings of one service name.** "Workflow and AI" is the nav's
+name and appears 39 times. Also live at the same moment: `workflow & AI`
+in the footer of all sixteen pages, `Workflow & AI guidance` in About's
+contact select, `Workflows and AI` as an Expertise chapter heading,
+`Workflow + AI` as an Expertise tool label, and `Workflow & AI Guidance`
+in the JSON-LD on two pages. All now read "Workflow and AI". The rule is
+now written down: **"and", not "&", and the nav is the reference.** The
+ampersand survives in exactly one place, `VP of Growth Marketing &
+Enablement`, because that is a real job title.
+
+**2. The primary button was under the site's own contrast floor.** The
+gradient ran `135deg, var(--coral), #F85B55`, and `--ink` on `#F85B55`
+measures **4.482:1** — under 4.5. The hover state set that colour solid,
+so the whole button sat there. `#F85D57` is two points lighter on green
+and blue, measures 4.534, and is not tellable apart. Impeccable went
+**252 → 216** on the fix: it was firing on every page, twice.
+
+**3. Two em dashes in body copy.** The rule has been enforced by the
+detector since it was written, and these slipped through as `&#8212;`
+entities rather than literal characters, so the earlier sweeps missed
+them. Both were the same form-note line, duplicated on `courses.html`
+and `course-marketing-foundation.html`. Now a period and a new sentence,
+per the rule.
+
+And the book broke its own rules twice before shipping: 25 em dashes in
+prose on the page that bans them, and `letter-spacing: 0.06em` on a
+non-uppercase footer where the rule is 0 on body text. Both fixed. Voice
+statistics were re-measured across all sixteen pages rather than quoted
+from `BRAND-EXTRACT.md`, which was taken from six pages in August: the
+median is now 9 words, not 11, and the mean 10.7, not 12.0.

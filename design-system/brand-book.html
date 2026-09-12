@@ -1,0 +1,1768 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Amber Fugedi — Brand book</title>
+<!-- SOURCE FOR brand-book.pdf. Render with Playwright:
+       page.pdf({ format: 'Letter', printBackground: true })
+     at 816x1056 CSS px per page (8.5 x 11in at 96dpi).
+
+     This is the PRESENTABLE face of the system. It is generated from the
+     same values the site runs on, and it is the third of three files, not
+     a replacement for either of the others:
+
+       DIGITAL-SYSTEM.md   normative. What is true now. Read first.
+       MASTER.md           the change log, in order, with the reasoning.
+       brand-book.html     this. For showing the system to someone who
+                           will not read a stylesheet.
+
+     If a number here disagrees with DIGITAL-SYSTEM.md, DIGITAL-SYSTEM.md
+     wins and this file needs regenerating.
+
+     Every swatch, specimen, button, card and icon on these pages is the
+     real declaration from styles.css, not a redraw. The contrast ratios
+     were computed from the hex values, not copied from the docs: two in
+     DIGITAL-SYSTEM.md were slightly off (--ink is 13.57 on cream, not
+     13.3; --ink on coral is 5.21, not 5.4) and the measured numbers are
+     what appear here. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ tokens, lifted verbatim from styles.css ============ */
+:root{
+  --bg:#FDF9F5; --bg-raised:#FFFFFF;
+  --ink:#2E2A27; --body:#3E3833; --muted:#524B43;
+  --coral:#FF6F61; --coral-deep:#B8354A;
+  --blush:#FBD5E4; --peach:#FCE4C4; --lavender:#DAD4F5; --sage:#D9EFD3;
+  --lavender-mark:#8579C9;
+  --consulting-deep:#A63563; --fractional-deep:#2E7529;
+  --automations-deep:#574AA6; --courses-deep:#8A5A14;
+  --line:rgba(46,42,39,0.12);
+  --shadow-soft:0 14px 40px -18px rgba(46,42,39,0.18);
+  --radius:24px;
+  --font-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --font-body:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@page{ size:8.5in 11in; margin:0 }
+html{background:#E8E2DA}
+body{font-family:var(--font-body);color:var(--body);background:#E8E2DA;
+  -webkit-font-smoothing:antialiased;font-size:11pt;line-height:1.55}
+img{display:block;max-width:100%}
+
+/* ============ the page ============ */
+.page{position:relative;width:816px;height:1056px;overflow:hidden;
+  background:var(--bg);margin:0 auto 26px;
+  padding:60px 68px 52px;display:flex;flex-direction:column}
+@media print{ .page{margin:0;break-after:page} .page:last-child{break-after:auto} }
+
+.ph{display:flex;align-items:baseline;gap:14px;
+  padding-bottom:11px;border-bottom:1px solid var(--line);margin-bottom:24px;flex:none}
+.ph .pn{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--coral-deep)}
+.ph .pt{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted)}
+.pb{flex:1;min-height:0}
+.pf{flex:none;display:flex;justify-content:space-between;align-items:baseline;
+  padding-top:10px;border-top:1px solid var(--line);margin-top:18px;
+  font-size:10px;color:var(--muted)}
+
+h1,h2,h3{font-family:var(--font-display);color:var(--ink);text-wrap:balance;
+  letter-spacing:-0.015em}
+h2{font-size:29px;font-weight:500;line-height:1.12;margin-bottom:12px}
+h3{font-size:17px;font-weight:600;line-height:1.3;margin-bottom:7px}
+.lede{font-size:13px;line-height:1.5;color:var(--muted);max-width:62ch;
+  margin-bottom:21px}
+p{margin-bottom:9px;max-width:68ch}
+p:last-child{margin-bottom:0}
+.sm{font-size:10.5px;line-height:1.48;color:var(--muted)}
+strong{font-weight:600;color:var(--ink)}
+code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:0.88em;
+  background:rgba(46,42,39,0.05);padding:1px 5px;border-radius:4px;color:var(--ink)}
+em.q{font-style:italic;font-family:var(--font-display);font-size:1.06em;color:var(--ink)}
+
+.rule{height:1px;background:var(--line);margin:19px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.two-w{display:grid;grid-template-columns:1.25fr 1fr;gap:30px}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:11px}
+th{text-align:left;font-weight:600;color:var(--muted);font-size:9.5px;
+  letter-spacing:0.1em;text-transform:uppercase;padding:0 10px 6px 0;
+  border-bottom:1px solid var(--line)}
+td{padding:5px 10px 5px 0;border-bottom:1px solid rgba(46,42,39,0.07);
+  vertical-align:top;line-height:1.45}
+td:last-child,th:last-child{padding-right:0}
+.t-num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.t-ok{color:var(--fractional-deep);font-weight:600}
+
+/* rules lists */
+ul.do,ul.dont{list-style:none;font-size:11px;line-height:1.48}
+ul.do li,ul.dont li{position:relative;padding:3.5px 0 3.5px 22px}
+ul.do li::before{content:"";position:absolute;left:0;top:calc(0.75em + 1px);
+  width:11px;height:1px;background:var(--fractional-deep)}
+ul.dont li::before{content:"";position:absolute;left:0;top:calc(0.75em - 3px);
+  width:9px;height:9px;border-radius:50%;border:1.5px solid var(--coral-deep);
+  opacity:.7}
+ul.plain{list-style:none;font-size:11px;line-height:1.48}
+ul.plain li{position:relative;padding:3px 0 3px 20px}
+ul.plain li::before{content:"";position:absolute;left:0;top:calc(0.75em + 1px);
+  width:11px;height:1px;background:rgba(46,42,39,0.32)}
+
+/* ============ cover ============ */
+.cover{padding:0;justify-content:flex-end}
+.cover .aura{position:absolute;inset:0;overflow:hidden}
+.cover .blob{position:absolute;border-radius:50%;filter:blur(58px)}
+.cb1{width:620px;height:620px;top:-230px;left:-190px;
+  background:radial-gradient(circle at 40% 40%, rgba(246,158,199,.95), rgba(251,213,228,0) 60%)}
+.cb2{width:540px;height:540px;top:-150px;right:-160px;
+  background:radial-gradient(circle at 55% 45%, rgba(248,190,116,.95), rgba(252,228,196,0) 60%)}
+.cb3{width:680px;height:680px;top:330px;left:40px;filter:blur(84px);
+  background:radial-gradient(circle at 50% 50%, rgba(172,158,232,.52), rgba(218,212,245,0) 60%)}
+.cb4{width:560px;height:560px;bottom:-170px;right:-100px;
+  background:radial-gradient(circle at 50% 50%, rgba(158,205,148,.34), rgba(217,239,211,0) 62%)}
+.cover-in{position:relative;padding:0 76px 88px;width:100%}
+.cover-brand{display:flex;align-items:center;gap:13px;margin-bottom:auto}
+.cover-brand img{width:38px;height:38px;border-radius:9px}
+.cover-brand span{font-family:var(--font-display);font-weight:500;font-size:31px;
+  letter-spacing:-0.015em;color:var(--ink)}
+.cover h1{font-size:68px;font-weight:500;line-height:1.03;letter-spacing:-0.025em;
+  margin-bottom:24px}
+.cover h1 em{font-style:normal;position:relative;display:inline-block}
+.squiggle{position:absolute;left:2%;bottom:-0.16em;width:96%;height:0.24em;overflow:visible}
+.cover .meta{font-size:12.5px;font-weight:500;color:var(--muted);letter-spacing:-0.005em}
+.cover .meta b{color:var(--coral-deep);font-weight:600}
+.cover-top{position:absolute;top:76px;left:76px;right:76px;
+  display:flex;justify-content:space-between;align-items:center}
+.cover-eb{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--coral-deep)}
+
+/* ============ colour ============ */
+.sw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:17px}
+.sw{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-raised)}
+.sw .chip{height:51px}
+.sw .meta{padding:9px 11px 11px}
+.sw .nm{font-size:10.5px;font-weight:600;color:var(--ink);line-height:1.3}
+.sw .hx{font-size:9.5px;color:var(--muted);font-variant-numeric:tabular-nums;
+  letter-spacing:0.02em;margin-top:2px}
+.sw .rl{font-size:9.5px;color:var(--muted);line-height:1.35;margin-top:4px}
+
+.role-row{display:flex;gap:0;border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;margin-bottom:20px}
+.role-row div{flex:1;height:48px}
+
+/* the aura recipe cards */
+.aura-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.aura-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  background:var(--bg)}
+.aura-card .art{height:96px;position:relative;overflow:hidden}
+.aura-card .art span{position:absolute;border-radius:50%;filter:blur(22px);
+  width:150px;height:150px;left:50%;top:50%;transform:translate(-50%,-50%)}
+.aura-card .meta{padding:9px 11px 11px;font-size:9.5px;line-height:1.4;color:var(--muted)}
+.aura-card .meta b{display:block;font-size:10.5px;color:var(--ink);margin-bottom:3px}
+
+/* ============ type specimens ============ */
+.spec{border-bottom:1px solid rgba(46,42,39,0.07);padding:7px 0;
+  display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:baseline}
+.spec:last-child{border-bottom:0}
+.spec .lbl{font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);line-height:1.5}
+.spec .lbl i{display:block;font-style:normal;letter-spacing:0;text-transform:none;
+  font-weight:500;font-variant-numeric:tabular-nums;color:var(--coral-deep);margin-top:2px}
+.spec .sam{color:var(--ink);min-width:0}
+.d1{font-family:var(--font-display);font-weight:500;font-size:50px;line-height:1.1;letter-spacing:-0.02em}
+.d2{font-family:var(--font-display);font-weight:500;font-size:40px;line-height:1.1;letter-spacing:-0.015em}
+.d3{font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.3;letter-spacing:-0.015em}
+.di{font-size:21px;line-height:1.45;font-weight:400;color:var(--muted)}
+.db{font-size:17px;line-height:1.55}
+.ds{font-size:15px;line-height:1.4;color:var(--muted)}
+.de{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral-deep)}
+
+.fam{border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:var(--bg-raised)}
+.fam .big{font-size:52px;line-height:1;color:var(--ink);margin-bottom:9px}
+.fam .nm{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.fam .ro{font-size:11px;color:var(--muted);line-height:1.45;margin-bottom:12px}
+.fam .wt{font-size:11px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);
+  padding-top:11px}
+.fam-s .big{font-family:var(--font-display);font-weight:500}
+.fam-b .big{font-family:var(--font-body);font-weight:500;letter-spacing:-0.02em}
+
+.ladder{border:1px solid var(--line);border-radius:16px;padding:20px 24px;
+  background:var(--bg-raised);font-size:12px;line-height:2.1;color:var(--muted)}
+.ladder b{color:var(--ink);font-weight:600}
+
+/* ============ components ============ */
+.demo{border:1px solid var(--line);border-radius:16px;padding:19px 21px;
+  background:rgba(255,255,255,0.5);margin-bottom:15px}
+.demo .cap{font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px}
+.btn{display:inline-block;font-family:var(--font-body);font-weight:600;font-size:15px;
+  text-decoration:none;padding:13px 28px;border-radius:24px;border:0}
+.btn-primary{background:linear-gradient(135deg,var(--coral),#F85D57);color:var(--ink);
+  box-shadow:0 12px 30px -12px rgba(255,111,97,0.65)}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.ilink{color:var(--coral-deep);font-weight:500;text-decoration:underline;
+  text-underline-offset:3px}
+.alink{color:var(--coral-deep);font-weight:600;font-size:13px;text-decoration:none;
+  border-bottom:1px solid var(--coral-deep);padding-bottom:2px}
+
+.card{background:var(--bg-raised);border:1px solid var(--line);border-radius:24px;
+  padding:20px 22px}
+.card .ct{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);
+  letter-spacing:-0.015em;line-height:1.3;margin-bottom:6px}
+.card p{font-size:11.5px;line-height:1.5;margin:0}
+.card svg{width:38px;height:38px;margin-bottom:10px}
+.warm{background:rgba(255,255,255,0.52);border:1px solid var(--line);border-radius:16px;
+  padding:18px 20px}
+.exp{background:rgba(46,42,39,0.035);border:1px solid var(--line);border-radius:24px;
+  padding:18px}
+.bord{background:transparent;border:1px solid var(--line);border-radius:24px;padding:18px 20px}
+.tintp{background:linear-gradient(180deg,rgba(251,213,228,0.3),transparent 75%),var(--bg-raised);
+  border:1px solid var(--line);border-radius:24px;padding:18px 20px}
+.mini{font-size:10.5px;line-height:1.45;color:var(--muted)}
+.mini b{display:block;font-size:11px;color:var(--ink);margin-bottom:3px}
+
+/* radius ladder */
+.rad{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:8px}
+.rad div{height:58px;background:var(--bg-raised);border:1px solid var(--line);
+  display:grid;place-items:center;font-size:10px;font-weight:600;color:var(--muted)}
+
+/* icons */
+.ico-row{display:flex;gap:34px;align-items:flex-end;margin-bottom:6px}
+.ico-row figure{text-align:center}
+.ico-row figcaption{font-size:9.5px;color:var(--muted);margin-top:8px;line-height:1.4}
+.ico-big svg{width:96px;height:96px}
+.ico-sm svg{width:24px;height:24px}
+
+/* photography */
+.ph-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:start}
+.org{aspect-ratio:8/9;border-radius:55% 45% 47% 53% / 47% 52% 48% 53%;overflow:hidden;
+  border:1px solid var(--line);box-shadow:var(--shadow-soft);position:relative}
+.org img{width:100%;height:100%;object-fit:cover}
+.rect{border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  aspect-ratio:16/10;background:var(--bg-raised)}
+.rect img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.pcap{font-size:9.5px;color:var(--muted);line-height:1.4;margin-top:9px}
+.pcap b{display:block;color:var(--ink);font-size:10.5px;margin-bottom:2px}
+
+/* voice numbers */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.stat{border:1px solid var(--line);border-radius:16px;padding:16px 17px;background:var(--bg-raised)}
+.stat .n{font-family:var(--font-display);font-weight:500;font-size:33px;line-height:1.05;
+  color:var(--coral-deep);letter-spacing:-0.02em}
+.stat .l{font-size:10px;line-height:1.35;color:var(--muted);margin-top:6px}
+.quote{font-family:var(--font-display);font-size:17px;line-height:1.45;color:var(--ink);
+  padding-left:18px;border-left:2px solid var(--blush);margin:4px 0 14px}
+.quote span{display:block;font-size:10.5px;font-family:var(--font-body);color:var(--muted);
+  margin-top:6px;letter-spacing:0}
+
+/* never-do list */
+.never{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
+.never h3{margin-top:16px}
+.never h3:first-child{margin-top:0}
+</style>
+</head>
+<body>
+
+<!-- ==================== 1. COVER ==================== -->
+<section class="page cover">
+  <div class="aura" aria-hidden="true">
+    <span class="blob cb1"></span><span class="blob cb2"></span>
+    <span class="blob cb3"></span><span class="blob cb4"></span>
+  </div>
+  <div class="cover-top">
+    <span class="cover-eb">Brand book</span>
+    <span class="cover-eb">Version 1.0</span>
+  </div>
+  <div class="cover-in">
+    <div class="cover-brand">
+      <img src="/brand-mark.png" alt="">
+      <span>Amber Fugedi</span>
+    </div>
+    <h1>How this brand<br>is <em>built.<svg class="squiggle" viewBox="0 0 260 22" preserveAspectRatio="none" aria-hidden="true">
+      <defs><linearGradient id="g-swash" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#FF6F61"/><stop offset="1" stop-color="#B8354A"/>
+      </linearGradient></defs>
+      <path d="M6 14 C 60 6, 150 5, 254 9 C 200 10.5, 100 14.5, 6 17.5 Z" fill="url(#g-swash)"/>
+    </svg></em></h1>
+    <p class="meta">Type, colour, layout, components and voice, as the site
+      actually runs them.<br><b>amberfugedi.com</b> &nbsp;·&nbsp; September 2026</p>
+  </div>
+</section>
+
+<!-- ==================== 2. HOW TO USE ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">00</span><span class="pt">How to use this book</span></header>
+  <div class="pb">
+    <h2>One system, many pages.</h2>
+    <p class="lede">Everything in here was taken from the live site rather than
+      designed for the book. The swatches are the tokens, the buttons are the
+      buttons, the icons are the marks the pages ship. If something looks
+      different on the site than it does here, the site is right and this book
+      is out of date.</p>
+
+    <div class="two">
+      <div>
+        <h3>The two principles</h3>
+        <p><strong>Consistency of system, not sameness of page.</strong> Pages
+          are allowed to look different from each other. The same content role
+          is not allowed to be styled differently for no reason. A card title
+          is a card title everywhere.</p>
+        <p><strong>Every visual choice should improve understanding, hierarchy
+          or personality.</strong> If it does none of those three, remove it.
+          This is the test that settles most arguments, and it is the reason
+          the site has as much empty space as it does.</p>
+      </div>
+      <div>
+        <h3>Who this is for</h3>
+        <p>A designer, developer, contractor or agency who needs to add
+          something to the brand without it reading as a bolt-on. Hand them
+          this book and they can match the system without reading a
+          stylesheet.</p>
+        <p>It is also the reference for anything off-site: a deck, a one
+          pager, a worksheet, a social template, a printed piece. The rules
+          here travel.</p>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <h3>Where the system actually lives</h3>
+    <table>
+      <thead><tr><th style="width:30%">File</th><th style="width:20%">Role</th><th>What it holds</th></tr></thead>
+      <tbody>
+        <tr><td><code>styles.css</code></td><td>The build</td>
+            <td>The single stylesheet all sixteen pages share. The tokens are in <code>:root</code> at the top.</td></tr>
+        <tr><td><code>design-system/DIGITAL&#8209;SYSTEM.md</code></td><td>Normative</td>
+            <td>What is true now: tokens, component rules, and the judgement calls about when to reach for something. Read this first.</td></tr>
+        <tr><td><code>design-system/MASTER.md</code></td><td>Change log</td>
+            <td>Every decision in order, with the reasoning and the traps already hit. Where it disagrees with the above, the newer entry wins.</td></tr>
+        <tr><td><code>design-system/brand-book.html</code></td><td>This book</td>
+            <td>The presentable face. Regenerate it when the tokens move.</td></tr>
+      </tbody>
+    </table>
+    <p class="sm" style="margin-top:14px">There is no design file. The site is
+      sixteen hand-written HTML pages with no framework and no build step, and
+      the stylesheet is the source of truth. That is deliberate: one place to
+      change a value, and no drift between a mockup and what ships.</p>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>2</span></footer>
+</section>
+
+<!-- ==================== 3. THE BRAND ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">01</span><span class="pt">The brand</span></header>
+  <div class="pb">
+    <h2>A marketing leader who also builds.</h2>
+    <p class="lede">The brand has to hold two things at once: senior enough to
+      be trusted with a function, close enough to the work to be trusted with
+      the build. Every design decision below is downstream of that.</p>
+
+    <div class="two-w">
+      <div>
+        <h3>What the site says she does</h3>
+        <p>Marketing leader, strategist and builder. More than a decade turning
+          complicated business problems into marketing that works better. Leads
+          growth marketing in-house and takes on a small number of clients
+          alongside it.</p>
+        <p>Four ways to work together, and the difference between them is
+          mostly how much of the work she takes on: fractional leadership,
+          consulting, workflow and AI, mentorship and advisory.</p>
+
+        <h3 style="margin-top:22px">What that means visually</h3>
+        <ul class="plain">
+          <li><strong>Warm, not corporate.</strong> Cream ground, soft pastel
+            atmosphere, serif voice. It does not look like a SaaS vendor.</li>
+          <li><strong>Editorial, not decorative.</strong> Real whitespace,
+            hairlines instead of boxes, one accent colour that means one thing.</li>
+          <li><strong>Personal, not lifestyle.</strong> Her own photographs in
+            organic frames. No stock, no props, no desk flatlays.</li>
+          <li><strong>Precise, not playful.</strong> Geometric line marks, one
+            stroke weight, no doodles.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The three pillars</h3>
+        <p class="sm" style="margin-bottom:18px">Used as the site's own shorthand,
+          including on the share card.</p>
+        <div class="demo" style="padding:20px 22px;margin-bottom:12px">
+          <div class="cap" style="margin-bottom:8px">Leading</div>
+          <p class="mini">Stepping into a business and running the marketing
+            function. Direction, priorities, ownership, team.</p>
+        </div>
+        <div class="demo" style="padding:20px 22px;margin-bottom:12px">
+          <div class="cap" style="margin-bottom:8px">Consulting</div>
+          <p class="mini">One defined problem, worked out properly, then the
+            build that follows.</p>
+        </div>
+        <div class="demo" style="padding:20px 22px;margin-bottom:18px">
+          <div class="cap" style="margin-bottom:8px">Building</div>
+          <p class="mini">The systems behind the work. Workflow, practical AI
+            tools, and training so it still gets used later.</p>
+        </div>
+        <h3>Who reads this site</h3>
+        <p class="sm">A business owner or an executive deciding whether they
+          need a marketing leader, a specific problem solved, or a better way of
+          working. They are senior, short on time, and sceptical of marketing
+          language.</p>
+        <p class="sm" style="margin-top:9px">Which is why the copy is short,
+          first-person and concrete, and why the design uses whitespace instead
+          of persuasion.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>3</span></footer>
+</section>
+
+<!-- ==================== 4. MARK AND WORDMARK ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">02</span><span class="pt">Mark and wordmark</span></header>
+  <div class="pb">
+    <h2>The lockup.</h2>
+    <p class="lede">A soft-cornered tile carrying lowercase <em class="q">af</em>,
+      set beside the full name in the display serif. The mark never appears
+      without the name except as a favicon or app icon.</p>
+
+    <div class="demo" style="background:var(--bg-raised)">
+      <div class="cap">Primary lockup</div>
+      <div style="display:flex;align-items:center;gap:15px">
+        <img src="/brand-mark.png" alt="" style="width:52px;height:52px;border-radius:12px">
+        <span style="font-family:var(--font-display);font-weight:500;font-size:42px;
+          letter-spacing:-0.015em;color:var(--ink)">Amber Fugedi</span>
+      </div>
+    </div>
+
+    <div class="two">
+      <div>
+        <h3>Construction</h3>
+        <table>
+          <tbody>
+            <tr><td style="width:42%">Mark source</td><td><code>brand-mark.png</code>, 96&times;96</td></tr>
+            <tr><td>Mark corner</td><td>Scales with the mark. 9&ndash;12px at 38&ndash;52px</td></tr>
+            <tr><td>Gap to wordmark</td><td>0.33&times; the mark's width</td></tr>
+            <tr><td>Wordmark face</td><td>Newsreader 500</td></tr>
+            <tr><td>Wordmark tracking</td><td><code>-0.015em</code></td></tr>
+            <tr><td>Wordmark colour</td><td><code>--ink</code> #2E2A27</td></tr>
+            <tr><td>Alignment</td><td>Optical centre, not baseline</td></tr>
+          </tbody>
+        </table>
+        <h3 style="margin-top:22px">Clear space</h3>
+        <p class="sm">Keep the height of the mark clear on all four sides.
+          Nothing crosses it: no rule, no photo edge, no pastel cloud core.</p>
+        <h3 style="margin-top:18px">Minimum size</h3>
+        <p class="sm">28px for the mark on screen, 0.3in in print. Below that
+          the <em class="q">af</em> closes up. Use the mark alone rather than
+          shrinking the lockup until the name is unreadable.</p>
+      </div>
+      <div>
+        <h3>Do not</h3>
+        <ul class="dont">
+          <li>Set the name in Manrope, or in any face but Newsreader 500.</li>
+          <li>Put the wordmark in coral. Coral is interaction, never identity.</li>
+          <li>Add a tagline to the lockup. The pillars are copy, not part of the mark.</li>
+          <li>Place the lockup on a dark ground. There is no reversed version.</li>
+          <li>Square the mark's corners, or round them to a circle.</li>
+          <li>Stretch, outline, emboss, or add a shadow to either part.</li>
+          <li>Recolour the tile. Its pastel gradient is fixed.</li>
+        </ul>
+        <div class="rule" style="margin:20px 0"></div>
+        <h3>Favicon and app icon</h3>
+        <p class="sm">The mark alone, already exported at 16, 32, 48 and 512,
+          plus <code>apple-touch-icon.png</code>. These are the only sanctioned
+          uses of the mark without the name.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>4</span></footer>
+</section>
+
+<!-- ==================== 5. COLOUR: CORE ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">03</span><span class="pt">Colour · the core</span></header>
+  <div class="pb">
+    <h2>Cream ground, charcoal content.</h2>
+    <p class="lede">Six tokens carry structure and text. Everything else on the
+      following pages is accent, and accents never do a structural job.</p>
+
+    <div class="sw-grid">
+      <div class="sw"><div class="chip" style="background:#FDF9F5;border-bottom:1px solid var(--line)"></div>
+        <div class="meta"><div class="nm">--bg</div><div class="hx">#FDF9F5</div>
+        <div class="rl">The page. Warm cream, the default ground.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid var(--line)"></div>
+        <div class="meta"><div class="nm">--bg-raised</div><div class="hx">#FFFFFF</div>
+        <div class="rl">Cards and panels sitting on cream.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#2E2A27"></div>
+        <div class="meta"><div class="nm">--ink</div><div class="hx">#2E2A27</div>
+        <div class="rl">Headings and primary text. 13.6:1.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#3E3833"></div>
+        <div class="meta"><div class="nm">--body</div><div class="hx">#3E3833</div>
+        <div class="rl">Body copy. 11.0:1.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#524B43"></div>
+        <div class="meta"><div class="nm">--muted</div><div class="hx">#524B43</div>
+        <div class="rl">Secondary and supporting text. 8.2:1.</div></div></div>
+      <div class="sw"><div class="chip" style="background:rgba(46,42,39,0.12)"></div>
+        <div class="meta"><div class="nm">--line</div><div class="hx">rgba(46,42,39,.12)</div>
+        <div class="rl">Every structural hairline and card border.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#EDE9F7;border-bottom:1px solid var(--line)"></div>
+        <div class="meta"><div class="nm">--menu-bg</div><div class="hx">#EDE9F7</div>
+        <div class="rl">The mobile menu panel only. One surface.</div></div></div>
+      <div class="sw" style="background:transparent;border-style:dashed">
+        <div class="chip" style="display:grid;place-items:center">
+          <span style="font-size:26px;color:var(--muted)">&times;</span></div>
+        <div class="meta"><div class="nm">No other grey</div><div class="hx">&nbsp;</div>
+        <div class="rl">A text colour that is not one of these or a -deep accent is a bug.</div></div></div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="two-w">
+      <div>
+        <h3>The contrast law</h3>
+        <p>Nothing on the site carries text below <strong>4.5:1</strong>. That
+          is not an aspiration, it is the reason several tokens exist: each
+          pastel has a <code>-deep</code> partner that clears 4.5 both on cream
+          and on the pastel itself.</p>
+        <table style="margin-top:12px">
+          <thead><tr><th>Text token</th><th class="t-num">On cream</th><th class="t-num">On white</th></tr></thead>
+          <tbody>
+            <tr><td><code>--ink</code></td><td class="t-num t-ok">13.57</td><td class="t-num">14.22</td></tr>
+            <tr><td><code>--body</code></td><td class="t-num t-ok">11.02</td><td class="t-num">11.55</td></tr>
+            <tr><td><code>--muted</code></td><td class="t-num t-ok">8.19</td><td class="t-num">8.58</td></tr>
+            <tr><td><code>--coral-deep</code></td><td class="t-num t-ok">5.50</td><td class="t-num">5.76</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Alpha</h3>
+        <p>Alpha belongs in <code>rgba()</code> of a palette RGB, or in
+          <code>fill-opacity</code> on an SVG.
+          <code>rgba(46,42,39,0.06)</code> is the ink token at six percent and
+          is fine. <code>#F7F1EB</code> is a new colour and is not.</p>
+        <p class="sm" style="margin-top:12px"><strong>Never put alpha on a
+          <code>.glyph .fill</code> element via <code>opacity</code>.</strong>
+          The fill-fade animation ends at <code>opacity: 1</code> with
+          <code>forwards</code> and silently overrides it. This has been hit
+          three times.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>5</span></footer>
+</section>
+
+<!-- ==================== 6. COLOUR: ACCENTS ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">03</span><span class="pt">Colour · accents and roles</span></header>
+  <div class="pb">
+    <h2>Coral means interaction. Nothing else does.</h2>
+    <p class="lede">The palette is large but the roles are narrow. Most misuse of
+      this brand is one colour doing another's job.</p>
+
+    <div class="sw-grid">
+      <div class="sw"><div class="chip" style="background:#FF6F61"></div>
+        <div class="meta"><div class="nm">--coral</div><div class="hx">#FF6F61</div>
+        <div class="rl">Fills and buttons only. Never text on cream.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#B8354A"></div>
+        <div class="meta"><div class="nm">--coral-deep</div><div class="hx">#B8354A</div>
+        <div class="rl">Coral as text: links, stat figures, eyebrows.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#FBD5E4"></div>
+        <div class="meta"><div class="nm">--blush</div><div class="hx">#FBD5E4</div>
+        <div class="rl">Pastel. Fill only.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#FCE4C4"></div>
+        <div class="meta"><div class="nm">--peach</div><div class="hx">#FCE4C4</div>
+        <div class="rl">Pastel. Fill only.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#DAD4F5"></div>
+        <div class="meta"><div class="nm">--lavender</div><div class="hx">#DAD4F5</div>
+        <div class="rl">Pastel. Fill only.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#D9EFD3"></div>
+        <div class="meta"><div class="nm">--sage</div><div class="hx">#D9EFD3</div>
+        <div class="rl">Pastel. Fill only.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#8579C9"></div>
+        <div class="meta"><div class="nm">--lavender-mark</div><div class="hx">#8579C9</div>
+        <div class="rl">Decorative strokes only. Not text.</div></div></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#FF6F61,#F85D57)"></div>
+        <div class="meta"><div class="nm">Primary button</div><div class="hx">135deg, coral &rarr; #F85D57</div>
+        <div class="rl">The one gradient in the system.</div></div></div>
+    </div>
+
+    <h3>Service accents</h3>
+    <p class="sm" style="margin-bottom:11px">One per service. A component on a
+      service page reads <code>--svc-accent</code> and never names a service
+      colour directly, so one component works on all four pages.</p>
+    <table>
+      <thead><tr><th style="width:26%">Token</th><th style="width:14%">Hex</th>
+        <th style="width:26%">Service</th><th style="width:17%">Its pastel</th>
+        <th class="t-num">On that pastel</th></tr></thead>
+      <tbody>
+        <tr><td><code>--fractional-deep</code></td><td>#2E7529</td><td>Fractional leadership</td><td>sage</td><td class="t-num t-ok">4.67</td></tr>
+        <tr><td><code>--consulting-deep</code></td><td>#A63563</td><td>Consulting</td><td>blush</td><td class="t-num t-ok">4.75</td></tr>
+        <tr><td><code>--automations-deep</code></td><td>#574AA6</td><td>Workflow and AI</td><td>lavender</td><td class="t-num t-ok">5.01</td></tr>
+        <tr><td><code>--courses-deep</code></td><td>#8A5A14</td><td>Courses, mentorship</td><td>peach</td><td class="t-num t-ok">4.79</td></tr>
+      </tbody>
+    </table>
+
+    <div class="two" style="margin-top:24px">
+      <div>
+        <h3>The roles, and they are strict</h3>
+        <ul class="plain">
+          <li>Charcoal carries content.</li>
+          <li><strong>Coral means interaction and nothing else.</strong> Not
+            dividers, not decoration, not category coding.</li>
+          <li>Gold is reserved emphasis.</li>
+          <li>Lavender and pink are atmosphere.</li>
+          <li>Neutral lines are structure.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The two-set cap</h3>
+        <p>Colour coding is capped at <strong>two sets</strong>: the offers and
+          the Expertise chapters. A third is not available, however tasteful the
+          mockup. A per-column accent, a good-and-bad axis, a row of category
+          tints: each is a third code.</p>
+        <p>When a row wants variation, use the four <strong>pastels as
+          fill</strong>. They mean nothing, so they do not open a code.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>6</span></footer>
+</section>
+
+<!-- ==================== 7. THE AURA ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">04</span><span class="pt">The aura</span></header>
+  <div class="pb">
+    <h2>Four clouds, and they belong to the whole site.</h2>
+    <p class="lede">The signature atmosphere: four blurred pastel clouds on a
+      fixed layer behind every page, drifting slowly and sharpening as the page
+      unfolds. It is the single most recognisable thing about the brand and the
+      easiest thing to get wrong.</p>
+
+    <div class="aura-grid">
+      <div class="aura-card"><div class="art"><span style="background:radial-gradient(circle at 40% 40%, rgba(246,158,199,.95), rgba(251,213,228,0) 60%)"></span></div>
+        <div class="meta"><b>Pink</b>rgba(246,158,199,.95)<br>50vw, top&nbsp;-18% left&nbsp;-8%<br>drifts left, 21s</div></div>
+      <div class="aura-card"><div class="art"><span style="background:radial-gradient(circle at 55% 45%, rgba(248,190,116,.95), rgba(252,228,196,0) 60%)"></span></div>
+        <div class="meta"><b>Gold</b>rgba(248,190,116,.95)<br>44vw, top&nbsp;-12% right&nbsp;-10%<br>drifts right, 21s</div></div>
+      <div class="aura-card"><div class="art"><span style="background:radial-gradient(circle at 50% 50%, rgba(172,158,232,.92), rgba(218,212,245,0) 60%)"></span></div>
+        <div class="meta"><b>Violet</b>rgba(172,158,232,.92)<br>40vw, top&nbsp;26% left&nbsp;28%<br>orbits, 14s</div></div>
+      <div class="aura-card"><div class="art"><span style="background:radial-gradient(circle at 50% 50%, rgba(158,205,148,.30), rgba(217,239,211,0) 62%)"></span></div>
+        <div class="meta"><b>Green</b>rgba(158,205,148,.30)<br>32vw, bottom&nbsp;-14% right&nbsp;6%<br>orbits reverse, 19s</div></div>
+    </div>
+
+    <p class="sm" style="margin:16px 0 0">Each is a radial gradient running to
+      fully transparent at 60&ndash;62 percent, with <code>filter: blur(46px)</code>
+      and <code>border-radius: 50%</code>. Green is deliberately the quietest of
+      the four at 0.30 alpha: it is a warm note in the atmosphere, not a fourth
+      equal colour.</p>
+
+    <div class="rule"></div>
+
+    <div class="two">
+      <div>
+        <h3>Do</h3>
+        <ul class="do">
+          <li>Let them bleed off the edges. A fully contained cloud reads as a shape, not as air.</li>
+          <li>Overlap them by roughly a third where two meet.</li>
+          <li>Keep green faintest.</li>
+          <li>Check text contrast over the dense part. The core sits at 40&ndash;55 percent of the blob, not at its centre.</li>
+          <li>Put them behind everything. They are a background layer, never content.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Do not</h3>
+        <ul class="dont">
+          <li>Add a fifth cloud. There are four.</li>
+          <li>Recolour them, or raise green to match the others.</li>
+          <li>Dim the aura on one page. The layer is site-wide and shared, so changing it changes every page.</li>
+          <li>Give a cloud a hard edge, an outline or a visible stop.</li>
+          <li>Use the aura as a section background where cream would do. It marks heroes, major editorial moments and some closing CTAs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sm" style="margin-top:20px"><strong>In print</strong>, soft
+      gradients band on some devices. Render the clouds as high-resolution
+      transparent PNGs rather than vectors, and keep the 8:9 silhouettes the
+      site uses.</p>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>7</span></footer>
+</section>
+
+<!-- ==================== 8. TYPOGRAPHY: FAMILIES ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">05</span><span class="pt">Typography · the families</span></header>
+  <div class="pb">
+    <h2>Two families. No third, ever.</h2>
+    <p class="lede">Serif carries voice. Sans carries information. A switch
+      between them has to be doing work, which is why there is no decorative
+      face, no script, and no handwriting font anywhere in the system.</p>
+
+    <div class="two" style="gap:20px">
+      <div class="fam fam-s">
+        <div class="big">Aa</div>
+        <div class="nm">Newsreader</div>
+        <div class="ro"><code>--font-display</code><br>Headings, pull lines,
+          stat figures, the descriptor line in a two-tier stack, and the one
+          italic aside per page.</div>
+        <div class="wt">400 &nbsp;serif figures and pull lines<br>
+          500 &nbsp;h1 and h2, the display weight<br>
+          600 &nbsp;h3 and card titles<br>
+          400 italic &nbsp;editorial asides, rare</div>
+      </div>
+      <div class="fam fam-b">
+        <div class="big">Aa</div>
+        <div class="nm">Manrope</div>
+        <div class="ro"><code>--font-body</code><br>Everything that is read
+          rather than looked at: body copy, lists, labels, buttons, navigation,
+          form fields, interface.</div>
+        <div class="wt">400 &nbsp;rare, long running text only<br>
+          500 &nbsp;body copy, ledes, chip labels<br>
+          600 &nbsp;links, buttons, eyebrows, tags<br>
+          &nbsp;<br></div>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="two-w">
+      <div>
+        <h3>Weights</h3>
+        <p>Four weights across both families: <strong>400, 500 and 600</strong>,
+          plus 400 italic in the serif. <strong>700 and 800 are not part of the
+          system.</strong> If something needs more emphasis than 600, it needs a
+          bigger size or a different colour, not a heavier weight.</p>
+
+        <h3 style="margin-top:22px">Tracking</h3>
+        <table>
+          <tbody>
+            <tr><td style="width:56%">Display serif</td><td><code>-0.015em</code></td></tr>
+            <tr><td>The largest display sizes</td><td><code>-0.02em</code></td></tr>
+            <tr><td>Body</td><td><code>0</code></td></tr>
+            <tr><td>Uppercase eyebrow or label</td><td><code>0.08em</code></td></tr>
+            <tr><td>Short uppercase label</td><td><code>0.1em</code></td></tr>
+          </tbody>
+        </table>
+        <p class="sm" style="margin-top:10px">Always write <code>0.08em</code>,
+          never <code>.08em</code>. Never letter-space in <code>px</code>.</p>
+      </div>
+      <div>
+        <h3>Line heights</h3>
+        <p class="sm" style="margin-bottom:12px">Six values. Pick by size, not
+          by feel.</p>
+        <table>
+          <tbody>
+            <tr><td style="width:66%">Display: h1 and h2</td><td class="t-num">1.1</td></tr>
+            <tr><td>Long display, serif pull lines</td><td class="t-num">1.2</td></tr>
+            <tr><td>h3 and card titles</td><td class="t-num">1.3</td></tr>
+            <tr><td>Intro and lede</td><td class="t-num">1.45</td></tr>
+            <tr><td>Body</td><td class="t-num">1.55</td></tr>
+            <tr><td>Small, tight labels</td><td class="t-num">1.4</td></tr>
+          </tbody>
+        </table>
+        <p class="sm" style="margin-top:14px">Fallback stacks matter: the serif
+          falls back to Georgia, the sans to the system UI face. Both are
+          specified so a font failure degrades rather than reflows.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>8</span></footer>
+</section>
+
+<!-- ==================== 9. THE TYPE SCALE ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">05</span><span class="pt">Typography · the scale</span></header>
+  <div class="pb">
+    <h2>One fluid scale, 390 to 1440.</h2>
+    <p class="lede">Seven steps. Nothing sizes itself outside them. Specimens
+      below are shown at the desktop end of each clamp.</p>
+
+    <div class="spec"><div class="lbl">--fs-h1 <i>40 &rarr; 50</i></div>
+      <div class="sam d1">Projects shaped around different needs.</div></div>
+    <div class="spec"><div class="lbl">--fs-h2 <i>28 &rarr; 40</i></div>
+      <div class="sam d2">Ways to work together</div></div>
+    <div class="spec"><div class="lbl">--fs-h3 <i>24 &rarr; 30</i></div>
+      <div class="sam d3">Fractional leadership</div></div>
+    <div class="spec"><div class="lbl">--fs-intro <i>19 &rarr; 21</i></div>
+      <div class="sam di">The right support depends on what the business is trying to achieve.</div></div>
+    <div class="spec"><div class="lbl">--fs-body <i>16 &rarr; 17</i></div>
+      <div class="sam db">All running text sits here. Also a card title inside a four-up row, where it is still the top of its own local stack.</div></div>
+    <div class="spec"><div class="lbl">--fs-small <i>14 &rarr; 15</i></div>
+      <div class="sam ds">Supporting copy under a card title, captions, meta, list items inside a card.</div></div>
+    <div class="spec"><div class="lbl">--fs-eyebrow <i>12 &rarr; 13</i></div>
+      <div class="sam de">Now live</div></div>
+
+    <p class="sm" style="margin-top:20px">Seven steps and <strong>five
+      sanctioned exceptions</strong>, listed overleaf. There are no others.</p>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>9</span></footer>
+</section>
+
+<!-- ==================== 10. EXCEPTIONS AND THE LADDER ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">05</span><span class="pt">Typography · exceptions and the ladder</span></header>
+  <div class="pb">
+    <h2>Five exceptions, and one ladder.</h2>
+    <p class="lede">Everything that legitimately sits outside the scale, and the
+      order the seven steps are allowed to appear in.</p>
+
+    <h3>The five sanctioned exceptions</h3>
+    <p class="sm" style="margin-bottom:12px">There are no others. And re-measure
+      after any type change rather than trusting the stylesheet: <strong>72
+      font-size declarations in <code>styles.css</code> name a raw value and
+      almost all of them are overridden</strong> by the type layer at the end of
+      the sheet. Only what renders counts.</p>
+    <table>
+      <thead><tr><th style="width:26%">Exception</th><th style="width:24%">Sizes</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><code>.h2-long</code></td><td class="t-num">35 / 29.3</td><td>A section title too long for 40px. Still an h2, still display face.</td></tr>
+        <tr><td>Home proof chips</td><td class="t-num">39.2 / 24.3 / 19.8</td><td>Three stacked cards stepping down on purpose. Micro-type.</td></tr>
+        <tr><td><code>.ct-title</code></td><td class="t-num">31.2 / 24.6</td><td>Inside an aria-hidden thumbnail. Artwork, not content type.</td></tr>
+        <tr><td>Mobile menu links</td><td class="t-num">25.6</td><td>Tap targets in the full-screen nav.</td></tr>
+        <tr><td><code>.ch-sign</code></td><td class="t-num">15.75</td><td>A plus glyph at 1.05em of its own label. Optical sizing of a symbol.</td></tr>
+      </tbody>
+    </table>
+    <p class="sm" style="margin-top:10px">Text inside an SVG is artwork and sits
+      outside the ladder too.</p>
+
+    <div class="rule"></div>
+
+    <div class="two-w">
+      <div>
+        <h3>The hierarchy ladder</h3>
+        <p class="sm" style="margin-bottom:12px">On any page, in this order, with
+          no rung skipped upward.</p>
+        <div class="ladder">
+          <b>h1</b> &nbsp;one per page<br>
+          &nbsp;&nbsp;&nbsp;&#8627; <b>h2</b> &nbsp;section title<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8627; <b>h3</b> &nbsp;subsection, card title<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8627; <b>body</b><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8627; <b>small</b>
+        </div>
+      </div>
+      <div>
+        <h3>The local stack</h3>
+        <p>A card title inside a four-column row sits at <code>--fs-body</code>,
+          not <code>--fs-h3</code>. It is still the top of its own local stack,
+          because everything under it is <code>--fs-small</code>.</p>
+        <p class="sm">This is the rule that keeps a dense row from shouting. Four
+          30px titles in a row outrank the section heading above them, which
+          inverts the page.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>10</span></footer>
+</section>
+
+<!-- ==================== 11. CASE AND PUNCTUATION ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">05</span><span class="pt">Typography · case and punctuation</span></header>
+  <div class="pb">
+    <h2>Sentence case, almost everywhere.</h2>
+    <p class="lede">Capitalise the first word and nothing else. This applies to
+      every heading, label, card title, button and nav item, and it is the rule
+      broken most often by anyone new to the brand.</p>
+
+    <div class="two">
+      <div>
+        <h3>Title Case is reserved</h3>
+        <p>Only for things that genuinely carry it:</p>
+        <ul class="plain">
+          <li>Proper nouns: PERQ, Scan-Optics, MembersFirst CT Federal Credit Union</li>
+          <li>Job titles: VP of Growth Marketing &amp; Enablement</li>
+          <li>Named deliverables inside the course: Foundation Audit, Foundation Plan</li>
+          <li>Page names in the nav: My Approach</li>
+        </ul>
+        <p style="margin-top:11px">Everything else is sentence case, including a
+          heading's second sentence, which of course capitalises its own first
+          word.</p>
+        <p class="sm" style="margin-top:11px">Tags, eyebrows and footer heads
+          are set uppercase with <code>text-transform</code>, so their source
+          case never shows and does not matter.</p>
+      </div>
+      <div>
+        <h3>Punctuation in headings</h3>
+        <p>A heading that is a sentence gets a period. A heading that is a label
+          does not. Both are correct and the site uses both deliberately:
+          <strong>27 percent of its 243 headings end in a period.</strong></p>
+        <p class="sm" style="font-weight:600;color:var(--ink);margin:14px 0 6px">Sentences, so a period</p>
+        <p class="quote" style="font-size:14px;margin:0 0 12px">What I bring to the work.<br>
+          Strategy only matters if it gets built.<br>
+          I ask a lot of questions.</p>
+        <p class="sm" style="font-weight:600;color:var(--ink);margin:0 0 6px">Labels, so no period</p>
+        <p class="quote" style="font-size:14px;margin:0;border-left-color:var(--peach)">Where I help<br>
+          Available courses<br>
+          How it works</p>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <h3>Naming</h3>
+    <p class="sm" style="margin-bottom:12px">The four services have one spelling
+      each, and it is the spelling the nav uses. <strong>"and", not
+      "&amp;".</strong> The ampersand belongs to job titles only, where it is
+      part of a real title.</p>
+    <table>
+      <thead><tr><th style="width:34%">Correct</th><th>Not</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Workflow and AI</strong></td><td>Workflow &amp; AI · Workflows and AI · Workflow + AI · Workflow &amp; AI Guidance</td></tr>
+        <tr><td><strong>Mentorship and advisory</strong></td><td>Mentorship &amp; Advisory</td></tr>
+        <tr><td><strong>Fractional leadership</strong></td><td>Fractional Marketing Leadership</td></tr>
+        <tr><td><strong>Consulting</strong></td><td>Marketing Consulting</td></tr>
+      </tbody>
+    </table>
+    <p class="sm" style="margin-top:10px">All four wrong spellings in that first
+      row were live on the site at once, including one in the footer of every
+      page and two in the structured data. Use the nav as the reference.</p>
+    <p class="sm" style="margin-top:7px"><strong>The one place the ampersand is
+      correct:</strong> VP of Growth Marketing &amp; Enablement. It is a real
+      job title, so it keeps both its Title Case and its ampersand.</p>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>11</span></footer>
+</section>
+
+<!-- ==================== 12. LAYOUT ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">06</span><span class="pt">Layout and reading width</span></header>
+  <div class="pb">
+    <h2>Three reading widths, not eighteen.</h2>
+    <p class="lede">Text-heavy sections read narrower than card and grid
+      sections. A paragraph inside a grid column takes the column and needs no
+      cap at all.</p>
+
+    <div class="two-w">
+      <div>
+        <h3>Containers</h3>
+        <table>
+          <tbody>
+            <tr><td style="width:58%">Page container <code>.wrap</code></td><td class="t-num">1120px</td></tr>
+            <tr><td>Wide container, About and Expertise</td><td class="t-num">1200px</td></tr>
+            <tr><td>Standard reading width</td><td class="t-num">68ch</td></tr>
+            <tr><td>Narrow: asides and notes</td><td class="t-num">46ch</td></tr>
+            <tr><td>Pull line, short statement</td><td class="t-num">34ch</td></tr>
+            <tr><td>Copy beside a graphic</td><td>the column, no cap</td></tr>
+          </tbody>
+        </table>
+        <h3 style="margin-top:22px">Inside a section</h3>
+        <table>
+          <tbody>
+            <tr><td style="width:58%">Heading &rarr; lede</td><td class="t-num">16&ndash;22px</td></tr>
+            <tr><td>Lede &rarr; grid</td><td class="t-num">34 &rarr; 62px</td></tr>
+            <tr><td>Grid gap, 4-up</td><td class="t-num">18 &rarr; 38px</td></tr>
+            <tr><td>Grid gap, 2-up cards</td><td class="t-num">16 &rarr; 24px</td></tr>
+            <tr><td>Card padding</td><td class="t-num">26 &rarr; 38px</td></tr>
+            <tr><td>Panel padding</td><td class="t-num">30 &rarr; 64px</td></tr>
+            <tr><td>Body copy &rarr; CTA</td><td class="t-num">28 &rarr; 36px</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Section rhythm</h3>
+        <p class="sm" style="margin-bottom:12px">Five steps. Every full-width
+          section takes one. Padding shown top / bottom at 1440.</p>
+        <table>
+          <thead><tr><th style="width:32%">Step</th><th style="width:26%" class="t-num">At 1440</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td>Seam</td><td class="t-num">52 / 52</td><td>A transition band, not a section.</td></tr>
+            <tr><td>Compact</td><td class="t-num">64 / 64</td><td>Long narrative runs, closing asides.</td></tr>
+            <tr><td><strong>Standard</strong></td><td class="t-num">104 / 104</td><td>The default.</td></tr>
+            <tr><td>Generous</td><td class="t-num">128 / 128</td><td>Openers and closers that carry weight.</td></tr>
+            <tr><td>Page head</td><td class="t-num">138 top</td><td>Every page head. 13 of 16 pages.</td></tr>
+          </tbody>
+        </table>
+        <p class="sm" style="margin-top:13px"><strong>Sections carry no
+          margin.</strong> The padding is the whole rhythm, so two adjacent
+          sections make a joint of both paddings added: <strong>208px between
+          two standard sections</strong>, 128 between two compact, 104 across a
+          seam. A page's first section trims its top to zero because the page
+          head already paid for that space.</p>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <h3>Check the arithmetic on any vw clamp</h3>
+    <p>Two steps were quietly missing their own maximum. The compact step ran
+      <code>4.4vw</code>, which is 63.36 at 1440. The Expertise chapters ran
+      <code>7vw</code>, which is 100.8. Both looked right in the sheet and
+      neither reached the number it declared. <strong>If a clamp names 104 as
+      its max, the vw term has to hit 104 at 1440.</strong></p>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>12</span></footer>
+</section>
+
+<!-- ==================== 13. RADIUS AND SURFACES ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">07</span><span class="pt">Radius, borders, surfaces</span></header>
+  <div class="pb">
+    <h2>One border weight, one shadow, six corners.</h2>
+    <p class="lede">Prefer background contrast, fine borders and whitespace over
+      shadow and radius. If content does not need containing, do not contain
+      it: a hairline and a heading is usually enough.</p>
+
+    <h3>The radius scale</h3>
+    <div class="rad">
+      <div style="border-radius:24px">24px</div>
+      <div style="border-radius:16px">16px</div>
+      <div style="border-radius:14px">14px</div>
+      <div style="border-radius:8px">8px</div>
+      <div style="border-radius:50%">50%</div>
+      <div style="border-radius:55% 45% 47% 53% / 47% 52% 48% 53%">organic</div>
+    </div>
+    <table style="margin-bottom:22px">
+      <tbody>
+        <tr><td style="width:16%"><strong>24px</strong></td><td>Cards, pills, bands, buttons. The default corner.</td></tr>
+        <tr><td><strong>16px</strong></td><td>Compact cards inside a grid.</td></tr>
+        <tr><td><strong>14px</strong></td><td>Compact elements: chips, rows, menus.</td></tr>
+        <tr><td><strong>8px</strong></td><td>Work artifacts and screenshots. The phone results strip.</td></tr>
+        <tr><td><strong>50%</strong></td><td>Circles: icon wells, ring bullets, avatars.</td></tr>
+        <tr><td><strong>organic</strong></td><td>Amber's own photographs, and the aura blobs. Opposite pairs sum to 100 percent so the curve has no flat spots.</td></tr>
+      </tbody>
+    </table>
+    <p class="sm">Focus rings of 3 to 6px are outlines, not elements, and sit
+      outside this scale. <strong>Nothing else.</strong></p>
+
+    <div class="rule"></div>
+
+    <div class="two">
+      <div>
+        <h3>Borders and shadows</h3>
+        <ul class="plain">
+          <li><strong>1px, <code>--line</code>.</strong> One border weight. A
+            1.5px border exists on the outline button only, where it is the
+            button's whole identity.</li>
+          <li><strong><code>--shadow-soft</code> or nothing.</strong>
+            <code>0 14px 40px -18px rgba(46,42,39,.18)</code>. A card with a
+            visible border does not also get a shadow.</li>
+          <li>No glassmorphism. No coloured glow, except the coral cast under
+            the primary button, which is that button's signature.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Surfaces</h3>
+        <table>
+          <tbody>
+            <tr><td style="width:46%">Page</td><td><code>--bg</code> cream</td></tr>
+            <tr><td>Card on cream</td><td>white, 1px <code>--line</code></td></tr>
+            <tr><td>Soft explainer panel</td><td>page tint at very low alpha</td></tr>
+            <tr><td>Seam band</td><td><code>rgba(255,255,255,.45)</code></td></tr>
+            <tr><td>Cream band</td><td>cream with hairlines top and bottom</td></tr>
+          </tbody>
+        </table>
+        <p class="sm" style="margin-top:13px"><strong>A white section
+          containing white cards is always wrong.</strong> Move the parent to
+          cream or a faint tint so the cards have something to sit on. Watch for
+          gradient &rarr; white &rarr; gradient, and for three identical neutral
+          sections in a row. The goal is deliberate rhythm, not mechanical
+          alternation.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>13</span></footer>
+</section>
+
+<!-- ==================== 14. BUTTONS AND LINKS ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">08</span><span class="pt">Buttons and links</span></header>
+  <div class="pb">
+    <h2>One box for every button.</h2>
+    <p class="lede">Same padding, radius, size and weight, so any two sit on one
+      line without adjustment. There are four interactive treatments and no
+      fifth.</p>
+
+    <div class="demo" style="background:var(--bg-raised)">
+      <div class="cap">Primary and secondary</div>
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <span class="btn btn-primary">See the work &rarr;</span>
+        <span class="btn btn-outline">Let's talk</span>
+      </div>
+    </div>
+
+    <div class="two" style="gap:20px">
+      <div class="demo" style="margin-bottom:0;background:var(--bg-raised)">
+        <div class="cap">Inline link</div>
+        <p style="font-size:14px;line-height:1.55;margin:0">Read more about
+          <span class="ilink">how I approach the work</span> before we talk.</p>
+      </div>
+      <div class="demo" style="margin-bottom:0;background:var(--bg-raised)">
+        <div class="cap">Arrow link</div>
+        <span class="alink">Explore fractional leadership &rarr;</span>
+      </div>
+    </div>
+
+    <table style="margin-top:22px">
+      <thead><tr><th style="width:20%">Treatment</th><th>Specification</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Primary</strong></td><td>Coral gradient, <code>--ink</code> text, 24px radius, <code>15px 32px</code>, <code>--fs-body</code>, 600. Charcoal on coral measures 5.21:1 at the light end of the gradient and 4.53 at the dark end. White fails on both, which is why the text is charcoal.</td></tr>
+        <tr><td><strong>Secondary</strong></td><td>1.5px <code>--ink</code> border, transparent, inverts to solid ink on hover. Same box as primary.</td></tr>
+        <tr><td><strong>Inline link</strong></td><td><code>--coral-deep</code>, 600, underline gradient that draws in on hover. Never colour alone.</td></tr>
+        <tr><td><strong>Arrow link</strong></td><td><code>--coral-deep</code>, 600, <code>--fs-small</code>, trailing arrow. The tertiary action.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="rule"></div>
+
+    <div class="two">
+      <div>
+        <h3>States</h3>
+        <ul class="plain">
+          <li>Hover lifts 2px and deepens the shadow.</li>
+          <li>Active returns to zero and scales to 0.98.</li>
+          <li><strong>Focus is always visible.</strong> A 2px
+            <code>--coral-deep</code> outline at 3px offset.</li>
+          <li>Every control is reachable by keyboard, and the whole card is the
+            target where a card carries one link.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Labels</h3>
+        <p>Keep the conversational CTA language and match the label to the
+          destination: <em class="q">See what we could work on</em>,
+          <em class="q">See how I'd approach it</em>, <em class="q">Let's
+          talk</em>.</p>
+        <p class="sm" style="margin-top:10px">No "Learn more", no "Click here",
+          no "Get started" where nothing starts. <strong>And use no CTA where
+          none is needed.</strong> Not every section closes with a button.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>14</span></footer>
+</section>
+
+<!-- ==================== 15. CARDS AND PANELS ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">09</span><span class="pt">Cards and panels</span></header>
+  <div class="pb">
+    <h2>Five containers. Each has a job.</h2>
+    <p class="lede">Reaching for the wrong one is the most common structural
+      mistake in this system. The question is never "does this look nice in a
+      card", it is "does this content need containing at all".</p>
+
+    <div class="two" style="gap:18px;margin-bottom:18px">
+      <div class="card">
+        <svg viewBox="0 0 72 72" fill="none" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="bk-f" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#D9EFD3" stop-opacity="0.3"/><stop offset="1" stop-color="#D9EFD3"/></linearGradient></defs><circle cx="36" cy="38" r="20" fill="url(#bk-f)"/><circle cx="36" cy="38" r="22" stroke="#2E7529" stroke-width="1.5" stroke-opacity="0.38"/><path d="M36 16 A 22 22 0 0 1 47 57" stroke="#2E7529" stroke-width="2.1"/><circle cx="36" cy="16" r="3.2" fill="#2E7529"/><circle cx="47" cy="57" r="2.6" fill="#2E7529" opacity="0.55"/></svg>
+        <div class="ct">White card</div>
+        <p>White, 1px line, 24px radius. An offer, a case, a thing you can
+          click. The only container that takes a lift on hover.</p>
+      </div>
+      <div class="warm">
+        <div class="ct" style="font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-0.015em;margin-bottom:6px">Warm card</div>
+        <p class="mini">White at 52 percent, 1px line, 16px radius. Scope items
+          in a two-by-two. Quieter than a white card because it is not a
+          destination.</p>
+      </div>
+    </div>
+
+    <div class="two" style="gap:18px;margin-bottom:18px">
+      <div class="exp">
+        <div class="ct" style="font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-0.015em;margin-bottom:6px">Soft explainer panel</div>
+        <p class="mini">Page tint at six percent or less, 1px line, 24px
+          radius, no shadow. A contained comparison at aside scale.</p>
+      </div>
+      <div class="tintp">
+        <div class="ct" style="font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-0.015em;margin-bottom:6px">Fit panel</div>
+        <p class="mini">Service tint over white, 1px line, 24px radius. The one
+          "is this you" moment per page.</p>
+      </div>
+    </div>
+
+    <div class="bord" style="margin-bottom:20px">
+      <div class="ct" style="font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink);letter-spacing:-0.015em;margin-bottom:6px">Border-only container</div>
+      <p class="mini">Transparent, 1px line, 24px radius. Grouping without
+        weight, for when the content belongs together but nothing should look
+        raised.</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="two">
+      <div>
+        <h3>Not a card</h3>
+        <ul class="dont">
+          <li>Narrative copy.</li>
+          <li>How it works stages.</li>
+          <li>A list of four short facts.</li>
+          <li>A CTA.</li>
+          <li>Testimonials, unless there is a strong reason.</li>
+          <li>About-page personal storytelling.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The test</h3>
+        <p>A card is a promise that the thing inside it is a discrete object you
+          could act on. Four short facts are not four objects, they are one
+          idea in four parts, and they read better as editorial columns with a
+          hairline and a small mark.</p>
+        <p class="sm" style="margin-top:10px">This exact change was made on the
+          About page: a four-item card grid became four columns with a line
+          icon, a thin rule and a serif fact, and the section got quieter and
+          more confident.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>15</span></footer>
+</section>
+
+<!-- ==================== 16. ICONS ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">10</span><span class="pt">Icons and marks</span></header>
+  <div class="pb">
+    <h2>Precise geometric abstraction, not doodles.</h2>
+    <p class="lede">Thin line, one stroke weight per mark, 24 by 24 grid, round
+      caps and joins, <code>currentColor</code>. A mug, a vase, a lightbulb or
+      a puzzle piece is a doodle and does not belong here.</p>
+
+    <div class="demo" style="background:var(--bg-raised)">
+      <div class="cap">The four service marks, at 5&times; and at size</div>
+      <div class="ico-row">
+        <figure class="ico-big"><svg viewBox="0 0 72 72" fill="none" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="i1" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#D9EFD3" stop-opacity="0.3"/><stop offset="1" stop-color="#D9EFD3"/></linearGradient></defs><circle cx="36" cy="38" r="20" fill="url(#i1)"/><circle cx="36" cy="38" r="22" stroke="#2E7529" stroke-width="1.5" stroke-opacity="0.38"/><path d="M36 16 A 22 22 0 0 1 47 57" stroke="#2E7529" stroke-width="2.1"/><circle cx="36" cy="16" r="3.2" fill="#2E7529"/><circle cx="47" cy="57" r="2.6" fill="#2E7529" opacity="0.55"/></svg>
+          <figcaption>Fractional<br>leadership</figcaption></figure>
+        <figure class="ico-big"><svg viewBox="0 0 72 72" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="i2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FBD5E4" stop-opacity="0.25"/><stop offset="1" stop-color="#FBD5E4"/></linearGradient></defs><path d="M10 60 C 30 58, 46 48, 61 21 L61 60 Z" fill="url(#i2)"/><path d="M10 60 C 30 58, 46 48, 61 21" stroke="#A63563" stroke-width="2.1"/><path d="M54.5 21.5 L61.5 18.5 L60.5 26" stroke="#A63563" stroke-width="2.1"/><circle cx="10" cy="60" r="3" fill="#A63563"/></svg>
+          <figcaption>Consulting</figcaption></figure>
+        <figure class="ico-big"><svg viewBox="0 0 72 72" fill="none" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="i3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DAD4F5"/><stop offset="1" stop-color="#574AA6"/></linearGradient></defs><circle cx="36" cy="36" r="11" fill="url(#i3)"/><circle cx="36" cy="36" r="26" stroke="#574AA6" stroke-width="2.1"/><circle cx="36" cy="36" r="18.5" stroke="#574AA6" stroke-width="1.5" opacity="0.45"/><circle cx="58.5" cy="23" r="3.2" fill="#574AA6"/><circle cx="13.5" cy="49" r="3.2" fill="#574AA6" opacity="0.7"/><circle cx="36" cy="62" r="2.4" fill="#574AA6" opacity="0.45"/></svg>
+          <figcaption>Workflow<br>and AI</figcaption></figure>
+        <figure class="ico-big"><svg viewBox="0 0 72 72" fill="none" stroke-linecap="round" aria-hidden="true"><defs><linearGradient id="i4" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FCE4C4"/><stop offset="1" stop-color="#F2A93B"/></linearGradient></defs><circle cx="27" cy="30" r="16" stroke="#8A5A14" stroke-width="2.1"/><circle cx="47" cy="45" r="12" fill="url(#i4)"/><circle cx="47" cy="45" r="12" stroke="#8A5A14" stroke-width="2.1"/><circle cx="27" cy="30" r="3.4" fill="#8A5A14"/></svg>
+          <figcaption>Mentorship<br>and advisory</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="two-w">
+      <div>
+        <h3>Specification</h3>
+        <table>
+          <tbody>
+            <tr><td style="width:46%">Stroke</td><td><code>stroke-width: 1.5</code>, one weight per mark</td></tr>
+            <tr><td>Fill</td><td><code>fill="none"</code> on the line work</td></tr>
+            <tr><td>Colour</td><td><code>currentColor</code>; <code>--ink</code> neutral, <code>--svc-accent</code> on a service page</td></tr>
+            <tr><td>Grid</td><td>24&times;24 viewBox</td></tr>
+            <tr><td>Inline size</td><td>21&ndash;24px</td></tr>
+            <tr><td>Chapter mark</td><td>34px</td></tr>
+            <tr><td>Offer mark</td><td>52px</td></tr>
+            <tr><td>Caps and joins</td><td>round</td></tr>
+          </tbody>
+        </table>
+        <p class="sm" style="margin-top:11px">Larger renders keep the 24 grid and
+          scale. The composed service marks above are built on a 72 grid because
+          they carry a pastel fill as well as line work. Those are marks, not
+          icons, and they appear once per service.</p>
+      </div>
+      <div>
+        <h3>Render every new mark at 5&times; before shipping it</h3>
+        <p>This is not optional. Two icons on the About page shipped as
+          accidental duplicates of each other, and a third read as a settings
+          slider. <strong>All three were invisible at 21px</strong> and only
+          showed up enlarged.</p>
+        <h3 style="margin-top:20px">Do not</h3>
+        <ul class="dont">
+          <li>Mix filled icons beside line icons.</li>
+          <li>Mix families, or drop in a stock glyph set.</li>
+          <li>Add an icon whose only job is to fill a corner.</li>
+          <li>Give one mark a 2px body and a 1.4px detail. It reads as two icons stacked.</li>
+          <li>Reuse a drawing that already means something else on the site.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>16</span></footer>
+</section>
+
+<!-- ==================== 17. PHOTOGRAPHY ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">11</span><span class="pt">Photography</span></header>
+  <div class="pb">
+    <h2>Her own photographs, in organic frames.</h2>
+    <p class="lede">The frame carries the meaning. An organic radius says this
+      is Amber. A plain rectangle says this is work. Those two treatments are
+      never swapped.</p>
+
+    <div class="ph-grid">
+      <div>
+        <div class="org"><img src="/amber-fugedi-studio.jpg" alt=""></div>
+        <p class="pcap"><b>Organic frame</b>Amber's own photographs. 8:9,
+          <code>55% 45% 47% 53% / 47% 52% 48% 53%</code>, 1px line, soft shadow,
+          and an offset 2px coral outline rotated &minus;3 degrees.</p>
+      </div>
+      <div>
+        <div class="org" style="border-radius:54% 46% 46% 54% / 48% 52% 48% 52%;aspect-ratio:5/4"><img src="/amber-fugedi-cafe.webp" alt=""></div>
+        <p class="pcap"><b>Landscape variant</b>5:4 for landscape sources, so
+          the frame does not crop the scene away. Opposite pairs still sum to
+          100 percent.</p>
+      </div>
+      <div>
+        <div class="rect"><img src="/full-rjr-home.webp" alt=""></div>
+        <p class="pcap"><b>Rectangle, 8px</b>Work artifacts and screenshots.
+          16:10, top-cropped. A client build is someone else's brand and stays
+          on the Projects page.</p>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="two">
+      <div>
+        <h3>Rules</h3>
+        <ul class="plain">
+          <li><strong>No photograph is used twice</strong> across the site. Each
+            page gets its own.</li>
+          <li>No stock photography, ever. If there is no real photograph, use
+            whitespace.</li>
+          <li>No props that are not genuinely hers: no coffee mugs staged for
+            the shot, no plants, no notebook flatlays.</li>
+          <li>Crop to keep the working scene. A centred crop that hides the
+            desk, the laptop and the notebook loses the reason the photo was
+            chosen.</li>
+          <li>Two photographs of her at similar scale side by side read as one
+            picture doubled. Vary the scale hard, or use one.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Photos, graphics or whitespace</h3>
+        <table>
+          <tbody>
+            <tr><td style="width:30%"><strong>Photos</strong></td><td>Trust, personality, lifestyle, human connection.</td></tr>
+            <tr><td><strong>Graphics</strong></td><td>Explanation, structure, transformation, systems.</td></tr>
+            <tr><td><strong>Whitespace</strong></td><td>When neither adds value.</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:13px"><strong>Do not fill whitespace
+          automatically.</strong> A visual earns its place. This is the same
+          test as the guiding principle: if it does not improve understanding,
+          hierarchy or personality, it comes out.</p>
+        <p class="sm" style="margin-top:11px">Every image carries alt text and
+          explicit width and height. Decorative images take
+          <code>alt=""</code>; decorative inline SVG takes
+          <code>aria-hidden</code>.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>17</span></footer>
+</section>
+
+<!-- ==================== 18. EXPLAINER GRAPHICS ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">12</span><span class="pt">Explainer graphics</span></header>
+  <div class="pb">
+    <h2>Use one when a visual beats more copy.</h2>
+    <p class="lede">That is the whole purpose: an explainer graphic is used when
+      a picture makes a business idea easier to understand than another
+      paragraph would. Not when the page has a gap.</p>
+
+    <div class="two">
+      <div>
+        <h3>Use one when</h3>
+        <ul class="do">
+          <li>It can replace explanatory paragraphs.</li>
+          <li>The idea is a clear relationship or transformation.</li>
+          <li>It helps distinguish one service from another.</li>
+          <li>Desktop whitespace can be used meaningfully.</li>
+          <li>The concept is easier to scan than to read.</li>
+        </ul>
+        <p class="sm" style="margin-top:12px">Good subjects: transformation,
+          before and after, current state to better state, problem to solution,
+          friction, simplification, relationship, process.</p>
+      </div>
+      <div>
+        <h3>Do not when</h3>
+        <ul class="dont">
+          <li>The copy is already clear.</li>
+          <li>It is only filling space.</li>
+          <li>A photograph would communicate trust better.</li>
+          <li>It duplicates the How it works content nearby.</li>
+          <li>It adds another card or grid pattern the page does not need.</li>
+          <li>It makes the page feel like SaaS product marketing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="two-w">
+      <div>
+        <h3>Two devices, one family</h3>
+        <p><strong>The soft explainer panel</strong> is for a comparison that
+          sits beside copy as an aside: contained, at aside scale, 1px line,
+          24px radius, page tint, no shadow. A 22px icon column, compact rows, a
+          thin arrow between panels at 0.75 opacity.</p>
+        <p><strong>The editorial comparison</strong> is the same job at section
+          scale, and deliberately not the same device: two columns of hairline
+          rows, no box, no fill, a dash marking each "before" and a ring in the
+          page accent marking each "after".</p>
+        <p>Boxing a full-width comparison turns two columns into two large cards
+          and loses the page's air. Un-boxing an aside loses the containment
+          that made it readable next to prose.</p>
+        <p class="sm"><strong>Someone should recognise them as related without
+          meeting the identical component on every page.</strong> That is the
+          rule for the whole system, stated once.</p>
+      </div>
+      <div>
+        <h3>Characteristics</h3>
+        <p class="sm">Editorial, light, warm, simple, practical, restrained.
+          Thin line icons, pale tinted panels, fine rules, subtle arrows,
+          limited text inside the graphic, generous whitespace.</p>
+        <h3 style="margin-top:20px">Arrows</h3>
+        <p class="sm">Only for real movement, flow, sequence or relationship.
+          Thin, subtle, secondary. <strong>Never decoration.</strong></p>
+        <h3 style="margin-top:20px">Handwritten accents</h3>
+        <p class="sm">Rare. <strong>At most one small annotation per major
+          page, and zero is fine.</strong> Only to land a takeaway or add a
+          personal note. Never for headings, body copy, instructions,
+          navigation, or two adjacent components. It must never become a
+          scrapbook theme.</p>
+        <h3 style="margin-top:20px">Desktop split</h3>
+        <p class="sm">Copy left, visual right, at roughly 1.7fr to 1fr. On
+          mobile, stack only if the graphic is still useful; otherwise hide it.
+          <strong>Never shrink a detailed graphic until it is
+          unreadable.</strong></p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>18</span></footer>
+</section>
+
+<!-- ==================== 19. PAGE FAMILIES AND RESPONSIVE ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">13</span><span class="pt">Page families and responsive</span></header>
+  <div class="pb">
+    <h2>Same families, different content.</h2>
+    <p class="lede">Every service page runs the same section families in the
+      same order. What varies is the accent, the graphics, the imagery and the
+      examples, never the structure.</p>
+
+    <div class="demo" style="background:var(--bg-raised);padding:20px 24px">
+      <div class="cap">The service page order</div>
+      <p style="font-family:var(--font-display);font-size:19px;color:var(--ink);margin:0;letter-spacing:-0.015em">
+        hero &nbsp;&rarr;&nbsp; scope &nbsp;&rarr;&nbsp; fit &nbsp;&rarr;&nbsp;
+        How it works &nbsp;&rarr;&nbsp; proof &nbsp;&rarr;&nbsp; CTA</p>
+    </div>
+
+    <div class="two">
+      <div>
+        <ul class="plain">
+          <li><strong>How it works.</strong> The heading is exactly "How
+            it works" on all four pages. Serif heading, concise intro, three to
+            four stages on fine rules, small line icons, serif stage headings,
+            sans copy. No process circles, no chunky cards, no heavy arrows, and
+            never rigid sequence language for an ongoing engagement.</li>
+          <li><strong>Scope.</strong> The unnumbered two-by-two warm-card
+            grid. It says what the engagement can touch. <strong>Not
+            numbered</strong>, because numbers mean sequence and sequence is How
+            it works' job.</li>
+          <li><strong>Fit.</strong> One panel per page. Specific
+            scenarios, neutral open states, contextual links.</li>
+          <li><strong>Philosophy does not live here.</strong> It lives on My
+            Approach.</li>
+        </ul>
+        <h3 style="margin-top:20px">About and My Approach</h3>
+        <p class="sm">They share heading sizes, reading widths, section spacing,
+          icon style, graphic line weight and background system. They differ on
+          purpose: <strong>About is personal, visual and human. My Approach is
+          editorial, thought-led and principle-driven.</strong></p>
+      </div>
+      <div>
+        <h3>Six breakpoints</h3>
+        <p class="sm" style="margin-bottom:12px">New rules pick from these.
+          There is no seventh.</p>
+        <table>
+          <tbody>
+            <tr><td style="width:26%" class="t-num">1180px</td><td>Wide desktop. The copy and graphic split relaxes.</td></tr>
+            <tr><td class="t-num">1020px</td><td>Desktop to tablet. Four-up becomes two-by-two.</td></tr>
+            <tr><td class="t-num">900px</td><td>Tablet. Splits stack.</td></tr>
+            <tr><td class="t-num">760px</td><td>Tablet to mobile. The nav flips. Two-by-two becomes one.</td></tr>
+            <tr><td class="t-num">560px</td><td>Small mobile.</td></tr>
+            <tr><td class="t-num">400px</td><td>Narrow mobile.</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:14px"><strong>Do not simply shrink the desktop
+          layout. Simplify.</strong> Hide decorative graphics where they stop
+          earning their place: a detailed explainer at 320px wide is not a
+          smaller explainer, it is an unreadable one.</p>
+        <p class="sm" style="margin-top:10px">Touch targets are 44px minimum.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>19</span></footer>
+</section>
+
+<!-- ==================== 20. MOTION ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">14</span><span class="pt">Motion</span></header>
+  <div class="pb">
+    <h2>Two devices, and the budget is closed.</h2>
+    <p class="lede">Motion on this site does one thing: it lets an idea arrive
+      in the order it should be read. It never announces itself, and there is no
+      third effect coming.</p>
+
+    <div class="two">
+      <div>
+        <h3>The reveal</h3>
+        <p>Content fades and rises into place as it enters the viewport, with an
+          optional stagger so a row arrives left to right rather than all at
+          once. Easing is
+          <code>cubic-bezier(0.22, 1, 0.36, 1)</code>, the single ease token
+          <code>--ease</code>.</p>
+
+        <h3 style="margin-top:22px">The draw-in</h3>
+        <p>Line marks draw themselves. Every stroke carries
+          <code>pathLength="100"</code> so one dasharray rule drives every mark
+          in the system: the stroke draws over 1.2s, then any pastel fill fades
+          in behind it at 0.55s delay.</p>
+        <p class="sm"><strong>Alpha on a fill must live in
+          <code>fill-opacity</code> or <code>rgba()</code>, never
+          <code>opacity</code>.</strong> The fill animation ends at
+          <code>opacity: 1</code> with <code>forwards</code> and overrides it.</p>
+      </div>
+      <div>
+        <h3>Rules</h3>
+        <ul class="plain">
+          <li><strong>All motion respects
+            <code>prefers-reduced-motion</code>.</strong> Under it the aura is
+            static and content is simply present.</li>
+          <li><strong>Reuse the two devices rather than adding a third.</strong>
+            The motion budget is closed.</li>
+          <li>Nothing moves on a loop in the reader's eyeline. The aura drifts
+            over 14 to 21 seconds, which is slow enough to read as atmosphere.</li>
+          <li>Hover is 0.16 to 0.25s. Anything slower feels broken.</li>
+          <li>Measure motion over time, not in a single frame. A screenshot
+            taken 500ms into a 2.2s cascade looks like a bug and is not one.</li>
+        </ul>
+        <h3 style="margin-top:20px">Timing</h3>
+        <table>
+          <tbody>
+            <tr><td style="width:62%">Ease, everywhere</td><td><code>0.22, 1, 0.36, 1</code></td></tr>
+            <tr><td>Stroke draw</td><td class="t-num">1.2s</td></tr>
+            <tr><td>Fill fade, after the stroke</td><td class="t-num">0.9s at 0.55s</td></tr>
+            <tr><td>Reveal</td><td class="t-num">0.6&ndash;0.8s</td></tr>
+            <tr><td>Hover</td><td class="t-num">0.16&ndash;0.25s</td></tr>
+            <tr><td>Aura drift</td><td class="t-num">14&ndash;21s</td></tr>
+            <tr><td>Aura stage change</td><td class="t-num">1.2&ndash;1.4s</td></tr>
+          </tbody>
+        </table>
+        <div class="rule" style="margin:20px 0"></div>
+        <p class="sm">The aura also has four focus stages tied to scroll depth:
+          diffuse in the hero, gathering through the middle, tightest and
+          leaning forward by the closing CTA. It is the same four clouds
+          throughout, changing blur, scale and rotation only.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>20</span></footer>
+</section>
+
+<!-- ==================== 21. VOICE: THE NUMBERS ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">15</span><span class="pt">Voice · the numbers</span></header>
+  <div class="pb">
+    <h2>Half of this site is nine words or fewer.</h2>
+    <p class="lede">Measured across all sixteen pages, counting paragraph
+      elements only, with comments, scripts, styles and SVG stripped: 589
+      paragraphs, 818 sentences. These are the numbers to write against.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="n">10.7</div><div class="l">Mean sentence length, in words</div></div>
+      <div class="stat"><div class="n">9</div><div class="l">Median sentence length</div></div>
+      <div class="stat"><div class="n">61%</div><div class="l">Sentences of 11 words or fewer</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">Exclamation marks, in 818 sentences</div></div>
+    </div>
+
+    <div class="two-w">
+      <div>
+        <h3>Punctuation</h3>
+        <p><strong>No em dashes in body copy.</strong> This is deliberate and
+          enforced by a pre-ship detector. Where a writer would reach for an em
+          dash, this voice uses a period and starts a new sentence.</p>
+        <p>Year ranges take en dashes. Semicolons appear about once every 43
+          sentences. The em dash survives in one place only: as the separator in
+          page titles and meta descriptions, which readers never see as prose.</p>
+
+        <h3 style="margin-top:22px">Tone</h3>
+        <p>First person, present tense, direct address to a business reader.
+          Concrete nouns over abstractions. No superlatives. No "not just X, but
+          Y". 82 sentences open with "I", and that is the register.</p>
+        <p class="sm"><strong>The editorial test:</strong> could another
+          consultant have written this? If yes, rewrite it.</p>
+      </div>
+      <div>
+        <h3>The paired sentence</h3>
+        <p class="sm" style="margin-bottom:12px">The characteristic move: a
+          claim followed by its qualification, as two sentences rather than one
+          clause.</p>
+        <p class="quote">Sometimes the answer is marketing. Sometimes it isn't.</p>
+        <p class="quote">The hardest part is not always doing the marketing. It
+          is knowing what to build.</p>
+        <p class="quote">Different businesses. Different needs. Work built
+          around both.<span>Fragments are allowed, in sequences of three.</span></p>
+      </div>
+    </div>
+
+    <div class="rule" style="margin:22px 0 18px"></div>
+    <p class="sm"><strong>Where there is no rule.</strong> Every sentence
+      measured here is marketing copy. Long-form instructional prose is a
+      register this site has never written in: a lesson body, a step-by-step, a
+      worksheet instruction. Nine-word declaratives will feel clipped across 800
+      words of teaching. Write those longer and set the rule when the course
+      ships.</p>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>21</span></footer>
+</section>
+
+<!-- ==================== 22. ACCESSIBILITY ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">16</span><span class="pt">Accessibility</span></header>
+  <div class="pb">
+    <h2>The floor is 4.5:1, and it is not negotiable.</h2>
+    <p class="lede">Most of the palette's shape comes from this constraint. Coral
+      exists twice, once as a fill and once as text, because the fill version
+      cannot carry type on cream.</p>
+
+    <div class="two">
+      <div>
+        <h3>What is enforced</h3>
+        <ul class="do">
+          <li>No text below 4.5:1 against whatever is actually behind it,
+            including the dense core of an aura cloud.</li>
+          <li>Coral and the pastels are fill only. Text on a pastel takes that
+            pastel's <code>-deep</code> partner.</li>
+          <li>One h1 per page, and no heading level skipped.</li>
+          <li>Every image has alt text and explicit dimensions. Decorative
+            images take an empty alt; decorative inline SVG takes
+            <code>aria-hidden</code>.</li>
+          <li>Focus is always visible: a 2px <code>--coral-deep</code> outline
+            at 3px offset.</li>
+          <li>A skip link, hidden until focused.</li>
+          <li>Touch targets 44px minimum.</li>
+          <li>Colour never carries meaning alone. Links are coloured
+            <em>and</em> underlined.</li>
+          <li>All motion respects <code>prefers-reduced-motion</code>.</li>
+          <li>Forms are keyboard-friendly, with real labels and consent stated
+            at the point of collection.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>How to check it</h3>
+        <p>Do not compute contrast against the token you think is behind the
+          text. <strong>Compute it against the rendered pixels.</strong> The
+          aura sits behind most of the site, its dense core is off-centre, and a
+          value that passes on cream can fail on a cloud.</p>
+        <p class="sm">This is not hypothetical. An eyebrow measured 4.37:1 on a
+          launch graphic because a pink cloud's core landed under it. The token
+          was correct; the composition was not.</p>
+        <div class="rule" style="margin:20px 0"></div>
+        <h3>Legal and compliance</h3>
+        <p class="sm">The site carries a privacy policy, terms, and a cookie
+          policy. It sets no cookies, runs no analytics, loads no trackers and
+          embeds no third-party content, so <strong>no consent banner is
+          required</strong>. If any of those four things changes, the banner
+          becomes mandatory.</p>
+        <p class="sm">Form consent is stated where data is collected. Any
+          statistic used as a claim has to be substantiable, and no review or
+          testimonial is used that was not given.</p>
+        <div class="rule" style="margin:18px 0"></div>
+        <h3>Checked and passing</h3>
+        <table>
+          <tbody>
+            <tr><td style="width:66%">Unique page titles under 60 characters</td><td class="t-num t-ok">16 / 16</td></tr>
+            <tr><td>Unique meta descriptions, 120&ndash;159 characters</td><td class="t-num t-ok">16 / 16</td></tr>
+            <tr><td>Canonical on every indexable page</td><td class="t-num t-ok">14 / 14</td></tr>
+            <tr><td>Images with alt plus width and height</td><td class="t-num t-ok">46 / 46</td></tr>
+            <tr><td>One h1 per page, no level skipped</td><td class="t-num t-ok">16 / 16</td></tr>
+            <tr><td>Cookies, analytics, trackers, embeds</td><td class="t-num t-ok">none</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>22</span></footer>
+</section>
+
+<!-- ==================== 23. NEVER ==================== -->
+<section class="page">
+  <header class="ph"><span class="pn">17</span><span class="pt">Never do this</span></header>
+  <div class="pb">
+    <h2>The list that keeps the system honest.</h2>
+    <p class="lede">Each of these was either tried and reverted, or shipped and
+      fixed. They are here because they are the things that look fine in a
+      mockup and wrong on the site.</p>
+
+    <div class="never">
+      <div>
+        <h3>Type</h3>
+        <ul class="dont">
+          <li>A third font family, for any reason.</li>
+          <li>Weight 700 or 800.</li>
+          <li>Title Case on a heading, label, button or nav item.</li>
+          <li>A size outside the scale and its five exceptions.</li>
+          <li>Letter-spacing in pixels.</li>
+        </ul>
+        <h3>Colour</h3>
+        <ul class="dont">
+          <li>Coral as text on cream. Use <code>--coral-deep</code>.</li>
+          <li>Coral as a divider, decoration or category code.</li>
+          <li>A third colour-coding set.</li>
+          <li>A text grey that is not ink, body, muted or a <code>-deep</code> accent.</li>
+          <li>A new hex where an existing token at an alpha would do.</li>
+        </ul>
+        <h3>Surface</h3>
+        <ul class="dont">
+          <li>White cards on a white section.</li>
+          <li>A border and a shadow on the same card.</li>
+          <li>Glassmorphism, coloured glow, heavy drop shadows.</li>
+          <li>A radius outside the six.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Imagery</h3>
+        <ul class="dont">
+          <li>Stock photography.</li>
+          <li>The same photograph on two pages.</li>
+          <li>Staged props: mugs, plants, notebook flatlays.</li>
+          <li>An organic frame on a work artifact, or a rectangle on one of her
+            own photographs.</li>
+          <li>A client's build used anywhere but Projects.</li>
+        </ul>
+        <h3>Marks and graphics</h3>
+        <ul class="dont">
+          <li>Doodles. A mug, a vase, a lightbulb, a puzzle piece.</li>
+          <li>Tape, pins, sticky notes, layered paper, scrapbook textures.</li>
+          <li>Two stroke weights in one mark.</li>
+          <li>Shipping a mark without viewing it at 5&times;.</li>
+          <li>An arrow that is not showing movement.</li>
+          <li>More than one handwritten accent on a page.</li>
+        </ul>
+        <h3>Structure</h3>
+        <ul class="dont">
+          <li>Putting narrative copy, a CTA, or four short facts in cards.</li>
+          <li>Numbering the scope grid.</li>
+          <li>Renaming "How it works" on any service page.</li>
+          <li>Adding a motion device.</li>
+          <li>Shrinking a detailed graphic instead of hiding it on mobile.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer class="pf"><span>Amber Fugedi · Brand book</span><span>23</span></footer>
+</section>
+
+<!-- ==================== 24. BACK ==================== -->
+<section class="page cover" style="justify-content:center">
+  <div class="aura" aria-hidden="true">
+    <span class="blob cb1" style="top:auto;bottom:-240px;left:-200px"></span>
+    <span class="blob cb4" style="bottom:auto;top:-160px;right:-120px"></span>
+  </div>
+  <div class="cover-in" style="padding:0 76px">
+    <h2 style="font-size:40px;margin-bottom:20px">Two questions settle<br>most arguments.</h2>
+    <p style="font-size:17px;line-height:1.5;max-width:52ch;margin-bottom:16px">
+      <strong>Is this the same system, or just the same page?</strong> Pages are
+      allowed to look different. The same content role is not allowed to be
+      styled differently for no reason.</p>
+    <p style="font-size:17px;line-height:1.5;max-width:52ch;margin-bottom:34px">
+      <strong>Does this improve understanding, hierarchy or personality?</strong>
+      If it does none of the three, remove it.</p>
+    <div class="rule" style="max-width:300px;margin:0 0 22px"></div>
+    <p class="sm" style="max-width:46ch">Regenerate this book from
+      <code>design-system/brand-book.html</code> whenever the tokens move. It is
+      generated from the values the site runs on, so a stale book is a book that
+      disagrees with the site.</p>
+    <p class="meta" style="margin-top:30px"><b>amberfugedi.com</b></p>
+  </div>
+</section>
+
+</body>
+</html>

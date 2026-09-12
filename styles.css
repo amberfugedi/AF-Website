@@ -854,12 +854,17 @@ body.page-sub .aura { --aura-base: 0.45; }
 }
 .btn-arrow::after { content: " →"; }
 .btn-primary {
-  background: linear-gradient(135deg, var(--coral), #F85B55);
-  color: var(--ink); /* dark on coral = 5.4:1; white would fail */
+  /* The gradient's far end was #F85B55, where --ink measures 4.482:1 —
+     fractionally under the site's own 4.5 floor, and the hover state made
+     that solid across the whole button. #F85D57 is two points lighter on
+     green and blue, measures 4.534, and is not tellable apart. */
+  background: linear-gradient(135deg, var(--coral), #F85D57);
+  color: var(--ink); /* dark on coral = 5.21:1 at --coral, 4.53 at the far
+                        end of the gradient. White fails on both. */
   box-shadow: 0 12px 30px -12px rgba(255, 111, 97, 0.65);
 }
 .btn-primary:hover {
-  background: #F85B55;
+  background: #F85D57;
   transform: translateY(-2px);
   box-shadow: 0 18px 36px -12px rgba(255, 111, 97, 0.7);
 }
