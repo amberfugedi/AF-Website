@@ -6223,7 +6223,40 @@ peach · lavender · blush · sage · peach, so the loop wrapped peach into
 peach. Six cards ending on lavender means no repeated tint anywhere,
 including the seam.
 
-**Open for Amber:** LinkedIn does not name the company on the
-recommendation, so the attribution reads "Reported to Amber directly"
-with no employer, unlike the others which name one. Elmarie's headline
-also carries "MBA", which is not on the card. Both are hers to decide.
+Amber confirmed the company: PERQ. Attributions now follow the site's
+existing card pattern, Role, Company: "Marketing Specialist, PERQ" on the
+featured card and "Reported to Amber at PERQ" on the short ones. Her
+LinkedIn headline also carries "Demand Generation & Marketing Technology"
+and "MBA"; both are off the cards, because every other card on the site
+is Role, Company and consistency wins over the fuller headline.
+
+### Splitting one recommendation across the site
+
+Amber asked whether different parts could serve different pages. Yes,
+under two rules, and they matter more than the placements:
+
+**One sentence per surface, and never the same sentence twice.** A
+visitor who meets the same name on a fourth page stops reading it as
+evidence and starts reading it as the only evidence there is. The site
+has nine distinct testimonial voices; any one of them appearing more
+than three times inverts that.
+
+**The sentence has to prove a claim the page makes and cannot otherwise
+prove.** Not "a nice quote goes here."
+
+| Sentence | Surface | The claim it carries |
+|---|---|---|
+| P1 "…genuinely grateful for everything I learned" | About marquee | People proof. The set's first direct-report voice. |
+| P2, all three sentences | Mentorship, featured | How she develops someone, at length. |
+| P4 "…strategic thinking, strong marketing judgment, high standards, and ability to develop the people around her" | Fractional, proof section | Names the four things a fractional hire is buying. Standalone `.svc-quote` at its own 640px cap, NOT the featured treatment. |
+
+The remaining two sentences (P3) stay unused **on purpose**. Both are
+about Elmarie's own development, which is Mentorship's territory and is
+already covered there at length by the featured quote. There is no
+fourth load-bearing extract, and inventing one would be quote-mining.
+
+Fractional's proof section was the right home for P4 because its heading
+already opens an argument about what a team can produce and the three
+cases under it are all business outcomes. The quote closes that argument
+from inside the team. `q-sage` on the monogram, matching that page's own
+`--fractional-deep` accent.
