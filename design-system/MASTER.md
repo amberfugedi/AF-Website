@@ -6260,3 +6260,49 @@ already opens an argument about what a team can produce and the three
 cases under it are all business outcomes. The quote closes that argument
 from inside the team. `q-sage` on the monogram, matching that page's own
 `--fractional-deep` accent.
+
+---
+
+## 2026-09-15 — Quote audit: every voice, every surface
+
+Amber asked whether the site is using all the quotes it has, and whether
+they appear in enough places. Audited all sixteen pages.
+
+**The finding that mattered: every quote on the site is from a company
+that HAS a case study here, and not one of them was attached to it.**
+All nine voices sat in the two marquees and the Mentorship page. An EVP
+of a credit union vouching for a specific eight-year engagement was
+scrolling past on the homepage as generic praise, eight hundred pixels
+from the MembersFirst case study it is actually about.
+
+Fixed for the two where the context transforms the quote:
+
+| Case study | Voice | Why it lands there |
+|---|---|---|
+| MembersFirst | Lily McAuliffe, EVP, MembersFirst CT FCU | The client's own executive, inside the client's own case. |
+| StormwaterONE | Alisa P., Instructional Designer, StormwaterONE | A revenue result, sitting under the Impact column. |
+
+`.case-body .quote-card` reuses the existing card at the standalone
+640px cap, scoped by context rather than a new class. Both stay in the
+homepage marquee: the marquee is a glance, the case study is evidence,
+and the same sentence does a different job in each.
+
+**Not done, and why.** PERQ could take Stephanie Sellstrom and Scan-Optics
+could take Tova Zaretsky, but both are colleagues speaking to character
+rather than stakeholders speaking to the engagement, and PERQ's own
+numbers already carry that case. Robert James and A2 Exteriors have no
+voice at all. Consulting and Workflow and AI carry zero social proof, and
+there is no existing quote that genuinely speaks to either. Those are
+gaps to fill by asking, not by re-cutting what is already here.
+
+**Final distribution: 9 voices, 16 placements, nobody above three.**
+
+**Build trap, again.** The first insertion put both quotes in the same
+case study. `<article id="stormwaterone"> … <p class="art-link"` with
+DOTALL ran straight past that case, because StormwaterONE has no
+`art-link`, and matched MembersFirst's instead. Redone by slicing each
+article at its own boundary (next `<article>`, or the section close) and
+inserting at the one `</div></details>` pair inside it, then asserting
+one card per article with the right name in it. **A non-greedy match
+across sibling sections will silently walk into the next one whenever the
+anchor is optional.**

@@ -7231,6 +7231,12 @@ footer p,
    it needs, and running the marquee here would import a piece of
    motion the page has no reason to carry. */
 .svc-quote { max-width: 640px; margin: clamp(28px, 3.2vw, 40px) 0 0; }
+/* A client's own voice inside their own case study. Every quote on this
+   site is from a company that HAS a case study here, and until now none
+   of them was attached to one: they all sat in the two marquees, where
+   an EVP vouching for a specific eight-year engagement read as generic
+   praise. Same .quote-card, scoped by context rather than a new class. */
+.case-body .quote-card { max-width: 640px; margin: clamp(24px, 2.6vw, 32px) 0 0; }
 /* Testimonials sit beside each other, never stacked, above phone width
    (Amber, Sept 2026). The card's own 640px cap and top margin are for a
    single quote in a column; inside the grid the track sets the width. */
