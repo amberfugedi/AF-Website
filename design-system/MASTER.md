@@ -6306,3 +6306,44 @@ inserting at the one `</div></details>` pair inside it, then asserting
 one card per article with the right name in it. **A non-greedy match
 across sibling sections will silently walk into the next one whenever the
 anchor is optional.**
+
+---
+
+## 2026-09-15 — Anthony Aubrey, and the first owner's voice on the site
+
+Amber supplied a quote from Anthony Aubrey, owner of A2 Exteriors. It
+closes two of the three gaps the audit above flagged, and it is the only
+voice on the site from a business owner rather than a marketer, an HR
+leader or an executive at a larger company.
+
+> "I knew I needed to do more with marketing, but I was honestly
+> overwhelmed and didn't know where to start. Amber helped me make sense
+> of it and gave me a plan that actually felt doable."
+
+Three placements, all load-bearing:
+
+| Surface | Why it earns a place |
+|---|---|
+| A2 Exteriors case study | His own voice on his own case. That case had none. |
+| Consulting | **The page's only social proof.** Its two cited engagements are document technology and eLearning; this is a local services business, which is the range the page claims. |
+| Home marquee | The set was all corporate and executive. This is the first owner in it, and it is the homepage's own headline in a client's words: "The hardest part is not always doing the marketing. It is knowing what to build." |
+
+**Two ordering and scoping slips, both caught in the render.**
+
+The Consulting card shipped without `svc-quote` and ran the full 1072px
+instead of the standalone 640px cap the Fractional page uses. The same
+component in the same role has to carry the same class; the cap does not
+come from `.quote-card`.
+
+And inserting at the `</div></details>` close put the quote AFTER "See
+the work". A case body reads Challenge, Approach, Impact, then the
+client, then the link out: substance before the action. Re-inserted
+before `.art-link` where one exists, at the close where it does not
+(StormwaterONE has no art link, which is the same optional-anchor trap
+that put two quotes in one case study earlier today).
+
+**Distribution now: 10 voices, 19 placements, six pages carrying proof,
+nobody above three.** Still open: Robert James Restoration has no voice
+after nine years, PERQ and Scan-Optics have only colleagues on character
+rather than stakeholders on the engagement, and Workflow and AI has
+nothing at all.
