@@ -6179,3 +6179,51 @@ non-uppercase footer where the rule is 0 on body text. Both fixed. Voice
 statistics were re-measured across all sixteen pages rather than quoted
 from `BRAND-EXTRACT.md`, which was taken from six pages in August: the
 median is now 9 words, not 11, and the mean 10.7, not 12.0.
+
+---
+
+## 2026-09-15 — Elmarie Bolalin's recommendation, and `.svc-quote-lead`
+
+A LinkedIn recommendation from a former direct report. Four paragraphs,
+dated 15 September 2026, relationship stated by LinkedIn as "Elmarie
+reported to Amber directly".
+
+**Why it needed a new treatment rather than a sixth marquee card.** The
+five quotes already on the site are one-liners from a teammate, a
+colleague, an HR leader, a VP of sales and an intern. **Not one is from
+someone who reported to her.** Fractional leadership claims "team
+development" and Mentorship claims she develops people, and until now
+nothing on the site evidenced either from the inside. Cutting the only
+long-form account of *how* she develops someone down to a single line
+would have thrown that away.
+
+`.svc-quote-lead` is a modifier on the existing `.quote-card`, not a new
+device: full width above the 2-up grid, blockquote in the display serif
+at `--fs-intro` instead of sans at body, and a third attribution line for
+the working relationship (`.who-rel`). The card is full width for weight;
+the line is capped at 68ch, because uncapped it ran 95 characters.
+
+**Placement, and one deliberate omission.**
+
+| Surface | What goes there |
+|---|---|
+| Mentorship and advisory | The featured quote, paragraph two verbatim. |
+| About `#recommendations` | The opening sentence, as a sixth marquee card. |
+| Home `#quotes-title` | **Nothing.** |
+
+The homepage marquee is a different set doing a different job: an EVP of
+a credit union, a $1M revenue figure, a named client. It is business
+proof for a stranger. A "what I learned from her" line would dilute it.
+The About marquee is people proof, and that is where the direct-report
+voice belongs.
+
+Quoted verbatim, whole sentences, nothing trimmed mid-thought. The
+sixth card also fixes a pre-existing flaw: the five-card set ran
+peach · lavender · blush · sage · peach, so the loop wrapped peach into
+peach. Six cards ending on lavender means no repeated tint anywhere,
+including the seam.
+
+**Open for Amber:** LinkedIn does not name the company on the
+recommendation, so the attribution reads "Reported to Amber directly"
+with no employer, unlike the others which name one. Elmarie's headline
+also carries "MBA", which is not on the card. Both are hers to decide.

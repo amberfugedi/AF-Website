@@ -7241,6 +7241,32 @@ footer p,
   margin-top: clamp(28px, 3.2vw, 40px);
 }
 .svc-quotes .svc-quote { max-width: none; margin-top: 0; }
+
+/* THE ONE LONG-FORM RECOMMENDATION ON THE SITE. It runs the full width
+   above the 2-up grid instead of sitting inside it, because every other
+   quote here is a single line from a peer, a colleague or an intern, and
+   this is the only account on the site from someone who reported to
+   Amber directly. Cutting it to a marquee line would throw away the only
+   evidence that backs the "develop the people around her" claim.
+
+   It is the same .quote-card, one step up in scale, not a new device:
+   serif at --fs-intro instead of sans at body, and a third attribution
+   line for the working relationship. */
+.svc-quote-lead { grid-column: 1 / -1; }
+.svc-quote-lead blockquote {
+  font-family: var(--font-display);
+  font-size: var(--fs-intro);
+  line-height: 1.45;
+  color: var(--ink);
+  text-wrap: pretty;
+  /* The card is full width for weight; the line is not. Uncapped this
+     ran 95 characters, against the system's 68ch standard measure. */
+  max-width: 68ch;
+}
+.quote-foot .who-rel {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
 @media (max-width: 700px) {
   .svc-quotes { grid-template-columns: 1fr; gap: 20px; }
 }
