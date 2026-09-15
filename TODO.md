@@ -118,6 +118,46 @@ four things go together:
 
 ---
 
+## 2b. Quotes to ask for
+
+The site carries 10 voices across 20 placements. These are the gaps, and
+all of them need asking rather than re-cutting what is already here.
+
+### Samm Serfass — needs consent before it can be used
+
+Samm posted this in PERQ's internal recognition tool, not on LinkedIn:
+
+> "Thanks for the team culture you've created in our little neck of the
+> woods. Love how we genuinely get to grow and take ownership of our
+> work, but you're always right there with support the second we need it.
+> Not an easy balance to strike and appreciate you for it!"
+
+It is the second-strongest thing anyone has said about how Amber leads a
+team, and the only voice besides Elmarie's on that claim. **It cannot go
+on the site as it stands.** Samm wrote it inside a workplace tool, to
+Amber, with no expectation of it becoming marketing, and it is internal
+PERQ content on a personal consulting site.
+
+- [ ] **Ask Samm to post it as a LinkedIn recommendation**, or to confirm
+      in writing that Amber can quote it with her name. She has already
+      written the words; this is a five-minute ask and it turns private
+      praise into a public, attributable, consented testimonial.
+- [ ] Once consented: Fractional leadership is the home. Its
+      "team development" claim currently rests on Elmarie alone.
+
+### Still missing
+
+- [ ] **Robert James Restoration** — nine years, the longest relationship
+      on the site, and no voice at all.
+- [ ] **A workflow or AI client** — Workflow and AI has the slot
+      ("This comes from doing the work") and nothing to put in it. An
+      unrelated quote there would be worse than an empty section.
+- [ ] **A stakeholder at PERQ or Scan-Optics** — both have colleagues
+      speaking to character. Neither has anyone speaking to what changed
+      in the business.
+
+---
+
 ## 3. Assets
 
 - [ ] **`amber-how-i-work.webp` needs a larger export.** 1222px against
