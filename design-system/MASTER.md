@@ -6347,3 +6347,51 @@ nobody above three.** Still open: Robert James Restoration has no voice
 after nine years, PERQ and Scan-Optics have only colleagues on character
 rather than stakeholders on the engagement, and Workflow and AI has
 nothing at all.
+
+---
+
+## 2026-09-15 — Where quotes belong, and where they do not
+
+Amber asked whether My Approach and the remaining service pages should
+carry quotes. The answer is not "more pages, more proof". Four of the six
+pages without quotes should stay that way.
+
+**My Approach: yes, exactly one.** Its five sections are
+*"I ask a lot of questions"*, *"I solve business problems, not just
+marketing problems"*, *"Strategy only matters if it gets built"*,
+*"The people side of the work"*, *"What clients leave with"*. That is
+five first-person claims in a row, on the one page that argues rather
+than sells. One outside voice on the claim that is hardest to
+self-assert is worth more than four scattered across the page.
+
+Tova Zaretsky, HR Leader at Scan-Optics, sits under "The people side of
+the work", between the copy and the principles it corroborates. HR is
+the function that watches how someone treats people, so the title does
+work the sentence alone would not, and she was the most underused voice
+on the site at one placement. `.hw-people .quote-card`, same 640px cap
+as the service pages.
+
+**The page's best-matched quotes were already at the cap**, which is what
+the cap is for. Anthony's "a plan that actually felt doable" is exactly
+"What clients leave with → Clearer priorities", and Elmarie's account is
+exactly the people section. Both are at three. A fourth appearance would
+have made one recommendation look like the site's only evidence, which is
+the failure mode the rule exists to prevent.
+
+**Workflow and AI: yes in principle, no.** Its "This comes from doing the
+work" section is the slot, and no existing quote speaks to workflow,
+automation or AI. That needs asking for. An unrelated quote in a proof
+slot is worse than an empty one.
+
+**Expertise: no.** A capability map that already routes to Projects,
+where the proof lives. A quote there is decoration.
+
+**Services: no.** A router. Each of the four service pages carries its
+own proof one click away, so anything on the hub would have to be generic
+enough to cover all four, which is the definition of a weak testimonial.
+
+**Courses: no, and firmly.** There are no student quotes because there
+are no students yet. Inventing them is the "no fake reviews" line from
+Amber's own compliance list.
+
+**Distribution: 10 voices, 20 placements, 7 pages, nobody above three.**

@@ -7237,6 +7237,13 @@ footer p,
    an EVP vouching for a specific eight-year engagement read as generic
    praise. Same .quote-card, scoped by context rather than a new class. */
 .case-body .quote-card { max-width: 640px; margin: clamp(24px, 2.6vw, 32px) 0 0; }
+/* My Approach is five first-person claims in a row: "I ask a lot of
+   questions", "I solve business problems", "The people side of the work".
+   It is the one page on the site that argues rather than sells, so it
+   gets exactly ONE outside voice, on the claim that is hardest to
+   self-assert, and no more. Sitting between the copy and the principles
+   it corroborates, at the same 640px cap the service pages use. */
+.hw-people .quote-card { max-width: 640px; margin: clamp(30px, 3.2vw, 40px) 0 0; }
 /* Testimonials sit beside each other, never stacked, above phone width
    (Amber, Sept 2026). The card's own 640px cap and top margin are for a
    single quote in a column; inside the grid the track sets the width. */
