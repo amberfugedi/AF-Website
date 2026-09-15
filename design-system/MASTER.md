@@ -6424,3 +6424,46 @@ Checked by computed style across every page that carries a quote, not by
 reading the sheet. Twenty quotes, one family, two sizes — 17 and 21 on
 desktop, 16 and 19 on mobile — and the second size is the featured step,
 not drift.
+
+---
+
+## 2026-09-15 — The home page shows three, not five
+
+Amber asked whether five on the home page and six on About was the right
+spread. Measured before answering, and the count was not the real
+problem: **the marquee was hiding most of what it held.**
+
+| | Home (was 5) | About (6) |
+|---|---|---|
+| Readable at once, 1440 | 3 | 3 |
+| Between cards | 7.6s | 12.5s |
+| A full pass | 38s | 75s |
+| Mobile stack | 1,484px — 1.8 screens, **16% of the page** | 1,605px — 1.9 screens, 12% |
+
+Below 760 the track stops animating and every card stacks, so the two
+ends fail in opposite directions: desktop under-delivers (nobody waits 38
+seconds, let alone 75) and mobile over-delivers (nearly two phone screens
+of one-line praise).
+
+**Home is now three, static, all visible at once.** `.quote-band` carries
+the same pastel wash the marquee had and `.quote-grid` is a plain 3-up
+that stacks at 900. Section height 622px on desktop; the mobile stack
+dropped 1,484 → 1,039. The pause button disappears on its own, because
+`main.js` only injects one per `.quote-marquee`.
+
+The three kept are an owner, a client executive and a revenue number —
+three kinds of proof, three real companies. Cut: Stephanie Sellstrom,
+who is generic and already on About, and John D., the only quote on the
+site with neither a company nor a specific claim. **His is now unused;
+recorded in TODO.md rather than quietly deleted.**
+
+**About keeps the marquee at six.** Six relationships across fifteen
+years — teammate, colleague, HR lead, sales VP, intern, direct report —
+is the point of that section, and six will not fit statically. That is
+the whole justification for one content role carrying two containers:
+different counts genuinely need different treatments. Three fit on a
+screen; six do not.
+
+Note for any future audit: removing one marquee did NOT move Impeccable's
+`[marquee]` count, because the rule lives in `styles.css`, which every
+page loads. It is reported per page, not per instance.

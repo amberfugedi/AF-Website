@@ -145,6 +145,20 @@ PERQ content on a personal consulting site.
 - [ ] Once consented: Fractional leadership is the home. Its
       "team development" claim currently rests on Elmarie alone.
 
+### John D.'s quote is now unused
+
+The home page went from five quotes to three on 2026-09-15. Stephanie
+Sellstrom still appears on About, but John D. now appears nowhere.
+
+> "You could not hope for a better marketing professional at your side."
+> — John D., Graphic Designer
+
+It is the only quote on the site with no company and no specific claim,
+which is why it was the one cut. Two options, both Amber's call:
+
+- [ ] Add it to About's marquee, which is the fuller set, or
+- [ ] Retire it. It is in git either way.
+
 ### Still missing
 
 - [ ] **Robert James Restoration** — nine years, the longest relationship
