@@ -7266,11 +7266,16 @@ footer p,
    serif at --fs-intro instead of sans at body, and a third attribution
    line for the working relationship. */
 .svc-quote-lead { grid-column: 1 / -1; }
+/* SANS, like all nineteen other quotes on the site. This shipped in the
+   display serif, which made it the only quote in a different face and
+   put two faces inside one section on Mentorship. The system's rule is
+   that a switch between the families has to be doing work; here it was
+   only making the featured quote different, and size plus full width
+   already carry that. Colour is --body for the same reason. */
 .svc-quote-lead blockquote {
-  font-family: var(--font-display);
   font-size: var(--fs-intro);
-  line-height: 1.45;
-  color: var(--ink);
+  line-height: 1.5;
+  color: var(--body);
   text-wrap: pretty;
   /* The card is full width for weight; the line is not. Uncapped this
      ran 95 characters, against the system's 68ch standard measure. */

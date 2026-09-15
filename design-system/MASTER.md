@@ -6395,3 +6395,32 @@ are no students yet. Inventing them is the "no fake reviews" line from
 Amber's own compliance list.
 
 **Distribution: 10 voices, 20 placements, 7 pages, nobody above three.**
+
+---
+
+## 2026-09-15 — One face for every quote
+
+Amber caught it on her phone: the featured recommendation on Mentorship
+was set in Newsreader while the two cards under it were Manrope, so one
+section carried two faces.
+
+Mine, from the `.svc-quote-lead` commit three days ago. Measured across
+seven pages at 1440 and 390: **one blockquote out of twenty was in the
+display serif.** The other nineteen inherit Manrope from `body`, because
+`.quote-card blockquote` sets a size and a colour and no family.
+
+`.svc-quote-lead blockquote` now drops `font-family` entirely and takes
+`--body` rather than `--ink`, which was the same drift in colour. The
+featured quote still reads as featured on size, full width, and its
+third attribution line. Line height moved 1.45 → 1.5 for the sans.
+
+**The rule it broke is already written down:** serif carries voice, sans
+carries information, and *a switch between them must be doing work*. Here
+the switch was only making one quote different from its neighbours, which
+is the definition of not doing work. A testimonial is information: it is
+someone else's sentence, read rather than looked at.
+
+Checked by computed style across every page that carries a quote, not by
+reading the sheet. Twenty quotes, one family, two sizes — 17 and 21 on
+desktop, 16 and 19 on mobile — and the second size is the featured step,
+not drift.
