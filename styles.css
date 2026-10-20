@@ -5368,6 +5368,16 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   border: 1.5px solid var(--ink);
   box-shadow: none;
 }
+/* The refund terms sit under the buy CTA, quieter than the reassurance
+   line above them but not hidden: a buyer has to be able to read this
+   before paying, which is also what wins a card dispute. */
+.buy-terms {
+  color: var(--muted);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  margin: 10px 0 0;
+}
+
 [data-sale="open"] #capture-form .btn-primary:hover {
   background: var(--ink);
   color: var(--bg);

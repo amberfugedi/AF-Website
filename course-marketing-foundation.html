@@ -411,6 +411,10 @@
             <a class="btn btn-primary btn-arrow" href="https://buy.stripe.com/dRm28k15N68o3FD0GLeEo00">Get the course</a>
           </div>
           <p class="buy-note sale-open">Built to be used, not just watched.</p>
+          <!-- Stated next to the price, not only in /terms. A no-refund
+               policy that a buyer only meets afterwards is the one that
+               loses a card dispute. -->
+          <p class="buy-terms sale-open">All sales are final. The course is delivered in full the moment you pay, so there are no refunds. <a href="/terms">Read the purchase terms</a>.</p>
 
           <!-- The capture is no longer the thing to do here, it is the
                thing to do INSTEAD. Its submit was also .btn-primary, which
@@ -435,15 +439,19 @@
     <!-- ============ 8. FAQ ============
          Native details/summary: keyboard operable with no JS, and the
          same disclosure pattern the Work case studies use.
-         No refund question: /terms says no course is on sale yet and no
-         refund policy exists. Add one when it does. -->
+         The refunds question and "When does it open?" swap with the sale
+         state: each is the question that matters in exactly one of them. -->
     <section aria-labelledby="faq-title">
       <div class="wrap">
         <h2 class="section-title reveal" id="faq-title">Questions</h2>
         <div class="faq reveal">
-          <details class="faq-q">
+          <details class="faq-q sale-wait">
             <summary>When does it open?<span class="faq-s" aria-hidden="true"></span></summary>
             <p>It is still in production and does not have a public date yet. Join the list above and you will get one note when it is ready.</p>
+          </details>
+          <details class="faq-q sale-open">
+            <summary>Can I get a refund?<span class="faq-s" aria-hidden="true"></span></summary>
+            <p>No. The whole course unlocks the moment you pay, so all sales are final. That is why the page tells you what is inside it in this much detail before you buy. If the course will not open or your payment did not go through, email me and I will sort it out, which is a different thing from a refund.</p>
           </details>
           <details class="faq-q">
             <summary>Who is this course for?<span class="faq-s" aria-hidden="true"></span></summary>

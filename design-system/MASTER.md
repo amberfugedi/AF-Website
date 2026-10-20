@@ -6530,3 +6530,37 @@ found", which is the layer; the foundation is **Discoverability**.
 
 Nav and footer were untouched, so the sixteen-page sync did not apply.
 Impeccable flat at 130.
+
+---
+
+## 2026-10-20 — No refunds, and where that has to be said
+
+Amber's decision: all sales final, no refunds. Written into `/terms`,
+which replaces the placeholder that said no course was on sale and
+satisfies the `{{ADJUST}}` note telling us not to open checkout without
+purchase terms.
+
+**The policy is disclosed next to the price, not only in `/terms`.** A
+no-refund policy a buyer only meets afterwards is the one that loses a
+card dispute: "no refunds" does not stop a chargeback, and the thing that
+wins one is evidence the buyer saw the policy before paying. So
+`.buy-terms` sits directly under the buy CTA in the purchase state,
+`--muted` at `--fs-small`, quieter than the reassurance line above it and
+still plainly readable, with a link to the full terms.
+
+The FAQ gained a refunds question rather than a note saying to add one.
+It shares a slot with "When does it open?" and the two swap on sale
+state, so each page carries exactly the question its reader has: eight
+questions in both states, never nine.
+
+**One thing the decision creates.** The terms now say the course is sold
+to buyers in the United States, but a Stripe payment link sells worldwide
+unless told otherwise, so the terms and the checkout currently disagree.
+EU and UK consumers hold a statutory 14-day right to cancel a digital
+purchase, which a blanket no-refund clause does not override unless the
+buyer expressly consents to immediate access and acknowledges losing it.
+Restricting the link's countries in Stripe is the simpler fix and is on
+the launch checklist. The terms already concede the point in the one
+sentence that matters, so the written position is honest either way.
+
+Impeccable flat at 130.

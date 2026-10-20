@@ -153,15 +153,20 @@ data says `PreOrder`, which is the public truth.
       `https://www.amberfugedi.com/thank-you`. Without it buyers land on
       Stripe's generic receipt and never reach either site, and every fix
       on `thank-you.html` is wasted.
-- [ ] **Purchase terms and a refund policy published in `/terms`.** That
-      page currently says "No course is on sale yet. Terms of purchase,
-      access and refunds will be published here before anything can be
-      bought", and the `{{ADJUST}}` note beside it says plainly: do not
-      open checkout without them. Needs the refund window, how long
-      access lasts, what the buyer gets, and who to contact. **Amber's
-      decision, not a copy edit.**
-- [ ] **A refund question in the course FAQ.** The FAQ carries a comment
-      saying to add one once a policy exists.
+- [x] **Purchase terms published in `/terms`** (2026-10-20). What you are
+      buying, how long access lasts, refunds, where she sells, and who to
+      contact. Amber's call: **no refunds, all sales final.**
+- [x] **Refund question in the course FAQ.** It occupies the same slot as
+      "When does it open?", each showing in the one sale state where it
+      is the question a reader actually has.
+- [ ] **Restrict the Stripe payment link to the United States.** The
+      terms now say the course is sold to US buyers, and the link sells
+      worldwide by default, so right now the terms and the checkout
+      disagree. EU and UK consumers have a statutory 14-day right to
+      cancel digital purchases that a no-refund clause does not override,
+      unless the buyer expressly consents to immediate access and
+      acknowledges losing that right. Restricting countries in Stripe is
+      the simpler of the two fixes.
 
 ### The flip itself
 
