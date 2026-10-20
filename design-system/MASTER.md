@@ -6564,3 +6564,31 @@ the launch checklist. The terms already concede the point in the one
 sentence that matters, so the written position is honest either way.
 
 Impeccable flat at 130.
+
+---
+
+## 2026-10-20 — The 14-day right, granted rather than dodged
+
+Amber's follow-up: give EU and UK buyers the 14 days. That is the better
+of the two fixes for the mismatch noted above, and it closes it in the
+opposite direction from the one on the checklist. She now sells worldwide
+and honours the statutory right, so **the country restriction in Stripe
+is no longer needed** and the terms match a link that sells everywhere.
+
+`/terms` splits refunds into three paragraphs rather than one: the
+default (all sales final), the EU and UK right (14 days from purchase, no
+reason required, refund and access revoked), and the thing that is not a
+refund at all (the course will not open, the payment failed). The third
+paragraph matters: most "refund" emails are really support emails, and
+saying so stops a fixable problem turning into a chargeback.
+
+The pre-purchase line under the buy CTA carries the exception too. A
+page that says "all sales are final" next to the price while the terms
+grant 14 days would be contradicting itself at the one moment a buyer is
+reading carefully. The FAQ answer says the same thing a third time, in
+the slot that only exists when the sale is open.
+
+"Where I sell" is now one word, worldwide, with a note that the price is
+in US dollars and the buyer's bank sets the conversion.
+
+Impeccable flat at 130.

@@ -159,14 +159,11 @@ data says `PreOrder`, which is the public truth.
 - [x] **Refund question in the course FAQ.** It occupies the same slot as
       "When does it open?", each showing in the one sale state where it
       is the question a reader actually has.
-- [ ] **Restrict the Stripe payment link to the United States.** The
-      terms now say the course is sold to US buyers, and the link sells
-      worldwide by default, so right now the terms and the checkout
-      disagree. EU and UK consumers have a statutory 14-day right to
-      cancel digital purchases that a no-refund clause does not override,
-      unless the buyer expressly consents to immediate access and
-      acknowledges losing that right. Restricting countries in Stripe is
-      the simpler of the two fixes.
+- [x] **Country restriction: not needed** (2026-10-20). Amber chose to
+      grant the 14-day cancellation right to EU and UK buyers rather than
+      restrict where she sells, so the link stays worldwide and the terms
+      match it. Refunds inside 14 days are issued from the Stripe
+      dashboard, and access is revoked at the academy by hand.
 
 ### The flip itself
 
