@@ -73,6 +73,14 @@
         "provider": { "@id": "https://www.amberfugedi.com/#service" },
         "author": { "@id": "https://www.amberfugedi.com/#amber" },
         "educationalLevel": "Intermediate",
+        "offers": {
+          "@type": "Offer",
+          "price": "297",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "category": "Paid",
+          "url": "https://www.amberfugedi.com/courses/build-your-marketing-foundation"
+        },
         "hasCourseInstance": {
           "@type": "CourseInstance",
           "courseMode": "online",
@@ -84,7 +92,7 @@
   </script>
   <noscript><style>.reveal{opacity:1;transform:none}.glyph .stroke{stroke-dashoffset:0}.glyph .fill{opacity:1}.squiggle{transform:none}.reveal .tab-em::before,.reveal .tab-em::after{opacity:1;transform:none}</style></noscript>
 </head>
-<body class="page-sub page-course page-course">
+<body class="page-sub page-course">
 
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="aura" aria-hidden="true">
@@ -142,7 +150,7 @@
     <header class="page-head">
       <div class="wrap hero-split">
         <div class="head-copy">
-          <p class="crs-status reveal">Coming soon</p>
+          <p class="crs-status reveal">Available now</p>
           <h1>Build your marketing foundation.</h1>
           <p class="section-lede">For established service businesses with paying clients and no clear marketing priority order. Diagnose what your business actually needs and leave with a plan for what to build first, next, and later.</p>
 
@@ -154,9 +162,9 @@
           </ul>
 
           <div class="buy reveal">
-            <p class="buy-price"><span class="buy-amount">$297</span> One payment, when it opens</p>
+            <p class="buy-price"><span class="buy-amount">$297</span> One payment</p>
             <div class="cta-row">
-              <a class="btn btn-primary btn-arrow" href="#notify">Get course updates</a>
+              <a class="btn btn-primary btn-arrow" href="https://buy.stripe.com/dRm28k15N68o3FD0GLeEo00">Get the course</a>
               <a class="arrow-link buy-alt" href="#map">See what you&#8217;ll build</a>
             </div>
           </div>
@@ -352,7 +360,7 @@
           <p>I built this course around a pattern I kept seeing. Businesses were not short on ideas or effort. They were missing a way to decide what deserved their attention.</p>
           <p>This is the thinking I come back to every time, made into something you can work through for your own business.</p>
           <div class="cta-row teach-cta">
-            <a class="btn btn-primary btn-arrow" href="#notify">Get course updates</a>
+            <a class="btn btn-primary btn-arrow" href="https://buy.stripe.com/dRm28k15N68o3FD0GLeEo00">Get the course</a>
             <a class="arrow-link" href="/about">More about me</a>
           </div>
         </div>
@@ -365,7 +373,6 @@
         <div class="buy-box reveal">
           <h2 class="section-title" id="buy-title">Build the plan your marketing has been missing.</h2>
           <p class="buy-price buy-price-lg"><span class="buy-amount">$297</span> One payment. The course is yours to keep.</p>
-          <p class="buy-when">It is not open yet. Join the list and you will hear first.</p>
           <ul class="buy-list">
             <li>Eight self-paced modules</li>
             <li>About three hours of teaching</li>
@@ -375,19 +382,27 @@
             <li>A completed first, next and later Foundation Plan</li>
             <li>Continued access to the course</li>
           </ul>
-          <div class="email-capture" id="notify">
-            <label class="capture-label" for="cs-email">Get course updates</label>
+
+          <div class="cta-row buy-cta">
+            <a class="btn btn-primary btn-arrow" href="https://buy.stripe.com/dRm28k15N68o3FD0GLeEo00">Get the course</a>
+          </div>
+          <p class="buy-note">Built to be used, not just watched.</p>
+
+          <!-- The capture is no longer the thing to do here, it is the
+               thing to do INSTEAD. Its submit was also .btn-primary, which
+               would have put two primary buttons in one box. -->
+          <div class="email-capture email-capture-alt" id="notify">
+            <label class="capture-label" for="cs-email">Not ready to buy? Get course updates instead</label>
             <form class="capture-row" id="capture-form" name="course-updates" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
               <input type="hidden" name="form-name" value="course-updates">
               <p class="hp-field" aria-hidden="true"><label>Don&#8217;t fill this out if you&#8217;re human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
               <input type="email" id="cs-email" name="email" placeholder="you@company.com" aria-describedby="cs-email-error" required>
-              <button class="btn btn-primary" type="submit">Notify me</button>
+              <button class="btn btn-outline" type="submit">Notify me</button>
             </form>
             <p class="field-error" id="cs-email-error"></p>
             <p class="form-status" id="capture-status" role="status" aria-live="polite"></p>
-            <p class="form-note">One note when the course is ready, and nothing else. Unsubscribe any time. <a href="/privacy">See how your email is handled</a>.</p>
+            <p class="form-note">Occasional course updates, and nothing else. Unsubscribe any time. <a href="/privacy">See how your email is handled</a>.</p>
           </div>
-          <p class="buy-note">Built to be used, not just watched.</p>
         </div>
       </div>
     </section>
@@ -444,7 +459,7 @@
           <h2>You do not need more marketing ideas. You need a clear place <span class="tab-em tab-butter">to start.</span></h2>
           <p>Build the foundation underneath your marketing and leave with a plan shaped around how your business actually works.</p>
           <p class="buy-price buy-price-band"><span class="buy-amount">$297</span> One payment, when it opens</p>
-          <div class="cta-actions"><a class="btn btn-primary btn-arrow" href="#notify">Get course updates</a></div>
+          <div class="cta-actions"><a class="btn btn-primary btn-arrow" href="https://buy.stripe.com/dRm28k15N68o3FD0GLeEo00">Get the course</a></div>
         </div>
       </div>
     </section>
@@ -517,9 +532,9 @@
   <div class="crs-sticky" id="crs-sticky">
     <div>
       <p class="cs-name">Build your foundation</p>
-      <p class="cs-cost">Coming soon &middot; $297</p>
+      <p class="cs-cost">$297 &middot; one payment</p>
     </div>
-    <a class="btn btn-primary" href="#notify">Get updates</a>
+    <a class="btn btn-primary" href="https://buy.stripe.com/dRm28k15N68o3FD0GLeEo00">Get the course</a>
   </div>
 
   <script src="/main.js" defer></script>

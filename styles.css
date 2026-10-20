@@ -5325,6 +5325,12 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 
 .contact-intro > p { color: var(--body); margin-bottom: 32px; max-width: 42ch; }
 
+/* The purchase box's capture is now the alternative to buying, not the
+   action. It needs a clear gap from the buy CTA and the reassurance line
+   above it, or it reads as part of the same block. */
+.email-capture-alt { margin-top: clamp(26px, 3vw, 34px); padding-top: clamp(22px, 2.4vw, 28px);
+  border-top: 1px solid var(--line); }
+
 .email-capture .capture-label {
   font-size: 0.75rem;
   font-weight: 600;
