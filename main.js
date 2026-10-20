@@ -727,6 +727,20 @@
     marquee.parentNode.insertBefore(btn, marquee);
   });
 
+  /* ---------- Purchase preview badge ----------
+     The sale switch itself is entirely CSS, driven by data-sale on <html>
+     (set before paint by a small inline script on the course pages), so
+     the page is correct in both states with scripting off. The only thing
+     JS adds is this badge, so the state is never in doubt while testing.
+     It can only appear when the flag is set, which is never public. */
+  if (document.documentElement.getAttribute("data-sale") === "open" &&
+      document.querySelector(".crs-status, .buy-box")) {
+    var flag = document.createElement("p");
+    flag.className = "sale-flag";
+    flag.textContent = "Purchase preview \u00b7 not public";
+    document.body.appendChild(flag);
+  }
+
   /* ---------- Footer year ---------- */
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();

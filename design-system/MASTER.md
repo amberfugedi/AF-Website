@@ -6467,3 +6467,66 @@ screen; six do not.
 Note for any future audit: removing one marquee did NOT move Impeccable's
 `[marquee]` count, because the rule lives in `styles.css`, which every
 page loads. It is reported per page, not per instance.
+
+---
+
+## 2026-10-20 — The course sells, behind a flag
+
+The goal was a page ready to take money, a waitlist still live until the
+academy is confirmed, and a way to test the real flow in between. Built
+as one page in two states rather than a branch or a duplicate.
+
+**`data-sale` on `<html>`, and the entire switch is two CSS rules.**
+`?buy=1` sets it for the session, `?buy=0` clears it, read by a small
+inline script in the head so the states never flash past each other. The
+shipped default is the waitlist, so a crawler, a reader with scripting
+off, and anyone without the flag all get exactly the page that was there
+before.
+
+**The money path is CSS, not JavaScript, and that took two passes.** The
+first version rewrote hrefs and labels from `data-buy-*` attributes on
+`DOMContentLoaded`. It tested green in all five states — until the launch
+simulation with scripting disabled, where the status still read "Coming
+soon" and every CTA still pointed at the email capture. A sales page that
+cannot be bought from without JS is not a sales page. Every state signal
+is now a `.sale-wait` / `.sale-open` pair, including the capture's
+demotion to outline weight, which otherwise would have shipped two coral
+buttons in one box. `main.js` is left with one job: the preview badge.
+
+The flip is symmetric on purpose. `data-sale="wait"` → `"open"` is the
+whole launch, and `?buy=0` still previews the waitlist afterwards, which
+is a rollback without a deploy.
+
+**Three probe bugs in a row, all reported as code bugs first.**
+`offsetParent` is null for `position: fixed`, so the preview badge read
+as missing. `getComputedStyle(el).display` ignores hidden ancestors, so a
+Stripe link inside a hidden container read as visible. And
+`backgroundColor` is transparent on `.btn-primary` either way, because
+that button's fill is a gradient. `element.checkVisibility()` answers the
+first two honestly; the third needed `backgroundImage`. **Validate the
+probe before believing what it says about the code.**
+
+### What the brief got wrong, and what it missed
+
+It named two purchase blocks at specific line numbers. There were **four
+primary CTAs plus a mobile purchase bar**, and the bar still read
+"Coming soon · $297 / Get updates" — the single most important CTA on a
+phone.
+
+It said "the course states no durations anywhere any more, deliberately".
+It states them in **five** places: twice on the course page, in its FAQ,
+on `courses.html`, and as `courseWorkload: PT3H` in the structured data.
+The fifteen-minute claim on `thank-you.html` still came out, but not for
+the reason given, and the other five are untouched.
+
+It also missed that the `Course` JSON-LD carried **no `offers` at all**,
+so neither page declared a price or availability to a crawler.
+
+Its six audit foundations check out against the site: the seven are
+positioning plus six, and "Your seven foundations have been assessed" on
+the course page is the end of the COURSE, not the audit, so it does not
+conflict. One naming slip: the brief calls the second foundation "get
+found", which is the layer; the foundation is **Discoverability**.
+
+Nav and footer were untouched, so the sixteen-page sync did not apply.
+Impeccable flat at 130.

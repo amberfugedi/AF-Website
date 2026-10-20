@@ -118,6 +118,64 @@ four things go together:
 
 ---
 
+## 1b. Opening the course for sale
+
+The course page is BUILT to sell and SHIPPED as a waitlist. Nothing about
+it is public yet. `?buy=1` on either course page turns on the purchase
+state for that browser session so the whole flow can be tested on the
+live domain; `?buy=0` turns it back off. A "Purchase preview · not
+public" badge shows whenever it is on, so the state is never in doubt.
+
+The switch is entirely CSS, driven by `data-sale` on `<html>`. With
+scripting off, or for a crawler, the page is the waitlist. Structured
+data says `PreOrder`, which is the public truth.
+
+### Test it before flipping anything
+
+- [ ] `/courses/build-your-marketing-foundation?buy=1` — the hero, the
+      "Who's teaching it" CTA, the purchase box and the closing band all
+      go to Stripe, the "not open yet" line is gone, and the email
+      capture has dropped to an outline button under a hairline.
+- [ ] Buy it once with a real card, then refund yourself in Stripe. Test
+      mode will not exercise the webhook that grants access.
+- [ ] Confirm the webhook granted access against the email that paid.
+- [ ] `/thank-you` is already live, noindex, and linked from nowhere, so
+      you can open it directly to check the copy.
+
+### Must be true before it goes public
+
+- [ ] **`learn.amberfugedi.com` actually serves**, and
+      `/login?purchased=1&next=/foundation` acknowledges the payment
+      rather than showing a bare sign-in. This was 502ing on 2026-08-22
+      and has not been confirmed since. Taking $297 with no delivery is
+      worse than a dead nav link.
+- [ ] **Stripe payment link success URL** set to
+      `https://www.amberfugedi.com/thank-you`. Without it buyers land on
+      Stripe's generic receipt and never reach either site, and every fix
+      on `thank-you.html` is wasted.
+- [ ] **Purchase terms and a refund policy published in `/terms`.** That
+      page currently says "No course is on sale yet. Terms of purchase,
+      access and refunds will be published here before anything can be
+      bought", and the `{{ADJUST}}` note beside it says plainly: do not
+      open checkout without them. Needs the refund window, how long
+      access lasts, what the buyer gets, and who to contact. **Amber's
+      decision, not a copy edit.**
+- [ ] **A refund question in the course FAQ.** The FAQ carries a comment
+      saying to add one once a policy exists.
+
+### The flip itself
+
+- [ ] `data-sale="wait"` → `"open"` on `<html>` in
+      `course-marketing-foundation.html` and `courses.html`. That is the
+      whole switch, and it is deliberately symmetric: `?buy=0` still
+      previews the waitlist afterwards, which is how you roll back
+      without a deploy.
+- [ ] `"availability"` `PreOrder` → `InStock` in the Course JSON-LD on
+      both pages.
+- [ ] Restore the academy links, which is item 1 above and a separate job.
+
+---
+
 ## 2b. Quotes to ask for
 
 The site carries 10 voices across 20 placements. These are the gaps, and

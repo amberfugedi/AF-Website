@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-sale="wait">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,7 +77,7 @@
           "@type": "Offer",
           "price": "297",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock",
+          "availability": "https://schema.org/PreOrder",
           "category": "Paid",
           "url": "https://www.amberfugedi.com/courses/build-your-marketing-foundation"
         },
@@ -89,6 +89,25 @@
       }
     ]
   }
+  </script>
+  <!-- PURCHASE PREVIEW. See styles.css "Purchase preview". The page is a
+       waitlist for everyone, including with JS off and including
+       crawlers. ?buy=1 flips it for this browser session only, ?buy=0
+       clears it. Set before paint so the states never flash. -->
+  <script>
+    try {
+      var el = document.documentElement;
+      var dflt = el.getAttribute("data-sale");          /* the shipped state */
+      var q = new URLSearchParams(location.search);
+      if (q.has("buy")) {
+        sessionStorage.setItem("af-buy", q.get("buy") === "0" ? "0" : "1");
+      }
+      var f = sessionStorage.getItem("af-buy");
+      /* Symmetric on purpose: the flag can force EITHER state, so at
+         launch the only edit is data-sale="wait" -> "open" on this tag
+         and ?buy=0 still previews the waitlist. */
+      el.setAttribute("data-sale", f === "1" ? "open" : f === "0" ? "wait" : dflt);
+    } catch (e) {}
   </script>
   <noscript><style>.reveal{opacity:1;transform:none}.glyph .stroke{stroke-dashoffset:0}.glyph .fill{opacity:1}.squiggle{transform:none}.reveal .tab-em::before,.reveal .tab-em::after{opacity:1;transform:none}</style></noscript>
 </head>
@@ -241,7 +260,8 @@
             </div>
 
             <div class="crs-body">
-              <p class="crs-status">Available now</p>
+              <p class="crs-status sale-wait">Coming soon</p>
+              <p class="crs-status sale-open">Available now</p>
               <h3><a href="/courses/build-your-marketing-foundation">Build Your Marketing Foundation</a></h3>
               <p>For established service businesses with paying clients and no clear marketing priority order. Diagnose seven foundations and leave with a plan for what to build first, next, and later.</p>
               <dl class="crs-meta">
@@ -278,11 +298,11 @@
             <input type="hidden" name="form-name" value="course-updates">
             <p class="hp-field" aria-hidden="true"><label>Don&#8217;t fill this out if you&#8217;re human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
             <input type="email" id="co-email" name="email" placeholder="you@company.com" aria-describedby="co-email-error" required>
-            <button class="btn btn-outline" type="submit">Subscribe</button>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
           </form>
           <p class="field-error" id="co-email-error"></p>
           <p class="form-status" id="capture-status" role="status" aria-live="polite"></p>
-          <p class="form-note">Occasional course updates, and nothing else. Unsubscribe any time. <a href="/privacy">See how your email is handled</a>.</p>
+          <p class="form-note"><span class="sale-wait">One note when the course is ready, and nothing else.</span><span class="sale-open">Occasional course updates, and nothing else.</span> Unsubscribe any time. <a href="/privacy">See how your email is handled</a>.</p>
         </div>
       </div>
     </section>
