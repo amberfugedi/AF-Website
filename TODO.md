@@ -201,30 +201,28 @@ rehearsal costs about $9 that a test rehearsal does not.
 
 ### Must be true before it goes public
 
-- [ ] **`learn.amberfugedi.com` is broken.** Confirmed by Amber on
-      2026-10-21: "Start the course" lands on a broken page. This is the
-      destination, not the link, and it cannot be diagnosed from the dev
-      environment, whose egress proxy returns 403 for both
-      `amberfugedi.com` and `learn.amberfugedi.com`. Work down this list
-      in order, because each answer rules out a different cause:
+- [ ] **The course is not on `learn.amberfugedi.com` yet** (Amber,
+      2026-10-21). That is the whole reason "Start the course" lands on a
+      broken page. Nothing on this site needs changing: the link is
+      correct and will work the moment the course is deployed there.
 
-      - [ ] Does `https://learn.amberfugedi.com/` load at all, with no
-            path and no query? If not, it is DNS or hosting, and nothing
-            about the link matters yet.
-      - [ ] Does `https://learn.amberfugedi.com/login` load with no query
-            string? If the root works and this 404s, **`/login` is the
-            wrong route** and the fix is one line in `thank-you.html`.
-            Find the academy's real sign-in path and send it over.
-      - [ ] Does `/login?purchased=1&next=/foundation` load, but ignore
-            `purchased=1` and show a bare sign-in form? That is a
-            different bug, in the academy, and the page is still usable.
-      - [ ] What exactly renders: a Netlify or Cloudflare error page with
-            a status code, a blank white page, or the academy's own error
-            screen? The first points at hosting, the second usually at a
-            JavaScript failure, the third at the application.
+      When it is deployed, the site expects this contract. It is easier
+      to build the academy to match than to change five links here:
+
+      - [ ] `https://learn.amberfugedi.com/login` is the sign-in route.
+            If the real path differs, say so and it is a one-line fix in
+            `thank-you.html` instead.
+      - [ ] `?purchased=1` makes the login acknowledge the payment rather
+            than showing a bare sign-in form to someone who has just
+            paid.
+      - [ ] `?next=/foundation` sends them into the course after sign-in,
+            landing on module one.
+      - [ ] Access is granted against the email used at checkout, by the
+            webhook, with no manual step.
 
       Until it serves, **do not flip `data-sale` to `open`.** Taking $297
       with no delivery is worse than a dead nav link.
+
 - [ ] **Stripe payment link success URL** set to
       `https://www.amberfugedi.com/thank-you`. Without it buyers land on
       Stripe's generic receipt and never reach either site, and every fix
@@ -343,6 +341,29 @@ which is why it was the one cut. Two options, both Amber's call:
 ---
 
 ## 5. Decided, recorded so it is not re-litigated
+
+- **One sales page per course, lessons never live in this repo**
+  (recorded 2026-10-21, pattern since launch). Asked and answered:
+
+  | What | Where | In this repo |
+  |---|---|---|
+  | Courses hub | `courses.html` -> `/courses` | Yes, one page, all cards |
+  | A course's sales page | `course-<slug>.html` -> `/courses/<slug>` | Yes, one per course |
+  | Lessons, audio, Foundation Map | `learn.amberfugedi.com` | **No** |
+
+  So each course gets its own HTML, but only its sales page. The hub is
+  already built for more than one: `.crs-grid` is
+  `repeat(auto-fill, minmax(300px, 1fr))`, chosen so a second and third
+  card drop in with no redesign, and MASTER records it was verified by
+  cloning the card to three.
+
+  **Adding course number two** is four edits and no new design:
+  a `<li class="crs-card">` in `courses.html`; a new
+  `course-<slug>.html` cloned from the Foundation page; two lines in
+  `_redirects` (the `301!` from the `.html` path and the `200` rewrite
+  to the clean URL); and a `<url>` block in `sitemap.xml`. Give it its
+  own title, meta description, OG tags and `Course` JSON-LD, since those
+  must stay unique per page.
 
 - **Checkout links out to Stripe, it is not embedded** (2026-10-21,
   Amber). The deciding factor is not conversion, it is that this site has

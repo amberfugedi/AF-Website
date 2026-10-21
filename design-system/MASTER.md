@@ -6738,3 +6738,38 @@ let me email her."
 
 Used the site's existing `.visually-hidden` rather than inventing a `.vh`.
 Impeccable flat at 130.
+
+---
+
+## 2026-10-21 — The broken page explained, and the course page pattern
+
+Amber: the course has not been moved to `learn.amberfugedi.com` yet. That
+is the entire cause of the broken "Start the course" page. Nothing on this
+site is wrong; the link is correct and starts working the moment the
+course is deployed there. The TODO item is reframed from "diagnose the
+breakage" to **the contract the academy has to meet**, which is the more
+useful shape: `/login` as the route, `?purchased=1` to acknowledge the
+payment rather than show a bare sign-in, `?next=/foundation` to land on
+module one, and access granted against the paying email by the webhook.
+Easier to build the academy to match than to change five links here.
+
+Her second question, answered from the repo rather than memory: **each
+course gets its own HTML, but only its sales page.**
+
+    courses.html              -> /courses                  the hub, all cards
+    course-<slug>.html        -> /courses/<slug>            one per course
+    learn.amberfugedi.com     the lessons, audio, Foundation Map
+
+The lessons never become HTML in this repo. The hub was already built for
+growth: `.crs-grid` is `repeat(auto-fill, minmax(300px, 1fr))`,
+deliberately so that a single card does not stretch across 1120px and
+have to be undone when a second course ships, and the earlier entry
+records it being verified by cloning the card to three.
+
+Adding course two is four edits and no new design: a card in
+`courses.html`, a cloned `course-<slug>.html`, two `_redirects` lines (the
+`301!` off the `.html` path and the `200` rewrite to the clean URL), and a
+`sitemap.xml` entry. Unique title, description, OG tags and `Course`
+JSON-LD per page, as CLAUDE.md requires.
+
+Recorded under TODO section 5 so the question does not need asking twice.
