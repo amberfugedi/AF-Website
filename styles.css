@@ -3648,6 +3648,12 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   color: var(--coral-deep); margin-bottom: 6px;
 }
 .ty-tip p:last-child { color: var(--muted); margin: 0; }
+/* Sits directly under the access button. --body rather than --muted,
+   because someone reading this has just hit a wall and should not have
+   to squint at the way out. */
+.ty-rescue { color: var(--body); margin: 10px 0 0; max-width: 54ch; }
+.ty-rescue a { color: var(--coral-deep); font-weight: 600; }
+
 .ty-help { color: var(--muted); margin: 40px 0 0; text-align: center; }
 .ty-help a { color: var(--coral-deep); }
 

@@ -201,11 +201,30 @@ rehearsal costs about $9 that a test rehearsal does not.
 
 ### Must be true before it goes public
 
-- [ ] **`learn.amberfugedi.com` actually serves**, and
-      `/login?purchased=1&next=/foundation` acknowledges the payment
-      rather than showing a bare sign-in. This was 502ing on 2026-08-22
-      and has not been confirmed since. Taking $297 with no delivery is
-      worse than a dead nav link.
+- [ ] **`learn.amberfugedi.com` is broken.** Confirmed by Amber on
+      2026-10-21: "Start the course" lands on a broken page. This is the
+      destination, not the link, and it cannot be diagnosed from the dev
+      environment, whose egress proxy returns 403 for both
+      `amberfugedi.com` and `learn.amberfugedi.com`. Work down this list
+      in order, because each answer rules out a different cause:
+
+      - [ ] Does `https://learn.amberfugedi.com/` load at all, with no
+            path and no query? If not, it is DNS or hosting, and nothing
+            about the link matters yet.
+      - [ ] Does `https://learn.amberfugedi.com/login` load with no query
+            string? If the root works and this 404s, **`/login` is the
+            wrong route** and the fix is one line in `thank-you.html`.
+            Find the academy's real sign-in path and send it over.
+      - [ ] Does `/login?purchased=1&next=/foundation` load, but ignore
+            `purchased=1` and show a bare sign-in form? That is a
+            different bug, in the academy, and the page is still usable.
+      - [ ] What exactly renders: a Netlify or Cloudflare error page with
+            a status code, a blank white page, or the academy's own error
+            screen? The first points at hosting, the second usually at a
+            JavaScript failure, the third at the application.
+
+      Until it serves, **do not flip `data-sale` to `open`.** Taking $297
+      with no delivery is worse than a dead nav link.
 - [ ] **Stripe payment link success URL** set to
       `https://www.amberfugedi.com/thank-you`. Without it buyers land on
       Stripe's generic receipt and never reach either site, and every fix

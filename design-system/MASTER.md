@@ -6697,3 +6697,44 @@ create the Checkout Session, so Netlify Functions and a secret key in env
 vars, on a site whose defining property is no build step and no backend.
 
 Recorded under TODO section 5 so it is not re-litigated.
+
+---
+
+## 2026-10-21 — The thank-you page should survive a broken academy
+
+Amber tested it: "Start the course" lands on a broken page at
+`learn.amberfugedi.com/login?purchased=1&next=/foundation`. That is the
+destination, not the link, which is exactly what the brief specified, and
+it cannot be diagnosed from here: the egress proxy returns **403 CONNECT**
+for both `amberfugedi.com` and `learn.amberfugedi.com`, so every earlier
+`000` from this environment proved nothing about either host. The
+diagnostic ladder is in TODO.md, ordered so each answer rules out a
+different cause. The cheapest possibility is that `/login` is simply the
+wrong route, which is a one-line fix here.
+
+**What was ours to fix was the page assuming the academy works.** The
+recovery line lived at the very foot of `thank-you.html`, below the
+closing CTA band, which is the one place a stuck buyer will not look.
+Someone who has just paid $297, clicked the button and hit a wall had to
+scroll the whole page to find the email address.
+
+Two changes:
+
+**The rescue line now sits with the button**, 54px under it on desktop
+and 78px on mobile, inside the first screen at both widths. It is
+`--body`, not `--muted`, because someone reading it has just hit a wall
+and should not have to squint at the way out. It opens by saying nothing
+is lost and the payment stands, before it asks them to email, because
+that is the actual fear. The foot of the page keeps a general catch-all,
+reworded so the two are not the same sentence twice.
+
+**Both access buttons open in a new tab** (`target="_blank"`,
+`rel="noopener"`, with "(opens in a new tab)" in `.visually-hidden` for
+screen readers). Normally a new tab is a cost, not a feature. Here it is
+the mitigation: a broken destination can no longer take the thank-you
+page with it, so the receipt note and the rescue line are still sitting
+behind the failed tab. That turns "I am stuck" into "that did not work,
+let me email her."
+
+Used the site's existing `.visually-hidden` rather than inventing a `.vh`.
+Impeccable flat at 130.
