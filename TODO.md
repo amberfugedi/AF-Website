@@ -159,9 +159,43 @@ developer.
       "Who's teaching it" CTA, the purchase box and the closing band all
       go to Stripe, the "not open yet" line is gone, and the email
       capture has dropped to an outline button under a hairline.
-- [ ] Buy it once with a real card, then refund yourself in Stripe. Test
-      mode will not exercise the webhook that grants access.
-- [ ] Confirm the webhook granted access against the email that paid.
+#### Rehearse the whole purchase in Stripe test mode, for free
+
+An earlier note here said test mode would not exercise the webhook. **That
+was wrong.** Stripe test mode fires webhooks normally, to endpoints
+registered in test mode, which are kept separate from live ones. Register
+the same endpoint there and the entire chain is rehearsable at no cost.
+
+- [ ] In Stripe, switch to **Test mode**, and create a test payment link:
+      same product, $297, `metadata.course_id = foundation`, success URL
+      `https://www.amberfugedi.com/thank-you`.
+- [ ] Still in Test mode, add a webhook endpoint pointing at the **same
+      URL as live**, subscribed to the same events.
+- [ ] **Check the endpoint accepts a test-mode signature.** Test mode has
+      its own signing secret. A handler that only knows the live secret
+      will reject every test event as invalid, which looks exactly like a
+      broken webhook and is not one. This is the step most likely to
+      waste an afternoon.
+- [ ] Paste the test link into `data-pay-test` on `<html>` in
+      `course-marketing-foundation.html` and `courses.html`, replacing
+      `{{STRIPE_TEST_LINK}}`. One attribute per page.
+- [ ] Deploy, then open
+      `/courses/build-your-marketing-foundation?buy=test`. The badge
+      should read "Test mode · card 4242 4242 4242 4242". If it reads
+      "Test link not set" the buttons are deliberately disabled and the
+      attribute still holds the placeholder.
+- [ ] Pay with `4242 4242 4242 4242`, any future expiry, any CVC, any
+      postcode. **Use a dedicated test email**, because a successful test
+      payment creates a real account at the academy.
+- [ ] Confirm you land on `/thank-you`, the webhook granted access to
+      that email, and "Start the course" signs in and opens module one.
+- [ ] Delete the test account afterwards, and clear `data-pay-test` back
+      to the placeholder before launch so the test path cannot be used
+      against a stale link.
+
+A real-card purchase is only needed if the live and test webhook paths
+differ. Stripe does not return the processing fee on a refund, so a live
+rehearsal costs about $9 that a test rehearsal does not.
 - [ ] `/thank-you` is already live, noindex, and linked from nowhere, so
       you can open it directly to check the copy.
 

@@ -6634,3 +6634,39 @@ ancestor's child, `backgroundColor` on a gradient button, and now parent
 Recorded in TODO.md, including the one real caveat: the Stripe URL ships
 in the source hidden by CSS, so the payment link should stay deactivated
 in Stripe until launch day.
+
+---
+
+## 2026-10-21 — Rehearsing the purchase for free: `?buy=test`
+
+Amber wants to test buying before it goes live. The flag gained a third
+value rather than a second mechanism:
+
+    ?buy=1     the real purchase page, real link, real money
+    ?buy=test  the same page wired to the TEST-mode Stripe link
+    ?buy=0     back to the waitlist
+
+**A correction to what this file said two days ago.** The launch checklist
+claimed test mode would not exercise the webhook that grants access, so a
+rehearsal needed a real card and a refund. That is wrong. Stripe test mode
+fires webhooks normally; what is true is that test-mode endpoints are
+registered separately from live ones, so the same URL has to be added in
+both. The checklist now says so, and adds the trap behind it: **test mode
+has its own signing secret**, and a handler that only knows the live
+secret rejects every test event as invalid, which is indistinguishable
+from a broken webhook.
+
+The test link lives in `data-pay-test` on `<html>`, one attribute per
+page. `main.js` swaps the buy hrefs to it, and the badge becomes "Test
+mode · card 4242 4242 4242 4242" so the state is unmistakable.
+
+**The fail-safe is the part worth keeping.** While `data-pay-test` still
+holds `{{STRIPE_TEST_LINK}}`, `?buy=test` does not fall back to the live
+link. It strips the hrefs, disables the buttons and the badge reads "Test
+link not set · buying is disabled". A rehearsal that silently charges $297
+is worse than one that refuses to run, and the href check is a strict
+`^https://buy\\.stripe\\.com/` match rather than a truthiness test, so a
+half-pasted value cannot slip through either.
+
+Verified across five states: waitlist, live purchase, test with the link
+unset, test with it set, and back to the waitlist. Impeccable flat at 130.

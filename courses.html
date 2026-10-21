@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-sale="wait">
+<html lang="en" data-sale="wait" data-pay-test="{{STRIPE_TEST_LINK}}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,23 +90,24 @@
     ]
   }
   </script>
-  <!-- PURCHASE PREVIEW. See styles.css "Purchase preview". The page is a
-       waitlist for everyone, including with JS off and including
-       crawlers. ?buy=1 flips it for this browser session only, ?buy=0
-       clears it. Set before paint so the states never flash. -->
+  <!-- PURCHASE PREVIEW. See styles.css "Purchase preview" and the longer
+       note on the course page. ?buy=1 real link, ?buy=test the test-mode
+       link, ?buy=0 back to the waitlist. Set before paint. -->
   <script>
     try {
       var el = document.documentElement;
       var dflt = el.getAttribute("data-sale");          /* the shipped state */
       var q = new URLSearchParams(location.search);
       if (q.has("buy")) {
-        sessionStorage.setItem("af-buy", q.get("buy") === "0" ? "0" : "1");
+        var v = q.get("buy");
+        sessionStorage.setItem("af-buy", v === "0" ? "0" : v === "test" ? "test" : "1");
       }
       var f = sessionStorage.getItem("af-buy");
       /* Symmetric on purpose: the flag can force EITHER state, so at
          launch the only edit is data-sale="wait" -> "open" on this tag
          and ?buy=0 still previews the waitlist. */
-      el.setAttribute("data-sale", f === "1" ? "open" : f === "0" ? "wait" : dflt);
+      el.setAttribute("data-sale", f === "0" ? "wait" : f ? "open" : dflt);
+      if (f === "test") el.setAttribute("data-pay", "test");
     } catch (e) {}
   </script>
   <noscript><style>.reveal{opacity:1;transform:none}.glyph .stroke{stroke-dashoffset:0}.glyph .fill{opacity:1}.squiggle{transform:none}.reveal .tab-em::before,.reveal .tab-em::after{opacity:1;transform:none}</style></noscript>

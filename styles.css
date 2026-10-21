@@ -5334,6 +5334,14 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 [data-sale="wait"] .sale-open { display: none !important; }
 [data-sale="open"] .sale-wait { display: none !important; }
 
+/* A buy button with nowhere safe to point. Only reachable in a flagged
+   test session whose test link is not set yet. */
+.btn.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* So the state is never in doubt while testing. Only renders when the
    flag is set, which is never the public case. Bottom-left, and lifted
    above the mobile purchase bar, so it covers neither the skip link nor
