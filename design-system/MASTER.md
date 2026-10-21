@@ -6592,3 +6592,45 @@ the slot that only exists when the sale is open.
 in US dollars and the buyer's bank sets the conversion.
 
 Impeccable flat at 130.
+
+---
+
+## 2026-10-21 — Proving the deploy is a no-op for the public
+
+Amber asked whether the pages could be published but left unlinked. They
+were already published and already linked: `/courses` sits in the nav
+under Shop and both course URLs are in `sitemap.xml`. The blocker was
+never linking, it was that the branch had not reached production, and the
+`?buy=1` design already solves the thing she was trying to solve.
+
+So the useful work was proving it. Rendered the public waitlist state
+before (`cf65fd1`) and after, and compared every visible text node as a
+multiset rather than eyeballing a screenshot:
+
+    text the public LOSES : nothing
+    text the public GAINS : nothing
+
+Title, meta description, canonical and robots unchanged. No visible link
+added on either course page. JSON-LD gains exactly one `offers` block at
+`PreOrder`. The only genuinely new public content anywhere is the
+purchase terms on `/terms`, which the old placeholder promised.
+
+**It caught a real regression on the way.** `.buy-note` ("Built to be
+used, not just watched.") had been scoped `.sale-open`, which silently
+deleted it from the public waitlist page. It is a statement about the
+course, not about buying one, so it is back in both states.
+
+**Fourth probe bug of this piece of work, and the most instructive.**
+Comparing `[...el.querySelectorAll('*')].map(e => e.textContent)` reports
+hidden content as visible, because a visible parent's `textContent`
+includes its `display:none` children. Both hidden `.sale-open` CTAs read
+as present. Walking text NODES and testing
+`node.parentElement.checkVisibility()` is the measurement that answers the
+question actually being asked. The running tally for this change:
+`offsetParent` on a fixed element, computed `display` on a hidden
+ancestor's child, `backgroundColor` on a gradient button, and now parent
+`textContent`. **Every one of them first looked like a bug in the page.**
+
+Recorded in TODO.md, including the one real caveat: the Stripe URL ships
+in the source hidden by CSS, so the payment link should stay deactivated
+in Stripe until launch day.

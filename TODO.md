@@ -130,6 +130,29 @@ The switch is entirely CSS, driven by `data-sale` on `<html>`. With
 scripting off, or for a crawler, the page is the waitlist. Structured
 data says `PreOrder`, which is the public truth.
 
+### Deploying this is safe before launch
+
+Measured, not assumed. Rendered the public (waitlist) state of the course
+page before and after this work and compared the visible text node by
+node: **it loses nothing and gains nothing.** One line, "Built to be used,
+not just watched.", moved from below the email form to above it. Title,
+meta description, canonical and robots are untouched. No new visible link
+appears anywhere. The only public addition on the whole site is the
+purchase terms on `/terms`, which that page's old copy promised would be
+published before anything could be bought.
+
+Structured data gains an `offers` block saying `PreOrder`, which is the
+honest public statement for a course that is not on sale yet.
+
+**One caveat worth knowing.** The Stripe URL is in the page source five
+times, hidden by CSS rather than absent. Someone who views source could
+find it and buy before launch, and the webhook would grant them access, so
+they would get what they paid for. The clean mitigation is to leave the
+payment link **deactivated in Stripe** until launch day and switch it on
+for the few minutes it takes to run the test purchase. Then the
+source-visible URL cannot take money from anyone, including a curious
+developer.
+
 ### Test it before flipping anything
 
 - [ ] `/courses/build-your-marketing-foundation?buy=1` — the hero, the
