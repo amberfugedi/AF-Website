@@ -325,6 +325,25 @@ which is why it was the one cut. Two options, both Amber's call:
 
 ## 5. Decided, recorded so it is not re-litigated
 
+- **Checkout links out to Stripe, it is not embedded** (2026-10-21,
+  Amber). The deciding factor is not conversion, it is that this site has
+  zero cookies, zero third-party embeds and therefore needs no consent
+  banner, which was a deliberate outcome of the compliance pass. Both
+  embed routes load Stripe.js, which sets first-party fraud-detection
+  cookies on amberfugedi.com and very likely ends that position.
+
+  Worth knowing if it comes up again: Stripe's buy button and pricing
+  table embed the BUTTON, not the payment form, so clicking still goes
+  to Stripe. They give up the cookie position without removing the
+  redirect, which is the worst of the three. A genuine on-page payment
+  form needs a server to create the Checkout Session, meaning Netlify
+  Functions and the Stripe secret key in env vars, on a site whose
+  defining property is no build step and no backend.
+
+  Stripe's hosted checkout carries Apple Pay, Google Pay and Link, and
+  checkout.stripe.com is a domain buyers already trust. For a considered
+  $297 purchase the redirect costs very little.
+
 - **Test with the real fonts loaded** (2026-08-22). Headless renders had
   been blocking fonts.googleapis.com, so Chromium substituted a serif
   with narrower metrics than Newsreader. A highlight that measured safe

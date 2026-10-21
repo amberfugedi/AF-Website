@@ -6670,3 +6670,30 @@ half-pasted value cannot slip through either.
 
 Verified across five states: waitlist, live purchase, test with the link
 unset, test with it set, and back to the waitlist. Impeccable flat at 130.
+
+---
+
+## 2026-10-21 — Checkout links out, and why
+
+Amber asked whether we were embedding checkout rather than linking out.
+Checked first: no such decision exists in MASTER, TODO or CLAUDE.md, and
+the brief specified a Stripe payment link, which is a hosted page by
+definition. So it was an open question, not a dropped one.
+
+Her call after seeing the trade: **keep the link-out.**
+
+The deciding factor is not conversion. It is that this site has zero
+cookies, zero third-party embeds and therefore needs no consent banner,
+which MASTER records as a deliberate outcome of the compliance pass. Both
+embed routes load Stripe.js, which sets first-party fraud-detection
+cookies on amberfugedi.com, and that very likely ends the position.
+
+The distinction worth keeping, because the names mislead: Stripe's buy
+button and pricing table embed the **button**, not the payment form.
+Clicking one still goes to Stripe. They cost the cookie position without
+removing the redirect, which makes them the worst of the three options
+rather than the middle one. A real on-page payment form needs a server to
+create the Checkout Session, so Netlify Functions and a secret key in env
+vars, on a site whose defining property is no build step and no backend.
+
+Recorded under TODO section 5 so it is not re-litigated.
