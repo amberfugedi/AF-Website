@@ -6,10 +6,16 @@
   <url><loc>https://{{DOMAIN}}/services/roof-washing</loc></url>
   <url><loc>https://{{DOMAIN}}/services/driveway-concrete-cleaning</loc></url>
   <url><loc>https://{{DOMAIN}}/services/patio-walkway-cleaning</loc></url>
+  <url><loc>https://{{DOMAIN}}/services/gutter-cleaning</loc></url>
   <url><loc>https://{{DOMAIN}}/services/commercial-exterior-cleaning</loc></url>
   <url><loc>https://{{DOMAIN}}/our-work</loc></url>
   <url><loc>https://{{DOMAIN}}/service-areas</loc></url>
-  <url><loc>https://{{DOMAIN}}/service-areas/wethersfield-ct</loc></url>
+  <url><loc>https://{{DOMAIN}}/service-areas/farmington-ct</loc></url>
+  <url><loc>https://{{DOMAIN}}/service-areas/simsbury-ct</loc></url>
+  <url><loc>https://{{DOMAIN}}/our-work/house-wash-vinyl-siding-garage</loc></url>
+  <url><loc>https://{{DOMAIN}}/our-work/simsbury-restaurant-sidewalks-parking-lot</loc></url>
+  <url><loc>https://{{DOMAIN}}/our-work/farmington-paver-patio-walkways</loc></url>
+  <url><loc>https://{{DOMAIN}}/our-work/simsbury-dumpster-enclosure</loc></url>
   <url><loc>https://{{DOMAIN}}/about</loc></url>
   <url><loc>https://{{DOMAIN}}/faq</loc></url>
   <url><loc>https://{{DOMAIN}}/resources</loc></url>

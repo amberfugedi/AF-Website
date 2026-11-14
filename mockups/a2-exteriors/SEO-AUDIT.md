@@ -69,3 +69,23 @@ page (`seo_audit.py` logic summarised below), plus a manual read of every alt te
   card link to a specific, indexable project.
 - **Roof washing** has a full page but no photos; it is the weakest page for
   conversion and image search.
+
+## Recommendations applied (2026-11-14)
+
+1. **Descriptive H1s:** Our Work "Before and after: exterior cleaning projects in
+   Connecticut"; Service Areas "Exterior cleaning service areas in Central Connecticut";
+   About "Locally owned exterior cleaning in Central Connecticut" (tagline moved to the
+   lede); FAQ "Exterior cleaning questions and answers".
+2. **Town pages:** `/service-areas/farmington-ct` and `/service-areas/simsbury-ct`, each
+   built on the real jobs in that town, with local detail from Anthony flagged.
+   Wethersfield removed from the sitemap until it has a real project (page kept, links kept).
+3. **Gutter Cleaning page:** `/services/gutter-cleaning`, added to nav, footer, services
+   list, quote form options, and service schema. A2-specific method, cleanup, and repair
+   scope flagged for Anthony. No photos yet.
+4. **Project pages:** four real jobs, one page each under `/our-work/`
+   (house wash, Simsbury restaurant, Farmington pavers, Simsbury dumpster enclosure),
+   grouping every photo from the job. Our Work moved to `/our-work/` (folder index);
+   project titles on cards link to their pages; homepage "View Project" links go to the
+   specific project. Placeholder projects stay card-only.
+
+Pages: 20 -> 27. Sitemap: 24 URLs.

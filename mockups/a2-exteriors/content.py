@@ -8,6 +8,8 @@ or removed before launch. General cleaning education is industry-standard
 and phrased as general, not as a claim about A2's specific process.
 """
 
+import os
+
 BIZ = {
     "name": "A2 Exteriors",
     "phone_display": "860-430-4568",
@@ -285,6 +287,47 @@ SERVICES = [
         "photo2": "walkway-farmington",
     },
     {
+        "slug": "gutter-cleaning",
+        "name": "Gutter Cleaning",
+        "short": "Clearing leaves and debris from gutters and downspouts so rain drains away from your house.",
+        "surfaces": "Gutters, downspouts",
+        "title": "Gutter Cleaning in Central Connecticut | A2 Exteriors",
+        "description": "Gutter and downspout cleaning in Central Connecticut. We clear leaves and debris so water drains away from your siding and foundation. Call 860-430-4568.",
+        "h1": "Gutter cleaning",
+        "lede": "Clogged gutters overflow, and the water ends up against your siding, your foundation, and your front steps. We clear out leaves and debris so rain goes where it should.",
+        "answer_q": "What does gutter cleaning include?",
+        "answer": "Gutter cleaning removes leaves, pine needles, seed pods, and built-up debris from the gutter troughs, then checks that each downspout drains. [[tbc:How A2 cleans gutters: by hand, with a gutter vacuum, or both, and whether debris is bagged and hauled away]]",
+        "body": """
+<h2>Why gutters matter</h2>
+<p>Gutters carry roof water away from the house. When they fill with leaves, water spills over the edge instead. That overflow can:</p>
+<ul>
+  <li>Soak the ground along your foundation and find its way into basements</li>
+  <li>Stain siding and wash out mulch beds below the roof line</li>
+  <li>Freeze in winter and add weight that pulls gutters away from the fascia</li>
+  <li>Hold damp debris against the roof edge and fascia boards</li>
+</ul>
+
+<h2>What we clean</h2>
+<ul class="check-list">
+  <li>Gutter troughs on every side of the house</li>
+  <li>Downspouts, checked so water flows through</li>
+  <li>[[tbc:Debris removal and cleanup from the yard and driveway]]</li>
+</ul>
+<p>Dark streaks on the outside face of gutters are a separate job. Those come off with a <a href="@@L:services/house-washing@@">house wash</a>, and we can do both on the same visit.</p>
+<p>[[tbc:Whether A2 repairs gutters, reattaches loose sections, or installs gutter guards]]</p>
+
+<h2>When to book</h2>
+<p>In Connecticut, most homes need gutters cleaned in late fall, after the leaves come down, and again in spring to clear seed pods and needles. Homes under oaks, maples, or pines often need a third cleaning.</p>
+<p>Signs your gutters need attention: water spilling over the edge during rain, plants growing in the gutters, gutters sagging or pulling away, or a downspout that stays dry in a storm.</p>
+""",
+        "faqs": [
+            ("How often should gutters be cleaned?", "Most Connecticut homes need it twice a year, in late fall and spring. Homes with heavy tree cover may need it more often."),
+            ("Can you clean the outside of my gutters too?", "Yes. The black streaks on the outside of gutters come off during a house wash, which can be booked with your gutter cleaning."),
+            ("Do I need to be home?", "[[tbc:Not usually, as long as we can reach every side of the house.]]"),
+        ],
+        "ba": "Gutter cleaning",
+    },
+    {
         "slug": "commercial-exterior-cleaning",
         "name": "Commercial Exterior Cleaning",
         "short": "Exterior cleaning for storefronts, entryways, sidewalks, and building walls.",
@@ -372,12 +415,43 @@ FAQ_GROUPS = [
 # Projects (Webflow: Projects CMS collection). All placeholders.
 # ---------------------------------------------------------------------
 PROJECTS = [
-    ("house-washing", "House wash", "[[tbc:Town]], CT", "Vinyl siding and garage doors", "house-wash-garage"),
-    ("roof-washing", "Roof wash", "[[tbc:Town]]", "Asphalt shingle roof"),
-    ("driveway-concrete-cleaning", "Concrete cleaning", "Simsbury, CT", "Restaurant sidewalks and curbs", "curb-simsbury"),
-    ("patio-walkway-cleaning", "Patio and walkway cleaning", "Farmington, CT", "Herringbone paver walkway", "patio-herringbone"),
-    ("commercial-exterior-cleaning", "Commercial cleaning", "Simsbury, CT", "Dumpster enclosure", "dumpster-enclosure"),
-    ("house-washing", "House wash", "[[tbc:Town]]", "Clapboard cape"),
+    # page: True gets its own page at /our-work/<slug>. Placeholders stay card-only.
+    {"slug": "house-wash-vinyl-siding-garage", "service": "house-washing", "label": "House wash", "town": "[[tbc:Town]], CT",
+     "title": "Vinyl siding and garage doors", "photo": "house-wash-garage", "page": True,
+     "h1": "House wash: vinyl siding and garage doors",
+     "summary": "Green algae and mildew had streaked the cream vinyl siding above this two-car garage, heaviest across the upper wall. A house wash cleared the siding, the trim, and the garage and entry doors.",
+     "work": ["Vinyl siding on the garage wing", "White trim, fascia, and window casings", "Garage doors and the double entry doors"],
+     "property": "Home", "media": [("ba", "house-wash-garage")],
+     "seo_title": "House Wash Before and After | A2 Exteriors",
+     "seo_desc": "Before and after: green algae and mildew washed off cream vinyl siding and garage doors by A2 Exteriors, a Connecticut exterior cleaning company."},
+    {"slug": "roof-placeholder", "service": "roof-washing", "label": "Roof wash", "town": "[[tbc:Town]]", "title": "Asphalt shingle roof"},
+    {"slug": "simsbury-restaurant-sidewalks-parking-lot", "service": "driveway-concrete-cleaning", "label": "Concrete cleaning", "town": "Simsbury, CT",
+     "title": "Restaurant sidewalks and curbs", "photo": "curb-simsbury", "page": True,
+     "h1": "Restaurant sidewalks and parking lot in Simsbury, CT",
+     "summary": "We pressure washed the sidewalks and parking lot at a Simsbury restaurant, including the curbs along the lot and the concrete around the outdoor smoker. [[tbc:Name the restaurant only with the owner's permission]]",
+     "work": ["Concrete sidewalks along the parking lot", "Curbs and curb edges", "Concrete pad around the outdoor smoker", "Parking lot surface"],
+     "property": "Restaurant", "media": [("ba", "curb-simsbury"), ("ba", "sidewalk-simsbury"),
+        ("img", "commercial-sidewalk-parking-lot-simsbury-after", "Restaurant parking lot and sidewalk in Simsbury after pressure washing, with cones and equipment still set up")],
+     "seo_title": "Restaurant Sidewalk Cleaning in Simsbury, CT | A2 Exteriors",
+     "seo_desc": "Before and after photos of restaurant sidewalks, curbs, and parking lot pressure washed by A2 Exteriors in Simsbury, Connecticut."},
+    {"slug": "farmington-paver-patio-walkways", "service": "patio-walkway-cleaning", "label": "Patio and walkway cleaning", "town": "Farmington, CT",
+     "title": "Paver patio and walkways", "photo": "patio-herringbone", "page": True,
+     "h1": "Paver patio and walkways in Farmington, CT",
+     "summary": "Moss and weeds had filled the joints of this Farmington home" + "’" + "s pavers, and the brick had faded to gray. We cleaned the back patio, the herringbone path beside the garden steps, and the curved front walk.",
+     "work": ["Herringbone paver patio under the deck", "Herringbone path along the garden steps", "Curved paver front walkway and border bands", "Moss and weeds cleared from the joints"],
+     "property": "Home", "media": [("ba", "patio-herringbone"), ("ba", "walkway-farmington"),
+        ("img", "patio-pavers-farmington-half-cleaned", "Farmington paver patio partway through cleaning, cleaned pavers red and tan beside gray uncleaned ones")],
+     "seo_title": "Paver Patio Cleaning in Farmington, CT | A2 Exteriors",
+     "seo_desc": "Before and after photos of a paver patio, herringbone path, and front walkway cleaned by A2 Exteriors at a home in Farmington, Connecticut."},
+    {"slug": "simsbury-dumpster-enclosure", "service": "commercial-exterior-cleaning", "label": "Commercial cleaning", "town": "Simsbury, CT",
+     "title": "Dumpster enclosure", "photo": "dumpster-enclosure", "page": True,
+     "h1": "Dumpster enclosure and service alley in Simsbury, CT",
+     "summary": "The area nobody wants to clean, and the one everyone notices when it" + "’" + "s dirty. Dirt, leaves, and trash had built up around this business" + "’" + "s dumpster enclosure and the narrow alley beside it. We cleared the debris and pressure washed the concrete pad, the curb, and the alley.",
+     "work": ["Debris and litter cleared from the enclosure", "Concrete pad and curb pressure washed", "Service alley between the fence and dumpsters"],
+     "property": "Commercial", "media": [("ba", "dumpster-enclosure"), ("ba", "dumpster-alley")],
+     "seo_title": "Dumpster Pad Cleaning in Simsbury, CT | A2 Exteriors",
+     "seo_desc": "Before and after: a commercial dumpster enclosure and service alley pressure washed by A2 Exteriors in Simsbury, Connecticut."},
+    {"slug": "clapboard-placeholder", "service": "house-washing", "label": "House wash", "town": "[[tbc:Town]]", "title": "Clapboard cape"},
 ]
 
 
@@ -476,14 +550,69 @@ def ba(label, key=None, eager=False):
 
 
 def project_card(p, tag="article", eager=False):
-    slug, label, town, prop = p[:4]
-    photo = p[4] if len(p) > 4 else None
-    svc = next(s for s in SERVICES if s["slug"] == slug)
-    return f"""<{tag} class="project-card reveal" data-service="{slug}">
-  {ba(prop.lower() + ", " + label.lower(), photo, eager)}
-  <p class="meta">{town} / {label}</p>
-  <h3>{prop}</h3>
+    title = p["title"]
+    heading = f'<a href="@@L:our-work/{p["slug"]}@@">{title}</a>' if p.get("page") else title
+    return f"""<{tag} class="project-card reveal" data-service="{p["service"]}">
+  {ba(title.lower() + ", " + p["label"].lower(), p.get("photo"), eager)}
+  <p class="meta">{p["town"]} / {p["label"]}</p>
+  <h3>{heading}</h3>
 </{tag}>"""
+
+
+def project_page(p):
+    svc = next(s for s in SERVICES if s["slug"] == p["service"])
+    media = []
+    for m in p["media"]:
+        if m[0] == "ba":
+            media.append(ba(p["title"].lower() + ", " + m[1].replace("-", " "), m[1]))
+        else:
+            from PIL import Image as _I
+            w, h = _I.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "site", "images", m[1] + ".webp")).size
+            media.append(f'<figure class="project-photo"><img src="@@IMG@@{m[1]}.webp" alt="{m[2]}" width="{w}" height="{h}" loading="lazy" decoding="async"></figure>')
+    work = "".join(f"<li>{w}</li>" for w in p["work"])
+    more = [q for q in PROJECTS if q.get("page") and q is not p][:2]
+    body = f"""
+<section class="section">
+  <div class="container layout-sidebar">
+    <article class="prose project-body">
+      <div class="project-media">{"".join(media)}</div>
+      <h2>About this job</h2>
+      <p>{p["summary"]}</p>
+      <h2>What we cleaned</h2>
+      <ul class="check-list">{work}</ul>
+      <p>Learn more about <a href="@@L:services/{svc["slug"]}@@">{svc["name"].lower()}</a>.</p>
+    </article>
+    <aside class="sidebar" aria-label="Project details">
+      <div class="side-card">
+        <h3>Project details</h3>
+        <dl class="project-facts">
+          <div><dt>Town</dt><dd>{p["town"]}</dd></div>
+          <div><dt>Service</dt><dd><a href="@@L:services/{svc["slug"]}@@">{svc["name"]}</a></dd></div>
+          <div><dt>Property</dt><dd>{p["property"]}</dd></div>
+        </dl>
+      </div>
+      {estimate_side_card()}
+    </aside>
+  </div>
+</section>
+<section class="section is-stone" aria-labelledby="more-title">
+  <div class="container">
+    <div class="section-head"><h2 id="more-title">More projects</h2></div>
+    <div class="project-grid">{"".join(project_card(q) for q in more)}</div>
+    <p class="section-foot"><a class="text-link" href="@@L:our-work@@">See Our Work</a></p>
+  </div>
+</section>
+"""
+    return {
+        "route": "our-work/" + p["slug"],
+        "title": p["seo_title"],
+        "description": p["seo_desc"],
+        "h1": p["h1"],
+        "lede": p["summary"].split(". ")[0] + ".",
+        "crumbs": [("Our Work", "our-work"), (p["title"], "our-work/" + p["slug"])],
+        "body": body,
+        "og_image": next((m[1] + ".jpg" for m in p["media"] if m[0] == "img"), "og-our-work.jpg"),
+    }
 
 
 def services_list():
@@ -576,7 +705,7 @@ HOME_BODY = f"""
         <p class="meta">[[tbc:Town]], CT / House wash</p>
         <h3>Vinyl siding and garage doors</h3>
         <p>Green algae and mildew had streaked the siding above the garage. A house wash cleared the siding, trim, and garage doors. [[tbc:Town and any project details from Anthony]]</p>
-        <a class="text-link" href="@@L:our-work@@">View Project</a>
+        <a class="text-link" href="@@L:our-work/house-wash-vinyl-siding-garage@@">View Project</a>
       </div>
     </div>
   </div>
@@ -670,19 +799,19 @@ HOME_BODY = f"""
         <div class="recent-photo"><img class="recent-img" src="@@IMG@@paver-walkway-farmington-after.webp" alt="Curved paver front walkway in Farmington after cleaning, leading to the street past garden beds and lawn" width="800" height="905" loading="lazy" decoding="async"></div>
         <p class="meta">Farmington, CT / Patio and walkway cleaning</p>
         <h3>Paver front walkway</h3>
-        <a class="text-link" href="@@L:our-work@@">View Project</a>
+        <a class="text-link" href="@@L:our-work/farmington-paver-patio-walkways@@">View Project</a>
       </article>
       <article class="recent-card reveal">
         <div class="recent-photo"><img class="recent-img" src="@@IMG@@house-wash-vinyl-siding-garage-after.webp" alt="Cream vinyl siding and white garage doors after an A2 house wash" width="622" height="887" loading="lazy" decoding="async" style="object-position: 50% 45%"></div>
         <p class="meta">[[tbc:Town]], CT / House wash</p>
         <h3>Vinyl siding and garage doors</h3>
-        <a class="text-link" href="@@L:our-work@@">View Project</a>
+        <a class="text-link" href="@@L:our-work/house-wash-vinyl-siding-garage@@">View Project</a>
       </article>
       <article class="recent-card reveal">
         <div class="recent-photo"><img class="recent-img" src="@@IMG@@commercial-sidewalk-parking-lot-simsbury-after.webp" alt="Restaurant parking lot and sidewalk in Simsbury after pressure washing" width="800" height="652" loading="lazy" decoding="async"></div>
         <p class="meta">Simsbury, CT / Commercial</p>
         <h3>Restaurant sidewalks and parking lot</h3>
-        <a class="text-link" href="@@L:our-work@@">View Project</a>
+        <a class="text-link" href="@@L:our-work/simsbury-restaurant-sidewalks-parking-lot@@">View Project</a>
       </article>
     </div>
     <p class="section-foot"><a class="button is-primary" href="@@L:our-work@@">See Our Work</a></p>
@@ -724,7 +853,6 @@ HOME_BODY = f"""
             <select class="select" id="h-service" name="service" required>
               <option value="">Choose a service</option>
               {SERVICE_OPTIONS}
-              <option value="Gutter Cleaning">Gutter Cleaning</option>
               <option value="Not sure">Not sure / more than one</option>
             </select>
           </div>
@@ -865,8 +993,8 @@ SERVICE_AREAS_BODY = f"""
       <p>A2 Exteriors is based in Central Connecticut and works in these towns. Each town page shows real jobs we have done there.</p>
       <ul class="area-list">
         <li><a href="@@L:service-areas/wethersfield-ct@@">Wethersfield, CT</a></li>
-        <li><span>Farmington, CT</span></li>
-        <li><span>Simsbury, CT</span></li>
+        <li><a href="@@L:service-areas/farmington-ct@@">Farmington, CT</a></li>
+        <li><a href="@@L:service-areas/simsbury-ct@@">Simsbury, CT</a></li>
         <li><span>[[tbc:Town, CT]]</span></li>
         <li><span>[[tbc:Town, CT]]</span></li>
       </ul>
@@ -909,9 +1037,65 @@ WETHERSFIELD_BODY = f"""
       <p class="lede">This page goes live once it has real Wethersfield projects to show.</p>
     </div>
     <div class="project-grid">
-      {"".join(project_card(p) for p in PROJECTS if p[2] == "Wethersfield, CT")}
+      {"".join(project_card(p) for p in PROJECTS if p["town"] == "Wethersfield, CT")}
     </div>
-    {"" if any(p[2] == "Wethersfield, CT" for p in PROJECTS) else '<div class="empty-state"><p><strong>No Wethersfield projects posted yet.</strong> See recent work from nearby towns.</p><a class="button is-primary" href="@@L:our-work@@">See Our Work</a></div>'}
+    {"" if any(p["town"] == "Wethersfield, CT" for p in PROJECTS) else '<div class="empty-state"><p><strong>No Wethersfield projects posted yet.</strong> See recent work from nearby towns.</p><a class="button is-primary" href="@@L:our-work@@">See Our Work</a></div>'}
+  </div>
+</section>
+"""
+
+FARMINGTON_BODY = f"""
+<section class="section">
+  <div class="container layout-sidebar">
+    <article class="prose">
+      <p>We clean homes in Farmington, from siding and roofs to the paver patios and walkways that so many Farmington yards are built around.</p>
+      <h2>Paver patios and walkways</h2>
+      <p>At one Farmington home, moss and weeds had filled the joints of a herringbone patio, a garden path, and a curved front walk, and the pavers had faded to gray. Pavers need the right pressure: enough to lift the growth and grime, gentle enough to keep the joint sand in place and the edges intact. <a href="@@L:our-work/farmington-paver-patio-walkways@@">See that project</a>.</p>
+      <p>[[tbc:Local detail from Anthony: other Farmington jobs, neighborhoods, common problems he sees there]]</p>
+      <h2>Services in Farmington</h2>
+      <ul>
+        {"".join(f'<li><a href="@@L:services/{s["slug"]}@@">{s["name"]}</a></li>' for s in SERVICES)}
+      </ul>
+    </article>
+    <aside class="sidebar" aria-label="Get a quote">{estimate_side_card()}</aside>
+  </div>
+</section>
+<section class="section is-stone" aria-labelledby="town-work">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="town-work">Recent work in Farmington</h2>
+    </div>
+    <div class="project-grid">
+      {"".join(project_card(p) for p in PROJECTS if p["town"] == "Farmington, CT")}
+    </div>
+  </div>
+</section>
+"""
+
+SIMSBURY_BODY = f"""
+<section class="section">
+  <div class="container layout-sidebar">
+    <article class="prose">
+      <p>We clean commercial properties in Simsbury, and the work so far has been the areas customers and staff walk past every day.</p>
+      <h2>Commercial concrete and service areas</h2>
+      <p>At a Simsbury restaurant we pressure washed the sidewalks, curbs, and parking lot, including the concrete around the outdoor smoker. At another Simsbury business we cleared and washed a dumpster enclosure and the service alley beside it, the area nobody wants to clean and everyone notices when it’s dirty. See the <a href="@@L:our-work/simsbury-restaurant-sidewalks-parking-lot@@">restaurant project</a> and the <a href="@@L:our-work/simsbury-dumpster-enclosure@@">dumpster enclosure project</a>.</p>
+      <p>[[tbc:Residential work in Simsbury, and any local detail from Anthony]]</p>
+      <h2>Services in Simsbury</h2>
+      <ul>
+        {"".join(f'<li><a href="@@L:services/{s["slug"]}@@">{s["name"]}</a></li>' for s in SERVICES)}
+      </ul>
+    </article>
+    <aside class="sidebar" aria-label="Get a quote">{estimate_side_card()}</aside>
+  </div>
+</section>
+<section class="section is-stone" aria-labelledby="town-work">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="town-work">Recent work in Simsbury</h2>
+    </div>
+    <div class="project-grid">
+      {"".join(project_card(p) for p in PROJECTS if p["town"] == "Simsbury, CT")}
+    </div>
   </div>
 </section>
 """
@@ -1151,7 +1335,6 @@ ESTIMATE_BODY = f"""
             <select class="select" id="f-service" name="service" required>
               <option value="">Choose a service</option>
               {SERVICE_OPTIONS}
-              <option value="Gutter Cleaning">Gutter Cleaning</option>
               <option value="Not sure">Not sure / more than one</option>
             </select>
           </div>
@@ -1257,7 +1440,7 @@ PAGES = [
         "title": "Before and After Photos | Our Work | A2 Exteriors",
         "description": "Before and after photos of house washing, roof washing, driveway, patio, and commercial cleaning jobs by A2 Exteriors in Central Connecticut.",
         "eyebrow": "Our Work",
-        "h1": "Before and after",
+        "h1": "Before and after: exterior cleaning projects in Connecticut",
         "lede": "Real jobs, with the town and service for each one. Filter by service to see work like yours.",
         "crumbs": [("Our Work", "our-work")],
         "body": OUR_WORK_BODY,
@@ -1265,10 +1448,10 @@ PAGES = [
     {
         "route": "service-areas",
         "title": "Service Areas | Central Connecticut | A2 Exteriors",
-        "description": "A2 Exteriors provides exterior cleaning in Wethersfield and surrounding Central Connecticut towns. See the towns we serve.",
+        "description": "A2 Exteriors provides exterior cleaning in Wethersfield, Farmington, Simsbury, and surrounding Central Connecticut towns. See the towns we serve.",
         "eyebrow": "Service Areas",
-        "h1": "Where we work",
-        "lede": "Exterior cleaning in Wethersfield and the surrounding Central Connecticut towns.",
+        "h1": "Exterior cleaning service areas in Central Connecticut",
+        "lede": "We work in Wethersfield, Farmington, Simsbury, and the surrounding Central Connecticut towns.",
         "crumbs": [("Service Areas", "service-areas")],
         "body": SERVICE_AREAS_BODY,
     },
@@ -1282,15 +1465,39 @@ PAGES = [
         "hero_actions": '<div class="button-row"><a class="button is-primary" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a></div>',
         "crumbs": [("Service Areas", "service-areas"), ("Wethersfield, CT", "service-areas/wethersfield-ct")],
         "body": WETHERSFIELD_BODY,
+        "exclude_from_sitemap": True,  # keep unpublished until it has a real Wethersfield project
     },
+    {
+        "route": "service-areas/farmington-ct",
+        "title": "Exterior Cleaning in Farmington, CT | A2 Exteriors",
+        "description": "Paver patio, walkway, house, and roof cleaning for Farmington, CT homes, with before and after photos from a real Farmington job. Call 860-430-4568.",
+        "h1": "Exterior cleaning in Farmington, CT",
+        "lede": "Patio and walkway cleaning, house washing, and more for Farmington homes, from a locally owned Connecticut company.",
+        "hero_actions": '<div class="button-row"><a class="button is-primary" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a></div>',
+        "crumbs": [("Service Areas", "service-areas"), ("Farmington, CT", "service-areas/farmington-ct")],
+        "body": FARMINGTON_BODY,
+        "og_image": "og-patio-walkway.jpg",
+    },
+    {
+        "route": "service-areas/simsbury-ct",
+        "title": "Commercial Pressure Washing in Simsbury, CT | A2 Exteriors",
+        "description": "Sidewalk, parking lot, curb, and dumpster pad cleaning for Simsbury, CT businesses, with before and after photos from real jobs. Call 860-430-4568.",
+        "h1": "Exterior cleaning in Simsbury, CT",
+        "lede": "Sidewalks, parking lots, and dumpster areas for Simsbury businesses, plus exterior cleaning for homes.",
+        "hero_actions": '<div class="button-row"><a class="button is-primary" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a></div>',
+        "crumbs": [("Service Areas", "service-areas"), ("Simsbury, CT", "service-areas/simsbury-ct")],
+        "body": SIMSBURY_BODY,
+        "og_image": "og-commercial.jpg",
+    },
+    *[project_page(p) for p in PROJECTS if p.get("page")],
     {
         "route": "about",
         "og_image": "og-about.jpg",
         "title": "About A2 Exteriors | Locally Owned Exterior Cleaning",
         "description": "A2 Exteriors is a locally owned exterior cleaning company in Central Connecticut, owned by Anthony Aubrey. Learn how we work.",
         "eyebrow": "About",
-        "h1": "Because first impressions matter",
-        "lede": "A2 Exteriors is a locally owned exterior cleaning company serving homes and businesses in Central Connecticut.",
+        "h1": "Locally owned exterior cleaning in Central Connecticut",
+        "lede": "Because first impressions matter. A2 Exteriors is owned by Anthony Aubrey and serves homes and businesses across Central Connecticut.",
         "crumbs": [("About", "about")],
         "body": ABOUT_BODY,
     },
@@ -1299,7 +1506,7 @@ PAGES = [
         "title": "Exterior Cleaning FAQ | A2 Exteriors",
         "description": "Answers about pressure washing vs. soft washing, roof cleaning, how to prepare for an appointment, how long it takes, and how to get a quote.",
         "eyebrow": "FAQ",
-        "h1": "Questions and answers",
+        "h1": "Exterior cleaning questions and answers",
         "lede": "How the cleaning works, how to prepare, and how quotes work. Don’t see your question? Call or text @@PHONE@@.",
         "crumbs": [("FAQ", "faq")],
         "body": FAQ_BODY,
