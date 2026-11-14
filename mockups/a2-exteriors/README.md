@@ -257,7 +257,7 @@ full-width hero.
 
 ## Owner portrait (2026-11-14)
 
-`source-assets/anthony-aubrey-portrait-original.png` (1086x1448), cropped to 4:5 from the top,
+`source-assets/library/anthony-aubrey-portrait-a2-cap.png` (1086x1448; replaced the Nike-cap version), cropped to 4:5 from the top,
 saved as `site/images/anthony-aubrey-owner.{webp,jpg}` (800x1000, 51KB webp). Used in the
 homepage "Meet Anthony" section and the About page. Note: the shirt carries a different logo
 version (roofline over "A2", green "2") from the site's logo files.

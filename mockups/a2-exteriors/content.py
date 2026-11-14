@@ -569,7 +569,7 @@ HOME_BODY = f"""
 <!-- 06 Meet Anthony -->
 <section class="section is-dark" aria-labelledby="owner-title">
   <div class="container owner">
-    <div class="owner-photo edge-photo reveal"><img class="owner-img" src="@@IMG@@anthony-aubrey-owner.webp" alt="Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors t-shirt and cap" width="800" height="1000" loading="lazy" decoding="async"></div>
+    <div class="owner-photo edge-photo reveal"><img class="owner-img" src="@@IMG@@anthony-aubrey-owner.webp" alt="Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors cap and t-shirt" width="800" height="1000" loading="lazy" decoding="async"></div>
     <div class="owner-note">
       <h2 id="owner-title">Good work. Done right.</h2>
       <p>I'm Anthony Aubrey, and I own A2 Exteriors. [[tbc:When you call or text, you reach me.]]</p>
@@ -853,7 +853,7 @@ ABOUT_BODY = f"""
       <h2>Licensing and insurance</h2>
       <p>[[tbc:Connecticut registration or license number, and insurance details. Shown only once confirmed.]]</p>
     </div>
-    <div class="owner-photo"><img class="owner-img" src="@@IMG@@anthony-aubrey-owner.webp" alt="Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors t-shirt and cap" width="800" height="1000" loading="lazy" decoding="async"></div>
+    <div class="owner-photo"><img class="owner-img" src="@@IMG@@anthony-aubrey-owner.webp" alt="Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors cap and t-shirt" width="800" height="1000" loading="lazy" decoding="async"></div>
   </div>
 </section>
 """
