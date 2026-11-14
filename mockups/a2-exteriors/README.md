@@ -54,34 +54,38 @@ Deliberately left off: the (413) number, the expired fall 10% offer, the
 
 ## Brand guidelines applied (A2 Exteriors Website Brand Guidelines, "The A2 Edge")
 
-The site now follows the brand guidelines document. Everything from the
-earlier palette passes (navy/teal/yellow, Archivo) is replaced.
+Colour and type tokens (updated 2026-11-14 to the brand colour/type spec):
 
 | Token | Value | Use |
 |---|---|---|
-| `--atlantic` | `#123b51` | Headings, nav, dark sections, buttons on light (white text 11.9:1) |
-| `--porcelain` | `#f5f2eb` | Main light background |
-| `--lichen` | `#a9d77b` | Accent fill only on light; buttons on dark with Deep Ink text (9.0:1) |
-| `--deep-ink` | `#192a2c` | Body text, footer |
-| `--muted` | `#4e5b5d` | Secondary text (7.0:1 white, 6.3:1 porcelain) |
-| `--on-dark-muted` | `#c5d6de` | Secondary text on Atlantic (8.4:1) |
+| `--atlantic` | `#123b51` | Headings, nav, footer, dark sections |
+| `--water` | `#469ab8` | Secondary: link underlines, active-nav marker, check marks, list markers. 3.2:1 on white, so never used as small text; link text stays Atlantic on light, white on navy |
+| `--lichen` | `#a9d77b` | Primary CTA buttons on every surface (Deep Ink text 9.0:1), selected filter, edge accents |
+| `--porcelain` | `#f5f2eb` | Primary light sections, alternating with white |
+| `--deep-ink` | `#192a2c` | Body text on light |
+| `--white` | `#ffffff` | Cards, forms, text on navy |
+| `--muted` | `#4e5b5d` | Secondary text (6.3:1 on porcelain) |
+| `--on-dark` / `--on-dark-muted` | `#e6eef1` / `#c5d6de` | Text on navy (10.6:1 / 7.9:1) |
 
-Type: Bricolage Grotesque (display), DM Sans (body, nav, buttons, forms),
-IBM Plex Mono (project metadata and fact labels only). Hero H1 40-88px,
-H2 30-52px, body 17px desktop / 16px mobile. Radii 4px (tags, inputs),
-6px (buttons), 8px (cards, photos). Sections 56-120px vertical.
+Type: Bricolage Grotesque 600-800 (H1-H3, display), DM Sans 400-600 (body,
+nav, buttons, forms; `strong` set to 600), IBM Plex Mono 500 (small uppercase
+labels and project metadata). System fallbacks on every stack. Radii 4px
+(tags, inputs), 6px (buttons), 8px (cards, photos). Sections 56-120px vertical.
+
+Accessibility adjustments: selected filter is Lichen with a Deep Ink border
+(state not by colour alone); focus rings are Atlantic on light and Lichen on
+navy (Water Blue is 2.9:1 on Porcelain, below the 3:1 for focus indicators).
 
 **The A2 Edge** has one geometry everywhere: a 45-degree cut in a photo's
 lower-left corner with a Lichen triangle set into it and a knockout gap
 (hero, interior page heroes, Anthony's photo), the 45-degree parallelogram
 handle on every before/after slider, and the active-nav bar's angled ends.
 
-**Logo:** the guidelines call the logo exploratory, so the site uses the
-single-colour treatments they list: Atlantic Blue horizontal (header),
-white stacked (footer), Atlantic A2 mark (favicon), white on Atlantic
-(touch icon, share image). The full-colour file's cyan "2" is not used; the
-guidelines rule out bright cyan and it would compete with Lichen. Final
-vector artwork is still needed before launch.
+**Logo:** the original artwork, not regenerated or recoloured. Header: the
+supplied horizontal file (navy A, water-blue 2), cropped only. Footer and
+share image: white A with the original water-blue 2, as described in the
+brand spec, from the supplied stacked file. Favicon and touch icon: the
+original A2 mark. Vector masters are still needed before launch.
 
 **CTA labels:** primary "Request a Free Quote" (nav: "Get a Quote"); secondary
 "See Our Work", "Explore Services", "View Project", "Meet A2", "Learn About Our

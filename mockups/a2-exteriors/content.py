@@ -27,7 +27,7 @@ BUSINESS_LD = {
     "description": "Exterior cleaning for homes and businesses in Central Connecticut: house washing, roof washing, driveway and concrete cleaning, patio and walkway cleaning, and commercial exterior cleaning.",
     "url": BIZ["url"] + "/",
     "telephone": "+1-860-430-4568",
-    "logo": BIZ["url"] + "/images/a2-logo-atlantic.png",
+    "logo": BIZ["url"] + "/images/a2-logo.png",
     "image": BIZ["url"] + "/images/og-default.jpg",
     "areaServed": [
         {"@type": "City", "name": "Wethersfield", "containedInPlace": {"@type": "State", "name": "Connecticut"}}
