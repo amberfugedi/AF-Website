@@ -271,6 +271,13 @@ Driveways & Patios and Commercial cards and two recent-project cards. Farmington
 Simsbury added as served towns (footer, Service Areas list, homepage facts, areaServed
 schema); no town pages created.
 
+## Simsbury dumpster enclosure photos (2026-11-14)
+
+Two aligned before/after pairs from A2's June 30 Instagram post fill the Our Work
+commercial project and both Commercial page sliders. Commercial page now lists
+dumpster enclosures, service alleys, and parking areas as confirmed work
+(drive-throughs stay flagged).
+
 ## QA run on this build (2026-11-14)
 
 - 20 pages built; 0 broken internal links; every JSON-LD block parses

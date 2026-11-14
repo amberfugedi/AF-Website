@@ -297,7 +297,8 @@ SERVICES = [
   <li>Storefronts and entry areas</li>
   <li>Sidewalks, walkways, and building approaches</li>
   <li>Building walls and facades</li>
-  <li>[[tbc:Dumpster pads, drive-throughs, parking areas]]</li>
+  <li>Dumpster enclosures, service alleys, and parking areas</li>
+  <li>[[tbc:Drive-throughs]]</li>
 </ul>
 
 <h2>Properties we work with</h2>
@@ -322,6 +323,8 @@ SERVICES = [
             ("Can you provide a certificate of insurance?", "[[tbc:Yes, on request before work begins.]]"),
         ],
         "ba": "Storefront cleaning",
+        "photo": "dumpster-enclosure",
+        "photo2": "dumpster-alley",
     },
 ]
 
@@ -369,7 +372,7 @@ PROJECTS = [
     ("roof-washing", "Roof wash", "[[tbc:Town]]", "Asphalt shingle roof"),
     ("driveway-concrete-cleaning", "Driveway cleaning", "Wethersfield, CT", "Concrete driveway and walk"),
     ("patio-walkway-cleaning", "Patio and walkway cleaning", "Farmington, CT", "Herringbone paver walkway", "patio-herringbone"),
-    ("commercial-exterior-cleaning", "Commercial cleaning", "Simsbury, CT", "Restaurant sidewalks and parking lot"),
+    ("commercial-exterior-cleaning", "Commercial cleaning", "Simsbury, CT", "Dumpster enclosure", "dumpster-enclosure"),
     ("house-washing", "House wash", "[[tbc:Town]]", "Clapboard cape"),
 ]
 
@@ -378,6 +381,20 @@ SERVICE_OPTIONS = "".join(f'<option value="{s["name"]}">{s["name"]}</option>' fo
 
 
 PHOTOS = {
+    "dumpster-enclosure": {
+        "before": "commercial-dumpster-enclosure-simsbury-before.webp",
+        "after": "commercial-dumpster-enclosure-simsbury-after.webp",
+        "alt_before": "Before: dumpster enclosure in Simsbury with dirt, leaves, and litter across the concrete beside a stone wall",
+        "alt_after": "After: the same dumpster enclosure with the concrete pad and curb pressure washed clean",
+        "w": 800, "h": 703,
+    },
+    "dumpster-alley": {
+        "before": "commercial-dumpster-alley-simsbury-before.webp",
+        "after": "commercial-dumpster-alley-simsbury-after.webp",
+        "alt_before": "Before: narrow service alley between a vinyl fence and dumpsters, covered in grime and trash",
+        "alt_after": "After: the same service alley with the concrete washed clean",
+        "w": 800, "h": 707,
+    },
     "patio-herringbone": {
         "before": "patio-herringbone-walkway-farmington-before.webp",
         "after": "patio-herringbone-walkway-farmington-after.webp",
@@ -710,7 +727,7 @@ def service_page(s):
     </div>
     <div class="grid-2">
       {compare(s["ba"].lower() + ", project 1", photo=s.get("photo"))}
-      {compare(s["ba"].lower() + ", project 2")}
+      {compare(s["ba"].lower() + ", project 2", photo=s.get("photo2"))}
     </div>
     <p style="margin-top:2rem"><a class="text-link" href="@@L:our-work@@">See Our Work</a></p>
   </div>

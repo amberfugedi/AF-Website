@@ -37,3 +37,11 @@ screenshot quality (1179px wide); original camera files would be sharper.
 | `farmington-1-before-patio` | Patio, before | Pairs with the half-cleaned shot for social use |
 | `simsbury-restaurant-5-after-parking-lot` | Millwright's Restaurant, Simsbury, sidewalks and parking lot (post Sept 15, 2025) | **In use:** homepage Commercial card and recent projects, cropped above the burned-in "After" text. Business not named on the site |
 | `simsbury-restaurant-1..4` | Same job, before shots and an after of the smoker area | Burned-in "Before"/"After" text; pairs shot from different angles, so no slider |
+
+## Simsbury dumpster enclosure (Instagram post June 30, added 2026-11-14)
+
+| Files | Notes |
+|---|---|
+| `simsbury-dumpster-3-before-wall`, `-4-after-wall` | Aligned pair (scale 0.92, offset 68/76px). **In use:** Our Work commercial project, first slider on the Commercial page |
+| `simsbury-dumpster-5-before-alley`, `-6-after-alley` | Aligned on the fence and bin (scale 1.02, offset 52/40px); the dumpster at right doubles slightly because the camera moved. **In use:** second slider on the Commercial page |
+| `simsbury-dumpster-1-before-gate`, `-2-after-gate` | Shot from different distances; not aligned, not in use |
