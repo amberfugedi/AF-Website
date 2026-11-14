@@ -494,3 +494,9 @@ li + li { margin-top: var(--s-2); }
 /* ---------- Real photos ---------- */
 .compare-img, .svc-card-img, .recent-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .svc-card-img { object-position: 50% 42%; }
+
+/* Side-by-side before/after (photos taken from different positions) */
+.pair { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; border-radius: var(--radius-lg); overflow: hidden; background: var(--white); }
+.pair-pane { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #d1cabc; }
+.pair-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.project-card .pair { margin-bottom: var(--s-4); }

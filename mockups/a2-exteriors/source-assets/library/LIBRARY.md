@@ -48,3 +48,8 @@ screenshot quality (1179px wide); original camera files would be sharper.
 | `simsbury-dumpster-3-before-wall`, `-4-after-wall` | Aligned pair (scale 0.92, offset 68/76px). **In use:** Our Work commercial project, first slider on the Commercial page |
 | `simsbury-dumpster-5-before-alley`, `-6-after-alley` | Aligned on the fence and bin (scale 1.02, offset 52/40px); the dumpster at right doubles slightly because the camera moved. **In use:** second slider on the Commercial page |
 | `simsbury-dumpster-1-before-gate`, `-2-after-gate` | Shot from different distances; not aligned, not in use |
+
+## In use as side-by-side pairs (2026-11-14)
+`farmington-3/4` front walkway (Patio page), `simsbury-restaurant-1/2` sidewalk and
+`-4/5` curb (Driveway & Concrete page; curb pair also on Our Work). Burned-in text
+cropped out. Hydrangeas portrait: Meet Anthony. Working shot: About.

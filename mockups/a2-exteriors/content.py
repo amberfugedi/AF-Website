@@ -232,6 +232,8 @@ SERVICES = [
             ("How soon can I drive on the driveway?", "Once it dries. On a warm, sunny day that’s usually a few hours."),
         ],
         "ba": "Driveway cleaning",
+        "photo": "sidewalk-simsbury",
+        "photo2": "curb-simsbury",
     },
     {
         "slug": "patio-walkway-cleaning",
@@ -279,6 +281,7 @@ SERVICES = [
         ],
         "ba": "Patio cleaning",
         "photo": "patio-herringbone",
+        "photo2": "walkway-farmington",
     },
     {
         "slug": "commercial-exterior-cleaning",
@@ -370,7 +373,7 @@ FAQ_GROUPS = [
 PROJECTS = [
     ("house-washing", "House wash", "[[tbc:Town]], CT", "Vinyl siding and garage doors", "house-wash-garage"),
     ("roof-washing", "Roof wash", "[[tbc:Town]]", "Asphalt shingle roof"),
-    ("driveway-concrete-cleaning", "Driveway cleaning", "Wethersfield, CT", "Concrete driveway and walk"),
+    ("driveway-concrete-cleaning", "Concrete cleaning", "Simsbury, CT", "Restaurant sidewalks and curbs", "curb-simsbury"),
     ("patio-walkway-cleaning", "Patio and walkway cleaning", "Farmington, CT", "Herringbone paver walkway", "patio-herringbone"),
     ("commercial-exterior-cleaning", "Commercial cleaning", "Simsbury, CT", "Dumpster enclosure", "dumpster-enclosure"),
     ("house-washing", "House wash", "[[tbc:Town]]", "Clapboard cape"),
@@ -436,12 +439,43 @@ def compare(label, meta="", large=False, photo=None, focus="50% 55%"):
 </figure>"""
 
 
+PAIRS = {
+    # Real before/after photos shot from different positions: shown side by side, not on the slider.
+    "walkway-farmington": ("paver-walkway-farmington-before", "paver-walkway-farmington-after", 800, 904,
+        "Before: curved paver front walkway in Farmington, darkened with grime and weeds in the joints",
+        "After: the same walkway cleaned, the pavers and border bands showing their color"),
+    "sidewalk-simsbury": ("concrete-sidewalk-simsbury-before", "concrete-sidewalk-simsbury-after", 800, 780,
+        "Before: restaurant sidewalk in Simsbury beside an outdoor smoker, stained and dark in the shade",
+        "After: the same sidewalk area pressure washed, the concrete lighter and even"),
+    "curb-simsbury": ("concrete-curb-simsbury-before", "concrete-curb-simsbury-after", 600, 1103,
+        "Before: concrete curb and sidewalk at a Simsbury restaurant, dark with grime and weeds at the edge",
+        "After: the restaurant sidewalk and parking lot after pressure washing"),
+}
+
+
+def pair(key, label):
+    """Side-by-side before/after for photos that don't line up for the slider."""
+    b, a, w, h, alt_b, alt_a = PAIRS[key]
+    img = lambda f, alt: f'<img class="pair-img" src="@@IMG@@{f}.webp" alt="{alt}" width="{w}" height="{h}" loading="lazy" decoding="async">'
+    return f"""<figure class="pair" aria-label="Before and after: {label}">
+  <div class="pair-pane">{img(b, alt_b)}<span class="compare-tag is-before">Before</span></div>
+  <div class="pair-pane">{img(a, alt_a)}<span class="compare-tag is-after">After</span></div>
+</figure>"""
+
+
+def ba(label, key=None):
+    """Slider when the photos are aligned, side-by-side pair when they aren't, placeholder slider when none."""
+    if key in PAIRS:
+        return pair(key, label)
+    return compare(label, photo=key)
+
+
 def project_card(p, tag="article"):
     slug, label, town, prop = p[:4]
     photo = p[4] if len(p) > 4 else None
     svc = next(s for s in SERVICES if s["slug"] == slug)
     return f"""<{tag} class="project-card reveal" data-service="{slug}">
-  {compare(prop.lower() + ", " + label.lower(), photo=photo)}
+  {ba(prop.lower() + ", " + label.lower(), photo)}
   <p class="meta">{town} / {label}</p>
   <h3>{prop}</h3>
 </{tag}>"""
@@ -596,7 +630,7 @@ HOME_BODY = f"""
 <!-- 06 Meet Anthony -->
 <section class="section is-dark" aria-labelledby="owner-title">
   <div class="container owner">
-    <div class="owner-photo edge-photo reveal"><img class="owner-img" src="@@IMG@@anthony-aubrey-owner.webp" alt="Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors cap and t-shirt" width="800" height="1000" loading="lazy" decoding="async"></div>
+    <div class="owner-photo edge-photo reveal"><img class="owner-img" src="@@IMG@@anthony-aubrey-owner-home.webp" alt="Anthony Aubrey, owner of A2 Exteriors, smiling in front of a Connecticut home in an A2 Exteriors cap and t-shirt" width="800" height="1000" loading="lazy" decoding="async"></div>
     <div class="owner-note">
       <h2 id="owner-title">Good work. Done right.</h2>
       <p>I'm Anthony Aubrey, and I own A2 Exteriors. [[tbc:When you call or text, you reach me.]]</p>
@@ -634,9 +668,9 @@ HOME_BODY = f"""
         <a class="text-link" href="@@L:our-work@@">View Project</a>
       </article>
       <article class="recent-card reveal">
-        <div class="recent-photo" role="img" aria-label="Photo placeholder: driveway after cleaning"><span class="ph-note">Photo needed: driveway, after</span></div>
-        <p class="meta">Wethersfield, CT / Driveway cleaning</p>
-        <h3>Concrete driveway and walk</h3>
+        <div class="recent-photo"><img class="recent-img" src="@@IMG@@house-wash-vinyl-siding-garage-after.webp" alt="Cream vinyl siding and white garage doors after an A2 house wash" width="622" height="887" loading="lazy" decoding="async" style="object-position: 50% 45%"></div>
+        <p class="meta">[[tbc:Town]], CT / House wash</p>
+        <h3>Vinyl siding and garage doors</h3>
         <a class="text-link" href="@@L:our-work@@">View Project</a>
       </article>
       <article class="recent-card reveal">
@@ -726,8 +760,8 @@ def service_page(s):
       <h2 id="ba-title">{s["name"]} before and after</h2>
     </div>
     <div class="grid-2">
-      {compare(s["ba"].lower() + ", project 1", photo=s.get("photo"))}
-      {compare(s["ba"].lower() + ", project 2", photo=s.get("photo2"))}
+      {ba(s["ba"].lower() + ", project 1", s.get("photo"))}
+      {ba(s["ba"].lower() + ", project 2", s.get("photo2"))}
     </div>
     <p style="margin-top:2rem"><a class="text-link" href="@@L:our-work@@">See Our Work</a></p>
   </div>
@@ -859,6 +893,7 @@ WETHERSFIELD_BODY = f"""
     <div class="project-grid">
       {"".join(project_card(p) for p in PROJECTS if p[2] == "Wethersfield, CT")}
     </div>
+    {"" if any(p[2] == "Wethersfield, CT" for p in PROJECTS) else '<div class="empty-state"><p><strong>No Wethersfield projects posted yet.</strong> See recent work from nearby towns.</p><a class="button is-primary" href="@@L:our-work@@">See Our Work</a></div>'}
   </div>
 </section>
 """
@@ -880,7 +915,7 @@ ABOUT_BODY = f"""
       <h2>Licensing and insurance</h2>
       <p>[[tbc:Connecticut registration or license number, and insurance details. Shown only once confirmed.]]</p>
     </div>
-    <div class="owner-photo"><img class="owner-img" src="@@IMG@@anthony-aubrey-owner.webp" alt="Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors cap and t-shirt" width="800" height="1000" loading="lazy" decoding="async"></div>
+    <div class="owner-photo"><img class="owner-img" src="@@IMG@@anthony-aubrey-working.webp" alt="Anthony Aubrey of A2 Exteriors pressure washing a driveway, seen from behind" width="800" height="1000" loading="lazy" decoding="async"></div>
   </div>
 </section>
 """

@@ -278,6 +278,19 @@ commercial project and both Commercial page sliders. Commercial page now lists
 dumpster enclosures, service alleys, and parking areas as confirmed work
 (drive-throughs stay flagged).
 
+## Side-by-side before/afters and new portraits (2026-11-14)
+
+Pairs shot from different positions can't line up on the drag slider (alignment
+correlation 0.03-0.06), so they now use a side-by-side "pair" figure (`pair()` in
+content.py; `.pair` in a2.css; no script). `ba()` picks slider or pair per photo key.
+- Driveway & Concrete page: Simsbury restaurant sidewalk pair and curb pair
+- Patio page, slider 2: Farmington front walkway pair
+- Our Work concrete project: Simsbury restaurant curb pair (replaced the unverified
+  Wethersfield driveway placeholder); Wethersfield page shows an empty state
+- Homepage recent card 2: the house wash (real) replaced the driveway placeholder
+- Meet Anthony: house-and-hydrangeas portrait; About: the working shot (brand image,
+  looks edited/generated, so not used as project evidence)
+
 ## QA run on this build (2026-11-14)
 
 - 20 pages built; 0 broken internal links; every JSON-LD block parses
