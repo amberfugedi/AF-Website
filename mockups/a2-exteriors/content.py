@@ -424,7 +424,6 @@ PROJECTS = [
      "property": "Home", "media": [("ba", "house-wash-garage")],
      "seo_title": "House Wash Before and After | A2 Exteriors",
      "seo_desc": "Before and after: green algae and mildew washed off cream vinyl siding and garage doors by A2 Exteriors, a Connecticut exterior cleaning company."},
-    {"slug": "roof-placeholder", "service": "roof-washing", "label": "Roof wash", "town": "[[tbc:Town]]", "title": "Asphalt shingle roof"},
     {"slug": "simsbury-restaurant-sidewalks-parking-lot", "service": "driveway-concrete-cleaning", "label": "Concrete cleaning", "town": "Simsbury, CT",
      "title": "Restaurant sidewalks and curbs", "photo": "curb-simsbury", "page": True,
      "h1": "Restaurant sidewalks and parking lot in Simsbury, CT",
@@ -451,7 +450,6 @@ PROJECTS = [
      "property": "Commercial", "media": [("ba", "dumpster-enclosure"), ("ba", "dumpster-alley")],
      "seo_title": "Dumpster Pad Cleaning in Simsbury, CT | A2 Exteriors",
      "seo_desc": "Before and after: a commercial dumpster enclosure and service alley pressure washed by A2 Exteriors in Simsbury, Connecticut."},
-    {"slug": "clapboard-placeholder", "service": "house-washing", "label": "House wash", "town": "[[tbc:Town]]", "title": "Clapboard cape"},
 ]
 
 
@@ -878,6 +876,22 @@ def service_page(s):
     if guides:
         items = "".join(f'<li><a href="@@L:resources/{g}@@">{next(a["title"] for a in ARTICLES if a["slug"] == g)}</a></li>' for g in guides)
         guide_card = f'<div class="side-card"><h3>Related guides</h3><ul class="side-links">{items}</ul></div>'
+    shots = [k for k in (s.get("photo"), s.get("photo2")) if k]
+    ba_section = ""
+    if shots:
+        grid = "grid-2" if len(shots) > 1 else "ba-single"
+        ba_section = f"""<section class="section is-stone" aria-labelledby="ba-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="ba-title">{s["name"]} before and after</h2>
+    </div>
+    <div class="{grid}">
+      {"".join(ba(s["ba"].lower() + f", project {i + 1}", k) for i, k in enumerate(shots))}
+    </div>
+    <p style="margin-top:2rem"><a class="text-link" href="@@L:our-work@@">See Our Work</a></p>
+  </div>
+</section>
+"""
     others = "".join(
         f'<li><a href="@@L:services/{o["slug"]}@@">{o["name"]}</a></li>' for o in SERVICES if o is not s
     )
@@ -898,19 +912,7 @@ def service_page(s):
     </aside>
   </div>
 </section>
-<section class="section is-stone" aria-labelledby="ba-title">
-  <div class="container">
-    <div class="section-head">
-      <h2 id="ba-title">{s["name"]} before and after</h2>
-    </div>
-    <div class="grid-2">
-      {ba(s["ba"].lower() + ", project 1", s.get("photo"))}
-      {ba(s["ba"].lower() + ", project 2", s.get("photo2"))}
-    </div>
-    <p style="margin-top:2rem"><a class="text-link" href="@@L:our-work@@">See Our Work</a></p>
-  </div>
-</section>
-<section class="section" aria-labelledby="svc-faq-title">
+{ba_section}<section class="section" aria-labelledby="svc-faq-title">
   <div class="container is-narrow">
     <h2 id="svc-faq-title">{s["name"]} questions</h2>
     {faq_html(s["faqs"])}
@@ -971,7 +973,7 @@ OUR_WORK_BODY = f"""
     <h2 class="visually-hidden">Projects</h2>
     <div class="filter-bar" role="group" aria-label="Filter projects by service">
       <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
-      {"".join(f'<button class="filter-button" type="button" data-filter="{s["slug"]}" aria-pressed="false">{s["name"]}</button>' for s in SERVICES)}
+      {"".join(f'<button class="filter-button" type="button" data-filter="{s["slug"]}" aria-pressed="false">{s["name"]}</button>' for s in SERVICES if any(p["service"] == s["slug"] for p in PROJECTS))}
     </div>
     <p id="filter-status" class="visually-hidden" aria-live="polite"></p>
     <div class="project-grid">
