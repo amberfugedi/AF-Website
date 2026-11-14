@@ -122,7 +122,7 @@ def footer():
     <div class="footer-grid">
       <div>
         <a class="brand" href="@@L:@@">
-          <img src="@@IMG@@a2-exteriors-logo-reverse.webp" width="167" height="52" alt="A2 Exteriors home" loading="lazy">
+          <img src="@@IMG@@a2-exteriors-logo-stacked-reverse.webp" width="150" height="115" alt="A2 Exteriors home" loading="lazy">
         </a>
         <p class="footer-tagline">Because first impressions matter.</p>
         <p>Exterior cleaning for homes and businesses in Central Connecticut.</p>
@@ -230,6 +230,7 @@ def render(p):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#082336">
 <link rel="icon" href="@@IMG@@favicon.png">
+<link rel="apple-touch-icon" href="@@IMG@@apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@87.5,700;87.5,800;100,400;100,500;100,600;100,700;100,800;100,900&display=swap" rel="stylesheet">

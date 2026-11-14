@@ -54,12 +54,22 @@ Deliberately left off: the (413) number, the expired fall 10% offer, the
 
 ## Logo and colour
 
-Logo supplied by Amber 2026-11-14 (`source-assets/a2-exteriors-logo-original.jpg`,
-1024px JPEG). Cut to transparent PNG/WebP in `site/images/`:
-`a2-exteriors-logo` (light backgrounds), `a2-exteriors-logo-reverse` (navy
-backgrounds: navy becomes white, teal lightens), plus `favicon.png` and
-`apple-touch-icon.png` from the A2 mark. **Still want a vector (SVG/AI/EPS)**
-for print and for crisp scaling past ~950px.
+Two logo files supplied by Amber 2026-11-14, kept in `source-assets/`:
+- `a2-exteriors-logo-original.jpg`: horizontal lockup, 1024px JPEG on white
+- `a2-exteriors-logo-stacked-original.png`: stacked lockup, 2703px transparent PNG (the better source)
+
+Files in `site/images/`:
+| File | Used for |
+|---|---|
+| `a2-exteriors-logo` | Header (horizontal, light backgrounds) |
+| `a2-exteriors-logo-stacked-reverse` | Footer (stacked, navy background: A turns white, 2 lightens) |
+| `a2-exteriors-logo-stacked` | Spare stacked version for light backgrounds |
+| `favicon.png`, `apple-touch-icon.png` | Cut from the stacked file's A2 mark |
+| `og-default.jpg` | 1200×630 social share image, reverse logo on navy |
+
+A horizontal transparent PNG at the stacked file's resolution would let the
+header logo be cut from a cleaner source. A vector (SVG/AI/EPS) is still
+the goal for print.
 
 Palette taken from the logo:
 | Token | Value | Use |
