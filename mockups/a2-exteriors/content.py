@@ -454,7 +454,6 @@ HOME_HERO = f"""
       <a class="button is-ghost-light is-large" href="@@L:our-work@@">See Our Work</a>
     </div>
   </div>
-  <span class="edge-mark" aria-hidden="true"></span>
 </section>"""
 
 _svc = {s["slug"]: s for s in SERVICES}

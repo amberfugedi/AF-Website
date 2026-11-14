@@ -67,7 +67,7 @@ Colour and type tokens (updated 2026-11-14 to the brand colour/type spec):
 | `--muted` | `#4e5b5d` | Secondary text (6.3:1 on porcelain) |
 | `--on-dark` / `--on-dark-muted` | `#e6eef1` / `#c5d6de` | Text on navy (10.6:1 / 7.9:1) |
 
-Type: Bricolage Grotesque 600-800 (H1-H3, display), DM Sans 400-600 (body,
+Type: Manrope 700-800, letter-spacing -0.025em (H1-H4, display numbers and quotes), DM Sans 400-600 (body,
 nav, buttons, forms; `strong` set to 600), IBM Plex Mono 500 (small uppercase
 labels and project metadata). System fallbacks on every stack. Radii 4px
 (tags, inputs), 6px (buttons), 8px (cards, photos). Sections 56-120px vertical.
@@ -78,7 +78,7 @@ navy (Water Blue is 2.9:1 on Porcelain, below the 3:1 for focus indicators).
 
 **The A2 Edge** has one geometry everywhere: a 45-degree cut in a photo's
 lower-left corner with a Lichen triangle set into it and a knockout gap
-(hero, interior page heroes, Anthony's photo), the 45-degree parallelogram
+(interior page heroes, Anthony's photo; removed from the homepage hero as purely decorative), the 45-degree parallelogram
 handle on every before/after slider, and the active-nav bar's angled ends.
 
 **Logo:** the original artwork, not regenerated or recoloured. Header: the
@@ -144,7 +144,7 @@ The prototype is written so the port is a mapping, not a redesign.
 Variable with the same name (colours, font families, type sizes, spacing,
 radius, container widths).
 
-**Fonts** — Bricolage Grotesque, DM Sans, IBM Plex Mono (Google Fonts, all available in Webflow).
+**Fonts** — Manrope, DM Sans, IBM Plex Mono (Google Fonts, all available in Webflow).
 
 **Classes** — class names already follow Webflow's base + combo pattern
 (`button is-primary`, `section is-ink`, `container is-narrow`). Create
