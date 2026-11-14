@@ -34,7 +34,8 @@ BUSINESS_LD = {
         {"@type": "City", "name": "Farmington", "containedInPlace": {"@type": "State", "name": "Connecticut"}},
         {"@type": "City", "name": "Simsbury", "containedInPlace": {"@type": "State", "name": "Connecticut"}}
     ],
-    "_comment": "Add every confirmed town to areaServed, sameAs [GBP URL], and email before launch. No street address: A2 is a service-area business.",
+    "founder": {"@type": "Person", "name": "Anthony Aubrey", "jobTitle": "Owner"},
+    "sameAs": ["https://www.instagram.com/a2exteriors/"],
 }
 
 WEBSITE_LD = {
@@ -416,13 +417,13 @@ PHOTOS = {
 }
 
 
-def compare(label, meta="", large=False, photo=None, focus="50% 55%"):
+def compare(label, meta="", large=False, photo=None, focus="50% 55%", eager=False):
     """Accessible before/after comparison. The range input drives --pos; keyboard arrows work natively.
     Webflow: one reusable component + a small code embed (js/a2.js, compare block)."""
     cls = "compare is-large" if large else "compare"
     if photo:
         p = PHOTOS[photo]
-        img = lambda k: f'<img class="compare-img" src="@@IMG@@{p[k]}" alt="{p["alt_" + k]}" width="{p["w"]}" height="{p["h"]}" loading="lazy" decoding="async" style="object-position: {focus}">'
+        img = lambda k: f'<img class="compare-img" src="@@IMG@@{p[k]}" alt="{p["alt_" + k]}" width="{p["w"]}" height="{p["h"]}" {'fetchpriority="high"' if eager else 'loading="lazy"'} decoding="async" style="object-position: {focus}">'
         before, after = img("before"), img("after")
     else:
         before = f'<span class="ph-note">Photo needed: {label}, before</span>'
@@ -455,27 +456,31 @@ PAIRS = {
 
 def pair(key, label):
     """Side-by-side before/after for photos that don't line up for the slider."""
-    b, a, w, h, alt_b, alt_a = PAIRS[key]
-    img = lambda f, alt: f'<img class="pair-img" src="@@IMG@@{f}.webp" alt="{alt}" width="{w}" height="{h}" loading="lazy" decoding="async">'
+    b, a, _w, _h, alt_b, alt_a = PAIRS[key]
+    def img(f, alt):
+        from PIL import Image as _I
+        import os as _os
+        w, h = _I.open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "site", "images", f + ".webp")).size
+        return f'<img class="pair-img" src="@@IMG@@{f}.webp" alt="{alt}" width="{w}" height="{h}" loading="lazy" decoding="async">'
     return f"""<figure class="pair" aria-label="Before and after: {label}">
   <div class="pair-pane">{img(b, alt_b)}<span class="compare-tag is-before">Before</span></div>
   <div class="pair-pane">{img(a, alt_a)}<span class="compare-tag is-after">After</span></div>
 </figure>"""
 
 
-def ba(label, key=None):
+def ba(label, key=None, eager=False):
     """Slider when the photos are aligned, side-by-side pair when they aren't, placeholder slider when none."""
     if key in PAIRS:
         return pair(key, label)
-    return compare(label, photo=key)
+    return compare(label, photo=key, eager=eager)
 
 
-def project_card(p, tag="article"):
+def project_card(p, tag="article", eager=False):
     slug, label, town, prop = p[:4]
     photo = p[4] if len(p) > 4 else None
     svc = next(s for s in SERVICES if s["slug"] == slug)
     return f"""<{tag} class="project-card reveal" data-service="{slug}">
-  {ba(prop.lower() + ", " + label.lower(), photo)}
+  {ba(prop.lower() + ", " + label.lower(), photo, eager)}
   <p class="meta">{town} / {label}</p>
   <h3>{prop}</h3>
 </{tag}>"""
@@ -595,7 +600,7 @@ HOME_BODY = f"""
         <p>{_svc["roof-washing"]["short"]}</p>
       </article>
       <article class="svc-card reveal">
-        <div class="svc-card-photo"><img class="svc-card-img" src="@@IMG@@patio-pavers-farmington-half-cleaned.webp" alt="Herringbone paver patio in Farmington partway through cleaning, the cleaned section red and tan beside the gray uncleaned pavers" width="800" height="905" loading="lazy" decoding="async"></div>
+        <div class="svc-card-photo"><img class="svc-card-img" src="@@IMG@@patio-pavers-farmington-half-cleaned.webp" alt="Farmington paver patio partway through cleaning, cleaned pavers red and tan beside gray uncleaned ones" width="800" height="905" loading="lazy" decoding="async"></div>
         <h3>Driveways &amp; Patios</h3>
         <p>Pressure cleaning for concrete, pavers, brick, and stone.</p>
         <p class="svc-card-links"><a href="@@L:services/driveway-concrete-cleaning@@">Driveways and concrete</a><a href="@@L:services/patio-walkway-cleaning@@">Patios and walkways</a></p>
@@ -735,6 +740,16 @@ HOME_BODY = f"""
 
 
 def service_page(s):
+    guides = {
+        "house-washing": ["how-often-to-wash-house", "pressure-washing-vs-soft-washing"],
+        "roof-washing": ["black-streaks-on-roof"],
+        "driveway-concrete-cleaning": ["pressure-washing-vs-soft-washing"],
+        "patio-walkway-cleaning": ["pressure-washing-vs-soft-washing"],
+    }.get(s["slug"], [])
+    guide_card = ""
+    if guides:
+        items = "".join(f'<li><a href="@@L:resources/{g}@@">{next(a["title"] for a in ARTICLES if a["slug"] == g)}</a></li>' for g in guides)
+        guide_card = f'<div class="side-card"><h3>Related guides</h3><ul class="side-links">{items}</ul></div>'
     others = "".join(
         f'<li><a href="@@L:services/{o["slug"]}@@">{o["name"]}</a></li>' for o in SERVICES if o is not s
     )
@@ -751,6 +766,7 @@ def service_page(s):
         <h3>Other services</h3>
         <ul class="side-links">{others}</ul>
       </div>
+      {guide_card}
     </aside>
   </div>
 </section>
@@ -785,6 +801,8 @@ def service_page(s):
     }
     return {
         "route": "services/" + s["slug"],
+        "og_image": {"house-washing": "house-wash-vinyl-siding-garage-after.jpg", "patio-walkway-cleaning": "og-patio-walkway.jpg",
+                     "commercial-exterior-cleaning": "og-commercial.jpg", "driveway-concrete-cleaning": "og-concrete.jpg"}.get(s["slug"], "og-default.jpg"),
         "title": s["title"],
         "description": s["description"],
         "eyebrow": "Services",
@@ -829,7 +847,7 @@ OUR_WORK_BODY = f"""
     </div>
     <p id="filter-status" class="visually-hidden" aria-live="polite"></p>
     <div class="project-grid">
-      {"".join(project_card(p) for p in PROJECTS)}
+      {"".join(project_card(p, eager=(i == 0)) for i, p in enumerate(PROJECTS))}
     </div>
     <div class="empty-state" id="projects-empty" hidden>
       <p><strong>No projects for this service yet.</strong> Ask us for examples when you request a quote.</p>
@@ -915,7 +933,7 @@ ABOUT_BODY = f"""
       <h2>Licensing and insurance</h2>
       <p>[[tbc:Connecticut registration or license number, and insurance details. Shown only once confirmed.]]</p>
     </div>
-    <div class="owner-photo"><img class="owner-img" src="@@IMG@@anthony-aubrey-working.webp" alt="Anthony Aubrey of A2 Exteriors pressure washing a driveway, seen from behind" width="800" height="1000" loading="lazy" decoding="async"></div>
+    <div class="owner-photo"><img class="owner-img" src="@@IMG@@anthony-aubrey-working.webp" alt="Anthony Aubrey of A2 Exteriors pressure washing a driveway, seen from behind" width="800" height="1000" fetchpriority="high" decoding="async"></div>
   </div>
 </section>
 """
@@ -1235,6 +1253,7 @@ PAGES = [
     *[service_page(s) for s in SERVICES],
     {
         "route": "our-work",
+        "og_image": "og-our-work.jpg",
         "title": "Before and After Photos | Our Work | A2 Exteriors",
         "description": "Before and after photos of house washing, roof washing, driveway, patio, and commercial cleaning jobs by A2 Exteriors in Central Connecticut.",
         "eyebrow": "Our Work",
@@ -1266,6 +1285,7 @@ PAGES = [
     },
     {
         "route": "about",
+        "og_image": "og-about.jpg",
         "title": "About A2 Exteriors | Locally Owned Exterior Cleaning",
         "description": "A2 Exteriors is a locally owned exterior cleaning company in Central Connecticut, owned by Anthony Aubrey. Learn how we work.",
         "eyebrow": "About",

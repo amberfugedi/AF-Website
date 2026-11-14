@@ -157,7 +157,7 @@ def footer():
     </div>
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> A2 Exteriors. All rights reserved.</span>
-      <span><a href="@@L:privacy@@">Privacy</a></span>
+      <span><a href="https://www.instagram.com/a2exteriors/" rel="noopener">Instagram</a> · <a href="@@L:privacy@@">Privacy</a></span>
     </div>
   </div>
 </footer>
@@ -229,7 +229,7 @@ def render(p):
 <meta property="og:title" content="{p.get("og_title", p["title"])}">
 <meta property="og:description" content="{p["description"]}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{BIZ["url"]}/images/og-default.jpg">
+<meta property="og:image" content="{BIZ["url"]}/images/{p.get("og_image", "og-default.jpg")}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#123B51">
 <link rel="icon" href="@@IMG@@favicon.png">
