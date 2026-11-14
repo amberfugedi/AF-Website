@@ -9,6 +9,7 @@ noted.
 |---|---|---|---|
 | `anthony-aubrey-portrait-nike-cap` | Waist-up portrait outdoors, black A2 shirt (roofline logo, green 2), dark Nike cap, green trees behind | Replaced on the site by the A2-cap version (2026-11-14) | Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors t-shirt and cap |
 | `anthony-aubrey-portrait-house-hydrangeas` | Waist-up portrait, navy A2 cap and black A2 shirt (current logo), in front of a white house with black shutters, hydrangeas, and a stone wall | Strongest fit for the brand guidelines' New England residential look; candidate for Meet Anthony or the About page | Anthony Aubrey, owner of A2 Exteriors, smiling in front of a Connecticut home in an A2 Exteriors cap and t-shirt |
+| `anthony-aubrey-working-pressure-washer-back` | Back view, pressure washing a driveway beside a white house with black shutters and hydrangeas; shirt back reads "First Impressions Matter. / Exterior Cleaning" | Brand and lifestyle use: About page, social, print. Looks edited or generated (see notes), so not for project evidence | Anthony Aubrey of A2 Exteriors pressure washing a driveway, seen from behind |
 | `anthony-aubrey-portrait-a2-cap` | Same photo as the portrait in use, with the cap and shirt showing the current logo (white A, water-blue 2, green underline) | **In use:** homepage Meet Anthony, About page | Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors cap and t-shirt |
 | `anthony-aubrey-standing-a2-cap` | Three-quarter standing shot, navy A2 cap and black A2 shirt, white modern building and tropical plants behind | About page, team or careers content. Setting does not read as a Connecticut job site | Anthony Aubrey of A2 Exteriors standing outside in an A2 Exteriors cap and t-shirt |
 | `anthony-aubrey-closeup-backwards-cap` | Close head-and-shoulders, backwards cap, shirt with roofline logo and green 2, green trees behind | Testimonial or contact sections, social profile, Google Business Profile owner photo | Anthony Aubrey, owner of A2 Exteriors, smiling outdoors |
@@ -20,6 +21,7 @@ Notes
 - Two apparel logos appear across these photos: roofline over "A2" with a green
   "2", and white "A" with a water-blue "2" and a green underline. The site uses
   the white-A / water-blue-2 version.
+- `working-pressure-washer-back` and the logo-swapped portraits look edited or AI-generated. Fine as brand imagery; don't present them as photos of a specific job.
 - Still wanted: Anthony working on a real job (equipment, siding, a driveway),
   which the brand guidelines rank above posed portraits.
 
