@@ -178,6 +178,30 @@ Skill defaults deliberately not applied, with reasons:
 - Dark mode: Webflow has no native dark mode, so it would need the custom code the brief rules out
 - Stock or generated photography: the brief bans fake project photos, so photo slots stay labelled placeholders until Anthony supplies real jobs
 
+## Homepage redesign (2026-11-14, third pass)
+
+Skills used together: design-taste-frontend (hard rules), redesign-existing-projects
+(audit of generic patterns), high-end-visual-design (motion discipline only), stop-slop
+(copy), Impeccable detector (AI tells).
+
+Taken from high-end-visual-design: custom easing on every transition, fade-up entry,
+press feedback. Not taken, on purpose: floating glass pill nav, pill eyebrow badges,
+double-bezel cards, button-in-button arrows, 2rem squircles. Those read as the
+current SaaS template look and fight a trust-first trades brand.
+
+What changed on the homepage:
+- Light hero: 2-line H1, 20-word subtext, estimate button plus the phone number set large
+- The logo's A/2 diagonal is the one signature device: the hero photo's cut corner with a
+  teal knockout, and every before/after split on the same angle
+- Icon trust strip replaced by a plain facts line
+- Services: one featured service with a photo, four as a list (no numbered rows)
+- Before/after: one large plus two small comparisons with plain captions
+- "Why choose us" cards replaced by a first-person note from Anthony (draft, to confirm)
+- Numbered step badges replaced by "Get a price by text" with the number as the panel
+- FAQ answers visible in a 2-column grid (no accordion); FAQPage schema matches the 4 shown
+- CTA band is navy and sits with the footer; no decorative diagonal
+- Reviews: section slot reserved, hidden until an approved review exists
+
 ## QA run on this build (2026-11-14)
 
 - 20 pages built; 0 broken internal links; every JSON-LD block parses

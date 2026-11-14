@@ -414,136 +414,146 @@ def estimate_side_card():
 # ---------------------------------------------------------------------
 # Page bodies
 # ---------------------------------------------------------------------
+def ba_diag(label, size=""):
+    """Before/after split on the A2 logo's diagonal. BEFORE top-left, AFTER bottom-right."""
+    return f"""<figure class="ba-diag{(' ' + size) if size else ''}">
+  <div class="ba-diag-pane is-before"><span class="ph-note">Photo needed: {label}, before</span></div>
+  <div class="ba-diag-pane is-after"><span class="ph-note">Photo needed: {label}, after</span></div>
+  <span class="ba-diag-tag is-before">Before</span>
+  <span class="ba-diag-tag is-after">After</span>
+</figure>"""
+
+
+HOME_QA = HOME_FAQS[:4]
+
 HOME_HERO = f"""
-<section class="hero" aria-labelledby="hero-title">
-  <div class="container hero-inner">
-    <div>
-      <p class="hero-tagline">Because first impressions matter.</p>
-      <h1 id="hero-title">Exterior cleaning for Central Connecticut homes and businesses</h1>
-      <p class="hero-sub">House, roof, driveway, patio, and storefront cleaning from a locally owned company. Text a few photos for a free estimate.</p>
-      <div class="button-row">
-        <a class="button is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
-        <a class="button is-ghost-light" href="@@TEL@@" data-track="phone-click">@@I:phone@@ Call or text @@PHONE@@</a>
+<section class="home-hero" aria-labelledby="hero-title">
+  <div class="container home-hero-inner">
+    <div class="home-hero-copy">
+      <h1 id="hero-title">Exterior cleaning for Central Connecticut</h1>
+      <p class="hero-sub">House, roof, driveway, patio, and storefront cleaning for homes and businesses. Text a few photos for a free estimate.</p>
+      <div class="hero-actions">
+        <a class="button is-primary is-large" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
+        <a class="hero-phone" href="@@TEL@@" data-track="phone-click"><span>Call or text</span> @@PHONE@@</a>
       </div>
     </div>
-    <div class="hero-media">
-      {before_after("Real A2 house wash", dark=True)}
+    <div class="home-hero-media">
+      <div class="hero-photo" role="img" aria-label="Photo placeholder: Anthony washing a house">
+        <span class="ph-note">Photo needed: Anthony on a job, house wash in progress</span>
+      </div>
     </div>
   </div>
-</section>
-<section class="trust-strip" aria-label="Why customers choose A2 Exteriors">
   <div class="container">
-    <ul class="trust-list">
-      <li>@@I:home@@<span><strong>Locally owned</strong>Wethersfield neighbors, not a franchise</span></li>
-      <li>@@I:building@@<span><strong>Homes and businesses</strong>Residential and commercial work</span></li>
-      <li>@@I:camera@@<span><strong>Text a photo</strong>Fast quotes from your phone</span></li>
-      <li>@@I:shield@@<span><strong>[[tbc:Licensed and insured]]</strong>Details on request</span></li>
+    <ul class="facts" aria-label="About A2 Exteriors">
+      <li>Locally owned in Wethersfield</li>
+      <li>Homes and businesses</li>
+      <li>Text photos for a quote</li>
+      <li>[[tbc:Licensed and insured]]</li>
     </ul>
   </div>
 </section>"""
 
+_feature = SERVICES[0]
+_rest = SERVICES[1:]
+
 HOME_BODY = f"""
 <section class="section" aria-labelledby="services-title">
   <div class="container">
-    <div class="section-head is-split">
-      <div>
-        <h2 id="services-title">The right method for every surface</h2>
-        <p class="lede">Siding and roofs need a gentle wash. Concrete can take real pressure. We clean each part of your property the way that material needs.</p>
-      </div>
-      <a class="text-link" href="@@L:services@@">All services</a>
+    <div class="section-head">
+      <h2 id="services-title">What we clean</h2>
+      <p class="lede">Siding and roofs get a low-pressure wash. Concrete can take real pressure. Each surface gets the method it needs.</p>
     </div>
-    {services_list()}
+    <div class="svc-layout">
+      <a class="svc-feature reveal" href="@@L:services/{_feature["slug"]}@@">
+        <div class="svc-feature-media" role="img" aria-label="Photo placeholder: freshly washed vinyl siding"><span class="ph-note">Photo needed: clean siding, close up</span></div>
+        <div class="svc-feature-body">
+          <h3>{_feature["name"]}</h3>
+          <p>{_feature["short"]}</p>
+          <span class="svc-surfaces">{_feature["surfaces"]}</span>
+        </div>
+      </a>
+      <ul class="svc-list">
+        {"".join(f'<li><a class="svc-item" href="@@L:services/{s["slug"]}@@"><span class="svc-item-text"><h3>{s["name"]}</h3><p>{s["short"]}</p></span><span class="svc-go">@@I:arrow@@</span></a></li>' for s in _rest)}
+      </ul>
+    </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="work-title">
+<section class="section is-stone" aria-labelledby="work-title">
   <div class="container">
-    <div class="section-head is-split">
-      <div>
-        <h2 id="work-title">Before and after</h2>
-        <p class="lede">Real jobs from around Central Connecticut. [[tbc:Project photos from Anthony]]</p>
-      </div>
-      <a class="text-link" href="@@L:our-work@@">See our work</a>
+    <div class="section-head">
+      <h2 id="work-title">Before and after</h2>
+      <p class="lede">Jobs A2 has done, with the town and the service for each one. [[tbc:Project photos from Anthony]]</p>
     </div>
-    <div class="project-grid">
-      {"".join(project_card(p) for p in PROJECTS[:3])}
+    <div class="proof-grid">
+      <article class="proof-main reveal">
+        {ba_diag("two-story vinyl colonial", "is-large")}
+        <p class="proof-cap"><strong>House wash</strong> Two-story vinyl colonial, Wethersfield</p>
+      </article>
+      <article class="proof-side reveal">
+        {ba_diag("asphalt shingle roof")}
+        <p class="proof-cap"><strong>Roof wash</strong> Asphalt shingle roof, [[tbc:town]]</p>
+      </article>
+      <article class="proof-side reveal">
+        {ba_diag("concrete driveway")}
+        <p class="proof-cap"><strong>Driveway cleaning</strong> Concrete driveway and walk, Wethersfield</p>
+      </article>
     </div>
+    <p class="section-foot"><a class="text-link" href="@@L:our-work@@">See our work</a></p>
   </div>
 </section>
 
-<section class="section is-stone" aria-labelledby="why-title">
-  <div class="container why-layout">
-    <div class="why-head">
-      <h2 id="why-title">A local company that cares how your place looks</h2>
-      <p class="lede">The owner answers the phone, and the same standard goes on every job.</p>
-    </div>
-    <div class="why-points">
-      <div class="point reveal">
-        <h3>The right technique</h3>
-        <p>Soft wash for siding and roofs, pressure for concrete. The right method protects your home and gets a cleaner result.</p>
-      </div>
-      <div class="point reveal">
-        <h3>Your neighbors</h3>
-        <p>A2 serves Wethersfield and nearby towns. You talk to the owner, Anthony Aubrey, [[tbc:and he works on the jobs himself]].</p>
-      </div>
-      <div class="point reveal">
-        <h3>Straight answers</h3>
-        <p>Some stains come out and some only lighten. We tell you which is which before we start.</p>
-      </div>
+<section class="section" aria-labelledby="owner-title">
+  <div class="container owner">
+    <div class="owner-photo reveal" role="img" aria-label="Photo placeholder: Anthony Aubrey, owner of A2 Exteriors"><span class="ph-note">Photo needed: Anthony Aubrey, owner</span></div>
+    <div class="owner-note">
+      <h2 id="owner-title">You deal with the owner</h2>
+      <p>I'm Anthony Aubrey, and I own A2 Exteriors. [[tbc:When you call or text, you reach me.]]</p>
+      <p>Before we start, I'll tell you which method your siding, roof, or driveway needs, and which stains will come out and which will only lighten. Siding and roofs get a low-pressure wash. High pressure stays on concrete.</p>
+      <p>[[tbc:A line or two from Anthony in his own words: why he started A2, what he takes pride in.]]</p>
+      <p class="owner-sign">Anthony Aubrey<span>Owner, A2 Exteriors</span></p>
     </div>
   </div>
 </section>
 
 <section class="section is-stone" aria-labelledby="how-title">
-  <div class="container">
-    <div class="section-head">
-      <h2 id="how-title">How to get your property cleaned</h2>
+  <div class="container process">
+    <div class="process-copy">
+      <h2 id="how-title">Get a price by text</h2>
+      <ol class="process-list">
+        <li>Text photos of what you want cleaned, plus your town.</li>
+        <li>We reply with a price. [[tbc:Most estimates go out within one business day.]] Larger jobs may need a quick visit.</li>
+        <li>Pick a date. We do the work and walk you through the result.</li>
+      </ol>
     </div>
-    <ol class="steps">
-      <li><h3>Send us the details</h3><p>Fill out the estimate form, or text photos and your town to @@PHONE@@.</p></li>
-      <li><h3>Get your estimate</h3><p>We send a price for the work. [[tbc:Most estimates go out within one business day.]] Larger jobs may need a quick visit first.</p></li>
-      <li><h3>We clean it</h3><p>Pick a date that works. We show up, do the work, and walk you through the result.</p></li>
-    </ol>
+    <div class="process-panel">
+      <p class="process-label">Text or call</p>
+      <a class="process-number" href="@@SMS@@" data-track="sms-click" aria-label="Text photos to @@PHONE@@">@@PHONE@@</a>
+      <p class="process-alt">Prefer a form? <a href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a></p>
+    </div>
   </div>
 </section>
 
 <section class="section" aria-labelledby="areas-title">
-  <div class="container area-panel">
-    <div>
-      <h2 id="areas-title">Serving Wethersfield and Central Connecticut</h2>
-      <p class="lede">We work in Wethersfield and [[tbc:the surrounding towns]]. If you are close by and do not see your town, ask.</p>
-      <ul class="area-list">
-        <li><a href="@@L:service-areas/wethersfield-ct@@">Wethersfield</a></li>
-        <li><span>[[tbc:Town]]</span></li>
-        <li><span>[[tbc:Town]]</span></li>
-        <li><span>[[tbc:Town]]</span></li>
-      </ul>
-      <a class="text-link" href="@@L:service-areas@@">All service areas</a>
-    </div>
-    {ph("Map of confirmed service towns", "Static map image or embedded Google map", extra="is-wide")}
+  <div class="container areas">
+    <h2 id="areas-title">Where we work</h2>
+    <p class="lede">Wethersfield and [[tbc:the surrounding Central Connecticut towns]]. Close by and not on the list? Ask.</p>
+    <p class="town-line"><a href="@@L:service-areas/wethersfield-ct@@">Wethersfield</a><span>[[tbc:Town]]</span><span>[[tbc:Town]]</span><span>[[tbc:Town]]</span><a href="@@L:service-areas@@">All service areas</a></p>
   </div>
 </section>
 
-<section class="section is-stone" aria-labelledby="reviews-title">
-  <!-- Testimonials CMS: shows the featured approved review. Hide the section until one exists. -->
-  <div class="container is-narrow">
-    <h2 id="reviews-title" class="visually-hidden">What customers say</h2>
-    <figure class="feature-quote">
-      <blockquote><p>[[tbc:Approved customer review, two or three lines at most]]</p></blockquote>
-      <figcaption><strong>Name as permitted</strong><span>[[tbc:Town]], [[tbc:service]]</span></figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="faq-title">
-  <div class="container is-narrow">
+<section class="section is-stone" aria-labelledby="faq-title">
+  <div class="container">
     <div class="section-head">
       <h2 id="faq-title">Common questions</h2>
     </div>
-    {faq_html(HOME_FAQS)}
-    <p style="margin-top:2rem"><a class="text-link" href="@@L:faq@@">More questions and answers</a></p>
+    <div class="qa-grid">
+      {"".join(f'<div class="qa"><h3>{q}</h3><p>{a}</p></div>' for q, a in HOME_QA)}
+    </div>
+    <p class="section-foot"><a class="text-link" href="@@L:faq@@">More questions and answers</a></p>
   </div>
 </section>
+<!-- Reviews: Testimonials CMS section goes between the owner note and the process section once an approved review exists. -->
 """
 
 
@@ -1031,7 +1041,7 @@ PAGES = [
         "description": "House and roof washing, driveway and patio cleaning, and commercial exterior cleaning in Central Connecticut. Free estimates: 860-430-4568.",
         "hero_html": HOME_HERO,
         "body": HOME_BODY,
-        "schema": [BUSINESS_LD, WEBSITE_LD, faq_ld(HOME_FAQS)],
+        "schema": [BUSINESS_LD, WEBSITE_LD, faq_ld(HOME_QA)],
     },
     {
         "route": "services",
