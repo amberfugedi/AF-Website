@@ -135,6 +135,7 @@ SERVICES = [
             ("Do I need to be home during the wash?", "[[tbc:Not usually. If we can reach a working outdoor faucet and get through any gates, you can be at work.]]"),
         ],
         "ba": "House wash",
+        "photo": "house-wash-garage",
     },
     {
         "slug": "roof-washing",
@@ -361,7 +362,7 @@ FAQ_GROUPS = [
 # Projects (Webflow: Projects CMS collection). All placeholders.
 # ---------------------------------------------------------------------
 PROJECTS = [
-    ("house-washing", "House wash", "Wethersfield, CT", "Two-story vinyl colonial"),
+    ("house-washing", "House wash", "[[tbc:Town]], CT", "Vinyl siding and garage doors", "house-wash-garage"),
     ("roof-washing", "Roof wash", "[[tbc:Town]]", "Asphalt shingle roof"),
     ("driveway-concrete-cleaning", "Driveway cleaning", "Wethersfield, CT", "Concrete driveway and walk"),
     ("patio-walkway-cleaning", "Patio cleaning", "[[tbc:Town]]", "Paver patio"),
@@ -373,14 +374,33 @@ PROJECTS = [
 SERVICE_OPTIONS = "".join(f'<option value="{s["name"]}">{s["name"]}</option>' for s in SERVICES)
 
 
-def compare(label, meta="", large=False):
+PHOTOS = {
+    # Real A2 project photos. Same property, aligned so the slider compares like for like.
+    "house-wash-garage": {
+        "before": "house-wash-vinyl-siding-garage-before.webp",
+        "after": "house-wash-vinyl-siding-garage-after.webp",
+        "alt_before": "Before: green algae and mildew streaks across cream vinyl siding above a two-car garage",
+        "alt_after": "After: the same vinyl siding, trim, and garage doors clean following a house wash",
+        "w": 622, "h": 887,
+    },
+}
+
+
+def compare(label, meta="", large=False, photo=None, focus="50% 55%"):
     """Accessible before/after comparison. The range input drives --pos; keyboard arrows work natively.
     Webflow: one reusable component + a small code embed (js/a2.js, compare block)."""
     cls = "compare is-large" if large else "compare"
+    if photo:
+        p = PHOTOS[photo]
+        img = lambda k: f'<img class="compare-img" src="@@IMG@@{p[k]}" alt="{p["alt_" + k]}" width="{p["w"]}" height="{p["h"]}" loading="lazy" decoding="async" style="object-position: {focus}">'
+        before, after = img("before"), img("after")
+    else:
+        before = f'<span class="ph-note">Photo needed: {label}, before</span>'
+        after = f'<span class="ph-note">Photo needed: {label}, after</span>'
     return f"""<figure class="{cls}" style="--pos: 50%">
   <div class="compare-stage">
-    <div class="compare-pane is-before"><span class="ph-note">Photo needed: {label}, before</span></div>
-    <div class="compare-pane is-after"><span class="ph-note">Photo needed: {label}, after</span></div>
+    <div class="compare-pane is-before">{before}</div>
+    <div class="compare-pane is-after">{after}</div>
     <span class="compare-tag is-before">Before</span>
     <span class="compare-tag is-after">After</span>
     <span class="compare-line" aria-hidden="true"><span class="compare-handle"></span></span>
@@ -390,10 +410,11 @@ def compare(label, meta="", large=False):
 
 
 def project_card(p, tag="article"):
-    slug, label, town, prop = p
+    slug, label, town, prop = p[:4]
+    photo = p[4] if len(p) > 4 else None
     svc = next(s for s in SERVICES if s["slug"] == slug)
     return f"""<{tag} class="project-card reveal" data-service="{slug}">
-  {compare(prop.lower() + ", " + label.lower())}
+  {compare(prop.lower() + ", " + label.lower(), photo=photo)}
   <p class="meta">{town} / {label}</p>
   <h3>{prop}</h3>
 </{tag}>"""
@@ -481,14 +502,14 @@ HOME_BODY = f"""
   <div class="container">
     <div class="section-head">
       <h2 id="work-title">The difference is in the details.</h2>
-      <p class="lede">Drag the divider, or use the arrow keys, to compare. [[tbc:Real A2 project photos]]</p>
+      <p class="lede">Drag the divider, or use the arrow keys, to compare.</p>
     </div>
     <div class="feature-compare">
-      {compare("two-story vinyl colonial, house wash", large=True)}
+      {compare("vinyl siding and garage doors, house wash", large=True, photo="house-wash-garage", focus="50% 52%")}
       <div class="feature-compare-caption">
-        <p class="meta">Wethersfield, CT / House wash</p>
-        <h3>Two-story vinyl colonial</h3>
-        <p>Low-pressure wash on all four sides, trim, soffits, and gutter faces. [[tbc:Project details from Anthony]]</p>
+        <p class="meta">[[tbc:Town]], CT / House wash</p>
+        <h3>Vinyl siding and garage doors</h3>
+        <p>Green algae and mildew had streaked the siding above the garage. A house wash cleared the siding, trim, and garage doors. [[tbc:Town and any project details from Anthony]]</p>
         <a class="text-link" href="@@L:our-work@@">View Project</a>
       </div>
     </div>
@@ -503,7 +524,7 @@ HOME_BODY = f"""
     </div>
     <div class="svc-cards">
       <article class="svc-card reveal">
-        <div class="svc-card-photo" role="img" aria-label="Photo placeholder: freshly washed siding"><span class="ph-note">Photo needed: clean siding, close up</span></div>
+        <div class="svc-card-photo"><img class="svc-card-img" src="@@IMG@@house-wash-vinyl-siding-garage-after.webp" alt="Clean cream vinyl siding and white trim after an A2 house wash" width="622" height="887" loading="lazy" decoding="async"></div>
         <h3><a href="@@L:services/house-washing@@">House Washing</a></h3>
         <p>{_svc["house-washing"]["short"]}</p>
       </article>
@@ -678,7 +699,7 @@ def service_page(s):
       <h2 id="ba-title">{s["name"]} before and after</h2>
     </div>
     <div class="grid-2">
-      {compare(s["ba"].lower() + ", project 1")}
+      {compare(s["ba"].lower() + ", project 1", photo=s.get("photo"))}
       {compare(s["ba"].lower() + ", project 2")}
     </div>
     <p style="margin-top:2rem"><a class="text-link" href="@@L:our-work@@">See Our Work</a></p>

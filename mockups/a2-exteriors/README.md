@@ -240,6 +240,21 @@ What changed on the homepage:
 - Owner note: one draft line in Anthony's voice, flagged for his approval
 - Checked: no banned phrases, no buzzwords, no em dashes, no exclamation points in visible copy
 
+## First real project photos (2026-11-14)
+
+Source: `source-assets/project-house-wash-before-after-original.png`, a composite
+graphic (before and after side by side, labels and logo baked in) supplied by Amber.
+The two halves were split, the labels and logo cropped off, and the after photo
+aligned to the before (scale 0.99, offset 60px / 4px, found by edge matching) so the
+slider compares the same wall. Files: `site/images/house-wash-vinyl-siding-garage-{before,after}.{webp,jpg}`
+(622x887, 63-74KB webp).
+
+Used in: homepage featured before/after, homepage House Washing card (after photo),
+first house-wash project on Our Work, first comparison on the House Washing page.
+Still needed: the town, any project details, and the original full-resolution phone
+photos. Each half is only ~620px wide, fine for these slots but too small for the
+full-width hero.
+
 ## QA run on this build (2026-11-14)
 
 - 20 pages built; 0 broken internal links; every JSON-LD block parses
