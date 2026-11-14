@@ -229,6 +229,17 @@ What changed on the homepage:
 - CTA band is navy and sits with the footer; no decorative diagonal
 - Reviews: section slot reserved, hidden until an approved review exists
 
+## Copy pass to brand voice (2026-11-14)
+
+- Contractions throughout (don't, isn't, we'll, you're) so the copy reads like a local owner, not a form letter
+- Homepage headlines from the brand list: "The difference is in the details.", "Good work. Done right.", "Local work. Real results."; The A2 Standard lede opens "More than a quick rinse."
+- Gutter cleaning added where services are listed (hero, About) and as a quote-form option. It has no service page yet
+- Licensing leads the credibility facts; specifics stay flagged until verified
+- Tagline "Because first impressions matter." restored to the footer (it is also the About page H1)
+- Preventative-care line added to House Washing "When to book"
+- Owner note: one draft line in Anthony's voice, flagged for his approval
+- Checked: no banned phrases, no buzzwords, no em dashes, no exclamation points in visible copy
+
 ## QA run on this build (2026-11-14)
 
 - 20 pages built; 0 broken internal links; every JSON-LD block parses

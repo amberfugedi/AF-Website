@@ -96,10 +96,10 @@ SERVICES = [
   <li>Outer faces of gutters and downspouts</li>
   <li>[[tbc:Shutters, light fixtures, and the front entry area]]</li>
 </ul>
-<p>Window glass gets rinsed along with the siding. [[tbc:A house wash is not a window cleaning service]], so expect clean glass, not streak-free glass.</p>
+<p>Window glass gets rinsed along with the siding. [[tbc:A house wash isn’t a window cleaning service]], so expect clean glass, not streak-free glass.</p>
 
 <h2>Problems it fixes</h2>
-<p>Connecticut summers stay humid, and shaded walls stay damp long after the sun dries the rest of the house. That is where you see it first:</p>
+<p>Connecticut summers stay humid, and shaded walls stay damp long after the sun dries the rest of the house. That’s where you see it first:</p>
 <ul>
   <li><strong>Green or black algae</strong>, usually on north-facing walls and under trees</li>
   <li><strong>Mildew</strong> in gray or black spots, often near decks and downspouts</li>
@@ -127,10 +127,10 @@ SERVICES = [
 </ul>
 
 <h2>When to book</h2>
-<p>Late spring, after the pollen settles, is the most common time. A wash also makes sense before you list a house, before a big event at home, or any time you see green spreading on a wall. Most homes need it every one to two years.</p>
+<p>Late spring, after the pollen settles, is the most common time. A wash also makes sense before you list a house, before a big event at home, or any time you see green spreading on a wall. Most homes need it every one to two years. Regular washing also keeps algae and mildew from settling in, so each cleaning stays quicker and gentler on the siding.</p>
 """,
         "faqs": [
-            ("Can pressure washing damage siding?", "Yes. High pressure can crack vinyl, force water behind siding and into wall cavities, strip paint, and splinter wood. That is why siding gets a low-pressure wash with a cleaning solution, and high pressure stays on concrete."),
+            ("Can pressure washing damage siding?", "Yes. High pressure can crack vinyl, force water behind siding and into wall cavities, strip paint, and splinter wood. That’s why siding gets a low-pressure wash with a cleaning solution, and high pressure stays on concrete."),
             ("How often should a house be washed?", "Most homes need a wash every one to two years. Houses under trees, near wetlands, or with walls that stay in shade often need it every year."),
             ("Do I need to be home during the wash?", "[[tbc:Not usually. If we can reach a working outdoor faucet and get through any gates, you can be at work.]]"),
         ],
@@ -169,7 +169,7 @@ SERVICES = [
 </ul>
 
 <h2>When to book</h2>
-<p>Book when you first notice streaks on the shaded side of the roof. Algae spreads across a slope, and moss is easier to treat before it thickens. A clean roof also helps when you are selling, since buyers and inspectors see the roof in every listing photo.</p>
+<p>Book when you first notice streaks on the shaded side of the roof. Algae spreads across a slope, and moss is easier to treat before it thickens. A clean roof also helps when you’re selling, since buyers and inspectors see the roof in every listing photo.</p>
 
 <h2>Keeping it clean longer</h2>
 <p>Algae comes back. How fast depends on shade and moisture. Trimming back overhanging branches lets the roof dry out sooner, and zinc or copper strips near the ridge slow regrowth as rain carries traces of metal down the slope.</p>
@@ -224,9 +224,9 @@ SERVICES = [
 <p>Spring clears off winter salt and sand. Late fall, after the leaves come down, lifts tannin stains before they set over winter. If you plan to seal your driveway, clean it first so the sealer bonds to concrete, not dirt.</p>
 """,
         "faqs": [
-            ("Will pressure washing get oil stains out of my driveway?", "It depends on how old the stain is and how deep it soaked in. Fresh stains often come out. Older stains usually get lighter. We will tell you what to expect when we see it."),
+            ("Will pressure washing get oil stains out of my driveway?", "It depends on how old the stain is and how deep it soaked in. Fresh stains often come out. Older stains usually get lighter. We’ll tell you what to expect when we see it."),
             ("Can pressure washing damage concrete?", "It can if someone uses too narrow a tip or holds it too close. That etches the surface and leaves stripes. A surface cleaner keeps the nozzle height and pressure even across the whole slab."),
-            ("How soon can I drive on the driveway?", "Once it dries. On a warm, sunny day that is usually a few hours."),
+            ("How soon can I drive on the driveway?", "Once it dries. On a warm, sunny day that’s usually a few hours."),
         ],
         "ba": "Driveway cleaning",
     },
@@ -271,7 +271,7 @@ SERVICES = [
 """,
         "faqs": [
             ("Will cleaning wash out the sand between my pavers?", "Some sand can loosen, especially in older joints. Using lower pressure and angling the spray away from the joints keeps loss to a minimum. [[tbc:Re-sanding availability]]"),
-            ("Does patio cleaning kill weeds?", "It removes moss and surface growth from joints. Weeds with deep roots can return, since washing does not reach the root."),
+            ("Does patio cleaning kill weeds?", "It removes moss and surface growth from joints. Weeds with deep roots can return, since washing doesn’t reach the root."),
             ("Why is my walkway slippery?", "A thin film of algae grows on stone and concrete that stays shaded and damp. It turns slick when wet. Cleaning removes the film and makes the surface easier to walk on."),
         ],
         "ba": "Patio cleaning",
@@ -301,7 +301,7 @@ SERVICES = [
 
 <h2>How we schedule</h2>
 <ul>
-  <li>[[tbc:Early morning or after-hours work so customers and tenants are not disrupted]]</li>
+  <li>[[tbc:Early morning or after-hours work so customers and tenants aren’t disrupted]]</li>
   <li>[[tbc:One-time cleanings or a recurring schedule]]</li>
   <li>[[tbc:Certificate of insurance available on request]]</li>
 </ul>
@@ -310,10 +310,10 @@ SERVICES = [
 <p>Connecticut has rules about what can go into storm drains, and they apply to commercial washing. [[tbc:How A2 handles runoff on commercial sites]]</p>
 
 <h2>Getting a quote</h2>
-<p>Send the property address, what needs cleaning, and a few photos. For larger sites we will set up a walkthrough before quoting.</p>
+<p>Send the property address, what needs cleaning, and a few photos. For larger sites, we’ll set up a walkthrough before quoting.</p>
 """,
         "faqs": [
-            ("Can you clean outside business hours?", "[[tbc:Yes. We schedule early mornings or evenings so the work does not get in the way of customers.]]"),
+            ("Can you clean outside business hours?", "[[tbc:Yes. We schedule early mornings or evenings so the work doesn’t get in the way of customers.]]"),
             ("Do you offer recurring service?", "[[tbc:Yes. Many commercial properties book quarterly or seasonal cleanings.]]"),
             ("Can you provide a certificate of insurance?", "[[tbc:Yes, on request before work begins.]]"),
         ],
@@ -329,7 +329,7 @@ HOME_FAQS = [
     ("How much does exterior cleaning cost?", "Price depends on the size of the house or surface, how much buildup there is, and access. We give free quotes, and photos texted to @@PHONE@@ help us quote faster."),
     ("Do you clean commercial properties?", "Yes. We clean storefronts, entryways, sidewalks, and building exteriors. See <a href=\"@@L:services/commercial-exterior-cleaning@@\">commercial exterior cleaning</a>."),
     ("What towns do you serve?", "We serve Wethersfield and [[tbc:surrounding Central Connecticut towns]]. See <a href=\"@@L:service-areas@@\">service areas</a> for the current list."),
-    ("What should I do before my appointment?", "Close windows, bring pets inside, and move cars, furniture, and anything fragile away from the areas we are cleaning. [[tbc:Make sure an outdoor faucet works.]]"),
+    ("What should I do before my appointment?", "Close windows, bring pets inside, and move cars, furniture, and anything fragile away from the areas we’re cleaning. [[tbc:Make sure an outdoor faucet works.]]"),
 ]
 
 FAQ_GROUPS = [
@@ -342,10 +342,10 @@ FAQ_GROUPS = [
         ("Will every stain come out?", "No. Algae, mildew, and dirt usually clean up well. Rust, oil, paint, and the chalky film on old vinyl or aluminum may lighten without disappearing. We point those out before we start so you know what to expect."),
     ]),
     ("Scheduling and preparation", [
-        ("What should homeowners do before an exterior cleaning appointment?", "Close windows and doors, bring pets inside, and move cars, patio furniture, toys, and anything fragile away from the areas we are cleaning. Unlock gates. [[tbc:Make sure an outdoor faucet works, since we connect to it.]]"),
-        ("How long does an exterior cleaning appointment take?", "[[tbc:A house wash on a typical single-family home takes two to four hours. A driveway or patio often takes one to three hours. Roofs and commercial jobs vary more, and we will give you a time window with your quote.]]"),
+        ("What should homeowners do before an exterior cleaning appointment?", "Close windows and doors, bring pets inside, and move cars, patio furniture, toys, and anything fragile away from the areas we’re cleaning. Unlock gates. [[tbc:Make sure an outdoor faucet works, since we connect to it.]]"),
+        ("How long does an exterior cleaning appointment take?", "[[tbc:A house wash on a typical single-family home takes two to four hours. A driveway or patio often takes one to three hours. Roofs and commercial jobs vary more, and we’ll give you a time window with your quote.]]"),
         ("Do I need to be home?", SERVICES[0]["faqs"][2][1]),
-        ("What happens if it rains?", "[[tbc:Light rain does not affect most cleaning. In heavy rain, wind, or freezing temperatures we reschedule and let you know as early as we can.]]"),
+        ("What happens if it rains?", "[[tbc:Light rain doesn’t affect most cleaning. In heavy rain, wind, or freezing temperatures we reschedule and let you know as early as we can.]]"),
         ("Is it safe for my plants and pets?", "We wet plants before and after cleaning and rinse anything the runoff touches. Keep pets inside until the work is done and surfaces have been rinsed. [[tbc:Confirm plant care steps]]"),
     ]),
     ("Quotes and timing", [
@@ -448,7 +448,7 @@ HOME_HERO = f"""
   <div class="home-hero-photo" role="img" aria-label="Photo placeholder: a cleaned Connecticut home finished by A2"><span class="ph-note">Photo needed: a cleaned Connecticut home A2 has finished</span></div>
   <div class="container home-hero-inner">
     <h1 id="hero-title">The outside matters.</h1>
-    <p class="hero-sub">Professional exterior cleaning for Connecticut homes and businesses: house and roof washing, driveways, patios, and storefronts.</p>
+    <p class="hero-sub">Professional exterior cleaning for Connecticut homes and businesses: house and roof washing, gutters, driveways, patios, and storefronts.</p>
     <div class="button-row">
       <a class="button is-primary is-large" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a>
       <a class="button is-ghost-light is-large" href="@@L:our-work@@">See Our Work</a>
@@ -464,13 +464,13 @@ HOME_BODY = f"""
   <div class="container cred">
     <div class="cred-copy">
       <h2 id="about-title">A locally owned exterior cleaning company in Wethersfield, Connecticut.</h2>
-      <p class="lede">Anthony Aubrey owns A2 Exteriors. We clean homes and commercial properties across [[tbc:Central Connecticut]], and we choose the cleaning method for each surface before we start.</p>
+      <p class="lede">Anthony Aubrey owns A2 Exteriors. We clean homes and commercial properties across [[tbc:Central Connecticut]], choose the right method for each surface, and tell you what to expect before we start.</p>
     </div>
     <dl class="cred-facts">
       <div><dt>Service area</dt><dd>Wethersfield and [[tbc:nearby towns]]</dd></div>
       <div><dt>Properties</dt><dd>Homes and businesses</dd></div>
       <div><dt>Quotes</dt><dd>Text photos to <a href="@@SMS@@" data-track="sms-click">@@PHONE@@</a></dd></div>
-      <div><dt>Insurance</dt><dd>[[tbc:Insurer and coverage, shown once verified]]</dd></div>
+      <div><dt>Licensing</dt><dd>[[tbc:Licensed and insured. CT registration number and insurer shown once verified]]</dd></div>
       <div><dt>Reviews</dt><dd>[[tbc:Google rating, shown once verified]]</dd></div>
     </dl>
   </div>
@@ -480,7 +480,7 @@ HOME_BODY = f"""
 <section class="section is-dark" aria-labelledby="work-title">
   <div class="container">
     <div class="section-head">
-      <h2 id="work-title">See what a difference the details make.</h2>
+      <h2 id="work-title">The difference is in the details.</h2>
       <p class="lede">Drag the divider, or use the arrow keys, to compare. [[tbc:Real A2 project photos]]</p>
     </div>
     <div class="feature-compare">
@@ -533,7 +533,7 @@ HOME_BODY = f"""
   <div class="container standard">
     <div class="standard-head">
       <h2 id="standard-title">The A2 Standard</h2>
-      <p class="lede">What you can expect on every job, from the first text to the final rinse.</p>
+      <p class="lede">More than a quick rinse. What you can expect on every job, from your first text to the finished work.</p>
       <a class="text-link" href="@@L:about@@#how-we-work">Learn About Our Process</a>
     </div>
     <div class="standard-list">
@@ -550,9 +550,10 @@ HOME_BODY = f"""
   <div class="container owner">
     <div class="owner-photo edge-photo reveal" role="img" aria-label="Photo placeholder: Anthony Aubrey at work"><span class="ph-note">Photo needed: Anthony on a job, not posed</span></div>
     <div class="owner-note">
-      <h2 id="owner-title">Good work. Done with care.</h2>
+      <h2 id="owner-title">Good work. Done right.</h2>
       <p>I'm Anthony Aubrey, and I own A2 Exteriors. [[tbc:When you call or text, you reach me.]]</p>
-      <p>[[tbc:A few lines from Anthony in his own words: why he started A2, what he takes pride in, what homeowners can expect.]]</p>
+      <p>[[tbc:When you work with us, you get a clear price, the right method for each surface, and a straight answer about what will come clean and what won’t. (Draft in Anthony’s voice, for his approval.)]]</p>
+      <p>[[tbc:A few lines from Anthony in his own words: why he started A2 and what he takes pride in.]]</p>
       <p class="owner-sign">Anthony Aubrey<span>Owner, A2 Exteriors</span></p>
       <a class="button is-primary" href="@@L:about@@">Meet A2</a>
     </div>
@@ -574,7 +575,8 @@ HOME_BODY = f"""
 <section class="section" aria-labelledby="recent-title">
   <div class="container">
     <div class="section-head">
-      <h2 id="recent-title">Recent Connecticut projects</h2>
+      <h2 id="recent-title">Local work. Real results.</h2>
+      <p class="lede">Recent jobs from around Central Connecticut.</p>
     </div>
     <div class="recent">
       <article class="recent-card is-wide reveal">
@@ -635,6 +637,7 @@ HOME_BODY = f"""
             <select class="select" id="h-service" name="service" required>
               <option value="">Choose a service</option>
               {SERVICE_OPTIONS}
+              <option value="Gutter Cleaning">Gutter Cleaning</option>
               <option value="Not sure">Not sure / more than one</option>
             </select>
           </div>
@@ -776,7 +779,7 @@ SERVICE_AREAS_BODY = f"""
   <div class="container">
     <div class="section-head">
       <h2>Services in every town</h2>
-      <p class="lede">The same services and the same standards, whichever town you are in.</p>
+      <p class="lede">The same services and the same standards, whichever town you’re in.</p>
     </div>
     {services_list()}
   </div>
@@ -818,7 +821,7 @@ ABOUT_BODY = f"""
     <div class="prose">
       <h2>Meet Anthony</h2>
       <p>A2 Exteriors is owned by Anthony Aubrey. [[tbc:Anthony's story: how he started, why exterior cleaning, background, how long he has been doing this work]]</p>
-      <p>A2 cleans siding, roofs, driveways, patios, and commercial buildings. [[tbc:Plans to add services such as gutters, decks, and fences]]</p>
+      <p>We clean siding, roofs, gutters, driveways, patios, and commercial buildings. [[tbc:Plans to add services such as gutters, decks, and fences]]</p>
       <h2 id="how-we-work">How we work</h2>
       <ul class="check-list">
         <li><strong>The right technique for each surface.</strong> Soft wash for siding and roofs, pressure for concrete.</li>
@@ -885,7 +888,7 @@ ARTICLES = [
 <p>A rental pressure washer works for small concrete jobs if you keep the nozzle moving and use a wide tip. Keep it off your siding, your roof, and anything painted. Ladder work with a pressure washer is a common way to get hurt, since the recoil can push you off balance.</p>
 
 <h2>When to call a professional</h2>
-<p>Call a professional for roofs, second stories, painted or older siding, and any time you are not sure what the surface can handle. <a href="@@L:get-a-quote@@">Request a free quote</a> and send a few photos.</p>
+<p>Call a professional for roofs, second stories, painted or older siding, and any time you’re not sure what the surface can handle. <a href="@@L:get-a-quote@@">Request a free quote</a> and send a few photos.</p>
 """,
         "related": ["house-washing", "roof-washing", "driveway-concrete-cleaning"],
     },
@@ -905,7 +908,7 @@ ARTICLES = [
 
 <h2>Algae, moss, or lichen?</h2>
 <ul>
-  <li><strong>Algae</strong> shows up as black or dark gray streaks. It is mostly cosmetic.</li>
+  <li><strong>Algae</strong> shows up as black or dark gray streaks. It’s mostly cosmetic.</li>
   <li><strong>Moss</strong> is green and fuzzy and grows in clumps, often along shingle edges. It holds water against the roof and can lift shingles as it grows.</li>
   <li><strong>Lichen</strong> looks like flat, crusty spots, often pale green or gray. It grips the surface hard and can take granules with it if scraped off.</li>
 </ul>
@@ -1036,7 +1039,7 @@ ESTIMATE_BODY = f"""
            site plan (10 MB limit per file). -->
       <form action="@@L:thank-you@@" method="get" name="quote-request" aria-describedby="form-intro">
         <h2 class="visually-hidden">Quote request form</h2>
-        <p id="form-intro">Tell us about the job and we will get back to you with a free quote. Fields marked optional can be skipped.</p>
+        <p id="form-intro">Tell us about the job and we’ll get back to you with a free quote. Fields marked optional can be skipped.</p>
         <div class="form-grid">
           <div class="field"><label for="f-name">Name</label><input class="input" id="f-name" name="name" type="text" autocomplete="name" required></div>
           <div class="field"><label for="f-phone">Phone</label><input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
@@ -1047,6 +1050,7 @@ ESTIMATE_BODY = f"""
             <select class="select" id="f-service" name="service" required>
               <option value="">Choose a service</option>
               {SERVICE_OPTIONS}
+              <option value="Gutter Cleaning">Gutter Cleaning</option>
               <option value="Not sure">Not sure / more than one</option>
             </select>
           </div>
@@ -1065,8 +1069,8 @@ ESTIMATE_BODY = f"""
         <p class="form-note">We use your details only to respond to this request. See our <a href="@@L:privacy@@">privacy policy</a>.</p>
       </form>
       <!-- Webflow Form Block states. Success is unused while the form redirects to /thank-you, but keep it as a fallback. -->
-      <div class="form-success" role="status" hidden><p><strong>Thanks, we got your request.</strong> We will be in touch with your quote.</p></div>
-      <div class="form-error" role="alert" hidden><p><strong>Your request did not go through.</strong> Please try again, or call or text @@PHONE@@.</p></div>
+      <div class="form-success" role="status" hidden><p><strong>Thanks, we got your request.</strong> We’ll be in touch with your quote.</p></div>
+      <div class="form-error" role="alert" hidden><p><strong>Your request didn’t go through.</strong> Please try again, or call or text @@PHONE@@.</p></div>
     </div>
     <aside class="sidebar" aria-label="Other ways to reach us">
       <ul class="contact-methods">
@@ -1091,8 +1095,8 @@ THANKS_BODY = """
 <section class="section">
   <div class="container is-narrow">
     <h2>What happens next</h2>
-    <p>We will review your request and get back to you with a quote. [[tbc:Most requests get a reply within one business day.]]</p>
-    <p>If you have not sent photos yet, text them to <a href="@@SMS@@">@@PHONE@@</a>. They help us price the job without a visit.</p>
+    <p>We’ll review your request and get back to you with a quote. [[tbc:Most requests get a reply within one business day.]]</p>
+    <p>If you haven’t sent photos yet, text them to <a href="@@SMS@@">@@PHONE@@</a>. They help us price the job without a visit.</p>
     <div class="button-row" style="margin-top:2rem">
       <a class="button is-secondary" href="@@L:our-work@@">See Our Work</a>
       <a class="button is-secondary" href="@@L:@@">Back to home</a>
@@ -1113,7 +1117,7 @@ PRIVACY_BODY = """
 NOT_FOUND_BODY = """
 <section class="section">
   <div class="container is-narrow">
-    <p class="lede">The page you were looking for is not here. Try one of these instead:</p>
+    <p class="lede">That page isn’t here. Try one of these instead:</p>
     <div class="button-row" style="margin-top:1.5rem">
       <a class="button is-primary" href="@@L:get-a-quote@@">Request a Free Quote</a>
       <a class="button is-secondary" href="@@L:services@@">Our services</a>
@@ -1152,7 +1156,7 @@ PAGES = [
         "description": "Before and after photos of house washing, roof washing, driveway, patio, and commercial cleaning jobs by A2 Exteriors in Central Connecticut.",
         "eyebrow": "Our Work",
         "h1": "Before and after",
-        "lede": "Real jobs, with the town and service for each one. Filter by service to see the work you are thinking about.",
+        "lede": "Real jobs, with the town and service for each one. Filter by service to see work like yours.",
         "crumbs": [("Our Work", "our-work")],
         "body": OUR_WORK_BODY,
     },
@@ -1193,7 +1197,7 @@ PAGES = [
         "description": "Answers about pressure washing vs. soft washing, roof cleaning, how to prepare for an appointment, how long it takes, and how to get a quote.",
         "eyebrow": "FAQ",
         "h1": "Questions and answers",
-        "lede": "How the cleaning works, how to prepare, and how quotes work. Do not see your question? Call or text @@PHONE@@.",
+        "lede": "How the cleaning works, how to prepare, and how quotes work. Don’t see your question? Call or text @@PHONE@@.",
         "crumbs": [("FAQ", "faq")],
         "body": FAQ_BODY,
         "schema": [faq_ld(ALL_FAQ_ITEMS)],

@@ -126,7 +126,7 @@ def footer():
         <a class="brand" href="@@L:@@">
           <img src="@@IMG@@a2-logo-stacked-white-a.webp" width="140" height="107" alt="A2 Exteriors home" loading="lazy">
         </a>
-        <p class="footer-tagline">The outside matters.</p>
+        <p class="footer-tagline">Because first impressions matter.</p>
         <p>Exterior cleaning for homes and businesses in Central Connecticut.</p>
         <a class="footer-phone" href="@@TEL@@" data-track="phone-click">@@PHONE@@</a>
         <p>Call or text<br><a href="mailto:{BIZ["email"]}">[[tbc:{BIZ["email"]}]]</a></p>

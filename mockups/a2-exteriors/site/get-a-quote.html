@@ -85,7 +85,7 @@
            site plan (10 MB limit per file). -->
       <form action="thank-you.html" method="get" name="quote-request" aria-describedby="form-intro">
         <h2 class="visually-hidden">Quote request form</h2>
-        <p id="form-intro">Tell us about the job and we will get back to you with a free quote. Fields marked optional can be skipped.</p>
+        <p id="form-intro">Tell us about the job and we’ll get back to you with a free quote. Fields marked optional can be skipped.</p>
         <div class="form-grid">
           <div class="field"><label for="f-name">Name</label><input class="input" id="f-name" name="name" type="text" autocomplete="name" required></div>
           <div class="field"><label for="f-phone">Phone</label><input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
@@ -96,6 +96,7 @@
             <select class="select" id="f-service" name="service" required>
               <option value="">Choose a service</option>
               <option value="House Washing">House Washing</option><option value="Roof Washing">Roof Washing</option><option value="Driveway and Concrete Cleaning">Driveway and Concrete Cleaning</option><option value="Patio and Walkway Cleaning">Patio and Walkway Cleaning</option><option value="Commercial Exterior Cleaning">Commercial Exterior Cleaning</option>
+              <option value="Gutter Cleaning">Gutter Cleaning</option>
               <option value="Not sure">Not sure / more than one</option>
             </select>
           </div>
@@ -114,8 +115,8 @@
         <p class="form-note">We use your details only to respond to this request. See our <a href="privacy.html">privacy policy</a>.</p>
       </form>
       <!-- Webflow Form Block states. Success is unused while the form redirects to /thank-you, but keep it as a fallback. -->
-      <div class="form-success" role="status" hidden><p><strong>Thanks, we got your request.</strong> We will be in touch with your quote.</p></div>
-      <div class="form-error" role="alert" hidden><p><strong>Your request did not go through.</strong> Please try again, or call or text 860-430-4568.</p></div>
+      <div class="form-success" role="status" hidden><p><strong>Thanks, we got your request.</strong> We’ll be in touch with your quote.</p></div>
+      <div class="form-error" role="alert" hidden><p><strong>Your request didn’t go through.</strong> Please try again, or call or text 860-430-4568.</p></div>
     </div>
     <aside class="sidebar" aria-label="Other ways to reach us">
       <ul class="contact-methods">
@@ -146,7 +147,7 @@
         <a class="brand" href="index.html">
           <img src="images/a2-logo-stacked-white-a.webp" width="140" height="107" alt="A2 Exteriors home" loading="lazy">
         </a>
-        <p class="footer-tagline">The outside matters.</p>
+        <p class="footer-tagline">Because first impressions matter.</p>
         <p>Exterior cleaning for homes and businesses in Central Connecticut.</p>
         <a class="footer-phone" href="tel:+18604304568" data-track="phone-click">860-430-4568</a>
         <p>Call or text<br><a href="mailto:{{EMAIL}}"><span class="tbc">{{EMAIL}}</span></a></p>
