@@ -22,17 +22,20 @@ from content import BIZ, PAGES, SERVICES
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "site")
 
-ICONS = {
-    "phone": '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.7 4.3-2.2 1.4a11 11 0 0 0 6.3 6.3l1.4-2.2L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4z"/></svg>',
-    "text": '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>',
-    "arrow": '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
-    "home": '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>',
-    "building": '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5l8-2v18"/><path d="M12 9h8v12"/><path d="M2 21h20M7 8h2M7 12h2M7 16h2M15 13h2M15 17h2"/></svg>',
-    "camera": '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>',
-    "shield": '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.3 8-8 9-4.7-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>',
-    "menu": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
-    "mail": '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>',
+# Icons: Phosphor (regular weight, MIT), vendored in ./icons. One family only.
+ICON_FILES = {
+    "phone": "phone", "text": "chat-text", "arrow": "arrow-right", "home": "house",
+    "building": "buildings", "camera": "camera", "shield": "shield-check",
+    "menu": "list", "mail": "envelope-simple",
 }
+
+
+def _icon(name):
+    svg = open(os.path.join(HERE, "icons", ICON_FILES[name] + ".svg")).read().strip()
+    return svg.replace("<svg ", '<svg class="icon" aria-hidden="true" focusable="false" ', 1)
+
+
+ICONS = {k: _icon(k) for k in ICON_FILES}
 
 
 def route_file(route):
@@ -107,7 +110,7 @@ def cta_band():
     </div>
     <div class="button-row">
       <a class="button is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
-      <a class="button is-ghost-light" href="@@SMS@@" data-track="sms-click">@@I:text@@ Text a photo</a>
+      <a class="button is-ghost-light" href="@@TEL@@" data-track="phone-click">@@I:phone@@ Call or text @@PHONE@@</a>
     </div>
   </div>
 </section>"""

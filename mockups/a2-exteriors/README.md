@@ -151,6 +151,27 @@ File upload needs a paid site plan.
 **Tracking hooks** — `data-track="cta-estimate | phone-click | sms-click |
 form-submit"` mark the elements GA4 events attach to.
 
+## Design read and taste audit (2026-11-14)
+
+Read as: local-service marketing site for Connecticut homeowners and
+property managers, trust-first trades language, native CSS so it ports to
+Webflow. Settings: layout variety 5, motion 3, density 4.
+
+Changes from the audit:
+- Section eyebrows removed (were 9 site-wide, 7 on the homepage); headlines carry the sections
+- Hero: subtext cut to 20 words, bullet row under the CTAs removed, H1 holds to 2 lines at 1280px and up, CTAs above the fold at 1440×900 and 390×844
+- One label per CTA intent: "Get a Free Estimate", "Call or text 860-430-4568", "See our work"
+- Homepage uses 10 different layout families; no more three-equal-column sections for Why A2 or Reviews
+- Reviews: one featured quote slot (Testimonials CMS), hidden until an approved review exists
+- Icons: Phosphor (regular, MIT), vendored in `icons/`, inlined by `build.py`; no hand-drawn SVG
+- Corner radius: 6px for every interactive element and tag, 10px for cards and image frames; no pills or circles
+- Middle-dot lists replaced with commas
+
+Skill defaults deliberately not applied, with reasons:
+- React/Tailwind/Motion stack and self-hosted fonts: the brief requires native Webflow, which hosts fonts itself
+- Dark mode: Webflow has no native dark mode, so it would need the custom code the brief rules out
+- Stock or generated photography: the brief bans fake project photos, so photo slots stay labelled placeholders until Anthony supplies real jobs
+
 ## QA run on this build (2026-11-14)
 
 - 20 pages built; 0 broken internal links; every JSON-LD block parses
@@ -162,7 +183,8 @@ form-submit"` mark the elements GA4 events attach to.
 - Our Work filter shows the right cards and announces the count
 - Estimate form blocks empty required fields, submits through to /thank-you
 - Impeccable detector: remaining hits are `cramped-padding` (sections that
-  inset content through the container gutter) and a static `low-contrast`
-  read of the base `a:hover` rule, which the live hover test above clears
+  inset content through the container gutter), a static `low-contrast`
+  read of the base `a:hover` rule (the live hover test above clears it), and
+  one static `tight-leading` read that matches no rendered element
 - Not tested: real form delivery (needs Webflow), performance on a host,
   real photography

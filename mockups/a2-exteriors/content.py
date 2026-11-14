@@ -89,7 +89,7 @@ SERVICES = [
         "slug": "house-washing",
         "name": "House Washing",
         "short": "Low-pressure washing for siding, trim, and soffits that removes algae, mildew, and dirt.",
-        "surfaces": "Vinyl · clapboard · fiber cement · stucco · painted trim",
+        "surfaces": "Vinyl, clapboard, fiber cement, stucco, painted trim",
         "title": "House Washing in Central Connecticut | A2 Exteriors",
         "description": "Soft wash house washing for vinyl, clapboard, and painted siding in Central CT. Removes algae, mildew, and dirt. Free estimates: 860-430-4568.",
         "h1": "House washing for Connecticut homes",
@@ -148,7 +148,7 @@ SERVICES = [
         "slug": "roof-washing",
         "name": "Roof Washing",
         "short": "Low-pressure roof cleaning that removes black streaks, algae, and moss from shingles.",
-        "surfaces": "Asphalt shingles · [[tbc:other roof types]]",
+        "surfaces": "Asphalt shingles, [[tbc:other roof types]]",
         "title": "Roof Washing in Central CT | A2 Exteriors",
         "description": "Low-pressure roof washing that removes black streaks, algae, and moss from asphalt shingles. Free estimates in Central Connecticut: 860-430-4568.",
         "h1": "Roof washing without high pressure",
@@ -193,7 +193,7 @@ SERVICES = [
         "slug": "driveway-concrete-cleaning",
         "name": "Driveway and Concrete Cleaning",
         "short": "Pressure cleaning for driveways, sidewalks, steps, and garage aprons.",
-        "surfaces": "Driveways · sidewalks · steps · garage aprons · curbs",
+        "surfaces": "Driveways, sidewalks, steps, garage aprons, curbs",
         "title": "Driveway and Concrete Cleaning in CT | A2 Exteriors",
         "description": "Driveway pressure washing and concrete cleaning in Central CT. Removes mildew, tire marks, and leaf stains. Free estimates: 860-430-4568.",
         "h1": "Driveway and concrete cleaning",
@@ -242,7 +242,7 @@ SERVICES = [
         "slug": "patio-walkway-cleaning",
         "name": "Patio and Walkway Cleaning",
         "short": "Cleaning for pavers, brick, and stone that removes slick algae, moss, and grime.",
-        "surfaces": "Pavers · brick · bluestone · flagstone · stamped concrete",
+        "surfaces": "Pavers, brick, bluestone, flagstone, stamped concrete",
         "title": "Patio and Paver Cleaning in Central CT | A2 Exteriors",
         "description": "Patio, paver, and walkway cleaning in Central CT. Removes slippery algae, moss, and grime from pavers, brick, and stone. Call 860-430-4568.",
         "h1": "Patio and walkway cleaning",
@@ -288,7 +288,7 @@ SERVICES = [
         "slug": "commercial-exterior-cleaning",
         "name": "Commercial Exterior Cleaning",
         "short": "Exterior cleaning for storefronts, entryways, sidewalks, and building walls.",
-        "surfaces": "Storefronts · entryways · sidewalks · building exteriors",
+        "surfaces": "Storefronts, entryways, sidewalks, building exteriors",
         "title": "Commercial Pressure Washing in Central CT | A2 Exteriors",
         "description": "Commercial exterior cleaning in Central Connecticut for storefronts, entryways, sidewalks, and building walls. Free estimates: 860-430-4568.",
         "h1": "Commercial exterior cleaning",
@@ -406,7 +406,7 @@ def estimate_side_card():
   <p>Text a few photos and your town to @@PHONE@@, or fill out the form.</p>
   <div class="stack">
     <a class="button is-primary is-block" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
-    <a class="button is-ghost-light is-block" href="@@SMS@@" data-track="sms-click">@@I:text@@ Text a photo</a>
+    <a class="button is-ghost-light is-block" href="@@TEL@@" data-track="phone-click">@@I:phone@@ Call or text @@PHONE@@</a>
   </div>
 </div>"""
 
@@ -420,16 +420,11 @@ HOME_HERO = f"""
     <div>
       <p class="hero-tagline">Because first impressions matter.</p>
       <h1 id="hero-title">Exterior cleaning for Central Connecticut homes and businesses</h1>
-      <p class="hero-sub">House and roof washing, driveway and patio cleaning, and commercial exterior cleaning from a locally owned company. Send us a few photos and get a free estimate.</p>
+      <p class="hero-sub">House, roof, driveway, patio, and storefront cleaning from a locally owned company. Text a few photos for a free estimate.</p>
       <div class="button-row">
         <a class="button is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
         <a class="button is-ghost-light" href="@@TEL@@" data-track="phone-click">@@I:phone@@ Call or text @@PHONE@@</a>
       </div>
-      <ul class="hero-points">
-        <li>Residential and commercial</li>
-        <li>Free estimates</li>
-        <li>Text a photo for a quote</li>
-      </ul>
     </div>
     <div class="hero-media">
       {before_after("Real A2 house wash", dark=True)}
@@ -452,7 +447,6 @@ HOME_BODY = f"""
   <div class="container">
     <div class="section-head is-split">
       <div>
-        <p class="eyebrow">Services</p>
         <h2 id="services-title">The right method for every surface</h2>
         <p class="lede">Siding and roofs need a gentle wash. Concrete can take real pressure. We clean each part of your property the way that material needs.</p>
       </div>
@@ -466,11 +460,10 @@ HOME_BODY = f"""
   <div class="container">
     <div class="section-head is-split">
       <div>
-        <p class="eyebrow">Our Work</p>
         <h2 id="work-title">Before and after</h2>
         <p class="lede">Real jobs from around Central Connecticut. [[tbc:Project photos from Anthony]]</p>
       </div>
-      <a class="text-link" href="@@L:our-work@@">See all projects</a>
+      <a class="text-link" href="@@L:our-work@@">See our work</a>
     </div>
     <div class="project-grid">
       {"".join(project_card(p) for p in PROJECTS[:3])}
@@ -479,23 +472,23 @@ HOME_BODY = f"""
 </section>
 
 <section class="section" aria-labelledby="why-title">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">Why A2 Exteriors</p>
+  <div class="container why-layout">
+    <div class="why-head">
       <h2 id="why-title">A local company that cares how your place looks</h2>
+      <p class="lede">The owner answers the phone, and the same standard goes on every job.</p>
     </div>
-    <div class="grid-3">
+    <div class="why-points">
       <div class="point reveal">
         <h3>The right technique</h3>
-        <p>Soft wash for siding and roofs, pressure for concrete. Using the right method protects your home and gets a cleaner result.</p>
+        <p>Soft wash for siding and roofs, pressure for concrete. The right method protects your home and gets a cleaner result.</p>
       </div>
       <div class="point reveal">
         <h3>Your neighbors</h3>
-        <p>A2 is a local company serving Wethersfield and nearby towns. You talk to the owner, Anthony Aubrey, [[tbc:and he works on the jobs himself]].</p>
+        <p>A2 serves Wethersfield and nearby towns. You talk to the owner, Anthony Aubrey, [[tbc:and he works on the jobs himself]].</p>
       </div>
       <div class="point reveal">
         <h3>Straight answers</h3>
-        <p>Some stains come out and some only lighten. We tell you which is which before we start, so the result matches what you expected.</p>
+        <p>Some stains come out and some only lighten. We tell you which is which before we start.</p>
       </div>
     </div>
   </div>
@@ -504,7 +497,6 @@ HOME_BODY = f"""
 <section class="section is-ink" aria-labelledby="how-title">
   <div class="container">
     <div class="section-head">
-      <p class="eyebrow">How it works</p>
       <h2 id="how-title">From photo to clean in three steps</h2>
     </div>
     <ol class="steps">
@@ -518,7 +510,6 @@ HOME_BODY = f"""
 <section class="section" aria-labelledby="areas-title">
   <div class="container area-panel">
     <div>
-      <p class="eyebrow">Service Areas</p>
       <h2 id="areas-title">Serving Wethersfield and Central Connecticut</h2>
       <p class="lede">We work in Wethersfield and [[tbc:the surrounding towns]]. If you are close by and do not see your town, ask.</p>
       <ul class="area-list">
@@ -534,23 +525,19 @@ HOME_BODY = f"""
 </section>
 
 <section class="section is-stone" aria-labelledby="reviews-title">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow">Reviews</p>
-      <h2 id="reviews-title">What customers say</h2>
-    </div>
-    <div class="grid-3">
-      <figure class="quote-card is-empty"><blockquote>[[tbc:Approved customer review]]</blockquote><figcaption>Name as permitted · Town · Service</figcaption></figure>
-      <figure class="quote-card is-empty"><blockquote>[[tbc:Approved customer review]]</blockquote><figcaption>Name as permitted · Town · Service</figcaption></figure>
-      <figure class="quote-card is-empty"><blockquote>[[tbc:Approved customer review]]</blockquote><figcaption>Name as permitted · Town · Service</figcaption></figure>
-    </div>
+  <!-- Testimonials CMS: shows the featured approved review. Hide the section until one exists. -->
+  <div class="container is-narrow">
+    <h2 id="reviews-title" class="visually-hidden">What customers say</h2>
+    <figure class="feature-quote">
+      <blockquote><p>[[tbc:Approved customer review, two or three lines at most]]</p></blockquote>
+      <figcaption><strong>Name as permitted</strong><span>[[tbc:Town]], [[tbc:service]]</span></figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="section" aria-labelledby="faq-title">
   <div class="container is-narrow">
     <div class="section-head">
-      <p class="eyebrow">FAQ</p>
       <h2 id="faq-title">Common questions</h2>
     </div>
     {faq_html(HOME_FAQS)}
@@ -583,14 +570,13 @@ def service_page(s):
 <section class="section is-stone" aria-labelledby="ba-title">
   <div class="container">
     <div class="section-head">
-      <p class="eyebrow">Our Work</p>
       <h2 id="ba-title">{s["name"]} before and after</h2>
     </div>
     <div class="grid-2">
       {before_after(s["ba"], landscape=True)}
       {before_after(s["ba"], landscape=True)}
     </div>
-    <p style="margin-top:2rem"><a class="text-link" href="@@L:our-work@@">See more projects</a></p>
+    <p style="margin-top:2rem"><a class="text-link" href="@@L:our-work@@">See our work</a></p>
   </div>
 </section>
 <section class="section" aria-labelledby="svc-faq-title">
@@ -634,7 +620,6 @@ SERVICES_INDEX_BODY = f"""
 <section class="section is-stone" aria-labelledby="method-title">
   <div class="container grid-2">
     <div>
-      <p class="eyebrow">Our approach</p>
       <h2 id="method-title">Soft wash or pressure wash?</h2>
       <p class="lede">Different surfaces need different cleaning. Getting this wrong is how siding cracks and shingles lose their granules.</p>
       <a class="text-link" href="@@L:resources/pressure-washing-vs-soft-washing@@">Read the full comparison</a>
