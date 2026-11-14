@@ -40,6 +40,21 @@
     items.forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  // Before/after comparison. The range input is the control (keyboard and
+  // screen-reader accessible); this only mirrors its value into --pos.
+  // Webflow: paste this block into one site-wide code embed.
+  document.querySelectorAll('.compare').forEach(function (fig) {
+    var range = fig.querySelector('.compare-range');
+    var stage = fig.querySelector('.compare-stage');
+    if (!range || !stage) return;
+    function sync() {
+      stage.style.setProperty('--pos', range.value + '%');
+      range.setAttribute('aria-valuetext', range.value + ' percent after');
+    }
+    range.addEventListener('input', sync);
+    sync();
+  });
+
   // Our Work filter.
   var buttons = document.querySelectorAll('.filter-button');
   var cards = document.querySelectorAll('[data-service]');

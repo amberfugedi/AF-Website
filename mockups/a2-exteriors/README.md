@@ -52,36 +52,60 @@ washing, driveway, roof).
 Deliberately left off: the (413) number, the expired fall 10% offer, the
 "Worry-Free Guarantee" (terms unknown), gutter cleaning (not confirmed).
 
-## Logo and colour
+## Brand guidelines applied (A2 Exteriors Website Brand Guidelines, "The A2 Edge")
 
-Two logo files supplied by Amber 2026-11-14, kept in `source-assets/`:
-- `a2-exteriors-logo-original.jpg`: horizontal lockup, 1024px JPEG on white
-- `a2-exteriors-logo-stacked-original.png`: stacked lockup, 2703px transparent PNG (the better source)
+The site now follows the brand guidelines document. Everything from the
+earlier palette passes (navy/teal/yellow, Archivo) is replaced.
 
-Files in `site/images/`:
-| File | Used for |
-|---|---|
-| `a2-exteriors-logo` | Header (horizontal, light backgrounds) |
-| `a2-exteriors-logo-stacked-reverse` | Footer (stacked, navy background: A turns white, 2 lightens) |
-| `a2-exteriors-logo-stacked` | Spare stacked version for light backgrounds |
-| `favicon.png`, `apple-touch-icon.png` | Cut from the stacked file's A2 mark |
-| `og-default.jpg` | 1200×630 social share image, reverse logo on navy |
-
-A horizontal transparent PNG at the stacked file's resolution would let the
-header logo be cut from a cleaner source. A vector (SVG/AI/EPS) is still
-the goal for print.
-
-Palette taken from the logo:
 | Token | Value | Use |
 |---|---|---|
-| `--ink` | `#082336` logo navy | Headings, dark sections, footer |
-| `--teal` | `#4394b1` logo teal | Fills only on light (3.4:1); text allowed on navy (4.6:1) |
-| `--teal-deep` | `#1d6a86` | Links and text accents on white (5.7:1), trust strip and CTA band fill |
-| `--cta` | `#f2b705` | Primary button fill, navy text (8.7:1) |
+| `--atlantic` | `#123b51` | Headings, nav, dark sections, buttons on light (white text 11.9:1) |
+| `--porcelain` | `#f5f2eb` | Main light background |
+| `--lichen` | `#a9d77b` | Accent fill only on light; buttons on dark with Deep Ink text (9.0:1) |
+| `--deep-ink` | `#192a2c` | Body text, footer |
+| `--muted` | `#4e5b5d` | Secondary text (7.0:1 white, 6.3:1 porcelain) |
+| `--on-dark-muted` | `#c5d6de` | Secondary text on Atlantic (8.4:1) |
 
-The yellow CTA is not in the logo. It's there so "Get a Free Estimate" is
-the most visible thing on every screen. If Anthony wants to stay strictly
-navy/teal, swap `--cta` to `--teal` with navy text (4.6:1).
+Type: Bricolage Grotesque (display), DM Sans (body, nav, buttons, forms),
+IBM Plex Mono (project metadata and fact labels only). Hero H1 40-88px,
+H2 30-52px, body 17px desktop / 16px mobile. Radii 4px (tags, inputs),
+6px (buttons), 8px (cards, photos). Sections 56-120px vertical.
+
+**The A2 Edge** has one geometry everywhere: a 45-degree cut in a photo's
+lower-left corner with a Lichen triangle set into it and a knockout gap
+(hero, interior page heroes, Anthony's photo), the 45-degree parallelogram
+handle on every before/after slider, and the active-nav bar's angled ends.
+
+**Logo:** the guidelines call the logo exploratory, so the site uses the
+single-colour treatments they list: Atlantic Blue horizontal (header),
+white stacked (footer), Atlantic A2 mark (favicon), white on Atlantic
+(touch icon, share image). The full-colour file's cyan "2" is not used; the
+guidelines rule out bright cyan and it would compete with Lichen. Final
+vector artwork is still needed before launch.
+
+**CTA labels:** primary "Request a Free Quote" (nav: "Get a Quote"); secondary
+"See Our Work", "Explore Services", "View Project", "Meet A2", "Learn About Our
+Process". The quote page moved to `/get-a-quote`.
+
+**Homepage:** the guidelines' 10 sections, in order: hero, credibility, featured
+transformation, services, The A2 Standard, Meet Anthony, customer reviews,
+recent projects, FAQs, final conversion with a short quote form.
+
+**Before/after slider:** a native range input drives the divider, so it works
+by drag, click, tap, and arrow keys, and screen readers announce the
+position. In Webflow it is one component plus a short code embed (the
+"compare" block in `js/a2.js`), the one justified exception to "no custom code".
+
+Calls I made where the guidelines left room or conflicted:
+- H1 "The outside matters." carries no search terms, so the subtext names the
+  services and Connecticut, and the page title stays "Exterior Cleaning in
+  Connecticut | A2 Exteriors".
+- Credibility and review slots (insurance, Google rating, testimonial) are
+  visible placeholders; the guidelines forbid inventing them. The reviews
+  section hides until a genuine review exists.
+- Section 2 uses Plex Mono fact labels instead of an icon row.
+- The FAQ page keeps an accordion for its long list; the homepage shows six
+  answers openly.
 
 ## Pages (20)
 
@@ -102,7 +126,7 @@ navy/teal, swap `--cta` to `--teal` with navy text (4.6:1).
 /resources/pressure-washing-vs-soft-washing  ┐
 /resources/black-streaks-on-roof             ├ Articles CMS template
 /resources/how-often-to-wash-house           ┘
-/free-estimate                       Form → /thank-you
+/get-a-quote                         Quote form → /thank-you
 /thank-you                           Conversion page (excluded from sitemap)
 /privacy
 /404
@@ -116,8 +140,7 @@ The prototype is written so the port is a mapping, not a redesign.
 Variable with the same name (colours, font families, type sizes, spacing,
 radius, container widths).
 
-**Fonts** — Archivo (Google Fonts) for headings and body; headings use the
-87.5% width axis. The logo wordmark is a separate geometric sans; Archivo pairs with it without imitating it.
+**Fonts** — Bricolage Grotesque, DM Sans, IBM Plex Mono (Google Fonts, all available in Webflow).
 
 **Classes** — class names already follow Webflow's base + combo pattern
 (`button is-primary`, `section is-ink`, `container is-narrow`). Create
@@ -178,7 +201,7 @@ Skill defaults deliberately not applied, with reasons:
 - Dark mode: Webflow has no native dark mode, so it would need the custom code the brief rules out
 - Stock or generated photography: the brief bans fake project photos, so photo slots stay labelled placeholders until Anthony supplies real jobs
 
-## Homepage redesign (2026-11-14, third pass)
+## Homepage redesign (2026-11-14, third pass): superseded by the brand guidelines section above
 
 Skills used together: design-taste-frontend (hard rules), redesign-existing-projects
 (audit of generic patterns), high-end-visual-design (motion discipline only), stop-slop

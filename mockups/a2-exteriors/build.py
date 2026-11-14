@@ -77,7 +77,7 @@ def header(route):
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="@@L:@@">
-      <img src="@@IMG@@a2-exteriors-logo.webp" width="148" height="46" alt="A2 Exteriors home">
+      <img src="@@IMG@@a2-logo-atlantic.webp" width="154" height="48" alt="A2 Exteriors home">
     </a>
     <nav class="nav" id="site-nav" aria-label="Main">
       <details class="nav-dropdown">
@@ -85,14 +85,13 @@ def header(route):
         <ul class="nav-menu">{items}<li><a class="is-all" href="@@L:services@@">All services</a></li></ul>
       </details>
       <a class="nav-link" href="@@L:our-work@@"{cur("our-work")}>Our Work</a>
-      <a class="nav-link" href="@@L:service-areas@@"{cur("service-areas")}>Service Areas</a>
       <a class="nav-link" href="@@L:about@@"{cur("about")}>About</a>
+      <a class="nav-link" href="@@L:service-areas@@"{cur("service-areas")}>Service Areas</a>
       <a class="nav-link" href="@@L:faq@@"{cur("faq")}>FAQ</a>
-      <a class="nav-link" href="@@L:resources@@"{cur("resources")}>Resources</a>
     </nav>
     <div class="header-actions">
       <a class="header-phone" href="@@TEL@@" data-track="phone-click" aria-label="Call @@PHONE@@">@@I:phone@@<span class="num">@@PHONE@@</span></a>
-      <a class="button is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
+      <a class="button is-primary" href="@@L:get-a-quote@@" data-track="cta-quote">Get a Quote</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">@@I:menu@@</button>
     </div>
   </div>
@@ -101,16 +100,16 @@ def header(route):
 
 def cta_band():
     return """
-<!-- COMPONENT: CTA Band -->
+<!-- COMPONENT: CTA Band (dark: Lichen button, Deep Ink text) -->
 <section class="cta-band" aria-labelledby="cta-band-title">
-  <div class="container">
+  <div class="container cta-band-inner">
     <div>
-      <h2 id="cta-band-title">Get a free estimate</h2>
-      <p>Tell us what needs cleaning and where. Photos help us quote faster, and you can text them straight to @@PHONE@@.</p>
+      <h2 id="cta-band-title">Let\u2019s get your property looking its best.</h2>
+      <p>Tell us what needs cleaning and where. Photos help us quote faster.</p>
     </div>
     <div class="button-row">
-      <a class="button is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
-      <a class="button is-ghost-light" href="@@TEL@@" data-track="phone-click">@@I:phone@@ Call or text @@PHONE@@</a>
+      <a class="button is-primary" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a>
+      <a class="button is-ghost-light" href="@@TEL@@" data-track="phone-click">Call or text @@PHONE@@</a>
     </div>
   </div>
 </section>"""
@@ -125,12 +124,12 @@ def footer():
     <div class="footer-grid">
       <div>
         <a class="brand" href="@@L:@@">
-          <img src="@@IMG@@a2-exteriors-logo-stacked-reverse.webp" width="150" height="115" alt="A2 Exteriors home" loading="lazy">
+          <img src="@@IMG@@a2-logo-stacked-white.webp" width="140" height="107" alt="A2 Exteriors home" loading="lazy">
         </a>
-        <p class="footer-tagline">Because first impressions matter.</p>
+        <p class="footer-tagline">The outside matters.</p>
         <p>Exterior cleaning for homes and businesses in Central Connecticut.</p>
         <a class="footer-phone" href="@@TEL@@" data-track="phone-click">@@PHONE@@</a>
-        <p>Call or text · <a href="mailto:{BIZ["email"]}">[[tbc:{BIZ["email"]}]]</a></p>
+        <p>Call or text<br><a href="mailto:{BIZ["email"]}">[[tbc:{BIZ["email"]}]]</a></p>
       </div>
       <div>
         <h2>Services</h2>
@@ -143,7 +142,7 @@ def footer():
           <li><a href="@@L:our-work@@">Our Work</a></li>
           <li><a href="@@L:faq@@">FAQ</a></li>
           <li><a href="@@L:resources@@">Resources</a></li>
-          <li><a href="@@L:free-estimate@@">Free Estimate</a></li>
+          <li><a href="@@L:get-a-quote@@">Get a Quote</a></li>
         </ul>
       </div>
       <div>
@@ -165,7 +164,7 @@ def footer():
 <nav class="mobile-bar" aria-label="Quick contact">
   <a href="@@TEL@@" data-track="phone-click">@@I:phone@@ Call</a>
   <a href="@@SMS@@" data-track="sms-click">@@I:text@@ Text</a>
-  <a class="is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Free Estimate</a>
+  <a class="is-primary" href="@@L:get-a-quote@@" data-track="cta-quote">Get a Quote</a>
 </nav>"""
 
 
@@ -231,12 +230,12 @@ def render(p):
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="{BIZ["url"]}/images/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#082336">
+<meta name="theme-color" content="#123B51">
 <link rel="icon" href="@@IMG@@favicon.png">
 <link rel="apple-touch-icon" href="@@IMG@@apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@87.5,700;87.5,800;100,400;100,500;100,600;100,700;100,800;100,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="@@CSS@@">{ld_html}
 </head>
 <body>

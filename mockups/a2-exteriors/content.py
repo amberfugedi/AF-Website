@@ -27,7 +27,7 @@ BUSINESS_LD = {
     "description": "Exterior cleaning for homes and businesses in Central Connecticut: house washing, roof washing, driveway and concrete cleaning, patio and walkway cleaning, and commercial exterior cleaning.",
     "url": BIZ["url"] + "/",
     "telephone": "+1-860-430-4568",
-    "logo": BIZ["url"] + "/images/a2-exteriors-logo.png",
+    "logo": BIZ["url"] + "/images/a2-logo-atlantic.png",
     "image": BIZ["url"] + "/images/og-default.jpg",
     "areaServed": [
         {"@type": "City", "name": "Wethersfield", "containedInPlace": {"@type": "State", "name": "Connecticut"}}
@@ -51,14 +51,6 @@ def ph(title, note="", dark=False, extra=""):
         cls += " " + extra
     sub = f"<br>{note}" if note else ""
     return f'<div class="{cls}" role="img" aria-label="Photo placeholder: {title}"><span class="ph-label"><strong>Photo needed</strong>{title}{sub}</span></div>'
-
-
-def before_after(label, landscape=False, dark=False):
-    cls = "before-after is-landscape" if landscape else "before-after"
-    return f"""<div class="{cls}">
-  <div class="ba-pane is-before"><span class="ba-tag">BEFORE</span>{ph(label + ", before", dark=dark)}</div>
-  <div class="ba-pane is-after"><span class="ba-tag">AFTER</span>{ph(label + ", after", dark=dark)}</div>
-</div>"""
 
 
 def faq_html(items, heading_level=None):
@@ -91,7 +83,7 @@ SERVICES = [
         "short": "Low-pressure washing for siding, trim, and soffits that removes algae, mildew, and dirt.",
         "surfaces": "Vinyl, clapboard, fiber cement, stucco, painted trim",
         "title": "House Washing in Central Connecticut | A2 Exteriors",
-        "description": "Soft wash house washing for vinyl, clapboard, and painted siding in Central CT. Removes algae, mildew, and dirt. Free estimates: 860-430-4568.",
+        "description": "Soft wash house washing for vinyl, clapboard, and painted siding in Central CT. Removes algae, mildew, and dirt. Free quotes: 860-430-4568.",
         "h1": "House washing for Connecticut homes",
         "lede": "Green film on the north wall, gray streaks under the gutters, dirt splashed up from the garden beds. We wash siding and trim with low pressure and a cleaning solution, the method siding is built to handle.",
         "answer_q": "What is house washing?",
@@ -150,7 +142,7 @@ SERVICES = [
         "short": "Low-pressure roof cleaning that removes black streaks, algae, and moss from shingles.",
         "surfaces": "Asphalt shingles, [[tbc:other roof types]]",
         "title": "Roof Washing in Central CT | A2 Exteriors",
-        "description": "Low-pressure roof washing that removes black streaks, algae, and moss from asphalt shingles. Free estimates in Central Connecticut: 860-430-4568.",
+        "description": "Low-pressure roof washing that removes black streaks, algae, and moss from asphalt shingles. Free quotes in Central Connecticut: 860-430-4568.",
         "h1": "Roof washing without high pressure",
         "lede": "Those black streaks running down your roof are algae, and they spread. We clean roofs with a low-pressure treatment, the approach shingle makers recommend, so the granules stay on the shingles.",
         "answer_q": "What causes black streaks on a roof?",
@@ -195,7 +187,7 @@ SERVICES = [
         "short": "Pressure cleaning for driveways, sidewalks, steps, and garage aprons.",
         "surfaces": "Driveways, sidewalks, steps, garage aprons, curbs",
         "title": "Driveway and Concrete Cleaning in CT | A2 Exteriors",
-        "description": "Driveway pressure washing and concrete cleaning in Central CT. Removes mildew, tire marks, and leaf stains. Free estimates: 860-430-4568.",
+        "description": "Driveway pressure washing and concrete cleaning in Central CT. Removes mildew, tire marks, and leaf stains. Free quotes: 860-430-4568.",
         "h1": "Driveway and concrete cleaning",
         "lede": "Concrete takes a beating from road salt, leaf stains, tire marks, and mildew in the shady spots. Pressure cleaning brings back the original color in even passes, without the stripes a rental washer leaves behind.",
         "answer_q": "How do you remove buildup from concrete?",
@@ -290,7 +282,7 @@ SERVICES = [
         "short": "Exterior cleaning for storefronts, entryways, sidewalks, and building walls.",
         "surfaces": "Storefronts, entryways, sidewalks, building exteriors",
         "title": "Commercial Pressure Washing in Central CT | A2 Exteriors",
-        "description": "Commercial exterior cleaning in Central Connecticut for storefronts, entryways, sidewalks, and building walls. Free estimates: 860-430-4568.",
+        "description": "Commercial exterior cleaning in Central Connecticut for storefronts, entryways, sidewalks, and building walls. Free quotes: 860-430-4568.",
         "h1": "Commercial exterior cleaning",
         "lede": "Customers see your entrance before they see anything inside. We clean storefronts, sidewalks, and building exteriors so your property looks cared for from the parking lot.",
         "answer_q": "What does commercial exterior cleaning include?",
@@ -334,7 +326,7 @@ SERVICES = [
 # ---------------------------------------------------------------------
 HOME_FAQS = [
     ("What is the difference between pressure washing and soft washing?", "Pressure washing uses high water pressure to remove dirt from hard surfaces like concrete. Soft washing uses low pressure and a cleaning solution to clean surfaces that high pressure can damage, like siding and roofs. Most homes need both, on different surfaces."),
-    ("How much does exterior cleaning cost?", "Price depends on the size of the house or surface, how much buildup there is, and access. We give free estimates, and photos texted to @@PHONE@@ help us quote faster."),
+    ("How much does exterior cleaning cost?", "Price depends on the size of the house or surface, how much buildup there is, and access. We give free quotes, and photos texted to @@PHONE@@ help us quote faster."),
     ("Do you clean commercial properties?", "Yes. We clean storefronts, entryways, sidewalks, and building exteriors. See <a href=\"@@L:services/commercial-exterior-cleaning@@\">commercial exterior cleaning</a>."),
     ("What towns do you serve?", "We serve Wethersfield and [[tbc:surrounding Central Connecticut towns]]. See <a href=\"@@L:service-areas@@\">service areas</a> for the current list."),
     ("What should I do before my appointment?", "Close windows, bring pets inside, and move cars, furniture, and anything fragile away from the areas we are cleaning. [[tbc:Make sure an outdoor faucet works.]]"),
@@ -351,14 +343,14 @@ FAQ_GROUPS = [
     ]),
     ("Scheduling and preparation", [
         ("What should homeowners do before an exterior cleaning appointment?", "Close windows and doors, bring pets inside, and move cars, patio furniture, toys, and anything fragile away from the areas we are cleaning. Unlock gates. [[tbc:Make sure an outdoor faucet works, since we connect to it.]]"),
-        ("How long does an exterior cleaning appointment take?", "[[tbc:A house wash on a typical single-family home takes two to four hours. A driveway or patio often takes one to three hours. Roofs and commercial jobs vary more, and we will give you a time window with your estimate.]]"),
+        ("How long does an exterior cleaning appointment take?", "[[tbc:A house wash on a typical single-family home takes two to four hours. A driveway or patio often takes one to three hours. Roofs and commercial jobs vary more, and we will give you a time window with your quote.]]"),
         ("Do I need to be home?", SERVICES[0]["faqs"][2][1]),
         ("What happens if it rains?", "[[tbc:Light rain does not affect most cleaning. In heavy rain, wind, or freezing temperatures we reschedule and let you know as early as we can.]]"),
         ("Is it safe for my plants and pets?", "We wet plants before and after cleaning and rinse anything the runoff touches. Keep pets inside until the work is done and surfaces have been rinsed. [[tbc:Confirm plant care steps]]"),
     ]),
-    ("Estimates and timing", [
-        ("How do I get an estimate?", "Fill out the <a href=\"@@L:free-estimate@@\">estimate form</a>, or call or text @@PHONE@@. Photos of the areas you want cleaned help us quote faster."),
-        ("Are estimates free?", "Yes."),
+    ("Quotes and timing", [
+        ("How do I get a quote?", "Fill out the <a href=\"@@L:get-a-quote@@\">quote form</a>, or call or text @@PHONE@@. Photos of the areas you want cleaned help us quote faster."),
+        ("Are quotes free?", "Yes."),
         ("How often should a house be washed?", SERVICES[0]["faqs"][1][1]),
         ("When should I consider professional cleaning?", "Call a professional when you see algae or mildew spreading, when a roof shows black streaks or moss, when a walkway turns slippery, or before you sell. Professional cleaning also makes sense on roofs and second stories, where ladder work and the wrong pressure carry real risk."),
     ]),
@@ -378,12 +370,31 @@ PROJECTS = [
 ]
 
 
+SERVICE_OPTIONS = "".join(f'<option value="{s["name"]}">{s["name"]}</option>' for s in SERVICES)
+
+
+def compare(label, meta="", large=False):
+    """Accessible before/after comparison. The range input drives --pos; keyboard arrows work natively.
+    Webflow: one reusable component + a small code embed (js/a2.js, compare block)."""
+    cls = "compare is-large" if large else "compare"
+    return f"""<figure class="{cls}" style="--pos: 50%">
+  <div class="compare-stage">
+    <div class="compare-pane is-before"><span class="ph-note">Photo needed: {label}, before</span></div>
+    <div class="compare-pane is-after"><span class="ph-note">Photo needed: {label}, after</span></div>
+    <span class="compare-tag is-before">Before</span>
+    <span class="compare-tag is-after">After</span>
+    <span class="compare-line" aria-hidden="true"><span class="compare-handle"></span></span>
+    <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Before and after comparison: {label}. Use arrow keys to move the divider.">
+  </div>
+</figure>"""
+
+
 def project_card(p, tag="article"):
     slug, label, town, prop = p
     svc = next(s for s in SERVICES if s["slug"] == slug)
     return f"""<{tag} class="project-card reveal" data-service="{slug}">
-  {before_after(label)}
-  <div class="project-meta"><span class="tag">{svc["name"]}</span><span class="tag is-plain">{town}</span></div>
+  {compare(prop.lower() + ", " + label.lower())}
+  <p class="meta">{town} / {label}</p>
   <h3>{prop}</h3>
 </{tag}>"""
 
@@ -402,10 +413,10 @@ def services_list():
 
 def estimate_side_card():
     return """<div class="side-card is-ink">
-  <h3>Get a free estimate</h3>
+  <h3>Request a free quote</h3>
   <p>Text a few photos and your town to @@PHONE@@, or fill out the form.</p>
   <div class="stack">
-    <a class="button is-primary is-block" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
+    <a class="button is-primary is-block" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a>
     <a class="button is-ghost-light is-block" href="@@TEL@@" data-track="phone-click">@@I:phone@@ Call or text @@PHONE@@</a>
   </div>
 </div>"""
@@ -414,135 +425,184 @@ def estimate_side_card():
 # ---------------------------------------------------------------------
 # Page bodies
 # ---------------------------------------------------------------------
-def ba_diag(label, size=""):
-    """Before/after split on the A2 logo's diagonal. BEFORE top-left, AFTER bottom-right."""
-    return f"""<figure class="ba-diag{(' ' + size) if size else ''}">
-  <div class="ba-diag-pane is-before"><span class="ph-note">Photo needed: {label}, before</span></div>
-  <div class="ba-diag-pane is-after"><span class="ph-note">Photo needed: {label}, after</span></div>
-  <span class="ba-diag-tag is-before">Before</span>
-  <span class="ba-diag-tag is-after">After</span>
-</figure>"""
+def _q(text):
+    for _, items in FAQ_GROUPS:
+        for q, a in items:
+            if q.startswith(text):
+                return (q, a)
+    raise KeyError(text)
 
 
-HOME_QA = HOME_FAQS[:4]
+HOME_QA = [
+    _q("What is the difference between pressure washing"),
+    _q("Can a roof be cleaned without damaging"),
+    _q("What should homeowners do before"),
+    _q("Is it safe for my plants"),
+    _q("How long does an exterior cleaning"),
+    _q("How do I get a quote"),
+]
 
 HOME_HERO = f"""
 <section class="home-hero" aria-labelledby="hero-title">
+  <!-- Hero photo: a finished A2 job, 2400x1350 minimum. Scrim keeps text readable on any photo. -->
+  <div class="home-hero-photo" role="img" aria-label="Photo placeholder: a cleaned Connecticut home finished by A2"><span class="ph-note">Photo needed: a cleaned Connecticut home A2 has finished</span></div>
   <div class="container home-hero-inner">
-    <div class="home-hero-copy">
-      <h1 id="hero-title">Exterior cleaning for Central Connecticut</h1>
-      <p class="hero-sub">House, roof, driveway, patio, and storefront cleaning for homes and businesses. Text a few photos for a free estimate.</p>
-      <div class="hero-actions">
-        <a class="button is-primary is-large" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
-        <a class="hero-phone" href="@@TEL@@" data-track="phone-click"><span>Call or text</span> @@PHONE@@</a>
-      </div>
-    </div>
-    <div class="home-hero-media">
-      <div class="hero-photo" role="img" aria-label="Photo placeholder: Anthony washing a house">
-        <span class="ph-note">Photo needed: Anthony on a job, house wash in progress</span>
-      </div>
+    <h1 id="hero-title">The outside matters.</h1>
+    <p class="hero-sub">Professional exterior cleaning for Connecticut homes and businesses: house and roof washing, driveways, patios, and storefronts.</p>
+    <div class="button-row">
+      <a class="button is-primary is-large" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a>
+      <a class="button is-ghost-light is-large" href="@@L:our-work@@">See Our Work</a>
     </div>
   </div>
-  <div class="container">
-    <ul class="facts" aria-label="About A2 Exteriors">
-      <li>Locally owned in Wethersfield</li>
-      <li>Homes and businesses</li>
-      <li>Text photos for a quote</li>
-      <li>[[tbc:Licensed and insured]]</li>
-    </ul>
-  </div>
+  <span class="edge-mark" aria-hidden="true"></span>
 </section>"""
 
-_feature = SERVICES[0]
-_rest = SERVICES[1:]
+_svc = {s["slug"]: s for s in SERVICES}
 
 HOME_BODY = f"""
-<section class="section" aria-labelledby="services-title">
+<!-- 02 Immediate credibility -->
+<section class="section is-porcelain" aria-labelledby="about-title">
+  <div class="container cred">
+    <div class="cred-copy">
+      <h2 id="about-title">A locally owned exterior cleaning company in Wethersfield, Connecticut.</h2>
+      <p class="lede">Anthony Aubrey owns A2 Exteriors. We clean homes and commercial properties across [[tbc:Central Connecticut]], and we choose the cleaning method for each surface before we start.</p>
+    </div>
+    <dl class="cred-facts">
+      <div><dt>Service area</dt><dd>Wethersfield and [[tbc:nearby towns]]</dd></div>
+      <div><dt>Properties</dt><dd>Homes and businesses</dd></div>
+      <div><dt>Quotes</dt><dd>Text photos to <a href="@@SMS@@" data-track="sms-click">@@PHONE@@</a></dd></div>
+      <div><dt>Insurance</dt><dd>[[tbc:Insurer and coverage, shown once verified]]</dd></div>
+      <div><dt>Reviews</dt><dd>[[tbc:Google rating, shown once verified]]</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- 03 Featured transformations -->
+<section class="section is-dark" aria-labelledby="work-title">
   <div class="container">
     <div class="section-head">
-      <h2 id="services-title">What we clean</h2>
-      <p class="lede">Siding and roofs get a low-pressure wash. Concrete can take real pressure. Each surface gets the method it needs.</p>
+      <h2 id="work-title">See what a difference the details make.</h2>
+      <p class="lede">Drag the divider, or use the arrow keys, to compare. [[tbc:Real A2 project photos]]</p>
     </div>
-    <div class="svc-layout">
-      <a class="svc-feature reveal" href="@@L:services/{_feature["slug"]}@@">
-        <div class="svc-feature-media" role="img" aria-label="Photo placeholder: freshly washed vinyl siding"><span class="ph-note">Photo needed: clean siding, close up</span></div>
-        <div class="svc-feature-body">
-          <h3>{_feature["name"]}</h3>
-          <p>{_feature["short"]}</p>
-          <span class="svc-surfaces">{_feature["surfaces"]}</span>
-        </div>
-      </a>
-      <ul class="svc-list">
-        {"".join(f'<li><a class="svc-item" href="@@L:services/{s["slug"]}@@"><span class="svc-item-text"><h3>{s["name"]}</h3><p>{s["short"]}</p></span><span class="svc-go">@@I:arrow@@</span></a></li>' for s in _rest)}
-      </ul>
+    <div class="feature-compare">
+      {compare("two-story vinyl colonial, house wash", large=True)}
+      <div class="feature-compare-caption">
+        <p class="meta">Wethersfield, CT / House wash</p>
+        <h3>Two-story vinyl colonial</h3>
+        <p>Low-pressure wash on all four sides, trim, soffits, and gutter faces. [[tbc:Project details from Anthony]]</p>
+        <a class="text-link" href="@@L:our-work@@">View Project</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section is-stone" aria-labelledby="work-title">
+<!-- 04 Services -->
+<section class="section is-porcelain" aria-labelledby="services-title">
   <div class="container">
     <div class="section-head">
-      <h2 id="work-title">Before and after</h2>
-      <p class="lede">Jobs A2 has done, with the town and the service for each one. [[tbc:Project photos from Anthony]]</p>
+      <h2 id="services-title">The right clean for every surface.</h2>
     </div>
-    <div class="proof-grid">
-      <article class="proof-main reveal">
-        {ba_diag("two-story vinyl colonial", "is-large")}
-        <p class="proof-cap"><strong>House wash</strong> Two-story vinyl colonial, Wethersfield</p>
+    <div class="svc-cards">
+      <article class="svc-card reveal">
+        <div class="svc-card-photo" role="img" aria-label="Photo placeholder: freshly washed siding"><span class="ph-note">Photo needed: clean siding, close up</span></div>
+        <h3><a href="@@L:services/house-washing@@">House Washing</a></h3>
+        <p>{_svc["house-washing"]["short"]}</p>
       </article>
-      <article class="proof-side reveal">
-        {ba_diag("asphalt shingle roof")}
-        <p class="proof-cap"><strong>Roof wash</strong> Asphalt shingle roof, [[tbc:town]]</p>
+      <article class="svc-card reveal">
+        <div class="svc-card-photo" role="img" aria-label="Photo placeholder: clean asphalt shingle roof"><span class="ph-note">Photo needed: roof after washing</span></div>
+        <h3><a href="@@L:services/roof-washing@@">Roof Washing</a></h3>
+        <p>{_svc["roof-washing"]["short"]}</p>
       </article>
-      <article class="proof-side reveal">
-        {ba_diag("concrete driveway")}
-        <p class="proof-cap"><strong>Driveway cleaning</strong> Concrete driveway and walk, Wethersfield</p>
+      <article class="svc-card reveal">
+        <div class="svc-card-photo" role="img" aria-label="Photo placeholder: clean paver patio and driveway"><span class="ph-note">Photo needed: patio or driveway after cleaning</span></div>
+        <h3>Driveways &amp; Patios</h3>
+        <p>Pressure cleaning for concrete, pavers, brick, and stone.</p>
+        <p class="svc-card-links"><a href="@@L:services/driveway-concrete-cleaning@@">Driveways and concrete</a><a href="@@L:services/patio-walkway-cleaning@@">Patios and walkways</a></p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-card-photo" role="img" aria-label="Photo placeholder: clean storefront and sidewalk"><span class="ph-note">Photo needed: storefront after cleaning</span></div>
+        <h3><a href="@@L:services/commercial-exterior-cleaning@@">Commercial Exterior Cleaning</a></h3>
+        <p>{_svc["commercial-exterior-cleaning"]["short"]}</p>
       </article>
     </div>
-    <p class="section-foot"><a class="text-link" href="@@L:our-work@@">See our work</a></p>
+    <p class="section-foot"><a class="button is-primary" href="@@L:services@@">Explore Services</a></p>
   </div>
 </section>
 
-<section class="section" aria-labelledby="owner-title">
+<!-- 05 The A2 Standard -->
+<section class="section" aria-labelledby="standard-title">
+  <div class="container standard">
+    <div class="standard-head">
+      <h2 id="standard-title">The A2 Standard</h2>
+      <p class="lede">What you can expect on every job, from the first text to the final rinse.</p>
+      <a class="text-link" href="@@L:about@@#how-we-work">Learn About Our Process</a>
+    </div>
+    <div class="standard-list">
+      <div class="standard-item"><h3>The right method for the surface</h3><p>Siding and roofs get a low-pressure wash with a cleaning solution. High pressure stays on concrete.</p></div>
+      <div class="standard-item"><h3>Your property protected</h3><p>We wet plants before and after, and rinse anything the runoff touches. [[tbc:Other protection steps]]</p></div>
+      <div class="standard-item"><h3>Straight answers up front</h3><p>Before we start, we tell you what will come clean and what may only lighten, like rust, oil, or old paint.</p></div>
+      <div class="standard-item"><h3>A walkthrough at the end</h3><p>[[tbc:We walk the property with you when the work is done.]]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 Meet Anthony -->
+<section class="section is-dark" aria-labelledby="owner-title">
   <div class="container owner">
-    <div class="owner-photo reveal" role="img" aria-label="Photo placeholder: Anthony Aubrey, owner of A2 Exteriors"><span class="ph-note">Photo needed: Anthony Aubrey, owner</span></div>
+    <div class="owner-photo edge-photo reveal" role="img" aria-label="Photo placeholder: Anthony Aubrey at work"><span class="ph-note">Photo needed: Anthony on a job, not posed</span></div>
     <div class="owner-note">
-      <h2 id="owner-title">You deal with the owner</h2>
+      <h2 id="owner-title">Good work. Done with care.</h2>
       <p>I'm Anthony Aubrey, and I own A2 Exteriors. [[tbc:When you call or text, you reach me.]]</p>
-      <p>Before we start, I'll tell you which method your siding, roof, or driveway needs, and which stains will come out and which will only lighten. Siding and roofs get a low-pressure wash. High pressure stays on concrete.</p>
-      <p>[[tbc:A line or two from Anthony in his own words: why he started A2, what he takes pride in.]]</p>
+      <p>[[tbc:A few lines from Anthony in his own words: why he started A2, what he takes pride in, what homeowners can expect.]]</p>
       <p class="owner-sign">Anthony Aubrey<span>Owner, A2 Exteriors</span></p>
+      <a class="button is-primary" href="@@L:about@@">Meet A2</a>
     </div>
   </div>
 </section>
 
-<section class="section is-stone" aria-labelledby="how-title">
-  <div class="container process">
-    <div class="process-copy">
-      <h2 id="how-title">Get a price by text</h2>
-      <ol class="process-list">
-        <li>Text photos of what you want cleaned, plus your town.</li>
-        <li>We reply with a price. [[tbc:Most estimates go out within one business day.]] Larger jobs may need a quick visit.</li>
-        <li>Pick a date. We do the work and walk you through the result.</li>
-      </ol>
-    </div>
-    <div class="process-panel">
-      <p class="process-label">Text or call</p>
-      <a class="process-number" href="@@SMS@@" data-track="sms-click" aria-label="Text photos to @@PHONE@@">@@PHONE@@</a>
-      <p class="process-alt">Prefer a form? <a href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a></p>
-    </div>
+<!-- 07 Customer experiences: Testimonials CMS. Hidden until a genuine, approved review exists. -->
+<section class="section is-porcelain" aria-labelledby="reviews-title">
+  <div class="container reviews">
+    <h2 id="reviews-title">What customers say</h2>
+    <figure class="review">
+      <blockquote><p>[[tbc:A genuine customer review, two or three lines at most]]</p></blockquote>
+      <figcaption><span class="review-name">[[tbc:Name as permitted]]</span><span class="meta">[[tbc:Town]], CT / [[tbc:Service]]</span><a href="#" class="text-link">[[tbc:Read on Google]]</a></figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="section" aria-labelledby="areas-title">
-  <div class="container areas">
-    <h2 id="areas-title">Where we work</h2>
-    <p class="lede">Wethersfield and [[tbc:the surrounding Central Connecticut towns]]. Close by and not on the list? Ask.</p>
-    <p class="town-line"><a href="@@L:service-areas/wethersfield-ct@@">Wethersfield</a><span>[[tbc:Town]]</span><span>[[tbc:Town]]</span><span>[[tbc:Town]]</span><a href="@@L:service-areas@@">All service areas</a></p>
+<!-- 08 Recent Connecticut projects: Projects CMS, newest first -->
+<section class="section" aria-labelledby="recent-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="recent-title">Recent Connecticut projects</h2>
+    </div>
+    <div class="recent">
+      <article class="recent-card is-wide reveal">
+        <div class="recent-photo" role="img" aria-label="Photo placeholder: roof after washing"><span class="ph-note">Photo needed: roof wash, after</span></div>
+        <p class="meta">[[tbc:Town]], CT / Roof wash</p>
+        <h3>Asphalt shingle roof</h3>
+        <a class="text-link" href="@@L:our-work@@">View Project</a>
+      </article>
+      <article class="recent-card reveal">
+        <div class="recent-photo" role="img" aria-label="Photo placeholder: driveway after cleaning"><span class="ph-note">Photo needed: driveway, after</span></div>
+        <p class="meta">Wethersfield, CT / Driveway cleaning</p>
+        <h3>Concrete driveway and walk</h3>
+        <a class="text-link" href="@@L:our-work@@">View Project</a>
+      </article>
+      <article class="recent-card reveal">
+        <div class="recent-photo" role="img" aria-label="Photo placeholder: storefront after cleaning"><span class="ph-note">Photo needed: storefront, after</span></div>
+        <p class="meta">[[tbc:Town]], CT / Commercial</p>
+        <h3>Retail storefront and sidewalk</h3>
+        <a class="text-link" href="@@L:our-work@@">View Project</a>
+      </article>
+    </div>
+    <p class="section-foot"><a class="button is-primary" href="@@L:our-work@@">See Our Work</a></p>
   </div>
 </section>
 
-<section class="section is-stone" aria-labelledby="faq-title">
+<!-- 09 FAQs -->
+<section class="section is-porcelain" aria-labelledby="faq-title">
   <div class="container">
     <div class="section-head">
       <h2 id="faq-title">Common questions</h2>
@@ -553,7 +613,40 @@ HOME_BODY = f"""
     <p class="section-foot"><a class="text-link" href="@@L:faq@@">More questions and answers</a></p>
   </div>
 </section>
-<!-- Reviews: Testimonials CMS section goes between the owner note and the process section once an approved review exists. -->
+
+<!-- 10 Final conversion -->
+<section class="section is-dark final" aria-labelledby="final-title">
+  <div class="container final-inner">
+    <div class="final-copy">
+      <h2 id="final-title">Let’s get your property looking its best.</h2>
+      <p class="lede">Tell us what needs cleaning and where. We reply with a free quote. [[tbc:Most quotes go out within one business day.]]</p>
+      <p class="final-phone"><span>Call or text</span><a href="@@TEL@@" data-track="phone-click">@@PHONE@@</a></p>
+    </div>
+    <div class="form-card">
+      <!-- Webflow: native Form Block "Quote Request (short)". Same field names as /get-a-quote. Redirect: /thank-you -->
+      <form action="@@L:thank-you@@" method="get" name="quote-request-short">
+        <h3 class="form-title">Request a free quote</h3>
+        <div class="form-grid">
+          <div class="field"><label for="h-name">Name</label><input class="input" id="h-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="h-phone">Phone</label><input class="input" id="h-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="field"><label for="h-email">Email <span class="optional">(optional)</span></label><input class="input" id="h-email" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><label for="h-town">Town or ZIP code</label><input class="input" id="h-town" name="town-or-zip" type="text" autocomplete="postal-code" required></div>
+          <div class="field is-full">
+            <label for="h-service">Service</label>
+            <select class="select" id="h-service" name="service" required>
+              <option value="">Choose a service</option>
+              {SERVICE_OPTIONS}
+              <option value="Not sure">Not sure / more than one</option>
+            </select>
+          </div>
+          <div class="honeypot" aria-hidden="true"><label for="h-website">Website</label><input id="h-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        </div>
+        <button class="button is-primary is-block" type="submit" data-track="form-submit">Request a Free Quote</button>
+        <p class="form-note">Prefer to send photos? Use the <a href="@@L:get-a-quote@@">full quote form</a> or text them.</p>
+      </form>
+    </div>
+  </div>
+</section>
 """
 
 
@@ -568,7 +661,7 @@ def service_page(s):
       <div class="answer-box"><span class="label">{s["answer_q"]}</span><p>{s["answer"]}</p></div>
       {s["body"]}
     </article>
-    <aside class="sidebar" aria-label="Get an estimate">
+    <aside class="sidebar" aria-label="Get a quote">
       {estimate_side_card()}
       <div class="side-card">
         <h3>Other services</h3>
@@ -583,10 +676,10 @@ def service_page(s):
       <h2 id="ba-title">{s["name"]} before and after</h2>
     </div>
     <div class="grid-2">
-      {before_after(s["ba"], landscape=True)}
-      {before_after(s["ba"], landscape=True)}
+      {compare(s["ba"].lower() + ", project 1")}
+      {compare(s["ba"].lower() + ", project 2")}
     </div>
-    <p style="margin-top:2rem"><a class="text-link" href="@@L:our-work@@">See our work</a></p>
+    <p style="margin-top:2rem"><a class="text-link" href="@@L:our-work@@">See Our Work</a></p>
   </div>
 </section>
 <section class="section" aria-labelledby="svc-faq-title">
@@ -613,7 +706,7 @@ def service_page(s):
         "eyebrow": "Services",
         "h1": s["h1"],
         "lede": s["lede"],
-        "hero_actions": '<div class="button-row"><a class="button is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a><a class="button is-ghost-light" href="@@TEL@@" data-track="phone-click">@@I:phone@@ Call or text @@PHONE@@</a></div>',
+        "hero_actions": '<div class="button-row"><a class="button is-primary" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a><a class="button is-ghost-light" href="@@TEL@@" data-track="phone-click">@@I:phone@@ Call or text @@PHONE@@</a></div>',
         "crumbs": [("Services", "services"), (s["name"], "services/" + s["slug"])],
         "body": body,
         "schema": [service_ld, faq_ld(s["faqs"])],
@@ -655,8 +748,8 @@ OUR_WORK_BODY = f"""
       {"".join(project_card(p) for p in PROJECTS)}
     </div>
     <div class="empty-state" id="projects-empty" hidden>
-      <p><strong>No projects for this service yet.</strong> Ask us for examples when you request an estimate.</p>
-      <a class="button is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
+      <p><strong>No projects for this service yet.</strong> Ask us for examples when you request a quote.</p>
+      <a class="button is-primary" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a>
     </div>
   </div>
 </section>
@@ -704,7 +797,7 @@ WETHERSFIELD_BODY = f"""
         {"".join(f'<li><a href="@@L:services/{s["slug"]}@@">{s["name"]}</a></li>' for s in SERVICES)}
       </ul>
     </article>
-    <aside class="sidebar" aria-label="Get an estimate">{estimate_side_card()}</aside>
+    <aside class="sidebar" aria-label="Get a quote">{estimate_side_card()}</aside>
   </div>
 </section>
 <section class="section is-stone" aria-labelledby="wf-work">
@@ -727,7 +820,7 @@ ABOUT_BODY = f"""
       <h2>Meet Anthony</h2>
       <p>A2 Exteriors is owned by Anthony Aubrey. [[tbc:Anthony's story: how he started, why exterior cleaning, background, how long he has been doing this work]]</p>
       <p>A2 cleans siding, roofs, driveways, patios, and commercial buildings. [[tbc:Plans to add services such as gutters, decks, and fences]]</p>
-      <h2>How we work</h2>
+      <h2 id="how-we-work">How we work</h2>
       <ul class="check-list">
         <li><strong>The right technique for each surface.</strong> Soft wash for siding and roofs, pressure for concrete.</li>
         <li><strong>Honest expectations.</strong> We tell you what will come clean and what may only lighten before we start.</li>
@@ -793,7 +886,7 @@ ARTICLES = [
 <p>A rental pressure washer works for small concrete jobs if you keep the nozzle moving and use a wide tip. Keep it off your siding, your roof, and anything painted. Ladder work with a pressure washer is a common way to get hurt, since the recoil can push you off balance.</p>
 
 <h2>When to call a professional</h2>
-<p>Call a professional for roofs, second stories, painted or older siding, and any time you are not sure what the surface can handle. <a href="@@L:free-estimate@@">Request a free estimate</a> and send a few photos.</p>
+<p>Call a professional for roofs, second stories, painted or older siding, and any time you are not sure what the surface can handle. <a href="@@L:get-a-quote@@">Request a free quote</a> and send a few photos.</p>
 """,
         "related": ["house-washing", "roof-washing", "driveway-concrete-cleaning"],
     },
@@ -831,7 +924,7 @@ ARTICLES = [
   <li>Install zinc or copper strips near the ridge. Rain carries traces of the metal down the roof and slows regrowth.</li>
   <li>When you replace the roof, ask about algae-resistant shingles, which contain copper granules.</li>
 </ul>
-<p>Seeing streaks on your roof? <a href="@@L:services/roof-washing@@">Learn about roof washing</a> or <a href="@@L:free-estimate@@">request a free estimate</a>.</p>
+<p>Seeing streaks on your roof? <a href="@@L:services/roof-washing@@">Learn about roof washing</a> or <a href="@@L:get-a-quote@@">request a free quote</a>.</p>
 """,
         "related": ["roof-washing", "house-washing"],
     },
@@ -866,7 +959,7 @@ ARTICLES = [
   <li><strong>Driveway and walks:</strong> once a year or every other year, often in spring or after fall leaves.</li>
   <li><strong>Patios:</strong> once a year before outdoor season, more often in heavy shade.</li>
 </ul>
-<p>Ready to book? <a href="@@L:services/house-washing@@">See house washing</a> or <a href="@@L:free-estimate@@">request a free estimate</a>.</p>
+<p>Ready to book? <a href="@@L:services/house-washing@@">See house washing</a> or <a href="@@L:get-a-quote@@">request a free quote</a>.</p>
 """,
         "related": ["house-washing", "roof-washing", "driveway-concrete-cleaning"],
     },
@@ -933,19 +1026,18 @@ def article_page(a):
     }
 
 
-SERVICE_OPTIONS = "".join(f'<option value="{s["name"]}">{s["name"]}</option>' for s in SERVICES)
 
 ESTIMATE_BODY = f"""
 <section class="section">
   <div class="container layout-sidebar">
     <div class="form-card">
-      <!-- Webflow: native Form Block named "Estimate Request".
+      <!-- Webflow: native Form Block named "Quote Request".
            Redirect on success: /thank-you. Notification email set in
            Site settings → Forms. reCAPTCHA on. File upload needs a paid
            site plan (10 MB limit per file). -->
-      <form action="@@L:thank-you@@" method="get" name="estimate-request" aria-describedby="form-intro">
-        <h2 class="visually-hidden">Estimate request form</h2>
-        <p id="form-intro">Tell us about the job and we will get back to you with a free estimate. Fields marked optional can be skipped.</p>
+      <form action="@@L:thank-you@@" method="get" name="quote-request" aria-describedby="form-intro">
+        <h2 class="visually-hidden">Quote request form</h2>
+        <p id="form-intro">Tell us about the job and we will get back to you with a free quote. Fields marked optional can be skipped.</p>
         <div class="form-grid">
           <div class="field"><label for="f-name">Name</label><input class="input" id="f-name" name="name" type="text" autocomplete="name" required></div>
           <div class="field"><label for="f-phone">Phone</label><input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
@@ -970,11 +1062,11 @@ ESTIMATE_BODY = f"""
           </div>
           <div class="honeypot" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
         </div>
-        <div style="margin-top:1.5rem"><button class="button is-primary is-block" type="submit" data-track="form-submit">Send my estimate request</button></div>
+        <div style="margin-top:1.5rem"><button class="button is-primary is-block" type="submit" data-track="form-submit">Send my quote request</button></div>
         <p class="form-note">We use your details only to respond to this request. See our <a href="@@L:privacy@@">privacy policy</a>.</p>
       </form>
       <!-- Webflow Form Block states. Success is unused while the form redirects to /thank-you, but keep it as a fallback. -->
-      <div class="form-success" role="status" hidden><p><strong>Thanks, we got your request.</strong> We will be in touch with your estimate.</p></div>
+      <div class="form-success" role="status" hidden><p><strong>Thanks, we got your request.</strong> We will be in touch with your quote.</p></div>
       <div class="form-error" role="alert" hidden><p><strong>Your request did not go through.</strong> Please try again, or call or text @@PHONE@@.</p></div>
     </div>
     <aside class="sidebar" aria-label="Other ways to reach us">
@@ -987,7 +1079,7 @@ ESTIMATE_BODY = f"""
         <h3>What happens next</h3>
         <ol>
           <li>We review your request and photos.</li>
-          <li>We send an estimate or set up a quick visit for larger jobs. [[tbc:Response time]]</li>
+          <li>We send a quote or set up a quick visit for larger jobs. [[tbc:Response time]]</li>
           <li>You pick a date.</li>
         </ol>
       </div>
@@ -1000,10 +1092,10 @@ THANKS_BODY = """
 <section class="section">
   <div class="container is-narrow">
     <h2>What happens next</h2>
-    <p>We will review your request and get back to you with an estimate. [[tbc:Most requests get a reply within one business day.]]</p>
+    <p>We will review your request and get back to you with a quote. [[tbc:Most requests get a reply within one business day.]]</p>
     <p>If you have not sent photos yet, text them to <a href="@@SMS@@">@@PHONE@@</a>. They help us price the job without a visit.</p>
     <div class="button-row" style="margin-top:2rem">
-      <a class="button is-secondary" href="@@L:our-work@@">See our work</a>
+      <a class="button is-secondary" href="@@L:our-work@@">See Our Work</a>
       <a class="button is-secondary" href="@@L:@@">Back to home</a>
     </div>
   </div>
@@ -1014,7 +1106,7 @@ THANKS_BODY = """
 PRIVACY_BODY = """
 <section class="section">
   <div class="container is-narrow prose">
-    <p>[[tbc:Privacy policy text, reviewed by the business owner. Must cover: what the estimate form collects (name, email, phone, town, service, description, photos), how A2 uses it (responding to estimate requests only), Webflow as the form processor and host, Google Analytics if installed, how to request deletion, and contact details.]]</p>
+    <p>[[tbc:Privacy policy text, reviewed by the business owner. Must cover: what the quote form collects (name, email, phone, town, service, description, photos), how A2 uses it (responding to quote requests only), Webflow as the form processor and host, Google Analytics if installed, how to request deletion, and contact details.]]</p>
   </div>
 </section>
 """
@@ -1024,7 +1116,7 @@ NOT_FOUND_BODY = """
   <div class="container is-narrow">
     <p class="lede">The page you were looking for is not here. Try one of these instead:</p>
     <div class="button-row" style="margin-top:1.5rem">
-      <a class="button is-primary" href="@@L:free-estimate@@">Get a Free Estimate</a>
+      <a class="button is-primary" href="@@L:get-a-quote@@">Request a Free Quote</a>
       <a class="button is-secondary" href="@@L:services@@">Our services</a>
       <a class="button is-secondary" href="@@L:@@">Home</a>
     </div>
@@ -1037,11 +1129,12 @@ ALL_FAQ_ITEMS = [i for _, items in FAQ_GROUPS for i in items]
 PAGES = [
     {
         "route": "",
-        "title": "Exterior Cleaning in Central Connecticut | A2 Exteriors",
-        "description": "House and roof washing, driveway and patio cleaning, and commercial exterior cleaning in Central Connecticut. Free estimates: 860-430-4568.",
+        "title": "Exterior Cleaning in Connecticut | A2 Exteriors",
+        "description": "House and roof washing, driveway and patio cleaning, and commercial exterior cleaning in Central Connecticut. Free quotes: 860-430-4568.",
         "hero_html": HOME_HERO,
         "body": HOME_BODY,
         "schema": [BUSINESS_LD, WEBSITE_LD, faq_ld(HOME_QA)],
+        "no_cta_band": True,
     },
     {
         "route": "services",
@@ -1077,11 +1170,11 @@ PAGES = [
     {
         "route": "service-areas/wethersfield-ct",
         "title": "Pressure Washing in Wethersfield, CT | A2 Exteriors",
-        "description": "House washing, roof washing, and driveway and patio cleaning in Wethersfield, CT from a locally owned company. Free estimates: 860-430-4568.",
+        "description": "House washing, roof washing, and driveway and patio cleaning in Wethersfield, CT from a locally owned company. Free quotes: 860-430-4568.",
         "eyebrow": "Service Areas",
         "h1": "Exterior cleaning in Wethersfield, CT",
         "lede": "House washing, roof washing, and concrete and patio cleaning for Wethersfield homes and businesses, from your neighbors at A2 Exteriors.",
-        "hero_actions": '<div class="button-row"><a class="button is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a></div>',
+        "hero_actions": '<div class="button-row"><a class="button is-primary" href="@@L:get-a-quote@@" data-track="cta-quote">Request a Free Quote</a></div>',
         "crumbs": [("Service Areas", "service-areas"), ("Wethersfield, CT", "service-areas/wethersfield-ct")],
         "body": WETHERSFIELD_BODY,
     },
@@ -1098,10 +1191,10 @@ PAGES = [
     {
         "route": "faq",
         "title": "Exterior Cleaning FAQ | A2 Exteriors",
-        "description": "Answers about pressure washing vs. soft washing, roof cleaning, how to prepare for an appointment, how long it takes, and how to get an estimate.",
+        "description": "Answers about pressure washing vs. soft washing, roof cleaning, how to prepare for an appointment, how long it takes, and how to get a quote.",
         "eyebrow": "FAQ",
         "h1": "Questions and answers",
-        "lede": "How the cleaning works, how to prepare, and how estimates work. Do not see your question? Call or text @@PHONE@@.",
+        "lede": "How the cleaning works, how to prepare, and how quotes work. Do not see your question? Call or text @@PHONE@@.",
         "crumbs": [("FAQ", "faq")],
         "body": FAQ_BODY,
         "schema": [faq_ld(ALL_FAQ_ITEMS)],
@@ -1118,20 +1211,20 @@ PAGES = [
     },
     *[article_page(a) for a in ARTICLES],
     {
-        "route": "free-estimate",
-        "title": "Get a Free Estimate | A2 Exteriors",
-        "description": "Request a free exterior cleaning estimate from A2 Exteriors. Fill out the form, or call or text photos to 860-430-4568.",
-        "eyebrow": "Free Estimate",
-        "h1": "Get a free estimate",
+        "route": "get-a-quote",
+        "title": "Request a Free Quote | A2 Exteriors",
+        "description": "Request a free exterior cleaning quote from A2 Exteriors. Fill out the form, or call or text photos to 860-430-4568.",
+        "eyebrow": "Get a Quote",
+        "h1": "Request a free quote",
         "lede": "Tell us what needs cleaning. Photos help us quote faster.",
-        "crumbs": [("Free Estimate", "free-estimate")],
+        "crumbs": [("Get a Quote", "get-a-quote")],
         "body": ESTIMATE_BODY,
         "no_cta_band": True,
     },
     {
         "route": "thank-you",
         "title": "Thanks for Your Request | A2 Exteriors",
-        "description": "Your estimate request was sent to A2 Exteriors.",
+        "description": "Your quote request was sent to A2 Exteriors.",
         "h1": "Thanks. We got your request.",
         "body": THANKS_BODY,
         "no_cta_band": True,
