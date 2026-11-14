@@ -138,6 +138,8 @@ Keyword volumes not pulled — the Ahrefs connector failed to connect in this se
 
 ## 7. Design system proposal (for approval)
 
+> **Superseded 2026-11-14:** the supplied logo is navy `#082336` + teal `#4394b1`, not the sign's black/royal blue. The live palette is in README.md → "Logo and colour". Type, spacing, components below still apply.
+
 Derived from the yard sign, which is the most "brand" of the two pieces.
 
 **Colour**

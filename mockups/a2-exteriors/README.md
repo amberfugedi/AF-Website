@@ -52,12 +52,26 @@ washing, driveway, roof).
 Deliberately left off: the (413) number, the expired fall 10% offer, the
 "Worry-Free Guarantee" (terms unknown), gutter cleaning (not confirmed).
 
-## Logo
+## Logo and colour
 
-The header and footer use an interim text lockup (black A, blue 2,
-EXTERIORS between rules) styled after the yard sign. Replace it with the
-logo source file (SVG preferred). The brand blue `#1b3a9a` is sampled
-from a photo of the sign; check it against the source file.
+Logo supplied by Amber 2026-11-14 (`source-assets/a2-exteriors-logo-original.jpg`,
+1024px JPEG). Cut to transparent PNG/WebP in `site/images/`:
+`a2-exteriors-logo` (light backgrounds), `a2-exteriors-logo-reverse` (navy
+backgrounds: navy becomes white, teal lightens), plus `favicon.png` and
+`apple-touch-icon.png` from the A2 mark. **Still want a vector (SVG/AI/EPS)**
+for print and for crisp scaling past ~950px.
+
+Palette taken from the logo:
+| Token | Value | Use |
+|---|---|---|
+| `--ink` | `#082336` logo navy | Headings, dark sections, footer |
+| `--teal` | `#4394b1` logo teal | Fills only on light (3.4:1); text allowed on navy (4.6:1) |
+| `--teal-deep` | `#1d6a86` | Links and text accents on white (5.7:1), trust strip and CTA band fill |
+| `--cta` | `#f2b705` | Primary button fill, navy text (8.7:1) |
+
+The yellow CTA is not in the logo. It's there so "Get a Free Estimate" is
+the most visible thing on every screen. If Anthony wants to stay strictly
+navy/teal, swap `--cta` to `--teal` with navy text (4.6:1).
 
 ## Pages (20)
 
@@ -93,7 +107,7 @@ Variable with the same name (colours, font families, type sizes, spacing,
 radius, container widths).
 
 **Fonts** — Archivo (Google Fonts) for headings and body; headings use the
-87.5% width axis.
+87.5% width axis. The logo wordmark is a separate geometric sans; Archivo pairs with it without imitating it.
 
 **Classes** — class names already follow Webflow's base + combo pattern
 (`button is-primary`, `section is-ink`, `container is-narrow`). Create

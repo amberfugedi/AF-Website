@@ -73,10 +73,8 @@ def header(route):
 <!-- COMPONENT: Site Header -->
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="@@L:@@" aria-label="A2 Exteriors home">
-      <!-- Interim text lockup. Replace with the logo source SVG. -->
-      <span class="brand-mark" aria-hidden="true">A<span class="is-two">2</span></span>
-      <span class="brand-word" aria-hidden="true">EXTERIORS</span>
+    <a class="brand" href="@@L:@@">
+      <img src="@@IMG@@a2-exteriors-logo.webp" width="148" height="46" alt="A2 Exteriors home">
     </a>
     <nav class="nav" id="site-nav" aria-label="Main">
       <details class="nav-dropdown">
@@ -123,9 +121,8 @@ def footer():
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="brand is-light" href="@@L:@@" aria-label="A2 Exteriors home">
-          <span class="brand-mark" aria-hidden="true">A<span class="is-two">2</span></span>
-          <span class="brand-word" aria-hidden="true">EXTERIORS</span>
+        <a class="brand" href="@@L:@@">
+          <img src="@@IMG@@a2-exteriors-logo-reverse.webp" width="167" height="52" alt="A2 Exteriors home" loading="lazy">
         </a>
         <p class="footer-tagline">Because first impressions matter.</p>
         <p>Exterior cleaning for homes and businesses in Central Connecticut.</p>
@@ -231,7 +228,8 @@ def render(p):
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="{BIZ["url"]}/images/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f1115">
+<meta name="theme-color" content="#082336">
+<link rel="icon" href="@@IMG@@favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@87.5,700;87.5,800;100,400;100,500;100,600;100,700;100,800;100,900&display=swap" rel="stylesheet">
@@ -251,7 +249,7 @@ def render(p):
 """
     depth_prefix = os.path.relpath(".", os.path.dirname(route_file(route)) or ".").replace(os.sep, "/")
     prefix = "" if depth_prefix == "." else depth_prefix + "/"
-    html = html.replace("@@CSS@@", prefix + "css/a2.css").replace("@@JS@@", prefix + "js/a2.js")
+    html = html.replace("@@CSS@@", prefix + "css/a2.css").replace("@@JS@@", prefix + "js/a2.js").replace("@@IMG@@", prefix + "images/")
     return tokens(html, route)
 
 
