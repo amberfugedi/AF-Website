@@ -1,0 +1,3 @@
+# Prototype: block everything. Production robots.txt is set in Webflow.
+User-agent: *
+Disallow: /

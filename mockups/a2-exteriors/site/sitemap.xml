@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://{{DOMAIN}}/</loc></url>
+  <url><loc>https://{{DOMAIN}}/services</loc></url>
+  <url><loc>https://{{DOMAIN}}/services/house-washing</loc></url>
+  <url><loc>https://{{DOMAIN}}/services/roof-washing</loc></url>
+  <url><loc>https://{{DOMAIN}}/services/driveway-concrete-cleaning</loc></url>
+  <url><loc>https://{{DOMAIN}}/services/patio-walkway-cleaning</loc></url>
+  <url><loc>https://{{DOMAIN}}/services/commercial-exterior-cleaning</loc></url>
+  <url><loc>https://{{DOMAIN}}/our-work</loc></url>
+  <url><loc>https://{{DOMAIN}}/service-areas</loc></url>
+  <url><loc>https://{{DOMAIN}}/service-areas/wethersfield-ct</loc></url>
+  <url><loc>https://{{DOMAIN}}/about</loc></url>
+  <url><loc>https://{{DOMAIN}}/faq</loc></url>
+  <url><loc>https://{{DOMAIN}}/resources</loc></url>
+  <url><loc>https://{{DOMAIN}}/resources/pressure-washing-vs-soft-washing</loc></url>
+  <url><loc>https://{{DOMAIN}}/resources/black-streaks-on-roof</loc></url>
+  <url><loc>https://{{DOMAIN}}/resources/how-often-to-wash-house</loc></url>
+  <url><loc>https://{{DOMAIN}}/free-estimate</loc></url>
+  <url><loc>https://{{DOMAIN}}/privacy</loc></url>
+</urlset>
