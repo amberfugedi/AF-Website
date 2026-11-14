@@ -149,7 +149,8 @@ def footer():
         <h2>Service Areas</h2>
         <ul>
           <li><a href="@@L:service-areas/wethersfield-ct@@">Wethersfield, CT</a></li>
-          <li>[[tbc:Other towns]]</li>
+          <li>Farmington, CT</li>
+          <li>Simsbury, CT</li>
           <li><a href="@@L:service-areas@@">All service areas</a></li>
         </ul>
       </div>

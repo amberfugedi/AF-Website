@@ -21,3 +21,19 @@ Notes
   the white-A / water-blue-2 version.
 - Still wanted: Anthony working on a real job (equipment, siding, a driveway),
   which the brand guidelines rank above posed portraits.
+
+## Project photos from Instagram (added 2026-11-14)
+
+`instagram/` holds the supplied Instagram screenshots (`*-screenshot.png`) and the
+photos cropped out of them (app chrome and "n/10" counters removed). They are
+screenshot quality (1179px wide); original camera files would be sharper.
+
+| Files | Job | Notes |
+|---|---|---|
+| `farmington-7-before-herringbone-path`, `farmington-8-after-herringbone-path` | Farmington home, herringbone paver walkway (post June 22) | Aligned pair. **In use:** slider on Our Work and the Patio and Walkway page |
+| `farmington-2-patio-half-cleaned` | Same home, paver patio partway through cleaning | **In use:** homepage Driveways & Patios card |
+| `farmington-4-after-front-walkway` | Same home, curved paver front walk, after | **In use:** homepage recent projects (wide card) |
+| `farmington-3-before-front-walkway` | Front walk, before | Not aligned with the after shot (different position); not usable on the slider |
+| `farmington-1-before-patio` | Patio, before | Pairs with the half-cleaned shot for social use |
+| `simsbury-restaurant-5-after-parking-lot` | Millwright's Restaurant, Simsbury, sidewalks and parking lot (post Sept 15, 2025) | **In use:** homepage Commercial card and recent projects, cropped above the burned-in "After" text. Business not named on the site |
+| `simsbury-restaurant-1..4` | Same job, before shots and an after of the smoker area | Burned-in "Before"/"After" text; pairs shot from different angles, so no slider |

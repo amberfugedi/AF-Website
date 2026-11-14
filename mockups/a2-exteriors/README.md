@@ -262,6 +262,15 @@ saved as `site/images/anthony-aubrey-owner.{webp,jpg}` (800x1000, 51KB webp). Us
 homepage "Meet Anthony" section and the About page. Note: the shirt carries a different logo
 version (roofline over "A2", green "2") from the site's logo files.
 
+## Instagram project photos (2026-11-14)
+
+From A2's Instagram (Farmington paver job, Simsbury restaurant job). Details in
+`source-assets/library/LIBRARY.md`. Herringbone walkway pair aligned (scale 0.98, offset
+20/-68px) for the slider on Our Work and the Patio page; single photos on the homepage
+Driveways & Patios and Commercial cards and two recent-project cards. Farmington and
+Simsbury added as served towns (footer, Service Areas list, homepage facts, areaServed
+schema); no town pages created.
+
 ## QA run on this build (2026-11-14)
 
 - 20 pages built; 0 broken internal links; every JSON-LD block parses

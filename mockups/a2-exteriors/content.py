@@ -30,7 +30,9 @@ BUSINESS_LD = {
     "logo": BIZ["url"] + "/images/a2-logo.png",
     "image": BIZ["url"] + "/images/og-default.jpg",
     "areaServed": [
-        {"@type": "City", "name": "Wethersfield", "containedInPlace": {"@type": "State", "name": "Connecticut"}}
+        {"@type": "City", "name": "Wethersfield", "containedInPlace": {"@type": "State", "name": "Connecticut"}},
+        {"@type": "City", "name": "Farmington", "containedInPlace": {"@type": "State", "name": "Connecticut"}},
+        {"@type": "City", "name": "Simsbury", "containedInPlace": {"@type": "State", "name": "Connecticut"}}
     ],
     "_comment": "Add every confirmed town to areaServed, sameAs [GBP URL], and email before launch. No street address: A2 is a service-area business.",
 }
@@ -276,6 +278,7 @@ SERVICES = [
             ("Why is my walkway slippery?", "A thin film of algae grows on stone and concrete that stays shaded and damp. It turns slick when wet. Cleaning removes the film and makes the surface easier to walk on."),
         ],
         "ba": "Patio cleaning",
+        "photo": "patio-herringbone",
     },
     {
         "slug": "commercial-exterior-cleaning",
@@ -365,8 +368,8 @@ PROJECTS = [
     ("house-washing", "House wash", "[[tbc:Town]], CT", "Vinyl siding and garage doors", "house-wash-garage"),
     ("roof-washing", "Roof wash", "[[tbc:Town]]", "Asphalt shingle roof"),
     ("driveway-concrete-cleaning", "Driveway cleaning", "Wethersfield, CT", "Concrete driveway and walk"),
-    ("patio-walkway-cleaning", "Patio cleaning", "[[tbc:Town]]", "Paver patio"),
-    ("commercial-exterior-cleaning", "Storefront cleaning", "[[tbc:Town]]", "Retail storefront and sidewalk"),
+    ("patio-walkway-cleaning", "Patio and walkway cleaning", "Farmington, CT", "Herringbone paver walkway", "patio-herringbone"),
+    ("commercial-exterior-cleaning", "Commercial cleaning", "Simsbury, CT", "Restaurant sidewalks and parking lot"),
     ("house-washing", "House wash", "[[tbc:Town]]", "Clapboard cape"),
 ]
 
@@ -375,6 +378,13 @@ SERVICE_OPTIONS = "".join(f'<option value="{s["name"]}">{s["name"]}</option>' fo
 
 
 PHOTOS = {
+    "patio-herringbone": {
+        "before": "patio-herringbone-walkway-farmington-before.webp",
+        "after": "patio-herringbone-walkway-farmington-after.webp",
+        "alt_before": "Before: herringbone paver walkway in Farmington, gray and dull with moss and weeds in the joints",
+        "alt_after": "After: the same herringbone walkway cleaned, with the red and tan pavers showing their color",
+        "w": 800, "h": 858,
+    },
     # Real A2 project photos. Same property, aligned so the slider compares like for like.
     "house-wash-garage": {
         "before": "house-wash-vinyl-siding-garage-before.webp",
@@ -488,7 +498,7 @@ HOME_BODY = f"""
       <p class="lede">Anthony Aubrey owns A2 Exteriors. We clean homes and commercial properties across [[tbc:Central Connecticut]], choose the right method for each surface, and tell you what to expect before we start.</p>
     </div>
     <dl class="cred-facts">
-      <div><dt>Service area</dt><dd>Wethersfield and [[tbc:nearby towns]]</dd></div>
+      <div><dt>Service area</dt><dd>Wethersfield, Farmington, Simsbury, and [[tbc:nearby towns]]</dd></div>
       <div><dt>Properties</dt><dd>Homes and businesses</dd></div>
       <div><dt>Quotes</dt><dd>Text photos to <a href="@@SMS@@" data-track="sms-click">@@PHONE@@</a></dd></div>
       <div><dt>Licensing</dt><dd>[[tbc:Licensed and insured. CT registration number and insurer shown once verified]]</dd></div>
@@ -534,13 +544,13 @@ HOME_BODY = f"""
         <p>{_svc["roof-washing"]["short"]}</p>
       </article>
       <article class="svc-card reveal">
-        <div class="svc-card-photo" role="img" aria-label="Photo placeholder: clean paver patio and driveway"><span class="ph-note">Photo needed: patio or driveway after cleaning</span></div>
+        <div class="svc-card-photo"><img class="svc-card-img" src="@@IMG@@patio-pavers-farmington-half-cleaned.webp" alt="Herringbone paver patio in Farmington partway through cleaning, the cleaned section red and tan beside the gray uncleaned pavers" width="800" height="905" loading="lazy" decoding="async"></div>
         <h3>Driveways &amp; Patios</h3>
         <p>Pressure cleaning for concrete, pavers, brick, and stone.</p>
         <p class="svc-card-links"><a href="@@L:services/driveway-concrete-cleaning@@">Driveways and concrete</a><a href="@@L:services/patio-walkway-cleaning@@">Patios and walkways</a></p>
       </article>
       <article class="svc-card reveal">
-        <div class="svc-card-photo" role="img" aria-label="Photo placeholder: clean storefront and sidewalk"><span class="ph-note">Photo needed: storefront after cleaning</span></div>
+        <div class="svc-card-photo"><img class="svc-card-img" src="@@IMG@@commercial-sidewalk-parking-lot-simsbury-after.webp" alt="Restaurant parking lot and sidewalk in Simsbury after pressure washing, with cones and equipment still set up" width="800" height="652" loading="lazy" decoding="async"></div>
         <h3><a href="@@L:services/commercial-exterior-cleaning@@">Commercial Exterior Cleaning</a></h3>
         <p>{_svc["commercial-exterior-cleaning"]["short"]}</p>
       </article>
@@ -601,9 +611,9 @@ HOME_BODY = f"""
     </div>
     <div class="recent">
       <article class="recent-card is-wide reveal">
-        <div class="recent-photo" role="img" aria-label="Photo placeholder: roof after washing"><span class="ph-note">Photo needed: roof wash, after</span></div>
-        <p class="meta">[[tbc:Town]], CT / Roof wash</p>
-        <h3>Asphalt shingle roof</h3>
+        <div class="recent-photo"><img class="recent-img" src="@@IMG@@paver-walkway-farmington-after.webp" alt="Curved paver front walkway in Farmington after cleaning, leading to the street past garden beds and lawn" width="800" height="905" loading="lazy" decoding="async"></div>
+        <p class="meta">Farmington, CT / Patio and walkway cleaning</p>
+        <h3>Paver front walkway</h3>
         <a class="text-link" href="@@L:our-work@@">View Project</a>
       </article>
       <article class="recent-card reveal">
@@ -613,9 +623,9 @@ HOME_BODY = f"""
         <a class="text-link" href="@@L:our-work@@">View Project</a>
       </article>
       <article class="recent-card reveal">
-        <div class="recent-photo" role="img" aria-label="Photo placeholder: storefront after cleaning"><span class="ph-note">Photo needed: storefront, after</span></div>
-        <p class="meta">[[tbc:Town]], CT / Commercial</p>
-        <h3>Retail storefront and sidewalk</h3>
+        <div class="recent-photo"><img class="recent-img" src="@@IMG@@commercial-sidewalk-parking-lot-simsbury-after.webp" alt="Restaurant parking lot and sidewalk in Simsbury after pressure washing" width="800" height="652" loading="lazy" decoding="async"></div>
+        <p class="meta">Simsbury, CT / Commercial</p>
+        <h3>Restaurant sidewalks and parking lot</h3>
         <a class="text-link" href="@@L:our-work@@">View Project</a>
       </article>
     </div>
@@ -786,8 +796,8 @@ SERVICE_AREAS_BODY = f"""
       <p>A2 Exteriors is based in Central Connecticut and works in these towns. Each town page shows real jobs we have done there.</p>
       <ul class="area-list">
         <li><a href="@@L:service-areas/wethersfield-ct@@">Wethersfield, CT</a></li>
-        <li><span>[[tbc:Town, CT]]</span></li>
-        <li><span>[[tbc:Town, CT]]</span></li>
+        <li><span>Farmington, CT</span></li>
+        <li><span>Simsbury, CT</span></li>
         <li><span>[[tbc:Town, CT]]</span></li>
         <li><span>[[tbc:Town, CT]]</span></li>
       </ul>

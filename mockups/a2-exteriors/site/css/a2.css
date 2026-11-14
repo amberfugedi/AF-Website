@@ -275,7 +275,7 @@ li + li { margin-top: var(--s-2); }
 /* ---------- 08 Recent projects ---------- */
 .recent { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: auto auto; gap: var(--s-7) var(--s-7); }
 .recent-card.is-wide { grid-row: 1 / 3; }
-.recent-photo { position: relative; aspect-ratio: 16 / 10; border-radius: var(--radius-lg); background: linear-gradient(160deg, #e6e2d8, #d1cabc); margin-bottom: var(--s-4); }
+.recent-photo { position: relative; overflow: hidden; aspect-ratio: 16 / 10; border-radius: var(--radius-lg); background: linear-gradient(160deg, #e6e2d8, #d1cabc); margin-bottom: var(--s-4); }
 .recent-card.is-wide .recent-photo { aspect-ratio: 4 / 3; }
 .recent-card h3 { margin-bottom: var(--s-3); }
 
@@ -492,5 +492,5 @@ li + li { margin-top: var(--s-2); }
 }
 
 /* ---------- Real photos ---------- */
-.compare-img, .svc-card-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.compare-img, .svc-card-img, .recent-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .svc-card-img { object-position: 50% 42%; }
