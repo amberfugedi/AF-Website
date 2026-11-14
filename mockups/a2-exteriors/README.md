@@ -255,6 +255,13 @@ Still needed: the town, any project details, and the original full-resolution ph
 photos. Each half is only ~620px wide, fine for these slots but too small for the
 full-width hero.
 
+## Owner portrait (2026-11-14)
+
+`source-assets/anthony-aubrey-portrait-original.png` (1086x1448), cropped to 4:5 from the top,
+saved as `site/images/anthony-aubrey-owner.{webp,jpg}` (800x1000, 51KB webp). Used in the
+homepage "Meet Anthony" section and the About page. Note: the shirt carries a different logo
+version (roofline over "A2", green "2") from the site's logo files.
+
 ## QA run on this build (2026-11-14)
 
 - 20 pages built; 0 broken internal links; every JSON-LD block parses

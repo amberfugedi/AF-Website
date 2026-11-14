@@ -569,7 +569,7 @@ HOME_BODY = f"""
 <!-- 06 Meet Anthony -->
 <section class="section is-dark" aria-labelledby="owner-title">
   <div class="container owner">
-    <div class="owner-photo edge-photo reveal" role="img" aria-label="Photo placeholder: Anthony Aubrey at work"><span class="ph-note">Photo needed: Anthony on a job, not posed</span></div>
+    <div class="owner-photo edge-photo reveal"><img class="owner-img" src="@@IMG@@anthony-aubrey-owner.webp" alt="Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors t-shirt and cap" width="800" height="1000" loading="lazy" decoding="async"></div>
     <div class="owner-note">
       <h2 id="owner-title">Good work. Done right.</h2>
       <p>I'm Anthony Aubrey, and I own A2 Exteriors. [[tbc:When you call or text, you reach me.]]</p>
@@ -842,7 +842,7 @@ ABOUT_BODY = f"""
     <div class="prose">
       <h2>Meet Anthony</h2>
       <p>A2 Exteriors is owned by Anthony Aubrey. [[tbc:Anthony's story: how he started, why exterior cleaning, background, how long he has been doing this work]]</p>
-      <p>We clean siding, roofs, gutters, driveways, patios, and commercial buildings. [[tbc:Plans to add services such as gutters, decks, and fences]]</p>
+      <p>We clean siding, roofs, gutters, driveways, patios, and commercial buildings. [[tbc:Plans to add services such as decks and fences]]</p>
       <h2 id="how-we-work">How we work</h2>
       <ul class="check-list">
         <li><strong>The right technique for each surface.</strong> Soft wash for siding and roofs, pressure for concrete.</li>
@@ -853,7 +853,7 @@ ABOUT_BODY = f"""
       <h2>Licensing and insurance</h2>
       <p>[[tbc:Connecticut registration or license number, and insurance details. Shown only once confirmed.]]</p>
     </div>
-    <div>{ph("Anthony Aubrey on a job", "Real photo of the owner with equipment or truck", extra="is-tall")}</div>
+    <div class="owner-photo"><img class="owner-img" src="@@IMG@@anthony-aubrey-owner.webp" alt="Anthony Aubrey, owner of A2 Exteriors, smiling outdoors in an A2 Exteriors t-shirt and cap" width="800" height="1000" loading="lazy" decoding="async"></div>
   </div>
 </section>
 """
