@@ -456,7 +456,7 @@ HOME_BODY = f"""
   </div>
 </section>
 
-<section class="section is-stone" aria-labelledby="work-title">
+<section class="section" aria-labelledby="work-title">
   <div class="container">
     <div class="section-head is-split">
       <div>
@@ -471,7 +471,7 @@ HOME_BODY = f"""
   </div>
 </section>
 
-<section class="section" aria-labelledby="why-title">
+<section class="section is-stone" aria-labelledby="why-title">
   <div class="container why-layout">
     <div class="why-head">
       <h2 id="why-title">A local company that cares how your place looks</h2>
@@ -494,10 +494,10 @@ HOME_BODY = f"""
   </div>
 </section>
 
-<section class="section is-ink" aria-labelledby="how-title">
+<section class="section is-stone" aria-labelledby="how-title">
   <div class="container">
     <div class="section-head">
-      <h2 id="how-title">From photo to clean in three steps</h2>
+      <h2 id="how-title">How to get your property cleaned</h2>
     </div>
     <ol class="steps">
       <li><h3>Send us the details</h3><p>Fill out the estimate form, or text photos and your town to @@PHONE@@.</p></li>
@@ -644,6 +644,10 @@ OUR_WORK_BODY = f"""
     <div class="project-grid">
       {"".join(project_card(p) for p in PROJECTS)}
     </div>
+    <div class="empty-state" id="projects-empty" hidden>
+      <p><strong>No projects for this service yet.</strong> Ask us for examples when you request an estimate.</p>
+      <a class="button is-primary" href="@@L:free-estimate@@" data-track="cta-estimate">Get a Free Estimate</a>
+    </div>
   </div>
 </section>
 """
@@ -717,7 +721,7 @@ ABOUT_BODY = f"""
       <ul class="check-list">
         <li><strong>The right technique for each surface.</strong> Soft wash for siding and roofs, pressure for concrete.</li>
         <li><strong>Honest expectations.</strong> We tell you what will come clean and what may only lighten before we start.</li>
-        <li><strong>Respect for your property.</strong> We protect plants, keep the work area tidy, and leave things the way we found them, minus the dirt.</li>
+        <li><strong>Respect for your property.</strong> We protect plants, keep the work area tidy, and clean up before we leave.</li>
         <li><strong>Local accountability.</strong> We live and work here. You can reach the owner directly at @@PHONE@@.</li>
       </ul>
       <h2>Licensing and insurance</h2>
@@ -959,6 +963,9 @@ ESTIMATE_BODY = f"""
         <div style="margin-top:1.5rem"><button class="button is-primary is-block" type="submit" data-track="form-submit">Send my estimate request</button></div>
         <p class="form-note">We use your details only to respond to this request. See our <a href="@@L:privacy@@">privacy policy</a>.</p>
       </form>
+      <!-- Webflow Form Block states. Success is unused while the form redirects to /thank-you, but keep it as a fallback. -->
+      <div class="form-success" role="status" hidden><p><strong>Thanks, we got your request.</strong> We will be in touch with your estimate.</p></div>
+      <div class="form-error" role="alert" hidden><p><strong>Your request did not go through.</strong> Please try again, or call or text @@PHONE@@.</p></div>
     </div>
     <aside class="sidebar" aria-label="Other ways to reach us">
       <ul class="contact-methods">
@@ -1032,7 +1039,7 @@ PAGES = [
         "description": "House washing, roof washing, driveway and concrete cleaning, patio and walkway cleaning, and commercial exterior cleaning in Central Connecticut.",
         "eyebrow": "Services",
         "h1": "Exterior cleaning services",
-        "lede": "Five services, one standard: the right method for each surface, and a clear picture of the result before we start.",
+        "lede": "Each service uses the method that surface needs, and we explain the likely result before we start.",
         "crumbs": [("Services", "services")],
         "body": SERVICES_INDEX_BODY,
     },

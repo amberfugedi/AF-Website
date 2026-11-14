@@ -55,6 +55,8 @@
         if (match) shown++;
       });
       if (status) status.textContent = shown + (shown === 1 ? ' project' : ' projects') + ' shown';
+      var empty = document.getElementById('projects-empty');
+      if (empty) empty.hidden = shown !== 0;
     });
   });
 })();

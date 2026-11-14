@@ -114,6 +114,9 @@
         <div style="margin-top:1.5rem"><button class="button is-primary is-block" type="submit" data-track="form-submit">Send my estimate request</button></div>
         <p class="form-note">We use your details only to respond to this request. See our <a href="privacy.html">privacy policy</a>.</p>
       </form>
+      <!-- Webflow Form Block states. Success is unused while the form redirects to /thank-you, but keep it as a fallback. -->
+      <div class="form-success" role="status" hidden><p><strong>Thanks, we got your request.</strong> We will be in touch with your estimate.</p></div>
+      <div class="form-error" role="alert" hidden><p><strong>Your request did not go through.</strong> Please try again, or call or text 860-430-4568.</p></div>
     </div>
     <aside class="sidebar" aria-label="Other ways to reach us">
       <ul class="contact-methods">

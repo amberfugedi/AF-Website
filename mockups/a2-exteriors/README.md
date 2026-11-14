@@ -167,6 +167,12 @@ Changes from the audit:
 - Corner radius: 6px for every interactive element and tag, 10px for cards and image frames; no pills or circles
 - Middle-dot lists replaced with commas
 
+Second pass (interior pages, states, copy):
+- Theme lock: "How it works" was a navy band mid-page; it is now a light tinted section, so navy only appears in the hero, page heroes, and footer
+- Empty state on Our Work for a service with no projects yet (maps to the Collection List empty state in Webflow)
+- Estimate form success and error blocks (Webflow Form Block states); invalid fields turn red after the visitor interacts
+- Copy: three lines rewritten plainly ("How to get your property cleaned", "clean up before we leave", services intro)
+
 Skill defaults deliberately not applied, with reasons:
 - React/Tailwind/Motion stack and self-hosted fonts: the brief requires native Webflow, which hosts fonts itself
 - Dark mode: Webflow has no native dark mode, so it would need the custom code the brief rules out
