@@ -684,7 +684,7 @@ HOME_BODY = f"""
       <div><dt>Service area</dt><dd>Wethersfield, Farmington, Simsbury, and [[tbc:nearby towns]]</dd></div>
       <div><dt>Properties</dt><dd>Homes and businesses</dd></div>
       <div><dt>Quotes</dt><dd>Text photos to <a href="@@SMS@@" data-track="sms-click">@@PHONE@@</a></dd></div>
-      <div><dt>Licensing</dt><dd>[[tbc:Licensed and insured. CT registration number and insurer shown once verified]]</dd></div>
+      <div><dt>Licensing</dt><dd>Licensed in Connecticut and insured. [[tbc:CT license number]]</dd></div>
       <div><dt>Reviews</dt><dd>[[tbc:Google rating, shown once verified]]</dd></div>
     </dl>
   </div>
@@ -1117,7 +1117,7 @@ ABOUT_BODY = f"""
         <li><strong>Local accountability.</strong> We live and work here. You can reach the owner directly at @@PHONE@@.</li>
       </ul>
       <h2>Licensing and insurance</h2>
-      <p>[[tbc:Connecticut registration or license number, and insurance details. Shown only once confirmed.]]</p>
+      <p>A2 Exteriors is licensed in Connecticut and fully insured. [[tbc:CT license number, and insurer if Anthony wants it listed]]</p>
     </div>
     <div class="owner-photo"><img class="owner-img" src="@@IMG@@anthony-aubrey-working.webp" alt="Anthony Aubrey of A2 Exteriors pressure washing a driveway, seen from behind" width="800" height="1000" fetchpriority="high" decoding="async"></div>
   </div>
