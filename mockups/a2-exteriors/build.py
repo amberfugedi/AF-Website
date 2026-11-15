@@ -157,7 +157,7 @@ def footer():
     </div>
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> A2 Exteriors. All rights reserved.</span>
-      <span><a href="https://www.instagram.com/a2exteriors/" rel="noopener">Instagram</a> · <a href="@@L:privacy@@">Privacy</a></span>
+      <span><a href="https://www.instagram.com/a2exteriors/" rel="noopener">Instagram</a> · <a href="@@L:privacy@@">Privacy</a> · <a href="@@L:accessibility@@">Accessibility</a></span>
     </div>
   </div>
 </footer>

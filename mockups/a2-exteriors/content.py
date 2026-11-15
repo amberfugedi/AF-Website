@@ -1415,6 +1415,26 @@ NOT_FOUND_BODY = """
 
 ALL_FAQ_ITEMS = [i for _, items in FAQ_GROUPS for i in items]
 
+ACCESSIBILITY_BODY = """
+<section class="section">
+  <div class="container is-narrow prose">
+    <h2>Our commitment</h2>
+    <p>We want everyone to be able to use this website, including people who use screen readers, keyboard navigation, magnification, or other assistive technology. We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA.</p>
+    <h2>What we’ve done</h2>
+    <ul>
+      <li>Text and buttons meet AA color contrast</li>
+      <li>Every page, menu, form, and before-and-after slider works with a keyboard</li>
+      <li>Photos have text descriptions for screen readers</li>
+      <li>Pages work when text is enlarged to 200% and on narrow screens</li>
+      <li>Animation turns off when your device is set to reduce motion</li>
+    </ul>
+    <h2>Report a problem</h2>
+    <p>If something on this site is hard to use, call or text <a href="@@TEL@@">@@PHONE@@</a> or email <a href="mailto:{{EMAIL}}">[[tbc:{{EMAIL}}]]</a>. Tell us the page and what happened, and we’ll fix it. We can also give you any information on this site by phone or email.</p>
+    <p>This statement was last reviewed in [[tbc:month and year at launch]].</p>
+  </div>
+</section>
+"""
+
 PAGES = [
     {
         "route": "",
@@ -1552,6 +1572,15 @@ PAGES = [
         "h1": "Privacy policy",
         "crumbs": [("Privacy", "privacy")],
         "body": PRIVACY_BODY,
+        "no_cta_band": True,
+    },
+    {
+        "route": "accessibility",
+        "title": "Accessibility Statement | A2 Exteriors",
+        "description": "A2 Exteriors aims to meet WCAG 2.2 AA. How we make this site accessible and how to report a problem.",
+        "h1": "Accessibility statement",
+        "crumbs": [("Accessibility", "accessibility")],
+        "body": ACCESSIBILITY_BODY,
         "no_cta_band": True,
     },
     {
