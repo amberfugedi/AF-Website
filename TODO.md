@@ -339,11 +339,15 @@ which is why it was the one cut. Two options, both Amber's call:
       like the four external rows. The section's rule is now: if you can
       click through to it, it links; if you can't, it expands.
 - [ ] **The rest of the build rows have no detail yet** — the `.bld-d`
-      expandable pattern is shipped on one row (Marketing command
-      center). Content Engine, Messaging Agent, AI Sales Assistant, then
-      The Log and Digital Template Shop can follow once the facts are
-      ready. Each needs the problem, what was built, and a result or a
-      what's-next, around 110 words.
+      expandable pattern is shipped on two rows: Marketing command center
+      (video plus three columns) and The Log (video only, because its
+      teaser carries its own copy). Content Engine, Messaging Agent, AI
+      Sales Assistant and Digital Template Shop can follow once the facts
+      are ready. Each needs the problem, what was built, and a result.
+- [ ] **The Log has no written case study, only the teaser** — deliberate
+      for now. If one is wanted beside the video, the problem it solves
+      and a result have to come from Amber; the teaser states features and
+      the stack but neither of those.
 - [ ] **Horizontal overflow on the homepage at 1024px** — about 40px,
       from the aura and the quote marquee. Clipped by
       `overflow-x: hidden`, so it does not show, but it is real.

@@ -6976,3 +6976,36 @@ mismatch by whether anyone would catch it, not by whether it exists.
 compressing the opening from two sentences to one. It keeps "the same
 data doing three different jobs" and adds two concrete capabilities for
 seven words. The TODO item about recutting the video is deleted.
+
+## 2026-11-16 — The Log gets the teaser, and nothing else
+
+Amber supplied a teaser for The Log and asked that the row click through
+to it. Second expandable row on the page, same `.bld-d` pattern, in
+Products.
+
+**It carries no written case study, on purpose.** The command center
+video is a silent UI recording: it shows screens and needs words to
+explain the thinking behind them. The Log teaser is a finished piece of
+film with its own eyebrows, headlines, body copy and a stack diagram
+(React + Vite PWA, Netlify Function, Supabase, Claude API). A text
+column beside it would restate what is already playing.
+
+That is the same rule as before, pointed the other way: **spend words on
+what the video cannot say. When the video already says it, say nothing.**
+
+A written case study for The Log would still need two things the teaser
+never states: the problem it solves, and a result. Both have to come
+from Amber. Logged.
+
+Toggle reads "Watch the teaser" / "Close teaser" rather than "Read case
+study", because there is nothing to read. The label describes what is
+behind it; that is the whole job of a label.
+
+No disclosure line here. The command center needed one because its
+screens and figures are fictional; The Log is Amber's own shipped app.
+
+Encoding: 4.75MB to **1.14MB**. 1080p down to 720 (it renders at 618px),
+CRF 26, `-an` since the source has no audio track at all, `+faststart`.
+Decodes clean, moov ahead of mdat, `preload="none"` so nothing crosses
+the wire until play. Verified: opens with JavaScript off, one "The Log"
+row not two, no mp4 requested on page load.
