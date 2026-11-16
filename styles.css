@@ -1502,9 +1502,14 @@ a.bld-item .bld-item-arrow {
   background: var(--ink);
   margin-bottom: 10px;
 }
+/* A footnote, not a warning. It has to be legible and it has to be
+   found when someone looks for it, but it should not compete with the
+   video it sits under, so it takes the eyebrow grade in italic with a
+   leading asterisk (Amber, Nov 2026). --muted holds 8.5:1 here. */
 .bld-disclosure {
   color: var(--muted);
-  font-size: var(--fs-small);
+  font-size: var(--fs-eyebrow);
+  font-style: italic;
   line-height: 1.5;
   margin: 0 0 22px;
   text-wrap: pretty;

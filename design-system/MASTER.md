@@ -6788,6 +6788,22 @@ Her counter-proposal became the pattern: every build gets the same
 three-part disclosure the case studies already use, problem / what I
 built / result-or-what's-next, rather than one item getting a page.
 
+**Then the correction that matters more.** The first cut hit 134 words
+by protecting the facts and dropping the reasoning, which is backwards
+when a video sits directly above the text. The video already shows the
+dashboards, the sidebar and the budget lines. What it cannot show is how
+she decided, and two sentences from the long draft carry exactly that:
+"They want the same data doing three different jobs" and "a number with
+no date on it is a number you have to go and check." Both went back in,
+and the feature inventory the video already shows came out to pay for
+them. 167 words, against a2-exteriors at 170 — top of the family, not
+outside it. **Spend the words on the thinking; let the video do the
+showing.** That is the rule for every build row that gets a video.
+
+The disclosure is a footnote, not a warning: eyebrow grade, italic,
+leading asterisk (Amber, Nov 2026). It has to be legible and findable
+without competing with the video above it. --muted holds 8.5:1 there.
+
 **The rule for `#builds`: if you can click through to it, it links; if
 you can't, it expands.** Four items link out to live sites and carry the
 `↗`. The internal tools have no destination by nature, so the row itself
