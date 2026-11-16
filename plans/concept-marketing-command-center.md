@@ -1,4 +1,4 @@
-# Marketing command center — concept case study copy
+# Marketing command center · concept case study copy
 
 Draft copy for the portfolio piece. Not served publicly (`/plans/*` returns
 404 in `_redirects`). Companion to the anonymized walkthrough video.
@@ -17,8 +17,8 @@ Marketing command center
 
 ### Subtitle
 
-One app that gives leadership, finance and marketing their own view of the
-same numbers, and says when each one was last updated.
+One app for the whole team. Leadership, finance, marketing and sales each
+get their own view, and every page says when it was last updated.
 
 ### The problem
 
@@ -38,20 +38,24 @@ The answer was not another report. It was one place where the number is the
 number, and where the person reading it can see how old it is.
 
 Leadership, finance and the marketing team do not want the same screen. They
-want the same data, doing three different jobs. So I built the app around the
-person opening it rather than around the data source.
+want the same data doing three different jobs. Sales needed something
+different again: not the numbers, but what is coming up and what it can use.
+
+So I built the app around the person opening it rather than around the data
+source.
 
 ### What I built
 
-One app with a different dashboard for each persona: CEO, finance, and
-marketing manager. Everything in it sits behind role-based access that I
-assign myself.
+One app. A dashboard each for the CEO, for finance and for the marketing
+manager, and a single login for sales. Everything in it sits behind
+role-based access that I assign myself.
 
 - **Lead and campaign performance** from the CRM, with the attribution method
   shown on the page, so nobody has to ask which one was used.
 - **Event results at 60, 90 and 180 days**, with an executive summary.
 - **Email and deliverability performance.**
 - **Budget and expense tracking**, with receipts attached to each line.
+- **One login for sales**, covering upcoming events, lists and playbooks.
 
 ### What runs automatically
 
@@ -96,13 +100,13 @@ percentage and this becomes a short closing section.
 
 **Tagline (one sentence)**
 
-One app, three dashboards, and every number carries the date it was pulled.
+One app, a view for every role, and every number carries the date it was pulled.
 
 **Blurb (25 words)**
 
-Marketing data lived in separate exports and tools. I built a role-aware app
-where leadership, finance and marketing each get a view, refreshed on
-schedule.
+Marketing data lived in separate exports and tools. I built one app: a
+dashboard each for leadership, finance and marketing, plus one login for
+sales.
 
 ---
 
@@ -114,25 +118,25 @@ Marketing command center, a concept | Amber Fugedi
 
 **Meta description**
 
-A concept case study: one role-aware app giving leadership, finance and
-marketing their own view of the same numbers, with every page dated.
+A concept case study: one role-aware app giving leadership, finance,
+marketing and sales their own view of the work, with every page dated.
 
 ---
 
 ## 4. LinkedIn post
 
 Marketing data lives in separate exports, spreadsheets and tools.
-Leadership, finance and the marketing team each need a different view of the
-same numbers, and nobody can tell how fresh any of them are.
+Leadership, finance and marketing each need a different view of the same
+numbers, and nobody knows how fresh any of them are.
 
-So I built one app where each of them gets their own dashboard.
-Scheduled tasks refresh the data on a fixed rhythm. Receipts dropped in a
-shared folder match themselves to expense lines. Every page says when it was
-last updated.
+So I built one app where each of them gets a dashboard, and sales gets one
+login for upcoming events, lists and playbooks. Scheduled tasks refresh the
+data on a fixed rhythm. Receipts match themselves to expense lines. Every
+page says when it was last updated.
 
 I built it with Claude, one working feature at a time, in plain English. It
 reads from the CRM and the email platform. It never publishes or changes
-anything on its own.
+anything itself.
 
 The real tool is internal, so here is an anonymized concept version.
 
