@@ -6952,3 +6952,27 @@ A nested card surface was never an option: see the `.bld-item` note,
 **Rule: a distinguishing mark has to differ from the marks already on
 screen around it. Check what a new rule will sit next to before
 reaching for weight or colour — space is often the only axis left.**
+
+## 2026-11-16 (closing it out) — The chips do not matter
+
+Amber on the video's "Roadmap concept" chips: they do not matter. That
+removes the constraint I had imposed on myself, and the page now names
+both features as built.
+
+I had kept the copy silent on projections and the case study library
+because the footage playing above the text labels them roadmap. Her read
+is the better one: a chip inside an anonymized demo is set dressing, not
+a claim a reader audits the copy against. Nobody pauses a 48-second
+walkthrough to catch a purple badge contradicting paragraph three. The
+page is the claim; the video is the atmosphere.
+
+So the earlier rule — "the copy cannot claim what the evidence visibly
+denies" — needs a qualifier rather than deletion. **It applies to what a
+viewer would actually notice: a number, a name, a missing feature. It
+does not apply to a status label inside fictional screens.** Judge the
+mismatch by whether anyone would catch it, not by whether it exists.
+
+"What I built" went 54 to 61 words to carry both features, paid for by
+compressing the opening from two sentences to one. It keeps "the same
+data doing three different jobs" and adds two concrete capabilities for
+seven words. The TODO item about recutting the video is deleted.

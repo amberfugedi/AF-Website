@@ -96,12 +96,11 @@ Removed 2026-11-16. Amber: the budget projection tool and the validated case
 study library **are built**, and a case study should not carry a roadmap
 section in the first place. Both points stand.
 
-**This leaves the video wrong, not the page.** The walkthrough stamps a
-purple "Roadmap concept" chip on those exact two features, at roughly 16-22s
-(Projections, the revenue target and the spend split) and 32-38s (Case
-studies, sales drafting outreach). About 12 of its 48 seconds. Until the
-video is recut, the page stays silent on those two rather than claiming
-something the footage directly above it contradicts.
+The walkthrough still stamps a purple "Roadmap concept" chip on those two
+features, at roughly 16-22s (Projections) and 32-38s (Case studies). Amber's
+call: that does not matter. The page names both as built. The chips are a
+label inside an anonymized demo, not a claim anyone will audit the copy
+against, and recutting the video to chase them is not worth it.
 
 ---
 
@@ -162,8 +161,7 @@ The real tool is internal, so here is an anonymized concept version.
 - **The copy uses the video's fictional company, Brightwell**, nowhere in the
   text, because the text never needs to name it. The name only appears
   on screen. That keeps the page safe to reuse if the video is ever recut.
-- **The video's "Roadmap concept" chips are now out of date.** They sit on
-  Projections and Case studies, which Amber confirms are built. "Sample
-  data" on every screen still does the anonymizing work and is correct. If
-  the video is ever recut, dropping those four chips lets the page name
-  both features as built.
+- **The video's "Roadmap concept" chips are out of date and staying.** They
+  sit on Projections and Case studies, which are built. Amber does not think
+  the mismatch matters, so the copy names both as built and the chips stand.
+  "Sample data" on every screen still does the anonymizing work.
