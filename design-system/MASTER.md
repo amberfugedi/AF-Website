@@ -6773,3 +6773,58 @@ Adding course two is four edits and no new design: a card in
 JSON-LD per page, as CLAUDE.md requires.
 
 Recorded under TODO section 5 so the question does not need asking twice.
+
+## 2026-11-16 — Build rows that open in place, and the first one
+
+Amber asked whether the anonymized marketing command center belonged on
+Work, then pushed back on the shape I proposed: a dedicated page with a
+six-section write-up. She was right, and the measurement settles it. Her
+six real client case studies average **134 words**. The drafted concept
+page ran **502**. A fictional company with sample data would have been
+the longest written piece on the site, three to four times the PERQ and
+Scan-Optics entries. Wrong signal regardless of how the copy reads.
+
+Her counter-proposal became the pattern: every build gets the same
+three-part disclosure the case studies already use, problem / what I
+built / result-or-what's-next, rather than one item getting a page.
+
+**The rule for `#builds`: if you can click through to it, it links; if
+you can't, it expands.** Four items link out to live sites and carry the
+`↗`. The internal tools have no destination by nature, so the row itself
+opens. `Build Your Marketing Foundation` is currently on the wrong side
+of that rule — it is a plain `<div>` even though `/courses/...` exists,
+and should simply link. Logged in TODO.
+
+Built as `<details class="bld-d">` reusing what is already here, so the
+motion budget stays closed: the chevron is `.case-chev`, the detail is
+`.case-cols`, the label swap is `.tg-a` / `.tg-b`. Native `<details>`
+means it works with JavaScript off and is keyboard-reachable without any
+script. Verified: opens with JS disabled, summary takes focus, lowest
+contrast on the new text is 5.76:1.
+
+Two things that are NOT copied from the cases, on purpose:
+
+- **The columns stack.** The detail sits in the card's right-hand
+  column, about 618px, not the full card width the cases get. Three
+  auto-fit columns wrapped 2+1 and left an orphan; forcing three would
+  have run the 66-word middle paragraph as a 25-character ribbon.
+- **No auto-open.** `main.js:220` opens the first `.case-d` per section
+  on desktop so the page never reads as a bare list. `#builds` is not a
+  bare list — every sibling row shows a full description — and
+  auto-opening a video panel would push the other three below the fold.
+  The selector is `.case-d`, so `.bld-d` is untouched. Leave it that way.
+
+The video is self-hosted, not embedded. A third-party player would undo
+the zero-embed position taken for the Stripe checkout, which is what
+keeps the site free of a consent banner. **24MB to 2.38MB**: 60fps to
+30, CRF 26, AAC mono at 96k, `+faststart` so it streams rather than
+waiting on the index. Decodes clean; moov at byte 36, ahead of mdat.
+`preload="none"` plus a 19KB poster means the page still arrives at
+0.47MB and the video crosses the wire only when someone presses play,
+measured. Note that headless Chromium here has no H.264 decoder, so
+playback itself is unverified in this environment and needs a real
+browser.
+
+One fix picked up on the way: `.case-chev` rotates 180° on open and was
+never covered by `prefers-reduced-motion`. Now it is, which repairs the
+six existing case studies as well as the new row.

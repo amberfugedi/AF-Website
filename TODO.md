@@ -252,6 +252,14 @@ rehearsal costs about $9 that a test rehearsal does not.
 
 ---
 
+### Concept case study has no approved result
+
+The marketing command center row on `/projects` ends on "what's next"
+because the brief left the result placeholder unfilled and said to omit
+the section in that case. One approved range or percentage turns it into
+a closing line. `plans/concept-marketing-command-center.md` also holds
+the 502-word long-form version if the page is ever wanted at full length.
+
 ## 2b. Quotes to ask for
 
 The site carries 10 voices across 20 placements. These are the gaps, and
@@ -325,6 +333,17 @@ which is why it was the one cut. Two options, both Amber's call:
 
 ## 4. Known issues, none blocking
 
+- [ ] **`Build Your Marketing Foundation` does not link** — it is a plain
+      `<div class="bld-item">` in `#builds` even though its sales page
+      exists. Should be an `<a href="/courses/marketing-foundation">`,
+      like the four external rows. The section's rule is now: if you can
+      click through to it, it links; if you can't, it expands.
+- [ ] **The rest of the build rows have no detail yet** — the `.bld-d`
+      expandable pattern is shipped on one row (Marketing command
+      center). Content Engine, Messaging Agent, AI Sales Assistant, then
+      The Log and Digital Template Shop can follow once the facts are
+      ready. Each needs the problem, what was built, and a result or a
+      what's-next, around 110 words.
 - [ ] **Horizontal overflow on the homepage at 1024px** — about 40px,
       from the aura and the quote marquee. Clipped by
       `overflow-x: hidden`, so it does not show, but it is real.

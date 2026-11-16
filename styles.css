@@ -1450,6 +1450,65 @@ a.bld-item .bld-item-arrow {
   font-weight: 600;
   line-height: 1;
 }
+/* ---- Build rows that open in place ----
+   Rule for this section: if you can click through to it, it links; if
+   you can't, it expands. The internal tools have no destination by
+   nature, so the row itself opens, using the SAME <details> disclosure
+   the case studies use above. No new interaction and no new motion:
+   the chevron reuses .case-chev, the detail reuses .case-cols, and
+   .tg-a/.tg-b swap the label as they do on a case. */
+.bld-d > summary {
+  display: block;
+  cursor: pointer;
+  list-style: none;
+}
+.bld-d > summary::-webkit-details-marker { display: none; }
+.bld-d > summary:focus-visible {
+  outline: 2px solid var(--coral-deep);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+.bld-d > summary:hover .bld-item-name { color: var(--coral-deep); }
+.bld-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 9px;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--coral-deep);
+}
+.bld-d > summary:hover .bld-toggle { color: #96263C; }
+.bld-d[open] .tg-a { display: none; }
+.bld-d[open] .tg-b { display: inline; }
+.bld-d[open] .case-chev { transform: rotate(180deg); }
+.bld-body { margin: 20px 0 4px; }
+/* The detail sits in the card's right-hand column, ~618px, not the
+   full card width the cases get. Three auto-fit columns wrapped 2+1
+   there and left an orphan; three at 206px would have run a 66-word
+   paragraph as a 25-character ribbon. Stacked, each block reads at a
+   proper measure, and it matches what the phone already does. */
+.bld-body .case-cols { grid-template-columns: 1fr; gap: 22px; }
+.bld-body .case-col p { max-width: 68ch; }
+/* preload="none" on the element keeps the file off the wire until
+   someone presses play; the poster is 19KB against 2.3MB of video */
+.bld-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  margin-bottom: 10px;
+}
+.bld-disclosure {
+  color: var(--muted);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  margin: 0 0 22px;
+  text-wrap: pretty;
+}
 @media (max-width: 860px) {
   .bld-item { padding: 13px 0; }
   /* stacked, the first row sits directly under the category
@@ -5639,6 +5698,9 @@ footer {
   .aura { animation: none; transition: none; }
   .aura-blob { animation: none; transition: none; }
   .case::before { transition: none; }
+  /* the disclosure chevron still flips to show state, it just does
+     not sweep there (it was never covered, on the cases either) */
+  .case-chev { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .glyph .stroke { stroke-dashoffset: 0; animation: none !important; }
   .cb-step, .cb-arrow { opacity: 1; transform: none; animation: none !important; }
