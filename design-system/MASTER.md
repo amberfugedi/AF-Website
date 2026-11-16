@@ -6925,3 +6925,30 @@ video is evidence, and the copy cannot claim what the evidence visibly
 denies.** Check new copy against the footage, not just against the facts
 list — they drift apart as the real tool moves on and the recording does
 not.
+
+## 2026-11-16 (last) — Giving the open row a floor
+
+Amber, on a phone: "this section blends together." The expanded case
+study ran straight into Content Engine with nothing to say it had ended,
+so the coral Impact paragraph read as a preamble to the next project.
+
+The cause was mundane: `.bld-body` had **4px** below it, so the detail
+closed on the same 1px hairline that divides every collapsed row.
+
+**The first fix made it worse and is worth recording.** Closing the
+detail on a 2px peach rule looked, on screen, exactly like the peach
+rules above THE PROBLEM, WHAT I BUILT and IMPACT. Instead of signalling
+an ending it continued the column rhythm one step further, which is the
+opposite of what was needed. Reverted.
+
+What works is space, with the divider left alone. The seam is now **65px
+on a phone and 75px on desktop, against 27–31px between ordinary rows**
+— 2.4x at both widths, measured. The hairline stays the standard 1px, so
+the list rhythm is unbroken; the air is what says the block closed.
+
+A nested card surface was never an option: see the `.bld-item` note,
+"one surface per section", from July 2026.
+
+**Rule: a distinguishing mark has to differ from the marks already on
+screen around it. Check what a new rule will sit next to before
+reaching for weight or colour — space is often the only axis left.**

@@ -1483,7 +1483,16 @@ a.bld-item .bld-item-arrow {
 .bld-d[open] .tg-a { display: none; }
 .bld-d[open] .tg-b { display: inline; }
 .bld-d[open] .case-chev { transform: rotate(180deg); }
-.bld-body { margin: 20px 0 4px; }
+/* An open row needs a visible floor. This had 4px below it, so the
+   detail ended on the same 1px hairline that divides every collapsed
+   row, and the Impact paragraph read as a preamble to the next project
+   rather than the end of this one (Amber, Nov 2026, on a phone).
+   Two changes, no new box: real room underneath, and the next row
+   starts on the peach 2px rule the column labels already use, so the
+   rhythm changes where the section ends. Nested card surfaces are not
+   an option here — see the .bld-item note above. */
+.bld-body { margin: 20px 0 0; padding-bottom: clamp(38px, 4vw, 48px); }
+.bld-items li:has(.bld-d[open]) + li .bld-item { padding-top: 26px; }
 /* The detail sits in the card's right-hand column, ~618px, not the
    full card width the cases get. Three auto-fit columns wrapped 2+1
    there and left an orphan; three at 206px would have run a 66-word
