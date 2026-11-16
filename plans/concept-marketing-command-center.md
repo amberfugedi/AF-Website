@@ -80,19 +80,28 @@ Two limits, on purpose. The app only reads from the CRM and the email
 platform, and never publishes or changes anything on its own. Sensitive data
 is limited by role, so what you can see depends on who you are.
 
-### What's next
+### Impact
 
-**Planned, not built.** Neither of these exists yet.
+No approved figure exists, so this is written qualitatively from facts that
+were already approved, and claims no numbers. One approved range or
+percentage replaces it wholesale.
 
-- A budget projection tool that turns a revenue target into the spend needed
-  and how that spend splits.
-- A library of validated case studies that sales can use to draft outreach.
+> One place where the number is the number. Each role opens its own view,
+> every page carries the date it was pulled, and a missing receipt shows as
+> missing rather than turning up later.
 
-### Result
+### There is no "what's next" section
 
-OMITTED. The brief left the result placeholder unfilled, and its own
-instruction was to omit the section in that case. Add one approved range or
-percentage and this becomes a short closing section.
+Removed 2026-11-16. Amber: the budget projection tool and the validated case
+study library **are built**, and a case study should not carry a roadmap
+section in the first place. Both points stand.
+
+**This leaves the video wrong, not the page.** The walkthrough stamps a
+purple "Roadmap concept" chip on those exact two features, at roughly 16-22s
+(Projections, the revenue target and the spend split) and 32-38s (Case
+studies, sales drafting outreach). About 12 of its 48 seconds. Until the
+video is recut, the page stays silent on those two rather than claiming
+something the footage directly above it contradicts.
 
 ---
 
@@ -153,7 +162,8 @@ The real tool is internal, so here is an anonymized concept version.
 - **The copy uses the video's fictional company, Brightwell**, nowhere in the
   text, because the text never needs to name it. The name only appears
   on screen. That keeps the page safe to reuse if the video is ever recut.
-- **The video already does the anonymizing work**: "Sample data" on every
-  screen and a "Roadmap concept" chip on Projections and Case studies, which
-  matches the two roadmap items above. The page copy and the video agree on
-  what is built and what is planned.
+- **The video's "Roadmap concept" chips are now out of date.** They sit on
+  Projections and Case studies, which Amber confirms are built. "Sample
+  data" on every screen still does the anonymizing work and is correct. If
+  the video is ever recut, dropping those four chips lets the page name
+  both features as built.

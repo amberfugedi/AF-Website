@@ -6898,3 +6898,30 @@ verified unchanged at 17px.
 in every container that borrows its class.** Reusing `.case-cols` and
 `.case-col` brought their type scale along, and that scale was tuned for
 a card with a 30px title.
+
+## 2026-11-16 (later still) — The roadmap section is gone, and why
+
+Amber, on the "Planned, not built" line: **"This is built"**, and **"a case
+study should have planned not built, that doesn't make sense."**
+
+Both correct, and the second is the more useful rule. A case study
+describes work that exists. A roadmap section inside one asks the reader
+to hold two states at once and quietly weakens everything above it. The
+block is removed, along with `.bld-planned`.
+
+**The conflict this exposes is in the video, not the page.** The
+walkthrough stamps a purple "Roadmap concept" chip on exactly the two
+features Amber says are built, at roughly 16–22s (Projections: the
+revenue target and the spend split) and 32–38s (Case studies: sales
+drafting outreach). Four appearances, about 12 of its 48 seconds.
+
+So the page stays SILENT on those two rather than naming them as built,
+because the footage playing directly above the text would contradict the
+text. Recutting the video to drop those four chips is what unlocks
+naming them. Logged in TODO.
+
+**The general rule this leaves behind: when a page carries a video, the
+video is evidence, and the copy cannot claim what the evidence visibly
+denies.** Check new copy against the footage, not just against the facts
+list — they drift apart as the real tool moves on and the recording does
+not.

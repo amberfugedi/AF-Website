@@ -333,6 +333,12 @@ which is why it was the one cut. Two options, both Amber's call:
 
 ## 4. Known issues, none blocking
 
+- [ ] **The walkthrough video's "Roadmap concept" chips are out of date** —
+      they sit on Projections and Case studies, which are built. Four
+      appearances, roughly 16-22s and 32-38s of the 48-second cut. Until
+      the video is recut without them, the command center case study stays
+      silent on both features rather than claiming what the footage denies.
+      Recut and they can be named as built in "What I built".
 - [ ] **`Build Your Marketing Foundation` does not link** — it is a plain
       `<div class="bld-item">` in `#builds` even though its sales page
       exists. Should be an `<a href="/courses/marketing-foundation">`,

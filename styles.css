@@ -1514,23 +1514,6 @@ a.bld-item .bld-item-arrow {
    found when someone looks for it, but it should not compete with the
    video it sits under, so it takes the eyebrow grade in italic with a
    leading asterisk (Amber, Nov 2026). --muted holds 8.5:1 here. */
-/* The roadmap sits BELOW the three columns, not inside "What I built".
-   The brief's rule is that planned work stays visibly separate from
-   what exists; a "planned, not built" clause buried at the end of a
-   paragraph headed "What I built" is less separate, not more. Its own
-   line under a hairline, with the label in bold so the separation
-   survives a skim (Amber, Nov 2026). */
-.bld-planned {
-  margin: 24px 0 0;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: var(--fs-small);
-  line-height: 1.55;
-  max-width: 68ch;
-  text-wrap: pretty;
-}
-.bld-planned strong { color: var(--body); font-weight: 600; }
 .bld-disclosure {
   color: var(--muted);
   font-size: var(--fs-eyebrow);
