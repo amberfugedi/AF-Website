@@ -1490,7 +1490,15 @@ a.bld-item .bld-item-arrow {
    paragraph as a 25-character ribbon. Stacked, each block reads at a
    proper measure, and it matches what the phone already does. */
 .bld-body .case-cols { grid-template-columns: 1fr; gap: 22px; }
-.bld-body .case-col p { max-width: 68ch; }
+/* Body copy drops to the small grade HERE and only here. `.case-col p`
+   is lifted to --fs-body site-wide (line ~6471), which is right inside
+   a case card, where it sits under a 30px Newsreader name. A build row
+   has no such name: its title is 17px Manrope, so 17px body copy came
+   out the same size as the heading above it and the ladder collapsed
+   (Amber, Nov 2026). 15px restores name 17 > body 15, matching the
+   row's own description grade. */
+.bld-body .case-col p,
+.bld-body .case-col.result p { font-size: var(--fs-small); max-width: 68ch; }
 /* preload="none" on the element keeps the file off the wire until
    someone presses play; the poster is 19KB against 2.3MB of video */
 .bld-video {
@@ -1506,6 +1514,23 @@ a.bld-item .bld-item-arrow {
    found when someone looks for it, but it should not compete with the
    video it sits under, so it takes the eyebrow grade in italic with a
    leading asterisk (Amber, Nov 2026). --muted holds 8.5:1 here. */
+/* The roadmap sits BELOW the three columns, not inside "What I built".
+   The brief's rule is that planned work stays visibly separate from
+   what exists; a "planned, not built" clause buried at the end of a
+   paragraph headed "What I built" is less separate, not more. Its own
+   line under a hairline, with the label in bold so the separation
+   survives a skim (Amber, Nov 2026). */
+.bld-planned {
+  margin: 24px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  max-width: 68ch;
+  text-wrap: pretty;
+}
+.bld-planned strong { color: var(--body); font-weight: 600; }
 .bld-disclosure {
   color: var(--muted);
   font-size: var(--fs-eyebrow);

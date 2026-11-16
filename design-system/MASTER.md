@@ -6844,3 +6844,57 @@ browser.
 One fix picked up on the way: `.case-chev` rotates 180° on open and was
 never covered by `prefers-reduced-motion`. Now it is, which repairs the
 six existing case studies as well as the new row.
+
+## 2026-11-16 (later) — The build row joins the case-study family
+
+Four corrections from Amber, all of them about the row not matching the
+six cases two sections up.
+
+**It is called a case study.** I had argued for "See the walkthrough" so
+a concept with fictional screens would not be mistaken for the real
+client work. Amber overruled it: every other disclosure on the page says
+"Read case study" / "Close case study", and the label is not where that
+distinction gets drawn. The asterisked line under the video is. Toggle
+now matches, both halves.
+
+**"What's next" became "Impact", and takes `.result`.** No approved
+figure exists, so Impact is written qualitatively from facts that were
+already approved: one place where the number is the number, each role
+opening its own view, every page carrying its date, a missing receipt
+showing as missing. No numbers claimed. If a figure is ever approved it
+replaces this wholesale.
+
+**The roadmap moved out from under a column and below the three.** It
+would have gone inside "What I built", but the brief's rule is that
+planned work stays visibly separate from what exists, and a "planned,
+not built" clause at the end of a paragraph headed "What I built" is
+less separate, not more. Its own line, under a hairline, label in bold.
+
+**Length is now measured against the family, not guessed.** The six
+cases run Challenge 17–28 words, Approach 24–47, Impact 12–44. The row
+had been 47 / 91 / 29 — the middle nearly double the longest Approach on
+the page. Now 37 / 54 / 34. **Check a new column against those ranges
+before shipping it.**
+
+### The type bug underneath all of it
+
+Amber: "the font under this is bigger than the description of each case
+study." She was right, and the cause is worth recording. `.case-col p`
+is lifted from `--fs-small` to `--fs-body` site-wide at line ~6657, and
+`.case-col.result p` is lifted again right after it. Inside a case card
+that is correct: the body sits under a 30px Newsreader name and the
+ladder holds. A build row has no such name. Its title is 17px Manrope,
+so 17px body copy came out **the same size as the heading above it** and
+the hierarchy collapsed.
+
+Scoped to `--fs-small` under `.bld-body` only, which restores name 17 >
+body 15 and matches the row's own description grade. Both selectors
+needed naming: `.case-col.result p` at 6657 has the same specificity as
+`.bld-body .case-col p` and sat later in the file, so the Impact column
+alone stayed at 17px until it was listed explicitly. Case studies
+verified unchanged at 17px.
+
+**The general trap: a token that is right in one container is not right
+in every container that borrows its class.** Reusing `.case-cols` and
+`.case-col` brought their type scale along, and that scale was tuned for
+a card with a 30px title.
