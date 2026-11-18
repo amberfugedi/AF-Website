@@ -1395,15 +1395,25 @@ section { padding: 104px 0; }
   margin: 0 10px;
   opacity: 0.45;
 }
-/* The aura runs warm behind the hero copy and longer text sat on top of
-   the strongest part of it. A soft wash of the page colour lifts the
-   text off the gradient without flattening it. */
+/* NO BACKGROUND WASH. One was added here in Nov 2026 to lift the hero
+   copy off the warm part of the aura: a radial gradient at 24%/44% with
+   82%/72% radii. It read as a visible rectangle (Amber: "there's a box
+   around Building the marketing... that was never there") and she was
+   right. A radial gradient is clipped by its element's box, and with the
+   centre pushed to 24%/44% the ellipse was still near full opacity when
+   it hit the left and top edges, so the fade never completed and the cut
+   showed as a straight line. Measured: an abrupt colour step of delta 19
+   at exactly the element's left edge, absent once the background is
+   removed.
+   If the copy ever needs lifting off the aura again, do NOT paint the
+   element. Either move the aura blobs, or fade the wash to fully
+   transparent well inside the box (a centred gradient reaching zero by
+   ~60%), and verify by sampling pixels ACROSS the element boundary --
+   an edge like this is invisible in a screenshot of the element alone,
+   because the element alone has no outside to compare against. */
 .hero-copy {
   position: relative;
   z-index: 1;
-  background: radial-gradient(82% 72% at 24% 44%,
-    rgba(253, 249, 245, 0.88), rgba(253, 249, 245, 0.55) 46%,
-    rgba(253, 249, 245, 0) 78%);
 }
 /* The hero lede is zeroed by `.hero-split .head-copy .section-lede`,
    so this needs a real top margin. It previously carried -22px, written
