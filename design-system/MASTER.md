@@ -8167,3 +8167,70 @@ Amber, not a cleanup.
 
 **Impeccable: 118 → 117.** One anti-pattern resolved by these fixes, not
 introduced. The baseline moves down.
+
+---
+
+## 2026-11-18 — The font audit measured the wrong thing
+
+Amber, with a phone screenshot of the PERQ card: "You said you audited fonts
+but look at how many diff fonts there are."
+
+She was right. The earlier audit measured **size-token conformance** and
+reported 99.2%. That is true and it answered the wrong question. Token
+conformance asks "does each size come from the scale." It says nothing about
+**how many distinct text treatments land on one screen**, which is what a
+reader actually experiences.
+
+Measured properly — distinct combinations of family + size + weight + case +
+colour visible in one 390x844 viewport:
+
+    index       avg 5.2   max 7
+    projects    avg 8.6   max 11     <-- the page she screenshotted
+    about       avg 4.4   max 6
+    expertise   avg 6.3   max 7
+    services    avg 4.5   max 6
+
+**Projects carries roughly twice the typographic variety of About.** Her exact
+screen held nine content treatments, twelve including nav chrome.
+
+**The cause is not font sizes. It is the greys.** Running prose at 17px
+appears in three of them site-wide: `--body` (171 elements), `--muted` (150)
+and `--ink` (23). And the choice is made per COMPONENT, not per role — a plain
+`<p>` renders `--body` inside `.card` and `.case-col`, `--muted` inside
+`.cap-card`, `.ev-story` and `.svc-signals`. Same element, same size, same
+weight, different grey, decided by whichever card it happens to sit in.
+
+Four of the eight treatments on her screen were small grey sans at 12 / 12
+uppercase / 14 / 16, all muted or near it. That is what reads as clutter: not
+a size problem, a *sameness* problem, where four things that look alike are
+doing four different jobs.
+
+**The rule the site never had**, now written on `.section-lede`:
+`--ink` leads, `--body` is running prose, `--muted` is labels and meta only
+(eyebrows, periods, captions, notes, disclosures). A paragraph's colour must
+not depend on its container.
+
+Applied to `.section-lede` and `.case-scope`. Projects 8.6 → 7.9.
+
+**The half-measure proved the rule needs applying wholesale.** Moving only
+`.section-lede` first made Expertise WORSE (6.3 → 6.9), because on screens
+where muted prose dominated, one element leaving the muted group created a
+second group instead of merging into an existing one. Reverting it and keeping
+only `.case-scope` was worse again on index and About. The best state of the
+three was both changes together, best on four of five pages and biggest effect
+on the worst page — which is what shipped.
+
+**Deltas of 0.1–0.3 here are within measurement noise** (the count depends on
+what happens to be in frame at each scroll stop). The only solid signal is the
+0.7 drop on Projects.
+
+**FLAGGED, not done: 72 rules set `color: var(--muted)`.** Completing the rule
+means auditing all of them and moving every running-prose case to `--body` —
+roughly 150 elements. That visibly darkens and evens out the whole site, which
+is a design decision for Amber, not a cleanup. Two components are done; the
+other seventy are not.
+
+**Lesson: conformance and perception are different measurements.** A scale can
+be 99% token-conformant and still look busy, because the busyness lives in the
+combinations, not the values. Audit what the reader sees, not what the
+stylesheet declares.

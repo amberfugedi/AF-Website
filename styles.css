@@ -1297,8 +1297,15 @@ section { padding: 104px 0; }
   font-size: clamp(1.62rem, 4vw, 2.75rem);
   margin-bottom: 18px;
 }
+/* --body, not --muted. A section lede is running prose, and at the same
+   size and weight as the paragraphs under it the only difference was the
+   grey -- which reads as a second body style rather than a lighter one.
+   THE RULE, which the site did not previously have: --ink leads, --body
+   is for running prose, --muted is for LABELS AND META ONLY (eyebrows,
+   periods, captions, notes, disclosures). A plain paragraph's colour
+   should not depend on which card it happens to sit in. */
 .section-lede {
-  color: var(--muted);
+  color: var(--body);
   margin-bottom: 56px;
 }
 
@@ -3065,7 +3072,7 @@ a.bld-item .bld-item-arrow {
   border-radius: 6px;
 }
 .case-head h3 { margin-bottom: 6px; }
-.case-scope { color: var(--muted); margin-bottom: 10px; }
+.case-scope { color: var(--body); margin-bottom: 10px; }
 /* The project name is the hero. The impact reads at body weight in
    body ink, not coral 600 — as the loudest element it was the first
    thing the eye landed on, ahead of the name (Amber, July 2026). The
