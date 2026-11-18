@@ -7944,3 +7944,58 @@ navigation showed the brief cases unscrolled. They were not. Reveal
 animations were still settling and the measurement was taken mid-flight.
 At 900ms every anchor lands correctly. **A timing artifact looks
 exactly like a layout bug.**
+
+---
+
+## 2026-11-18 — The decision beat, reverted the same day
+
+Amber: "Approach and the call are nearly identical. I'm not sure this
+makes sense."
+
+She was right, and the problem was larger than duplication. Two of the
+three calls were not decisions at all.
+
+Scan-Optics' Challenge said "an established marketing function and an
+opportunity to bring it in line with the new direction." Its call said
+"I rebuilt around the new positioning rather than tuning what was
+there." That is the same sentence in the first person. There is no road
+not taken in it: if the company repositioned, marketing following is
+the brief, not a choice. PERQ's was the same shape — the situation
+already said "I shaped the department around where the business was
+going next," and the call said "I decided what the function needed to
+be before deciding who should be in it."
+
+**The cause was the method, not the writing.** I derived the calls from
+copy already on the page, because inventing them was off limits. But a
+decision you can derive from the page is already on the page. The whole
+worth of the beat is that it carries information that exists nowhere
+else — which is precisely why it was the part only Amber has, and
+precisely why it could not be written from the site's own material.
+The derivation guaranteed the redundancy. **Being unable to invent
+something and deriving it anyway produces a paraphrase wearing the
+clothes of the thing.**
+
+One of the three did work: StormwaterONE. "More paid spend was the
+obvious lever, and it was already outrunning its return. I moved the
+weight to owned demand instead." That one holds up because its figures
+force it — paid down 36% while qualified leads rose 95% does not happen
+unless someone deliberately moved weight off paid. The decision was
+recoverable from evidence rather than restated from prose.
+
+All three removed rather than shipping one in three, which would repeat
+the `.case-rel` mistake: an element present on a third of its peers.
+The Approach copy cut to make room for them is restored.
+
+`.case-call` CSS is kept and marked PARKED, with the whole reasoning in
+the comment — the component is right, the content was not, and the
+comment is what stops the next pass re-deriving the same paraphrase.
+
+Structure now: PERQ (metrics + lesson), Scan-Optics (metrics),
+StormwaterONE (metrics + quote), and three brief client entries. The
+depth asymmetry stands; it was never the part in question.
+
+Impeccable 118, zero overflow at 1440, 390, 360, no JS errors.
+
+Housekeeping: the scratchpad server died mid-verification and the node
+failure read like a page error. Check the server is answering before
+believing a rendering result.

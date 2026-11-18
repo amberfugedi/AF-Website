@@ -3141,15 +3141,29 @@ a.bld-item .bld-item-arrow {
    Not a stat wall: the figure column is fixed so the eye reads down it.
    cm-when is REQUIRED -- .cm-fig spans both rows and the grid breaks
    without it. */
-/* THE CALL. The decision beat, and the reason it is tinted rather than
-   set as a fourth column: in a portfolio this is the most valuable
-   paragraph in the case. Deliverables are commodity -- every marketing
-   director has run HubSpot and ABM -- and figures are taken on trust.
-   The judgment is the only part nobody else could have written, so it
-   gets the one piece of emphasis in the case body. Body grade, not
-   small, for the same reason.
-   Only the three in-house cases have one. The client work is .case-brief
-   and carries its proof as a testimonial and an artifact instead. */
+/* THE CALL. PARKED, DELIBERATELY UNUSED. No markup uses this today.
+   It is kept because the component is right and the content was not,
+   and the comment is the point.
+   The beat: one tinted paragraph naming the decision, body grade, the
+   single piece of emphasis in a case body. In a portfolio this is the
+   most valuable paragraph there is -- deliverables are commodity, every
+   marketing director has run HubSpot and ABM, and figures are taken on
+   trust. The judgment is the only part nobody else could have written.
+   WHY IT SHIPPED AND CAME STRAIGHT BACK OUT: the three calls were
+   derived from copy already on the page, so they could only restate it.
+   Scan-Optics' Challenge already said "an established marketing
+   function and an opportunity to bring it in line with the new
+   direction"; the call said "I rebuilt around the new positioning
+   rather than tuning what was there". Same sentence, first person, no
+   road not taken. Amber: "Approach and the call are nearly identical."
+   A decision you can derive from the page is already on the page. The
+   whole worth of this beat is that it carries information that exists
+   nowhere else, which is exactly why it cannot be written from the
+   site's own copy. Do NOT refill it by inference.
+   It needs, per case, from Amber: what the obvious move was, what she
+   did instead, and what that cost. One of the three drafts did work --
+   StormwaterONE, because its own figures (paid spend down 36%, leads up
+   95%) force a real road not taken. That is the standard. */
 .case-call {
   margin: 28px 0 0;
   padding: 22px 26px;
