@@ -212,19 +212,20 @@
   }
 
   /* ---------- Case disclosures (projects) ----------
-     Desktop opens the FIRST case in each chapter so the page never
-     reads as a bare list; phones start every case closed, which is the
-     whole point of collapsing them (Amber, July 2026). A case linked
-     to directly (/projects.html#perq, or a click on an in-page anchor)
-     always opens, or the link would land on a closed row. */
+     EVERY case starts closed, on every width (Amber, Nov 2026: "do not
+     auto open case studies on the work page").
+     Desktop used to open the first case in each chapter so the page
+     never read as a bare list. That reason has gone: the chapters now
+     carry three brief client entries that are not disclosures at all,
+     and the deep cases show tag, title, scope and an impact line while
+     closed, so nothing reads as bare. Opening one by default also
+     decided for the reader which case mattered, and did it differently
+     depending on their window width.
+     A case linked to directly (/projects.html#perq, or a click on an
+     in-page anchor) still opens, which is a different thing: that is
+     the reader asking for it. */
   var caseRows = document.querySelectorAll(".case-d, .bld-d");
   if (caseRows.length) {
-    if (window.matchMedia("(min-width: 761px)").matches) {
-      document.querySelectorAll("main > section").forEach(function (sec) {
-        var first = sec.querySelector(".case-d");
-        if (first) first.setAttribute("open", "");
-      });
-    }
     /* A link can land on a case article (#perq) or on a build row
        (#intelligence-platform), which carries the id on the <li> that
        wraps the disclosure. Either way the target opens, or the link
@@ -243,8 +244,7 @@
          place. Re-scroll on the next frame, once the opened content has
          been laid out; scroll-margin-top keeps it clear of the two
          sticky bars. Always, not only when this call did the opening:
-         on desktop the first case in each section is already open
-         before this runs. */
+         the target may already be open because the reader opened it. */
       requestAnimationFrame(function () { art.scrollIntoView(); });
     };
     openTarget();

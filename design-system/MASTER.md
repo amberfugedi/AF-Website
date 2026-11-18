@@ -7999,3 +7999,48 @@ Impeccable 118, zero overflow at 1440, 390, 360, no JS errors.
 Housekeeping: the scratchpad server died mid-verification and the node
 failure read like a page error. Check the server is answering before
 believing a rendering result.
+
+---
+
+## 2026-11-18 — No auto-open, and a sponsorship that was not a case study
+
+**Auto-open removed.** Amber: "do not auto open case studies on the
+work page." Desktop had been opening the first `.case-d` in each
+chapter since July so the page never read as a bare list. That reason
+has expired: the chapters now hold three brief client entries that are
+not disclosures at all, and a closed deep case still shows its tag,
+title, scope and impact line, so nothing reads as bare. It also decided
+for the reader which case mattered, and decided differently depending
+on window width.
+
+Linking to a case still opens it (`/projects#perq`), because that is
+the reader asking rather than the page assuming. Verified: 0 of 7
+disclosures open on load at 1440 and 390, both hash targets still open
+and land correctly.
+
+**The Multifamily Media Network podcast was a paid sponsorship.**
+Amber, mid-task: "this was a paid sponsorship, i dont know it's really
+a case study." It was running as a full case study claiming "I set the
+editorial direction for the six-episode series... worked out which
+conversations were worth having, and brought in the people across the
+industry who could have them."
+
+A sponsorship does not support that claim, and what she actually did
+on it is not written down anywhere I could check. **I wrote that copy
+earlier today while reframing the podcast's "problem" language, and I
+built the editorial-leadership claim out of the sentence I was
+replacing rather than out of anything known.** Reframing is not
+licence to add — the third time that exact failure has appeared in one
+day, after the video and the "redirected to other priorities" label.
+
+Demoted to a plain entry matching its two siblings in the section,
+which were already simple items: "A sponsored six-episode series with
+an industry media partner." No claim about her role, because none is
+supported. It is a `<span class="bld-item">` rather than an anchor,
+since there is nothing to link to; cursor stays `auto` against the
+siblings' `pointer`, so it does not read as clickable.
+
+Whether a paid sponsorship belongs in a portfolio at all is Amber's
+call, and she sounded unsure. Flagged rather than decided.
+
+Impeccable 118, zero overflow at 1440, 390, 360, no JS errors.
