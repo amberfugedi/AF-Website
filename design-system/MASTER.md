@@ -7877,3 +7877,70 @@ not spend the search budget twice.
 Impeccable: 118. The merged tag is a 43-character uppercase run, well
 inside the 80-character `all-caps-body` limit. Zero overflow at 1440,
 390 and 360, every case open.
+
+---
+
+## 2026-11-18 — Depth asymmetry, and the decision beat
+
+Amber asked for the recommendation applied to all six cases. Two
+changes, and they are the same change seen from two ends.
+
+**1. Three deep cases, three brief ones.** PERQ, Scan-Optics and
+StormwaterONE keep the full treatment. MembersFirst, Robert James and
+A2 Exteriors become `.case-brief`: tag, title, scope, one paragraph of
+42 to 60 words, and the proof they already had — a named client
+vouching, work you can look at. No disclosure to open, because three
+lines behind a click is worse than three lines.
+
+Six cases in identical shape read as a template, and uniformity
+quietly says none of them was worth going deeper on. It was also just
+untrue to the material: A2 Exteriors does not have the story in it
+that PERQ does, and the old structure made both pretend otherwise.
+The split follows the page's existing sections, so it reads as
+editorial judgement rather than inconsistency.
+
+**2. `.case-call` — the decision beat.** The diagnosis Amber was
+circling for three rounds ("feels weak", "something is missing") was
+never layout. Measured: the Approach paragraph fit SEVEN deliverables
+into 33 words with five action verbs. It told a reader what she did
+and never what she chose.
+
+In a portfolio that is the whole problem. Deliverables are commodity —
+every marketing director has run HubSpot and ABM — and figures are
+taken on trust or not at all. The judgment is the only part nobody
+else could have written. So the case now carries one tinted paragraph
+naming the call, at body grade rather than small, and the Approach
+copy was cut back to deliverables so the two do not say the same thing
+twice.
+
+**Where the calls came from, because this is the line I nearly crossed
+again.** I did not invent them. Each is drawn from material already
+published on this site: PERQ's is her own About copy almost verbatim
+("I had to decide what the function should be before I could decide
+who should be in it"); Scan-Optics' restates "rebuilt marketing around
+the new positioning"; StormwaterONE's is forced by its own figures,
+since paid spend fell 36% while qualified leads rose 95% and webinars
+became the top source, which only happens if you deliberately move
+weight from paid to owned.
+
+What is NOT written anywhere, and so is not on the site: what each
+decision cost. That is the sentence that would make these beats land,
+and it is the one thing only Amber has.
+
+**Still open:** the reflective close exists on PERQ alone. Extending
+it to Scan-Optics and StormwaterONE needs her voice, not a structure.
+
+Link labels on the brief cases changed from "Read the case study" to
+"See the work" in three places — the destination can no longer keep
+the first promise.
+
+Checked: all six anchors resolve, no JS errors from cases that no
+longer expand (`main.js` queries `.case-d` and simply finds none), the
+call panel runs 7.75:1 and 12.84:1 composited, impeccable holds at
+118, zero overflow at 1440, 390 and 360.
+
+One probe error worth noting: reading anchor positions 500ms after
+navigation showed the brief cases unscrolled. They were not. Reveal
+animations were still settling and the measurement was taken mid-flight.
+At 900ms every anchor lands correctly. **A timing artifact looks
+exactly like a layout bug.**

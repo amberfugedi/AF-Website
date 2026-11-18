@@ -3141,6 +3141,57 @@ a.bld-item .bld-item-arrow {
    Not a stat wall: the figure column is fixed so the eye reads down it.
    cm-when is REQUIRED -- .cm-fig spans both rows and the grid breaks
    without it. */
+/* THE CALL. The decision beat, and the reason it is tinted rather than
+   set as a fourth column: in a portfolio this is the most valuable
+   paragraph in the case. Deliverables are commodity -- every marketing
+   director has run HubSpot and ABM -- and figures are taken on trust.
+   The judgment is the only part nobody else could have written, so it
+   gets the one piece of emphasis in the case body. Body grade, not
+   small, for the same reason.
+   Only the three in-house cases have one. The client work is .case-brief
+   and carries its proof as a testimonial and an artifact instead. */
+.case-call {
+  margin: 28px 0 0;
+  padding: 22px 26px;
+  background: rgba(218, 212, 245, 0.30);
+  border-radius: 16px;
+}
+.case .case-call .cc-head {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+.case-call p {
+  font-size: var(--fs-body);
+  color: var(--ink);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 62ch;
+}
+.case-call + .cm-head { margin-top: 28px; }
+
+/* BRIEF CASES. Three deep cases and three short ones, rather than six of
+   uniform weight. Six identical shapes read as a template, and uniformity
+   quietly says none of them was worth going deeper on. These three carry
+   what they actually have -- a named client vouching, work you can look
+   at -- in 42 to 60 words, with no disclosure to open because three lines
+   behind a click is worse than three lines. */
+.case-brief { padding-bottom: clamp(30px, 3.4vw, 40px); }
+.case-brief .case-tag { display: block; margin-bottom: 10px; }
+.case-brief .cb-body {
+  font-size: var(--fs-small);
+  color: var(--body);
+  line-height: 1.55;
+  max-width: 72ch;
+  margin: 16px 0 0;
+}
+.case-brief .quote-card { margin-top: clamp(22px, 2.4vw, 28px); }
+.case-brief .art-link { margin-top: 18px; }
+
 /* The heading carries the rule now. Stacking Scan-Optics and
    StormwaterONE turned their "Impact" column into this list and the
    heading went with the column, leaving figures under a bare hairline
