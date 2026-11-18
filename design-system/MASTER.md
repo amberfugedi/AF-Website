@@ -7603,3 +7603,57 @@ zero overflow at 390. The wider `$1.3M → $2.8M` stat fits because the
 budget governs the label, not the figure.
 
 Impeccable: 118, unchanged. No em dashes introduced.
+
+---
+
+## 2026-11-18 — The chip budget was never measured
+
+Amber, on the hero chips: 421% should read as growth and name PERQ, and
+"8 years / MembersFirst" is not strong enough next to two growth
+figures. She was right on both counts. Tenure is a different kind of
+claim from growth, and putting it third in a row of percentages invites
+the comparison it loses.
+
+Chips are now three growth figures across three employers: 421% growth
+in marketing-sourced bookings at PERQ 2026 YTD, $1.3M to $2.8M pipeline
+at Scan-Optics, 95% more qualified leads at StormwaterONE. The
+consulting dimension leaves the hero but keeps its own card in the work
+grid below, so the page still shows both sides of her work.
+
+**The part worth recording is how nearly the label went wrong.** The
+comment in `index.html` had said for months: "LABEL BUDGET: about 32
+characters... The original longest, 'Qualified leads at StormwaterONE',
+set the column." That number was never measured. It was one label's
+length, observed once, written down, and obeyed ever since.
+
+Naming PERQ while keeping both the period label and the
+"marketing-sourced" qualifier needs 269px. Under a 32-character rule
+that is impossible, and the obvious move is to drop one of the three.
+Dropping the qualifier would have been the worst outcome available:
+421% growth in PERQ's bookings is a far larger claim than 421% growth
+in marketing-sourced bookings, and publishing the first by accident,
+to fit a layout, is exactly the kind of error this site cannot make.
+
+So I measured. Two mistakes on the way, both the same shape:
+
+1. I read "available width" off `chip.clientWidth` minus padding and
+   got 310px. That is circular — a `nowrap` chip is as wide as its
+   content, so measuring a chip that already fits tells you what it
+   currently holds, not what it can hold. The honest test is whether
+   the **page** scrolls sideways, and by that test the budget was 240px.
+2. Having found 240px, I started picking which of the three elements to
+   sacrifice — before checking whether the constraint was real.
+
+**It wasn't.** `white-space: nowrap` on the label was a layout choice
+nobody had revisited. Letting the label wrap costs 17px of hero height
+on a phone and removes the cap entirely. There is no budget now.
+
+**A constraint you inherited is not a constraint you chose.** This one
+was a single observation that hardened into a rule, then silently
+shaped what the site was allowed to claim. Before trading away accuracy
+to satisfy a limit, check that the limit exists. Measure the thing
+itself, not a proxy that will agree with you.
+
+The stat stays `nowrap` — a figure must never break across lines.
+
+Impeccable: 118. Zero overflow at 1440, 768, 390 and 360.

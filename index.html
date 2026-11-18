@@ -238,22 +238,25 @@
           <!-- All three chips used to be lead-generation numbers, which made a
                decade of work read as one capability. The set now spans
                organizational, commercial and financial evidence.
-               LABEL BUDGET: about 32 characters. On phones these become
-               one-line rows with white-space: nowrap (styles.css ~1035), and
-               a longer label does not wrap, it scrolls the page sideways. The
-               original longest, "Qualified leads at StormwaterONE", set the
-               column. Keep new labels at or under it. -->
+               LABEL BUDGET: there isn't one any more. The label wraps on
+               phones (styles.css ~1055), so length is no longer a constraint
+               on what a chip can say. Previously nowrap capped labels at
+               ~240px, and the budget was written here as "about 32
+               characters" from whichever label happened to be longest at the
+               time -- a number nobody had measured, enforcing a limit nobody
+               had chosen. Keep labels short for reading, not for layout; two
+               lines on a phone is fine. Each figure keeps its period label. -->
           <a class="proof-chip pc-lavender" href="/projects#perq">
-            <span class="proof-stat">421% YTD</span>
-            <span class="proof-label">Marketing-sourced bookings, 2026</span>
+            <span class="proof-stat">421% growth</span>
+            <span class="proof-label">Marketing-sourced bookings, PERQ 2026 YTD</span>
           </a>
           <a class="proof-chip pc-peach" href="/projects#scanoptics">
             <span class="proof-stat">$1.3M&#8202;&#8594;&#8202;$2.8M</span>
             <span class="proof-label">Pipeline growth, Scan-Optics</span>
           </a>
-          <a class="proof-chip pc-blush" href="/projects#membersfirst">
-            <span class="proof-stat">8 years</span>
-            <span class="proof-label">Client partnership, MembersFirst</span>
+          <a class="proof-chip pc-blush" href="/projects#stormwaterone">
+            <span class="proof-stat">95% more</span>
+            <span class="proof-label">Qualified leads, StormwaterONE</span>
           </a>
         </aside>
       </div>

@@ -1052,7 +1052,14 @@ body.page-sub .aura { --aura-base: 0.45; }
   /* Fixed stat column: the widest stat (Scanoptics) sets it, so all
      three labels start at the same point. */
   .proof-chip .proof-stat { font-size: var(--fs-small); white-space: nowrap; min-width: 7.6em; }
-  .proof-chip .proof-label { font-size: 0.8rem; margin-top: 0; white-space: nowrap; }
+  /* The label WRAPS. It used to be nowrap, which silently capped every
+     label at ~240px: a longer one did not wrap, it widened the chip and
+     scrolled the whole page sideways. That cap cost the PERQ chip either
+     its company name or its period label, and a figure without its period
+     is not one we publish. Wrapping costs 17px of hero height on a phone
+     and buys back the full "Marketing-sourced bookings, PERQ 2026 YTD".
+     The stat above stays nowrap -- a figure must never break across lines. */
+  .proof-chip .proof-label { font-size: 0.8rem; margin-top: 0; text-wrap: pretty; }
   .pc-lavender { --tilt: -0.6deg; margin: 0; background: rgba(218, 212, 245, 0.32); border-color: rgba(87, 74, 166, 0.12); }
   .pc-lavender .proof-stat { font-size: var(--fs-small); min-width: 7.6em; }
   .pc-lavender .proof-label { font-size: 0.8rem; }
