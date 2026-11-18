@@ -7188,3 +7188,46 @@ studies, Admin. Flagged, not acted on.
 **General trap: "when uncertain, remove" is only as good as the
 uncertainty assessment. Check whether the uncertainty is real or
 manufactured by your own earlier summary of someone else's words.**
+
+## 2026-11-18 — "What it demonstrates" was the wrong register
+
+Amber asked whether it was the best phrasing. It was not, for three
+reasons worth keeping.
+
+**It was the portfolio talking about itself.** Every other column on the
+page is about the work; that one was about her. A case study that has to
+tell you what it proves is doing the reader's job for them, and doing it
+from a weaker position.
+
+**It stated the conclusion instead of showing it.** "That I can spot
+where decisions are slowed by information" asks to be believed.
+"Decisions stopped waiting on someone to assemble the numbers" lets
+someone draw that themselves.
+
+**It came from a brief instruction, not from the page.** Her IP brief
+said to focus on "the expertise and skills demonstrated". That was
+guidance about what to emphasize, and it became a literal heading. Same
+error shape as reading "fictional screens" as a recreation: **brief
+language describes intent; it is not copy.**
+
+The three build entries now run **The problem / What I did / What
+changed**, parallel across all three. "What changed" carries an outcome
+without needing a number, which is what the employment work requires now
+that the internal metrics are gone.
+
+Three schemes remain on the page and that is deliberate: the six client
+engagements keep Challenge / Approach / Impact, PERQ keeps its flagship
+labels, the builds share theirs. Different kinds of thing, consistent
+within kind.
+
+### Second silent-write bug in one day
+
+The investment planning column still read "Impact" with body text about
+illustrative figures that no longer existed anywhere, because the IP
+review used bare `s.replace()` without assertions for that entry and the
+no-ops passed unnoticed. Earlier the same day an About edit was lost
+when a later assertion aborted the write for the whole file.
+
+**Every scripted replace asserts presence and uniqueness, and every
+batch is read back from the rendered page afterwards.** Neither bug
+survives a read-back; both survived the script.
