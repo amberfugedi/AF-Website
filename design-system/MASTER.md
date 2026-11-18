@@ -7009,3 +7009,55 @@ CRF 26, `-an` since the source has no audio track at all, `+faststart`.
 Decodes clean, moov ahead of mdat, `preload="none"` so nothing crosses
 the wire until play. Verified: opens with JavaScript off, one "The Log"
 row not two, no mp4 requested on page load.
+
+## 2026-11-18 — Site-wide positioning update
+
+A brief to make the executive, commercial and technical half of Amber's
+experience visible, without turning a personal site into a corporate
+one. Evolution, not rebuild: no page was redesigned, no component was
+replaced, and the palette, type and motion budget are untouched.
+
+**What moved, by page.** Homepage: the three hero proof chips were all
+lead-generation numbers, so a decade read as one capability; they now
+span organizational, commercial and financial evidence. Featured work
+went from three engagements to six, covering leadership, systems,
+commercial, fractional and an independent product. Projects: PERQ became
+the flagship leadership case study and a Business systems and
+intelligence category joined the section. Expertise: the six areas were
+re-aimed at the full remit, operations becoming intelligence and
+operations. About: four paragraphs on the restructure and what it
+changed. Services: each offer tied to evidence rather than restructured.
+
+### Three traps worth keeping
+
+**A design contract can live in the copy, not the CSS.** The hero proof
+chips become one-line rows on phones with `white-space: nowrap`, sized
+so the longest original label, "Qualified leads at StormwaterONE", holds
+a line down to 355px. Nothing enforces that. Longer labels do not wrap,
+they scroll the whole page sideways, which is how 149px of horizontal
+overflow arrived at 390px. The budget is now written into the markup
+next to the labels. **Where nowrap is deliberate, the length limit is a
+copy rule and belongs in a comment where the copy is.**
+
+**Uppercase has a length limit.** `.case-rel` is uppercase, and the full
+title progression ran to 94 characters, which tripped Impeccable's
+all-caps-body rule at 80. The progression was already in the first
+column, so the label kept only the current title.
+
+**A contrast probe that ignores alpha lies.** Six low-contrast findings
+across four pages all turned out to be the probe reading
+`rgba(218,212,245,0.32)` as an opaque colour. Composited properly
+against what is actually behind it, the homepage chips run 5.00 to
+7.73:1. **Composite every ancestor background before believing a
+contrast number.**
+
+### How claims were handled
+
+Figures supplied as internal evidence, including the bookings growth,
+the sourcing percentages, the median deal multiple and the professional
+services forecast, are NOT on the site. PERQ's Impact keeps the verified
+windowed results and explicitly declines a trend claim, because demand
+volume fell over the same period that booking value rose. The
+intelligence platform states that time saved and adoption were never
+measured rather than implying either. Its problem statement does not say
+attribution was missing, because it was not.
