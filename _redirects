@@ -14,6 +14,8 @@
 /screenshots/*      /404.html  404!
 /attached_assets/*  /404.html  404!
 /undefined/*        /404.html  404!
+/.claude/*          /404.html  404!
+/skills-lock.json   /404.html  404!
 
 # ---- One URL per page -------------------------------------------------
 # Canonical form is https://www.amberfugedi.com/<clean>. The .html twins

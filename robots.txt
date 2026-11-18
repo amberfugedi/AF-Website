@@ -1,7 +1,16 @@
 User-agent: *
 Allow: /
 
-# Design mockups: real URLs for review, never part of the site
+# Working material and internal docs: in the repo to build the site,
+# never part of it. These also return 404 via _redirects; this is belt
+# and braces for crawlers that reached them before the rules existed.
 Disallow: /mockups/
+Disallow: /plans/
+Disallow: /design-system/
+Disallow: /artifacts/
+Disallow: /screenshots/
+Disallow: /attached_assets/
+Disallow: /undefined/
+Disallow: /.claude/
 
 Sitemap: https://www.amberfugedi.com/sitemap.xml
