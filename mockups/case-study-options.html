@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Case study design options</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+  /* ---- mockup chrome only, never ships ---- */
+  body { background: var(--bg); }
+  .mk-wrap { max-width: 1100px; margin: 0 auto; padding: 48px 24px 120px; }
+  .mk-head { margin-bottom: 44px; }
+  .mk-head h1 { font-size: var(--fs-h2); margin: 0 0 10px; }
+  .mk-head p { color: var(--muted); font-size: var(--fs-small); max-width: 62ch; margin: 0; }
+  .mk-opt { margin: 0 0 76px; }
+  .mk-label {
+    font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral-deep);
+    margin: 0 0 6px;
+  }
+  .mk-note { color: var(--muted); font-size: var(--fs-small); margin: 0 0 20px; max-width: 70ch; }
+  .mk-stage {
+    background: var(--bg-raised); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: clamp(26px, 3vw, 40px);
+  }
+
+  /* ====== shared bits for the options ====== */
+  .o-tag {
+    font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px;
+  }
+  .o-title { font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1.15; margin: 0 0 10px; color: var(--ink); }
+  .o-scope { font-size: var(--fs-small); color: var(--body); margin: 0; max-width: 56ch; }
+  .o-h {
+    font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    margin: 0 0 10px; padding-top: 14px; border-top: 2px solid var(--peach);
+  }
+  .o-p { font-size: var(--fs-small); color: var(--body); line-height: 1.55; margin: 0; }
+  .o-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
+
+  /* ====== A. Impact leads ====== */
+  .a-band {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    margin: 26px 0 30px; padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .a-fig { display: block; font-family: var(--font-display); font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+           line-height: 1; color: var(--coral-deep); letter-spacing: -0.02em; }
+  .a-what { display: block; font-size: var(--fs-small); color: var(--ink); margin-top: 8px; line-height: 1.4; }
+  .a-when { display: block; font-size: var(--fs-eyebrow); color: var(--muted); margin-top: 3px; }
+
+  /* ====== B. Narrative left, tinted metric rail right ====== */
+  .b-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: clamp(28px, 3.4vw, 48px); align-items: start; }
+  .b-rail { background: rgba(218,212,245,0.34); border-radius: 18px; padding: 26px 24px; }
+  .b-rail .o-h { border-top: none; padding-top: 0; margin-bottom: 18px; }
+  .b-m { display: block; padding: 14px 0; border-top: 1px solid rgba(46,42,39,0.10); }
+  .b-m:first-of-type { border-top: none; padding-top: 0; }
+  .b-fig { display: block; font-family: var(--font-display); font-size: 1.9rem; line-height: 1; color: var(--coral-deep); letter-spacing: -0.02em; }
+  .b-what { display: block; font-size: var(--fs-small); color: var(--ink); margin-top: 7px; line-height: 1.4; }
+  .b-when { display: block; font-size: var(--fs-eyebrow); color: var(--muted); margin-top: 2px; }
+
+  /* ====== C. Editorial ====== */
+  .c-lede { font-family: var(--font-display); font-size: clamp(1.25rem, 1.08rem + 0.72vw, 1.6rem);
+            line-height: 1.38; color: var(--ink); margin: 20px 0 28px; max-width: 46ch; }
+  .c-move { display: grid; grid-template-columns: 2.4rem 1fr; gap: 0 20px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .c-n { font-family: var(--font-display); font-size: var(--fs-intro); color: var(--coral-deep); line-height: 1.3; }
+  .c-body { font-size: var(--fs-small); color: var(--body); line-height: 1.55; max-width: 64ch; margin: 0; }
+  .c-out { display: flex; flex-wrap: wrap; gap: 10px 30px; margin: 22px 0 0; padding-top: 22px; border-top: 2px solid var(--peach); }
+  .c-out b { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-intro); color: var(--coral-deep); }
+  .c-out span { font-size: var(--fs-small); color: var(--body); }
+
+  /* ====== D. Pastel metric cards ====== */
+  .d-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 26px 0 30px; }
+  .d-card { border-radius: 18px; padding: 22px 20px; border: 1px solid transparent; }
+  .d-1 { background: rgba(251,213,228,0.40); border-color: rgba(166,53,99,0.12); }
+  .d-2 { background: rgba(252,228,196,0.46); border-color: rgba(138,90,20,0.12); }
+  .d-3 { background: rgba(218,212,245,0.40); border-color: rgba(87,74,166,0.13); }
+  .d-fig { display: block; font-family: var(--font-display); font-size: clamp(1.75rem, 1.5rem + 1vw, 2.3rem);
+           line-height: 1; color: var(--coral-deep); letter-spacing: -0.02em; }
+  .d-what { display: block; font-size: var(--fs-small); color: var(--ink); margin-top: 9px; line-height: 1.4; }
+  .d-when { display: block; font-size: var(--fs-eyebrow); color: var(--muted); margin-top: 3px; }
+
+  @media (max-width: 820px) {
+    .a-band, .d-cards { grid-template-columns: 1fr; gap: 20px; }
+    .b-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="mk-wrap">
+
+  <div class="mk-head">
+    <h1>Case study: design options</h1>
+    <p>Same Scan-Optics content in every option, same tokens, same stylesheet. The
+       diagnosis each one is answering: the case has no focal point. The company
+       name and the metric figures are both 30px, so nothing leads, and the
+       strongest content sits bottom-left in a row that is half empty.</p>
+  </div>
+
+  <!-- ============ CURRENT ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">Current</p>
+    <p class="mk-note">Metadata, title, scope, then Challenge / Approach / Impact. The figures
+       arrive last, in the narrowest position on the page.</p>
+    <div class="mk-stage">
+      <p class="o-tag">Document Technology &middot; Director of Marketing</p>
+      <h3 class="o-title">Scan-Optics</h3>
+      <p class="o-scope">Demand generation, CRM, ABM, paid media, and events.</p>
+      <div class="o-cols" style="margin-top:32px">
+        <div><p class="o-h">Challenge</p><p class="o-p">A decades-old document technology company repositioning toward intelligent automation, with an established marketing function and an opportunity to bring it in line with the new direction.</p></div>
+        <div><p class="o-h">Approach</p><p class="o-p">Rebuilt marketing around the new positioning: defined the TAM and ICPs, implemented HubSpot CRM and automation, launched ABM, paid media, event, and outbound programs, and ran partner campaigns with Dropbox, UKG, and Xerox.</p></div>
+      </div>
+      <p class="o-h" style="margin-top:28px">Impact</p>
+      <ul class="case-metrics">
+        <li><span class="cm-fig">115%</span><span class="cm-what">more opportunity creation</span><span class="cm-when">2021&ndash;2023</span></li>
+        <li><span class="cm-fig">$2.8M</span><span class="cm-what">pipeline, up from $1.3M</span><span class="cm-when">2021&ndash;2023</span></li>
+        <li><span class="cm-fig">47%</span><span class="cm-what">more inbound leads</span><span class="cm-when">2021&ndash;2023</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ A ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">Option A &mdash; Impact leads</p>
+    <p class="mk-note">The result comes first, as a full-width band under the title, then the
+       explanation. Figures step up to 44px so they outrank the company name instead of
+       tying with it. Nothing else changes.</p>
+    <div class="mk-stage">
+      <p class="o-tag">Document Technology &middot; Director of Marketing</p>
+      <h3 class="o-title">Scan-Optics</h3>
+      <p class="o-scope">Demand generation, CRM, ABM, paid media, and events.</p>
+      <div class="a-band">
+        <div><span class="a-fig">115%</span><span class="a-what">more opportunity creation</span><span class="a-when">2021&ndash;2023</span></div>
+        <div><span class="a-fig">$2.8M</span><span class="a-what">pipeline, up from $1.3M</span><span class="a-when">2021&ndash;2023</span></div>
+        <div><span class="a-fig">47%</span><span class="a-what">more inbound leads</span><span class="a-when">2021&ndash;2023</span></div>
+      </div>
+      <div class="o-cols">
+        <div><p class="o-h">Challenge</p><p class="o-p">A decades-old document technology company repositioning toward intelligent automation, with an established marketing function and an opportunity to bring it in line with the new direction.</p></div>
+        <div><p class="o-h">Approach</p><p class="o-p">Rebuilt marketing around the new positioning: defined the TAM and ICPs, implemented HubSpot CRM and automation, launched ABM, paid media, event, and outbound programs, and ran partner campaigns with Dropbox, UKG, and Xerox.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ B ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">Option B &mdash; Narrative left, results rail right</p>
+    <p class="mk-note">Fills the empty right half, which is the actual dead space. The rail is a
+       tinted panel, so the case carries brand colour instead of being monochrome text
+       on white. Reads top-to-bottom on a phone.</p>
+    <div class="mk-stage">
+      <p class="o-tag">Document Technology &middot; Director of Marketing</p>
+      <h3 class="o-title">Scan-Optics</h3>
+      <p class="o-scope">Demand generation, CRM, ABM, paid media, and events.</p>
+      <div class="b-grid" style="margin-top:30px">
+        <div>
+          <p class="o-h" style="padding-top:0;border-top:none">Challenge</p>
+          <p class="o-p">A decades-old document technology company repositioning toward intelligent automation, with an established marketing function and an opportunity to bring it in line with the new direction.</p>
+          <p class="o-h" style="margin-top:24px">Approach</p>
+          <p class="o-p">Rebuilt marketing around the new positioning: defined the TAM and ICPs, implemented HubSpot CRM and automation, launched ABM, paid media, event, and outbound programs, and ran partner campaigns with Dropbox, UKG, and Xerox.</p>
+        </div>
+        <aside class="b-rail">
+          <p class="o-h">Impact</p>
+          <span class="b-m"><span class="b-fig">115%</span><span class="b-what">more opportunity creation</span><span class="b-when">2021&ndash;2023</span></span>
+          <span class="b-m"><span class="b-fig">$2.8M</span><span class="b-what">pipeline, up from $1.3M</span><span class="b-when">2021&ndash;2023</span></span>
+          <span class="b-m"><span class="b-fig">47%</span><span class="b-what">more inbound leads</span><span class="b-when">2021&ndash;2023</span></span>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ C ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">Option C &mdash; Editorial</p>
+    <p class="mk-note">Drops Challenge / Approach / Impact entirely. A serif lede carries the
+       situation, two numbered movements carry the work, and the outcomes close as a
+       single line. Least like a template, most like something she wrote.</p>
+    <div class="mk-stage">
+      <p class="o-tag">Document Technology &middot; Director of Marketing</p>
+      <h3 class="o-title">Scan-Optics</h3>
+      <p class="c-lede">A decades-old document technology company was repositioning toward
+         intelligent automation, with an established marketing function and a new
+         direction to bring it in line with.</p>
+      <div class="c-move">
+        <span class="c-n">01</span>
+        <p class="c-body">Defined the TAM and the ideal customer profiles for where the business
+           was going, not where it had been.</p>
+      </div>
+      <div class="c-move">
+        <span class="c-n">02</span>
+        <p class="c-body">Rebuilt the engine around them: HubSpot CRM and automation, ABM, paid
+           media, events and outbound, plus partner campaigns with Dropbox, UKG and Xerox.</p>
+      </div>
+      <div class="c-out">
+        <span><b>115%</b> more opportunity creation</span>
+        <span><b>$2.8M</b> pipeline, up from $1.3M</span>
+        <span><b>47%</b> more inbound leads</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ D ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">Option D &mdash; Pastel result cards</p>
+    <p class="mk-note">Same order as A, but the figures sit in the brand pastels rather than on
+       white. Most colour of the four. Worth noting it spends the pastels on a third
+       colour set, which MASTER caps at two.</p>
+    <div class="mk-stage">
+      <p class="o-tag">Document Technology &middot; Director of Marketing</p>
+      <h3 class="o-title">Scan-Optics</h3>
+      <p class="o-scope">Demand generation, CRM, ABM, paid media, and events.</p>
+      <div class="d-cards">
+        <div class="d-card d-1"><span class="d-fig">115%</span><span class="d-what">more opportunity creation</span><span class="d-when">2021&ndash;2023</span></div>
+        <div class="d-card d-2"><span class="d-fig">$2.8M</span><span class="d-what">pipeline, up from $1.3M</span><span class="d-when">2021&ndash;2023</span></div>
+        <div class="d-card d-3"><span class="d-fig">47%</span><span class="d-what">more inbound leads</span><span class="d-when">2021&ndash;2023</span></div>
+      </div>
+      <div class="o-cols">
+        <div><p class="o-h">Challenge</p><p class="o-p">A decades-old document technology company repositioning toward intelligent automation, with an established marketing function and an opportunity to bring it in line with the new direction.</p></div>
+        <div><p class="o-h">Approach</p><p class="o-p">Rebuilt marketing around the new positioning: defined the TAM and ICPs, implemented HubSpot CRM and automation, launched ABM, paid media, event, and outbound programs, and ran partner campaigns with Dropbox, UKG, and Xerox.</p></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
