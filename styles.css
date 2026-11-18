@@ -3066,6 +3066,22 @@ a.bld-item .bld-item-arrow {
   font-weight: 600;
   color: var(--coral-deep);
 }
+/* Flagship cases only. PERQ is a leadership story, not a campaign, and
+   the three columns cannot carry what the restructure taught her without
+   turning Impact into an essay. Its own line under a hairline, label in
+   bold, so it reads as a closing note rather than a fourth column
+   (Amber, Nov 2026). Do not add this to the engagement cases. */
+.case-lesson {
+  margin: 26px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--body);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  max-width: 76ch;
+  text-wrap: pretty;
+}
+.case-lesson strong { color: var(--ink); font-weight: 600; }
 
 /* ============ Expertise page ============
    Rebuilt 2026-07 around what the page is FOR, not what it can list.
