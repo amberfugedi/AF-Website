@@ -7231,3 +7231,37 @@ when a later assertion aborted the write for the whole file.
 **Every scripted replace asserts presence and uniqueness, and every
 batch is read back from the rendered page afterwards.** Neither bug
 survives a read-back; both survived the script.
+
+## 2026-11-18 — Successive edits collapsed two voices into one
+
+Amber flagged one sentence on About as needing updating. Three things
+were wrong with it, and the first is the one worth keeping.
+
+**It had become a near-copy of the PERQ case study.** About read "an
+organizational restructuring left the whole marketing function mine to
+rebuild, inside the constraints already in place". Projects read
+"Following an organizational restructuring I took ownership of the whole
+marketing function and rebuilt the department within the budget
+constraints already in place." When the About paragraphs were written
+the two deliberately shared no sentences, one personal and one
+professional. Four rounds of edits since, each sensible on its own,
+pulled them together without anyone comparing them.
+
+**The edits that did it were all corrections.** "On a smaller budget"
+became "inside the constraints already in place" because the comparison
+was unverified. The restructuring framing was added to both pages
+because the brief asked for it. Neither change was wrong; the drift was
+never checked.
+
+**"Inside the constraints already in place" also said nothing.** It was
+a hole left by removing the budget comparison, and on a personal
+narrative page it read as corporate filler.
+
+Now: "the whole marketing function became mine to rebuild while the
+business kept changing underneath me." Short, personal, sets up the
+paragraph after it, and the cause still lives once in About's career
+history and once in the case study.
+
+**Rule: when the same event appears on two pages in two registers,
+re-read them side by side after any edit to either. Divergence is a
+design decision and it decays silently.**
