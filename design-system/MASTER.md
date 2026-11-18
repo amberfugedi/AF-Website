@@ -7061,3 +7061,29 @@ volume fell over the same period that booking value rose. The
 intelligence platform states that time saved and adoption were never
 measured rather than implying either. Its problem statement does not say
 attribution was missing, because it was not.
+
+## 2026-11-18 (later) — Two corrections from Amber
+
+**PERQ is not MarTech.** The category is **B2B SaaS, PropTech,
+Multifamily**. Changed in all three places it appeared as a label: the
+case tag on Projects, the card tag on the homepage, and the proof label
+on the Workflow and AI page. The one remaining "MarTech" on the site is
+inside StormwaterONE's own copy, "led a MarTech migration", which is a
+different and correct use.
+
+That tag is long enough to wrap where every other card tag is one line,
+which pushed PERQ's title 19px below the two cards beside it. `.card-tag`
+now reserves two line boxes whether it needs them or not, so titles in a
+row share a baseline. **`min-height: 2lh`, not a rem calculation**: the
+tag's 0.75rem resolves to 13px through a responsive override, so a
+rem-based figure came out 4px short and the row stayed crooked. `em` is
+the fallback because it at least tracks the real font size.
+
+**The platform's name is the marketing command center.** The brief
+called it a "Marketing Intelligence & Operations Platform" and that
+became the display name; Amber's own name for it is the command center,
+which is also what the video and poster files have always been called.
+Restored everywhere, anchor id included (`#marketing-command-center`),
+with the intelligence framing kept in the surrounding copy where it
+describes the work rather than names it. **Take the product name from
+the person who built it, not from the brief describing it.**

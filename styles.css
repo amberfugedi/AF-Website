@@ -2351,6 +2351,14 @@ a.bld-item .bld-item-arrow {
   color: var(--muted);
   display: block;
   margin-bottom: 12px;
+  /* Two lines are reserved whether the tag needs them or not, so every
+     card title in a row starts on the same baseline. PERQ's category
+     ("B2B SaaS · PropTech · Multifamily · 2023–Present") wraps where
+     the others do not, and without this it sat 19px lower than the two
+     cards beside it (Amber, Nov 2026). */
+  line-height: 1.35;
+  min-height: calc(2 * 1.35em); /* fallback: em tracks the real font-size */
+  min-height: 2lh;              /* exactly two line boxes */
 }
 
 /* Per-offer color coding — tags, borders, links, corner washes */
