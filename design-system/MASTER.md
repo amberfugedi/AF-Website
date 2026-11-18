@@ -7443,3 +7443,74 @@ gone, replaced with giving a team back time it did not have to spare.
 Testimonials checked: about.html shows six quotes twice, which is the
 marquee clone, `aria-hidden` and `inert`, not duplication. Nothing is
 exposed twice on a page.
+
+---
+
+## 2026-11-18 — Hero compression, and leading that drifted off its own spec
+
+**The hero.** Amber: the three intro paragraphs were too much, the
+credentials were buried in them, and the gradient was washing out the
+text. Her two replacement paragraphs went in verbatim. The credentials
+came out of the prose and became `.hero-cred`, a dotted strip under the
+CTAs — 10+ years, VP at PERQ, MBA, B2B SaaS and multifamily PropTech.
+
+Three things that had to be measured, not eyeballed:
+
+- **Both hero paragraphs take one grade.** There was a `:first-of-type`
+  override making the opening line larger. Two paragraphs of the same
+  kind, set at two sizes, read as a mistake rather than a hierarchy.
+  One clamp now, 17.08 mobile / 19.36 desktop. The comment in the CSS
+  forbids reintroducing the override; this is the second time a
+  "lead paragraph" rule has been added here.
+- **The separators are `:not(:last-child)::after`, not `li + li::before`.**
+  With `::before`, a strip that wraps starts its second line with a dot.
+  Only visible once the strip is long enough to wrap, which it is on
+  phones.
+- **46ch was too narrow.** It grew the desktop hero to 760px and pushed
+  the cred strip to three lines. 50ch, and no max-width on the strip
+  itself.
+
+Result: desktop hero 818 → 702px, CTAs from 696 → 505px. Mobile 1236 →
+1015px, CTAs 927 → 618px, which puts them above the 844px fold for the
+first time. Nothing overflows at 390 or 1440.
+
+**The leading.** Her brief then asked for a look at body typography
+across the rest of the site. The audit found the sizes were fine — 17 /
+15 / 21 are the three real grades and nothing had invented a fourth.
+The line heights were the problem: 17px prose ran at 1.55 on sixteen
+pages, 1.5 on seven, and 1.7 on one.
+
+The interesting part is that **this system was already documented.**
+DIGITAL-SYSTEM.md §1 has had a line-height table for months — six
+values, "pick by size, not by feel", body 1.55, intro 1.45. The code
+drifted anyway, because the block that pins every selector to a font
+size token hand-types a `line-height` next to each one. Writing the
+number by hand is an invitation to pick it by feel, and ~14 selectors
+did: 1.5, 1.45, 1.42, 1.4, 1.35, 1.7, all for paragraphs doing the same
+job on different pages. About's reflective column was the only 1.7 on
+the site; `.ex-note` the only 1.35.
+
+**A documented rule does not enforce itself.** The size tokens held for
+months because a token is a name you reuse; the leadings drifted because
+a number is a thing you retype. Where a value must stay constant, the
+fix is to make restating it unnecessary, not to write it down somewhere
+and trust the next edit to look it up.
+
+Body-grade paragraphs are on 1.55 now (all sixteen pages), intro-grade
+ledes on the documented 1.45. What was deliberately **not** touched,
+because the doc puts it in a different band and it is real hierarchy:
+list items at 1.45–1.5, where the gap between items does the work
+leading does inside a paragraph; labels and eyebrows at 1.4; card
+titles at 1.3; large figures at 1.2; the About pull-quote at 30/1.16;
+the hero's own 1.6.
+
+Still off-spec and left alone on purpose: the 15px band is split
+1.55/1.5/1.45/1.6, but it mixes prose with labels inside shared rules
+(`.plat h3, .plat p`, `.crs-meta dd, .co-login, .crs-login p`) that
+would have to be split to fix, for a sub-pixel difference. Flagged
+rather than churned — the brief said not to redesign the site.
+
+`.oc-note` and `.offer-aside .who` are dead selectors; no page uses
+either. Left in place, noted here so the next audit doesn't chase them.
+
+Impeccable: 118, the standing baseline, unchanged.

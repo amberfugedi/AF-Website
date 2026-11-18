@@ -1335,8 +1335,8 @@ section { padding: 104px 0; }
    the growth above that. The parallax keeps its full 92px of drift
    room either way, so the July 2026 bug stays fixed. */
 .hero {
-  min-height: min(72vh, 660px);
-  min-height: min(72dvh, 660px);
+  min-height: min(62vh, 560px);
+  min-height: min(62dvh, 560px);
   display: flex;
   align-items: flex-start;
   /* fixed top offset: the hero headline starts 95px under the nav,
@@ -1369,6 +1369,35 @@ section { padding: 104px 0; }
 }
 
 .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+/* Quiet by design: muted, small, dot separated, sitting under the CTAs
+   so the hero leads with a point of view and backs it afterwards. */
+.hero-cred {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  row-gap: 4px;
+  color: var(--muted);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+.hero-cred li:not(:last-child)::after {
+  content: "\00b7";
+  margin: 0 10px;
+  opacity: 0.45;
+}
+/* The aura runs warm behind the hero copy and longer text sat on top of
+   the strongest part of it. A soft wash of the page colour lifts the
+   text off the gradient without flattening it. */
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  background: radial-gradient(82% 72% at 24% 44%,
+    rgba(253, 249, 245, 0.88), rgba(253, 249, 245, 0.55) 46%,
+    rgba(253, 249, 245, 0) 78%);
+}
 /* The hero lede is zeroed by `.hero-split .head-copy .section-lede`,
    so this needs a real top margin. It previously carried -22px, written
    for the 56px margin the lede does NOT have in a hero, and the button
@@ -6494,20 +6523,20 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 }
 /* Career chapters are structural subheads, not card titles */
 .xp-company { font-size: var(--fs-h3); line-height: 1.2; letter-spacing: -0.015em; }
-.hiw-intro { font-size: var(--fs-intro); line-height: 1.5; }
+.hiw-intro { font-size: var(--fs-intro); line-height: 1.45; }
 .hiw-stages h3 { font-size: var(--fs-body); }
 .hiw-stages p { font-size: var(--fs-small); line-height: 1.55; }
 .aow-card h3 { font-size: var(--fs-eyebrow); line-height: 1.4; }
-.aow-note { font-size: var(--fs-body); line-height: 1.5; }
+.aow-note { font-size: var(--fs-body); line-height: 1.55; }
 .aow-card > ul > li { font-size: var(--fs-small); line-height: 1.45; }
 .fitp-list li { font-size: var(--fs-body); line-height: 1.5; }
 .fitp-label { font-size: var(--fs-eyebrow); line-height: 1.4; }
-.fitp-not p:last-child { font-size: var(--fs-body); line-height: 1.5; }
+.fitp-not p:last-child { font-size: var(--fs-body); line-height: 1.55; }
 .oc-note { font-size: var(--fs-body); line-height: 1.4; }
 .ex-h { font-size: var(--fs-intro); }
 .ex-sub { font-size: var(--fs-small); line-height: 1.4; }
 .ex-panel li { font-size: var(--fs-small); line-height: 1.35; }
-.ex-note { font-size: var(--fs-body); line-height: 1.35; }
+.ex-note { font-size: var(--fs-body); line-height: 1.55; }
 .xp-lede { font-size: var(--fs-body); line-height: 1.55; text-wrap: pretty; }
 /* About (2026-09) */
 .ab-tags { font-size: var(--fs-body); line-height: 1.55; }
@@ -6521,15 +6550,15 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    the phone. 20.8px at 390 keeps the gap open at both ends. */
 .ab-pull-line { font-size: var(--fs-h3); }
 .ab-pull-note { font-size: var(--fs-body); line-height: 1.55; }
-.ab-payoff-note { font-size: var(--fs-body); line-height: 1.5; }
-.ab-beats p { font-size: var(--fs-intro); line-height: 1.42; }
+.ab-payoff-note { font-size: var(--fs-body); line-height: 1.55; }
+.ab-beats p { font-size: var(--fs-intro); line-height: 1.45; }
 .ab-lead { font-size: var(--fs-h3); line-height: 1.2; }
 /* The card-title grade, like every other heading that tops a column
    rather than a section. This used to pin the h3 clamp to its low end
    for a 24px half-step, which was the only 24px heading on the site.
    The middle column still steps up — it takes the real --fs-h3. */
 .ab-think h3 { font-size: var(--fs-intro); line-height: 1.3; }
-.ab-think-body p { font-size: var(--fs-body); line-height: 1.7; }
+.ab-think-body p { font-size: var(--fs-body); line-height: 1.55; }
 .ab-dots li { font-size: var(--fs-body); line-height: 1.55; }
 .sv-fig { font-size: var(--fs-h3); }
 .sv-lead { font-size: var(--fs-body); }
@@ -6537,6 +6566,17 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .xp-reveal > summary { font-size: var(--fs-body); }
 .xp-edu li { font-size: var(--fs-body); line-height: 1.5; }
 
+/* LEADING. Running prose reads at 1.55 at body and small grade --
+   that is the house value, set on `body` and used by ~25 selectors.
+   The block above used to hand-type a line-height per selector, which
+   drifted to 1.5 / 1.45 / 1.4 / 1.35 / 1.7 for paragraphs doing the
+   same job on different pages (About's reflective column was the only
+   1.7 on the site; .ex-note the only 1.35). Paragraphs are on 1.55 now.
+   What is NOT drift and must stay: list items at 1.45-1.5, where the
+   gap between items does the work leading does inside a paragraph;
+   labels and eyebrows at 1.4; card titles at 1.3; large figures at
+   1.2. Those are the hierarchy. Set a paragraph's leading by leaving
+   it alone, not by typing a new number. */
 /* ALL running text reads at body — one paragraph size site-wide,
    ledes and band statements included (Amber, 2026-07: "it should
    all be body text", 16 mobile / 17 desktop). The intro rung
@@ -6549,13 +6589,17 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .offer-desc { font-size: var(--fs-body); line-height: 1.55; }
 /* Band statements match the ledes: body scale */
 .bridge-line { font-size: var(--fs-body); line-height: 1.55; }
-/* Hero subhead matches the page-head ledes: body scale (the old
-   15 -> 17.5 clamp overshot body at desktop and undershot the other
-   heads on phones' widest siblings) */
-.hero .subhead { font-size: var(--fs-body); line-height: 1.55; }
-/* The opening line of the deck reads at the intro grade — three
-   paragraphs of flat body copy under the h1 had no spine. */
-.hero .subhead:first-of-type { font-size: var(--fs-intro); line-height: 1.5; }
+/* BOTH hero paragraphs share one grade. The first used to run at the
+   intro size and the rest at body, which read as a mistake rather than
+   as hierarchy once the deck came down to two paragraphs (Amber, Nov
+   2026). 17px on a phone, about 19.4px on a desktop, which is the
+   comfortable band for a two-paragraph lede. Do not reintroduce a
+   first-of-type override here. */
+.hero .subhead {
+  font-size: clamp(1.0625rem, 0.98rem + 0.36vw, 1.21rem);
+  line-height: 1.6;
+  max-width: 50ch;
+}
 
 .card p,
 .cap-card p,
@@ -6656,7 +6700,7 @@ footer p,
 .case-rel { font-size: var(--fs-eyebrow); }
 .lb-stage figcaption { font-size: var(--fs-small); line-height: 1.5; }
 .lb-count { font-size: var(--fs-eyebrow); }
-.case-impact { font-size: var(--fs-body); line-height: 1.5; }
+.case-impact { font-size: var(--fs-body); line-height: 1.55; }
 .case-toggle { font-size: var(--fs-small); }
 .plat-all summary { font-size: var(--fs-small); }
 
@@ -6754,7 +6798,7 @@ footer p,
 @media (max-width: 760px) {
   .page-head h1, .hero h1 { line-height: 1.05; letter-spacing: -0.025em; }
   /* phone hero: same 88px nav-to-headline gap as every page head */
-  .hero { min-height: 0; padding: 149px 0 48px; }
+  .hero { min-height: 0; padding: 149px 0 40px; }
   .section-title,
   .case h2,
   .offer-section h2,
@@ -7283,7 +7327,7 @@ footer p,
   margin: 0 0 12px;
   color: var(--ink);
   font-size: var(--fs-body);
-  line-height: 1.5;
+  line-height: 1.55;
   text-wrap: pretty;
 }
 
@@ -7600,7 +7644,7 @@ footer p,
   margin: 0 0 18px;
   color: var(--ink);
   font-size: var(--fs-body);
-  line-height: 1.5;
+  line-height: 1.55;
   text-wrap: pretty;
 }
 .sv-points { list-style: none; margin: 0 0 22px; padding: 0; }
