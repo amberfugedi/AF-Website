@@ -7126,3 +7126,37 @@ beside a detailed rebuild narrative.
 **Standing check for anything about a current employer: would this be
 comfortable if her CEO, her board, the former postholder, or a cut
 vendor read it?**
+
+## 2026-11-18 (correction) — "Restructure" implied something that did not happen
+
+Amber: there were no layoffs. Budget moved from marketing to product,
+and that reason is private.
+
+This inverts the earlier concern. The risk was never that the word
+disclosed a personnel event. It is that **"restructure" reads as layoffs
+to almost everyone**, so the page implied job cuts at her employer that
+never occurred. Unfair to PERQ, and inaccurate about her.
+
+The true cause cannot be published, so the fix is not a better
+explanation, it is removing the causal framing. The word is gone from
+About, Projects and the Fractional page. What replaces it says what
+happened to her scope without characterizing the company event:
+
+> At the end of 2024 the marketing function became mine to rebuild, on
+> a smaller budget, while the product portfolio kept moving.
+
+"On a smaller budget" is safe: the 34% cut is already public on the same
+page, and budgets shrink for many reasons, so it points nowhere. The
+reallocation to product appears nowhere on the site and must not.
+
+"Departmental restructuring" survives on Expertise as the name of a
+capability, which is a skill, not a claim about an employer.
+
+**The general trap: a word can be accurate and still make a false
+implication. Check what a sentence will be assumed to mean, not only
+whether it is true.** "Restructure" passed every accuracy check here and
+still told readers something that did not happen.
+
+On the command center, Amber's position is that she could rebuild it
+independently and it stands as a case study. Her call, and a reasonable
+one; the scope figures stay out unless she asks for them back.
