@@ -2578,6 +2578,16 @@ a.bld-item .bld-item-arrow {
 .anchor-nav a.nav-grow.active  { color: var(--consulting-deep); background: var(--blush); }
 .anchor-nav a.nav-built.active { color: var(--automations-deep); background: var(--lavender); }
 #in-house, #client-work, #builds { scroll-margin-top: 140px; }
+/* Case articles and build rows are both deep-linked from the homepage
+   and from each other, so they clear the two sticky bars the same way
+   the sections above them do. Without this a link to #perq lands with
+   the case title hidden behind the nav. */
+.case[id] { scroll-margin-top: 150px; }
+/* Build rows need more than the cases do. A case card has 28-40px of
+   padding above its title to absorb the overlap; the first row in each
+   list has `padding-top: 0`, so its name sits exactly on the element's
+   top edge and lands under the nav at the same margin. */
+.bld-items > li[id] { scroll-margin-top: 168px; }
 
 .offer-section { scroll-margin-top: 140px; }
 .offer-section.offer-courses,

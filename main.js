@@ -217,7 +217,7 @@
      whole point of collapsing them (Amber, July 2026). A case linked
      to directly (/projects.html#perq, or a click on an in-page anchor)
      always opens, or the link would land on a closed row. */
-  var caseRows = document.querySelectorAll(".case-d");
+  var caseRows = document.querySelectorAll(".case-d, .bld-d");
   if (caseRows.length) {
     if (window.matchMedia("(min-width: 761px)").matches) {
       document.querySelectorAll("main > section").forEach(function (sec) {
@@ -225,12 +225,27 @@
         if (first) first.setAttribute("open", "");
       });
     }
+    /* A link can land on a case article (#perq) or on a build row
+       (#intelligence-platform), which carries the id on the <li> that
+       wraps the disclosure. Either way the target opens, or the link
+       drops someone onto a closed row. */
     var openTarget = function () {
       var id = location.hash.slice(1);
       if (!id) return;
       var art = document.getElementById(id);
-      var d = art && art.querySelector(".case-d");
-      if (d) d.setAttribute("open", "");
+      if (!art) return;
+      var d = art.querySelector(".case-d, .bld-d");
+      if (!d && art.matches && art.matches(".case-d, .bld-d")) d = art;
+      if (!d) return;
+      d.setAttribute("open", "");
+      /* Opening it changes the page height above and below the anchor,
+         so the browser's own jump has already landed in the wrong
+         place. Re-scroll on the next frame, once the opened content has
+         been laid out; scroll-margin-top keeps it clear of the two
+         sticky bars. Always, not only when this call did the opening:
+         on desktop the first case in each section is already open
+         before this runs. */
+      requestAnimationFrame(function () { art.scrollIntoView(); });
     };
     openTarget();
     window.addEventListener("hashchange", openTarget);
