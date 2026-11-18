@@ -993,15 +993,15 @@ body.page-sub .aura { --aura-base: 0.45; }
   line-height: 1.3;
   margin-top: 2px;
 }
-.pc-lavender { --tilt: -1.6deg; margin: 0; padding: 27px 33px; }
+.pc-lavender { --tilt: -1.3deg; margin: 0; padding: 20px 26px; }
 .pc-lavender .proof-stat { font-size: 2.45rem; }
 .pc-lavender .proof-label { font-size: var(--fs-small); }
-.pc-peach    { --tilt: 1.1deg;  margin: 7px 0 0 14%; }
+.pc-peach    { --tilt: 1.1deg;  margin: 8px 0 0 11%; }
 .pc-peach .proof-stat { font-size: 1.52rem; }
-.pc-peach .proof-label { font-size: 0.9rem; }
-.pc-blush    { --tilt: -1deg;   margin: 4px 0 0 15%; padding: 14px 19px; }
+.pc-peach .proof-label { font-size: var(--fs-small); }
+.pc-blush    { --tilt: -1.1deg; margin: 8px 0 0 11%; }
 .pc-blush .proof-stat { font-size: 1.24rem; }
-.pc-blush .proof-label { font-size: 0.84rem; }
+.pc-blush .proof-label { font-size: var(--fs-small); }
 /* Stat numbers carry the single brand accent; the pastel washes
    alone differentiate the cards (fills, per their documented role) */
 .proof-chip .proof-stat { color: var(--coral-deep); }

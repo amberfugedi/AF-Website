@@ -8047,3 +8047,64 @@ and The Secret Marketing Society, both of which she actually made.
 Nothing elsewhere referenced the podcast, so nothing else moved.
 
 Impeccable 118, zero overflow at 1440, 390, 360, no JS errors.
+
+---
+
+## 2026-11-18 — The chip cluster varied on five axes at once
+
+Amber: "this design is weird and the 421% growth subtext should be more
+concise."
+
+**The label first.** "Marketing-sourced bookings at PERQ, year over year
+to October 15, 2026" rendered as a THREE-LINE label, making that chip
+319x170 against neighbours of 241x87 and 240x76. One chip more than
+double the height of the others is what read as weird. Shortened to
+"Marketing-sourced bookings, PERQ" per her instruction: 170 -> 131px.
+
+The precision is not lost, it moved. A chip is a teaser; it links to
+`/projects#perq`, where the figure carries its full period. **Put the
+precision where the claim is made, not where it is advertised.** The
+comment in `index.html` records this so a later accuracy pass does not
+restore the long label and re-break the cluster.
+
+**Then the real finding.** Measuring the three chips showed they varied
+on FIVE axes simultaneously:
+
+    padding      27/33   16/22   14/19
+    label size   15px    14.4px  13.4px
+    stat size    large   medium  small
+    tilt        -1.6deg  1.1deg  -1.0deg
+    left indent  0       14%     15%
+
+That is not hierarchy, it is noise. Three objects differing in every
+dimension read as unrelated rather than as a set. Now: one label size
+for all three, padding 20/26 on the lead and 16/22 on both others, tilts
+within 0.2deg of each other, and the same 11% indent on chips two and
+three. The lead chip keeps a larger figure, which is the one difference
+that means something. Widths 302/250/269, heights 115/88/83, two of
+three left edges aligned.
+
+**Variation has to be load-bearing.** One intentional difference reads
+as emphasis; five simultaneous differences read as an accident.
+
+## Dates on the case studies
+
+Amber, same turn: "we have the dates on the case studies and i'm not
+sure those are needed." The answer was in the data, not in taste:
+
+    perq            4 period labels, 4 DISTINCT
+    scanoptics      3 period labels, 1 distinct
+    stormwaterone   3 period labels, 1 distinct
+
+PERQ keeps all four. Its periods differ — a year to date, a completed
+year, a year-over-year comparison, a forecast — and that difference is
+load-bearing: strip them and a forecast reads as a result. The other two
+had the same tenure stamped three times, which is repetition wearing
+rigour's clothes. Each now carries one quiet `.cm-note` line instead:
+"Measured over 2021–2023."
+
+Same principle as the chips. A label earns its place by carrying
+information the reader does not already have.
+
+Impeccable 118. axe-core: 0 WCAG 2.1 A/AA violations, 16 pages x
+desktop and mobile. Zero overflow at 1440, 768, 390 and 360.
