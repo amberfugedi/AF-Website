@@ -2601,7 +2601,7 @@ a.bld-item .bld-item-arrow {
 .anchor-nav a { white-space: nowrap; }
 .anchor-nav a {
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: var(--muted);
   text-decoration: none;
@@ -3418,12 +3418,17 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
    The capability list is the only thing that hides; the situation, the
    contribution and the proof link stay visible, so the scan pattern —
    what is happening, how Amber helps, proof — survives collapsed. */
+/* A real button, not an inline link, so it gets a real touch target.
+   It measured 161x27 at 390px; 10px of vertical padding takes it past
+   the 44px Apple/Material minimum without moving anything around it,
+   because the extra height is absorbed by the margin above. */
 .ch-toggle {
   display: inline-flex;
   align-items: baseline;
   gap: 7px;
-  margin-top: 12px;
-  padding: 4px 0;
+  margin-top: 6px;
+  padding: 10px 0;
+  min-height: 44px;
   border: 0;
   background: none;
   cursor: pointer;
@@ -4224,12 +4229,17 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
    (Amber, 2026-08). */
 .tools-section { padding-bottom: 64px; }
 .tools-section + .showcase { padding-top: 64px; }
+/* min-height, like .ch-toggle: a disclosure control is a button, and it
+   measured 91x34 at 390px. Inline text links inside prose are exempt from
+   the 24px minimum in WCAG 2.2 2.5.8 and are left alone; standalone
+   controls are not, and get the full 44px. */
 .plat-all summary {
   display: inline-flex; align-items: center; gap: 7px;
   cursor: pointer; list-style: none;
   font-family: var(--font-body); font-weight: 600;
   color: var(--coral-deep);
   padding: 6px 0;
+  min-height: 44px;
 }
 .plat-all summary::-webkit-details-marker { display: none; }
 .plat-all .pa-sign { display: inline-block; width: 0.72em; text-align: center; font-weight: 600; }
@@ -6819,8 +6829,10 @@ footer p,
 .fm-steps h3 { font-size: var(--fs-intro); line-height: 1.3; }
 .crs-facts li, .fm-note, .fm-cap, .fm-k, .ct-k, .ba-k, .crs-sticky .cs-cost { font-size: var(--fs-small); line-height: 1.45; }
 .fm-rows li, .fm-plan > div, .cs-not, .ba-col li, .buy-list li, .faq-q summary, .faq-q p, .buy-price, .buy-when, .fm-steps p, .fm-tiers p, .crs-sticky .cs-name { font-size: var(--fs-body); line-height: 1.55; }
-.ct-title { font-size: clamp(1.5rem, 1.15rem + 1.6vw, 1.95rem); }
-.ct-stages li { font-size: clamp(0.72rem, 0.66rem + 0.28vw, 0.8rem); }
+.ct-title { font-size: var(--fs-h3); }
+/* Was clamp(0.72rem … 0.8rem), which renders 11.65px at 390 -- under the
+   12px floor for any readable text. On the eyebrow token it is 12 to 13. */
+.ct-stages li { font-size: var(--fs-eyebrow); }
 @media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
  .case-scope, .art-link a{ font-size: var(--fs-small); line-height: 1.55; }
@@ -7018,7 +7030,7 @@ footer p,
     -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
     mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
   }
-  .anchor-nav a { font-size: 0.78125rem; padding: 13px 6px; }
+  .anchor-nav a { font-size: var(--fs-eyebrow); padding: 13px 6px; }
 }
 
 /* ============ TABLET NAV STEP-DOWN ============
@@ -7706,7 +7718,7 @@ footer p,
 }
 .quote-foot .who-rel {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: var(--fs-eyebrow);
 }
 @media (max-width: 700px) {
   .svc-quotes { grid-template-columns: 1fr; gap: 20px; }

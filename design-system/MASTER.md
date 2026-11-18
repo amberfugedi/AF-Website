@@ -8108,3 +8108,62 @@ information the reader does not already have.
 
 Impeccable 118. axe-core: 0 WCAG 2.1 A/AA violations, 16 pages x
 desktop and mobile. Zero overflow at 1440, 768, 390 and 360.
+
+---
+
+## 2026-11-18 — Full font-size audit (ui-ux-pro-max)
+
+Measured every visible leaf text node on all sixteen pages at 1440 and 390,
+classified against the seven `--fs-*` tokens.
+
+**Result: 99.2% desktop / 99.1% mobile on-token** (1357/1368 and 1304/1316).
+The scale is in good shape; the exceptions were a short, specific list.
+
+**Fixed:**
+
+| What | Was | Now | Why |
+|---|---|---|---|
+| `.ct-stages li` | clamp → **11.65px** at 390 | `--fs-eyebrow` | Under the 12px floor. The skill lists "Text < 12px body" as an anti-pattern, and this was the only text on the site below it. |
+| `.ct-title` | clamp → 31.2px | `--fs-h3` (30) | One step off a token for no reason. |
+| `.quote-foot .who-rel` | 0.85rem (13.6px) | `--fs-eyebrow` | A grade the site does not otherwise have. |
+| `.anchor-nav a` | 0.875rem / 0.78125rem | `--fs-small` / `--fs-eyebrow` | Two raw rem values across breakpoints. |
+
+**Touch targets, from the skill's §2 (CRITICAL).** The earlier QA pass only
+checked the contact form, so this was a real gap. Standalone controls now all
+clear 44px: `.ch-toggle` was 161x**27**, `.plat-all summary` 91x**34**; both
+take `min-height: 44px`.
+
+Inline text links measuring 30–42px were left alone deliberately. WCAG 2.2
+2.5.8 sets 24x24 and **explicitly exempts links inline in a sentence**; axe
+confirms no violation. Inflating every inline link to 44px would wreck an
+editorial layout to satisfy a rule that does not apply to it.
+
+**Healthy, confirmed by measurement, no change needed:**
+- Line length: desktop median **66 chars/line**, mobile **38**. Both inside the
+  skill's 60–75 / 35–60 targets.
+- Mobile body is 16px, meeting the iOS auto-zoom threshold.
+- Hierarchy ladder holds on all seven content pages: h1 50 > h2 40 (with the
+  documented 35 `.h2-long` step-down) > card title 21 > body 17 > small 15.
+  Two tabs per page everywhere.
+
+**Still off-token, and left that way on purpose:**
+- `.subhead` 19.36 / 17.08 — the hero deck, set deliberately when the two hero
+  paragraphs were unified onto one grade.
+- `.h2-long` 35 — the documented step-down for long headlines.
+- SVG `tspan` 13px — text inside an illustration, scaled by its viewBox.
+
+**FLAGGED, not changed: the proof chips are the site's one un-tokenized
+component.** Sixteen font-size declarations across breakpoints, every one a raw
+rem — 2.45 / 1.52 / 1.24 / 1.05 / 0.88 / 0.8 / 0.73 / 0.72 — producing three
+distinct off-token stat sizes (39.2 / 24.32 / 19.84 at 1440). That is every
+remaining desktop exception except the two documented ones.
+
+It is not a defect: the sizes are deliberate and the component was reviewed
+and tightened earlier today. But it is the one place where changing a token
+changes nothing, which is worth knowing before anyone tries. Tokenizing would
+mean collapsing three stat sizes to two (`--fs-h2` for the lead, `--fs-h3` for
+the others), which visibly rebalances the cluster — a design decision for
+Amber, not a cleanup.
+
+**Impeccable: 118 → 117.** One anti-pattern resolved by these fixes, not
+introduced. The baseline moves down.
