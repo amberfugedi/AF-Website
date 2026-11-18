@@ -7411,3 +7411,35 @@ Replacement wording states when, not why: "At the end of 2024 I took
 ownership of the whole marketing function and rebuilt the department
 within the budget constraints already in place." The scope line and the
 homepage card simply drop the clause.
+
+## 2026-11-18 — Final targeted pass
+
+Six of the eight items were already in place from earlier rounds. The
+two that were not are the ones worth recording.
+
+**The education was wrong, and I introduced it.** The BS in Business
+Administration was attributed to Bay Path University; it is from Eastern
+Connecticut State, as is the BA in Sociology. Only the MBA is Bay Path.
+The original site said "Business Administration and Sociology from Bay
+Path University and Eastern Connecticut State University", which is
+ambiguous rather than wrong, and when the minor was added the ambiguity
+got resolved in the wrong direction. **An ambiguous source does not
+license a guess; it needs asking or leaving ambiguous.**
+
+**Tone in the systems case studies.** The specificity added a round
+earlier went too far in one place: "waiting on engineering capacity that
+was never going to free up for a marketing reporting problem" is a dig
+at another department on a public site, and "conversations stopped
+opening with someone volunteering to pull the numbers" is an adoption
+claim nobody measured. Both rewritten toward what the capability
+enables. **Specific is not the same as pointed. A detail that lands
+because it is at someone else's expense is the wrong detail.**
+
+Also: MembersFirst was eight years in-house *and* fractional, not eight
+years fractional. "Promoted twice in just over two years" is now the one
+phrasing everywhere. The day-a-week time saving on Workflow and AI is
+gone, replaced with giving a team back time it did not have to spare.
+
+Testimonials checked: about.html shows six quotes twice, which is the
+marquee clone, `aria-hidden` and `inert`, not duplication. Nothing is
+exposed twice on a page.
