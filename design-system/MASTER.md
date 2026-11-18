@@ -7265,3 +7265,49 @@ history and once in the case study.
 **Rule: when the same event appears on two pages in two registers,
 re-read them side by side after any edit to either. Divergence is a
 design decision and it decays silently.**
+
+## 2026-11-18 — Why the employment cases read flat
+
+Amber asked whether the case studies were concise and compelling. The
+client ones are. The employment ones were not, and the measurement says
+why.
+
+```
+Scan-Optics 74w   MembersFirst 84w   A2 86w   Robert James 55w   Stormwater 67w
+PERQ 160w   BI 120w   Ops 92w   Finance 92w
+```
+
+Length was half of it. The other half matters more. **The client cases
+are full of nouns**: Dropbox, UKG, Xerox, HubSpot, NCUA compliance
+flags, yard signs, door hangers. Robert James closes on "nine years on,
+the business still runs its marketing on that foundation."
+
+The employment cases had no nouns at all. "Each function." "The
+solution." "The work." The confidentiality pass removed the proper nouns
+and the numbers, and **abstraction got reached for as the replacement
+when a different kind of specificity was available**: the texture of the
+problem, the decision actually made, the thing it is like.
+
+Replacements that worked, none of them disclosing anything:
+
+- "waiting on engineering capacity that was never going to free up for a
+  marketing reporting problem" — the real reason she built it herself.
+- "which made whoever had been there longest the documentation" — the
+  problem, felt rather than described.
+- "every page carries the date it was pulled, so nobody has to ask how
+  old a figure is" — a concrete design decision, not an architecture.
+- "I sit in the rooms where the strategy and the annual plan get
+  decided, which is a different job from running the campaigns."
+
+Also removed: "Built during my employment and owned by my employer",
+which sat mid-paragraph in two entries. It is legal register dropped
+into narrative, it stopped the prose dead, and the category line already
+carries it ("Built inside the businesses I have worked for, and owned by
+them"). **Ownership belongs in the frame, not in the sentence.**
+
+PERQ 160 to 142, BI 120 to 108, Ops 92 to 80. Still above the client
+range, which is right: one is a flagship and the others carry a remit.
+
+**Rule: confidentiality removes specifics, it does not require
+abstraction. When a proper noun comes out, put a concrete detail in
+rather than a category.**
