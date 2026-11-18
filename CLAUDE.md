@@ -59,6 +59,25 @@ Google Fonts.
 - Render every new icon or small mark at 5x before shipping it. Two
   marks have shipped as accidental duplicates of each other and one
   read as a settings slider — none of it visible at 21px.
+## Standing copy decisions (do not reverse without asking)
+
+These were decided with Amber and have each been reintroduced by a later
+brief at least once. A brief that contradicts one is a conflict to raise,
+not an instruction to follow silently.
+
+- **Never say "restructuring" (or restructure) about PERQ.** There were
+  no layoffs; the real cause is private. The word reads as job cuts and
+  makes PERQ look bad. Say when she took ownership, not why. Removed
+  2026-11-18, reintroduced by brief the same day, removed again.
+  "Building and restructuring marketing functions" survives on Expertise
+  as a capability she has, which is not a claim about any employer.
+- **No PERQ figure goes up without explicit approval.** The five live
+  ones (421%, 2.6x, 119%, 30%, 27%) were approved 2026-11-18 and each
+  must keep its period label.
+- **Never describe bookings as ARR.**
+- **The private cause of the 2024 budget change is never written down**,
+  on the site or in this repo.
+
 - Before shipping design/copy changes, run Impeccable's deterministic
   AI-tell detector over the pages:
   `npx impeccable detect *.html styles.css main.js`

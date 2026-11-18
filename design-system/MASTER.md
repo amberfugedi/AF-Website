@@ -7380,3 +7380,34 @@ its job without anything flagging it.** The metrics block was reviewed
 on its own and rendered correctly. Nothing asked what the paragraph
 above it was still for. **When a section gains hard evidence, re-read
 whatever used to carry that burden.**
+
+## 2026-11-18 — "Restructuring" came back because a brief said so
+
+Amber: "We said we wouldn't say org restructure on the site because it
+makes PERQ look bad."
+
+Correct, and the sequence is the point. She told me there were no
+layoffs and that the real cause is private. The word was removed from
+About, Projects and the Fractional page, and that removal is recorded
+two entries above. Then her site-wide brief said, in section 4,
+"Explain that following an organizational restructuring, I assumed
+ownership of the marketing function", and it went straight back onto
+four pages.
+
+**A brief that contradicts a standing decision is a conflict to raise,
+not an instruction to follow.** The same conflict appeared the same day
+over the walkthrough video, and that one I did flag and ask about. The
+difference was that the video was fresh in the conversation and this
+decision was four messages old. **Recency is not a reasonable basis for
+which decisions get protected.**
+
+So the standing decisions now live in CLAUDE.md rather than only in this
+log, where they are read at the start of every session instead of
+needing to be remembered. Four of them: never say restructuring about
+PERQ, no PERQ figure without approval, never call bookings ARR, never
+write down the private cause.
+
+Replacement wording states when, not why: "At the end of 2024 I took
+ownership of the whole marketing function and rebuilt the department
+within the budget constraints already in place." The scope line and the
+homepage card simply drop the clause.
