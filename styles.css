@@ -3120,11 +3120,22 @@ a.bld-item .bld-item-arrow {
   font-weight: 600;
   color: var(--coral-deep);
 }
-/* Flagship cases only. Five approved figures spanning three different
-   period types: a year to date, a completed year, and a forecast. Prose
-   buries that distinction, so each one carries its period on its own
-   line and the figure leads. Not a stat wall: the figure column is
-   fixed so the eye reads down it. */
+/* The three in-house roles: PERQ, Scan-Optics, StormwaterONE. Two
+   reasons a case earns this treatment, and either is enough. PERQ's
+   figures span different period types (a year to date, a completed
+   year, a forecast) and prose buries that distinction. Scan-Optics and
+   StormwaterONE each pack three discrete figures into one sentence,
+   which nobody can scan. Both are fixed by the same thing: the figure
+   leads and carries its own period, so a figure read on its own is
+   never read without its bounds.
+   The client cases (MembersFirst, Robert James, A2) stay prose on
+   purpose. Their impact is a partnership that lasted or a brand still
+   in use, and forcing that into a figure column would mean padding it
+   with a number that is not the point. The split is not an
+   inconsistency; it tells you which kind of work you are looking at.
+   Not a stat wall: the figure column is fixed so the eye reads down it.
+   cm-when is REQUIRED -- .cm-fig spans both rows and the grid breaks
+   without it. */
 .case-metrics {
   list-style: none;
   margin: 26px 0 0;
@@ -3139,6 +3150,13 @@ a.bld-item .bld-item-arrow {
   gap: 4px 18px;
   align-items: baseline;
 }
+/* A metric MAY omit .cm-when. The period line earns its place when the
+   figures carry different periods, as PERQ's do (a year to date, a
+   completed year, a forecast). Where every figure in a list shares the
+   role's tenure, and .case-rel states that tenure directly above, three
+   identical period lines are repetition, not rigour. Without .cm-when
+   the figure spans one row instead of two, or the grid collapses. */
+.case-metrics li:not(:has(.cm-when)) .cm-fig { grid-row: span 1; }
 .cm-fig {
   grid-row: span 2;
   font-size: var(--fs-h3);
@@ -3149,13 +3167,6 @@ a.bld-item .bld-item-arrow {
 }
 .cm-what { color: var(--ink); font-size: var(--fs-small); line-height: 1.45; }
 .cm-when { color: var(--muted); font-size: var(--fs-eyebrow); line-height: 1.4; }
-.cm-note {
-  margin: 18px 0 0;
-  color: var(--muted);
-  font-size: var(--fs-eyebrow);
-  line-height: 1.5;
-  max-width: 70ch;
-}
 @media (max-width: 620px) {
   .case-metrics li { grid-template-columns: 4.6rem minmax(0, 1fr); gap: 3px 14px; }
   .cm-fig { font-size: var(--fs-intro); }

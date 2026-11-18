@@ -7657,3 +7657,66 @@ itself, not a proxy that will agree with you.
 The stat stays `nowrap` — a figure must never break across lines.
 
 Impeccable: 118. Zero overflow at 1440, 768, 390 and 360.
+
+---
+
+## 2026-11-18 — Stacked metrics, and when a period label earns its line
+
+Amber cut the 27% figure ("less non-personnel marketing spend per
+marketing-sourced new customer") and the note under the PERQ list
+("Each figure is marketing-sourced and bound to the period beside it.
+They are the measures that moved, not a claim that everything did.").
+
+**Removing the note cost nothing, because the labels already do its
+work.** Of the four remaining figures, two say "marketing-sourced" in
+their own `cm-what` and all four carry a period in `cm-when`. The note
+was restating, in prose, a discipline the markup already enforces. A
+caveat that repeats what the data says is decoration; a caveat that
+carries information the data omits is load-bearing. Check which kind
+you have before defending one.
+
+**Then: should the other cases stack their stats like PERQ?** Yes, for
+two of them, and the line falls where the page already divides.
+
+- **In-house roles** (PERQ, Scan-Optics, StormwaterONE) stack. Each has
+  several discrete figures. Scan-Optics had "115% more opportunity
+  creation, with pipeline growing from $1.3M to $2.8M, and 47% more
+  inbound leads" in one sentence, which no one scans.
+- **Client work** (MembersFirst, Robert James, A2) stays prose. Its
+  impact is a partnership that lasted or a brand still in use nine
+  years on. Forcing that into a figure column means padding it with a
+  number that is not the point — "9 years" set at 30px beside "115%"
+  invites a comparison it loses, which is the same mistake the hero
+  chips had just been fixed for.
+
+The split maps exactly onto the page's own sections, "Leading
+marketing" and "Stepping in where growth is the goal." Two treatments
+is not an inconsistency when the treatment tells you which kind of work
+you are reading.
+
+**The period line is now optional, and that is the real lesson.**
+Stacking Scan-Optics put "2021–2023" on all three figures, directly
+below a `.case-rel` already reading "Director of Marketing · 2021–2023".
+Three identical lines, no information in any of them.
+
+PERQ's figures carry periods because **PERQ's periods differ** — a year
+to date, a completed year, a forecast — and prose hides that. The rule
+was never "every figure needs a period line." It was "a reader must
+never meet a figure without its bounds," and where one tenure bounds
+every figure in the list, the line above already supplies it.
+
+`.cm-fig` spans two grid rows, so omitting `cm-when` collapsed the
+layout; `.case-metrics li:not(:has(.cm-when)) .cm-fig` fixes it.
+Scan-Optics lost 66px and reads better for it.
+
+**A rule copied from where it was derived stops being the rule and
+becomes its fossil.** It was right for PERQ for a specific reason, and
+carrying it to a case without that reason produced repetition wearing
+rigour's clothes.
+
+`.cm-note` removed from CSS as well — orphaned the moment the markup
+went, and this file already carries two dead selectors (`.oc-note`,
+`.offer-aside .who`) from not doing that.
+
+Impeccable: 118. Zero overflow at 1440, 390 and 360 with every case
+study expanded.
