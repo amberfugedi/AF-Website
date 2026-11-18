@@ -8040,7 +8040,10 @@ supported. It is a `<span class="bld-item">` rather than an anchor,
 since there is nothing to link to; cursor stays `auto` against the
 siblings' `pointer`, so it does not read as clickable.
 
-Whether a paid sponsorship belongs in a portfolio at all is Amber's
-call, and she sounded unsure. Flagged rather than decided.
+Whether a paid sponsorship belongs in a portfolio at all was Amber's
+call. Flagged rather than decided, and she decided: removed entirely.
+"Industry work and activations" is two items now, Conference Tarot Draw
+and The Secret Marketing Society, both of which she actually made.
+Nothing elsewhere referenced the podcast, so nothing else moved.
 
 Impeccable 118, zero overflow at 1440, 390, 360, no JS errors.
