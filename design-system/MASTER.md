@@ -7160,3 +7160,31 @@ still told readers something that did not happen.
 On the command center, Amber's position is that she could rebuild it
 independently and it stands as a case study. Her call, and a reasonable
 one; the scope figures stay out unless she asks for them back.
+
+## 2026-11-18 (reversal) — The video stays
+
+I withheld the command center walkthrough during the IP review and
+Amber put it back: "it's my portfolio and a mocked up anonymous video."
+
+She is right, and the error is traceable. Her original brief said
+"fictional company, **fictional screens**, sample data only". I carried
+forward a reading of it as a faithful recreation of the real system,
+described it in my own notes as "a silent UI recording", and then
+applied the IP rule about reproductions of employer systems to
+something that was never claimed to be one. **The inference hardened
+into a fact across several turns because nothing re-checked it against
+her actual words.**
+
+Restored with a one-line footnote that it is a mock-up. The case study
+keeps the rewritten columns, business challenge / my role / what it
+demonstrates, which she did not object to and which are better anyway.
+
+**The residual question, which only she can answer**: invented screens
+are safe, but an information architecture that mirrors the real
+application's would still carry structure. The nav in the mock-up reads
+Dashboard, Events, Budget, Projections, Efficiency, Content studio, Case
+studies, Admin. Flagged, not acted on.
+
+**General trap: "when uncertain, remove" is only as good as the
+uncertainty assessment. Check whether the uncertainty is real or
+manufactured by your own earlier summary of someone else's words.**
