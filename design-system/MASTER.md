@@ -7087,3 +7087,42 @@ Restored everywhere, anchor id included (`#marketing-command-center`),
 with the intelligence framing kept in the surrounding copy where it
 describes the work rather than names it. **Take the product name from
 the person who built it, not from the brief describing it.**
+
+## 2026-11-18 (last) — What a current employer can read
+
+Amber asked whether any of the PERQ positioning was risky to publish.
+It was, and four of the five items were ones this round introduced.
+
+**The rule that was missed: facts supplied as context for writing are
+not thereby approved for publication.** Her brief gave the department's
+composition before the restructure so the story could be understood. It
+went onto the page. Two sentences, "a marketing team of a CMO and two
+directors" followed by "a restructure left the function to be rebuilt",
+let any reader work out the shape of a personnel event at her current
+employer, and the people involved are one search away. Her own brief
+said to describe the restructuring without disclosing personnel
+decisions. Removed.
+
+**Honesty and exposure are not the same axis.** "The numbers have moved
+in both directions since the restructure" was written to avoid claiming
+continuous growth, which the brief forbids. But a sitting VP publishing
+that her employer's marketing results have declined in some dimension is
+a different act from declining to overclaim. The column now states the
+verified windowed results and stops. It still makes no trend claim; it
+just does not narrate one. **Refusing to overclaim does not require
+volunteering a negative about a current employer.**
+
+Also removed: the specific vendor arrangements that ended, since an
+agency should not learn from a personal site that it was cut, and the
+application's scope figures (43 pages, 33 collections, nine roles),
+which advertise internal architecture and invite a question about who
+owns software built for an employer. The case study still carries the
+problem, the design decisions and the capabilities.
+
+Kept, both predating this work: the word "restructure" and the 34%
+budget cut. Flagged to Amber as worth re-examining now that they sit
+beside a detailed rebuild narrative.
+
+**Standing check for anything about a current employer: would this be
+comfortable if her CEO, her board, the former postholder, or a cut
+vendor read it?**
