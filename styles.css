@@ -3086,18 +3086,22 @@ a.bld-item .bld-item-arrow {
 .case-d[open] .tg-b { display: inline; }
 .case-chev { display: inline-block; transition: transform 0.2s var(--ease); }
 .case-d[open] .case-chev { transform: rotate(180deg); }
-/* the detail sits under a hairline so the seam reads as structure */
-.case-body { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--line); }
-/* Provenance lives here rather than in the collapsed tag: it is a good
-   detail, but it is not the first thing anyone needs. It still has to
-   exist somewhere, so an employer is never implied to be a client. */
-.case-rel {
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 22px;
-}
+/* No hairline. It used to mark the seam between the summary and the
+   body because the body opened with a line of plain text (.case-rel).
+   Every case body now opens with .case-cols, whose headings carry 2px
+   peach rules, so the hairline became a second horizontal rule 40px
+   above three others with nothing in between. The peach rules are the
+   seam now; two rule systems meeting is what made it read loose.
+   PROVENANCE moved INTO the collapsed tag, reversing the earlier note
+   here that it "is not the first thing anyone needs". That was a
+   judgement about priority. The problem Amber hit was visual: as its
+   own line, .case-rel was the fourth uppercase label in a case and was
+   typographically identical to Challenge / Approach / Impact (13px,
+   600, same tracking, same colour), so a piece of metadata read as a
+   section heading. Folded into the tag it is one metadata line, and
+   the employment relationship is now visible without opening the case,
+   which serves the original goal better than the original solution. */
+.case-body { margin-top: 28px; padding-top: 4px; }
 @media (max-width: 800px) { .case-cols { grid-template-columns: 1fr; gap: 20px; } }
 
 .case-col h3,
@@ -3160,12 +3164,14 @@ a.bld-item .bld-item-arrow {
   gap: 4px 18px;
   align-items: baseline;
 }
-/* A metric MAY omit .cm-when. The period line earns its place when the
-   figures carry different periods, as PERQ's do (a year to date, a
-   completed year, a forecast). Where every figure in a list shares the
-   role's tenure, and .case-rel states that tenure directly above, three
-   identical period lines are repetition, not rigour. Without .cm-when
-   the figure spans one row instead of two, or the grid collapses. */
+/* A metric MAY omit .cm-when, though nothing does today. The period
+   line earns its place whenever a figure would otherwise have no
+   bound, which is every case now that the tenure line is gone. The
+   opt-out exists for the state this page was briefly in: a list whose
+   figures all shared one period that something directly above already
+   stated, where repeating it per figure was repetition, not rigour.
+   Without .cm-when the figure spans one row instead of two, or the
+   grid collapses. */
 .case-metrics li:not(:has(.cm-when)) .cm-fig { grid-row: span 1; }
 .cm-fig {
   grid-row: span 2;
@@ -6725,7 +6731,6 @@ footer p,
 @media (max-width: 760px) { .work-strip a { font-size: 1.125rem; } }
 .plat h3, .plat p { font-size: var(--fs-small); line-height: 1.45; }
  .case-scope, .art-link a{ font-size: var(--fs-small); line-height: 1.55; }
-.case-rel { font-size: var(--fs-eyebrow); }
 .lb-stage figcaption { font-size: var(--fs-small); line-height: 1.5; }
 .lb-count { font-size: var(--fs-eyebrow); }
 .case-impact { font-size: var(--fs-body); line-height: 1.55; }

@@ -7809,3 +7809,71 @@ against a column heading's, property by property, is what found it —
 reading the CSS would not have.
 
 Impeccable: 118. Zero overflow at 1440, 390 and 360, every case open.
+
+---
+
+## 2026-11-18 — Four labels, one treatment
+
+Amber: "The title being in there feels mismatched. I need the design to
+be reviewed."
+
+She was pointing at one element and the measurement found the pattern
+behind it. Every uppercase label inside a case study rendered
+**identically**: 13px, weight 600, 1.04px tracking, the same `--muted`.
+Four of them, doing two different jobs.
+
+    case-tag      "Document Technology"      metadata
+    case-rel      "Director of Marketing"    metadata
+    case-col h3   "Challenge" / "Approach"   structure
+    cm-head       "Impact"                   structure
+
+The only thing separating metadata from structure was a 2px peach
+border. The source looks like it distinguishes them — `.case-rel` sets
+`letter-spacing: 0.08em` and `.case-col h3` sets `0.12em` — but a
+responsive override later in the file resets the headings to 0.08em,
+so at every real viewport they are the same. **Reading the declarations
+would have said these were different. Only the computed styles said
+they were not.**
+
+Removing the date made it worse, not better. "DIRECTOR OF MARKETING ·
+2021–2023" at least read as metadata because of the date. Stripped to
+"DIRECTOR OF MARKETING" and set exactly like a section heading, sitting
+directly above one, it read as a heading for the section below it.
+
+**Fix: the role joins the tag.** Both are metadata about the
+engagement, so they are one line now — "Document Technology · Director
+of Marketing". `.case-rel` is gone from markup and CSS. Every case has
+one metadata line and one structural sequence, and nothing is left
+wearing a heading's clothes while carrying metadata.
+
+This reverses a note that had sat on `.case-rel` for months:
+"Provenance lives here rather than in the collapsed tag: it is a good
+detail, but it is not the first thing anyone needs." That was a
+judgement about priority and it was reasonable. It just never
+anticipated that the element would end up typographically identical to
+the headings it sat beside. **The merge also serves the note's actual
+goal better** — "so an employer is never implied to be a client" — by
+making the employment relationship visible without opening the case.
+
+**Second finding, caused by the first.** With `.case-rel` gone, the
+`.case-body` hairline sat 40px above three peach rules with nothing
+between them: two rule systems meeting. That hairline existed because
+the body used to open with plain text. All six bodies now open with
+`.case-cols`, so it is removed and the peach rules are the seam.
+Scan-Optics: 706 → 664px.
+
+**PATTERN audit, six pages** (per CLAUDE.md): h1 50 everywhere, h2
+40 with the documented `.h2-long` 35 step-down, card titles 21, two
+tabs per page, body 17. Clean. Two flags both resolved as non-defects:
+`.eyebrow` appears only on About (7) and the four service pages (1
+each), which is right because About is a long first-person narrative
+needing wayfinding where other pages have h2 section titles; and
+About's "missing" CTA is its contact form.
+
+The ui-ux-pro-max database returned font pairings for every hierarchy
+query and had nothing on label taxonomy. Noted so the next person does
+not spend the search budget twice.
+
+Impeccable: 118. The merged tag is a 43-character uppercase run, well
+inside the 80-character `all-caps-body` limit. Zero overflow at 1440,
+390 and 360, every case open.
