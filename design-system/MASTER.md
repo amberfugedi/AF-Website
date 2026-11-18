@@ -7514,3 +7514,92 @@ rather than churned — the brief said not to redesign the site.
 either. Left in place, noted here so the next audit doesn't chase them.
 
 Impeccable: 118, the standing baseline, unchanged.
+
+---
+
+## 2026-11-18 — Employer positioning: the same facts, told from the other chair
+
+Amber asked for the whole site read as her CEO, board, colleagues,
+customers and competitors at PERQ would read it, plus the same courtesy
+to Scan-Optics, StormwaterONE, MembersFirst and every client. The ask
+was not to soften her accomplishments. It was to stop her growth being
+told as a rescue story.
+
+**The pattern the audit found.** Almost every trip was the same
+construction: her contribution established by describing a deficit that
+preceded it. "A legacy marketing function and a pipeline that had not
+caught up." "The department knew what it was doing, that knowledge just
+lived in a lot of separate places." "Which things we were paying for out
+of habit rather than need." "I can design it and write it rather than
+specify it and wait." Each is defensible on its own. Together they
+describe employers who were failing until she arrived — which is not
+what she thinks and not what she wanted published.
+
+**A deficit frame is a choice, not a fact.** Every one of these
+rewrote without losing a single accomplishment, because the achievement
+was never the deficit, it was the thing she built. "The reporting lived
+in different shapes" became "the business already had years of data
+behind it, and bringing it together meant history could inform the next
+decision." Same work, same figures, same build. The only thing that
+changed is who the sentence is about.
+
+**"Rather than specify it and wait"** was the clearest case. It is a
+real capability — she builds instead of filing a ticket — but the
+sentence spent the other department's reputation to make the point.
+"I can design and build it myself" says the same thing about her and
+nothing at all about engineering.
+
+**Headers.** `The problem / What I did / What changed` became
+`The opportunity / What I built or led / What it enables` for the
+in-house cases. "What I built" where she built it, "What I led" for the
+podcast, so the distinction between personal and collaborative work
+survives the rename.
+
+**Where I overstepped, twice, and was wrong the same way both times.**
+Reframing "30% lower professional services spending" I wrote "30% of
+the budget redirected to other priorities" — which asserts where the
+money went, and I do not know that. It is the video mistake again:
+turning an inference into a stated fact in the course of making copy
+read better. Fixed to "less of the budget going to outside professional
+services," which is the approved figure and nothing more. **Softening
+a claim is still changing a claim.** Reframing is not licence to add.
+
+**What was NOT changed.** The figures, all five, with their period
+labels. The client-facing conditions on Expertise and My Approach
+("when nobody quite agrees on the number") — those describe a
+prospective client's situation, name nobody, and are the consulting
+positioning she asked to keep. Her own voice throughout: "being the
+most capable person in the room is a different thing from being the
+most useful one in it" stays, because it is self-aware rather than
+critical of anyone.
+
+**The meta descriptions nearly got missed.** `index`, `about` and
+`projects` each carried "rebuilds marketing functions" / "what
+rebuilding a department taught her" three times over (description, OG,
+Twitter). A page audit that reads rendered text does not see them, and
+they are the version a board member meets in a search result. Any copy
+pass that changes how a page frames an employer has to re-run against
+`<head>`, not just `<main>`.
+
+**Restructuring: third removal.** The brief said "acknowledge
+organizational restructuring where relevant." Raised rather than
+followed, per the standing decision — and the brief argued against
+itself: it lists "financially constrained or struggling" as an
+impression to avoid, which is exactly what the word creates. Flagged to
+Amber; she did not reverse it.
+
+**Hero.** The credibility strip is gone at Amber's direction — her own
+brief said the intro should not read like a résumé, and the strip was a
+résumé line whose first item repeated the paragraph above it. The proof
+chips were three PERQ figures; two of them (2.6x median booking value,
+30% professional services) she could not read without explanation, and
+a proof chip that needs decoding is not proof. They now span the career:
+421% at PERQ, $1.3M to $2.8M at Scan-Optics, 8 years with MembersFirst.
+In-house and consulting, current and past, each legible cold. Hero
+702 → 627px desktop, 1015 → 918px mobile.
+
+**The chip label budget held**: all three at or under 32 characters,
+zero overflow at 390. The wider `$1.3M → $2.8M` stat fits because the
+budget governs the label, not the figure.
+
+Impeccable: 118, unchanged. No em dashes introduced.
