@@ -7720,3 +7720,49 @@ went, and this file already carries two dead selectors (`.oc-note`,
 
 Impeccable: 118. Zero overflow at 1440, 390 and 360 with every case
 study expanded.
+
+---
+
+## 2026-11-18 — Two kinds of date, and only one of them is a résumé
+
+Amber: "I don't think we need dates with the case study as in when I
+worked there. It's not a resume."
+
+Gone: `.case-rel` tenure stamps ("At PERQ since December 2023",
+"Director of Marketing · 2021–2023", "Marketing Director · 2019–2021")
+and the date suffixes on two homepage card tags, which also brings
+those six cards into line — four never had dates.
+
+Scan-Optics and StormwaterONE keep the bare role title. The title says
+in what capacity she acted, which a case study needs; the date range
+says how long she was employed, which only a CV needs.
+
+**The qualifier in her sentence did the work: "as in when I worked
+there."** A period under a figure and a period beside a job title look
+identical and are not the same claim. One dates a result, the other
+dates an employment. Removing the tenure line would have left
+"115% more opportunity creation" with no bound anywhere, which is the
+one thing the metric discipline exists to prevent — so the per-figure
+periods come back, exactly where they were removed last entry.
+
+That reversal is not churn. Last entry those periods were redundant
+*because the tenure line stated the same thing twelve pixels above*.
+Delete that line and the redundancy becomes the only bound on the
+page. Same markup, opposite verdict, because the surrounding context
+changed. The `:not(:has(.cm-when))` rule stays — it is now what lets a
+list opt out when something else supplies the period, which is a real
+state the page can be in again.
+
+PERQ's dates survive in prose, in "How it progressed," because her
+brief asks for the progression from Director of Demand Generation to VP
+to be communicated accurately. A narrative that moves through time is
+not a date stamp.
+
+**Where dates still belong: About's experience section.** That one is
+openly a CV, behind "The longer version — curious how I got here?", and
+a reader who opens it is asking for exactly that. The rule is not "no
+dates on the site." It is that a case study argues from evidence and a
+CV argues from chronology, and the two should not be wearing each
+other's clothes.
+
+Impeccable: 118. Zero overflow at 1440, 390 and 360, every case open.
