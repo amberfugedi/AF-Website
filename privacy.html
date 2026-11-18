@@ -81,16 +81,25 @@
       <div class="wrap">
         <h1>Privacy.</h1>
         <p class="section-lede">Two forms collect anything at all, the site sets no cookies of its own, and nothing here is sold or passed on for anyone else&#8217;s marketing.</p>
+        <!-- The lede stays accurate: cookies and browser storage are different
+             things, and the browser-storage entry is described in full below.
+             NOT ADDED, deliberately: Stripe, purchase records, course sign-in,
+             saved answers and Foundation Plans. The course ships as
+             data-sale="wait" on both pages, every purchase control is
+             display:none and unreachable by keyboard, and learn.amberfugedi.com
+             is a separate system this repo cannot inspect. Describing those
+             flows now would be inventing them. They MUST be written before the
+             course opens for sale -- see the QA report. -->
       </div>
     </header>
     <section style="padding-top: 0;">
       <div class="wrap">
         <div class="legal">
-          <p class="legal-date">Last updated 22 August 2026.</p>
+          <p class="legal-date">Last updated 18 November 2026.</p>
 
           <h2>What this site collects</h2>
           <p>Two forms, and nothing else. The contact form on the About page asks for your name, your email address, what you are working on, and optionally what brought you here. The course updates form asks for an email address only. Both are handled by Netlify Forms, which stores the submissions so I can read them.</p>
-          <p>The site sets no cookies of its own, runs no advertising trackers, and does not store anything in your browser.</p>
+          <p>The site sets no cookies of its own and runs no advertising trackers. The two course pages do store one thing in your browser: a single flag, in session storage, recording whether you are viewing the course as open or as a waitlist. It holds no personal information, it is never sent anywhere, and your browser discards it when you close the tab.</p>
 
           <h2>What happens automatically</h2>
           <p>The site is hosted by Netlify, which keeps standard server logs including IP addresses, for security and to keep the site running. Fonts are loaded from Google Fonts, so displaying a page makes a request to Google that reveals your IP address to them. If you would rather avoid that, most browsers can be set to block third-party font requests.</p>

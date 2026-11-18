@@ -3141,6 +3141,18 @@ a.bld-item .bld-item-arrow {
    Not a stat wall: the figure column is fixed so the eye reads down it.
    cm-when is REQUIRED -- .cm-fig spans both rows and the grid breaks
    without it. */
+/* Framing for the metrics block. Replaces the removed "each figure is
+   marketing-sourced" note with the line Amber specified, which carries
+   more: it says the figures are SELECTED, so the list is not read as a
+   complete account of everything that moved. */
+.cm-note {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: var(--fs-eyebrow);
+  line-height: 1.5;
+  max-width: 70ch;
+}
+
 /* THE CALL. PARKED, DELIBERATELY UNUSED. No markup uses this today.
    It is kept because the component is right and the content was not,
    and the comment is the point.
@@ -5920,8 +5932,14 @@ footer {
 /* ============ Reduced motion ============ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .aura { animation: none; transition: none; }
-  .aura-blob { animation: none; transition: none; }
+  /* !important, not a bare declaration: the homepage sets this animation
+     through .page-home .aura (0,2,0), which outranks a plain .aura (0,1,0),
+     so the override silently lost on the one page that actually animates.
+     Found by driving the page with reducedMotion:"reduce" and reading
+     computed animationName, not by reading the CSS -- the rule looked
+     correct in the file. */
+  .aura { animation: none !important; transition: none !important; }
+  .aura-blob { animation: none !important; transition: none !important; }
   .case::before { transition: none; }
   /* the disclosure chevron still flips to show state, it just does
      not sweep there (it was never covered, on the cases either) */
