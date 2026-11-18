@@ -3084,6 +3084,47 @@ a.bld-item .bld-item-arrow {
   font-weight: 600;
   color: var(--coral-deep);
 }
+/* Flagship cases only. Five approved figures spanning three different
+   period types: a year to date, a completed year, and a forecast. Prose
+   buries that distinction, so each one carries its period on its own
+   line and the figure leads. Not a stat wall: the figure column is
+   fixed so the eye reads down it. */
+.case-metrics {
+  list-style: none;
+  margin: 26px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 14px;
+}
+.case-metrics li {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 4px 18px;
+  align-items: baseline;
+}
+.cm-fig {
+  grid-row: span 2;
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  color: var(--coral-deep);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+.cm-what { color: var(--ink); font-size: var(--fs-small); line-height: 1.45; }
+.cm-when { color: var(--muted); font-size: var(--fs-eyebrow); line-height: 1.4; }
+.cm-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: var(--fs-eyebrow);
+  line-height: 1.5;
+  max-width: 70ch;
+}
+@media (max-width: 620px) {
+  .case-metrics li { grid-template-columns: 4.6rem minmax(0, 1fr); gap: 3px 14px; }
+  .cm-fig { font-size: var(--fs-intro); }
+}
+
 /* Flagship cases only. PERQ is a leadership story, not a campaign, and
    the three columns cannot carry what the restructure taught her without
    turning Impact into an essay. Its own line under a hairline, label in

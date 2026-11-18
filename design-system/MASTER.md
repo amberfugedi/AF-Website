@@ -7311,3 +7311,46 @@ range, which is right: one is a flagship and the others carry a remit.
 **Rule: confidentiality removes specifics, it does not require
 abstraction. When a proper noun comes out, put a concrete detail in
 rather than a category.**
+
+## 2026-11-18 — Five approved figures, three period types
+
+The PERQ metrics withheld through the confidentiality review were
+supplied as approved. They span three different period types, and that
+is the whole design problem: a year to date, a completed year, and a
+forecast. Prose buries the distinction and a reader fills the gap with
+the most flattering reading.
+
+So `.case-metrics`: figure, what it measures, and its period on its own
+line underneath. Five items, one device, no stat wall. The figure column
+is fixed so the eye reads down it. Flagship only.
+
+**Where the periods landed**
+
+    421%      bookings          2026 to date, through October, vs same period 2025
+    2.6x      median value      2025 to 2026
+    119%      organic MQLs      2025
+    30%       prof services     2026 forecast, year over year
+    27%       spend per customer  based on 2026 forecast spending
+
+The closing note does the work the brief asked for without volunteering
+a specific negative: "They are the measures that moved, not a claim that
+everything did." That satisfies "do not imply all acquisition efficiency
+metrics improved" while leaving the decline unnarrated, which is the
+line Amber drew in the earlier "both directions" episode.
+
+**Homepage chips carry one of each period type**, which is the cheapest
+way to make the distinction visible above the fold:
+
+    421% YTD   Marketing-sourced bookings, 2026     (32ch) current, partial
+    119%       More organic MQLs, 2025              (23ch) completed year
+    30% less   Professional services, forecast      (31ch) forecast
+
+All three land inside the 32-character label budget and hold one line to
+340px. Organizational leadership moved into the PERQ featured card,
+which now carries the restructuring and the two promotions, so the four
+required dimensions are covered across chips and cards rather than
+crammed into three chips.
+
+Scan-Optics and StormwaterONE results left the chips and stay on
+Projects and About. Preserving an accomplishment means keeping it on the
+site, not keeping it in one particular slot.
