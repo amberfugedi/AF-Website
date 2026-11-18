@@ -3100,7 +3100,8 @@ a.bld-item .bld-item-arrow {
 }
 @media (max-width: 800px) { .case-cols { grid-template-columns: 1fr; gap: 20px; } }
 
-.case-col h3 {
+.case-col h3,
+.case .cm-head {
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);
   font-weight: 600;
@@ -3136,11 +3137,20 @@ a.bld-item .bld-item-arrow {
    Not a stat wall: the figure column is fixed so the eye reads down it.
    cm-when is REQUIRED -- .cm-fig spans both rows and the grid breaks
    without it. */
+/* The heading carries the rule now. Stacking Scan-Optics and
+   StormwaterONE turned their "Impact" column into this list and the
+   heading went with the column, leaving figures under a bare hairline
+   while the client cases still labelled theirs -- Challenge, Approach,
+   then nothing. .cm-head takes the same 2px peach rule as the column
+   headings because it IS the third step of that sequence, not a
+   closing flourish after it. (A 2px peach rule used as a section
+   CLOSER was tried in Sept and made things worse: identical to the
+   column rules, it continued the rhythm where it needed to end one.
+   Same device, opposite job, opposite result.) */
+.case .cm-head { margin-top: 28px; }
 .case-metrics {
   list-style: none;
-  margin: 26px 0 0;
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
+  margin: 0;
   display: grid;
   gap: 14px;
 }
@@ -6871,7 +6881,8 @@ footer p,
 .more-list .case-tag,
 .offer-aside .tier,
 .email-capture .capture-label,
-.case-col h3 { letter-spacing: 0.08em; line-height: 1.4; }
+.case-col h3,
+.case .cm-head { letter-spacing: 0.08em; line-height: 1.4; }
 .cta-band,
 .quote-marquee { border-radius: 24px; }
 .marquee-toggle { border-radius: 24px; }

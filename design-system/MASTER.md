@@ -7766,3 +7766,46 @@ CV argues from chronology, and the two should not be wearing each
 other's clothes.
 
 Impeccable: 118. Zero overflow at 1440, 390 and 360, every case open.
+
+---
+
+## 2026-11-18 — The heading went with the column
+
+Amber noticed the "Impact" heading had disappeared from the stacked
+cases. It had, and the way it happened is worth recording.
+
+Converting Scan-Optics and StormwaterONE from a three-column layout to
+two columns plus a full-width metrics list moved the figures out of the
+`.case-col result` div — and the `<h3>Impact</h3>` lived inside that
+div, so it was deleted along with the wrapper. Nothing in the diff
+looked like removing a heading. The cases then read Challenge,
+Approach, and then a hairline with unlabelled numbers under it, while
+the three client cases still labelled theirs.
+
+**Moving content between containers silently drops whatever else the
+container held.** The replace asserted on the text it was removing, as
+every replace here does now, and the assertion passed — it was removing
+exactly what it said. What it did not check was what else went with it.
+An assertion covers the thing you were thinking about; the heading was
+collateral, and collateral is what assertions miss. The check that
+would have caught it is structural, not textual: every case has a
+labelled impact, before and after.
+
+All six cases label their impact now. `.cm-head` takes the same 2px
+peach rule as the column headings, because it is the third step of
+Challenge / Approach / Impact, not an ornament after it. Worth
+contrasting with Sept, when a 2px peach rule used as a section CLOSER
+made the "blends together" problem worse: identical to the column
+rules, it continued the rhythm exactly where the design needed one to
+end. Same device, opposite job, opposite outcome. Matching is right
+when the thing genuinely is another instance of the pattern and wrong
+when it only sits near it.
+
+One specificity trap on the way: `.case h3` is (0,1,1) and a bare
+`.cm-head` is (0,1,0), so the heading rendered at full h3 size while
+every declaration in the shared rule looked correct in the file.
+Scoped to `.case .cm-head`. Diffing the heading's computed style
+against a column heading's, property by property, is what found it —
+reading the CSS would not have.
+
+Impeccable: 118. Zero overflow at 1440, 390 and 360, every case open.
