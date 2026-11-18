@@ -7354,3 +7354,29 @@ crammed into three chips.
 Scan-Optics and StormwaterONE results left the chips and stay on
 Projects and About. Preserving an accomplishment means keeping it on the
 site, not keeping it in one particular slot.
+
+## 2026-11-18 — The third column stopped earning its place
+
+Amber: "I'm not sure where it sits now is right." It was not.
+
+Before the metrics existed, that column had to carry the outcome. Once
+five approved figures landed directly beneath it, the column became **a
+soft, unverifiable claim sitting on top of hard evidence**. "A function
+sized to the business rather than to its own history" was arguing for
+what 421%, 2.6x, 119%, 30% and 27% already demonstrate, and losing.
+
+Its second sentence had a different problem. "I sit in the rooms where
+the strategy and the annual plan get decided" is scope, not outcome, so
+it belonged in What I own. The trailing clause, "which is a different
+job from running the campaigns", was explaining to the reader why the
+fact mattered, which is the tell of a claim that does not trust itself.
+
+So: the executive seat moved into What I own, and the column is gone.
+Two columns, then the figures, then the lesson. PERQ's prose drops from
+142 words to 115 and the measure sits at 57ch, inside the site's norm.
+
+**The general trap: adding evidence can strip a neighbouring element of
+its job without anything flagging it.** The metrics block was reviewed
+on its own and rendered correctly. Nothing asked what the paragraph
+above it was still for. **When a section gains hard evidence, re-read
+whatever used to carry that burden.**
