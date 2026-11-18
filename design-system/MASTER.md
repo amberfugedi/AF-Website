@@ -7129,8 +7129,8 @@ vendor read it?**
 
 ## 2026-11-18 (correction) — "Restructure" implied something that did not happen
 
-Amber: there were no layoffs. Budget moved from marketing to product,
-and that reason is private.
+Amber confirmed there were no layoffs. The actual cause is private and
+is deliberately not recorded here.
 
 This inverts the earlier concern. The risk was never that the word
 disclosed a personnel event. It is that **"restructure" reads as layoffs
@@ -7147,7 +7147,7 @@ happened to her scope without characterizing the company event:
 
 "On a smaller budget" is safe: the 34% cut is already public on the same
 page, and budgets shrink for many reasons, so it points nowhere. The
-reallocation to product appears nowhere on the site and must not.
+actual cause is private and appears nowhere on the site or in this file.
 
 "Departmental restructuring" survives on Expertise as the name of a
 capability, which is a skill, not a claim about an employer.

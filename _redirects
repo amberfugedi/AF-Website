@@ -1,13 +1,19 @@
-# Internal docs live in the repo but are not part of the site. Without
-# these the build-step-free deploy serves them at their own URLs.
-# The trailing ! is required: a rule whose path matches a real file is
-# shadowed by that file unless the status is forced.
+# Internal docs and working material live in the repo but are not part of
+# the site. Without these the build-step-free deploy serves them at their
+# own URLs. The trailing ! is required: a rule whose path matches a real
+# file is shadowed by that file unless the status is forced.
+# screenshots, attached_assets, undefined and the bare .md catch-all were
+# added 2026-11-18 during the IP review; the rest already existed.
 /TODO.md            /404.html  404!
 /CLAUDE.md          /404.html  404!
+/*.md               /404.html  404!
 /design-system/*    /404.html  404!
 /plans/*            /404.html  404!
 /artifacts/*        /404.html  404!
 /mockups/*          /404.html  404!
+/screenshots/*      /404.html  404!
+/attached_assets/*  /404.html  404!
+/undefined/*        /404.html  404!
 
 # ---- One URL per page -------------------------------------------------
 # Canonical form is https://www.amberfugedi.com/<clean>. The .html twins
