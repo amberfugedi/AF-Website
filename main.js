@@ -263,23 +263,28 @@
   if (pfTabs) {
     var tabs = [].slice.call(pfTabs.querySelectorAll("a[data-cat]"));
     var cats = [].slice.call(document.querySelectorAll("main section[data-cat]"));
-    var apply = function (cat, tab) {
+    /* The situation router in the page head sets the same filter. It is
+       matched by data-cat rather than by identity so the two controls
+       cannot disagree about which tab is current. */
+    var routers = [].slice.call(document.querySelectorAll(".pf-router a[data-cat]"));
+    var apply = function (cat) {
       tabs.forEach(function (a) {
-        if (a === tab) a.setAttribute("aria-current", "true");
+        if (a.getAttribute("data-cat") === cat) a.setAttribute("aria-current", "true");
         else a.removeAttribute("aria-current");
       });
       cats.forEach(function (s) {
         s.hidden = cat !== "all" && s.getAttribute("data-cat") !== cat;
       });
     };
-    tabs.forEach(function (a) {
+    tabs.concat(routers).forEach(function (a) {
       a.addEventListener("click", function (e) {
         e.preventDefault();
-        apply(a.getAttribute("data-cat"), a);
-        /* The bar is sticky under the site nav; after a filter the top of
-           the remaining section can sit above the fold. Put it under the
-           two bars rather than leaving the reader mid-section. */
-        if (pfTabs.getBoundingClientRect().top < 0) {
+        apply(a.getAttribute("data-cat"));
+        /* The bar is sticky under the site nav. After a filter from the
+           tabs the top of the remaining section can sit above the fold,
+           so scroll back to the bar; after a filter from the router the
+           reader is still at the top of the page, so leave them there. */
+        if (routers.indexOf(a) === -1 && pfTabs.getBoundingClientRect().top < 0) {
           pfTabs.scrollIntoView();
         }
       });
@@ -287,7 +292,7 @@
     var hash = location.hash.slice(1);
     if (hash) {
       var match = tabs.filter(function (a) { return a.getAttribute("href") === "#" + hash; })[0];
-      if (match) apply(match.getAttribute("data-cat"), match);
+      if (match) apply(match.getAttribute("data-cat"));
     }
   }
 

@@ -8537,3 +8537,86 @@ third colour-coded set, which the palette cap does not allow. Alpha says
   flush against the band's background however far the text actually sits
   from the edge. The buttons are inline-block and the band is centred;
   the wrapper was never needed.
+
+---
+
+# 2026-11-20 (last) — The persona pass, applied
+
+Amber: "I don't want a small business to get overwhelmed." The audit is
+in `plans/persona-map-2026-11-20.md`. Four of its five changes are now
+live; the fifth, the three homepage proof chips, she held back.
+
+## The situation router
+
+A sentence under the Work page head, not a second control strip:
+
+> Start from where you are: running a small business, leading a
+> marketing function, or looking at systems and AI.
+
+Each link is a real anchor to a real section, so it works with
+JavaScript off; `main.js` upgrades the three of them into the same
+filter the tabs drive. **The tabs name Amber's categories. The router
+names the reader's situation**, and the gap between those two was the
+whole problem: a small business owner had to work out for themselves
+that "Consulting and client work" meant them.
+
+`apply()` now matches the current tab by `data-cat` rather than by
+identity, so the two controls cannot disagree about which tab is
+marked. A router click does not scroll, because the reader is already
+at the top of the page; a tab click still does.
+
+**The margin was negative and wrong.** `-34px`, to pull up into the
+lede's 56px bottom margin, except the lede is the head's last child and
+that margin is already zeroed, so the router rendered on top of the
+lede's third line. Measure the gap before you close it.
+
+## The four categories pair at the Compact step
+
+702px of a 6,826px page was section padding, with three 208px joints
+between categories. Four filtered categories are one argument, which is
+the documented condition for the tighter pairing (Expertise already
+does it with `.tools-section` and `.showcase`). 64/64 gives a 128 joint.
+
+Desktop: 7.6 screens to 7.3. **Phone: unchanged, and honestly so.** The
+mobile sections were already at the site minimum of 48, so there was
+nothing to save there, and the router costs about the same as the
+rhythm gains. The phone page is still 10.2 screens by default. The
+router is a navigation fix, not a length fix, and on a phone it is the
+more valuable of the two because the tab bar scrolls horizontally and
+is easy to miss.
+
+## A2 Exteriors moves into the homepage's first row
+
+Five of the six Selected Work cards were in-house work at companies
+with marketing departments and the sixth was a credit union, so a small
+business owner scrolled the entire grid without meeting anyone their
+size, and then reached a testimonial from a pressure washing company.
+Marketing operations came out: the most abstract of the six, and it
+overlaps PERQ. Row one now reads enterprise, builder, small business.
+
+## A fifth situation on Services
+
+The four cards map one to one onto the four services and that mapping
+is worth keeping, so the fifth is **a sibling of the grid, not a cell
+in it**. Inside the grid it took the equal row height the four peers
+share (`grid-auto-rows: 1fr`) and opened a 150px hole under its own
+copy.
+
+"There's no marketing in place yet and I don't know where to start" is
+the situation the practice hears most and the one the section did not
+have. It is deliberately not Anthony Aubrey's exact words, which are
+already on the page as a testimonial, but it is the same situation.
+Routes to Consulting, with the course named inline for anyone who would
+rather work through it themselves.
+
+## Withdrawn
+
+Yesterday's recommendation to land the Work page on Marketing
+leadership and growth. Under the persona lens it is the worst landing
+for a small business: a 421% figure and an organizational design case
+study, with no sign the practice ever works at their size. "All work"
+stays the default.
+
+Also considered and rejected: collapsing the four categories behind
+disclosure rows. Four closed doors only help a reader who already knows
+which door they want.

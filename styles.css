@@ -8707,6 +8707,44 @@ footer p,
    its own page, and the existing .more-list for entries that do not have
    one. A portfolio where everything is the same card is a catalogue. */
 
+/* The situation router under the page head. Prose, with its links
+   marked the way an inline link is marked everywhere else, so it reads
+   as a sentence rather than as a second row of tabs. */
+.pf-router {
+  /* A POSITIVE margin. This was -34px, to pull up into the lede's
+     56px bottom margin — except the lede is the head's last child and
+     something already zeroes that margin, so the negative value laid
+     the router straight on top of the lede's third line. Measure the
+     gap you are closing before you close it. */
+  margin: 20px 0 0;
+  color: var(--body);
+  font-size: var(--fs-small);
+  line-height: 1.7;
+  max-width: 62ch;
+}
+.pf-router a {
+  color: var(--coral-deep);
+  font-weight: 600;
+  text-decoration: none;
+  background-image: linear-gradient(var(--coral-deep), var(--coral-deep));
+  background-repeat: no-repeat;
+  background-size: 0 2px;
+  background-position: 0 100%;
+  transition: background-size 0.2s var(--ease);
+}
+.pf-router a:hover { background-size: 100% 2px; }
+
+/* THE FOUR CATEGORY SECTIONS PAIR AT THE COMPACT STEP, not Standard.
+   Four filtered categories are one argument, which is the documented
+   condition for the tighter pairing (Expertise does the same with
+   .tools-section and .showcase). Standard put three 208px joints into
+   a page that was already 7.6 screens; Compact makes them 128. 240px
+   off the desktop page with no content change. */
+.pf-tabs ~ section[data-cat] { padding-top: 64px; padding-bottom: 64px; }
+/* ...except the first, which sits under the sticky bar and keeps the
+   74px the rest of the site gives that joint. */
+.pf-tabs + section[data-cat] { padding-top: 74px; }
+
 .pf-tabs a[aria-current] {
   color: var(--ink);
   background: var(--bg-raised);
@@ -8806,6 +8844,13 @@ footer p,
 @media (max-width: 860px) {
   .pf-feat { grid-template-columns: 1fr; }
 }
+@media (max-width: 760px) {
+  /* The phone step is 48 site-wide; the selectors above are specific
+     enough to beat `section { padding }`, so it has to be restated. */
+  .pf-tabs ~ section[data-cat],
+  .pf-tabs + section[data-cat] { padding-top: 48px; padding-bottom: 48px; }
+  .pf-router { margin-top: 16px; }
+}
 @media (max-width: 680px) {
   .pf-rows a {
     grid-template-columns: 1fr;
@@ -8819,3 +8864,16 @@ footer p,
    takes over the page. The tall variant sizes it like a held object
    rather than a screenshot. */
 .cst-figure-tall { max-width: 430px; }
+
+/* The fifth situation spans the two-column grid. Four cards map one to
+   one onto the four services; this one answers a different question,
+   for someone who has no marketing yet, so it reads as the wide row at
+   the end rather than as a fifth peer with an empty cell beside it. */
+.sp-card-wide { margin-top: clamp(16px, 2.4vw, 26px); }
+@media (min-width: 861px) {
+  .sp-card-wide .sp-t, .sp-card-wide .sp-s { max-width: 56ch; }
+  /* The four peers share an equal row height. This one sizes to its
+     own copy, which is why it is a sibling of the grid rather than a
+     fifth cell in it. */
+  .sp-card-wide .sp-s { min-height: 0; }
+}

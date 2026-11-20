@@ -126,6 +126,19 @@
         <div class="head-copy">
           <h1>Projects shaped around <span class="tab-em tab-blush">different needs.</span></h1>
           <p class="section-lede">Every project looks different. The goal doesn&#8217;t. From leading marketing teams to building products of my own, the work reflects different ways of helping businesses move forward.</p>
+          <!-- SITUATION ROUTER. A sentence, not a second control strip: the
+               tab bar below already filters, and what this adds is the
+               translation from "which of Amber's four categories am I" to
+               "what is my situation". Added after a persona pass (2026-11-20,
+               Amber: "I don't want a small business to get overwhelmed")
+               found that a small business owner has to work out for
+               themselves that "Consulting and client work" means them.
+               Each link is a real anchor to a real section, so it works
+               without JavaScript; main.js upgrades them into filters. -->
+          <p class="pf-router">Start from where you are:
+            <a href="#client-work" data-cat="client">running a small business</a>,
+            <a href="#in-house" data-cat="leadership">leading a marketing function</a>,
+            or <a href="#builds" data-cat="systems">looking at systems and AI</a>.</p>
         </div>
         <!-- Two cropped builds, not a portfolio grid: the hero states the
              range, the page below does the showing. -->

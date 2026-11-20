@@ -149,5 +149,20 @@ argument. About 240px on desktop, 150px on a phone, no content change.
 | Add or reword a "don't know where to start" situation on Services | copy decision | P1 |
 | Rethink one of the three homepage proof chips | copy decision | P1 |
 
-Nothing here is applied. The first two are mine to do on a word from
-Amber; the last three change approved copy and are hers.
+## Status, 2026-11-20
+
+Applied, on Amber's word ("make all your recommended changes besides
+those 3 stars in the hero"):
+
+- Situation router on the Work page
+- Work page categories paired at the Compact step
+- A2 Exteriors into the homepage's first row, marketing operations out
+- A fifth situation on Services: "There's no marketing in place yet and
+  I don't know where to start"
+
+**Held back at her request: the three homepage proof chips.** They stay
+as they are. That means the first numbers a small business meets on the
+site are still 421%, $2.8M and 95%, and the balance now has to come
+from the A2 card in the first row of Selected Work and from the
+testimonial below it. Worth re-reading once there is an approved
+client-scale figure to put beside them.
