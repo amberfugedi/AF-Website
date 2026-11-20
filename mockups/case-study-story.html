@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Case study: story layout</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+  body { background: var(--bg); }
+  .mk-wrap { max-width: 1180px; margin: 0 auto; padding: 48px 24px 140px; }
+  .mk-head h1 { font-size: var(--fs-h2); margin: 0 0 14px; }
+  .mk-head p { color: var(--body); max-width: 76ch; line-height: 1.6; margin: 0 0 12px; }
+  .mk-opt { margin: 86px 0 0; }
+  .mk-label { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--coral-deep); margin: 0 0 6px; }
+  .mk-note { color: var(--body); font-size: var(--fs-small); line-height: 1.6; margin: 0 0 26px; max-width: 78ch; }
+  .mk-stage { background: var(--bg-raised); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: clamp(26px, 3.2vw, 46px); }
+  .mk-measure { margin: 16px 0 0; font-size: var(--fs-eyebrow); color: var(--muted); }
+
+  /* ============ THE STORY LAYOUT ============ */
+
+  /* The setup line. It IS the headline: no title above it and no intro
+     below it, so the first thing read is the situation someone was in. */
+  .st-open {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.1rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    max-width: 30ch;
+    margin: 0 0 clamp(32px, 3.6vw, 46px);
+  }
+  .st-open em { font-style: italic; color: var(--coral-deep); }
+  .st-eyebrow { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); margin: 0 0 14px; }
+
+  .st-split { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+    gap: 0 clamp(34px, 4vw, 64px); align-items: start; }
+
+  /* ---- left: the visual ---- */
+  /* No product screenshots exist for most of these cases, and inventing
+     one would be a fake interface. The panel is the site's own aura
+     instead, with the figures sitting on it as the proof cards the home
+     page already uses. */
+  .st-panel {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    padding: clamp(28px, 3.4vw, 42px);
+    background:
+      radial-gradient(circle at 18% 12%, rgba(251, 213, 228, 0.85), transparent 58%),
+      radial-gradient(circle at 92% 22%, rgba(252, 228, 196, 0.8), transparent 55%),
+      radial-gradient(circle at 60% 96%, rgba(218, 212, 245, 0.75), transparent 60%),
+      var(--bg);
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+  .st-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 22px;
+    box-shadow: 0 16px 36px -22px rgba(46, 42, 39, 0.4);
+    rotate: var(--tilt, 0deg);
+  }
+  .st-card:nth-child(1) { --tilt: -1.1deg; width: 78%; }
+  .st-card:nth-child(2) { --tilt: 0.9deg; width: 86%; margin-left: auto; }
+  .st-card:nth-child(3) { --tilt: -0.7deg; width: 72%; margin-left: 8%; }
+  .st-n { display: block; font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(1.7rem, 1.3rem + 1.5vw, 2.4rem); line-height: 1;
+    color: var(--coral-deep); letter-spacing: -0.02em; }
+  .st-w { display: block; margin-top: 6px; font-size: var(--fs-small); color: var(--ink); line-height: 1.4; }
+
+  .st-panel-img { padding: 0; min-height: 0; display: block; background: none; }
+
+  /* A card with no number in it. The cases that carry no published
+     figure still need something on the panel, and borrowing the figure
+     scale for a phrase makes a phrase look like a statistic. */
+  .st-card-q .st-n { font-size: var(--fs-intro); font-weight: 500; color: var(--ink); line-height: 1.3; }
+  .st-card-q .st-w { color: var(--body); }
+  .st-panel-img img { display: block; width: 100%; height: auto; border-radius: 22px; }
+
+  /* ---- right: the anatomy ---- */
+  /* Short labelled blocks, not essay sections. Four of these cases carry
+     64 to 230 words, which is plenty for an anatomy and far too little
+     for prose under serif headings. */
+  .st-facts > div + div { margin-top: clamp(20px, 2.2vw, 26px); }
+  .st-k { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--coral-deep); margin: 0 0 7px; }
+  .st-v { margin: 0; color: var(--body); font-size: var(--fs-small); line-height: 1.6; }
+  .st-v strong { color: var(--ink); font-weight: 600; }
+
+  .st-src { margin: clamp(22px, 2.4vw, 28px) 0 0; font-size: var(--fs-eyebrow);
+    color: var(--muted); line-height: 1.5; }
+
+  /* ---- the close ---- */
+  .st-close { margin: clamp(40px, 4.4vw, 58px) 0 0; padding-top: 28px;
+    border-top: 1px solid var(--line); max-width: 64ch; }
+  .st-close p { font-family: var(--font-display); font-size: var(--fs-intro);
+    line-height: 1.45; color: var(--ink); margin: 0; text-wrap: pretty; }
+  .st-close-k { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+
+  /* long cases: the anatomy keeps its shape and the chapters run under it */
+  .st-more { margin: clamp(40px, 4.4vw, 56px) 0 0; }
+  .st-more section + section { margin-top: 30px; }
+  .st-h { font-family: var(--font-display); font-size: var(--fs-intro); font-weight: 500;
+    line-height: 1.25; color: var(--ink); margin: 0 0 10px; }
+  .st-p { color: var(--body); margin: 0; line-height: 1.6; max-width: 68ch; }
+  .st-p + .st-p { margin-top: 12px; }
+
+  @media (max-width: 900px) {
+    .st-split { grid-template-columns: 1fr; gap: 30px; }
+    .st-open { max-width: none; }
+    .st-card:nth-child(n) { width: 100%; margin-left: 0; rotate: 0deg; }
+  }
+</style>
+</head>
+<body>
+<div class="mk-wrap">
+
+  <div class="mk-head">
+    <h1>A story, then the anatomy</h1>
+    <p>The setup sentence is the headline, so the first thing anyone reads is the situation a business was
+       in. Underneath it, the facts are short labelled blocks rather than essay sections, which is the right
+       shape for cases that carry 64 to 230 words.</p>
+    <p>The visual on the left is the site&#8217;s own aura with the figures sitting on it as proof cards,
+       the device the home page already uses. No product screenshots exist for most of this work and
+       inventing an interface would be a fake. Where there is a real artifact, it takes the panel instead.</p>
+  </div>
+
+  <!-- ============ SHORT CASE ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">A short case &#8212; Scan-Optics, the same 64 words</p>
+    <p class="mk-note">Nothing added. The intro that used to repeat &#8220;The opportunity&#8221; is gone,
+       and what is left is split into an anatomy.</p>
+    <div class="mk-stage">
+      <p class="st-eyebrow">Marketing leadership &amp; growth</p>
+      <p class="st-open">A decades-old document technology company bet on a new market. Its marketing was
+         still built for the <em>old one.</em></p>
+
+      <div class="st-split">
+        <div class="st-panel">
+          <div class="st-card">
+            <span class="st-n">$2.8M</span>
+            <span class="st-w">pipeline, up from $1.3M</span>
+          </div>
+          <div class="st-card">
+            <span class="st-n">115%</span>
+            <span class="st-w">more opportunity creation</span>
+          </div>
+          <div class="st-card">
+            <span class="st-n">47%</span>
+            <span class="st-w">more inbound leads</span>
+          </div>
+        </div>
+
+        <div class="st-facts">
+          <div>
+            <p class="st-k">The business</p>
+            <p class="st-v">Scan-Optics, a document technology company, repositioning toward intelligent
+               automation. <strong>Marketing Director.</strong></p>
+          </div>
+          <div>
+            <p class="st-k">What made it hard</p>
+            <p class="st-v">The function was established and working. The market it had been built to reach
+               was not the market the new positioning was for.</p>
+          </div>
+          <div>
+            <p class="st-k">What I built</p>
+            <p class="st-v">The TAM and the ideal customer profiles, HubSpot CRM and automation, ABM, paid
+               media, events and outbound, and partner campaigns with Dropbox, UKG and Xerox.</p>
+          </div>
+          <div>
+            <p class="st-k">Focus</p>
+            <p class="st-v">Demand generation &middot; CRM &middot; ABM &middot; Paid media &middot; Events
+               &middot; Partner marketing</p>
+          </div>
+          <p class="st-src">Figures measured over 2021&#8211;2023.</p>
+        </div>
+      </div>
+
+      <div class="st-close">
+        <p class="st-close-k">What I took from it</p>
+        <p>{{Amber: one or two sentences. This is the only thing the page is still missing, and it is the
+           beat that makes a short case worth reading.}}</p>
+      </div>
+    </div>
+    <p class="mk-measure">About 640px for the case, against 1,136px today, with no words added.</p>
+  </section>
+
+  <!-- ============ CASE WITH REAL WORK ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">A case with real work to show &#8212; A2 Exteriors</p>
+    <p class="mk-note">Same structure. The artifact takes the panel instead of the figure cards, so the
+       pages differ because the work differs rather than because the template does.</p>
+    <div class="mk-stage">
+      <p class="st-eyebrow">Consulting &amp; client work</p>
+      <p class="st-open">A pressure washing company was doing good work under a brand that didn&#8217;t
+         <em>look like it.</em></p>
+
+      <div class="st-split">
+        <figure class="st-panel st-panel-img">
+          <img src="/full-a2-sign.webp" alt="An A2 Exteriors yard sign on a lawn." width="1400" height="1054">
+        </figure>
+        <div class="st-facts">
+          <div>
+            <p class="st-k">The business</p>
+            <p class="st-v">A2 Exteriors, a small local pressure washing company. <strong>Consultant.</strong></p>
+          </div>
+          <div>
+            <p class="st-k">What made it hard</p>
+            <p class="st-v">The owner knew marketing mattered and had no idea where to start, which is the
+               most common place a small business begins.</p>
+          </div>
+          <div>
+            <p class="st-k">What I built</p>
+            <p class="st-v">A brand from the ground up, carried onto what local service work actually runs
+               on: yard signs, door hangers, flyers, the whole print kit.</p>
+          </div>
+          <div>
+            <p class="st-k">What changed</p>
+            <p class="st-v">One consistent look on every job site and doorstep in the service area, and a
+               plan small enough to actually do.</p>
+          </div>
+        </div>
+      </div>
+
+      <figure class="quote-card q-sage" style="margin-top:34px;max-width:640px">
+        <blockquote>&#8220;I knew I needed to do more with marketing, but I was honestly overwhelmed and
+          didn&#8217;t know where to start. Amber helped me make sense of it and gave me a plan that
+          actually felt doable.&#8221;</blockquote>
+        <figcaption class="quote-foot">
+          <span class="monogram" aria-hidden="true">AA</span>
+          <span><span class="who-name">Anthony Aubrey</span><br><span class="who-role">Owner, A2 Exteriors</span></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ LONG CASE ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">A long case &#8212; the anatomy, then the chapters</p>
+    <p class="mk-note">The 600-word cases keep the same opening and anatomy, and their longer sections run
+       underneath at full measure. One template, three lengths, and the reader always meets the same shape
+       first.</p>
+    <div class="mk-stage">
+      <p class="st-eyebrow">Marketing leadership &amp; growth</p>
+      <p class="st-open">Marketing can hit every number it sets for itself and still not be trusted by the
+         people carrying the <em>revenue target.</em></p>
+
+      <div class="st-split">
+        <div class="st-panel">
+          <div class="st-card st-card-q">
+            <span class="st-n">Measured on sourced revenue</span>
+            <span class="st-w">not on lead volume, which rewards the cheapest lead</span>
+          </div>
+          <div class="st-card st-card-q">
+            <span class="st-n">One pipeline, both functions</span>
+            <span class="st-w">so a disagreement about performance is about one set of figures</span>
+          </div>
+        </div>
+        <div class="st-facts">
+          <div>
+            <p class="st-k">The context</p>
+            <p class="st-v">Senior in-house marketing leadership. Written without naming the organization.</p>
+          </div>
+          <div>
+            <p class="st-k">What made it hard</p>
+            <p class="st-v">Marketing counted what it generated. Sales counted what it closed. Both sets of
+               numbers were accurate and neither answered whether the money was turning into revenue.</p>
+          </div>
+          <div>
+            <p class="st-k">What I owned</p>
+            <p class="st-v">Demand generation end to end, the marketing investment behind it, and the
+               enablement work between the two functions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="st-more">
+        <section>
+          <p class="st-h">Working with Sales</p>
+          <p class="st-p">This is the part that does the most work, and the part that is hardest to
+             shortcut. It means agreeing what counts before the quarter starts rather than arguing about it
+             afterwards, so a lead, an opportunity and a sourced deal mean the same thing on both sides of
+             the house.</p>
+          <p class="st-p">It means marketing looking at the same pipeline Sales looks at, in the same view.
+             And it means marketing carrying part of the commercial number, not a separate one that can be
+             hit in a quarter the business misses.</p>
+        </section>
+        <section>
+          <p class="st-h">The decisions that mattered</p>
+          <p class="st-p">(the numbered list runs here, unchanged)</p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="mk-opt">
+    <p class="mk-label">Still true</p>
+    <p class="mk-note">This layout stops a short case looking starved, but Scan-Optics and StormwaterONE
+       still end on a number. <strong>The closing beat is the one thing only you can write</strong>, and on
+       PERQ it is the best paragraph on the site.</p>
+  </section>
+
+</div>
+</body>
+</html>
