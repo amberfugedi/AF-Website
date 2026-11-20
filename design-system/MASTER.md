@@ -8867,3 +8867,26 @@ All of it is gated at 980px. Below that everything stacks as before.
 One real finding came out of it: the insight at `line-height: 1.22`
 tripped `tight-leading`, which wants 1.3 at that size. 1.3 it is, and
 the count went back to 115.
+
+## The container, and the reflection that read as an afterthought
+
+Two columns made the measure problem go away, which meant the container
+could finally grow. Case study pages are 1360px now, up from 1200. Each
+prose column is about 645px, the workstream columns about 604px, and
+nothing is reading at 92 characters any more.
+
+The insight line goes to 44ch, 1034px.
+
+**The reflection was a pale panel holding two quiet sentences at two
+thirds of the width.** It is the last thing on the page and the only
+place she speaks about how she judges a year, and it was styled like a
+footnote. The panel is gone. A rule above it, the display face at
+`--fs-h3`, and the same two columns the chapters use, so the close
+reaches the edge of the page like everything above it.
+
+A paragraph alone in a prose block is now a lede or a close, not half a
+column: `--fs-intro` at 60ch. A block with two paragraphs splits; a
+block with one makes a statement. Both read as chosen.
+
+Removed on the way through: the `.cst-hero-grid` media queries, which
+had been targeting nothing since the hero figure came out.

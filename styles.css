@@ -8938,7 +8938,7 @@ footer p,
 .page-case main .wrap,
 .page-case .site-nav .wrap,
 .page-case .site-foot .wrap,
-.page-case footer .wrap { max-width: 1200px; }
+.page-case footer .wrap { max-width: 1360px; }
 .cst-hero { padding: 26px 0 0; }
 .cst-back {
   display: inline-block;
@@ -9080,7 +9080,12 @@ footer p,
     align-items: start;
   }
   .cst-col p + p { margin-top: 0; }
-  .cst-col > p:only-child { grid-column: 1 / -1; max-width: 76ch; }
+  .cst-col > p:only-child {
+    grid-column: 1 / -1;
+    max-width: 60ch;
+    font-size: var(--fs-intro);
+    line-height: 1.5;
+  }
 }
 .cst-col strong { color: var(--ink); font-weight: 600; }
 
@@ -9099,7 +9104,7 @@ footer p,
   line-height: 1.3;
   letter-spacing: -0.018em;
   color: var(--ink);
-  max-width: 34ch;
+  max-width: 44ch;
   text-wrap: balance;
 }
 .cst-insight em { font-style: italic; color: var(--coral-deep); }
@@ -9214,29 +9219,35 @@ footer p,
 
 /* ---- 10. Executive reflection ---- */
 /* The quietest surface on the page and the largest type on it. */
+/* The last thing on the page, so it is written like one. It was a pale
+   panel holding two quiet sentences at two thirds of the width, which
+   read as an afterthought rather than as the close. A rule above it,
+   the page's display face, and the same two columns the chapters use. */
 .cst-reflection {
   margin: clamp(56px, 6vw, 92px) 0 0;
-  padding: clamp(34px, 4vw, 56px) clamp(28px, 3.4vw, 52px);
-  background: rgba(255, 255, 255, 0.55);
-  border-radius: var(--radius);
+  padding: clamp(34px, 3.6vw, 48px) 0 0;
+  border-top: 1px solid var(--line);
 }
-.cst-reflection .cst-k { color: var(--muted); }
+.cst-reflection .cst-k { color: var(--muted); margin-bottom: 20px; }
+.cst-reflection-body { display: grid; gap: 18px; }
 .cst-reflection p {
   font-family: var(--font-display);
-  font-size: var(--fs-intro);
-  line-height: 1.55;
+  font-size: var(--fs-h3);
+  line-height: 1.4;
+  letter-spacing: -0.012em;
   color: var(--ink);
   margin: 0;
-  max-width: 62ch;
   text-wrap: pretty;
 }
-.cst-reflection p + p { margin-top: 16px; }
-
-@media (max-width: 1020px) {
-  .cst-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); gap: 34px; }
+@media (min-width: 980px) {
+  .cst-reflection-body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 clamp(44px, 4.4vw, 72px);
+    align-items: start;
+  }
 }
+
 @media (max-width: 860px) {
-  .cst-hero-grid { grid-template-columns: 1fr; }
   .cst-duo { grid-template-columns: 1fr; gap: 26px; }
 }
 @media (max-width: 680px) {
