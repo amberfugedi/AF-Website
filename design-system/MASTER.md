@@ -9033,3 +9033,38 @@ one.**
 
 The container came in again, to `min(1240px, 88vw)`, and the hero gap
 between the copy and the details card went from 72px to 96.
+
+## clamp() in padding reads as no padding, and that was the ten findings
+
+The band needed air above it and a wider line, both straightforward. The
+useful part came from the one new detector finding the change produced.
+
+`.page-case .bridge` had `padding: clamp(60px, 6vw, 88px) 0` and fired
+`cramped-padding`. The same component on My Approach, at a flat
+`52px 0`, does not. Replacing the clamp with a fixed `88px` cleared it.
+
+**The detector cannot resolve `clamp()` inside a padding shorthand. It
+reads the element as having no inset.**
+
+Which explains the ten findings on this page that MASTER recorded two
+entries ago as a rule misfiring on grid `<li>` rows. They were not false
+positives. `.cst-ws > li` and `.cst-ba-rows > li` both carried clamp
+padding, and swapping both to fixed values with media queries cleared
+**all ten**.
+
+| | count |
+|---|---:|
+| Before | 115 |
+| After | **105** |
+
+Which is the site's equal-lowest, and this time nothing is being
+excused. The earlier entry is wrong and this one supersedes it.
+
+Worth a sweep: any other component on the site with clamp padding inside
+a bordered or filled box is carrying the same phantom finding. Not done
+here, because it reaches well past the case studies.
+
+**The method, since it has now paid twice** (this and `nav-drop-menu`):
+when a padding finding looks wrong, do not argue with it. Change one
+variable at a time and watch the count. The rule is usually describing
+something real in a way you have not understood yet.

@@ -6769,6 +6769,15 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 /* Band statements match the ledes: body scale */
 .bridge-line { font-size: var(--fs-body); line-height: 1.55; }
 .bridge-line + .bridge-line { margin-top: 14px; }
+
+/* On a case study the band closes the reading body, so it needs air above
+   it: the last paragraph was sitting directly on the top hairline. Its
+   line also runs wider here than on My Approach, where it is one short
+   sentence in a 1120px page. */
+.page-case .cst-read { padding-bottom: clamp(64px, 7vw, 104px); }
+.page-case .bridge { padding: 88px 0; }
+.page-case .bridge-line { max-width: 88ch; }
+.page-case .bridge-line + .bridge-line { margin-top: 20px; }
 /* BOTH hero paragraphs share one grade. The first used to run at the
    intro size and the rest at body, which read as a mistake rather than
    as hierarchy once the deck came down to two paragraphs (Amber, Nov
@@ -9145,7 +9154,7 @@ footer p,
   grid-template-columns: repeat(2, minmax(0, 500px));
   justify-content: center;
   gap: 10px clamp(48px, 5vw, 96px);
-  padding: clamp(16px, 1.8vw, 22px) 0;
+  padding: 20px 0;
   border-top: 1px solid var(--line);
 }
 .cst-ba-rows > li:last-child { border-bottom: 1px solid var(--line); }
@@ -9173,7 +9182,7 @@ footer p,
   display: grid;
   grid-template-columns: 3.2rem minmax(0, 1fr);
   gap: 0 clamp(18px, 2.2vw, 30px);
-  padding: clamp(26px, 2.8vw, 36px) clamp(24px, 2.6vw, 38px);
+  padding: 34px 36px;
   background: var(--bg-raised);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -9224,6 +9233,16 @@ footer p,
 @media (max-width: 860px) {
   .cst-duo { grid-template-columns: 1fr; gap: 26px; }
 }
+/* Fixed values, not clamp(): the detector cannot resolve clamp() in a
+   padding shorthand and reads it as no inset, which is what the ten
+   "cramped-padding" findings on this page actually were. Scaled with
+   media queries instead. */
+@media (max-width: 900px) {
+  .cst-ws > li { padding: 28px 26px; }
+  .cst-ba-rows > li { padding: 17px 0; }
+  .page-case .bridge { padding: 64px 0; }
+}
+
 @media (max-width: 680px) {
   /* Mobile is a reading experience, not a stack of desktop parts. The
      comparison stops being two columns and becomes pairs, so a row
