@@ -9068,3 +9068,34 @@ here, because it reaches well past the case studies.
 when a padding finding looks wrong, do not argue with it. Change one
 variable at a time and watch the count. The rule is usually describing
 something real in a way you have not understood yet.
+
+## The anonymity note, cut from four lines to one
+
+Amber on the hero disclaimer: *"idk we need this."*
+
+The information is worth keeping. A reader lands on a case study with no
+company and no numbers and may wonder whether any of it is real. One
+line answers that. Four lines of it, in the most valuable space on the
+page, answered an objection before the reader had raised it, repeated
+"Organization: Not named" from the card beside it, and read as legal
+boilerplate rather than as her.
+
+Before, 60 words:
+
+> Written without naming an organization. This is an account of how I do
+> this work and the decisions behind it, drawn from leading marketing
+> in-house. The market, the numbers and the timeline are left out
+> deliberately, and nothing here reproduces internal documentation,
+> workflows, templates or materials.
+
+After, 19:
+
+> I've left out the organization, its market, its timeline and its
+> numbers. What is here is the decisions.
+
+Active, first person, no apology. The clause about not reproducing
+internal documentation went: a page that does not contain something does
+not need to say so.
+
+Both anonymized pages carry it, from `ANON_NOTE` in the generator.
+Nothing about what the pages withhold has changed.
