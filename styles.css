@@ -8966,25 +8966,6 @@ footer p,
 .cst-deck { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; max-width: 62ch; margin: 0; }
 
 /* ---- 2. Engagement metadata ---- */
-/* A strip under the hero, not a card. The card was the only card on
-   the page and read as bolted on. */
-.cst-meta-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
-  gap: 22px 38px;
-  margin: clamp(34px, 4vw, 52px) 0 0;
-  padding-top: 26px;
-  border-top: 1px solid var(--line);
-}
-.cst-meta-strip dt {
-  font-family: var(--font-body);
-  font-size: var(--fs-eyebrow);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.cst-meta-strip dd { margin: 7px 0 0; font-size: var(--fs-small); color: var(--ink); line-height: 1.45; }
 
 /* ---- 3. Results strip ---- */
 /* Thin separators and no fill. The previous version was a tinted
