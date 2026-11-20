@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Work hub: three ways to handle the length</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+  body { background: var(--bg); }
+  .mk-wrap { max-width: 1120px; margin: 0 auto; padding: 48px 24px 120px; }
+  .mk-head h1 { font-size: var(--fs-h2); margin: 0 0 14px; }
+  .mk-head p { color: var(--body); max-width: 72ch; line-height: 1.6; margin: 0 0 12px; }
+  .mk-nums { margin: 26px 0 0; border-collapse: collapse; font-size: var(--fs-small); }
+  .mk-nums th, .mk-nums td { text-align: left; padding: 8px 28px 8px 0; border-bottom: 1px solid var(--line); }
+  .mk-nums th { font-family: var(--font-body); font-size: var(--fs-eyebrow); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .mk-nums td:nth-child(n+2) { font-variant-numeric: tabular-nums; }
+
+  .mk-opt { margin: 84px 0 0; }
+  .mk-label { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--coral-deep); margin: 0 0 6px; }
+  .mk-note { color: var(--body); font-size: var(--fs-small); line-height: 1.6; margin: 0 0 24px; max-width: 76ch; }
+  .mk-stage { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: clamp(24px, 3vw, 38px); }
+  .mk-measure { margin: 14px 0 0; font-size: var(--fs-eyebrow); color: var(--muted); }
+
+  /* ---------- Option B: collapsed categories ---------- */
+  .ob-cat { border-top: 1px solid var(--line); }
+  .ob-cat:last-of-type { border-bottom: 1px solid var(--line); }
+  .ob-cat > summary {
+    list-style: none; cursor: pointer;
+    display: grid; grid-template-columns: minmax(0,1fr) auto auto; align-items: baseline;
+    gap: 0 20px; padding: 22px 0; min-height: 44px;
+  }
+  .ob-cat > summary::-webkit-details-marker { display: none; }
+  .ob-name { font-family: var(--font-display); font-size: var(--fs-intro); line-height: 1.25; color: var(--ink); }
+  .ob-cat > summary:hover .ob-name { color: var(--coral-deep); }
+  .ob-count { font-size: var(--fs-small); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .ob-chev { color: var(--coral-deep); font-size: var(--fs-small); transition: transform .2s var(--ease); }
+  .ob-cat[open] .ob-chev { transform: rotate(180deg); }
+  .ob-body { padding: 0 0 26px; }
+  .ob-body .pf-rows > li:first-child > a { border-top: 0; }
+
+  /* ---------- Option C: compact index ---------- */
+  .oc-index { list-style: none; margin: 0; padding: 0; }
+  .oc-index > li { border-top: 1px solid var(--line); }
+  .oc-index > li:last-child { border-bottom: 1px solid var(--line); }
+  .oc-index a, .oc-index .oc-row {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr) auto;
+    gap: 2px 24px;
+    align-items: baseline;
+    padding: 13px 0;
+    text-decoration: none;
+    color: inherit;
+  }
+  .oc-cat { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .oc-name { font-size: var(--fs-body); color: var(--ink); font-weight: 600; }
+  .oc-index a:hover .oc-name { color: var(--coral-deep); }
+  .oc-what { grid-column: 2; font-size: var(--fs-small); color: var(--body); line-height: 1.45; }
+  .oc-go { color: var(--coral-deep); font-size: var(--fs-small); font-weight: 600; white-space: nowrap; align-self: center; }
+  .oc-none { color: var(--muted); font-size: var(--fs-small); white-space: nowrap; align-self: center; }
+
+  @media (max-width: 760px) {
+    .oc-index a, .oc-index .oc-row { grid-template-columns: 1fr; gap: 4px 0; }
+    .oc-what { grid-column: 1; }
+    .ob-cat > summary { grid-template-columns: minmax(0,1fr) auto; }
+    .ob-count { grid-column: 1; grid-row: 2; }
+  }
+</style>
+</head>
+<body>
+<div class="mk-wrap">
+
+  <div class="mk-head">
+    <h1>The Work page is long. Three ways to deal with it.</h1>
+    <p>Measured first. The category tabs already do most of the job: any single category is about three
+       screens on a laptop. It is the default &#8220;All work&#8221; view that runs long, and it runs longest
+       on a phone.</p>
+    <table class="mk-nums">
+      <thead><tr><th>View</th><th>Desktop</th><th>Phone</th></tr></thead>
+      <tbody>
+        <tr><td>All work (the default)</td><td>6,826px / 7.6 screens</td><td>8,525px / 10.1 screens</td></tr>
+        <tr><td>Marketing leadership &amp; growth</td><td>2,985px / 3.3</td><td>3,902px / 4.6</td></tr>
+        <tr><td>Consulting &amp; client work</td><td>2,901px / 3.2</td><td>3,564px / 4.2</td></tr>
+        <tr><td>Systems, technology &amp; AI</td><td>2,554px / 2.8</td><td>3,171px / 3.8</td></tr>
+        <tr><td>Independent &amp; industry</td><td>3,025px / 3.4</td><td>3,804px / 4.5</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:22px">Of the 6,826px, <strong>702px is section padding</strong> and the head, tab bar
+       and closing CTA account for another 1,134px before a single project appears. The content itself is 26
+       entries.</p>
+  </div>
+
+  <!-- ============ OPTION A ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">A &#8212; Leave it, land somewhere shorter</p>
+    <p class="mk-note">No structural change. The tab bar stays, but the page opens on
+       <strong>Marketing leadership &amp; growth</strong> instead of All work, so the first thing a visitor
+       meets is the two featured case studies and PERQ rather than 26 entries. &#8220;All work&#8221; is one
+       click away and still the thing search engines and anyone without JavaScript see, because the other
+       sections are in the page either way.
+       <br><br>Cost: one line of JavaScript. Lands at 3.3 screens instead of 7.6.
+       Risk: someone who wants the client work has to notice the tabs.</p>
+    <p class="mk-measure">Nothing to preview here. It is the live page with a different starting tab:
+       <a class="arrow-link" href="/projects">open the Work page</a></p>
+  </section>
+
+  <!-- ============ OPTION B ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">B &#8212; Collapsed categories (your dropdown idea)</p>
+    <p class="mk-note">Each category becomes a row you open. The page becomes four headings with counts, so
+       the whole portfolio fits on one screen and you choose what to expand. Native
+       <code>&lt;details&gt;</code>, so it works without JavaScript and everything stays in the HTML for
+       search.
+       <br><br>What it costs: nothing is visible until someone clicks. A visitor who lands here sees four
+       labels and no work. It also reintroduces the open-and-close interaction you had taken off this page.</p>
+    <div class="mk-stage">
+      <details class="ob-cat" open>
+        <summary>
+          <span class="ob-name">Marketing leadership &amp; growth</span>
+          <span class="ob-count">6 projects</span>
+          <span class="ob-chev" aria-hidden="true">&#8595;</span>
+        </summary>
+        <div class="ob-body">
+          <ul class="pf-rows">
+            <li><a href="/projects/marketing-function-next-stage">
+              <span class="pf-tag">Case study</span>
+              <span class="pf-name">Building a marketing function for its next stage of growth</span>
+              <span class="pf-what">Roles, the operating model, how performance is read, and the investment behind it.</span>
+              <span class="pf-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span></a></li>
+            <li><a href="/projects/perq">
+              <span class="pf-tag">B2B SaaS &middot; PropTech</span>
+              <span class="pf-name">PERQ</span>
+              <span class="pf-what">Growing a marketing function alongside the business.</span>
+              <span class="pf-fig">421% growth in marketing-sourced bookings</span>
+              <span class="pf-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span></a></li>
+            <li><a href="/projects/scan-optics">
+              <span class="pf-tag">Document Technology</span>
+              <span class="pf-name">Scan-Optics</span>
+              <span class="pf-what">Demand generation rebuilt around a repositioning.</span>
+              <span class="pf-fig">Pipeline from $1.3M to $2.8M</span>
+              <span class="pf-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span></a></li>
+          </ul>
+          <p class="mk-measure">(three of six shown in this mock-up)</p>
+        </div>
+      </details>
+      <details class="ob-cat">
+        <summary>
+          <span class="ob-name">Consulting &amp; client work</span>
+          <span class="ob-count">7 projects</span>
+          <span class="ob-chev" aria-hidden="true">&#8595;</span>
+        </summary>
+        <div class="ob-body">
+          <ul class="pf-rows">
+            <li><a href="/projects/membersfirst-credit-union">
+              <span class="pf-tag">Financial Services</span>
+              <span class="pf-name">MembersFirst CT Federal Credit Union</span>
+              <span class="pf-what">Marketing leadership, in-house and then fractional.</span>
+              <span class="pf-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span></a></li>
+          </ul>
+        </div>
+      </details>
+      <details class="ob-cat">
+        <summary>
+          <span class="ob-name">Systems, technology &amp; AI</span>
+          <span class="ob-count">4 projects</span>
+          <span class="ob-chev" aria-hidden="true">&#8595;</span>
+        </summary>
+        <div class="ob-body"><p class="mk-measure">(contents omitted in this mock-up)</p></div>
+      </details>
+      <details class="ob-cat">
+        <summary>
+          <span class="ob-name">Independent &amp; industry projects</span>
+          <span class="ob-count">9 projects</span>
+          <span class="ob-chev" aria-hidden="true">&#8595;</span>
+        </summary>
+        <div class="ob-body"><p class="mk-measure">(contents omitted in this mock-up)</p></div>
+      </details>
+    </div>
+    <p class="mk-measure">All four closed: about 1.6 screens on a laptop, counting the page head and the
+       closing CTA. Opening one category adds roughly what that category costs today.</p>
+  </section>
+
+  <!-- ============ OPTION C ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">C &#8212; One compact index, everything visible</p>
+    <p class="mk-note">The opposite move. Instead of hiding the 26 entries behind four doors, give every one
+       of them a single line: category, name, one phrase, and a link where there is a page. The whole
+       portfolio is scannable in about two screens without a click, and the tabs still filter it.
+       <br><br>What it costs: the featured case studies lose their raised treatment unless they keep a block
+       above this list, and the three figures on the hub have nowhere to sit. This reads as a contents page,
+       which suits a recruiter and suits a prospective client less.</p>
+    <div class="mk-stage">
+      <ul class="oc-index">
+        <li><a href="/projects/marketing-function-next-stage">
+          <span class="oc-cat">Leadership</span>
+          <span class="oc-name">Building a marketing function for its next stage of growth</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">Roles, operating model, intelligence and investment.</span></a></li>
+        <li><a href="/projects/demand-generation-to-revenue">
+          <span class="oc-cat">Leadership</span>
+          <span class="oc-name">Connecting demand generation to revenue</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">Working with Sales toward one commercial outcome.</span></a></li>
+        <li><a href="/projects/perq">
+          <span class="oc-cat">Leadership</span>
+          <span class="oc-name">PERQ</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">Growing a marketing function alongside the business.</span></a></li>
+        <li><a href="/projects/scan-optics">
+          <span class="oc-cat">Leadership</span>
+          <span class="oc-name">Scan-Optics</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">Demand generation rebuilt around a repositioning.</span></a></li>
+        <li><a href="/projects/stormwaterone">
+          <span class="oc-cat">Leadership</span>
+          <span class="oc-name">StormwaterONE</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">More qualified leads on a smaller paid budget.</span></a></li>
+        <li><a href="/projects/marketing-operations">
+          <span class="oc-cat">Leadership</span>
+          <span class="oc-name">Marketing operations and organizational development</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">The operating model and the investment planning behind it.</span></a></li>
+        <li><a href="/projects/membersfirst-credit-union">
+          <span class="oc-cat">Client work</span>
+          <span class="oc-name">MembersFirst CT Federal Credit Union</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">Eight years, in-house and then fractional.</span></a></li>
+        <li><a href="/projects/robert-james-restoration">
+          <span class="oc-cat">Client work</span>
+          <span class="oc-name">Robert James Restoration</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">Brand, website and presence for a referral business.</span></a></li>
+        <li><a href="/projects/a2-exteriors">
+          <span class="oc-cat">Client work</span>
+          <span class="oc-name">A2 Exteriors</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">A brand built from nothing, carried onto print.</span></a></li>
+        <li><div class="oc-row">
+          <span class="oc-cat">Client work</span>
+          <span class="oc-name">Amethyst Aesthetics</span>
+          <span class="oc-none">No page yet</span>
+          <span class="oc-what">A marketing plan for a new solo practice.</span></div></li>
+        <li><a href="/projects/business-intelligence">
+          <span class="oc-cat">Systems &amp; AI</span>
+          <span class="oc-name">Business intelligence and application development</span>
+          <span class="oc-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span>
+          <span class="oc-what">An application that makes years of reporting legible.</span></a></li>
+        <li><div class="oc-row">
+          <span class="oc-cat">Systems &amp; AI</span>
+          <span class="oc-name">Content Engine</span>
+          <span class="oc-none">No page yet</span>
+          <span class="oc-what">Content development and review for a client team.</span></div></li>
+        <li><a href="https://thesecretmarketingsociety.netlify.app" target="_blank" rel="noopener">
+          <span class="oc-cat">Industry</span>
+          <span class="oc-name">The Secret Marketing Society</span>
+          <span class="oc-go">Visit<span aria-hidden="true">&nbsp;&#8599;</span></span>
+          <span class="oc-what">An industry community, co-founded with three partners.</span></a></li>
+        <li><a href="https://apartmentalize.netlify.app/" target="_blank" rel="noopener">
+          <span class="oc-cat">Industry</span>
+          <span class="oc-name">Conference Tarot Draw</span>
+          <span class="oc-go">Visit<span aria-hidden="true">&nbsp;&#8599;</span></span>
+          <span class="oc-what">950 card draws at a three-day conference.</span></a></li>
+      </ul>
+      <p class="mk-measure">(14 of 26 shown in this mock-up)</p>
+    </div>
+  </section>
+
+  <section class="mk-opt">
+    <p class="mk-label">And either way</p>
+    <p class="mk-note">702px of the current page is section padding, and three of the four joints between
+       categories are 208px. The design system already allows a tighter pairing where sections are one
+       argument, which four filtered categories are. That is about 240px off the desktop page and 150px off
+       the phone, with no content change and no new interaction. It is worth doing whichever option you pick.</p>
+  </section>
+
+</div>
+</body>
+</html>
