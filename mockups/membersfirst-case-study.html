@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#FDF9F5">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+
+  <title>DRAFT &#183; Building a More Effective Digital Marketing Engine for a Community Credit Union</title>
+  <meta name="description" content="DRAFT. Not for publication until the figures and permissions are approved.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+  /* ---------------------------------------------------------------
+     DRAFT-ONLY STYLES. These move into styles.css under an mf-* or a
+     chart-* block the day this page is approved and becomes
+     work-membersfirst-credit-union.html. They live here so an
+     unapproved page does not put dead rules in the production sheet.
+
+     The charts are HTML and CSS, not a library: the site has no build
+     step and one external dependency (Google Fonts), and a bar whose
+     value is visible text needs no hidden table to be readable.
+     --------------------------------------------------------------- */
+
+  /* The draft notice. Deliberately loud, deliberately the first thing
+     in <main>: this page carries client figures that have not been
+     approved for publication. */
+  .mf-draft {
+    margin: 0 0 26px;
+    padding: 18px 22px;
+    border: 2px dashed var(--coral-deep);
+    border-radius: 16px;
+    background: rgba(251, 213, 228, 0.3);
+  }
+  .mf-draft p { margin: 0; color: var(--ink); font-size: var(--fs-small); line-height: 1.55; max-width: 76ch; }
+  .mf-draft p + p { margin-top: 8px; }
+  .mf-draft strong { font-weight: 700; }
+
+  /* Head variant: copy left, hero graphic right. The standard template
+     head puts a 340px meta card on the right; this page has a graphic
+     to carry instead, so the meta moves to a strip below. */
+  .cst-head-art { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+  .mf-hero-fig { margin: 0; }
+  .mf-hero-fig svg { display: block; width: 100%; height: auto; }
+  .mf-flow { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 0; }
+  .mf-flow li {
+    display: grid;
+    grid-template-columns: 16px minmax(0, 1fr);
+    gap: 0 12px;
+    align-items: baseline;
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+    font-size: var(--fs-small);
+    color: var(--body);
+  }
+  .mf-flow li::before {
+    content: "";
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    border: 2px solid var(--coral-deep);
+    opacity: 0.45;
+    transform: translateY(-1px);
+  }
+  .mf-flow li:last-child { font-weight: 600; color: var(--ink); }
+  .mf-flow li:last-child::before { background: var(--coral-deep); opacity: 1; }
+
+  /* Expertise tags under the intro. Not pills: the site has no chip
+     component outside the hero proof cards, and a row of pills on a
+     case study reads as a tag cloud. Hairline-separated words. */
+  .mf-tags { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 0; }
+  .mf-tags li { font-size: var(--fs-eyebrow); color: var(--muted); letter-spacing: 0.04em; }
+  .mf-tags li:not(:last-child)::after { content: "\00b7"; margin: 0 10px; opacity: 0.5; }
+
+  /* Meta strip under the head, since the aside column holds the art. */
+  .mf-meta-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 22px 36px;
+    margin: clamp(34px, 4vw, 48px) 0 0;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .mf-meta-strip dt {
+    font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  }
+  .mf-meta-strip dd { margin: 7px 0 0; font-size: var(--fs-small); color: var(--ink); line-height: 1.45; }
+
+  /* ---- Charts ---- */
+  .mf-chart { margin: 0; }
+  .mf-chart-head {
+    font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px;
+  }
+  .mf-chart-sub { color: var(--body); font-size: var(--fs-small); line-height: 1.55; max-width: 66ch; margin: 0 0 26px; }
+
+  .mf-bars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0 8px; }
+  /* Flex column filling from the bottom, not a three-row grid. With a
+     fixed label row the "1" for January sat level with the "26" for
+     December, 150px above its own bar, and read as a detached number. */
+  .mf-bars li { display: flex; flex-direction: column; justify-content: flex-end; gap: 7px; min-height: 212px; }
+  .mf-v { font-size: var(--fs-small); font-weight: 600; color: var(--ink); text-align: center; line-height: 1.2; }
+  .mf-v-na { color: var(--muted); font-weight: 500; }
+  /* Height in px per unit, not a percentage: a percentage height on a
+     flex item resolves against the container and is then shrunk, and
+     the scale has to be identical in every column to be readable. */
+  .mf-bar { flex: none; width: 100%; height: calc(var(--v) * 6.4px); min-height: 4px; border-radius: 7px 7px 0 0; }
+  /* One fill, two strengths. A second hue per half would be a third
+     colour-coded set, which the palette does not allow; emphasis by
+     alpha says "the same thing, more of it", which is the actual
+     point of the chart. */
+  .mf-bar-h1 { background: rgba(255, 111, 97, 0.32); }
+  .mf-bar-h2 { background: rgba(255, 111, 97, 0.85); }
+  /* Not zero. February is missing from the client's reporting, and a
+     zero-height bar would state a number the data does not contain. */
+  /* An outline, not a fill and not a hatch. A filled bar would state a
+     number the reporting does not contain, and a repeating-gradient
+     hatch reads to the AI-tell detector as decorative stripes. */
+  .mf-bar-na {
+    height: 166px;
+    border-radius: 7px;
+    border: 1px dashed rgba(46, 42, 39, 0.26);
+    background: none;
+  }
+  .mf-m { font-size: var(--fs-eyebrow); color: var(--muted); text-align: center; }
+
+  .mf-split {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin: clamp(28px, 3vw, 36px) 0 0;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .mf-half-k { font-size: var(--fs-eyebrow); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .mf-half-v { display: block; margin-top: 6px; font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1.1; color: var(--ink); }
+  .mf-half-n { display: block; margin-top: 4px; font-size: var(--fs-small); color: var(--body); }
+
+  .mf-hbars { list-style: none; margin: 0; padding: 0; }
+  .mf-hbars li {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr) 46px;
+    align-items: center;
+    gap: 0 18px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .mf-hbars li:last-child { border-bottom: 1px solid var(--line); }
+  .mf-hname { font-size: var(--fs-small); color: var(--ink); }
+  .mf-hbar { height: 14px; border-radius: 7px; background: rgba(255, 111, 97, 0.85); width: calc(var(--p) * 1%); min-width: 6px; }
+  .mf-hv { font-size: var(--fs-small); font-weight: 600; color: var(--coral-deep); text-align: right; }
+
+  .mf-source {
+    margin: clamp(30px, 3.2vw, 40px) 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: var(--fs-eyebrow);
+    line-height: 1.6;
+    max-width: 80ch;
+  }
+
+  /* A pillar heading sits a step under the section heading: serif at
+     the intro grade, with the numeral doing the ranking rather than a
+     second display size. */
+  .mf-pillar {
+    font-family: var(--font-display);
+    font-size: var(--fs-intro);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: clamp(34px, 3.6vw, 44px) 0 12px;
+    padding-top: 20px;
+    border-top: 2px solid var(--peach);
+    max-width: 34ch;
+  }
+
+  .mf-take { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(22px, 2.6vw, 34px); }
+  .mf-take li { padding-top: 18px; border-top: 2px solid var(--peach); }
+  .mf-take strong { display: block; font-family: var(--font-display); font-size: var(--fs-intro); font-weight: 500; line-height: 1.25; color: var(--ink); margin-bottom: 8px; }
+  .mf-take span { color: var(--body); font-size: var(--fs-small); line-height: 1.55; }
+
+  /* This CTA headline is longer than the site's others. At the band's
+     display size its text ran to within 41px of a 72px padding edge,
+     which the AI-tell detector reads as cramped. Capping the measure is
+     what every other long heading on this site does. */
+  .mf-cta-band h2 { max-width: 20ch; margin-left: auto; margin-right: auto; }
+
+  /* NO WRAPPER AROUND THE TWO BUTTONS. A <div> holding them is a child
+     of .cta-band with no padding or margin of its own, which the AI-tell
+     detector reads as flush against the band's background however far
+     the text actually sits from the edge. The buttons are inline-block
+     and the band is text-align: center, so they centre on their own,
+     exactly as the single button does on every other CTA band. */
+  .mf-cta-band .btn + .btn { margin-left: 14px; }
+
+
+  @media (max-width: 1020px) {
+    .cst-head-art { grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); }
+  }
+  @media (max-width: 860px) {
+    .cst-head-art { grid-template-columns: 1fr; }
+    .mf-take { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 680px) {
+    /* Twelve bars do not fit a phone. Six columns, two rows, reading
+       order unchanged, so the first half and the second half each get
+       their own line and the shift is still the thing you see. */
+    .mf-bars { grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 20px; }
+    .mf-bars li { min-height: 148px; }
+    .mf-bar { height: calc(var(--v) * 4.2px); }
+    .mf-bar-na { height: 109px; }
+    .mf-hbars li { grid-template-columns: 110px minmax(0, 1fr) 40px; gap: 0 12px; }
+    .mf-split { grid-template-columns: 1fr; gap: 18px; }
+  }
+</style>
+</head>
+<body class="page-sub page-case">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="aura" aria-hidden="true">
+    <span class="aura-blob aura-blob-1"></span>
+    <span class="aura-blob aura-blob-2"></span>
+    <span class="aura-blob aura-blob-3"></span>
+    <span class="aura-blob aura-blob-4"></span>
+  </div>
+
+  <!-- ============ SHARED NAV — keep in sync across all pages ============
+       Only the aria-current="page" attribute changes per page. -->
+  <nav class="site-nav" aria-label="Main">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/"><img class="brand-mark" src="/brand-mark.png" alt="" width="96" height="96"><span class="brand-name">Amber Fugedi</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/expertise">Expertise</a></li>
+        <li><a href="/projects" aria-current="true">Work</a></li>
+        <li><a href="/my-approach">My Approach</a></li>
+        <li class="nav-drop">
+          <a class="nav-drop-btn nav-drop-link" href="/services">Services</a>
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-controls="services-menu" aria-label="Show service pages"><span class="nav-caret" aria-hidden="true"></span></button>
+          <span class="nav-group-label">Services</span>
+          <ul class="nav-drop-menu" id="services-menu">
+            <li><a href="/services/consulting">Consulting</a></li>
+            <li><a href="/services/fractional-leadership">Fractional leadership</a></li>
+            <li><a href="/services/workflow-ai">Workflow and AI</a></li>
+            <li><a href="/services/mentorship-advisory">Mentorship and advisory</a></li>
+          </ul>
+        </li>
+        <li class="nav-drop">
+          <button class="nav-drop-btn" type="button" aria-expanded="false" aria-controls="shop-menu">Shop<span class="nav-caret" aria-hidden="true"></span></button>
+          <span class="nav-group-label">Shop</span>
+          <ul class="nav-drop-menu" id="shop-menu">
+            <li><a href="/courses">Courses</a></li>
+          </ul>
+        </li>
+        <li><a href="/about">About</a></li>
+        <!-- Student login pulled 2026-08-22: learn.amberfugedi.com returns 502. Restore per TODO.md. -->
+        <li class="nav-note" aria-hidden="true"><span>Have something in mind?</span></li>
+        <li><a class="nav-cta" href="/about#contact">Let's talk</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ============ /SHARED NAV ============ -->
+
+  <main id="main">
+
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <div class="wrap">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects">Work</a></li>
+          <li><span aria-current="page">MembersFirst CT Federal Credit Union</span></li>
+        </ol>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <div class="mf-draft" role="note">
+        <p><strong>Draft. Not published.</strong> This page lives under <code>/mockups/</code>, which
+           <code>_redirects</code> forces to a 404 and <code>robots.txt</code> disallows, so none of the
+           client figures below are reachable on the live site.</p>
+        <p>Every number here is reported client data that has not been validated, and the engagement
+           timeline has not been confirmed. Nothing on the page claims the work caused the change.
+           It becomes <code>/projects/membersfirst-credit-union</code> when you approve the data, the
+           attribution and permission to publish client results.</p>
+      </div>
+    </div>
+
+    <header class="cst-head">
+      <div class="wrap cst-head-grid cst-head-art">
+        <div class="cst-head-copy">
+          <p class="cst-eyebrow">Consulting &amp; client work</p>
+          <h1>Building a marketing engine that supports real business growth.</h1>
+          <p class="cst-intro">Community financial institutions need marketing that does more than maintain
+             visibility. It needs to support lending, attract new members and make the most of available
+             resources.</p>
+          <p class="cst-intro" style="margin-top:16px">This engagement brings together digital acquisition,
+             content, marketing processes and performance measurement to support a more sustainable approach
+             to growth.</p>
+          <ul class="mf-tags" aria-label="Expertise demonstrated">
+            <li>Marketing strategy</li>
+            <li>Digital demand generation</li>
+            <li>Multi-product marketing</li>
+            <li>Content strategy</li>
+            <li>Marketing operations</li>
+            <li>Performance measurement</li>
+            <li>AI enablement</li>
+            <li>Workflow optimization</li>
+          </ul>
+        </div>
+        <figure class="mf-hero-fig">
+          <svg viewBox="0 0 420 196" width="420" height="196" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="mf-wash" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#FBD5E4" stop-opacity="0.42"/>
+                <stop offset="1" stop-color="#DAD4F5" stop-opacity="0.30"/>
+              </linearGradient>
+            </defs>
+            <!-- NOT A GROWTH CURVE. The first version of this graphic was a
+                 rising line with a filled area under it, which on a page
+                 carrying a 329% figure reads as "this went up because of
+                 me" — the one claim the brief forbids. This is a level
+                 route: four stops, the last one the business outcome. -->
+            <rect x="18" y="22" width="384" height="140" rx="34" fill="url(#mf-wash)"/>
+            <path d="M58 92 L362 92" stroke="#B8354A" stroke-width="1.6" stroke-opacity="0.32"/>
+            <path d="M58 92 L58 134 M160 92 L160 134 M261 92 L261 134 M362 92 L362 134"
+                  stroke="#B8354A" stroke-width="1.2" stroke-opacity="0.18"/>
+            <path d="M34 134 L386 134" stroke="rgba(46,42,39,0.14)" stroke-width="1"/>
+            <circle cx="58" cy="92" r="6" fill="#FDF9F5" stroke="#B8354A" stroke-width="2" stroke-opacity="0.45"/>
+            <circle cx="160" cy="92" r="6" fill="#FDF9F5" stroke="#B8354A" stroke-width="2" stroke-opacity="0.45"/>
+            <circle cx="261" cy="92" r="6" fill="#FDF9F5" stroke="#B8354A" stroke-width="2" stroke-opacity="0.6"/>
+            <circle cx="362" cy="92" r="15" fill="#B8354A" fill-opacity="0.12"/>
+            <circle cx="362" cy="92" r="7.5" fill="#B8354A"/>
+          </svg>
+          <ul class="mf-flow">
+            <li>Marketing strategy, set against lending and membership goals</li>
+            <li>Digital acquisition across four lending products</li>
+            <li>Applications, read as the first real outcome</li>
+            <li>Signed loans and new members</li>
+          </ul>
+        </figure>
+      </div>
+      <div class="wrap">
+        <dl class="mf-meta-strip">
+          <div><dt>Client</dt><dd>MembersFirst CT Federal Credit Union</dd></div>
+          <div><dt>Industry</dt><dd>Financial services &#183; Credit unions</dd></div>
+          <div><dt>Role</dt><dd>Marketing lead, in-house and then fractional</dd></div>
+          <div><dt>Scope</dt><dd>Strategy, digital acquisition, content operations, performance reporting</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <section class="cst-band" aria-labelledby="band-title">
+      <div class="wrap">
+        <h2 class="cst-band-head" id="band-title">Results at a glance</h2>
+        <ul class="case-metrics">
+          <li><span class="cm-fig">329%</span><span class="cm-what">increase in reported Google and website sourced HELOC applications</span><span class="cm-when">first half of 2025 against the second half</span></li>
+          <li><span class="cm-fig">103</span><span class="cm-what">reported Google and website sourced signed loans across four lending products</span><span class="cm-when">January to June 2026</span></li>
+          <li><span class="cm-fig">43</span><span class="cm-what">reported Google and website sourced new member applications</span><span class="cm-when">January and February 2026</span></li>
+        </ul>
+        <p class="cm-note">Figures are drawn from the credit union&#8217;s own reporting of digital-source
+           activity. They describe what the business recorded over these periods, not a measurement of any
+           single marketing activity.</p>
+      </div>
+    </section>
+
+    <div class="wrap cst-body">
+
+      <section class="cst-sec">
+        <h2>The business challenge</h2>
+        <p>A community credit union carries the same marketing considerations as a much larger lender, with a
+           fraction of the resources to meet them. The work had to hold several of those at once.</p>
+        <ol class="cst-calls">
+          <li><strong>Several products, several audiences.</strong><span>A HELOC, a mortgage, an auto loan and a personal loan are bought by different people in different circumstances, and each needs its own reasoning rather than a share of one general campaign.</span></li>
+          <li><strong>Members and lending, at the same time.</strong><span>New member acquisition and loan growth pull on the same budget and the same attention, and a plan that serves one well can quietly starve the other.</span></li>
+          <li><strong>Consistent content without more overhead.</strong><span>A small team has to produce relevant, on-brand, compliant content every month. The constraint is rarely ideas. It is capacity and review.</span></li>
+          <li><strong>A line from digital activity to applications.</strong><span>Impressions and clicks are easy to see. Whether they turn into applications and signed loans is the question the business actually has.</span></li>
+          <li><strong>Making the most of what already exists.</strong><span>The useful question is usually not what else to buy. It is what the current budget, channels and team can be made to do.</span></li>
+        </ol>
+      </section>
+
+      <section class="cst-sec">
+        <h2>The approach</h2>
+        <p>Four pillars, each one a way of connecting marketing work to something the credit union was already
+           trying to achieve.</p>
+
+        <!-- h3, not h2: these are the four parts of The approach, and
+             four sibling h2s would tell a screen reader they are four
+             peers of it. -->
+        <h3 class="mf-pillar">01. Align marketing with business priorities</h3>
+        <p>Marketing planning starts from the lending products the credit union wants to grow and the
+           membership it wants to attract, not from a campaign calendar. That sounds obvious and it changes
+           what gets made: the plan is built around which products need volume, which audiences they sit with,
+           and what the business is trying to do that quarter.</p>
+        <p><strong>Marketing activity is the means here, not the goal.</strong> The goal is the applications
+           and the members behind it.</p>
+
+        <h3 class="mf-pillar">02. Build a digital acquisition strategy</h3>
+        <p>Digital acquisition has to carry several product categories at once: HELOCs, home loans, auto loans
+           and personal loans. The work covers search and paid campaigns on Google and Meta, the website
+           experiences people land on, and the points where an interested visitor becomes an applicant.</p>
+        <p>A community lender competes against big-bank budgets, so the advantage has to come from relevance
+           rather than spend: being present for the specific moment a member is thinking about a specific
+           product, and making the next step obvious when they are.</p>
+
+        <h3 class="mf-pillar">03. Create a content operation that holds</h3>
+        <p>Content for a credit union has to be consistent, on brand, and compliant, every month, from a small
+           team. The monthly content process runs planning, assets, email and compliance checks in one pass,
+           with NCUA review on every asset before it goes anywhere.</p>
+        <p>The Content Engine supports that process. It helps with development and review so the team spends
+           its time on judgment rather than on the repetitive parts, and it works inside the brand and the
+           review process rather than around them. <strong>AI is the enabling resource here, not the
+           strategy.</strong> In a financial services environment the human review is the part that cannot be
+           delegated, and the engine is built on that assumption.</p>
+        <p class="cst-note" style="color:var(--muted);font-size:var(--fs-eyebrow);line-height:1.6;max-width:70ch">
+           No prompts, configurations, personas or internal workflows are published here or anywhere on this
+           site. What sits inside the engine is the client&#8217;s.</p>
+
+        <h3 class="mf-pillar">04. Connect marketing to measurable outcomes</h3>
+        <p>Impressions, clicks and engagement describe how a campaign behaved. They do not tell a lender
+           whether the money is working. The outcomes that matter here are applications, signed loans and new
+           member applications, and the useful question each month is what the reporting says about those.</p>
+        <p>The credit union maintains the reporting. The contribution is in reading it against the plan:
+           looking at which products are producing applications, where the digital-source volume is going, and
+           what that suggests about where the next month&#8217;s effort belongs.</p>
+      </section>
+
+    </div>
+
+    <section class="cst-band" aria-labelledby="perf-title">
+      <div class="wrap">
+        <h2 class="cst-band-head" id="perf-title">Performance</h2>
+
+        <figure class="mf-chart">
+          <figcaption>
+            <p class="mf-chart-head" style="margin-top:0">Reported HELOC applications by month, 2025</p>
+            <p class="mf-chart-sub">Google and website sourced applications. February is marked n/r because it
+               is missing from the reporting, not because it was zero. Each bar is labelled with its value.</p>
+          </figcaption>
+          <ul class="mf-bars">
+            <li>
+              <span class="mf-v">1</span>
+              <span class="mf-bar mf-bar-h1" style="--v:1" aria-hidden="true"></span>
+              <span class="mf-m">Jan</span>
+            </li>
+            <li>
+              <span class="mf-v mf-v-na">n/r</span>
+              <span class="mf-bar mf-bar-na" aria-hidden="true"></span>
+              <span class="mf-m">Feb</span>
+            </li>
+            <li>
+              <span class="mf-v">4</span>
+              <span class="mf-bar mf-bar-h1" style="--v:4" aria-hidden="true"></span>
+              <span class="mf-m">Mar</span>
+            </li>
+            <li>
+              <span class="mf-v">1</span>
+              <span class="mf-bar mf-bar-h1" style="--v:1" aria-hidden="true"></span>
+              <span class="mf-m">Apr</span>
+            </li>
+            <li>
+              <span class="mf-v">4</span>
+              <span class="mf-bar mf-bar-h1" style="--v:4" aria-hidden="true"></span>
+              <span class="mf-m">May</span>
+            </li>
+            <li>
+              <span class="mf-v">18</span>
+              <span class="mf-bar mf-bar-h1" style="--v:18" aria-hidden="true"></span>
+              <span class="mf-m">Jun</span>
+            </li>
+            <li>
+              <span class="mf-v">14</span>
+              <span class="mf-bar mf-bar-h2" style="--v:14" aria-hidden="true"></span>
+              <span class="mf-m">Jul</span>
+            </li>
+            <li>
+              <span class="mf-v">17</span>
+              <span class="mf-bar mf-bar-h2" style="--v:17" aria-hidden="true"></span>
+              <span class="mf-m">Aug</span>
+            </li>
+            <li>
+              <span class="mf-v">22</span>
+              <span class="mf-bar mf-bar-h2" style="--v:22" aria-hidden="true"></span>
+              <span class="mf-m">Sep</span>
+            </li>
+            <li>
+              <span class="mf-v">18</span>
+              <span class="mf-bar mf-bar-h2" style="--v:18" aria-hidden="true"></span>
+              <span class="mf-m">Oct</span>
+            </li>
+            <li>
+              <span class="mf-v">23</span>
+              <span class="mf-bar mf-bar-h2" style="--v:23" aria-hidden="true"></span>
+              <span class="mf-m">Nov</span>
+            </li>
+            <li>
+              <span class="mf-v">26</span>
+              <span class="mf-bar mf-bar-h2" style="--v:26" aria-hidden="true"></span>
+              <span class="mf-m">Dec</span>
+            </li>
+          </ul>
+          <div class="mf-split">
+            <div>
+              <span class="mf-half-k">First half of 2025</span>
+              <span class="mf-half-v">28</span>
+              <span class="mf-half-n">reported applications, January to June, February unreported</span>
+            </div>
+            <div>
+              <span class="mf-half-k">Second half of 2025</span>
+              <span class="mf-half-v">120</span>
+              <span class="mf-half-n">reported applications, July to December, a 329% increase on the first half</span>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <div class="wrap cst-body">
+      <section class="cst-sec">
+        <h2>Across the lending products</h2>
+        <p>Digital acquisition is not carrying one product. Reported signed loans from Google and website
+           sources, January to June 2026, across four categories.</p>
+        <figure class="mf-chart" style="margin-top:24px">
+          <ul class="mf-hbars">
+            <li>
+              <span class="mf-hname">Personal loans</span>
+              <span class="mf-hbar" style="--p:100.0" aria-hidden="true"></span>
+              <span class="mf-hv">42</span>
+            </li>
+            <li>
+              <span class="mf-hname">Auto loans</span>
+              <span class="mf-hbar" style="--p:95.2" aria-hidden="true"></span>
+              <span class="mf-hv">40</span>
+            </li>
+            <li>
+              <span class="mf-hname">HELOCs</span>
+              <span class="mf-hbar" style="--p:33.3" aria-hidden="true"></span>
+              <span class="mf-hv">14</span>
+            </li>
+            <li>
+              <span class="mf-hname">Home loans</span>
+              <span class="mf-hbar" style="--p:16.7" aria-hidden="true"></span>
+              <span class="mf-hv">7</span>
+            </li>
+          </ul>
+          <figcaption class="mf-chart-sub" style="margin:16px 0 0">103 reported signed loans in total. Signed
+             loans cannot be matched to applications submitted in the same period, so these are not two views
+             of one funnel.</figcaption>
+        </figure>
+      </section>
+
+      <section class="cst-sec">
+        <h2>Membership</h2>
+        <p>Forty-three reported new member applications from Google and website sources across January and
+           February 2026: 14 in January and 29 in February. These are applications as the reporting records
+           them, not confirmed new members.</p>
+      </section>
+
+      <section class="cst-sec">
+        <h2>Better marketing isn&#8217;t always more marketing.</h2>
+        <p>The instinct, when a lender wants more applications, is to run more campaigns. That works for
+           exactly as long as someone is pushing it.</p>
+        <p>What lasts is the connection between the parts: a plan tied to the products the business is trying
+           to grow, acquisition that covers each of them, a content process the team can actually sustain, and
+           reporting that says whether any of it is landing. <strong>None of those four is impressive on its
+           own.</strong> Together they are a marketing function a small team can run without the organization
+           having to keep adding to it.</p>
+      </section>
+
+      <section class="cst-sec">
+        <h2>What I would take into the next one</h2>
+        <ul class="mf-take">
+          <li><strong>Marketing should connect to business outcomes.</strong><span>Performance is worth
+              evaluating against meaningful organizational objectives, not just channel-level activity.</span></li>
+          <li><strong>Lean teams need repeatable processes.</strong><span>The right workflows and tools make
+              consistent execution manageable at a size where it otherwise would not be.</span></li>
+          <li><strong>Technology should support the strategy.</strong><span>AI and other tools are most
+              valuable when they solve a defined business or operational problem.</span></li>
+        </ul>
+      </section>
+
+      <figure class="quote-card q-peach">
+        <blockquote>&#8220;Amber is a true asset to the marketing industry. MembersFirst is lucky to have her
+          as part of our Team.&#8221;</blockquote>
+        <figcaption class="quote-foot">
+          <span class="monogram" aria-hidden="true">LM</span>
+          <span><span class="who-name">Lily McAuliffe</span><br><span class="who-role">Executive Vice President, MembersFirst CT FCU</span></span>
+        </figcaption>
+      </figure>
+
+      <p class="art-link"><a class="art-open" href="/full-mfcu-loan.webp" data-caption="A MembersFirst CT personal loan campaign flyer." data-more="[[&quot;/full-mfcu-referral.webp&quot;,&quot;MembersFirst CT member referral card.&quot;],[&quot;/full-mfcu-join.webp&quot;,&quot;MembersFirst CT membership flyer with rates, locations and a member testimonial.&quot;]]">See some of the campaign work</a></p>
+
+      <p class="mf-source"><strong>About these figures.</strong> All figures on this page come from the credit
+         union&#8217;s own reporting and describe reported digital-source activity, with Google and website
+         sources combined. Several months contain blank or unreported values, two of the reporting&#8217;s own
+         year-to-date totals do not reconcile with its monthly rows, paid and organic acquisition cannot be
+         separated from this dataset, and signed loans cannot be matched to applications submitted in the same
+         period. No conversion rate, return on investment, cost per acquisition or revenue figure is calculated
+         from it, and nothing here claims that marketing activity caused the reported change.</p>
+    </div>
+
+    <section class="cst-related" aria-labelledby="rel-title">
+      <div class="wrap">
+        <p class="cst-rel-title" id="rel-title">Related work</p>
+        <ul class="cst-rel-list">
+          <li><a href="/projects/robert-james-restoration"><span class="cst-rel-name">Robert James Restoration</span><span class="cst-rel-what">Building a presence for a business that ran on referrals.</span><span class="cst-rel-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span></a></li>
+          <li><a href="/projects/demand-generation-to-revenue"><span class="cst-rel-name">Connecting demand generation to revenue</span><span class="cst-rel-what">The same question in a B2B setting: is the money turning into revenue.</span><span class="cst-rel-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span></a></li>
+          <li><a href="/projects"><span class="cst-rel-name">All case studies</span><span class="cst-rel-what">Leadership, consulting, systems and independent work.</span><span class="cst-rel-go">Read<span aria-hidden="true">&nbsp;&rarr;</span></span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta-band-wrap" aria-label="Get in touch">
+      <div class="wrap">
+        <div class="cta-band mf-cta-band">
+          <h2>Build marketing that works better for <span class="tab-em tab-butter">the business.</span></h2>
+          <p>Whether you&#8217;re strengthening an existing marketing function, improving demand generation or
+             building more effective processes, the starting point is understanding what the business actually
+             needs.</p>
+          <a class="btn btn-arrow" href="/expertise">Explore my expertise</a>
+          <a class="btn btn-outline" href="/about#contact">Let&#8217;s connect</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ SHARED FOOTER — keep in sync across all pages ============
+       Brand block, three labelled link columns, then a bottom bar.
+       404.html carries this same markup with a leading slash on every
+       internal href; everything else is relative. -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="/"><img class="brand-mark" src="/brand-mark.png" alt="" width="96" height="96"><span class="brand-name">Amber Fugedi</span></a>
+          <p>Marketing strategy, fractional leadership, workflow and AI, and practical courses. Based in Connecticut.</p>
+        </div>
+
+        <div class="footer-cols">
+          <nav class="footer-col" aria-labelledby="ft-work">
+            <p class="footer-head" id="ft-work">What I do</p>
+            <ul>
+              <li><a href="/expertise">Expertise</a></li>
+              <li><a href="/projects">Work</a></li>
+              <li><a href="/my-approach">My Approach</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-labelledby="ft-svc">
+            <p class="footer-head" id="ft-svc">Services</p>
+            <ul>
+              <li><a href="/services/consulting">Consulting</a></li>
+              <li><a href="/services/fractional-leadership">Fractional leadership</a></li>
+              <li><a href="/services/workflow-ai">Workflow and AI</a></li>
+              <li><a href="/services/mentorship-advisory">Mentorship and advisory</a></li>
+              <li><a href="/services">All services</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-labelledby="ft-shop">
+            <p class="footer-head" id="ft-shop">Shop</p>
+            <ul>
+              <li><a href="/courses">Courses</a></li>
+              <!-- Student login pulled 2026-08-22: subdomain returns 502. Restore per TODO.md. -->
+            </ul>
+          </nav>
+
+          <nav class="footer-col" aria-labelledby="ft-talk">
+            <p class="footer-head" id="ft-talk">Get in touch</p>
+            <ul>
+              <li><a href="/about">About Amber</a></li>
+              <li><a href="/about#contact">Start a conversation</a></li>
+              <li><a href="mailto:amberfugedi@gmail.com">amberfugedi@gmail.com</a></li>
+              <li><a href="https://www.linkedin.com/in/amberfugedi" rel="noopener">LinkedIn</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <p>© <span id="year">2026</span> Amber Fugedi · Connecticut, USA</p>
+        <p class="footer-legal"><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+  <!-- ============ /SHARED FOOTER ============ -->
+
+  <script src="/main.js" defer></script>
+</body>
+</html>

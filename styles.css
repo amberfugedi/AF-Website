@@ -8440,8 +8440,20 @@ footer p,
 .crumbs a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .crumbs [aria-current] { color: var(--ink); }
 
-/* ---- Head ---- */
+/* ---- Head: copy left, meta card right ----
+   SPLIT, NOT STACKED. The first version ran the whole page as one
+   left-aligned 68ch column inside a 1120 wrap, so the right 45% of
+   every case study was empty from the breadcrumb to the footer and the
+   page read as an unfinished document (Amber: "the design of the case
+   study pages needs work"). The meta moved into a card on the right,
+   which is also where a reader looks for role and industry. */
 .cst-head { padding: 18px 0 0; }
+.cst-head-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: clamp(32px, 4vw, 72px);
+  align-items: start;
+}
 .cst-eyebrow {
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);
@@ -8451,20 +8463,37 @@ footer p,
   color: var(--coral-deep);
   margin: 0 0 14px;
 }
-.cst-head h1 { max-width: 19ch; margin-bottom: 22px; }
-.cst-intro { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; max-width: 60ch; margin: 0; }
+/* NO max-width in ch on the h1. It had 19ch, which at the display size
+   is 380px: a three-line headline in a 724px column. The column is the
+   cap. */
+.cst-head h1 { margin-bottom: 22px; }
+.cst-intro { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; max-width: 54ch; margin: 0; }
+
+/* The one approved outcome a case leads with, where it has one. A
+   typographic statement, not a tinted box: the outcome band below
+   already carries the figures, and a second coloured panel on the same
+   page turns the page into a dashboard. */
+.cst-lead {
+  margin: clamp(28px, 3vw, 36px) 0 0;
+  padding-left: 22px;
+  border-left: 3px solid var(--peach);
+  font-family: var(--font-display);
+  font-size: var(--fs-intro);
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: 44ch;
+}
 
 /* Context, role, industry, focus. A definition list, not chips: these
    are facts about the engagement, and a reader scanning for "what was
    her role" should find a label, not a decorated pill. */
-.cst-meta {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 24px 36px;
-  margin: 40px 0 0;
-  padding-top: 28px;
-  border-top: 1px solid var(--line);
+.cst-aside {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(24px, 2.6vw, 32px);
 }
+.cst-meta { display: grid; gap: 20px; margin: 0; }
 .cst-meta dt {
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);
@@ -8475,9 +8504,60 @@ footer p,
 }
 .cst-meta dd { margin: 7px 0 0; font-size: var(--fs-small); color: var(--ink); line-height: 1.45; }
 
+/* ---- Outcome band ----
+   Full width, between the head and the body, for the cases that have
+   approved figures. The hub deliberately keeps its figures small
+   because a project name is the thing being chosen between there; on
+   the case study itself the figure IS the point, so it runs at display
+   scale across the whole container. */
+/* The vertical space lives on the .wrap, not on the section. With the
+   padding on the section the detector reads the band's first child as
+   flush against the top border and fires cramped-padding on every case
+   study page; with it on the child the child is the thing that is
+   inset, which is what the rule is actually looking for. Identical on
+   screen. */
+.cst-band {
+  margin-top: clamp(52px, 5.6vw, 80px);
+  padding: 0;
+  background: rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(46, 42, 39, 0.08);
+  border-bottom: 1px solid rgba(46, 42, 39, 0.08);
+}
+/* 52/52 is the Seam step from the section rhythm, the same value
+   .bridge takes, and it is also the smallest value that clears the
+   detector's cramped-padding rule for this shape: a child inside a
+   bordered, filled band. Measured, not guessed: 48 fires, 52 does
+   not. Do not trim it. */
+.cst-band > .wrap { padding-top: 52px; padding-bottom: 52px; }
+.cst-band-head {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+.cst-band .case-metrics { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px 44px; }
+/* .case-metrics li is a two-column grid with the figure spanning both
+   rows. In the band the figure sits ABOVE its label, so the li goes
+   back to normal flow and .cm-fig stops being a grid item. */
+.cst-band .case-metrics li { display: block; }
+.cst-band .cm-fig { display: block; font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem); line-height: 1; }
+.cst-band .cm-what { display: block; margin-top: 10px; }
+.cst-band .cm-when { display: block; margin-top: 4px; }
+
 /* ---- Body ---- */
-.cst-body { padding: clamp(52px, 6vw, 76px) 0 0; }
-.cst-sec + .cst-sec { margin-top: clamp(38px, 4.2vw, 56px); }
+/* padding: 0 — .cst-sec is a <section>, so it was taking the site-wide
+   104/104 section rhythm INSIDE the page body. That is the rhythm for
+   full-width sections; here it put 208px of empty page between every
+   two paragraphs and was most of why these pages looked unfinished. */
+.cst-body { padding: clamp(50px, 5.4vw, 76px) 0 0; }
+.cst-body .cst-sec { padding: 0; }
+/* `> * + .cst-sec`, not `.cst-sec + .cst-sec`: a figure, a quote card
+   or an artifact link can sit between two sections, and with the
+   narrower selector the heading after one landed flush against it. */
+.cst-body > * + .cst-sec { margin-top: clamp(38px, 4.2vw, 56px); }
 .cst-sec > h2 {
   font-size: var(--fs-h3);
   line-height: 1.2;
@@ -8487,21 +8567,6 @@ footer p,
 }
 .cst-sec p { color: var(--body); max-width: 68ch; }
 .cst-sec p + p { margin-top: 14px; }
-
-/* The one approved outcome a case leads with, where it has one. A
-   typographic statement, not a tinted box — the metrics list below
-   already carries the figures and a second coloured panel on the same
-   page turns the page into a dashboard. */
-.cst-lead {
-  margin: clamp(34px, 4vw, 48px) 0 0;
-  padding-left: 22px;
-  border-left: 3px solid var(--peach);
-  font-family: var(--font-display);
-  font-size: var(--fs-intro);
-  line-height: 1.35;
-  color: var(--ink);
-  max-width: 44ch;
-}
 
 /* Leadership decisions. Numbered, serif numerals in the margin, hairline
    between. Deliberately NOT cards: a decision is a sentence, and three
@@ -8533,7 +8598,9 @@ footer p,
 .cst-calls span { grid-column: 2; grid-row: 2; color: var(--body); font-size: var(--fs-body); line-height: 1.55; }
 
 /* ---- Figures ---- */
-.cst-figure { margin: clamp(30px, 3.4vw, 42px) 0 0; }
+/* Wider than the reading column on purpose: a screenshot at 68ch is a
+   thumbnail, and on a case study page the work is the evidence. */
+.cst-figure { margin: clamp(30px, 3.4vw, 42px) 0 0; max-width: 860px; }
 .cst-figure img, .cst-figure video {
   display: block;
   width: 100%;
@@ -8548,11 +8615,15 @@ footer p,
 .cst-disclosure { margin: 8px 0 0; color: var(--muted); font-size: var(--fs-eyebrow); line-height: 1.5; max-width: 70ch; }
 
 /* ---- Reflection ---- */
+/* The closing beat, in the author's voice. It used to be body-grade
+   sans under an uppercase label, which read as a footnote rather than
+   as the person speaking. Display face at the intro grade now, which is
+   the same move .case-lesson makes on the hub. */
 .cst-reflect {
   margin: clamp(44px, 5vw, 64px) 0 0;
-  padding-top: 26px;
+  padding-top: 28px;
   border-top: 1px solid var(--line);
-  max-width: 72ch;
+  max-width: 64ch;
 }
 .cst-reflect h2 {
   font-family: var(--font-body);
@@ -8563,7 +8634,7 @@ footer p,
   color: var(--muted);
   margin-bottom: 12px;
 }
-.cst-reflect p { color: var(--body); line-height: 1.6; text-wrap: pretty; }
+.cst-reflect p { font-family: var(--font-display); font-size: var(--fs-intro); color: var(--ink); line-height: 1.45; text-wrap: pretty; }
 
 /* ---- Related ---- */
 .cst-related { border-top: 1px solid var(--line); }
@@ -8601,9 +8672,16 @@ footer p,
 .cst-rel-what { color: var(--muted); font-size: var(--fs-small); line-height: 1.45; }
 .cst-rel-go { color: var(--coral-deep); font-size: var(--fs-small); font-weight: 600; white-space: nowrap; }
 
+@media (max-width: 1020px) {
+  .cst-head-grid { grid-template-columns: minmax(0, 1fr) 300px; gap: 36px; }
+}
+@media (max-width: 860px) {
+  .cst-head-grid { grid-template-columns: 1fr; gap: 30px; }
+  /* Stacked, the meta is a two-up list rather than one long column. */
+  .cst-meta { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px 28px; }
+}
 @media (max-width: 760px) {
-  .cst-head h1 { max-width: none; }
-  .cst-meta { gap: 20px 28px; margin-top: 32px; padding-top: 22px; }
+  .cst-band > .wrap { padding-top: 40px; padding-bottom: 40px; }
   .cst-calls li { grid-template-columns: 2rem minmax(0, 1fr); gap: 0 12px; }
   .cst-rel-list a { grid-template-columns: 1fr; grid-template-areas: "name" "what" "go"; padding: 18px 0; }
   .cst-rel-list .cst-rel-go { align-self: start; }
@@ -8736,3 +8814,8 @@ footer p,
   }
   .pf-rows .pf-go { align-self: start; padding-top: 4px; }
 }
+
+/* A portrait artifact at the figure's full 860px runs 1090px tall and
+   takes over the page. The tall variant sizes it like a held object
+   rather than a screenshot. */
+.cst-figure-tall { max-width: 430px; }

@@ -458,3 +458,41 @@ which is why it was the one cut. Two options, both Amber's call:
       not get one unless there is verified detail beyond the one-line
       descriptions. Three employer- and client-owned applications,
       described at the level of what they do.
+
+---
+
+## MembersFirst case study, awaiting approval (2026-11-20)
+
+The full case study is built at `mockups/membersfirst-case-study.html`.
+It is not deployed: `/mockups/*` is forced to 404 and disallowed in
+robots.txt, so none of the client figures are reachable. Moving it live
+is a file rename plus a hub preview edit; the route, the canonical and
+the sitemap entry for `/projects/membersfirst-credit-union` already
+exist.
+
+- [ ] **Approve or correct the three headline figures** (329%, 103, 43)
+      and confirm permission to publish client results at all.
+- [ ] **Confirm the engagement timeline and scope.** The page does not
+      claim the work caused the reported change, and it cannot until the
+      dates line up with the reporting periods.
+- [ ] **Reconcile the reporting**, or decide to publish with the source
+      note as written. Known gaps: the 2025 HELOC year-to-date column
+      reports 142 against 148 in the monthly rows; the 2025 home loan
+      year-to-date does not reconcile either; several months are blank;
+      Google and website sources are combined; paid and organic cannot
+      be separated; signed loans cannot be matched to applications from
+      the same period.
+- [ ] **Decide whether the Content Engine keeps its own row** on the
+      Work hub once this page describes it. The naming canon says that
+      row drops the client name; the case study names the client, which
+      is consistent, but the two should not say the same thing twice.
+- [ ] On approval, move the draft's inline CSS into `styles.css` under
+      an `mf-*` block and delete the draft banner.
+
+## Open from the case study design pass (2026-11-20)
+
+- [ ] **Client case pages now show one artifact inline** rather than
+      only offering the lightbox link. That softens the July 2026
+      decision, which was made when all six cases shared one page.
+      Amber to confirm, or it reverts to link-only.
+- [ ] **The two anonymized case studies still carry `{{OUTCOME}}`.**

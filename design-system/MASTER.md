@@ -8409,3 +8409,131 @@ survive being read next to the PERQ figures.
 **Robert James Restoration is a thin page.** 42 words and three website
 screenshots. It got a page because the brief listed it; nothing was
 invented to fill the template, which is why it is short.
+
+---
+
+# 2026-11-20 (later) — The case study pages were weak, and why
+
+Amber, on the ten pages shipped that morning: "the design of the case
+study pages needs work." She was right, and the biggest cause was not a
+design decision at all.
+
+## The 208px phantom
+
+`.cst-sec` is a `<section>`, so it took the site-wide `section { padding:
+104px 0 }`. That rhythm is for FULL-WIDTH sections. Inside a page body it
+put 208px of empty page between every two paragraphs: the "How it
+progressed" block measured 363px tall around 155px of content. PERQ ran
+7,928px, most of it nothing.
+
+`.cst-body .cst-sec { padding: 0 }`. The page came down to 6,550px with
+nothing removed. **A component that reuses a semantic element inherits
+that element's rhythm. Check what a bare `section`, `aside` or `figure`
+already costs before styling one.**
+
+## The empty right half
+
+Everything was capped at 68ch and left-aligned in a 1120 wrap, so 45% of
+every page was blank from the breadcrumb to the footer. Three changes:
+
+1. **The head is a split.** Copy left, a meta card right carrying
+   context, role, industry and focus — which is where a reader looks for
+   those anyway.
+2. **An outcome band.** Full width, between head and body, for cases with
+   approved figures, at display scale. The hub keeps its figures small
+   because a project name is the thing being chosen between there; on
+   the case study the figure IS the point.
+3. **The work is shown, not linked.** MembersFirst, Robert James and A2
+   now carry one artifact inline and keep the lightbox for the rest.
+   This softens the July 2026 decision ("the case offers its work as a
+   named link rather than a strip of previews"), which was made when all
+   six cases shared one page. One image on a dedicated page is not a
+   strip. Flagged to Amber rather than taken silently.
+
+Also: the h1 had `max-width: 19ch`, which at the display size is 380px —
+a three-line headline in a 724px column. **Do not cap display type in
+`ch`.** The column is the cap.
+
+## Page-top emphasis on a ten-page family
+
+MASTER says every page-top carries emphasis and every page runs exactly
+two `.tab-em`. Ten case study pages would take the device from nine named
+phrases to nineteen, and the device's own rule is that the moment every
+heading has one it is a template gimmick.
+
+**Decision: the case study family carries no `.tab-em` in its h1.** Its
+page-top emphasis is the head split itself — a 50px serif headline beside
+a meta card, and above a band carrying a figure at 44px. Each page still
+ends on the butter "comes next." in the CTA band, so the count is one,
+like About. Recorded here so the next pattern audit does not read it as a
+gap.
+
+## Robert James, filled in
+
+Amber supplied the real scope: the entire brand, the website, business
+email accounts, the social presence, review management, and inbound leads
+that did not exist before. The business is referral-driven and now also
+gets found through search and Google reviews. **No number was invented**
+— the same request was declined two days earlier and the honest version
+is qualitative. The page went from 42 words to a real case study.
+
+---
+
+# 2026-11-20 — MembersFirst case study, built as a draft
+
+Amber's brief, with one constraint that shaped everything: "Keep all
+numerical claims in draft status until I approve the data, attribution
+and permission to publish client results. Do not deploy unapproved
+metrics to the live website."
+
+So it is `mockups/membersfirst-case-study.html`, which `_redirects`
+forces to 404 and `robots.txt` disallows. It is written on the live
+`cst-*` template and drops into `work-membersfirst-credit-union.html`
+unchanged when she approves; its CSS is inline in the draft so an
+unapproved page does not leave dead rules in the production sheet.
+
+## What the page does not do
+
+The reporting has real limits and the page states them in a source note
+rather than working around them: Google and website sources are combined,
+several months are blank, two of the reporting's own year-to-date totals
+do not reconcile with its monthly rows, paid and organic cannot be
+separated, and signed loans cannot be matched to applications from the
+same period. **No conversion rate, ROI, cost per acquisition or revenue
+figure is calculated from it, and nothing claims the work caused the
+change.** February is drawn as a dashed empty outline marked n/r, not a
+zero bar: a zero would state a number the data does not contain.
+
+## The hero graphic was wrong the first time
+
+The first version was a rising line with a filled area under it. On a
+page carrying a 329% figure that reads as "this went up because of me" —
+the single claim the brief forbids. It is now a level route: four stops,
+the last one filled, no rise and no area. **A chart shape is an argument
+even when it has no data on it.**
+
+## Charts, in HTML and CSS
+
+No library: the site has no build step and one external dependency. Every
+bar is labelled with its own value, so the chart needs no hidden table to
+be readable, and axe reports 0 violations at 1440 and 390. Twelve bars
+become 6x2 on a phone, which puts the first and second half on their own
+lines and leaves the shift visible.
+
+**One fill, two strengths.** A second hue for the second half would be a
+third colour-coded set, which the palette cap does not allow. Alpha says
+"the same thing, more of it", which is what the chart is about.
+
+## Three detector findings, three real causes
+
+- **The outcome band fired cramped-padding on every case study page.**
+  Its vertical padding was `clamp(34px, 3.6vw, 48px)`. Measured, not
+  guessed: 48 fires, 52 does not. 52/52 is the Seam step in the section
+  rhythm and the value `.bridge` already takes.
+- **The hatched no-data bar** was a repeating gradient, which reads as
+  decorative stripes. A dashed outline says the same thing.
+- **A `<div>` wrapping the two CTA buttons** is a child of `.cta-band`
+  with no padding or margin of its own, and the detector reads that as
+  flush against the band's background however far the text actually sits
+  from the edge. The buttons are inline-block and the band is centred;
+  the wrapper was never needed.
