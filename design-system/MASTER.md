@@ -8657,3 +8657,89 @@ of the first". That is wrong: June reported 18 and July reported 14.
 Against the first half's monthly AVERAGE of 5.6 it is true for all six
 months, which is what it says now. The line was written before it was
 verified, which is the wrong order, and the arithmetic took one command.
+
+---
+
+# 2026-11-20 — Option C on Expertise, a Work menu, and a scrollbar nobody had measured
+
+## Option C: rank by position, not by type
+
+Amber picked Option C from the row mock-ups. The situation and the
+contribution used to sit side by side as two equal columns, and **two
+things at the same altitude read as equal whatever their type
+treatment** — the row had no rank, which is why three rounds of type
+changes never fixed it.
+
+Now: the title and the contribution lead in a 1.45fr column, and the
+situation is a labelled aside in a 1fr column against a 2px peach rule.
+The h3 moved out of `.ch-problem` and into `.ch-give`, and the two
+blocks swapped source order.
+
+**One serif voice per row, and it is the title.** `.ch-line` drops from
+display face at `--fs-intro` to body sans at `--fs-body`. This reverses
+a note in the CSS that said the contribution "should read larger and
+darker than the situation copy" — true, and it was trying to express
+rank with type across two columns, which cannot work. Position does it
+instead, and the type stops competing with the heading five pixels
+away. Row height 190px at 1440, against 748px for the old six-row block.
+
+## A Work menu in the nav
+
+Amber: "what if the work dropdown had the diff sections and when they
+click it, it drags to that section of the pg". Work now carries the
+same `nav-drop` as Services: a link to /projects plus a caret that opens
+the four categories.
+
+The plumbing already existed. `/projects#in-house` filters to that
+category on load. What was missing was the case where the reader is
+**already on /projects**: the nav link changes the hash without a
+navigation, so the filter has to re-run. `fromHash()` is now bound to
+`hashchange` as well as called on load. Without it the page would jump
+to a section the filter had left hidden.
+
+27 files carry the nav, and the footer's own Work link had to be left
+alone — the first pass matched both and tripped its own assertion on
+404.html, which was the assertion doing its job.
+
+## The scrollbar at 1100px
+
+Found while measuring something else. **The homepage scrolled 40px
+sideways between roughly 1021 and 1150px**, on every build for months.
+
+Two reasons it had never been caught. The standing QA widths are
+1440/768/390/360 and the band falls between two of them. And no
+element's layout box exceeds the viewport, so an overflow probe reading
+`getBoundingClientRect` finds nothing: the cause is the hero proof
+chips' **rotation**, whose painted corners extend past a box that
+measures clean.
+
+`body { overflow-x: hidden }` had been there the whole time and did
+nothing, because with html's overflow visible the UA propagates body's
+to the viewport. The fix is `html, body { overflow-x: clip }`. **`clip`,
+not `hidden`**: hidden makes a scroll container and would break every
+`position: sticky` on the site, the nav and the Work category bar
+included. Both were re-tested at ten widths after the change.
+
+1100px is now in the standing QA width set.
+
+## And the menu finding that had been there all along
+
+Adding a third dropdown made `nav-drop-menu` cramped-padding fire three
+times per page instead of two, which took the detector from 157 to 183.
+Chasing the extra one found the original.
+
+The menu's `<ul>` had `padding: 8px` and its links `padding: 9px 12px`,
+so the text already sat 20px from the border. That is not what the rule
+measures. It looks for **a child with no inset of its own**, and the
+`<li>` had none: it spanned the ul's content box edge to edge. Raising
+the ul's padding to 10 and then 12 changed nothing, which is what said
+the padding was not the variable.
+
+Moving the horizontal inset onto the `<li>` (ul `8px 0`, li `0 8px`)
+clears it. The menu is unchanged on screen: links still sit 9px from
+each edge and the hover pill is 252px of a 270px menu.
+
+**The site went from 183 to 105 anti-patterns**, its lowest ever, on one
+line. It had been costing three findings a page since the Shop menu
+shipped, and it only surfaced because adding a dropdown made the count
+move.

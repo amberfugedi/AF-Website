@@ -71,7 +71,11 @@ body {
   line-height: 1.65;
   font-size: 1.0625rem;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* overflow-x lives on `html, body` further down, as `clip`. It was
+     `hidden` here alone and did nothing: with html's overflow visible
+     the UA propagates body's to the viewport, so the page still scrolled
+     sideways. It also made body a scroll container, which `clip` does
+     not. */
 }
 
 h1, h2, h3 {
@@ -89,6 +93,18 @@ a { color: inherit; }
 img { max-width: 100%; display: block; }
 
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* overflow-x: clip, NOT hidden. The homepage hero's proof chips are
+   rotated, and between roughly 1021 and 1150px their painted corners
+   push the document 40px wider than the viewport, so a small laptop
+   gets a horizontal scrollbar on the home page. No element's layout box
+   exceeds the viewport, which is why an overflow probe that reads
+   getBoundingClientRect finds nothing: it is the transform.
+   `clip` does not create a scroll container, so every position: sticky
+   descendant keeps working. `hidden` would break the site nav and the
+   Work page's category bar. Found at 1100px while testing something
+   else; the standing QA widths were 1440/768/390/360 and missed it. */
+html, body { overflow-x: clip; }
 
 ::selection { background: var(--blush); color: var(--ink); }
 
@@ -524,7 +540,7 @@ body.page-sub .aura { --aura-base: 0.45; }
   left: -18px;
   min-width: 176px;
   margin: 0;
-  padding: 8px;
+  padding: 8px 0;
   list-style: none;
   background: var(--bg-raised);
   border: 1px solid var(--line);
@@ -545,6 +561,12 @@ body.page-sub .aura { --aura-base: 0.45; }
 .nav-drop:focus-within .nav-drop-menu {
   opacity: 1; visibility: visible; transform: none;
 }
+/* The horizontal inset lives on the <li>, not only on the <ul>. With it
+   on the ul alone the li spans the content box edge to edge and the
+   AI-tell detector reads the menu's children as flush against its
+   border, once per menu per page: 78 findings site-wide once Work
+   became the third dropdown. Text sits 20px from the border either way. */
+.nav-drop-menu li { padding: 0 8px; }
 .nav-drop-menu a {
   display: block;
   padding: 9px 12px;
@@ -3344,7 +3366,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
    rows at the old rhythm ran the section past 1500px. */
 .ch {
   display: grid;
-  grid-template-columns: 68px minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: 68px minmax(0, 1.45fr) minmax(0, 1fr);
   column-gap: clamp(18px, 2.2vw, 34px);
   /* the columns want a wide gutter; the revealed capability row does
      not, and inheriting the column gutter left it floating well below
@@ -3414,7 +3436,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 .ch-ops        .ch-mark { background: #D7F4CF; }
 .ch-ai         .ch-mark { background: #E9CFF2; }
 .ch-leadership .ch-mark { background: #F5D4E9; }
-.ch-problem .ch-word { margin-bottom: 10px; }
+.ch-give .ch-word { margin-bottom: 10px; }
 
 /* ---- "What this can include" ----
    A quiet editorial action, not a control: no fill, no border, no pill.
@@ -3485,21 +3507,35 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   color: var(--ink);
   margin: 0;
 }
+/* OPTION C (Amber, 2026-11-20). The situation and the contribution used
+   to sit side by side as two equal columns, and two things at the same
+   altitude read as equal whatever their type treatment — the row had no
+   rank. The contribution now leads at the wider measure with the title
+   above it, and the situation is a labelled aside against a peach rule,
+   which marks it as supporting rather than parallel. The rule is the
+   site's existing "this supports the thing beside it" mark. */
+.ch-problem { border-left: 2px solid var(--peach); padding-left: 18px; }
+.ch-lab {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
 .ch-for { color: var(--body); margin-bottom: 10px; }
 /* Capabilities are editorial text now, not a ringed list. The rings
    stay the site's bullet language everywhere they are still a LIST;
    here the four items read as one line of metadata. */
 .ch-caps { color: var(--body); margin-bottom: 0; }
-/* The contribution is the focal point of the row: display face, a
-   grade up from the problem copy, full ink against its muted. */
-/* 500 is the display weight the whole site uses; Newsreader 400 at this
-   grade appeared only here. Size and colour are untouched, so the
-   contribution still reads larger and darker than the situation copy. */
+/* ONE SERIF VOICE PER ROW, and it is the title. The contribution used
+   to run in the display face a grade above the situation copy, which put
+   a paragraph in the heading font five pixels from the heading it was
+   meant to support, so the two competed. Rank is now expressed by
+   POSITION — contribution in the lead column, situation in the aside —
+   which is the thing type alone could not do across two columns. */
 .ch-line {
-  font-family: var(--font-display);
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: -0.015em;
+  color: var(--body);
   margin-bottom: 10px;
 }
 .ch-link { margin-bottom: 0; }
@@ -4463,6 +4499,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
   .ch { grid-template-columns: 60px minmax(0, 1fr); gap: 18px 26px; padding: 30px 0 32px; }
   .ch-give { grid-column: 2; }
+  .ch-problem { grid-column: 2; }
   .ch-detail { grid-column: 2; }
   .ch-mark { width: 60px; height: 60px; }
   .ch-mark .glyph { width: 30px; height: 30px; }
@@ -4479,6 +4516,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
      wrapped harder for it. */
   .ch { grid-template-columns: 1fr; gap: 12px; padding: 26px 0 28px; }
   .ch-give { grid-column: 1; }
+  .ch-problem { grid-column: 1; }
   .ch-detail { grid-column: 1; }
   .ch-mark { width: 48px; height: 48px; margin-bottom: 2px; }
   .ch-mark .glyph { width: 25px; height: 25px; }
@@ -6783,7 +6821,8 @@ footer p,
 .xm-note { font-size: var(--fs-eyebrow); line-height: 1.4; }
 .xm-name { font-size: var(--fs-intro); line-height: 1.2; }
 .ch-word { font-size: var(--fs-h3); }
-.ch-for { font-size: var(--fs-body); line-height: 1.55; }
+.ch-for { font-size: var(--fs-small); line-height: 1.55; }
+.ch-lab { font-size: var(--fs-eyebrow); }
 .ch-caps, .industries { font-size: var(--fs-small); line-height: 1.55; }
 /* Proof rows: the sentence at body, the row title on the card-title
    grade, label and figure caption at eyebrow. */
@@ -6811,7 +6850,7 @@ footer p,
 .pr-head { font-size: var(--fs-h3); line-height: 1.2; }
 .pr-copy p { font-size: var(--fs-body); line-height: 1.55; }
 .pr-proof span { font-size: var(--fs-intro); line-height: 1.2; }
-.ch-line { font-size: var(--fs-intro); line-height: 1.35; }
+.ch-line { font-size: var(--fs-body); line-height: 1.55; }
 .work-strip a { font-size: var(--fs-intro); line-height: 1.35; }
 .diag-q { font-size: var(--fs-h3); line-height: 1.2; }
 /* Courses */

@@ -100,7 +100,17 @@
       </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="/expertise">Expertise</a></li>
-        <li><a href="/projects">Work</a></li>
+        <li class="nav-drop">
+          <a class="nav-drop-btn nav-drop-link" href="/projects">Work</a>
+          <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-controls="work-menu" aria-label="Show work categories"><span class="nav-caret" aria-hidden="true"></span></button>
+          <span class="nav-group-label">Work</span>
+          <ul class="nav-drop-menu" id="work-menu">
+            <li><a href="/projects#in-house">Marketing leadership &amp; growth</a></li>
+            <li><a href="/projects#client-work">Consulting &amp; client work</a></li>
+            <li><a href="/projects#builds">Systems, technology &amp; AI</a></li>
+            <li><a href="/projects#independent">Independent &amp; industry</a></li>
+          </ul>
+        </li>
         <li><a href="/my-approach">My Approach</a></li>
         <li class="nav-drop">
           <a class="nav-drop-btn nav-drop-link" href="/services">Services</a>

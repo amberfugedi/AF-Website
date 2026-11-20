@@ -289,11 +289,22 @@
         }
       });
     });
-    var hash = location.hash.slice(1);
-    if (hash) {
+    /* A hash that names a CATEGORY selects that tab. A hash that names a
+       row (#perq) deliberately does not, or a deep link to one project
+       would hide the other three categories.
+       On hashchange as well as on load: the nav's Work menu points at
+       /projects#in-house and friends, so clicking one while already on
+       this page changes the hash without a navigation. Without the
+       listener the page would jump to a section that the filter had
+       left hidden. */
+    var fromHash = function () {
+      var hash = location.hash.slice(1);
+      if (!hash) return;
       var match = tabs.filter(function (a) { return a.getAttribute("href") === "#" + hash; })[0];
       if (match) apply(match.getAttribute("data-cat"));
-    }
+    };
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
   }
 
   /* ---------- Asset lightbox ----------
