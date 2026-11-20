@@ -8830,3 +8830,40 @@ Two attempts made it worse. Moving the closing border from the last row
 to the list added a container finding of its own and cleared nothing:
 115 either way. **Recorded so the next pass does not spend the hour
 again.** Site total is 115, of which these ten are false.
+
+## The page was not using its window, and the measure was the reason
+
+Three elements, measured at 1440, 1600 and 1920. The container is
+1200px and centred at all three.
+
+| | before | after |
+|---|---:|---:|
+| Insight line | 529px | 799px |
+| Prose block | 788px, one column | 1200px, two columns of 565px |
+| Workstream copy | 640px | two columns of 524px |
+
+The insight was the problem at the top of every chapter: at `--fs-h3`
+and 30ch it measured 529px while the body under it measured 788px. **The
+loudest element on the chapter was the smallest thing on it.** In the
+two chapters that carry no h2 that line *is* the heading, so it is sized
+like one now: `--fs-h2`, 34ch.
+
+The body was the problem below it, but not in the way it looked. 788px
+of 17px Manrope is about **92 characters**, already past the comfortable
+range, so widening it further would have made it worse. `ch` is not
+characters: at this size one `ch` is about 10.4px while the average
+glyph is nearer 8.5, so a 76ch cap buys a 92-character line.
+
+Two columns fix both complaints at once. Each column is about 64
+characters, which is better than what was there, and the block reaches
+the container edge. A lone paragraph keeps its own measure and spans
+both columns (`p:only-child`), so a one-paragraph block does not end up
+as a half-width stub. The same treatment is on the workstream rows: the
+heading spans, the two paragraphs sit side by side, and the row now
+reaches the hairline it is drawn under.
+
+All of it is gated at 980px. Below that everything stacks as before.
+
+One real finding came out of it: the insight at `line-height: 1.22`
+tripped `tight-leading`, which wants 1.3 at that size. 1.3 it is, and
+the count went back to 115.

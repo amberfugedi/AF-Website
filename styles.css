@@ -9063,23 +9063,43 @@ footer p,
   margin: 0 0 18px;
   max-width: 24ch;
 }
+/* A single column at this width measures about 92 characters, which is
+   past the comfortable range and still leaves a third of the page bare.
+   Two columns fix both: roughly 64 characters each, and the block
+   reaches the edge of the container. A lone paragraph keeps its own
+   measure and spans. */
 .cst-col { max-width: 76ch; }
 .cst-col p { color: var(--body); margin: 0; }
 .cst-col p + p { margin-top: 15px; }
+@media (min-width: 980px) {
+  .cst-col {
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px clamp(44px, 4.4vw, 72px);
+    align-items: start;
+  }
+  .cst-col p + p { margin-top: 0; }
+  .cst-col > p:only-child { grid-column: 1 / -1; max-width: 76ch; }
+}
 .cst-col strong { color: var(--ink); font-weight: 600; }
 
 /* ---- 6. Featured insight ---- */
 /* The one statement a section turns on. Display face at the h3 grade
    over a short measure, with air. At most one per chapter. */
+/* In the two chapters that carry no h2 this line is the heading, so it
+   is sized like one. At h3 and 30ch it measured 529px under an 788px
+   body: the loudest element on the chapter was the smallest thing on
+   it. */
 .cst-insight {
-  margin: 0 0 24px;
+  margin: 0 0 28px;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: var(--fs-h3);
+  font-size: var(--fs-h2);
   line-height: 1.3;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.018em;
   color: var(--ink);
-  max-width: 30ch;
+  max-width: 34ch;
   text-wrap: balance;
 }
 .cst-insight em { font-style: italic; color: var(--coral-deep); }
@@ -9156,6 +9176,21 @@ footer p,
 }
 .cst-ws p { color: var(--body); font-size: var(--fs-small); line-height: 1.6; margin: 0; max-width: 70ch; }
 .cst-ws p + p { margin-top: 10px; }
+/* Same two-column treatment as the prose blocks: the heading spans, the
+   two paragraphs sit side by side and the row reaches the hairline it
+   is drawn under instead of stopping two fifths short. */
+@media (min-width: 980px) {
+  .cst-ws > li > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px clamp(44px, 4.4vw, 72px);
+    align-items: start;
+  }
+  .cst-ws > li > div > h3 { grid-column: 1 / -1; max-width: none; }
+  .cst-ws p { max-width: none; }
+  .cst-ws p + p { margin-top: 0; }
+  .cst-ws > li > div > p:only-of-type { grid-column: 1 / -1; max-width: 70ch; }
+}
 
 /* ---- 9. Two complementary dimensions ---- */
 /* Not two personas. The hairline between them is the point: one
