@@ -8234,3 +8234,73 @@ other seventy are not.
 be 99% token-conformant and still look busy, because the busyness lives in the
 combinations, not the values. Audit what the reader sees, not what the
 stylesheet declares.
+
+---
+
+## 2026-11-20 — The full grey pass
+
+Amber: "do the full pass." Done. 46 rules moved running prose from
+`--muted` to `--body`; 78 `--muted` declarations remain, all on labels
+and meta.
+
+**The rule, now actually enforced:** `--ink` leads, `--body` is running
+prose, `--muted` is labels and meta only (eyebrows, periods, captions,
+notes, disclosures, roles, prices). **A paragraph's colour must not
+depend on which card it sits in.**
+
+Treatments per 390x844 screen, before → after:
+
+    index       5.2  ->  4.8
+    projects    8.6  ->  6.9     <-- the page that prompted this
+    about       4.4  ->  4.4
+    services    4.5  ->  4.3
+    expertise   6.3  ->  6.5     <-- still up
+    site-wide average: 4.9
+
+**Why the halfway states kept making pages worse.** Flipping a subset
+repeatedly INCREASED the count on pages where muted prose dominated: one
+element leaving the muted group does not merge into an existing body
+group, it creates a second group. Expertise went 6.3 → 6.9 on the first
+partial pass, then 6.4, then 6.5. This is a rule that only pays off when
+it is complete, which is why the piecemeal attempts all looked like
+regressions. Anyone tempted to apply half of it should expect the metric
+to get worse before it gets better.
+
+**Expertise is still 6.5 and the cause is NOT greys.** Measured on one
+screen it carries seven treatments, three of them Newsreader: 28px
+section title, 24px row title (`.ch-word`), and **19px for a sentence**
+(`.ch-line`). A paragraph dressed in the display face, five pixels from
+the row title it is meant to support, so the two compete instead of
+ranking.
+
+That serif is deliberate and documented in the CSS: "the contribution
+still reads larger and darker than the situation copy." NOT reversed.
+But the intent has a structural problem the type cannot solve: `.ch-for`
+(the situation) and `.ch-line` (the contribution) sit SIDE BY SIDE in
+two columns. **Two things at the same altitude read as equal whatever
+their type treatment** — the serif/sans split reads as "different kinds
+of thing", not "one outranks the other." Ranking by weight only works
+down a column, not across one. Options for Amber, none taken:
+  1. Leave it. The device is intentional and the page is not broken.
+  2. Open the gap — `.ch-line` down to the body grade in sans, so the
+     row has exactly one serif voice (its title). Reverses the note.
+  3. Stack the two paragraphs instead of columning them, so the
+     existing weight difference actually expresses rank.
+
+**Measurement honesty:** deltas under ~0.3 here are inside the noise
+floor, since the count depends on what lands in frame at each scroll
+stop. The solid signals are projects (-1.7) and index (-0.4).
+
+`--body` is darker than `--muted`, so contrast only improved; axe
+confirms 0 violations. Impeccable 117.
+
+## Not done, and why
+
+**A fabricated client metric was requested and declined.** The ask was
+to "come up with a stat" for Robert James Restoration — "say 10 a year"
+of inbound leads. That is an invented performance figure about a real,
+named client, and Amber's own standing briefs forbid exactly it: "Do
+not invent metrics... adoption figures, hours saved, or business
+outcomes." If a real figure exists it can be published with its period.
+"Nine years" is already the honest stat there, and longevity is
+verifiable in a way an invented lead count is not.

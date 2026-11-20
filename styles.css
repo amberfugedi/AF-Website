@@ -1459,7 +1459,7 @@ section { padding: 104px 0; }
 .bld-cat-head h3 { margin-bottom: 8px; font-size: var(--fs-h3); line-height: 1.2; }
 /* small like the project descriptions: the project title dominates,
    category copy recedes to a supporting label */
-.bld-cat-head p { color: var(--muted); font-size: var(--fs-small); line-height: 1.5; }
+.bld-cat-head p { color: var(--body); font-size: var(--fs-small); line-height: 1.5; }
 .bld-items { list-style: none; margin: 0; padding: 0; }
 /* Each project is a ROW ON A HAIRLINE, not a card. Nested cards inside
    the category card made the section read as a product directory —
@@ -2754,7 +2754,7 @@ a.bld-item .bld-item-arrow {
 
 .sp-head { margin-bottom: clamp(30px, 4vw, 46px); }
 .sp-head .section-title { margin-bottom: 12px; }
-.sp-head p { color: var(--muted); font-size: var(--fs-body); max-width: 68ch; margin: 0; }
+.sp-head p { color: var(--body); font-size: var(--fs-body); max-width: 68ch; margin: 0; }
 
 /* ---- Two-by-two card grid. Equal heights: every card reserves the height
    of its tallest face, so opening a card never shifts the layout. ---- */
@@ -2865,7 +2865,7 @@ a.bld-item .bld-item-arrow {
   max-width: 26ch;
 }
 .sp-s {
-  color: var(--muted);
+  color: var(--body);
   font-size: var(--fs-small);
   line-height: 1.55;
   max-width: 40ch;
@@ -2916,7 +2916,7 @@ a.bld-item .bld-item-arrow {
   line-height: 1.55;
   max-width: 58ch;
 }
-.sp-may { color: var(--muted) !important; }
+.sp-may { color: var(--body) !important; }
 .sp-cta { margin: 4px 0 0 !important; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3489,7 +3489,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   color: var(--ink);
   margin: 0;
 }
-.ch-for { color: var(--muted); margin-bottom: 10px; }
+.ch-for { color: var(--body); margin-bottom: 10px; }
 /* Capabilities are editorial text now, not a ringed list. The rings
    stay the site's bullet language everywhere they are still a LIST;
    here the four items read as one line of metadata. */
@@ -3540,7 +3540,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   color: var(--ink);
   margin-bottom: 7px;
 }
-.tl-eg { display: block; color: var(--muted); }
+.tl-eg { display: block; color: var(--body); }
 @media (max-width: 860px) {
   .tl-preview { grid-template-columns: 1fr 1fr; gap: 22px clamp(20px, 3vw, 34px); }
   .tl-preview li:nth-child(odd) { border-left: 0; padding-left: 0; }
@@ -3574,7 +3574,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 }
 .plat-row + .plat-row { border-top: 1px solid var(--line); }
 .plat-list dt { font-weight: 600; color: var(--ink); margin: 0; }
-.plat-list dd { margin: 0; color: var(--muted); }
+.plat-list dd { margin: 0; color: var(--body); }
 /* expanded should not read as another page section */
 .plat-all[open] { padding-bottom: 4px; }
 @media (max-width: 760px) {
@@ -3732,7 +3732,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   color: var(--ink);
   margin-bottom: 6px;
 }
-.cs-stages p { color: var(--muted); margin: 0; }
+.cs-stages p { color: var(--body); margin: 0; }
 
 .cs-inc {
   display: grid;
@@ -3751,7 +3751,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   margin-bottom: 6px;
 }
 .cs-inc dd { margin: 0; font-family: var(--font-display); color: var(--ink); letter-spacing: -0.015em; }
-.cs-note { color: var(--muted); max-width: 68ch; margin: 26px 0 0; }
+.cs-note { color: var(--body); max-width: 68ch; margin: 26px 0 0; }
 
 /* ============ Course sales page (2026-08) ============
    The page sells rather than collects addresses. Everything below is
@@ -3814,7 +3814,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 .fm-k2 { color: var(--body); }
 .fm-k3 { color: var(--muted); }
 .fm-v { color: var(--ink); }
-.fm-note { color: var(--muted); margin: 12px 0 0; }
+.fm-note { color: var(--body); margin: 12px 0 0; }
 
 /* Map section: three steps beside the three tiers */
 .fm-grid {
@@ -3833,11 +3833,11 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   line-height: 1; letter-spacing: -0.02em;
 }
 .fm-steps h3 { font-family: var(--font-display); color: var(--ink); margin-bottom: 5px; letter-spacing: -0.015em; }
-.fm-steps p { color: var(--muted); margin: 0; }
+.fm-steps p { color: var(--body); margin: 0; }
 .fm-tiers { display: grid; gap: 0; }
 .fm-tiers > div { padding: 15px 0; border-top: 1px solid var(--line); }
 .fm-tiers > div:first-child { border-top: 0; padding-top: 0; }
-.fm-tiers p { color: var(--muted); margin: 0; }
+.fm-tiers p { color: var(--body); margin: 0; }
 .ct-k { display: block; margin-bottom: 4px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 .ct-first .ct-k { color: var(--coral-deep); }
 .ct-next  .ct-k { color: var(--body); }
@@ -3853,7 +3853,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 .ba-after .ba-k { color: var(--coral-deep); }
 .ba-col ul { list-style: none; margin: 0; padding: 0; }
 .ba-col li { padding: 11px 0; border-top: 1px solid var(--line); color: var(--body); }
-.ba-before li { color: var(--muted); }
+.ba-before li { color: var(--body); }
 
 /* Teacher */
 /* Photo beside copy. `.teach-grid` was the course page's; `.pf-split` is
@@ -3924,7 +3924,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   border-bottom: 2px solid var(--coral-deep); transform: rotate(-45deg);
 }
 .buy-note { color: var(--muted); margin: 16px 0 0; }
-.buy-when { color: var(--muted); margin: -14px 0 22px; }
+.buy-when { color: var(--body); margin: -14px 0 22px; }
 
 /* ---- Thank-you page (2026-08) ----
    Post-purchase. Celebratory in Amber's register: the aura and the
@@ -3937,7 +3937,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 }
 .page-thanks .page-head .section-lede { max-width: 52ch; }
 .ty-cta { margin-top: 30px; }
-.ty-receipt { color: var(--muted); margin: 18px 0 0; }
+.ty-receipt { color: var(--body); margin: 18px 0 0; }
 
 .ty-steps { list-style: none; margin: clamp(26px, 3vw, 38px) 0 0; padding: 0; max-width: 74ch; }
 .ty-steps li {
@@ -3952,7 +3952,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   font-family: var(--font-display); color: var(--ink);
   letter-spacing: -0.015em; margin-bottom: 6px;
 }
-.ty-steps p { color: var(--muted); margin: 0; }
+.ty-steps p { color: var(--body); margin: 0; }
 
 /* Closes the numbered list with the same hairline the list items use,
    rather than a side rule the rest of the site never draws. */
@@ -3965,14 +3965,14 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--coral-deep); margin-bottom: 6px;
 }
-.ty-tip p:last-child { color: var(--muted); margin: 0; }
+.ty-tip p:last-child { color: var(--body); margin: 0; }
 /* Sits directly under the access button. --body rather than --muted,
    because someone reading this has just hit a wall and should not have
    to squint at the way out. */
 .ty-rescue { color: var(--body); margin: 10px 0 0; max-width: 54ch; }
 .ty-rescue a { color: var(--coral-deep); font-weight: 600; }
 
-.ty-help { color: var(--muted); margin: 40px 0 0; text-align: center; }
+.ty-help { color: var(--body); margin: 40px 0 0; text-align: center; }
 .ty-help a { color: var(--coral-deep); }
 
 @media (max-width: 620px) {
@@ -4001,7 +4001,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 .faq-s::before { left: 0; top: 5px; width: 12px; height: 2px; }
 .faq-s::after { left: 5px; top: 0; width: 2px; height: 12px; }
 .faq-q[open] .faq-s::after { transform: scaleY(0); }
-.faq-q p { color: var(--muted); margin: 0 0 18px; max-width: 68ch; }
+.faq-q p { color: var(--body); margin: 0 0 18px; max-width: 68ch; }
 
 /* Mobile sticky purchase bar. Appears once the hero buy has scrolled
    away, so it never duplicates a visible button. */
@@ -4080,7 +4080,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 }
 .cl-n { font-weight: 600; color: var(--coral-deep); letter-spacing: 0.04em; }
 .cl-t { font-weight: 600; color: var(--ink); }
-.cl-d { color: var(--muted); margin: 0; }
+.cl-d { color: var(--body); margin: 0; }
 
 /* The pull line inside a body column: one step up, ink, no quote marks
    — it is the argument, not a quotation. */
@@ -4112,7 +4112,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
    weight the way the priority does. */
 .cs-tiers { list-style: none; margin: 24px 0 0; padding: 0; }
 .cs-tiers li { padding: 15px 0; border-top: 1px solid var(--line); }
-.cs-tiers p { color: var(--muted); margin: 0; }
+.cs-tiers p { color: var(--body); margin: 0; }
 .ct-k {
   display: block; margin-bottom: 4px;
   font-size: var(--fs-small); font-weight: 600;
@@ -4139,7 +4139,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   padding: clamp(26px, 3.4vw, 40px);
 }
 .cs-notify h2 { margin-bottom: 8px; }
-.cs-notify > div > p { color: var(--muted); margin-bottom: 0; }
+.cs-notify > div > p { color: var(--body); margin-bottom: 0; }
 
 @media (max-width: 900px) {
   .cs-split { grid-template-columns: 1fr; gap: 20px; }
@@ -4262,7 +4262,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   border-top: 1px solid var(--line);
 }
 .plat h3 { font-family: var(--font-body); font-weight: 600; color: var(--muted); margin-bottom: 5px; }
-.plat p { color: var(--muted); opacity: 0.86; margin-bottom: 0; }
+.plat p { color: var(--body); opacity: 0.86; margin-bottom: 0; }
 
 /* --- 4. Evidence rows (2026-08, Amber's brief). The four-column
    version put the intro in its own column and squeezed three projects
@@ -4274,7 +4274,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
    metric badges, and no vertical rules. --- */
 .ev-intro { max-width: 68ch; margin-bottom: clamp(26px, 2.8vw, 38px); }
 .ev-intro .section-title { margin-bottom: 14px; }
-.ev-intro p { color: var(--muted); margin-bottom: 18px; }
+.ev-intro p { color: var(--body); margin-bottom: 18px; }
 .ev-intro .section-foot-link { margin-top: 0; }
 
 .ev-list { list-style: none; margin: 0; padding: 0; }
@@ -4301,7 +4301,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   color: var(--ink);
   margin: 0 0 8px;
 }
-.ev-story p { color: var(--muted); margin-bottom: 0; }
+.ev-story p { color: var(--body); margin-bottom: 0; }
 .ev-metric {
   font-family: var(--font-display);
   font-weight: 500;
@@ -4411,7 +4411,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   margin-bottom: 10px;
   max-width: 22em;
 }
-.pr-copy p { color: var(--muted); max-width: 58ch; margin-bottom: 0; }
+.pr-copy p { color: var(--body); max-width: 58ch; margin-bottom: 0; }
 .pr-link { margin-top: 16px; }
 /* The figure sits quiet and right-aligned: a label over the number,
    never a stat tile. No border, no fill, no chip. */
@@ -4451,7 +4451,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid var(--line);
-  color: var(--muted);
+  color: var(--body);
   max-width: 62ch;
   margin-bottom: 0;
 }
@@ -4659,7 +4659,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
    promise a click. The scope line does the work the lightbox does on
    the website rows. */
 .more-name { display: block; font-weight: 600; color: var(--ink); }
-.more-scope { display: block; margin-top: 4px; font-size: var(--fs-small); line-height: 1.45; color: var(--muted); }
+.more-scope { display: block; margin-top: 4px; font-size: var(--fs-small); line-height: 1.45; color: var(--body); }
 .more-list a:hover { background-size: 100% 2px; }
 @media (max-width: 760px) {
   .more-sites { margin-top: 34px; }
@@ -4787,7 +4787,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   transition: color 0.2s var(--ease);
 }
 .crs-body h3 a:hover { color: var(--coral-deep); }
-.crs-body > p { color: var(--muted); margin-bottom: 20px; }
+.crs-body > p { color: var(--body); margin-bottom: 20px; }
 /* a definition list, not a bullet run: label and value line up in two
    columns so the four facts scan as a spec rather than a loose list */
 .crs-meta {
@@ -4822,7 +4822,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   border-top: 1px solid var(--line);
 }
 .co-next .section-title { margin-bottom: 14px; }
-.co-next > div > p { color: var(--muted); max-width: 46ch; }
+.co-next > div > p { color: var(--body); max-width: 46ch; }
 .crs-topics {
   list-style: none; margin: 22px 0 0; padding: 0;
   display: flex; flex-wrap: wrap; gap: 10px 12px;
@@ -4846,7 +4846,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   border-top: 1px solid var(--line);
 }
 .crs-teach .section-title { margin-bottom: 0; }
-.crs-teach-body p { color: var(--muted); max-width: 50ch; }
+.crs-teach-body p { color: var(--body); max-width: 50ch; }
 .crs-teach-body p:last-child { margin-bottom: 0; }
 
 /* --- 5. Student login: a utility close, quieter than the course --- */
@@ -4860,7 +4860,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   border-radius: var(--radius);
 }
 .crs-login h2 { font-family: var(--font-display); margin-bottom: 4px; letter-spacing: -0.015em; }
-.crs-login p { color: var(--muted); margin-bottom: 0; }
+.crs-login p { color: var(--body); margin-bottom: 0; }
 
 @media (max-width: 1020px) {
   .co-next, .crs-teach { grid-template-columns: 1fr; gap: 24px; }
@@ -4965,7 +4965,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 .xp-intro { position: sticky; top: 110px; }
 .xp-intro .section-title { margin-bottom: 20px; }
 .nowrap { white-space: nowrap; }
-.xp-lede { color: var(--muted); }
+.xp-lede { color: var(--body); }
 .xp-chapter { padding: 40px 0 44px; }
 .xp-chapter + .xp-chapter { border-top: 1px solid rgba(46, 42, 39, 0.1); }
 .xp-chapter:first-child { padding-top: 6px; }
@@ -5003,7 +5003,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 .xp-earlier { margin-top: 10px; border-top: 1px solid rgba(46, 42, 39, 0.1); padding-top: 26px; }
 .xp-earlier .xp-divider { display: block; margin-bottom: 10px; }
 
-.xp-earlier-sum { color: var(--muted); max-width: 62ch; margin-bottom: 0; }
+.xp-earlier-sum { color: var(--body); max-width: 62ch; margin-bottom: 0; }
 /* Desktop: the appendix sits open (main.js sets it) — the chevron
    and toggle are a phone affordance, where collapsing keeps the
    scroll short */
@@ -5331,7 +5331,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   margin: 0;
   text-wrap: pretty;
 }
-.ab-pull-note { color: var(--muted); margin-top: 20px; }
+.ab-pull-note { color: var(--body); margin-top: 20px; }
 .ab-pull-note + .ab-pull-note { margin-top: 12px; }
 
 /* Margin note: the small annotation that balances an asymmetric
@@ -5383,7 +5383,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 }
 .ab-payoff { position: sticky; top: 120px; }
 .ab-payoff .ab-lead { margin: 0 0 18px; max-width: 15ch; }
-.ab-payoff-note { color: var(--muted); max-width: 34ch; }
+.ab-payoff-note { color: var(--body); max-width: 34ch; }
 .ab-payoff-note + .ab-payoff-note { margin-top: 12px; }
 @media (max-width: 900px) {
   .ab-outside { grid-template-columns: 1fr; }
@@ -5571,7 +5571,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
   margin-bottom: 10px;
   text-wrap: pretty;
 }
-.sv-copy { color: var(--muted); margin-bottom: 0; }
+.sv-copy { color: var(--body); margin-bottom: 0; }
 /* Four columns of unequal heading length left the descriptors on four
    different baselines. Two lines are reserved for the figure while the
    row is genuinely a row. */
@@ -5627,7 +5627,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 
 .xp-edu { margin-top: 40px; padding-top: 26px; border-top: 1px solid rgba(46, 42, 39, 0.1); }
 .xp-edu ul { list-style: none; margin: 0; padding: 0; }
-.xp-edu li { padding: 8px 0; color: var(--muted); }
+.xp-edu li { padding: 8px 0; color: var(--body); }
 .xp-edu li strong { color: var(--ink); font-weight: 600; }
 
 /* Nine items, so five rows fills two columns instead of the three the
@@ -6131,7 +6131,7 @@ footer {
   margin-top: clamp(56px, 6.5vw, 104px);
   grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
 }
-.diag-copy p { color: var(--muted); max-width: 46ch; margin-bottom: 16px; }
+.diag-copy p { color: var(--body); max-width: 46ch; margin-bottom: 16px; }
 .diag-copy p:last-child { margin-bottom: 0; }
 /* the question, set apart: coral italic serif is the one contrasting
    treatment on the page, and coral-deep keeps it above the 4.5 floor */
@@ -6242,7 +6242,7 @@ footer {
 
 /* The head's second paragraph: four short lines under the lede,
    quieter than it so the page top stays restrained. */
-.hw-stanza { margin: 14px 0 0; max-width: 480px; color: var(--muted); }
+.hw-stanza { margin: 14px 0 0; max-width: 480px; color: var(--body); }
 
 /* Body prose blocks. Measure caps at 68 characters — the one measure
    every body paragraph on the site uses, so the sections read as
@@ -6461,7 +6461,7 @@ footer {
 .lead { padding-top: 16px; border-top: 1px solid rgba(255, 111, 97, 0.42); }
 .lead:nth-child(2n) { border-top-color: rgba(150, 138, 214, 0.5); }
 .lead h3 { margin-bottom: 7px; line-height: 1.3; }
-.lead p { color: var(--muted); margin: 0; }
+.lead p { color: var(--body); margin: 0; }
 
 /* The connection map sits a little low against its copy so the two
    columns do not start on the same line. */
@@ -6542,7 +6542,7 @@ footer {
 /* :not(.sec-n) because the numeral is a <p> too, and this rule at
    (0,2,1) was quietly beating .sec-n at (0,1,0) — the one grey
    numeral on a page of coral ones. */
-.hw-people-copy > p:not(.sec-n) { color: var(--muted); margin-bottom: 18px; }
+.hw-people-copy > p:not(.sec-n) { color: var(--body); margin-bottom: 18px; }
 .hw-people-copy p:last-child { margin-bottom: 0; }
 
 .hw-principles {
@@ -6585,7 +6585,7 @@ footer {
   margin-bottom: 8px;
   transition: color 0.25s var(--ease);
 }
-.hw-principles p { color: var(--muted); margin-bottom: 0; max-width: 68ch; }
+.hw-principles p { color: var(--body); margin-bottom: 0; max-width: 68ch; }
 /* understated on purpose: the title deepens, the mark steps 3px, the
    rule brightens. Colour and a 3px nudge only — the UI-response tier
    the rest of the site already uses, not a new motion device. */
@@ -7376,7 +7376,7 @@ footer p,
   background-position: 0 0;
 }
 .svc-ba-col li:first-child { padding-top: 0; background-image: none; }
-.svc-ba-before li { color: var(--muted); }
+.svc-ba-before li { color: var(--body); }
 .svc-ba-before li::before {
   content: "";
   position: absolute;
@@ -7797,7 +7797,7 @@ footer p,
 .sv-points li {
   position: relative;
   padding: 5px 0 5px 22px;
-  color: var(--muted);
+  color: var(--body);
   font-size: var(--fs-small);
   line-height: 1.5;
 }
@@ -7968,7 +7968,7 @@ footer p,
 }
 /* no text-wrap here: it held every line ~54px short of the rule above,
    so the copy read narrower than its own column */
-.hiw-stages p { color: var(--muted); margin-bottom: 0; }
+.hiw-stages p { color: var(--body); margin-bottom: 0; }
 /* one- and two-line stage headings otherwise start their copy at
    different heights across the row */
 @media (min-width: 981px) {
