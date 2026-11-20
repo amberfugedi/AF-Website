@@ -8506,7 +8506,7 @@ footer p,
    is 380px: a three-line headline in a 724px column. The column is the
    cap. */
 .cst-head h1 { margin-bottom: 22px; }
-.cst-intro { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; max-width: 54ch; margin: 0; }
+.cst-intro { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; max-width: 62ch; margin: 0; }
 
 /* The one approved outcome a case leads with, where it has one. A
    typographic statement, not a tinted box: the outcome band below
@@ -8604,7 +8604,7 @@ footer p,
   margin-bottom: 14px;
   max-width: 26ch;
 }
-.cst-sec p { color: var(--body); max-width: 68ch; }
+.cst-sec p { color: var(--body); max-width: 76ch; }
 .cst-sec p + p { margin-top: 14px; }
 
 /* Leadership decisions. Numbered, serif numerals in the margin, hairline
@@ -8932,13 +8932,14 @@ footer p,
    should be plain paper. */
 
 /* ---- 1. Hero: narrative left, concept right ---- */
+/* Case study pages run wider than the 1120 default, the way About and
+   Expertise already do. The nav and footer go with them, so the
+   breadcrumb lines up with the logo instead of sitting 40px inside it. */
+.page-case main .wrap,
+.page-case .site-nav .wrap,
+.page-case .site-foot .wrap,
+.page-case footer .wrap { max-width: 1200px; }
 .cst-hero { padding: 26px 0 0; }
-.cst-hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: clamp(32px, 4vw, 68px);
-  align-items: center;
-}
 .cst-back {
   display: inline-block;
   font-size: var(--fs-eyebrow);
@@ -8962,7 +8963,7 @@ footer p,
 /* The headline carries the page. Capped by the column, never in ch:
    at the display size a ch cap reads as a 380px measure. */
 .cst-hero h1 { margin-bottom: 20px; }
-.cst-deck { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; max-width: 54ch; margin: 0; }
+.cst-deck { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; max-width: 62ch; margin: 0; }
 
 /* ---- 2. Engagement metadata ---- */
 /* A strip under the hero, not a card. The card was the only card on
@@ -9081,7 +9082,7 @@ footer p,
   margin: 0 0 18px;
   max-width: 24ch;
 }
-.cst-col { max-width: 68ch; }
+.cst-col { max-width: 76ch; }
 .cst-col p { color: var(--body); margin: 0; }
 .cst-col p + p { margin-top: 15px; }
 .cst-col strong { color: var(--ink); font-weight: 600; }
@@ -9172,7 +9173,7 @@ footer p,
   margin: 0 0 8px;
   max-width: 34ch;
 }
-.cst-ws p { color: var(--body); font-size: var(--fs-small); line-height: 1.6; margin: 0; max-width: 62ch; }
+.cst-ws p { color: var(--body); font-size: var(--fs-small); line-height: 1.6; margin: 0; max-width: 70ch; }
 .cst-ws p + p { margin-top: 10px; }
 
 /* ---- 9. Two complementary dimensions ---- */
@@ -9235,15 +9236,6 @@ footer p,
 }
 
 /* Hero figure and the anonymity note, on the new hero. */
-.cst-hero-fig { margin: 0; }
-.cst-hero-fig svg { display: block; width: 100%; height: auto; }
-.cst-hero-fig figcaption {
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: var(--fs-eyebrow);
-  line-height: 1.55;
-  max-width: 44ch;
-}
 .cst-hero .cst-anon { margin: clamp(30px, 3.4vw, 42px) 0 0; }
 .cst-body { padding: clamp(50px, 5.4vw, 76px) 0 0; }
 /* The sticky section bar already pays for the space under it. */

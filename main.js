@@ -333,10 +333,11 @@
        whole screen behind what is being read. */
     var csPick = function () {
       if (!csSecs.length) return;
-      /* The line sits near the middle of the screen, not under the bars:
-         a chapter is the one being read once its heading has climbed past
-         there, which is what the eye is doing. */
-      var line = Math.max(62 + 58 + 8, window.innerHeight * 0.42);
+      /* The line is the middle of the screen, not under the bars: a chapter
+         is the one being read once its heading has climbed past there. At
+         0.42 the bar flipped after the heading had already passed the
+         middle, which reads as lag on every short chapter. */
+      var line = Math.max(62 + 58 + 8, window.innerHeight * 0.5);
       var cur = csSecs[0];
       csSecs.forEach(function (s) {
         if (s.getBoundingClientRect().top <= line) cur = s;
