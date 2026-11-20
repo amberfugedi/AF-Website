@@ -8890,3 +8890,24 @@ block with one makes a statement. Both read as chosen.
 
 Removed on the way through: the `.cst-hero-grid` media queries, which
 had been targeting nothing since the hero figure came out.
+
+
+## And the two columns came back out
+
+Amber, on the prose block: *"im not sure this paragraph should be 2
+columns."* Right, and it applied in three places, not one.
+
+Two columns of **sequential** prose make the eye travel back up the page
+between paragraphs. That is the newspaper-column problem, and the white
+space it buys is not worth it. Side by side is for content that is
+genuinely parallel: the before-and-after rows, the Leadership duo. It is
+not for a paragraph flow, and it was wrong in the workstream rows and
+the closing statement for the same reason.
+
+All three are one column again. The width is carried by the insight line
+above (1034px) and the full-width blocks below, which is where it
+belongs. The container stays at 1360.
+
+**The rule, written down so it stops being rediscovered:** split a block
+into columns only when a reader could start in either one. If the second
+column continues a sentence of thought from the first, it is one column.

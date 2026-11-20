@@ -9072,17 +9072,13 @@ footer p,
 .cst-col p { color: var(--body); margin: 0; }
 .cst-col p + p { margin-top: 15px; }
 @media (min-width: 980px) {
-  .cst-col {
-    max-width: none;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px clamp(44px, 4.4vw, 72px);
-    align-items: start;
-  }
-  .cst-col p + p { margin-top: 0; }
+  /* One column. Two columns of sequential prose make the eye travel back
+     up the page between paragraphs, which is a worse trade than the white
+     space it buys. The width is used by the insight line above and the
+     full-width blocks below, not by splitting a paragraph flow. */
+  .cst-col { max-width: 66ch; }
   .cst-col > p:only-child {
-    grid-column: 1 / -1;
-    max-width: 60ch;
+    max-width: 52ch;
     font-size: var(--fs-intro);
     line-height: 1.5;
   }
@@ -9181,21 +9177,7 @@ footer p,
 }
 .cst-ws p { color: var(--body); font-size: var(--fs-small); line-height: 1.6; margin: 0; max-width: 70ch; }
 .cst-ws p + p { margin-top: 10px; }
-/* Same two-column treatment as the prose blocks: the heading spans, the
-   two paragraphs sit side by side and the row reaches the hairline it
-   is drawn under instead of stopping two fifths short. */
-@media (min-width: 980px) {
-  .cst-ws > li > div {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px clamp(44px, 4.4vw, 72px);
-    align-items: start;
-  }
-  .cst-ws > li > div > h3 { grid-column: 1 / -1; max-width: none; }
-  .cst-ws p { max-width: none; }
-  .cst-ws p + p { margin-top: 0; }
-  .cst-ws > li > div > p:only-of-type { grid-column: 1 / -1; max-width: 70ch; }
-}
+
 
 /* ---- 9. Two complementary dimensions ---- */
 /* Not two personas. The hairline between them is the point: one
@@ -9239,13 +9221,7 @@ footer p,
   margin: 0;
   text-wrap: pretty;
 }
-@media (min-width: 980px) {
-  .cst-reflection-body {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 clamp(44px, 4.4vw, 72px);
-    align-items: start;
-  }
-}
+.cst-reflection-body { max-width: 48ch; }
 
 @media (max-width: 860px) {
   .cst-duo { grid-template-columns: 1fr; gap: 26px; }
