@@ -9283,3 +9283,72 @@ Work and the flagship. Three exceptions, none of them a defect.
   use `--fs-h3` for section headings. The rollout resolves it.
 - **13px** on PERQ's "Selected outcomes", a label marked up as an h2.
   Worth fixing when that page is converted.
+
+# The scale, revised (Amber, 2026-11-20)
+
+| | Was | Now | Mobile |
+|---|---:|---:|---:|
+| H1 | 50 / 40 | 50 | 36 |
+| H2 | 40 / 28 | 38 | 28 |
+| H3 | 30 / 24 | 28 | 22 |
+| H4 | — | 22 | 20 |
+| Body | 17 / 16 | 18 | 16 |
+| Small | 15 / 14 | 14 | 14 |
+| Labels | 13 / 12 | 14 | 14 |
+| Buttons | — | 16 | 16 |
+
+Every clamp hits its ends exactly at 390 and 1440, verified against the
+table token by token. Desktop steps: 1.32, 1.36, 1.27, 1.22.
+
+**Two grades merged rather than collided.** H4 at 22/20 landed 1px from
+the existing `--fs-intro` at 21/19 at both ends, which is two names for
+one size. `--fs-intro` is now `var(--fs-h4)`: every existing use keeps
+working and the scale loses a duplicate instead of gaining a collision.
+
+**Small and labels are both 14 at every width.** They stay two tokens
+because they are two roles, and they are told apart by case, weight and
+tracking, not by size. That is a legitimate system; it is not an
+accident of the table.
+
+## What the site-wide audit found
+
+Every text element on all 26 pages, at 1440 and 390, against the scale.
+
+**Hard-coded sizes winning by position.** `.btn` was declared twice,
+`.hero .subhead` twice, `.nav-links a` three times. The later rule won
+silently in each case, so the button that `.btn { font-size: 1rem }`
+set to 16 was actually rendering at 17 on 26 pages. Fixed by pointing
+them at tokens. `.proof-chip .proof-label`, `.cb-step span` and
+`.ch-sign` were the same shape of problem.
+
+**Off scale, and deliberately so.** Left alone, with reasons:
+
+| | Size | Why it stays |
+|---|---|---|
+| `.brand-name` | 25 | The wordmark. A brand asset, not body type. |
+| `.cm-fig` | 44 / 32 | Outcome figures. A display numeral grade of its own. |
+| `.h2-long` | 35 / 24 | A documented variant, a step below h2 for long headings. |
+| `.proof-stat` / `.proof-label` | several | The rotated hero chips, hand-fitted across four media queries. Flattening them risks the one device on the homepage that is tuned to the pixel. |
+| mobile nav | 25.6 / 20.8 | Touch targets in the phone menu. |
+
+**One open question.** `.hero .subhead` is 19.4 / 17.1, from a decision
+of Amber's in Sept 2026 with "do not reintroduce an override here" in
+the comment. Under the new scale a lede is `--fs-intro`, now 22 / 20.
+The case study decks already moved. The homepage hero did not, because
+reversing a documented decision is hers to make. **Raised, not changed.**
+
+## The finding that matters more than the sizes
+
+The detector went 105 to 129. All 24 are `hero-eyebrow-chip` (16) and
+`kicker-above-heading` (8), and **not one of them is new.** They are the
+same eyebrows that have always been there. At 13 and 12px they read to
+the rule as captions; at 14px they read as tracked-caps kickers above
+headings, which is what they are.
+
+Amber asked earlier whether eyebrow headers were an AI giveaway. They
+were removed from the flagship then. The detector now agrees across the
+whole site, with 24 instances. **The size change did not create the
+problem, it removed the mask.** The site-wide eyebrow pass is the next
+piece of work, and the count is the measure of whether it worked.
+
+Overflow and axe: 0 and 0, all 26 pages, five widths, at the new scale.

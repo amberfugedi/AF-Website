@@ -45,13 +45,25 @@
   /* Type scale (2026-07): one fluid system, 390px -> 1440px.
      mobile / desktop: h1 48/72, h2 36/50, h3 24/30, intro 19/21,
      body 17/18, small 14/15, eyebrow 12/13. */
-  --fs-h1: clamp(2.5rem, 2.2679rem + 0.9524vw, 3.125rem); /* 40 -> 50: ONE display size, and now genuinely one — .h1-long is gone */
-  --fs-h2: clamp(1.75rem, 1.4714rem + 1.1429vw, 2.5rem); /* 28 -> 40, hitting both ends exactly at 390 and 1440 */
-  --fs-h3: clamp(1.5rem, 1.361rem + 0.5714vw, 1.875rem);
-  --fs-intro: clamp(1.1875rem, 1.141rem + 0.1905vw, 1.3125rem);
-  --fs-body: clamp(1rem, 0.977rem + 0.0952vw, 1.0625rem); /* 16 -> 17: body never outranks the hero deck */
-  --fs-small: clamp(0.875rem, 0.852rem + 0.0952vw, 0.9375rem);
-  --fs-eyebrow: clamp(0.75rem, 0.727rem + 0.0952vw, 0.8125rem);
+  /* Scale revised 2026-11-20 (Amber). Every clamp hits its ends exactly
+     at 390 and 1440. Desktop ladder: 50 / 38 / 28 / 22 / 18 / 14 / 14,
+     steps of 1.32, 1.36, 1.27, 1.22. Mobile: 36 / 28 / 22 / 20 / 16. */
+  --fs-h1: clamp(2.25rem, 1.925rem + 1.3333vw, 3.125rem); /* 36 -> 50 */
+  --fs-h2: clamp(1.75rem, 1.5179rem + 0.9524vw, 2.375rem); /* 28 -> 38 */
+  --fs-h3: clamp(1.375rem, 1.2357rem + 0.5714vw, 1.75rem); /* 22 -> 28 */
+  --fs-h4: clamp(1.25rem, 1.2036rem + 0.1905vw, 1.375rem); /* 20 -> 22 */
+  /* The deck grade and h4 landed 1px apart at both ends, which is two
+     names for one size. --fs-intro is h4 now; every existing use of it
+     keeps working and the scale loses a duplicate rather than gaining
+     a collision. */
+  --fs-intro: var(--fs-h4);
+  --fs-body: clamp(1rem, 0.9536rem + 0.1905vw, 1.125rem); /* 16 -> 18 */
+  /* Small and labels are both 14 at every width. They stay two names
+     because they are two roles, and they are told apart by case,
+     weight and tracking rather than by size. */
+  --fs-small: 0.875rem; /* 14 */
+  --fs-eyebrow: 0.875rem; /* 14 */
+  --fs-btn: 1rem; /* 16, fixed: a control is the same size on every screen */
   --nav-h: 62px;
   /* the mobile menu panel — the one full-bleed surface on the site */
   --menu-bg: #EDE9F7;
@@ -69,7 +81,7 @@ body {
   background: var(--bg);
   color: var(--body);
   line-height: 1.65;
-  font-size: 1.0625rem;
+  font-size: var(--fs-body);
   -webkit-font-smoothing: antialiased;
   /* overflow-x lives on `html, body` further down, as `clip`. It was
      `hidden` here alone and did nothing: with html's overflow visible
@@ -405,7 +417,7 @@ body.page-sub .aura { --aura-base: 0.45; }
 .nav-links { display: flex; gap: clamp(18px, 2.2vw, 32px); list-style: none; align-items: center; }
 .nav-links a {
   text-decoration: none;
-  font-size: 0.925rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--muted);
   padding-bottom: 3px;
@@ -480,7 +492,7 @@ body.page-sub .aura { --aura-base: 0.45; }
   padding: 0 0 3px;
   cursor: pointer;
   font-family: var(--font-body);
-  font-size: 0.925rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--muted);
   transition: color 0.2s;
@@ -868,7 +880,7 @@ body.page-sub .aura { --aura-base: 0.45; }
 .btn {
   display: inline-block;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--fs-btn);
   text-decoration: none;
   padding: 15px 32px;
   border-radius: 24px;
@@ -1011,7 +1023,7 @@ body.page-sub .aura { --aura-base: 0.45; }
 }
 .proof-chip .proof-label {
   display: block;
-  font-size: 0.82rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--muted);
   letter-spacing: -0.005em;
@@ -1231,7 +1243,7 @@ body.page-sub .aura { --aura-base: 0.45; }
 }
 .cb-step svg { width: 46px; height: 46px; }
 .cb-step span {
-  font-size: 0.82rem;
+  font-size: var(--fs-small);
   font-weight: 600;
   color: var(--courses-deep);
   text-align: center;
@@ -1400,7 +1412,7 @@ section { padding: 104px 0; }
 .hero h1 em { font-style: italic; color: var(--coral-deep); }
 
 .hero .subhead {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: var(--fs-intro);
   color: var(--body);
   letter-spacing: -0.01em;
   line-height: 1.5;
@@ -3469,7 +3481,7 @@ section[aria-labelledby="chapters-title"] { padding-top: clamp(72px, 8vw, 104px)
 }
 .ch-toggle:hover,
 .ch-toggle:focus-visible { color: var(--coral-deep); }
-.ch-sign { font-size: 1.05em; line-height: 1; width: 0.7em; text-align: center; }
+.ch-sign { line-height: 1; width: 0.7em; text-align: center; }
 
 /* Height via grid-template-rows so nothing measures or thrashes.
    THE PANEL SPANS THE ROW (Amber, 2026-08: "should be a full row, not
@@ -6966,7 +6978,9 @@ footer p,
   font-weight: 600;
 }
 
-.btn { font-size: 1.0625rem; }
+/* The button grade is fixed at 16 at every width: a control does not
+   scale with the prose around it. */
+.btn { font-size: var(--fs-btn); }
 /* The Shop dropdown is a <button>, so it never inherited the nav's size
    and sat at 0.925rem while its six siblings were raised to 1rem here —
    14.8px against 16px in the primary nav.
@@ -6978,7 +6992,7 @@ footer p,
    The links escape that because the mobile rule is `.nav-links > li > a`
    at 0,1,2 — the button had no such protection. */
 @media (min-width: 761px) {
-  .nav-links a, .nav-drop-btn { font-size: 1rem; }
+  .nav-links a, .nav-drop-btn { font-size: var(--fs-btn); }
 }
 .arrow-link { font-size: var(--fs-small); } /* interactive text sits in the 16-17px slot */
 
