@@ -8943,3 +8943,47 @@ columns by design.
 **The lesson is not typographic.** When someone says the same thing
 three times, they are not asking for a better version of your answer.
 Read the sentence literally: *a wider text box.*
+
+## Eyebrows came off, and the case for it
+
+Amber: *"evaluate if we need eyebrow headers because it's an AI dead
+giveaway."* She is right, and the audit is worth writing down because
+the answer is not "remove all of them".
+
+The five chapter kickers on the flagship were doing one of two jobs.
+
+**Over a heading, they repeated it.** "WHERE IT STARTED, WHERE IT WENT"
+sat over "The transformation". "THE WORK" sat over "Five workstreams,
+and what each one turned on". That is the template tell: a small-caps
+line whose only function is to announce that a heading is coming.
+
+**Where there was no heading, they were the heading** — on Overview and
+What it builds, the kicker labelled the chapter and the insight line
+carried the meaning. That is the wrong way round. Those two insight
+lines are now real `<h2>`s, which is what they already looked like, and
+the page's heading order reads H1, five H2s, five H3s with nothing
+decorative in between.
+
+**Kept, because they label rather than announce:** the two column heads
+on the comparison (a reader needs to be told which side is which), the
+category above the title, and "Related work" over a list of links. A
+label that answers *what is this* stays. A label that only says *a
+heading follows* goes.
+
+The other nine case studies and the six original pages still carry
+theirs. That is a site-wide pass, not this one.
+
+## Two other notes from the same round
+
+**The comparison was two lists, not one comparison.** Its columns were
+`1fr 1fr` across 1320px, so the two sides sat at opposite edges with
+280px of nothing after each short line. Capped at 500px and centred, the
+pair reads as a pair, under rules that still run the full width.
+
+**The workstreams are blocks now.** With the prose running full width,
+the page had become one long column of text. Five cards on the raised
+surface break it into units a reader can stop between, and the card is
+the language the hero aside already uses.
+
+The container came back in from `min(1480px, 94vw)` to
+`min(1320px, 92vw)`: 1480 was, in Amber's words, a bit extreme.

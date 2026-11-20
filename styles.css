@@ -8938,7 +8938,7 @@ footer p,
 .page-case main .wrap,
 .page-case .site-nav .wrap,
 .page-case .site-foot .wrap,
-.page-case footer .wrap { max-width: min(1480px, 94vw); }
+.page-case footer .wrap { max-width: min(1320px, 92vw); }
 .cst-hero { padding: 26px 0 0; }
 .cst-back {
   display: inline-block;
@@ -9111,10 +9111,14 @@ footer p,
    carries the meaning: a dash for the starting point, a ring for the
    direction, which is the site's existing comparison language. */
 .cst-ba { margin: clamp(26px, 3vw, 36px) 0 0; }
+/* The two sides were pushed to opposite edges of a 1320px row, which
+   read as two lists rather than one comparison. Capped and centred, so
+   the pair sits together under a full-width rule. */
 .cst-ba-head {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 0 clamp(26px, 3.2vw, 56px);
+  grid-template-columns: repeat(2, minmax(0, 500px));
+  justify-content: center;
+  gap: 0 clamp(48px, 5vw, 96px);
   padding-bottom: 12px;
 }
 .cst-ba-head span {
@@ -9129,8 +9133,9 @@ footer p,
 .cst-ba-rows { list-style: none; margin: 0; padding: 0; }
 .cst-ba-rows > li {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 10px clamp(26px, 3.2vw, 56px);
+  grid-template-columns: repeat(2, minmax(0, 500px));
+  justify-content: center;
+  gap: 10px clamp(48px, 5vw, 96px);
   padding: clamp(16px, 1.8vw, 22px) 0;
   border-top: 1px solid var(--line);
 }
@@ -9151,15 +9156,19 @@ footer p,
 /* Numbered editorial rows, never a grid of feature cards. The numeral
    does the ranking so the headings can stay quiet. */
 .cst-ws { list-style: none; margin: clamp(26px, 3vw, 36px) 0 0; padding: 0; counter-reset: ws; }
+/* Blocks rather than hairline rows. Five of them break a page that is
+   otherwise one long column of text into units you can stop between. */
+.cst-ws { display: grid; gap: clamp(16px, 1.8vw, 22px); }
 .cst-ws > li {
   counter-increment: ws;
   display: grid;
   grid-template-columns: 3.2rem minmax(0, 1fr);
   gap: 0 clamp(18px, 2.2vw, 30px);
-  padding: clamp(22px, 2.6vw, 30px) 0;
-  border-top: 1px solid var(--line);
+  padding: clamp(26px, 2.8vw, 36px) clamp(24px, 2.6vw, 38px);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
 }
-.cst-ws > li:last-child { border-bottom: 1px solid var(--line); }
 .cst-ws > li::before {
   content: counter(ws, decimal-leading-zero);
   font-family: var(--font-display);
@@ -9202,27 +9211,38 @@ footer p,
 
 /* ---- 10. Executive reflection ---- */
 /* The quietest surface on the page and the largest type on it. */
-/* The last thing on the page, so it is written like one. It was a pale
-   panel holding two quiet sentences at two thirds of the width, which
-   read as an afterthought rather than as the close. A rule above it,
-   the page's display face, and the same two columns the chapters use. */
+/* The close is a quote banner, not a labelled section. It carries the
+   same two-pastel surface the homepage quote band uses, so this is an
+   existing device rather than a new one, and it goes unlabelled: the
+   words say what they are. */
 .cst-reflection {
   margin: clamp(56px, 6vw, 92px) 0 0;
-  padding: clamp(34px, 3.6vw, 48px) 0 0;
-  border-top: 1px solid var(--line);
+  padding: clamp(40px, 4.2vw, 64px) clamp(30px, 3.6vw, 58px);
+  background:
+    radial-gradient(60% 120% at 20% 50%, rgba(218, 212, 245, 0.28), transparent 65%),
+    radial-gradient(55% 110% at 82% 50%, rgba(251, 213, 228, 0.24), transparent 60%);
+  border-radius: var(--radius);
 }
-.cst-reflection .cst-k { color: var(--muted); margin-bottom: 20px; }
-.cst-reflection-body { display: grid; gap: 18px; }
+/* The site's one mark: the 26x2 coral dash the beliefs and .sec-n use. */
+.cst-reflection::before {
+  content: "";
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--coral);
+  margin-bottom: clamp(22px, 2.4vw, 30px);
+}
+.cst-reflection-body { max-width: none; }
 .cst-reflection p {
   font-family: var(--font-display);
   font-size: var(--fs-h3);
-  line-height: 1.4;
+  line-height: 1.42;
   letter-spacing: -0.012em;
   color: var(--ink);
   margin: 0;
   text-wrap: pretty;
 }
-.cst-reflection-body { max-width: none; }
+.cst-reflection p + p { margin-top: 18px; }
 
 @media (max-width: 860px) {
   .cst-duo { grid-template-columns: 1fr; gap: 26px; }
