@@ -307,6 +307,67 @@
     window.addEventListener("hashchange", fromHash);
   }
 
+  /* ---------- Case study: section navigation ----------
+     A slim sticky bar under the site header on the long case studies.
+     It marks the section you are in; it does not filter anything, and
+     the links are plain anchors so the page works without it.
+     The observer margins put the "current" band in the upper third of
+     the viewport, which is where a reader's eye actually is. A section
+     that is merely passing the bottom of the screen is not the one
+     being read. */
+  var csNav = document.querySelector(".cst-nav");
+  if (csNav) {
+    var csLinks = [].slice.call(csNav.querySelectorAll("a[href^='#']"));
+    var mark = function (id) {
+      csLinks.forEach(function (a) {
+        if (a.getAttribute("href") === "#" + id) a.setAttribute("aria-current", "true");
+        else a.removeAttribute("aria-current");
+      });
+    };
+    var csSecs = csLinks.map(function (a) {
+      return document.getElementById(a.getAttribute("href").slice(1));
+    }).filter(Boolean);
+    /* The current chapter is the last one whose top has passed under the two
+       sticky bars, not the first one touching a band. Two chapters overlap a
+       band whenever one ends near the other's start, and the bar then lags a
+       whole screen behind what is being read. */
+    var csPick = function () {
+      if (!csSecs.length) return;
+      /* The line sits near the middle of the screen, not under the bars:
+         a chapter is the one being read once its heading has climbed past
+         there, which is what the eye is doing. */
+      var line = Math.max(62 + 58 + 8, window.innerHeight * 0.42);
+      var cur = csSecs[0];
+      csSecs.forEach(function (s) {
+        if (s.getBoundingClientRect().top <= line) cur = s;
+      });
+      var atEnd = window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 4;
+      mark(atEnd ? csSecs[csSecs.length - 1].id : cur.id);
+    };
+    if ("IntersectionObserver" in window) {
+      /* The observer is the trigger, not the answer: it fires when a chapter
+         edge crosses the line, which is exactly when the answer changes. */
+      var csObs = new IntersectionObserver(csPick, {
+        rootMargin: "-" + (62 + 58) + "px 0px -62% 0px"
+      });
+      csSecs.forEach(function (s) { csObs.observe(s); });
+      window.addEventListener("scroll", function () {
+        if (csNav.dataset.q) return;
+        csNav.dataset.q = "1";
+        requestAnimationFrame(function () { csNav.removeAttribute("data-q"); csPick(); });
+      }, { passive: true });
+      csPick();
+    } else {
+      mark(csLinks[0].getAttribute("href").slice(1));
+    }
+    /* Clicking marks immediately rather than waiting for the scroll to
+       settle, so the bar never looks unresponsive on a slow scroll. */
+    csLinks.forEach(function (a) {
+      a.addEventListener("click", function () { mark(a.getAttribute("href").slice(1)); });
+    });
+  }
+
   /* ---------- Asset lightbox ----------
      Client work opens in its own window rather than sitting on the
      page (Amber, July 2026). That is what solved it: the credit

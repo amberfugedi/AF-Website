@@ -8743,3 +8743,90 @@ each edge and the hover pill is 252px of a 270px menu.
 line. It had been costing three findings a page since the Shop menu
 shipped, and it only surfaced because adding a dropdown made the count
 move.
+
+# 2026-11-20 — The flagship case study, and four things that were costing it a thousand pixels
+
+The brief asked for the case study experience to be redesigned,
+flagship first: `/projects/marketing-function-next-stage`. The page is
+hand-built now rather than coming out of the ten-page generator, and
+case #1 has been removed from `gen/build.py` so a regeneration cannot
+overwrite it.
+
+Its shape: hero with a rings figure, anonymity note, meta strip, a
+sticky section nav, then six chapters that **do not all look the same**.
+Two lead with an eyebrow and a display insight line and have no heading
+at all. One is a numbered list of five workstreams. One is a two-column
+duo. The last is a quiet panel. The brief's word was story; a story has
+beats of different sizes, and a page whose every section is a serif
+heading over a paragraph has none.
+
+## The padding that was 104px of nothing, again
+
+`.cst-chapter` is a `<section>`, so it took the global
+`section { padding: 104px 0 }` on the bottom. Six chapters, 104px each,
+after the last line of every one of them. The page measured 7,542px and
+roughly 560 of that was air nobody had chosen.
+
+This is the **third** time a `cst-` component has inherited a bare
+element's rhythm (after `.cst-sec` and the `cs-`/`cst-` collision).
+Chapters now carry `padding: 0` and the space between them is one
+margin, `clamp(72px, 7vw, 104px)` — a single Standard step, measured at
+101px on every boundary. Page: 6,583px with nothing removed.
+
+## A scrollspy that named the section you had just left
+
+The sticky nav marked the first link whose section intersected a band
+running from under the bars to 38% of the viewport. Two chapters overlap
+that band whenever one ends near the next one's start, and **first** in
+that pair is the one leaving the screen. Scrolled to where "The work"
+filled the viewport, the bar said "The transformation".
+
+The observer is now only the trigger — it fires exactly when a chapter
+edge crosses — and the answer comes from geometry: the last chapter
+whose top has passed a line at 42% of the viewport height, plus an
+end-of-page case for the short closing panel. Checked at every 300px of
+scroll: it names the chapter at mid-screen everywhere except an 18px
+window at one boundary, which no single line can avoid.
+
+Lesson, and it is the general one: **an observer tells you something
+changed, not what the answer is.** Compute the answer.
+
+## A section nav that outlived its sections
+
+`position: sticky` with no shared container means the whole page is the
+container. The bar listing six chapters stayed at the top of the
+viewport over the related work, the CTA band and the footer. The nav and
+the body are now siblings inside `.cst-read`, and the bar releases at
+the pixel the related work begins.
+
+## Two confidentiality leaks on an anonymized page
+
+Found by reading the page as a stranger would rather than by any check.
+
+The JSON-LD `Person` block carries `worksFor: PERQ`, which is accurate
+and belongs on every other page. On a case study whose entire premise is
+that the organization is not named, structured data naming the author's
+employer beside an account of leading a marketing function is the
+identification the page is trying not to make. `anonymize()` in
+`gen/shell.py` strips it for the two anonymized pages only.
+
+The second was plainer: the Related work list under that case study
+linked to PERQ, described as "named and with figures". Both anonymized
+pages now point elsewhere.
+
+The brief names structured data explicitly. Neither leak was in the
+visible copy, which is where everyone looks.
+
+## The detector finding that is wrong
+
+Ten `cramped-padding` findings on the flagship, all of them grid `<li>`
+rows in `.cst-ws` and `.cst-ba-rows`. Those rows carry 22 to 30px of
+padding; measured, their text is nowhere near the border. The rule reads
+the child's own inset and not the parent's, which is the same shape as
+the `nav-drop-menu` finding that was real — except here the parent is
+the thing with the border and the padding both.
+
+Two attempts made it worse. Moving the closing border from the last row
+to the list added a container finding of its own and cleared nothing:
+115 either way. **Recorded so the next pass does not spend the hour
+again.** Site total is 115, of which these ten are false.
