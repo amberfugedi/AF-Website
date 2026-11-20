@@ -9217,3 +9217,69 @@ The details card aligned to the top of a column whose height included
 the "All case studies" link above the eyebrow, so centring it left it
 21px high. The link is page navigation rather than hero copy, so it
 moved out of the grid. Card and copy now share a centre line exactly.
+
+## Three gaps closed from the site's own approved copy
+
+The content gap analysis found that three of the five workstreams could
+be made concrete from pages already live and approved, with no input
+from Amber and nothing invented. Done, plus the emphasis flip on the
+fourth.
+
+**02 Organizational design.** The action was already in the paragraph,
+behind the maxim. "I drew the roles the function would need at the next
+stage, then worked out which of them existed, which could be grown
+into, and which had to be brought in" now leads; "it is tempting to
+hire for the work in front of you instead" follows. Her sentences,
+reordered.
+
+**03 Marketing operations.** Was "the person who would run it every
+day". `/projects/marketing-operations` already names them: the team's
+marketing operations specialist. That page also states what the model
+holds, which this one only gestured at: objectives, the work beneath
+them and ownership in one place, and a clear place for a new person to
+start.
+
+**04 Marketing intelligence.** Was a principle about readable
+performance with nothing built. `/projects/business-intelligence` has
+the artifact: she designed and built the application that brought years
+of marketing data into one place, so a quarter could be read against
+the same quarter two years back directly. That is now the lead.
+
+**05 Investment and planning.** Was three gerunds with no actor.
+`/projects/marketing-operations` has the sentence in first person,
+including the half that was missing: taking a recommendation to the
+leaders who weigh it.
+
+**Leadership.** "The person setting the direction is often the fastest
+person to build the first version" now has its instance attached: the
+performance view did not exist, so she built it.
+
+First-person action across the five workstreams: **two of five before,
+five of five after.** No new facts. Every clause already published and
+approved somewhere on this site. 01 Strategy is the one still waiting,
+because nothing in the repo says what the business plan asked of
+marketing.
+
+## The job title, one field over from worksFor
+
+The JSON-LD still carried `"jobTitle": ["VP of Growth Marketing &
+Enablement", …]` on both anonymized pages. The same leak as `worksFor`,
+in the field next to it, found by grepping the built page for
+identifiers rather than by reading the template. `anonymize()` strips
+both now. Everywhere else keeps them.
+
+**The lesson is the probe, not the field.** Check the built output for
+the things you promised not to say, not the source for the things you
+remembered to remove.
+
+## h2 across the site, since it was asked
+
+At 1440: 40px on the homepage, About, Expertise, My Approach, Services,
+Work and the flagship. Three exceptions, none of them a defect.
+
+- **35px**, four instances, all `.h2-long`, a documented variant for
+  long headings that is deliberately a step below h2.
+- **30px** on the nine case studies still on the old template, which
+  use `--fs-h3` for section headings. The rollout resolves it.
+- **13px** on PERQ's "Selected outcomes", a label marked up as an h2.
+  Worth fixing when that page is converted.
