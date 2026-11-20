@@ -8911,3 +8911,35 @@ belongs. The container stays at 1360.
 **The rule, written down so it stops being rediscovered:** split a block
 into columns only when a reader could start in either one. If the second
 column continues a sentence of thought from the first, it is one column.
+
+
+## Full width, and the thing I kept getting wrong about it
+
+Amber, three times: the page is not using the window. Each time I solved
+a different problem than the one she was pointing at. First the
+container, then two columns, then the container again. What she wanted
+was the simplest thing: **a wider text box.**
+
+The reason I avoided it is real but it is not a veto. A line of 17px
+text at 1480px runs past the comfortable character range, and a long
+line is hard to come back from: the eye loses its place returning to the
+left edge.
+
+The fix for that is not a narrow box. It is **more leading and more
+size**, which is what wide-measure typography has always done. Body
+prose on case studies is now `clamp(17px, …, 19px)` at `line-height:
+1.7`, and it runs the width of the container. Workstream copy went from
+`--fs-small` to `--fs-body`, same leading. The insight line, the
+closing statement and the old template's `.cst-sec` prose all lost their
+caps.
+
+The container is `min(1480px, 94vw)`, so it fills a wide window instead
+of stopping at a fixed number and leaving 280px of nothing on each side.
+
+What still does not fill, correctly: chapter headings, which are short
+strings and not boxes, and the Leadership duo, which is two parallel
+columns by design.
+
+**The lesson is not typographic.** When someone says the same thing
+three times, they are not asking for a better version of your answer.
+Read the sentence literally: *a wider text box.*

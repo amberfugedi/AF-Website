@@ -8604,7 +8604,7 @@ footer p,
   margin-bottom: 14px;
   max-width: 26ch;
 }
-.cst-sec p { color: var(--body); max-width: 76ch; }
+.cst-sec p { color: var(--body); max-width: none; line-height: 1.7; }
 .cst-sec p + p { margin-top: 14px; }
 
 /* Leadership decisions. Numbered, serif numerals in the margin, hairline
@@ -8938,7 +8938,7 @@ footer p,
 .page-case main .wrap,
 .page-case .site-nav .wrap,
 .page-case .site-foot .wrap,
-.page-case footer .wrap { max-width: 1360px; }
+.page-case footer .wrap { max-width: min(1480px, 94vw); }
 .cst-hero { padding: 26px 0 0; }
 .cst-back {
   display: inline-block;
@@ -9072,16 +9072,17 @@ footer p,
 .cst-col p { color: var(--body); margin: 0; }
 .cst-col p + p { margin-top: 15px; }
 @media (min-width: 980px) {
-  /* One column. Two columns of sequential prose make the eye travel back
-     up the page between paragraphs, which is a worse trade than the white
-     space it buys. The width is used by the insight line above and the
-     full-width blocks below, not by splitting a paragraph flow. */
-  .cst-col { max-width: 66ch; }
-  .cst-col > p:only-child {
-    max-width: 52ch;
-    font-size: var(--fs-intro);
-    line-height: 1.5;
+  /* One column, running the full width of the container. A long line is
+     harder to come back from at the end of it, so the type goes up and
+     the leading goes up with it: that is what makes a wide measure
+     readable, not a narrow box. */
+  .cst-col { max-width: none; }
+  .cst-col p {
+    font-size: clamp(1.0625rem, 0.95rem + 0.3vw, 1.1875rem);
+    line-height: 1.7;
   }
+  .cst-col p + p { margin-top: 18px; }
+  .cst-col > p:only-child { font-size: var(--fs-intro); line-height: 1.6; }
 }
 .cst-col strong { color: var(--ink); font-weight: 600; }
 
@@ -9100,7 +9101,7 @@ footer p,
   line-height: 1.3;
   letter-spacing: -0.018em;
   color: var(--ink);
-  max-width: 44ch;
+  max-width: none;
   text-wrap: balance;
 }
 .cst-insight em { font-style: italic; color: var(--coral-deep); }
@@ -9172,10 +9173,10 @@ footer p,
   font-size: var(--fs-intro);
   line-height: 1.3;
   letter-spacing: -0.015em;
-  margin: 0 0 8px;
-  max-width: 34ch;
+  margin: 0 0 10px;
+  max-width: none;
 }
-.cst-ws p { color: var(--body); font-size: var(--fs-small); line-height: 1.6; margin: 0; max-width: 70ch; }
+.cst-ws p { color: var(--body); font-size: var(--fs-body); line-height: 1.7; margin: 0; max-width: none; }
 .cst-ws p + p { margin-top: 10px; }
 
 
@@ -9221,7 +9222,7 @@ footer p,
   margin: 0;
   text-wrap: pretty;
 }
-.cst-reflection-body { max-width: 48ch; }
+.cst-reflection-body { max-width: none; }
 
 @media (max-width: 860px) {
   .cst-duo { grid-template-columns: 1fr; gap: 26px; }
