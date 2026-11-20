@@ -6776,7 +6776,7 @@ body { font-size: var(--fs-body); line-height: 1.55; }
    sentence in a 1120px page. */
 .page-case .cst-read { padding-bottom: clamp(64px, 7vw, 104px); }
 .page-case .bridge { padding: 88px 0; }
-.page-case .bridge-line { max-width: 88ch; }
+.page-case .bridge-line { max-width: 88ch; line-height: 1.6; }
 .page-case .bridge-line + .bridge-line { margin-top: 20px; }
 /* BOTH hero paragraphs share one grade. The first used to run at the
    intro size and the rest at body, which read as a mistake rather than
@@ -8556,7 +8556,7 @@ footer p,
   text-transform: uppercase;
   color: var(--muted);
 }
-.cst-meta dd { margin: 7px 0 0; font-size: var(--fs-small); color: var(--ink); line-height: 1.45; }
+.cst-meta dd { margin: 7px 0 0; font-size: var(--fs-small); color: var(--ink); line-height: 1.5; }
 
 /* ---- Outcome band ----
    Full width, between the head and the body, for the cases that have
@@ -8619,7 +8619,7 @@ footer p,
   margin-bottom: 14px;
   max-width: 26ch;
 }
-.cst-sec p { color: var(--body); max-width: none; line-height: 1.7; }
+.cst-sec p { color: var(--body); max-width: none; line-height: 1.6; }
 .cst-sec p + p { margin-top: 14px; }
 
 /* Leadership decisions. Numbered, serif numerals in the margin, hairline
@@ -8649,7 +8649,7 @@ footer p,
    real height. */
 .cst-calls li::before { grid-column: 1; grid-row: 1 / span 2; }
 .cst-calls strong { grid-column: 2; grid-row: 1; color: var(--ink); font-weight: 600; margin-bottom: 5px; }
-.cst-calls span { grid-column: 2; grid-row: 2; color: var(--body); font-size: var(--fs-body); line-height: 1.55; }
+.cst-calls span { grid-column: 2; grid-row: 2; color: var(--body); font-size: var(--fs-body); line-height: 1.6; }
 
 /* ---- Figures ---- */
 /* Reference scale, not feature scale (Amber, 2026-11-20: "keep inline,
@@ -8695,6 +8695,14 @@ footer p,
 
 /* ---- Related ---- */
 .cst-related { border-top: 1px solid var(--line); }
+/* ---- Type scale, declared once per grade for the whole template ---- */
+.cst-back,
+.cst-cat,
+.cst-rel-title,
+.cst-ba-head span,
+.cst-meta dt { line-height: 1.5; }
+.cst-nav a,
+.cst-rel-go { line-height: 1.5; }
 .cst-rel-title {
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);
@@ -8724,9 +8732,9 @@ footer p,
 .cst-rel-name { grid-area: name; }
 .cst-rel-what { grid-area: what; }
 .cst-rel-go   { grid-area: go; align-self: center; }
-.cst-rel-name { font-family: var(--font-display); font-size: var(--fs-intro); line-height: 1.3; color: var(--ink); }
+.cst-rel-name { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-intro); line-height: 1.3; color: var(--ink); }
 .cst-rel-list a:hover .cst-rel-name { color: var(--coral-deep); }
-.cst-rel-what { color: var(--muted); font-size: var(--fs-small); line-height: 1.45; }
+.cst-rel-what { color: var(--muted); font-size: var(--fs-small); line-height: 1.5; }
 .cst-rel-go { color: var(--coral-deep); font-size: var(--fs-small); font-weight: 600; white-space: nowrap; }
 
 @media (max-width: 1020px) {
@@ -8978,7 +8986,7 @@ footer p,
 /* The headline carries the page. Capped by the column, never in ch:
    at the display size a ch cap reads as a 380px measure. */
 .cst-hero h1 { margin-bottom: 20px; }
-.cst-deck { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; max-width: 62ch; margin: 0; }
+.cst-deck { font-size: var(--fs-intro); color: var(--body); line-height: 1.6; max-width: 62ch; margin: 0; }
 
 /* ---- 2. Engagement metadata ---- */
 
@@ -9009,7 +9017,7 @@ footer p,
 }
 .cst-res-w { display: block; margin-top: 12px; color: var(--ink); font-size: var(--fs-small); line-height: 1.45; }
 .cst-res-when { display: block; margin-top: 6px; color: var(--muted); font-size: var(--fs-eyebrow); line-height: 1.4; }
-.cst-res-note { margin: 16px 0 0; color: var(--muted); font-size: var(--fs-eyebrow); line-height: 1.55; max-width: 80ch; }
+.cst-res-note { margin: 16px 0 0; color: var(--muted); font-size: var(--fs-eyebrow); line-height: 1.5; max-width: 80ch; }
 
 /* ---- 4. Sticky section navigation ---- */
 /* Only on the long cases. It sits under the site header, so its own
@@ -9076,7 +9084,7 @@ footer p,
    one turned on" over two lines inside a 1320px column. */
 .cst-h {
   font-size: var(--fs-h2);
-  line-height: 1.22;
+  line-height: 1.3;
   letter-spacing: -0.018em;
   margin: 0 0 20px;
   max-width: none;
@@ -9095,14 +9103,11 @@ footer p,
      the leading goes up with it: that is what makes a wide measure
      readable, not a narrow box. */
   .cst-col { max-width: none; }
-  .cst-col p {
-    font-size: clamp(1.0625rem, 0.95rem + 0.3vw, 1.1875rem);
-    line-height: 1.7;
-  }
+  .cst-col p { font-size: var(--fs-intro); line-height: 1.6; }
   .cst-col p + p { margin-top: 18px; }
-  .cst-col > p:only-child { font-size: var(--fs-intro); line-height: 1.6; }
 }
-.cst-col strong { color: var(--ink); font-weight: 600; }
+.cst-col strong,
+.cst-ws strong { color: var(--ink); font-weight: 600; }
 
 /* ---- 6. Featured insight ---- */
 /* The one statement a section turns on. Display face at the h3 grade
@@ -9158,7 +9163,7 @@ footer p,
   border-top: 1px solid var(--line);
 }
 .cst-ba-rows > li:last-child { border-bottom: 1px solid var(--line); }
-.cst-was, .cst-now { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 0 12px; align-items: baseline; font-size: var(--fs-small); line-height: 1.55; }
+.cst-was, .cst-now { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 0 12px; align-items: baseline; font-size: var(--fs-small); line-height: 1.5; }
 .cst-was { color: var(--muted); }
 .cst-now { color: var(--ink); }
 .cst-was::before { content: ""; width: 11px; height: 2px; background: currentColor; opacity: 0.5; transform: translateY(-3px); }
@@ -9203,7 +9208,7 @@ footer p,
   margin: 0 0 10px;
   max-width: none;
 }
-.cst-ws p { color: var(--body); font-size: var(--fs-body); line-height: 1.7; margin: 0; max-width: none; }
+.cst-ws p { color: var(--body); font-size: var(--fs-body); line-height: 1.6; margin: 0; max-width: none; }
 .cst-ws p + p { margin-top: 10px; }
 
 

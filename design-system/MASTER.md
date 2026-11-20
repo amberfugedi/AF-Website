@@ -9099,3 +9099,54 @@ not need to say so.
 
 Both anonymized pages carry it, from `ANON_NOTE` in the generator.
 Nothing about what the pages withhold has changed.
+
+# Type audit before the rollout
+
+Amber: *"I also need all of the fonts audited on type and sizing before
+we duplicate this to the other pages."* Right call. Measured every text
+element that owns its own text, at 1440 and 390, against the tokens. The
+script is `scratchpad/typeaudit.js` and the output is saved to
+`plans/type-audit-2026-11-20.txt`.
+
+Four things were wrong, one of them mine from an hour earlier.
+
+**An eighth size in a seven-size scale.** Body prose was
+`clamp(1.0625rem, 0.95rem + 0.3vw, 1.1875rem)`, which lands on 19px at
+1440 and matches no token. I added it when the prose went full width and
+the measure needed bigger type. The honest fix is the grade that already
+exists: `--fs-intro`, 21px, which is on scale and is the right size for
+a 1240px measure. **If a component needs a size the scale does not have,
+the component is wrong, not the scale.**
+
+**One token, three leadings.** `--fs-small` was running 1.45, 1.5 and
+1.55 in different components; `--fs-body` was 1.55 and 1.7. Every grade
+now declares one value in the template:
+
+| grade | size at 1440 | leading |
+|---|---:|---:|
+| `--fs-h1` | 50 | 1.14 |
+| `--fs-h2` | 40 | 1.3 |
+| `--fs-intro` prose | 21 | 1.6 |
+| `--fs-intro` display | 21 | 1.3 |
+| `--fs-body` | 17 | 1.6 |
+| `--fs-small` | 15 | 1.5 |
+| `--fs-eyebrow` | 13 | 1.5 |
+
+**Two bold weights for one job.** `.cst-col strong` was 600 and
+`.cst-ws strong` was inheriting the UA 700, in the same lead-in device.
+Both 600.
+
+**Display face at 400.** The related-work titles were the only
+Newsreader run on the page below 500. Now 500.
+
+What is left varies only in shared site components, the CTA band's h2 at
+1.09 and the button at 1.55. Those belong to the site, not the template,
+and changing them reaches past the case studies.
+
+## And the anonymity note is gone
+
+Shortened to a line, then removed: *"i still dont think we need it."*
+The "Organization: Not named" row in the details card went with it, for
+the same reason she gave for the note. **A page does not announce what
+it is not telling you.** The card lists what the engagement was; a
+reader who notices no company is named has their answer in the absence.
