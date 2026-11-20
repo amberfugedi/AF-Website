@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Case study: told in beats</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+  body { background: var(--bg); }
+  .mk-wrap { max-width: 1120px; margin: 0 auto; padding: 48px 24px 140px; }
+  .mk-head h1 { font-size: var(--fs-h2); margin: 0 0 16px; }
+  .mk-head p { color: var(--body); max-width: 76ch; line-height: 1.65; margin: 0 0 14px; }
+  .mk-head strong { color: var(--ink); }
+  .mk-opt { margin: 90px 0 0; }
+  .mk-label { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--coral-deep); margin: 0 0 8px; }
+  .mk-note { color: var(--body); font-size: var(--fs-small); line-height: 1.65; margin: 0 0 30px; max-width: 78ch; }
+  .mk-stage { background: var(--bg-raised); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: clamp(30px, 4vw, 64px) clamp(26px, 4vw, 72px); }
+  .mk-measure { margin: 18px 0 0; font-size: var(--fs-eyebrow); color: var(--muted); line-height: 1.6; }
+
+  /* ================= THE BEATS LAYOUT =================
+     One column. Two voices. Narrative beats sit on the left margin in
+     the display face; everything factual is indented under the beat it
+     belongs to, small and plain. The indent is the spine: you can read
+     only the beats and still get the story, or drop into the detail
+     wherever you want it. */
+
+  .bt-eyebrow { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); margin: 0 0 clamp(28px, 3vw, 40px); }
+
+  .bt { max-width: 760px; }
+
+  /* The narrative voice. Short lines on purpose: a beat that breaks
+     over two or three lines reads at the pace of someone telling you
+     what happened. 24ch is the measure that does that at this size. */
+  .bt-beat {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.45rem, 1.05rem + 1.6vw, 2.05rem);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    max-width: 24ch;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .bt-beat em { font-style: italic; color: var(--coral-deep); }
+  .bt-beat + .bt-beat { margin-top: clamp(26px, 2.6vw, 34px); }
+
+  /* The factual voice. Indented under its beat, deliberately quieter:
+     on a portfolio the list of deliverables is the least interesting
+     thing on the page and should not be competing with the story. */
+  .bt-note {
+    margin: 16px 0 0 clamp(18px, 2.6vw, 38px);
+    padding-left: clamp(16px, 1.8vw, 24px);
+    border-left: 1px solid var(--line);
+    color: var(--body);
+    font-size: var(--fs-small);
+    line-height: 1.65;
+    max-width: 52ch;
+  }
+  .bt-note + .bt-note { margin-top: 10px; }
+  .bt-note strong { color: var(--ink); font-weight: 600; }
+
+  /* The turn. The one beat that gets a mark, because on a portfolio the
+     decision is the most valuable thing on the page and it is the thing
+     every other case study leaves out. */
+  .bt-turn { margin: clamp(40px, 4.4vw, 58px) 0 0; }
+  .bt-turn-k {
+    font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep);
+    margin: 0 0 14px; display: flex; align-items: center; gap: 12px;
+  }
+  .bt-turn-k::before { content: ""; width: 26px; height: 2px; background: var(--coral-deep); flex: none; }
+  .bt-turn .bt-beat { max-width: 28ch; }
+
+  /* The evidence. The loudest thing on the page, and the only place
+     anything runs at display scale. */
+  .bt-ev { margin: clamp(46px, 5vw, 72px) 0 0; padding-top: clamp(30px, 3.2vw, 42px); border-top: 1px solid var(--line); }
+  .bt-figs { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(22px, 2.4vw, 30px); }
+  .bt-fig { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); gap: 0 clamp(20px, 2.4vw, 34px); align-items: baseline; }
+  .bt-n { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.4rem, 1.6rem + 3.2vw, 4rem);
+    line-height: 0.95; color: var(--coral-deep); letter-spacing: -0.03em; }
+  .bt-wrapw { }
+  .bt-w { display: block; color: var(--ink); font-size: var(--fs-body); line-height: 1.4; }
+  .bt-when { display: block; margin-top: 5px; color: var(--muted); font-size: var(--fs-eyebrow); line-height: 1.4; }
+  .bt-src { margin: clamp(22px, 2.4vw, 28px) 0 0; color: var(--muted); font-size: var(--fs-eyebrow); line-height: 1.5; }
+
+  .bt-art { margin: clamp(30px, 3.2vw, 40px) 0 0; }
+  .bt-art img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
+  .bt-art figcaption { margin-top: 12px; color: var(--muted); font-size: var(--fs-eyebrow); line-height: 1.5; }
+
+  /* The close, in her voice. */
+  .bt-close { margin: clamp(46px, 5vw, 70px) 0 0; padding-top: clamp(28px, 3vw, 36px); border-top: 1px solid var(--line); max-width: 66ch; }
+  .bt-close-k { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+  .bt-close p { font-family: var(--font-display); font-size: var(--fs-intro); line-height: 1.5;
+    color: var(--ink); margin: 0; text-wrap: pretty; }
+
+  /* facts strip, small, at the very end: role, industry, focus */
+  .bt-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 20px 32px; margin: clamp(40px, 4.4vw, 56px) 0 0; padding-top: 26px; border-top: 1px solid var(--line); }
+  .bt-k { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0; }
+  .bt-v { margin: 6px 0 0; font-size: var(--fs-small); color: var(--ink); line-height: 1.45; }
+
+  .gap { background: rgba(251,213,228,0.4); border-radius: 4px; padding: 0 5px; }
+
+  @media (max-width: 760px) {
+    .bt-beat { max-width: none; }
+    .bt-fig { grid-template-columns: 1fr; gap: 6px; }
+    .bt-note { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="mk-wrap">
+
+  <div class="mk-head">
+    <h1>The problem was never the layout</h1>
+    <p>Three attempts rearranged the same content: a situation, a list of what was built, and some numbers.
+       <strong>That sequence is a r&#233;sum&#233; bullet, not a story.</strong> Nothing in it was ever at
+       risk, nothing was difficult, and nothing could have gone another way, so there is nothing for a reader
+       to be interested in. No arrangement of boxes fixes that.</p>
+    <p>A story needs a <strong>turn</strong>: a moment where it could have gone differently and someone
+       chose. On a portfolio that is the single most valuable thing on the page, because anyone can list
+       HubSpot and ABM. The judgment is the part only you have.</p>
+    <p>So this is not a container. It is the story, told in beats, with the facts tucked underneath where
+       they belong. Two voices, one column. You can read only the large lines and still get it.</p>
+  </div>
+
+  <!-- ================= PERQ: the one that already has everything ================= -->
+  <section class="mk-opt">
+    <p class="mk-label">PERQ &#8212; a case that already has a turn and a close</p>
+    <p class="mk-note">Every word here is already on the site. It has only been cut into beats and ranked.</p>
+    <div class="mk-stage">
+      <div class="bt">
+        <p class="bt-eyebrow">PERQ &middot; B2B SaaS, PropTech &middot; VP of Growth Marketing &amp; Enablement</p>
+
+        <p class="bt-beat">I joined to lead demand generation.</p>
+        <p class="bt-note">December 2023, as Director of Demand Generation.</p>
+
+        <p class="bt-beat">Fourteen months later the whole marketing function
+           was <em>mine.</em></p>
+        <p class="bt-note">Director of Growth Marketing and Enablement, then VP in January 2026. Promoted
+           twice in just over two years, with a widening remit across the business.</p>
+
+        <div class="bt-turn">
+          <p class="bt-turn-k">What it turned on</p>
+          <p class="bt-beat">The hardest part was not the marketing.
+             It was learning to start from what the
+             business needed <em>next.</em></p>
+          <p class="bt-note">Build the team around that, then make the investment decisions that follow.
+             Most of my attention now goes to the conditions around the work rather than the work.</p>
+        </div>
+
+        <div class="bt-ev">
+          <ul class="bt-figs">
+            <li class="bt-fig"><span class="bt-n">421%</span><span class="bt-wrapw"><span class="bt-w">growth in marketing-sourced new customer bookings</span><span class="bt-when">through October 15, 2026, against the equivalent 2025 period</span></span></li>
+            <li class="bt-fig"><span class="bt-n">2.6x</span><span class="bt-wrapw"><span class="bt-w">median marketing-sourced new customer booking value</span><span class="bt-when">2025 to 2026</span></span></li>
+            <li class="bt-fig"><span class="bt-n">119%</span><span class="bt-wrapw"><span class="bt-w">more organic MQLs</span><span class="bt-when">2025</span></span></li>
+          </ul>
+          <p class="bt-src">Selected marketing performance outcomes. The results came from the whole team and
+             the wider business working toward the same targets.</p>
+        </div>
+
+        <div class="bt-close">
+          <p class="bt-close-k">What it changed about how I lead</p>
+          <p>I&#8217;ve learned that effective leadership is about creating the conditions for other people
+             to do their best work.</p>
+        </div>
+
+        <div class="bt-facts">
+          <div><p class="bt-k">Owned</p><p class="bt-v">Brand and positioning, demand generation, marketing operations, sales enablement</p></div>
+          <div><p class="bt-k">Also</p><p class="bt-v">Executive Leadership Team: corporate strategy, annual planning, board-level discussion</p></div>
+          <div><p class="bt-k">Built</p><p class="bt-v">The roles the business needed, and the internal tooling behind the reporting</p></div>
+        </div>
+      </div>
+    </div>
+    <p class="mk-measure">The same words as the live page, about 1,050px instead of 1,684px of body and band,
+       and the best sentence on the page is now the one you read first after the figures.</p>
+  </section>
+
+  <!-- ================= SCAN-OPTICS: the same template, showing the gap ================= -->
+  <section class="mk-opt">
+    <p class="mk-label">Scan-Optics &#8212; the same template, and what it exposes</p>
+    <p class="mk-note">Identical structure, same 64 words. <strong>The two pink gaps are the whole problem</strong>,
+       and they were invisible in every previous layout because a tidy box of prose hides an absence. Here
+       the page cannot pretend: the turn is the loudest slot and it is empty.</p>
+    <div class="mk-stage">
+      <div class="bt">
+        <p class="bt-eyebrow">Scan-Optics &middot; Document technology &middot; Marketing Director</p>
+
+        <p class="bt-beat">A decades-old document technology
+           company bet on a <em>new market.</em></p>
+        <p class="bt-note">Repositioning toward intelligent automation.</p>
+
+        <p class="bt-beat">Its marketing was established, working,
+           and built for the company it used to be.</p>
+
+        <div class="bt-turn">
+          <p class="bt-turn-k">What it turned on</p>
+          <p class="bt-beat"><span class="gap">{{Amber: what did you have to decide, and what did it cost? Did
+             you draw the market around where the business was going rather than where its revenue came from,
+             and what did that mean for the first two quarters?}}</span></p>
+          <p class="bt-note">I will not write this one. The last time I derived a decision from the published
+             copy you said the approach and the call were nearly identical, and you were right: a decision you
+             can infer from the page is already on the page.</p>
+        </div>
+
+        <p class="bt-beat" style="margin-top:clamp(40px,4.4vw,58px)">So marketing got rebuilt around the
+           new positioning.</p>
+        <p class="bt-note">The TAM and the ideal customer profiles. HubSpot CRM and automation. ABM, paid
+           media, events and outbound. Partner campaigns with Dropbox, UKG and Xerox.</p>
+
+        <div class="bt-ev">
+          <ul class="bt-figs">
+            <li class="bt-fig"><span class="bt-n">$2.8M</span><span class="bt-wrapw"><span class="bt-w">pipeline, up from $1.3M</span><span class="bt-when">2021&#8211;2023</span></span></li>
+            <li class="bt-fig"><span class="bt-n">115%</span><span class="bt-wrapw"><span class="bt-w">more opportunity creation</span><span class="bt-when">2021&#8211;2023</span></span></li>
+            <li class="bt-fig"><span class="bt-n">47%</span><span class="bt-wrapw"><span class="bt-w">more inbound leads</span><span class="bt-when">2021&#8211;2023</span></span></li>
+          </ul>
+        </div>
+
+        <div class="bt-close">
+          <p class="bt-close-k">What I took from it</p>
+          <p><span class="gap">{{Amber: one or two sentences, the way the PERQ close reads. What do you do
+             differently now because of this engagement?}}</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= A2: when the work is the evidence ================= -->
+  <section class="mk-opt">
+    <p class="mk-label">A2 Exteriors &#8212; when the work itself is the evidence</p>
+    <p class="mk-note">Same beats. The artifact takes the evidence slot instead of figures, and the client&#8217;s
+       own words do the closing. Nothing about the template changes.</p>
+    <div class="mk-stage">
+      <div class="bt">
+        <p class="bt-eyebrow">A2 Exteriors &middot; Pressure washing &middot; Consultant</p>
+
+        <p class="bt-beat">A small pressure washing company
+           was doing good work under a brand that
+           <em>didn&#8217;t look like it.</em></p>
+
+        <p class="bt-beat">The owner knew marketing mattered
+           and had no idea where to start.</p>
+        <p class="bt-note">Which is where most small businesses begin, and why most of them stop.</p>
+
+        <div class="bt-turn">
+          <p class="bt-turn-k">What it turned on</p>
+          <p class="bt-beat">Not a campaign. A brand that
+             could survive a <em>yard sign.</em></p>
+          <p class="bt-note">Local service work does not run on impressions. It runs on the sign at the end of
+             the driveway, the hanger on the door, the flyer in the hand. The identity had to hold at that
+             size, in that weather, from a car.</p>
+        </div>
+
+        <div class="bt-ev">
+          <figure class="bt-art">
+            <img src="/full-a2-sign.webp" alt="An A2 Exteriors yard sign on a lawn." width="1400" height="1054">
+            <figcaption>The same identity carries onto door hangers, flyers and the rest of the print kit.</figcaption>
+          </figure>
+        </div>
+
+        <div class="bt-close">
+          <p class="bt-close-k">From the owner</p>
+          <p>&#8220;I knew I needed to do more with marketing, but I was honestly overwhelmed and didn&#8217;t
+             know where to start. Amber helped me make sense of it and gave me a plan that actually felt
+             doable.&#8221;</p>
+          <p class="bt-src" style="margin-top:14px">Anthony Aubrey, Owner</p>
+        </div>
+      </div>
+    </div>
+    <p class="mk-measure">The A2 turn above is written from what the work plainly is: a brand built for print
+       and signage rather than for campaigns. If that is not how you remember deciding it, say so and it comes
+       out. It is the one beat on this page I have inferred.</p>
+  </section>
+
+  <section class="mk-opt">
+    <p class="mk-label">What this costs</p>
+    <p class="mk-note">Six turns and five closes, one or two sentences each, from you. That is the whole bill.
+       Everything else on these pages is already written.
+       <br><br>And it is worth saying what the turn is not: it is not a summary of the approach. It is the
+       thing that could have gone the other way. <strong>If I can work it out from the rest of the page, it
+       is not a turn</strong> — which is exactly what went wrong the last time I tried to write them.</p>
+  </section>
+
+</div>
+</body>
+</html>
