@@ -8987,3 +8987,49 @@ the language the hero aside already uses.
 
 The container came back in from `min(1480px, 94vw)` to
 `min(1320px, 92vw)`: 1480 was, in Amber's words, a bit extreme.
+
+## The h1 that was never given a size
+
+Amber: *"i think this header font size is smaller than the other pages."*
+It was, by 16px, and not by choice.
+
+`.page-head h1, .hero h1` carries `font-size: var(--fs-h1)`. `.cst-head`
+was never added to it, and nothing else in the sheet sets a size for a
+case study h1, so **all ten of them have been rendering at the browser
+default `h1 { font-size: 2em }`** — 34px against 50 everywhere else.
+Found by asking the browser which rule matched rather than by reading
+the sheet, which is the only way this kind of thing surfaces: a missing
+rule leaves no trace to grep for.
+
+Fixed for `.cst-head` and `.cst-hero` together, so the nine pages on the
+old template get it too.
+
+## Chapter headings: one grade, no cap
+
+`.cst-h` was at `--fs-h3` while the two promoted insight lines were at
+`--fs-h2`, so the page had two sizes of chapter heading. They are one
+grade now. The `max-width: 24ch` went with it — that was breaking "Five
+workstreams, and what each one turned on" and "Leading the function.
+Staying close to the work." over two lines inside a 1240px column.
+
+**Never cap display type in `ch`.** This is the second time: the h1 had
+`19ch` and a three-line headline in a 724px column.
+
+## The close is the site's bridge band
+
+Amber pointed at the quote banner on My Approach: *"i want the
+reflection in this design. very subtle."* That component already exists
+and is literally commented `<!-- Quote banner -->` in the markup:
+`.bridge`, a full-bleed band at 45% white between two hairlines, body
+face, centred, 60ch.
+
+The pastel panel and its coral dash are gone. The closing words are a
+`.bridge` now, placed outside `.cst-read` so the band runs edge to edge.
+
+Three versions of this block in one session: a grey panel, a display
+statement with a rule, a pastel banner with a mark. The answer was a
+component the site already had. **Look for the device before drawing
+one.**
+
+The container came in again, to `min(1240px, 88vw)`, and the hero gap
+between the copy and the details card went from 72px to 96.

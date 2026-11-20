@@ -6768,6 +6768,7 @@ body { font-size: var(--fs-body); line-height: 1.55; }
 .offer-desc { font-size: var(--fs-body); line-height: 1.55; }
 /* Band statements match the ledes: body scale */
 .bridge-line { font-size: var(--fs-body); line-height: 1.55; }
+.bridge-line + .bridge-line { margin-top: 14px; }
 /* BOTH hero paragraphs share one grade. The first used to run at the
    intro size and the rest at body, which read as a mistake rather than
    as hierarchy once the deck came down to two paragraphs (Amber, Nov
@@ -8490,7 +8491,7 @@ footer p,
 .cst-head-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
-  gap: clamp(32px, 4vw, 72px);
+  gap: clamp(44px, 6vw, 108px);
   align-items: start;
 }
 .cst-eyebrow {
@@ -8505,6 +8506,11 @@ footer p,
 /* NO max-width in ch on the h1. It had 19ch, which at the display size
    is 380px: a three-line headline in a 724px column. The column is the
    cap. */
+/* These were never added to the .page-head/.hero font-size rule, so every
+   case study h1 has been rendering at the browser default 2em, 34px
+   against 50 everywhere else on the site. */
+.cst-head h1,
+.cst-hero h1 { font-size: var(--fs-h1); }
 .cst-head h1 { margin-bottom: 22px; }
 .cst-intro { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; max-width: 62ch; margin: 0; }
 
@@ -8938,7 +8944,7 @@ footer p,
 .page-case main .wrap,
 .page-case .site-nav .wrap,
 .page-case .site-foot .wrap,
-.page-case footer .wrap { max-width: min(1320px, 92vw); }
+.page-case footer .wrap { max-width: min(1240px, 88vw); }
 .cst-hero { padding: 26px 0 0; }
 .cst-back {
   display: inline-block;
@@ -9056,12 +9062,15 @@ footer p,
   color: var(--muted);
   margin: 0 0 14px;
 }
+/* Every chapter heading sits at one grade, whether it is two words or a
+   sentence. The 24ch cap was breaking "Five workstreams, and what each
+   one turned on" over two lines inside a 1320px column. */
 .cst-h {
-  font-size: var(--fs-h3);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-  margin: 0 0 18px;
-  max-width: 24ch;
+  font-size: var(--fs-h2);
+  line-height: 1.22;
+  letter-spacing: -0.018em;
+  margin: 0 0 20px;
+  max-width: none;
 }
 /* A single column at this width measures about 92 characters, which is
    past the comfortable range and still leaves a third of the page bare.
@@ -9211,38 +9220,6 @@ footer p,
 
 /* ---- 10. Executive reflection ---- */
 /* The quietest surface on the page and the largest type on it. */
-/* The close is a quote banner, not a labelled section. It carries the
-   same two-pastel surface the homepage quote band uses, so this is an
-   existing device rather than a new one, and it goes unlabelled: the
-   words say what they are. */
-.cst-reflection {
-  margin: clamp(56px, 6vw, 92px) 0 0;
-  padding: clamp(40px, 4.2vw, 64px) clamp(30px, 3.6vw, 58px);
-  background:
-    radial-gradient(60% 120% at 20% 50%, rgba(218, 212, 245, 0.28), transparent 65%),
-    radial-gradient(55% 110% at 82% 50%, rgba(251, 213, 228, 0.24), transparent 60%);
-  border-radius: var(--radius);
-}
-/* The site's one mark: the 26x2 coral dash the beliefs and .sec-n use. */
-.cst-reflection::before {
-  content: "";
-  display: block;
-  width: 26px;
-  height: 2px;
-  background: var(--coral);
-  margin-bottom: clamp(22px, 2.4vw, 30px);
-}
-.cst-reflection-body { max-width: none; }
-.cst-reflection p {
-  font-family: var(--font-display);
-  font-size: var(--fs-h3);
-  line-height: 1.42;
-  letter-spacing: -0.012em;
-  color: var(--ink);
-  margin: 0;
-  text-wrap: pretty;
-}
-.cst-reflection p + p { margin-top: 18px; }
 
 @media (max-width: 860px) {
   .cst-duo { grid-template-columns: 1fr; gap: 26px; }
