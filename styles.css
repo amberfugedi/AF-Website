@@ -8869,11 +8869,5 @@ footer p,
    one onto the four services; this one answers a different question,
    for someone who has no marketing yet, so it reads as the wide row at
    the end rather than as a fifth peer with an empty cell beside it. */
-.sp-card-wide { margin-top: clamp(16px, 2.4vw, 26px); }
-@media (min-width: 861px) {
-  .sp-card-wide .sp-t, .sp-card-wide .sp-s { max-width: 56ch; }
-  /* The four peers share an equal row height. This one sizes to its
-     own copy, which is why it is a sibling of the grid rather than a
-     fifth cell in it. */
-  .sp-card-wide .sp-s { min-height: 0; }
-}
+/* .sp-card-wide is gone. It existed for one card that sat outside the
+   grid because five cards do not fill a two-column layout. Six do. */
