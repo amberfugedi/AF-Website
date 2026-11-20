@@ -251,6 +251,46 @@
     window.addEventListener("hashchange", openTarget);
   }
 
+  /* ---------- Work hub: category filter ----------
+     The tabs are real anchor links to real sections, so with JavaScript
+     off this page is four labelled sections and the bar jumps between
+     them. With JavaScript they filter in place instead, which is the
+     point of a hub: you should not have to scroll past leadership work
+     to reach the client work.
+     ONE CAVEAT worth keeping: a deep link to a ROW (#perq) must not
+     filter. Only a hash that names a category section selects a tab. */
+  var pfTabs = document.querySelector(".pf-tabs");
+  if (pfTabs) {
+    var tabs = [].slice.call(pfTabs.querySelectorAll("a[data-cat]"));
+    var cats = [].slice.call(document.querySelectorAll("main section[data-cat]"));
+    var apply = function (cat, tab) {
+      tabs.forEach(function (a) {
+        if (a === tab) a.setAttribute("aria-current", "true");
+        else a.removeAttribute("aria-current");
+      });
+      cats.forEach(function (s) {
+        s.hidden = cat !== "all" && s.getAttribute("data-cat") !== cat;
+      });
+    };
+    tabs.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        apply(a.getAttribute("data-cat"), a);
+        /* The bar is sticky under the site nav; after a filter the top of
+           the remaining section can sit above the fold. Put it under the
+           two bars rather than leaving the reader mid-section. */
+        if (pfTabs.getBoundingClientRect().top < 0) {
+          pfTabs.scrollIntoView();
+        }
+      });
+    });
+    var hash = location.hash.slice(1);
+    if (hash) {
+      var match = tabs.filter(function (a) { return a.getAttribute("href") === "#" + hash; })[0];
+      if (match) apply(match.getAttribute("data-cat"), match);
+    }
+  }
+
   /* ---------- Asset lightbox ----------
      Client work opens in its own window rather than sitting on the
      page (Amber, July 2026). That is what solved it: the credit
@@ -565,29 +605,11 @@
     revealEls.forEach(function (el) { el.classList.add("in-view"); });
   }
 
-  /* ---------- Services anchor-nav scrollspy ---------- */
-  var anchorNav = document.querySelector(".anchor-nav");
-  if (anchorNav && "IntersectionObserver" in window) {
-    var anchorLinks = anchorNav.querySelectorAll("a[href^='#']");
-    var spyObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          anchorLinks.forEach(function (a) {
-            a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id);
-          });
-        }
-      });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    anchorLinks.forEach(function (a) {
-      var target = document.getElementById(a.getAttribute("href").slice(1));
-      if (target) spyObserver.observe(target);
-    });
-    /* Resting state: the first tab starts colored so the bar always
-       shows where you are — the observer moves it on scroll */
-    if (anchorLinks.length && !anchorNav.querySelector("a.active")) {
-      anchorLinks[0].classList.add("active");
-    }
-  }
+  /* The anchor-nav scrollspy was removed 2026-11-20. It observed the
+     section a reader had scrolled to and coloured its tab. The only
+     page with an .anchor-nav is now the Work hub, whose bar is a
+     category filter: the state it shows is what is displayed, not
+     where you are. Nothing else on the site has one. */
 
   /* ---------- Forms (front-only — wire to a real backend) ----------
      Per ux-guidelines: validate on blur, show the error below its own

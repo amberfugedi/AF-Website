@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Where I help: row hierarchy</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+  body { background: var(--bg); }
+  .mk-wrap { max-width: 1180px; margin: 0 auto; padding: 48px 24px 120px; }
+  .mk-head h1 { font-size: var(--fs-h2); margin: 0 0 12px; }
+  .mk-head p { color: var(--body); font-size: var(--fs-small); max-width: 70ch; margin: 0 0 10px; line-height: 1.6; }
+  .mk-diag { background: rgba(252,228,196,0.34); border-radius: 18px; padding: 22px 26px; margin: 18px 0 56px; }
+  .mk-diag p { font-size: var(--fs-small); color: var(--body); line-height: 1.6; margin: 0 0 10px; max-width: 76ch; }
+  .mk-diag p:last-child { margin: 0; }
+  .mk-opt { margin: 0 0 72px; }
+  .mk-label { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral-deep); margin: 0 0 6px; }
+  .mk-note { color: var(--muted); font-size: var(--fs-small); margin: 0 0 18px; max-width: 76ch; line-height: 1.6; }
+  .mk-count { font-size: var(--fs-eyebrow); color: var(--muted); margin: 10px 0 0; }
+  .mk-stage { background: var(--bg-raised); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: clamp(24px, 3vw, 38px); }
+
+  /* ---- shared row scaffolding, mirrors .ch-row ---- */
+  .r { border-top: 1px solid var(--line); padding: 28px 0; }
+  .r:first-of-type { border-top: 0; padding-top: 4px; }
+  .r-ico { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; flex: none; }
+  .r-ico.i1 { background: rgba(251,213,228,0.55); }
+  .r-ico.i2 { background: rgba(218,212,245,0.55); }
+  .r-title { font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 600;
+    color: var(--ink); letter-spacing: -0.015em; line-height: 1.2; margin: 0 0 8px; }
+  .r-sit { font-size: var(--fs-body); color: var(--body); line-height: 1.55; margin: 0; max-width: 46ch; }
+  .r-con { font-size: var(--fs-body); color: var(--body); line-height: 1.55; margin: 0; max-width: 46ch; }
+  .r-caps { font-size: var(--fs-small); color: var(--body); line-height: 1.5; margin: 0; }
+  .r-link { font-size: var(--fs-small); font-weight: 600; color: var(--coral-deep); margin: 10px 0 0; display: block; }
+  .r-tog { font-size: var(--fs-small); font-weight: 600; color: var(--muted); margin: 12px 0 0; display: block; }
+  .r-lab { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+
+  /* CURRENT: two columns, contribution in the display face */
+  .cur-grid { display: grid; grid-template-columns: 46px 1fr 1fr; gap: 0 28px; align-items: start; }
+  .cur-con { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-intro);
+    color: var(--ink); letter-spacing: -0.015em; line-height: 1.38; margin: 0 0 10px; }
+
+  /* A: one serif voice */
+  .a-grid { display: grid; grid-template-columns: 46px 1fr 1fr; gap: 0 28px; align-items: start; }
+
+  /* B: stacked, so weight can express rank */
+  .b-grid { display: grid; grid-template-columns: 46px 1fr; gap: 0 22px; align-items: start; }
+  .b-con { font-size: var(--fs-intro); color: var(--ink); line-height: 1.45; margin: 0 0 10px; max-width: 54ch; }
+  .b-sit { font-size: var(--fs-small); color: var(--muted); line-height: 1.5; margin: 0 0 14px; max-width: 54ch; }
+
+  /* C: contribution leads, situation becomes a labelled aside */
+  .c-grid { display: grid; grid-template-columns: 46px 1.45fr 1fr; gap: 0 36px; align-items: start; }
+  .c-aside { border-left: 2px solid var(--peach); padding-left: 18px; }
+  .c-sit { font-size: var(--fs-small); color: var(--body); line-height: 1.55; margin: 0; }
+
+  @media (max-width: 820px) {
+    .cur-grid, .a-grid, .c-grid { grid-template-columns: 46px 1fr; }
+    .cur-grid > *:nth-child(3), .a-grid > *:nth-child(3), .c-grid > *:nth-child(3) { grid-column: 2; margin-top: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="mk-wrap">
+
+  <div class="mk-head">
+    <h1>&ldquo;Where I help&rdquo;: row hierarchy</h1>
+  </div>
+
+  <div class="mk-diag">
+    <p><strong>What I measured.</strong> One screen of this section carries seven text
+       treatments, three of them Newsreader: the 28px section title, the 24px row title,
+       and <strong>19px for a sentence</strong> &mdash; the contribution copy. A paragraph
+       in the display face, five pixels from the title it is meant to support.</p>
+    <p><strong>Why type alone cannot fix it.</strong> The situation and the contribution sit
+       side by side. Two things at the same altitude read as equal whatever their treatment,
+       so the serif/sans split reads as &ldquo;different kinds of thing&rdquo; rather than
+       &ldquo;one outranks the other&rdquo;. Ranking by weight works down a column, not across one.</p>
+    <p>The serif on the contribution is deliberate and documented
+       (&ldquo;the contribution still reads larger and darker than the situation copy&rdquo;),
+       so every option below is a way of <em>keeping that intent</em> while making it legible.</p>
+  </div>
+
+  <!-- ============ CURRENT ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">Current</p>
+    <p class="mk-note">Icon, serif title and sans situation on the left; serif contribution and
+       link on the right. Two serif voices in one row, 5px apart on a phone.</p>
+    <div class="mk-stage">
+      <div class="r">
+        <div class="cur-grid">
+          <span class="r-ico i1" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A63563" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><path d="M15 9l-2.2 5.8L7 17l2.2-5.8z"/></svg></span>
+          <div>
+            <h3 class="r-title">Business and go-to-market strategy</h3>
+            <p class="r-sit">When the business needs clearer priorities, a position worth defending, or a plan people can actually execute.</p>
+            <span class="r-tog">+ What this can include</span>
+          </div>
+          <div>
+            <p class="cur-con">I turn business goals and scattered ideas into a plan with a sequence, a cost, and someone accountable for each piece.</p>
+            <span class="r-link">See the plans and strategies I&#8217;ve built &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="r">
+        <div class="cur-grid">
+          <span class="r-ico i2" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#574AA6" stroke-width="1.5"><rect x="3" y="4.5" width="18" height="13" rx="2"/><path d="M8 20.5h8"/></svg></span>
+          <div>
+            <h3 class="r-title">Brand and digital experience</h3>
+            <p class="r-sit">When the brand, website, or customer journey no longer reflects the business.</p>
+            <span class="r-tog">+ What this can include</span>
+          </div>
+          <div>
+            <p class="cur-con">I build experiences that make the business easier to understand, trust, and choose.</p>
+            <span class="r-link">See a brand and website I built from scratch &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <p class="mk-count">Serif voices in the row: 2 &nbsp;&middot;&nbsp; prose treatments: 2</p>
+    </div>
+  </section>
+
+  <!-- ============ A ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">Option A &mdash; One serif voice</p>
+    <p class="mk-note">The contribution drops to the body grade in sans, matching the situation.
+       The row title becomes the only serif, so it leads without competition. Smallest change;
+       it does reverse the documented note, because the contribution no longer reads heavier.</p>
+    <div class="mk-stage">
+      <div class="r">
+        <div class="a-grid">
+          <span class="r-ico i1" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A63563" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><path d="M15 9l-2.2 5.8L7 17l2.2-5.8z"/></svg></span>
+          <div>
+            <h3 class="r-title">Business and go-to-market strategy</h3>
+            <p class="r-sit">When the business needs clearer priorities, a position worth defending, or a plan people can actually execute.</p>
+            <span class="r-tog">+ What this can include</span>
+          </div>
+          <div>
+            <p class="r-con">I turn business goals and scattered ideas into a plan with a sequence, a cost, and someone accountable for each piece.</p>
+            <span class="r-link">See the plans and strategies I&#8217;ve built &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <div class="r">
+        <div class="a-grid">
+          <span class="r-ico i2" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#574AA6" stroke-width="1.5"><rect x="3" y="4.5" width="18" height="13" rx="2"/><path d="M8 20.5h8"/></svg></span>
+          <div>
+            <h3 class="r-title">Brand and digital experience</h3>
+            <p class="r-sit">When the brand, website, or customer journey no longer reflects the business.</p>
+            <span class="r-tog">+ What this can include</span>
+          </div>
+          <div>
+            <p class="r-con">I build experiences that make the business easier to understand, trust, and choose.</p>
+            <span class="r-link">See a brand and website I built from scratch &rarr;</span>
+          </div>
+        </div>
+      </div>
+      <p class="mk-count">Serif voices: 1 &nbsp;&middot;&nbsp; prose treatments: 1</p>
+    </div>
+  </section>
+
+  <!-- ============ B ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">Option B &mdash; Stack it, so weight means rank</p>
+    <p class="mk-note">One column. The contribution sits directly under the title at the intro
+       grade in ink; the situation follows beneath it, smaller and lighter. The documented intent
+       survives intact &mdash; the contribution <em>is</em> larger and darker &mdash; and now it
+       actually reads that way, because rank runs down the page rather than across it.</p>
+    <div class="mk-stage">
+      <div class="r">
+        <div class="b-grid">
+          <span class="r-ico i1" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A63563" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><path d="M15 9l-2.2 5.8L7 17l2.2-5.8z"/></svg></span>
+          <div>
+            <h3 class="r-title">Business and go-to-market strategy</h3>
+            <p class="b-con">I turn business goals and scattered ideas into a plan with a sequence, a cost, and someone accountable for each piece.</p>
+            <p class="b-sit">When the business needs clearer priorities, a position worth defending, or a plan people can actually execute.</p>
+            <span class="r-link">See the plans and strategies I&#8217;ve built &rarr;</span>
+            <span class="r-tog">+ What this can include</span>
+          </div>
+        </div>
+      </div>
+      <div class="r">
+        <div class="b-grid">
+          <span class="r-ico i2" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#574AA6" stroke-width="1.5"><rect x="3" y="4.5" width="18" height="13" rx="2"/><path d="M8 20.5h8"/></svg></span>
+          <div>
+            <h3 class="r-title">Brand and digital experience</h3>
+            <p class="b-con">I build experiences that make the business easier to understand, trust, and choose.</p>
+            <p class="b-sit">When the brand, website, or customer journey no longer reflects the business.</p>
+            <span class="r-link">See a brand and website I built from scratch &rarr;</span>
+            <span class="r-tog">+ What this can include</span>
+          </div>
+        </div>
+      </div>
+      <p class="mk-count">Serif voices: 1 &nbsp;&middot;&nbsp; prose treatments: 2, but ranked vertically &nbsp;&middot;&nbsp; taller rows</p>
+    </div>
+  </section>
+
+  <!-- ============ C ============ -->
+  <section class="mk-opt">
+    <p class="mk-label">Option C &mdash; Contribution leads, situation becomes a labelled aside</p>
+    <p class="mk-note">Keeps two columns but stops pretending they are equal. The contribution
+       runs as the row&#8217;s main copy at full width; the situation is labelled and set
+       against a peach rule, which marks it as supporting rather than parallel. Keeps the
+       scanability of columns and the documented intent.</p>
+    <div class="mk-stage">
+      <div class="r">
+        <div class="c-grid">
+          <span class="r-ico i1" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A63563" stroke-width="1.5"><circle cx="12" cy="12" r="8.5"/><path d="M15 9l-2.2 5.8L7 17l2.2-5.8z"/></svg></span>
+          <div>
+            <h3 class="r-title">Business and go-to-market strategy</h3>
+            <p class="r-con">I turn business goals and scattered ideas into a plan with a sequence, a cost, and someone accountable for each piece.</p>
+            <span class="r-link">See the plans and strategies I&#8217;ve built &rarr;</span>
+          </div>
+          <div class="c-aside">
+            <p class="r-lab">When this comes up</p>
+            <p class="c-sit">When the business needs clearer priorities, a position worth defending, or a plan people can actually execute.</p>
+            <span class="r-tog">+ What this can include</span>
+          </div>
+        </div>
+      </div>
+      <div class="r">
+        <div class="c-grid">
+          <span class="r-ico i2" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#574AA6" stroke-width="1.5"><rect x="3" y="4.5" width="18" height="13" rx="2"/><path d="M8 20.5h8"/></svg></span>
+          <div>
+            <h3 class="r-title">Brand and digital experience</h3>
+            <p class="r-con">I build experiences that make the business easier to understand, trust, and choose.</p>
+            <span class="r-link">See a brand and website I built from scratch &rarr;</span>
+          </div>
+          <div class="c-aside">
+            <p class="r-lab">When this comes up</p>
+            <p class="c-sit">When the brand, website, or customer journey no longer reflects the business.</p>
+            <span class="r-tog">+ What this can include</span>
+          </div>
+        </div>
+      </div>
+      <p class="mk-count">Serif voices: 1 &nbsp;&middot;&nbsp; prose treatments: 2, clearly ranked &nbsp;&middot;&nbsp; adds one eyebrow label per row</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

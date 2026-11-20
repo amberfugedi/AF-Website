@@ -513,6 +513,51 @@ structure where the service genuinely differs.
 
 ---
 
+## 12a. The Work hub and case study pages
+
+Added 2026-11-20. `/projects` is a **hub of previews**, never a place a
+case study is read in full. Ten standalone pages sit under it at
+`/projects/<slug>`, from flat `work-<slug>.html` files.
+
+**Hub.** Four categories, in this order: Marketing leadership & growth,
+Consulting & client work, Systems technology & AI, Independent &
+industry. A sticky tab bar (`.anchor-nav.pf-tabs`) filters them; the
+tabs are real anchor links to real `<section id>`s and the filter is a
+progressive enhancement in `main.js`. The current tab is marked with
+`aria-current`, in ink on the raised surface — **not** a per-tab accent
+colour, which would be a third colour-coded set.
+
+Three preview weights, and they must stay unequal:
+
+| Class | For | Looks like |
+|---|---|---|
+| `.pf-feat` | the two case studies that lead | raised card, serif title at `--fs-intro`, eyebrow |
+| `.pf-rows` | anything with its own page | hairline row, whole row is the link, one optional figure |
+| `.more-list` | entries with no page | two-column labelled list, lightbox where there is art |
+
+A figure in a preview uses `.pf-fig` at `--fs-small`, not `.cm-fig`. On
+a hub the project name is the thing being chosen between, and a
+display-grade figure outweighs it.
+
+**Case study pages.** One template, `cst-*`, and **every block is
+optional except the head**. A case carries only the blocks its verified
+content fills; the pages are meant to differ in length and composition.
+
+    breadcrumb → head (eyebrow, h1, intro, optional lead, meta dl)
+               → body blocks → optional reflection
+               → related work → CTA
+
+Body blocks available: `.cst-sec` (h2 + prose), `.cst-calls` (numbered
+leadership decisions, serif numerals on hairlines, never cards),
+`.cst-figure` with `.cst-disclosure` for anything illustrative, and the
+existing `.case-metrics`, `.quote-card` and `.art-link` components.
+Nothing in the template re-implements an existing component.
+
+**Namespaces.** `cs-` belongs to the course and consulting pages. The
+case study template is `cst-`, the hub is `pf-`.
+
+---
+
 ## 13. About and My Approach
 
 Shared: heading sizes, reading widths, section spacing, icon style,

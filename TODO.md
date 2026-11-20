@@ -434,3 +434,27 @@ which is why it was the one cut. Two options, both Amber's call:
   study durations could still infer currency. Closing that gap fully
   would mean dropping the year ranges or anonymising the two named case
   studies, and neither was judged worth the loss of credibility.
+
+---
+
+## Work restructure, 2026-11-20
+
+`/projects` is a hub of previews; ten case studies live at
+`/projects/<slug>`. Open items from that change:
+
+- [ ] **The two anonymized case studies have no outcome.** Each carries
+      a visible `{{OUTCOME}}` marker. A figure here has to survive being
+      read next to the named PERQ page three rows above it on the hub,
+      so it cannot repeat those figures or carry a date, a market detail
+      or a promotion. Amber decides whether there is one worth adding,
+      or whether the pages stay qualitative.
+- [ ] **Robert James Restoration is a thin page** — 42 words and three
+      website screenshots. It got a page because the brief listed it.
+      What would fill it honestly: what the brand work covered, and what
+      the business can do now that it could not before.
+- [ ] **Amethyst Aesthetics** is still a `{{ADJUST}}` row on the hub and
+      is the strongest candidate for the next case study page.
+- [ ] **The AI-assisted applications showcase has no page** and should
+      not get one unless there is verified detail beyond the one-line
+      descriptions. Three employer- and client-owned applications,
+      described at the level of what they do.

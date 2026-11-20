@@ -37,6 +37,20 @@
 /service-workflow-ai.html          /services/workflow-ai                       301!
 /service-mentorship-advisory.html  /services/mentorship-advisory               301!
 
+# Case study pages, 2026-11-20. Ten standalone pages under /projects.
+# The flat work-*.html files are the real documents; the clean URL is
+# canonical, so each twin is forced to it exactly as the pages above.
+/work-marketing-function-next-stage.html  /projects/marketing-function-next-stage  301!
+/work-demand-generation-to-revenue.html   /projects/demand-generation-to-revenue   301!
+/work-perq.html                           /projects/perq                           301!
+/work-scan-optics.html                    /projects/scan-optics                    301!
+/work-stormwaterone.html                  /projects/stormwaterone                  301!
+/work-membersfirst-credit-union.html      /projects/membersfirst-credit-union      301!
+/work-robert-james-restoration.html       /projects/robert-james-restoration       301!
+/work-a2-exteriors.html                   /projects/a2-exteriors                   301!
+/work-business-intelligence.html          /projects/business-intelligence          301!
+/work-marketing-operations.html           /projects/marketing-operations           301!
+
 # ---- WordPress URLs still in the index --------------------------------
 # One-to-one to the closest equivalent, not a blanket redirect to home.
 # Both slash forms are listed rather than relying on normalisation: on a
@@ -86,3 +100,13 @@
 /privacy                                  /privacy.html                      200
 /terms                                    /terms.html                        200
 /thank-you                                /thank-you.html                    200
+/projects/marketing-function-next-stage  /work-marketing-function-next-stage.html  200
+/projects/demand-generation-to-revenue   /work-demand-generation-to-revenue.html   200
+/projects/perq                           /work-perq.html                           200
+/projects/scan-optics                    /work-scan-optics.html                    200
+/projects/stormwaterone                  /work-stormwaterone.html                  200
+/projects/membersfirst-credit-union      /work-membersfirst-credit-union.html      200
+/projects/robert-james-restoration       /work-robert-james-restoration.html       200
+/projects/a2-exteriors                   /work-a2-exteriors.html                   200
+/projects/business-intelligence          /work-business-intelligence.html          200
+/projects/marketing-operations           /work-marketing-operations.html           200

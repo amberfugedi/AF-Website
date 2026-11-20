@@ -1,9 +1,17 @@
 # AF-Website — amberfugedi.com
 
 Personal marketing site for Amber Fugedi (senior marketing leader and
-consultant, CT). Sixteen plain HTML pages + shared `styles.css`/
+consultant, CT). Twenty-six plain HTML pages + shared `styles.css`/
 `main.js`. No framework, no build step. Only external dependency:
 Google Fonts.
+
+Sixteen of those are the original pages. The other ten are the case
+study pages, `work-<slug>.html`, each served at `/projects/<slug>`.
+They share one editorial template (the `cst-*` block in `styles.css`)
+and were generated from a script so the nav and footer could not drift;
+the script is not in the repo and the HTML is the source of truth now.
+`/projects` is the portfolio hub: previews only, four categories,
+filtered client-side with an anchor-link fallback.
 
 ## Before touching design or UI
 
@@ -33,8 +41,17 @@ Google Fonts.
 ## Rules
 
 - Nav and footer are duplicated in every page inside
-  `<!-- SHARED NAV/FOOTER — keep in sync -->` blocks. Edit all sixteen
-  pages together; only `aria-current="page"` differs.
+  `<!-- SHARED NAV/FOOTER — keep in sync -->` blocks. Edit all
+  twenty-six pages together. Only the current-item attribute differs:
+  `aria-current="page"` on the page itself, `aria-current="true"` on
+  Work for the ten case study pages, which are under Work rather than
+  being it.
+- Case study pages carry only the blocks their verified content fills.
+  They are meant to differ in length and composition; do not normalise
+  them, and do not add a section to one to complete the set.
+- The `cs-` class prefix belongs to the course and consulting pages
+  (`.cs-head`, `.cs-body`, `.cs-note`, `.cs-list`). The case study
+  template is `cst-`, the Work hub is `pf-`.
 - Never introduce text below 4.5:1 contrast. Coral and the pastels are
   fill-only; use the `-deep` tokens for text. There is no text grey
   outside `--ink`, `--body` and `--muted`.
