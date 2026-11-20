@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Case study layout: two directions</title>
+<link rel="stylesheet" href="/styles.css">
+<style>
+  body { background: var(--bg); }
+  .mk-wrap { max-width: 1180px; margin: 0 auto; padding: 48px 24px 140px; }
+  .mk-head h1 { font-size: var(--fs-h2); margin: 0 0 14px; }
+  .mk-head p { color: var(--body); max-width: 74ch; line-height: 1.6; margin: 0 0 12px; }
+  .mk-nums { margin: 24px 0 0; border-collapse: collapse; font-size: var(--fs-small); }
+  .mk-nums th, .mk-nums td { text-align: left; padding: 8px 30px 8px 0; border-bottom: 1px solid var(--line); }
+  .mk-nums th { font-family: var(--font-body); font-size: var(--fs-eyebrow); letter-spacing: .1em;
+    text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .mk-nums td + td, .mk-nums th + th { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .mk-opt { margin: 92px 0 0; }
+  .mk-label { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--coral-deep); margin: 0 0 6px; }
+  .mk-note { color: var(--body); font-size: var(--fs-small); line-height: 1.6; margin: 0 0 26px; max-width: 78ch; }
+  .mk-stage { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: clamp(26px, 3.2vw, 44px); }
+  .mk-measure { margin: 16px 0 0; font-size: var(--fs-eyebrow); color: var(--muted); }
+
+  /* ---------- shared bits ---------- */
+  .d-eyebrow { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--coral-deep); margin: 0 0 12px; }
+  .d-h1 { font-family: var(--font-display); font-size: clamp(2rem, 1.5rem + 1.9vw, 2.75rem);
+    font-weight: 500; line-height: 1.12; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 18px; }
+  .d-intro { font-size: var(--fs-intro); color: var(--body); line-height: 1.5; margin: 0; }
+  .d-k { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0; }
+  .d-v { margin: 6px 0 0; font-size: var(--fs-small); color: var(--ink); line-height: 1.45; }
+  .d-h2 { font-family: var(--font-body); font-size: var(--fs-eyebrow); font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px;
+    padding-top: 16px; border-top: 2px solid var(--peach); }
+  .d-p { color: var(--body); margin: 0; line-height: 1.6; }
+
+  /* ---------- A: spread with a rail ---------- */
+  .a-spread { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 0 clamp(36px, 4.4vw, 72px); align-items: start; }
+  .a-main { min-width: 0; }
+  .a-rail { border-left: 1px solid var(--line); padding-left: clamp(24px, 2.6vw, 34px); }
+  .a-rail > * + * { margin-top: 22px; }
+  .a-figs { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .a-fig { display: block; }
+  .a-fig + .a-fig { margin-top: 18px; }
+  .a-n { display: block; font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1;
+    color: var(--coral-deep); letter-spacing: -0.02em; }
+  .a-w { display: block; margin-top: 5px; font-size: var(--fs-small); color: var(--ink); line-height: 1.4; }
+  .a-note { margin-top: 16px; font-size: var(--fs-eyebrow); color: var(--muted); line-height: 1.5; }
+  .a-body { margin-top: clamp(34px, 3.6vw, 46px); }
+  .a-body section + section { margin-top: 30px; }
+  .a-lead { margin: 24px 0 0; padding-left: 20px; border-left: 3px solid var(--peach);
+    font-family: var(--font-display); font-size: var(--fs-intro); line-height: 1.35; color: var(--ink); }
+
+  /* ---------- B: one composed panel ---------- */
+  .b-panel { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg);
+    padding: clamp(28px, 3.4vw, 46px); }
+  .b-top { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 0 clamp(30px, 3.6vw, 56px); align-items: start; }
+  .b-meta { display: grid; gap: 18px; }
+  .b-figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px;
+    margin: clamp(28px, 3vw, 38px) 0 0; padding: clamp(24px, 2.6vw, 30px) 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .b-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(26px, 3.2vw, 44px);
+    margin-top: clamp(26px, 2.8vw, 34px); }
+
+  @media (max-width: 900px) {
+    .a-spread, .b-top, .b-cols { grid-template-columns: 1fr; }
+    .a-rail { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; padding-top: 24px; margin-top: 30px; }
+    .b-figs { grid-template-columns: 1fr; gap: 18px; }
+    .b-meta { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-top: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="mk-wrap">
+
+  <div class="mk-head">
+    <h1>The case study pages are mostly chrome</h1>
+    <p>Measured on the live pages. &#8220;Body&#8221; is every word between the outcome band and the related
+       work; chrome is the breadcrumb, the head, the related list and the closing CTA.</p>
+    <table class="mk-nums">
+      <thead><tr><th>Page</th><th>Body words</th><th>Page height</th><th>Chrome</th><th>Images</th></tr></thead>
+      <tbody>
+        <tr><td>Scan-Optics</td><td>64</td><td>2,691px</td><td>58%</td><td>0</td></tr>
+        <tr><td>StormwaterONE</td><td>86</td><td>2,826px</td><td>55%</td><td>1</td></tr>
+        <tr><td>Marketing operations</td><td>206</td><td>2,965px</td><td>57%</td><td>0</td></tr>
+        <tr><td>PERQ</td><td>227</td><td>3,283px</td><td>49%</td><td>0</td></tr>
+        <tr><td>Connecting demand gen to revenue</td><td>611</td><td>4,259px</td><td>38%</td><td>0</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:22px"><strong>The template is built for a long read and half the cases are short
+       reads.</strong> The prose column also uses only 63% of its container, so the right side of every page
+       is empty from the band to the footer. No amount of spacing fixes either of those.</p>
+    <p><strong>And there is a copy problem underneath the layout problem.</strong> On Scan-Optics the intro
+       and &#8220;The opportunity&#8221; say the same thing in different words, so roughly half of those 64
+       words are a restatement. Both directions below fix the layout. The duplication needs a copy pass
+       whichever one you pick.</p>
+  </div>
+
+  <!-- ================= DIRECTION A ================= -->
+  <section class="mk-opt">
+    <p class="mk-label">A &#8212; One spread, with a rail that holds</p>
+    <p class="mk-note">The head, the facts and the figures stop being three stacked full-width bands and
+       become one spread: prose on the left, a rail on the right carrying role, industry, focus and the
+       outcomes. On a long case the rail sticks while the prose scrolls. The empty right half disappears
+       because there is no longer a right half.
+       <br><br><strong>Short cases read as dense rather than stretched</strong>, and the same template still
+       carries a 600-word case without changing shape.</p>
+    <div class="mk-stage">
+      <div class="a-spread">
+        <div class="a-main">
+          <p class="d-eyebrow">Marketing leadership &amp; growth</p>
+          <h2 class="d-h1">Rebuilding demand generation around a new direction</h2>
+          <p class="d-intro">A decades-old document technology business was repositioning toward intelligent
+             automation. The marketing function was established and working, for the company it used to be.</p>
+          <p class="a-lead">Pipeline grew from $1.3M to $2.8M.</p>
+          <div class="a-body">
+            <section>
+              <p class="d-h2">What I built</p>
+              <p class="d-p">Marketing rebuilt around the new positioning: the TAM and ICPs defined, HubSpot
+                 CRM and automation implemented, ABM, paid media, event and outbound programs launched, and
+                 partner campaigns run with Dropbox, UKG and Xerox.</p>
+            </section>
+            <section>
+              <p class="d-h2">What it changed</p>
+              <p class="d-p" style="color:var(--muted)">[On the live page this section does not exist. It is
+                 the gap the measurements point at: the case has a situation, a list of deliverables and
+                 three numbers, and nothing about what the business could do afterwards.]</p>
+            </section>
+          </div>
+        </div>
+        <aside class="a-rail">
+          <div><p class="d-k">Organization</p><p class="d-v">Scan-Optics</p></div>
+          <div><p class="d-k">Industry</p><p class="d-v">Document technology</p></div>
+          <div><p class="d-k">Role</p><p class="d-v">Marketing Director</p></div>
+          <div><p class="d-k">Focus</p><p class="d-v">Demand generation, CRM, ABM, paid media, events, partner marketing</p></div>
+          <div class="a-figs">
+            <span class="a-fig"><span class="a-n">115%</span><span class="a-w">more opportunity creation</span></span>
+            <span class="a-fig"><span class="a-n">$2.8M</span><span class="a-w">pipeline, up from $1.3M</span></span>
+            <span class="a-fig"><span class="a-n">47%</span><span class="a-w">more inbound leads</span></span>
+            <p class="a-note">Measured over 2021&ndash;2023.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <p class="mk-measure">Scan-Optics at this layout: about 900px of content against 1,136px today, with the
+       same words. The chrome below it is unchanged.</p>
+  </section>
+
+  <!-- ================= DIRECTION B ================= -->
+  <section class="mk-opt">
+    <p class="mk-label">B &#8212; One composed panel, for the short cases only</p>
+    <p class="mk-note">A different answer to the same problem: stop pretending a short case is a long page.
+       The whole case becomes one bordered panel about a screen tall, and the page is honestly short rather
+       than stretched. The long cases keep the current full-page template.
+       <br><br>The cost is two templates to maintain, and a reader moving between Scan-Optics and PERQ meets
+       two different objects.</p>
+    <div class="mk-stage">
+      <div class="b-panel">
+        <div class="b-top">
+          <div>
+            <p class="d-eyebrow">Marketing leadership &amp; growth</p>
+            <h2 class="d-h1" style="font-size:var(--fs-h3);line-height:1.18">Rebuilding demand generation around a new direction</h2>
+            <p class="d-intro" style="font-size:var(--fs-body);line-height:1.6">A decades-old document
+               technology business was repositioning toward intelligent automation. The marketing function
+               was established and working, for the company it used to be.</p>
+          </div>
+          <div class="b-meta">
+            <div><p class="d-k">Organization</p><p class="d-v">Scan-Optics</p></div>
+            <div><p class="d-k">Role</p><p class="d-v">Marketing Director &middot; Document technology</p></div>
+            <div><p class="d-k">Focus</p><p class="d-v">Demand generation, CRM, ABM, paid media, events</p></div>
+          </div>
+        </div>
+        <div class="b-figs">
+          <span class="a-fig"><span class="a-n">115%</span><span class="a-w">more opportunity creation</span></span>
+          <span class="a-fig"><span class="a-n">$2.8M</span><span class="a-w">pipeline, up from $1.3M</span></span>
+          <span class="a-fig"><span class="a-n">47%</span><span class="a-w">more inbound leads</span></span>
+        </div>
+        <div class="b-cols">
+          <section>
+            <p class="d-h2">What I built</p>
+            <p class="d-p">The TAM and ICPs defined, HubSpot CRM and automation implemented, ABM, paid media,
+               event and outbound programs launched, and partner campaigns run with Dropbox, UKG and Xerox.</p>
+          </section>
+          <section>
+            <p class="d-h2">What it changed</p>
+            <p class="d-p" style="color:var(--muted)">[Still missing. A short panel makes the gap more
+               obvious, not less.]</p>
+          </section>
+        </div>
+        <p class="a-note" style="margin-top:22px">Measured over 2021&ndash;2023.</p>
+      </div>
+    </div>
+    <p class="mk-measure">About 560px for the whole case.</p>
+  </section>
+
+  <section class="mk-opt">
+    <p class="mk-label">Either way</p>
+    <p class="mk-note">Layout is half of it. <strong>Four of the ten pages have no image, no quote and no
+       closing beat</strong> — just a situation, a list of what was built, and three numbers. Scan-Optics and
+       StormwaterONE each need one more real thing: what the business could do afterwards, a line from
+       someone who was there, or a piece of the work. That is content only you have, and no template hides
+       its absence.</p>
+  </section>
+
+</div>
+</body>
+</html>
