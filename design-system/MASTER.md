@@ -8620,3 +8620,40 @@ stays the default.
 Also considered and rejected: collapsing the four categories behind
 disclosure rows. Four closed doors only help a reader who already knows
 which door they want.
+
+---
+
+# 2026-11-20 — MembersFirst: percentages, shares, and no client volumes
+
+Amber: "I think for MembersFirst we can just use growth number
+percents", then, asked how far that went, "drop the monthly numbers
+too". The page now publishes no count of the credit union's lending or
+membership anywhere.
+
+**Only one growth percentage exists in the data, and saying so was the
+job.** The 329% has a baseline: 28 reported HELOC applications in the
+first half of 2025 against 120 in the second. The signed loans have no
+prior period in the reporting at all, and the member applications are
+two consecutive months, which is not a rate. Rather than manufacture
+two more percentages, the band carries the one real figure plus the
+number of lending products, and TODO records exactly which prior-period
+data would turn the other two into something publishable.
+
+**The product chart became share of mix.** 41% personal, 39% auto, 14%
+HELOC, 7% home. That says what the section is actually about, breadth
+across products, without publishing volume. **The bars are sized by the
+share, not relative to the largest value.** Sized relative to the max,
+the bar labelled 41% filled the entire track, which is a chart
+disagreeing with its own labels.
+
+**The monthly chart lost its value labels and kept its shape.** Twelve
+unlabelled bars on a common scale, February still a dashed outline
+marked n/r. The chart's job here is that the rise held through the
+whole second half rather than spiking once; the 329% carries the size.
+
+**A false claim was caught by checking it.** The first draft of the
+second tile read "every month of the second half ran above every month
+of the first". That is wrong: June reported 18 and July reported 14.
+Against the first half's monthly AVERAGE of 5.6 it is true for all six
+months, which is what it says now. The line was written before it was
+verified, which is the wrong order, and the arithmetic took one command.

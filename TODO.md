@@ -470,8 +470,16 @@ is a file rename plus a hub preview edit; the route, the canonical and
 the sitemap entry for `/projects/membersfirst-credit-union` already
 exist.
 
-- [ ] **Approve or correct the three headline figures** (329%, 103, 43)
-      and confirm permission to publish client results at all.
+- [ ] **Confirm permission to publish client results at all.** The page
+      now carries no client volumes: percentages, shares and relative
+      bars only (Amber, 2026-11-20: "we can just use growth number
+      percents", then "drop the monthly numbers too"). The only growth
+      percentage the data supports is the 329% for HELOC applications.
+- [ ] **Prior-period figures, if they exist.** Signed loans by product
+      have no baseline in the reporting, and the member applications
+      are two consecutive months, so neither can become a growth
+      percentage without more data. If 2025 signed loans or 2024 member
+      applications exist, the band gets a second and third real figure.
 - [ ] **Confirm the engagement timeline and scope.** The page does not
       claim the work caused the reported change, and it cannot until the
       dates line up with the reporting periods.
