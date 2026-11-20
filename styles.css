@@ -8501,7 +8501,7 @@ footer p,
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
   gap: clamp(44px, 6vw, 108px);
-  align-items: start;
+  align-items: center;
 }
 .cst-eyebrow {
   font-family: var(--font-body);
@@ -8974,6 +8974,7 @@ footer p,
   margin-bottom: 18px;
 }
 .cst-back:hover { color: var(--coral-deep); }
+.cst-hero .cst-back { margin-bottom: 20px; }
 .cst-cat {
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);

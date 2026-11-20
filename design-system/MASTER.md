@@ -9150,3 +9150,70 @@ The "Organization: Not named" row in the details card went with it, for
 the same reason she gave for the note. **A page does not announce what
 it is not telling you.** The card lists what the engagement was; a
 reader who notices no company is named has their answer in the absence.
+
+# The audit that named the real problem
+
+Amber relayed a review whose central line is the sharpest thing said
+about this page: **it sells her philosophy more effectively than her
+experience, and My Approach already has that job.**
+
+That is correct, and it is measurable. Counting first-person action
+across the five workstreams: two of five. Every one of them opens with a
+maxim in the imperative, which is advice for someone else:
+
+> Start from the business plan, not the marketing plan.
+> Design the roles before filling them.
+> Write the operating model down, with the people who use it.
+> Make performance readable before asking anyone to act on it.
+> Put the investment case in the same language as the rest of the business.
+
+Only two then say what she did. Three describe the practice
+impersonally. A reader finishes knowing what she believes about
+building a marketing function and very little about what she built.
+
+## What was done about it without new words
+
+**The comparison moved.** It was chapter two, before the reader knew
+what she had done, which made it a premise. It now sits after the
+workstreams, where the same five rows read as the result of them, and
+the heading is "What changed". Page order: Overview, The work, What
+changed, What it builds, Leadership. Not a word of copy changed and the
+page now has the results section the review says it lacks.
+
+## What could not be done
+
+The rest needs sentences only Amber can write. Rewriting a maxim into an
+action is not a formatting change: "Design the roles before filling
+them" becomes evidence only when it says which roles, drawn against
+what, and what the team could do afterwards that it could not before.
+Inventing that is the one thing the brief forbids outright.
+
+## Two recommendations that contradict her own decisions
+
+Recorded rather than followed, per the standing rule.
+
+**"More visual storytelling, especially in the hero."** She removed the
+hero graphic three hours earlier, for a reason that still holds: *"it
+makes more work to create graphics for each page."* Ten pages, ten
+bespoke graphics.
+
+**"Reduce the repetition, especially the cards."** She asked for the
+workstreams to become cards an hour earlier, to break up a page that had
+become one long column of text. The review is looking at the version
+that change produced.
+
+## One recommendation already shipped
+
+**"Make leadership versus execution a real comparison ... on desktop
+they should be side by side."** They are, and have been since the
+chapter was built. Measured: side by side at 1600, 1440, 1100 and 900,
+stacking at 768 and below, with a butter rule over one column and a
+lilac rule over the other. The review was written against a narrow
+window.
+
+## The card centres on the copy, not the column
+
+The details card aligned to the top of a column whose height included
+the "All case studies" link above the eyebrow, so centring it left it
+21px high. The link is page navigation rather than hero copy, so it
+moved out of the grid. Card and copy now share a centre line exactly.
