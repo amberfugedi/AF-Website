@@ -8598,9 +8598,12 @@ footer p,
 .cst-calls span { grid-column: 2; grid-row: 2; color: var(--body); font-size: var(--fs-body); line-height: 1.55; }
 
 /* ---- Figures ---- */
-/* Wider than the reading column on purpose: a screenshot at 68ch is a
-   thumbnail, and on a case study page the work is the evidence. */
-.cst-figure { margin: clamp(30px, 3.4vw, 42px) 0 0; max-width: 860px; }
+/* Reference scale, not feature scale (Amber, 2026-11-20: "keep inline,
+   but smaller"). One artifact shown at about half the reading column,
+   with the lightbox carrying the rest at full size. 860px made the
+   image the loudest thing on the page, which is a step further from
+   the July decision than she wanted to go. */
+.cst-figure { margin: clamp(30px, 3.4vw, 42px) 0 0; max-width: 420px; }
 .cst-figure img, .cst-figure video {
   display: block;
   width: 100%;
@@ -8860,10 +8863,11 @@ footer p,
   .pf-rows .pf-go { align-self: start; padding-top: 4px; }
 }
 
-/* A portrait artifact at the figure's full 860px runs 1090px tall and
-   takes over the page. The tall variant sizes it like a held object
-   rather than a screenshot. */
-.cst-figure-tall { max-width: 430px; }
+/* A portrait artifact needs to come down further again: at 420px the
+   MembersFirst flyer still runs 532px tall against the yard sign's
+   316px. Matched on HEIGHT, not width, so the two read as the same
+   size object. */
+.cst-figure-tall { max-width: 250px; }
 
 /* The fifth situation spans the two-column grid. Four cards map one to
    one onto the four services; this one answers a different question,
