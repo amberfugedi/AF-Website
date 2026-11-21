@@ -8510,7 +8510,9 @@ footer p,
    page read as an unfinished document (Amber: "the design of the case
    study pages needs work"). The meta moved into a card on the right,
    which is also where a reader looks for role and industry. */
-.cst-head { padding: 18px 0 0; }
+/* Clears the fixed nav. This lived on .crumbs until the breadcrumb came
+   out; 48 is the 30 that was there plus the 18 that was here. */
+.cst-head { padding: calc(var(--nav-h) + 48px) 0 0; }
 .cst-head-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
@@ -8976,7 +8978,7 @@ footer p,
 .page-case .site-nav .wrap,
 .page-case .site-foot .wrap,
 .page-case footer .wrap { max-width: min(1240px, 88vw); }
-.cst-hero { padding: 26px 0 0; }
+.cst-hero { padding: calc(var(--nav-h) + 56px) 0 0; }
 .cst-back {
   display: inline-block;
   font-size: var(--fs-eyebrow);

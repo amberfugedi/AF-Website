@@ -9352,3 +9352,40 @@ problem, it removed the mask.** The site-wide eyebrow pass is the next
 piece of work, and the count is the measure of whether it worked.
 
 Overflow and axe: 0 and 0, all 26 pages, five widths, at the new scale.
+
+## The breadcrumb, and the padding it was secretly carrying
+
+Amber, on a phone: *"Since when do we do the paths on the top."* Since
+this week, and on nothing else.
+
+The breadcrumb existed on exactly ten pages, the case studies, added by
+the Work restructure. The other sixteen pages have none. Reasons it
+came out:
+
+- The page already carries "All case studies" directly below it, doing
+  the same job in one line instead of three.
+- The third crumb is the page title, which is the `<h1>` immediately
+  under it. On a phone the headline appeared twice in the first screen.
+- A breadcrumb earns its place in a deep hierarchy. This is two levels
+  with a back link already present.
+
+The `BreadcrumbList` JSON-LD stays on all ten, so the trail is still
+available to search. The SEO value was never in the visible markup.
+
+**And then the hero slid under the fixed nav.** `.crumbs` carried
+`padding: calc(var(--nav-h) + 30px) 0 0`, which made it the only thing
+clearing the fixed header on every case study. `.cst-head` at 18px and
+`.cst-hero` at 26px had been sitting on top of it. Removing the
+breadcrumb dropped the back link to 28px from the top of the viewport,
+behind the nav.
+
+Caught by probing the element's box after the change rather than by
+looking at the screenshot, where the link had simply vanished and the
+page still looked plausible. The clearance is on the hero now, at the
+same total it used to be: `calc(var(--nav-h) + 48px)` and
+`calc(var(--nav-h) + 56px)`. Verified on all ten pages at 1440 and 390,
+every one clearing the nav.
+
+**The general shape, which has now bitten twice:** a component's own
+padding may be load-bearing for the thing after it. Before deleting
+one, check what it was holding up.
