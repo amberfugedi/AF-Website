@@ -9389,3 +9389,55 @@ every one clearing the nav.
 **The general shape, which has now bitten twice:** a component's own
 padding may be load-bearing for the thing after it. Before deleting
 one, check what it was holding up.
+
+# The eyebrow pass
+
+24 findings, three groups, and only one of them was the tell.
+
+## Removed: the eight kickers on About
+
+> How I got here · How my view changed · What I grew into · What I
+> believe · How I lead · What keeps me interested · Outside the work ·
+> The longer version
+
+Every one sat above an h2 that already said the same thing. "How I got
+here" over "Marketing was a little bit of an accident." The h2s on that
+page are declarative sentences that work as section titles on their
+own; the label above each one announced that a heading was coming and
+did nothing else.
+
+The tell is not any single kicker. It is **eight of them in a row**, one
+per section, in tracked caps, at the same size, in the same position.
+That regularity is what reads as generated. The page is now a narrative
+carried by its own headings, which is both more distinctive and more
+like her.
+
+Detector: 129 to 121.
+
+## Kept: the sixteen category chips
+
+Ten case studies ("Marketing Leadership & Growth"), four service pages
+("Consulting", "Fractional leadership", "Mentorship and advisory",
+"Workflow and AI"), the course ("Available now") and thank-you
+("Payment complete").
+
+These are not kickers. **They answer "what is this", which is the test.**
+On a service page the h1 is a conversational hook — "The hardest part
+usually isn't the plan. It's knowing what's actually in the way." —
+and nothing else on the page tells you which service you are looking
+at. The chip is the only label. On a case study the chip is the
+category, and it matches the four categories on the Work hub, so it is
+navigation.
+
+The detector flags them on the pattern rather than the function. It is
+right about the shape and wrong about these sixteen, and that is a
+judgment the count cannot make. **The count stops being useful here,
+which is the point at which to stop chasing it.**
+
+## The rule, stated once
+
+> A label that tells a reader what they are looking at stays. A label
+> whose only job is to announce that a heading follows goes.
+
+Applied to the flagship earlier, to About now, and it is the test for
+anything new.
